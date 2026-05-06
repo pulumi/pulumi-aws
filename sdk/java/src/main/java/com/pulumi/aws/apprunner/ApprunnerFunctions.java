@@ -33,8 +33,8 @@ public final class ApprunnerFunctions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -87,8 +87,8 @@ public final class ApprunnerFunctions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -141,8 +141,8 @@ public final class ApprunnerFunctions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -195,8 +195,8 @@ public final class ApprunnerFunctions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -249,8 +249,8 @@ public final class ApprunnerFunctions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -303,8 +303,8 @@ public final class ApprunnerFunctions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -357,8 +357,8 @@ public final class ApprunnerFunctions {
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.DataZone
     ///         },
     ///         RegionalParameters = 
     ///         {
-    ///             { "us-east-1", 
+    ///             { "us-east-1", new InputMap&lt;string&gt;
     ///             {
     ///                 { "s3Location", "s3://my-amazon-datazone-bucket" },
     ///             } },

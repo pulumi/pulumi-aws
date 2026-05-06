@@ -46,8 +46,8 @@ public final class EbsFunctions {
      * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -93,8 +93,8 @@ public final class EbsFunctions {
      * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -140,8 +140,8 @@ public final class EbsFunctions {
      * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -187,8 +187,8 @@ public final class EbsFunctions {
      * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -234,8 +234,8 @@ public final class EbsFunctions {
      * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class EbsFunctions {
      * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -328,8 +328,8 @@ public final class EbsFunctions {
      * import com.pulumi.aws.ebs.inputs.GetDefaultKmsKeyArgs;
      * import com.pulumi.aws.ebs.Volume;
      * import com.pulumi.aws.ebs.VolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -464,8 +464,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -503,8 +503,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -542,8 +542,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -620,8 +620,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -659,8 +659,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -698,8 +698,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEncryptionByDefaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -737,8 +737,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -787,8 +787,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -837,8 +837,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -887,8 +887,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -937,8 +937,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -987,8 +987,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1037,8 +1037,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1088,8 +1088,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1138,8 +1138,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1188,8 +1188,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1238,8 +1238,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1288,8 +1288,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1338,8 +1338,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1388,8 +1388,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1438,8 +1438,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1488,8 +1488,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1538,8 +1538,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1588,8 +1588,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1638,8 +1638,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1688,8 +1688,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1738,8 +1738,8 @@ public final class EbsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

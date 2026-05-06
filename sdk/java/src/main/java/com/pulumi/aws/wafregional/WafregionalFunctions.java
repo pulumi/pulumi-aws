@@ -41,8 +41,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -201,8 +201,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetIpsetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -241,8 +241,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -361,8 +361,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -401,8 +401,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -441,8 +441,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -481,8 +481,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -521,8 +521,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -561,8 +561,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -601,8 +601,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -644,8 +644,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -705,8 +705,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -766,8 +766,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -827,8 +827,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -888,8 +888,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -949,8 +949,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1010,8 +1010,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.aws.wafregional.WebAcl;
      * import com.pulumi.aws.wafregional.WebAclArgs;
      * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1068,8 +1068,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1108,8 +1108,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1148,8 +1148,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1188,8 +1188,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1228,8 +1228,8 @@ public final class WafregionalFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.wafregional.WafregionalFunctions;
      * import com.pulumi.aws.wafregional.inputs.GetWebAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

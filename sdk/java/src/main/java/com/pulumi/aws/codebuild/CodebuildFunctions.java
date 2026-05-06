@@ -32,8 +32,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -173,8 +173,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -216,8 +216,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -265,8 +265,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -308,8 +308,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -357,8 +357,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -400,8 +400,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -449,8 +449,8 @@ public final class CodebuildFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

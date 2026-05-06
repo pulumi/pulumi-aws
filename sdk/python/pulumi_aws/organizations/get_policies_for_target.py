@@ -97,7 +97,7 @@ def get_policies_for_target(filter: Optional[_builtins.str] = None,
     example = aws.organizations.get_organization()
     example_get_policies_for_target = aws.organizations.get_policies_for_target(target_id=example.roots[0].id,
         filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example_get_policies_for_target.ids).result)}
+    example_get_policy = {str(__key): aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example_get_policies_for_target.ids).result)}
     ```
 
 
@@ -133,7 +133,7 @@ def get_policies_for_target_output(filter: Optional[pulumi.Input[_builtins.str]]
     example = aws.organizations.get_organization()
     example_get_policies_for_target = aws.organizations.get_policies_for_target(target_id=example.roots[0].id,
         filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example_get_policies_for_target.ids).result)}
+    example_get_policy = {str(__key): aws.organizations.get_policy(policy_id=__value) for __key, __value in enumerate(std.toset(input=example_get_policies_for_target.ids).result)}
     ```
 
 

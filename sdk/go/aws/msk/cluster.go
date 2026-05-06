@@ -81,7 +81,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			kms, err := kms.NewKey(ctx, "kms", &kms.KeyArgs{
+//			kms2, err := kms.NewKey(ctx, "kms", &kms.KeyArgs{
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -169,7 +169,7 @@ import (
 //					},
 //				},
 //				EncryptionInfo: &msk.ClusterEncryptionInfoArgs{
-//					EncryptionAtRestKmsKeyArn: kms.Arn,
+//					EncryptionAtRestKmsKeyArn: kms2.Arn,
 //				},
 //				OpenMonitoring: &msk.ClusterOpenMonitoringArgs{
 //					Prometheus: &msk.ClusterOpenMonitoringPrometheusArgs{

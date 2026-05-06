@@ -28,81 +28,82 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// main, err := aws.GetBillingServiceAccount(ctx, &aws.GetBillingServiceAccountArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// billingLogs, err := s3.NewBucket(ctx, "billing_logs", &s3.BucketArgs{
-// Bucket: pulumi.String("my-billing-tf-test-bucket"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = s3.NewBucketAcl(ctx, "billing_logs_acl", &s3.BucketAclArgs{
-// Bucket: billingLogs.ID(),
-// Acl: pulumi.String("private"),
-// })
-// if err != nil {
-// return err
-// }
-// allowBillingLogging := pulumi.All(billingLogs.Arn,billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// billingLogsArn := _args[0].(string)
-// billingLogsArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement(pulumi.Array{
-// iam.GetPolicyDocumentStatement{
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// main.Arn,
-// },
-// },
-// },
-// Actions: []string{
-// "s3:GetBucketAcl",
-// "s3:GetBucketPolicy",
-// },
-// Resources: []string{
-// billingLogsArn,
-// },
-// },
-// iam.GetPolicyDocumentStatement{
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// main.Arn,
-// },
-// },
-// },
-// Actions: []string{
-// "s3:PutObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/*", billingLogsArn1),
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
-// Bucket: billingLogs.ID(),
-// Policy: pulumi.String(allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowBillingLogging.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := aws.GetBillingServiceAccount(ctx, &aws.GetBillingServiceAccountArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			billingLogs, err := s3.NewBucket(ctx, "billing_logs", &s3.BucketArgs{
+//				Bucket: pulumi.String("my-billing-tf-test-bucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAcl(ctx, "billing_logs_acl", &s3.BucketAclArgs{
+//				Bucket: billingLogs.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			allowBillingLogging := pulumi.All(billingLogs.Arn, billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
+//				billingLogsArn := _args[0].(string)
+//				billingLogsArn1 := _args[1].(string)
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement(pulumi.Array{
+//						iam.GetPolicyDocumentStatement{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: pulumi.StringArray{
+//										main.Arn,
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"s3:GetBucketAcl",
+//								"s3:GetBucketPolicy",
+//							},
+//							Resources: []string{
+//								billingLogsArn,
+//							},
+//						},
+//						iam.GetPolicyDocumentStatement{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: pulumi.StringArray{
+//										main.Arn,
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"s3:PutObject",
+//							},
+//							Resources: []string{
+//								fmt.Sprintf("%v/*", billingLogsArn1),
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
+//				Bucket: billingLogs.ID(),
+//				Policy: pulumi.String(allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {
+//					return &allowBillingLogging.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetBillingServiceAccount(ctx *pulumi.Context, args *GetBillingServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetBillingServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

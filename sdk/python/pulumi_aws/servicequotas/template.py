@@ -292,7 +292,7 @@ class Template(pulumi.CustomResource):
             aws_region="us-east-1",
             quota_code="L-2ACBD22F",
             service_code="lambda",
-            value=80)
+            value=float(80))
         ```
 
         ## Import
@@ -335,7 +335,7 @@ class Template(pulumi.CustomResource):
             aws_region="us-east-1",
             quota_code="L-2ACBD22F",
             service_code="lambda",
-            value=80)
+            value=float(80))
         ```
 
         ## Import

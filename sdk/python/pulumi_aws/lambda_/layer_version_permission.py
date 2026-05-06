@@ -367,7 +367,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Grant permission to specific AWS account
         example_layer_version_permission = aws.lambda_.LayerVersionPermission("example",
             layer_name=example.layer_name,
-            version_number=example.version,
+            version_number=example.version.apply(lambda x: int(x)),
             principal="123456789012",
             action="lambda:GetLayerVersion",
             statement_id="dev-account-access")
@@ -381,7 +381,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             organization_id="o-1234567890",
             action="lambda:GetLayerVersion",
@@ -396,7 +396,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             action="lambda:GetLayerVersion",
             statement_id="public-access")
@@ -411,19 +411,19 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Share with multiple specific accounts
         dev_account = aws.lambda_.LayerVersionPermission("dev_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="111111111111",
             action="lambda:GetLayerVersion",
             statement_id="dev-account")
         staging_account = aws.lambda_.LayerVersionPermission("staging_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="222222222222",
             action="lambda:GetLayerVersion",
             statement_id="staging-account")
         prod_account = aws.lambda_.LayerVersionPermission("prod_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="333333333333",
             action="lambda:GetLayerVersion",
             statement_id="prod-account")
@@ -484,7 +484,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Grant permission to specific AWS account
         example_layer_version_permission = aws.lambda_.LayerVersionPermission("example",
             layer_name=example.layer_name,
-            version_number=example.version,
+            version_number=example.version.apply(lambda x: int(x)),
             principal="123456789012",
             action="lambda:GetLayerVersion",
             statement_id="dev-account-access")
@@ -498,7 +498,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             organization_id="o-1234567890",
             action="lambda:GetLayerVersion",
@@ -513,7 +513,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             action="lambda:GetLayerVersion",
             statement_id="public-access")
@@ -528,19 +528,19 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Share with multiple specific accounts
         dev_account = aws.lambda_.LayerVersionPermission("dev_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="111111111111",
             action="lambda:GetLayerVersion",
             statement_id="dev-account")
         staging_account = aws.lambda_.LayerVersionPermission("staging_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="222222222222",
             action="lambda:GetLayerVersion",
             statement_id="staging-account")
         prod_account = aws.lambda_.LayerVersionPermission("prod_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="333333333333",
             action="lambda:GetLayerVersion",
             statement_id="prod-account")

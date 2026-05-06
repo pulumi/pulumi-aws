@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *     }],
  *     tags: {
  *         CreateDate: europeanEc2.then(europeanEc2 => europeanEc2.createDate),
- *         SyncToken: europeanEc2.then(europeanEc2 => europeanEc2.syncToken),
+ *         SyncToken: output(europeanEc2.then(europeanEc2 => europeanEc2.syncToken)).apply(x =>String(x)),
  *     },
  * });
  * ```
@@ -127,7 +127,7 @@ export interface GetIpRangesResult {
  *     }],
  *     tags: {
  *         CreateDate: europeanEc2.then(europeanEc2 => europeanEc2.createDate),
- *         SyncToken: europeanEc2.then(europeanEc2 => europeanEc2.syncToken),
+ *         SyncToken: output(europeanEc2.then(europeanEc2 => europeanEc2.syncToken)).apply(x =>String(x)),
  *     },
  * });
  * ```

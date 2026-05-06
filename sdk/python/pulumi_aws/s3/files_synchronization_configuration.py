@@ -228,7 +228,7 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
             file_system_id=example_aws_s3files_file_system["id"],
             import_data_rules=[{
                 "prefix": "",
-                "size_less_than": 52673613135872,
+                "size_less_than": int(52673613135872),
                 "trigger": "ON_FILE_ACCESS",
             }],
             expiration_data_rules=[{
@@ -285,7 +285,7 @@ class FilesSynchronizationConfiguration(pulumi.CustomResource):
             file_system_id=example_aws_s3files_file_system["id"],
             import_data_rules=[{
                 "prefix": "",
-                "size_less_than": 52673613135872,
+                "size_less_than": int(52673613135872),
                 "trigger": "ON_FILE_ACCESS",
             }],
             expiration_data_rules=[{

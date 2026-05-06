@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.redshift.SnapshotCopyGrantArgs;
  * import com.pulumi.aws.redshift.Cluster;
  * import com.pulumi.aws.redshift.ClusterArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
- *             .snapshotCopy(List.of(Map.ofEntries(
+ *             .snapshotCopy(Arrays.asList(Map.ofEntries(
  *                 Map.entry("destinationRegion", "us-east-2"),
  *                 Map.entry("grantName", test.snapshotCopyGrantName())
  *             )))

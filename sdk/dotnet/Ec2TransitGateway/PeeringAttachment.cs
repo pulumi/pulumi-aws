@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var peer = Aws.Index.GetRegion.Invoke();
+    ///     var peer = Aws.GetRegion.Invoke();
     /// 
     ///     var local = new Aws.Ec2TransitGateway.TransitGateway("local", new()
     ///     {

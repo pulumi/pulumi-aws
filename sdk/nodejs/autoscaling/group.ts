@@ -325,7 +325,7 @@ import {LaunchConfiguration, PlacementGroup} from "../ec2";
  *     minSize: 1,
  *     launchTemplate: {
  *         id: exampleLaunchTemplate.id,
- *         version: exampleLaunchTemplate.latestVersion,
+ *         version: exampleLaunchTemplate.latestVersion.apply(x =>String(x)),
  *     },
  *     tags: [{
  *         key: "Key",

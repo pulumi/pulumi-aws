@@ -1914,7 +1914,7 @@ class Group(pulumi.CustomResource):
             min_size=1,
             launch_template={
                 "id": example_launch_template.id,
-                "version": example_launch_template.latest_version,
+                "version": example_launch_template.latest_version.apply(lambda x: str(x)),
             },
             tags=[{
                 "key": "Key",
@@ -1965,7 +1965,7 @@ class Group(pulumi.CustomResource):
             traffic_sources=[{
                 "identifier": entry["value"]["arn"],
                 "type": "vpc-lattice",
-            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group].items()]],
+            } for entry in [{"key": k, "value": v} for k, v in sorted([__item for __item in test_aws_vpclattice_target_group].items())]],
             vpc_zone_identifiers=test_aws_subnet["id"],
             max_size=1,
             min_size=1,
@@ -2441,7 +2441,7 @@ class Group(pulumi.CustomResource):
             min_size=1,
             launch_template={
                 "id": example_launch_template.id,
-                "version": example_launch_template.latest_version,
+                "version": example_launch_template.latest_version.apply(lambda x: str(x)),
             },
             tags=[{
                 "key": "Key",
@@ -2492,7 +2492,7 @@ class Group(pulumi.CustomResource):
             traffic_sources=[{
                 "identifier": entry["value"]["arn"],
                 "type": "vpc-lattice",
-            } for entry in [{"key": k, "value": v} for k, v in [__item for __item in test_aws_vpclattice_target_group].items()]],
+            } for entry in [{"key": k, "value": v} for k, v in sorted([__item for __item in test_aws_vpclattice_target_group].items())]],
             vpc_zone_identifiers=test_aws_subnet["id"],
             max_size=1,
             min_size=1,

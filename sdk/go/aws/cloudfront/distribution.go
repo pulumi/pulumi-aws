@@ -242,7 +242,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			var cloudfront []*route53.Record
+//			var cloudfront2 []*route53.Record
 //			for key0, val0 := range s3Distribution.Aliases {
 //				__res, err := route53.NewRecord(ctx, fmt.Sprintf("cloudfront-%v", key0), &route53.RecordArgs{
 //					ZoneId: pulumi.String(pulumi.String(myDomainGetZone.ZoneId)),
@@ -259,7 +259,7 @@ import (
 //				if err != nil {
 //					return err
 //				}
-//				cloudfront = append(cloudfront, __res)
+//				cloudfront2 = append(cloudfront2, __res)
 //			}
 //			return nil
 //		})

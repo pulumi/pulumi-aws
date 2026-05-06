@@ -61,14 +61,6 @@ import (
 // if err != nil {
 // return err
 // }
-// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil)
-// if err != nil {
-// return err
-// }
 // var exampleSubnet []*ec2.Subnet
 //
 //	for index := 0; index < 2; index++ {
@@ -78,8 +70,11 @@ import (
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
 // VpcId: exampleVpc.ID(),
 // AvailabilityZone: pulumi.String(available.Names[val0]),
-// CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// Input: exampleVpc.CidrBlock,
+// Newbits: pulumi.Int(8),
+// Netnum: pulumi.Int(val0),
+// }, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 // val := invoke.Result
 // return &val, nil
 // }).(pulumi.StringPtrOutput)),
@@ -127,14 +122,6 @@ import (
 // if err != nil {
 // return err
 // }
-// invokeCidrsubnet1, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: cidrBlock,
-// Newbits: 8,
-// Netnum: val0,
-// }, nil)
-// if err != nil {
-// return err
-// }
 // var example_secondarySubnet []*ec2.Subnet
 //
 //	for index := 0; index < 2; index++ {
@@ -144,8 +131,11 @@ import (
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-secondary-%v", key0), &ec2.SubnetArgs{
 // VpcId: example_secondary.ID(),
 // AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
-// CidrBlock: pulumi.String(example_secondary.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// Input: example_secondary.CidrBlock,
+// Newbits: pulumi.Int(8),
+// Netnum: pulumi.Int(val0),
+// }, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 // val := invoke.Result
 // return &val, nil
 // }).(pulumi.StringPtrOutput)),

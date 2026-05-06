@@ -275,9 +275,9 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         for range in [{"value": i} for i in range(0, 2)]:
             example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
                 vpc_id=example_vpc.id,
-                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result)))
+                    netnum=range["value"]).apply(lambda invoke: invoke.result)))
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=[example_aws_organizations_organization["arn"]],
@@ -404,9 +404,9 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         for range in [{"value": i} for i in range(0, 2)]:
             example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
                 vpc_id=example_vpc.id,
-                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result)))
+                    netnum=range["value"]).apply(lambda invoke: invoke.result)))
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=[example_aws_organizations_organization["arn"]],

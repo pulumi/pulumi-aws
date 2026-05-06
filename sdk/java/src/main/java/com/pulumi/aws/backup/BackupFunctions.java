@@ -41,8 +41,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -201,8 +201,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -241,8 +241,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -361,8 +361,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -401,8 +401,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -441,8 +441,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -481,8 +481,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -521,8 +521,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -561,8 +561,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -601,8 +601,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -641,8 +641,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -682,8 +682,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -723,8 +723,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -764,8 +764,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -805,8 +805,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -846,8 +846,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -886,8 +886,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -926,8 +926,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -966,8 +966,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1006,8 +1006,8 @@ public final class BackupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.backup.BackupFunctions;
      * import com.pulumi.aws.backup.inputs.GetVaultArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -47,8 +47,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -87,8 +87,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -167,8 +167,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -207,8 +207,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -247,8 +247,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -287,8 +287,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -327,8 +327,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -407,8 +407,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -449,8 +449,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -491,8 +491,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -533,8 +533,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -575,8 +575,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -617,8 +617,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -657,8 +657,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -697,8 +697,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -737,8 +737,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -777,8 +777,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -817,8 +817,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -857,8 +857,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -904,8 +904,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -951,8 +951,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -998,8 +998,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1045,8 +1045,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1092,8 +1092,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1139,8 +1139,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1186,8 +1186,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1227,8 +1227,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1268,8 +1268,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1309,8 +1309,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1350,8 +1350,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetTopicArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1391,8 +1391,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1431,8 +1431,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1471,8 +1471,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1511,8 +1511,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1551,8 +1551,8 @@ public final class MskFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
      * import com.pulumi.aws.msk.inputs.GetVpcConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

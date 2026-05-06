@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         input: iam1.standardsControlAssociations.map(__item => __item.standardsArn),
  *     }).result.map((v, k) => ({key: k, value: v}))) {
  *         iam1StandardsControlAssociation.push(new aws.securityhub.StandardsControlAssociation(`iam_1-${range.key}`, {
- *             standardsArn: range.key,
+ *             standardsArn: String(range.key),
  *             securityControlId: iam1.securityControlId,
  *             associationStatus: "DISABLED",
  *             updatedReason: "Not needed",

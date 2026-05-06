@@ -30,8 +30,8 @@ public final class AcmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acm.AcmFunctions;
      * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -86,8 +86,8 @@ public final class AcmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acm.AcmFunctions;
      * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -142,8 +142,8 @@ public final class AcmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acm.AcmFunctions;
      * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -198,8 +198,8 @@ public final class AcmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acm.AcmFunctions;
      * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -254,8 +254,8 @@ public final class AcmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acm.AcmFunctions;
      * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -310,8 +310,8 @@ public final class AcmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acm.AcmFunctions;
      * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -366,8 +366,8 @@ public final class AcmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acm.AcmFunctions;
      * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

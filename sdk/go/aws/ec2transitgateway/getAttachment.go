@@ -24,30 +24,32 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2transitgateway.GetAttachment(ctx, &ec2transitgateway.GetAttachmentArgs{
-// Filters: []ec2transitgateway.GetAttachmentFilter{
-// {
-// Name: "transit-gateway-id",
-// Values: interface{}{
-// exampleAwsEc2TransitGateway.Id,
-// },
-// },
-// {
-// Name: "resource-type",
-// Values: []string{
-// "peering",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.GetAttachment(ctx, &ec2transitgateway.GetAttachmentArgs{
+//				Filters: []ec2transitgateway.GetAttachmentFilter{
+//					{
+//						Name: "transit-gateway-id",
+//						Values: pulumi.StringArray{
+//							exampleAwsEc2TransitGateway.Id,
+//						},
+//					},
+//					{
+//						Name: "resource-type",
+//						Values: []string{
+//							"peering",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.InvokeOption) (*GetAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

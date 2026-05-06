@@ -29,8 +29,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -74,8 +74,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ebs.EbsFunctions;
      * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -162,8 +162,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.ebs.EbsFunctions;
          * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -211,8 +211,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.ebs.EbsFunctions;
          * import com.pulumi.aws.ebs.inputs.GetEbsVolumesArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;

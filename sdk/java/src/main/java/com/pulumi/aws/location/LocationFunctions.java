@@ -49,8 +49,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -91,8 +91,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -133,8 +133,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -175,8 +175,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -217,8 +217,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -257,8 +257,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -297,8 +297,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -337,8 +337,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -377,8 +377,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetMapArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -457,8 +457,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -497,8 +497,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -537,8 +537,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -577,8 +577,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -617,8 +617,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -657,8 +657,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -697,8 +697,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -737,8 +737,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -777,8 +777,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -817,8 +817,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -857,8 +857,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -897,8 +897,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -937,8 +937,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -977,8 +977,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1017,8 +1017,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1059,8 +1059,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1102,8 +1102,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1145,8 +1145,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1188,8 +1188,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1231,8 +1231,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1274,8 +1274,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1316,8 +1316,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1358,8 +1358,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1400,8 +1400,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1442,8 +1442,8 @@ public final class LocationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.location.LocationFunctions;
      * import com.pulumi.aws.location.inputs.GetTrackerAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

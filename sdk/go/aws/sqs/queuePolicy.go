@@ -30,59 +30,61 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// q, err := sqs.NewQueue(ctx, "q", &sqs.QueueArgs{
-// Name: pulumi.String("examplequeue"),
-// })
-// if err != nil {
-// return err
-// }
-// test := q.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("First"))),
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "*",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Actions: []string{
-// "sqs:SendMessage",
-// },
-// Resources: []string{
-// arn,
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "ArnEquals",
-// Variable: "aws:SourceArn",
-// Values: interface{}{
-// example.Arn,
-// },
-// },
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-// QueueUrl: q.ID(),
-// Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-// return &test.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			q, err := sqs.NewQueue(ctx, "q", &sqs.QueueArgs{
+//				Name: pulumi.String("examplequeue"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			test := q.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Sid:    pulumi.StringRef(pulumi.String(pulumi.StringRef("First"))),
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "*",
+//									Identifiers: []string{
+//										"*",
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"sqs:SendMessage",
+//							},
+//							Resources: []string{
+//								arn,
+//							},
+//							Conditions: []iam.GetPolicyDocumentStatementCondition{
+//								{
+//									Test:     "ArnEquals",
+//									Variable: "aws:SourceArn",
+//									Values: pulumi.StringArray{
+//										example.Arn,
+//									},
+//								},
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
+//				QueueUrl: q.ID(),
+//				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
+//					return &test.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Timeout Problems Creating/Updating

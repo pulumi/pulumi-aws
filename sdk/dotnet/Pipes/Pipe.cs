@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var main = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var main = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {

@@ -1436,7 +1436,7 @@ class Cluster(pulumi.CustomResource):
             core_instance_fleet={
                 "instance_type_configs": [
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 80,
+                        "bid_price_as_percentage_of_on_demand_price": float(80),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1446,7 +1446,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1456,7 +1456,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1482,7 +1482,7 @@ class Cluster(pulumi.CustomResource):
             cluster_id=example.id,
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -1492,7 +1492,7 @@ class Cluster(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -1782,7 +1782,7 @@ class Cluster(pulumi.CustomResource):
             core_instance_fleet={
                 "instance_type_configs": [
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 80,
+                        "bid_price_as_percentage_of_on_demand_price": float(80),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1792,7 +1792,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1802,7 +1802,7 @@ class Cluster(pulumi.CustomResource):
                         "weighted_capacity": 1,
                     },
                     {
-                        "bid_price_as_percentage_of_on_demand_price": 100,
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
                         "ebs_configs": [{
                             "size": 100,
                             "type": "gp2",
@@ -1828,7 +1828,7 @@ class Cluster(pulumi.CustomResource):
             cluster_id=example.id,
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -1838,7 +1838,7 @@ class Cluster(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",

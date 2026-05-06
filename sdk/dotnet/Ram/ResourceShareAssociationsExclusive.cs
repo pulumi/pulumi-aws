@@ -92,12 +92,12 @@ namespace Pulumi.Aws.Ram
     ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
     ///         {
     ///             VpcId = exampleVpc.Id,
-    ///             CidrBlock = exampleVpc.CidrBlock.Apply(cidrBlock =&gt; Std.Index.Cidrsubnet.Invoke(new()
+    ///             CidrBlock = Std.Cidrsubnet.Invoke(new()
     ///             {
-    ///                 Input = cidrBlock,
+    ///                 Input = exampleVpc.CidrBlock,
     ///                 Newbits = 8,
     ///                 Netnum = range.Value,
-    ///             })).Apply(invoke =&gt; invoke.Result),
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///         }));
     ///     }
     ///     var exampleResourceShareAssociationsExclusive = new Aws.Ram.ResourceShareAssociationsExclusive("example", new()

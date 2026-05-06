@@ -40,8 +40,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -166,8 +166,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -208,8 +208,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -250,8 +250,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -292,8 +292,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -334,8 +334,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -376,8 +376,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -418,8 +418,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -460,8 +460,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -502,8 +502,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -544,8 +544,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -586,8 +586,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -628,8 +628,8 @@ public final class Sesv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -671,8 +671,8 @@ public final class Sesv2Functions {
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -718,8 +718,8 @@ public final class Sesv2Functions {
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -765,8 +765,8 @@ public final class Sesv2Functions {
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -812,8 +812,8 @@ public final class Sesv2Functions {
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -859,8 +859,8 @@ public final class Sesv2Functions {
      * import com.pulumi.aws.sesv2.Sesv2Functions;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
      * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

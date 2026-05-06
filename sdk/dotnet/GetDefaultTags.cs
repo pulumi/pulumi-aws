@@ -28,7 +28,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetDefaultTags.Invoke();
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
         /// });
         /// ```
@@ -43,7 +43,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetDefaultTags.Invoke();
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
         ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
         ///     {
@@ -73,7 +73,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetDefaultTags.Invoke();
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
         /// });
         /// ```
@@ -88,7 +88,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetDefaultTags.Invoke();
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
         ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
         ///     {
@@ -118,7 +118,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetDefaultTags.Invoke();
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
         /// });
         /// ```
@@ -133,7 +133,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Aws.Index.GetDefaultTags.Invoke();
+        ///     var example = Aws.GetDefaultTags.Invoke();
         /// 
         ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
         ///     {

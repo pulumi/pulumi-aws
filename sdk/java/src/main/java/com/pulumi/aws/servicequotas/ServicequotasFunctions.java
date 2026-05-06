@@ -37,8 +37,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -163,8 +163,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -247,8 +247,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -295,8 +295,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -343,8 +343,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -391,8 +391,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -439,8 +439,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -487,8 +487,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -529,8 +529,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -571,8 +571,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -613,8 +613,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -655,8 +655,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -697,8 +697,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -739,8 +739,8 @@ public final class ServicequotasFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
      * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

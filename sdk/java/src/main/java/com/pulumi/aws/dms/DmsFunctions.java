@@ -43,8 +43,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -211,8 +211,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -253,8 +253,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -295,8 +295,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -337,8 +337,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -379,8 +379,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -421,8 +421,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -461,8 +461,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -501,8 +501,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -541,8 +541,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -621,8 +621,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -663,8 +663,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -705,8 +705,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -747,8 +747,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -789,8 +789,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -831,8 +831,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -873,8 +873,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -915,8 +915,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -957,8 +957,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -999,8 +999,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1041,8 +1041,8 @@ public final class DmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dms.DmsFunctions;
      * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

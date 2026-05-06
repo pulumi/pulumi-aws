@@ -24,9 +24,9 @@ namespace Pulumi.Aws.BcmData
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetPartition = Aws.Index.GetPartition.Invoke();
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
     /// 
     ///     var test = new Aws.BcmData.Export("test", new()
     ///     {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.BcmData
     ///                     QueryStatement = "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
     ///                     TableConfigurations = 
     ///                     {
-    ///                         { "COST_AND_USAGE_REPORT", 
+    ///                         { "COST_AND_USAGE_REPORT", new InputMap&lt;string&gt;
     ///                         {
     ///                             { "BILLING_VIEW_ARN", Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                             {

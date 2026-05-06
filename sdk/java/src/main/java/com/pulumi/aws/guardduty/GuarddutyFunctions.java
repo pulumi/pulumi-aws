@@ -32,8 +32,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -71,8 +71,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -110,8 +110,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -149,8 +149,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -188,8 +188,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -227,8 +227,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -266,8 +266,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -307,8 +307,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -349,8 +349,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -391,8 +391,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -433,8 +433,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -475,8 +475,8 @@ public final class GuarddutyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.guardduty.GuarddutyFunctions;
      * import com.pulumi.aws.guardduty.inputs.GetFindingIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

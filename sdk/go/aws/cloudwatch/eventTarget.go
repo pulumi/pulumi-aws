@@ -359,7 +359,7 @@ import (
 // Actions: []string{
 // "ecs:RunTask",
 // },
-// Resources: interface{}{
+// Resources: pulumi.StringArray{
 // std.Replace(ctx, {
 // Text: taskName.Arn,
 // Search: "/:\\d+$/",

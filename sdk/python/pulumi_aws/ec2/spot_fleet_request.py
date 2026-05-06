@@ -1124,7 +1124,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             launch_template_configs=[{
                 "launch_template_specification": {
                     "id": foo.id,
-                    "version": foo.latest_version,
+                    "version": foo.latest_version.apply(lambda x: str(x)),
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[test_attach]))
@@ -1183,9 +1183,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                     "Name": "Spot Node",
                     "tag_builder": "builder",
                 },
-            } for entry in [{"key": k, "value": v} for k, v in [{
+            } for entry in [{"key": k, "value": v} for k, v in sorted([{
                 "subnetId": s[1],
-            } for s in subnets].items()]],
+            } for s in subnets].items())]],
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
             target_capacity=3,
             valid_until="2019-11-04T20:44:20Z",
@@ -1218,7 +1218,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             launch_template_configs=[{
                 "launch_template_specification": {
                     "id": foo.id,
-                    "version": foo.latest_version,
+                    "version": foo.latest_version.apply(lambda x: str(x)),
                 },
                 "overrides": [
                     {
@@ -1376,7 +1376,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             launch_template_configs=[{
                 "launch_template_specification": {
                     "id": foo.id,
-                    "version": foo.latest_version,
+                    "version": foo.latest_version.apply(lambda x: str(x)),
                 },
             }],
             opts = pulumi.ResourceOptions(depends_on=[test_attach]))
@@ -1435,9 +1435,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                     "Name": "Spot Node",
                     "tag_builder": "builder",
                 },
-            } for entry in [{"key": k, "value": v} for k, v in [{
+            } for entry in [{"key": k, "value": v} for k, v in sorted([{
                 "subnetId": s[1],
-            } for s in subnets].items()]],
+            } for s in subnets].items())]],
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
             target_capacity=3,
             valid_until="2019-11-04T20:44:20Z",
@@ -1470,7 +1470,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             launch_template_configs=[{
                 "launch_template_specification": {
                     "id": foo.id,
-                    "version": foo.latest_version,
+                    "version": foo.latest_version.apply(lambda x: str(x)),
                 },
                 "overrides": [
                     {

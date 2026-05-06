@@ -43,8 +43,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -211,8 +211,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -251,8 +251,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -291,8 +291,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -371,8 +371,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -411,8 +411,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -451,8 +451,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -490,8 +490,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -529,8 +529,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -568,8 +568,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -607,8 +607,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -646,8 +646,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -685,8 +685,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -727,8 +727,8 @@ public final class BedrockFunctions {
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -773,8 +773,8 @@ public final class BedrockFunctions {
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -819,8 +819,8 @@ public final class BedrockFunctions {
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -865,8 +865,8 @@ public final class BedrockFunctions {
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -911,8 +911,8 @@ public final class BedrockFunctions {
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -956,8 +956,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -988,8 +988,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1030,8 +1030,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1062,8 +1062,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1104,8 +1104,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1136,8 +1136,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1178,8 +1178,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1210,8 +1210,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1252,8 +1252,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1284,8 +1284,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1326,8 +1326,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1358,8 +1358,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1400,8 +1400,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1432,8 +1432,8 @@ public final class BedrockFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

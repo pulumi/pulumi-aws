@@ -88,7 +88,7 @@ class PolicyArgs:
                    "predefined_metric_specification": {
                        "predefined_metric_type": "ASGAverageCPUUtilization",
                    },
-                   "target_value": 40,
+                   "target_value": float(40),
                })
                ```
                
@@ -319,7 +319,7 @@ class PolicyArgs:
             "predefined_metric_specification": {
                 "predefined_metric_type": "ASGAverageCPUUtilization",
             },
-            "target_value": 40,
+            "target_value": float(40),
         })
         ```
 
@@ -404,7 +404,7 @@ class _PolicyState:
                    "predefined_metric_specification": {
                        "predefined_metric_type": "ASGAverageCPUUtilization",
                    },
-                   "target_value": 40,
+                   "target_value": float(40),
                })
                ```
                
@@ -650,7 +650,7 @@ class _PolicyState:
             "predefined_metric_specification": {
                 "predefined_metric_type": "ASGAverageCPUUtilization",
             },
-            "target_value": 40,
+            "target_value": float(40),
         })
         ```
 
@@ -727,7 +727,7 @@ class Policy(pulumi.CustomResource):
             name="foo",
             policy_type="TargetTrackingScaling",
             target_tracking_configuration={
-                "target_value": 100,
+                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
@@ -787,7 +787,7 @@ class Policy(pulumi.CustomResource):
             policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": 10,
+                    "target_value": float(10),
                     "customized_load_metric_specification": {
                         "metric_data_queries": [{
                             "id": "load_sum",
@@ -834,7 +834,7 @@ class Policy(pulumi.CustomResource):
             policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": 10,
+                    "target_value": float(10),
                     "predefined_load_metric_specification": {
                         "predefined_metric_type": "ASGTotalCPUUtilization",
                         "resource_label": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
@@ -932,7 +932,7 @@ class Policy(pulumi.CustomResource):
                    "predefined_metric_specification": {
                        "predefined_metric_type": "ASGAverageCPUUtilization",
                    },
-                   "target_value": 40,
+                   "target_value": float(40),
                })
                ```
                
@@ -987,7 +987,7 @@ class Policy(pulumi.CustomResource):
             name="foo",
             policy_type="TargetTrackingScaling",
             target_tracking_configuration={
-                "target_value": 100,
+                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
@@ -1047,7 +1047,7 @@ class Policy(pulumi.CustomResource):
             policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": 10,
+                    "target_value": float(10),
                     "customized_load_metric_specification": {
                         "metric_data_queries": [{
                             "id": "load_sum",
@@ -1094,7 +1094,7 @@ class Policy(pulumi.CustomResource):
             policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": 10,
+                    "target_value": float(10),
                     "predefined_load_metric_specification": {
                         "predefined_metric_type": "ASGTotalCPUUtilization",
                         "resource_label": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
@@ -1278,7 +1278,7 @@ class Policy(pulumi.CustomResource):
                    "predefined_metric_specification": {
                        "predefined_metric_type": "ASGAverageCPUUtilization",
                    },
-                   "target_value": 40,
+                   "target_value": float(40),
                })
                ```
                
@@ -1458,7 +1458,7 @@ class Policy(pulumi.CustomResource):
             "predefined_metric_specification": {
                 "predefined_metric_type": "ASGAverageCPUUtilization",
             },
-            "target_value": 40,
+            "target_value": float(40),
         })
         ```
 

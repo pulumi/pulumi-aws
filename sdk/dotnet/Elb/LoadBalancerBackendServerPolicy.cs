@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Elb
     ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
     ///             {
     ///                 Name = "PublicKey",
-    ///                 Value = Std.Index.File.Invoke(new()
+    ///                 Value = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "wu-tang-pubkey",
     ///                 }).Apply(invoke =&gt; invoke.Result),

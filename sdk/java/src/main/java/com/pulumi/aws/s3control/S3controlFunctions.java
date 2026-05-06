@@ -37,8 +37,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -69,8 +69,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -111,8 +111,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -143,8 +143,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -185,8 +185,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -217,8 +217,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -259,8 +259,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -291,8 +291,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -333,8 +333,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -365,8 +365,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -407,8 +407,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -439,8 +439,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -481,8 +481,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -513,8 +513,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -553,8 +553,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -593,8 +593,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -633,8 +633,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -673,8 +673,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -713,8 +713,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -755,8 +755,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -796,8 +796,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -837,8 +837,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -878,8 +878,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -919,8 +919,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -960,8 +960,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1001,8 +1001,8 @@ public final class S3controlFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3control.S3controlFunctions;
      * import com.pulumi.aws.s3control.inputs.GetMultiRegionAccessPointsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

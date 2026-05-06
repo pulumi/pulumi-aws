@@ -152,7 +152,7 @@ def get_ip_ranges(id: Optional[_builtins.str] = None,
         }],
         tags={
             "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
+            "SyncToken": output(european_ec2.sync_token).apply(lambda x: str(x)),
         })
     ```
 
@@ -217,7 +217,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = N
         }],
         tags={
             "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
+            "SyncToken": output(european_ec2.sync_token).apply(lambda x: str(x)),
         })
     ```
 

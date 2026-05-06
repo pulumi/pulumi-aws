@@ -95,7 +95,7 @@ def get_functions(region: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    all = aws.lambda.get_functions()
+    all = aws.lambda_.get_functions()
     pulumi.export("functionCount", len(all.function_names))
     pulumi.export("allFunctionNames", all.function_names)
     ```
@@ -107,7 +107,7 @@ def get_functions(region: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Get all Lambda functions
-    all = aws.lambda.get_functions()
+    all = aws.lambda_.get_functions()
     # Create CloudWatch alarms for all functions
     lambda_errors = []
     def create_lambda_errors(range_body):
@@ -120,7 +120,7 @@ def get_functions(region: Optional[_builtins.str] = None,
                 namespace="AWS/Lambda",
                 period=300,
                 statistic="Sum",
-                threshold=5,
+                threshold=float(5),
                 alarm_description="This metric monitors lambda errors",
                 dimensions={
                     "FunctionName": all.function_names[range["value"]],
@@ -139,9 +139,9 @@ def get_functions(region: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    all = aws.lambda.get_functions()
+    all = aws.lambda_.get_functions()
     # Get detailed information for each function
-    details = [aws.lambda.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
+    details = [aws.lambda_.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
     function_inventory = [{
         "name": name,
         "arn": all.function_arns[i],
@@ -179,7 +179,7 @@ def get_functions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
     import pulumi
     import pulumi_aws as aws
 
-    all = aws.lambda.get_functions()
+    all = aws.lambda_.get_functions()
     pulumi.export("functionCount", len(all.function_names))
     pulumi.export("allFunctionNames", all.function_names)
     ```
@@ -191,7 +191,7 @@ def get_functions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
     import pulumi_aws as aws
 
     # Get all Lambda functions
-    all = aws.lambda.get_functions()
+    all = aws.lambda_.get_functions()
     # Create CloudWatch alarms for all functions
     lambda_errors = []
     def create_lambda_errors(range_body):
@@ -204,7 +204,7 @@ def get_functions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
                 namespace="AWS/Lambda",
                 period=300,
                 statistic="Sum",
-                threshold=5,
+                threshold=float(5),
                 alarm_description="This metric monitors lambda errors",
                 dimensions={
                     "FunctionName": all.function_names[range["value"]],
@@ -223,9 +223,9 @@ def get_functions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]]
     import pulumi
     import pulumi_aws as aws
 
-    all = aws.lambda.get_functions()
+    all = aws.lambda_.get_functions()
     # Get detailed information for each function
-    details = [aws.lambda.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
+    details = [aws.lambda_.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
     function_inventory = [{
         "name": name,
         "arn": all.function_arns[i],

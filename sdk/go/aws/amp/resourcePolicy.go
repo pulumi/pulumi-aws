@@ -31,58 +31,59 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleWorkspace, err := amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
-// Alias: pulumi.String("example-workspace"),
-// })
-// if err != nil {
-// return err
-// }
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example := exampleWorkspace.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// current.AccountId,
-// },
-// },
-// },
-// Actions: []string{
-// "aps:RemoteWrite",
-// "aps:QueryMetrics",
-// "aps:GetSeries",
-// "aps:GetLabels",
-// "aps:GetMetricMetadata",
-// },
-// Resources: []string{
-// arn,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
-// WorkspaceId: exampleWorkspace.ID(),
-// PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleWorkspace, err := amp.NewWorkspace(ctx, "example", &amp.WorkspaceArgs{
+//				Alias: pulumi.String("example-workspace"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example := exampleWorkspace.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: pulumi.StringArray{
+//										current.AccountId,
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"aps:RemoteWrite",
+//								"aps:QueryMetrics",
+//								"aps:GetSeries",
+//								"aps:GetLabels",
+//								"aps:GetMetricMetadata",
+//							},
+//							Resources: []string{
+//								arn,
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
+//				WorkspaceId: exampleWorkspace.ID(),
+//				PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Cross-Account Access

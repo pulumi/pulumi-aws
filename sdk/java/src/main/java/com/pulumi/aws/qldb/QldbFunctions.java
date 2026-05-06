@@ -29,8 +29,8 @@ public final class QldbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.qldb.QldbFunctions;
      * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -69,8 +69,8 @@ public final class QldbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.qldb.QldbFunctions;
      * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -109,8 +109,8 @@ public final class QldbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.qldb.QldbFunctions;
      * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -149,8 +149,8 @@ public final class QldbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.qldb.QldbFunctions;
      * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -189,8 +189,8 @@ public final class QldbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.qldb.QldbFunctions;
      * import com.pulumi.aws.qldb.inputs.GetLedgerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

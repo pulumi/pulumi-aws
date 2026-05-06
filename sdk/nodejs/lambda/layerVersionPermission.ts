@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * // Grant permission to specific AWS account
  * const exampleLayerVersionPermission = new aws.lambda.LayerVersionPermission("example", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: example.version.apply(x =>Number(x)),
  *     principal: "123456789012",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "dev-account-access",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lambda.LayerVersionPermission("example", {
  *     layerName: exampleAwsLambdaLayerVersion.layerName,
- *     versionNumber: exampleAwsLambdaLayerVersion.version,
+ *     versionNumber: Number(exampleAwsLambdaLayerVersion.version),
  *     principal: "*",
  *     organizationId: "o-1234567890",
  *     action: "lambda:GetLayerVersion",
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lambda.LayerVersionPermission("example", {
  *     layerName: exampleAwsLambdaLayerVersion.layerName,
- *     versionNumber: exampleAwsLambdaLayerVersion.version,
+ *     versionNumber: Number(exampleAwsLambdaLayerVersion.version),
  *     principal: "*",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "public-access",
@@ -79,21 +79,21 @@ import * as utilities from "../utilities";
  * // Share with multiple specific accounts
  * const devAccount = new aws.lambda.LayerVersionPermission("dev_account", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: Number(example.version),
  *     principal: "111111111111",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "dev-account",
  * });
  * const stagingAccount = new aws.lambda.LayerVersionPermission("staging_account", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: Number(example.version),
  *     principal: "222222222222",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "staging-account",
  * });
  * const prodAccount = new aws.lambda.LayerVersionPermission("prod_account", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: Number(example.version),
  *     principal: "333333333333",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "prod-account",

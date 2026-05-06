@@ -54,13 +54,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentGetRegion = Aws.Index.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
     ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         BucketName = Std.Index.Format.Invoke(new()
+    ///         BucketName = Std.Format.Invoke(new()
     ///         {
     ///             Input = "my-tf-test-bucket-%s-%s-an",
     ///             Args = new[]

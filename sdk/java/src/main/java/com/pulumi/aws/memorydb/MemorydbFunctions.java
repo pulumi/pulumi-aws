@@ -44,8 +44,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -84,8 +84,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -164,8 +164,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -204,8 +204,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetAclArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -244,8 +244,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -284,8 +284,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -324,8 +324,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -364,8 +364,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -404,8 +404,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -444,8 +444,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -484,8 +484,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -524,8 +524,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -564,8 +564,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -604,8 +604,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -644,8 +644,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -684,8 +684,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -724,8 +724,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -764,8 +764,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -804,8 +804,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -844,8 +844,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -884,8 +884,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -924,8 +924,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -964,8 +964,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1004,8 +1004,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1044,8 +1044,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1084,8 +1084,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1124,8 +1124,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1164,8 +1164,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1204,8 +1204,8 @@ public final class MemorydbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.memorydb.MemorydbFunctions;
      * import com.pulumi.aws.memorydb.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

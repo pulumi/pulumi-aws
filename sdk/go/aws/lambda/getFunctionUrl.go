@@ -103,35 +103,36 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
-// FunctionName: "api_function",
-// }, nil);
-// if err != nil {
-// return err
-// }
-// var tmp0
-// if length > 0 {
-// tmp0 = example.Cors[0]
-// } else {
-// tmp0 = nil
-// }
-// corsConfig := len(example.Cors).ApplyT(func(length int) (lambda.GetFunctionUrlCor, error) {
-// return tmp0, nil
-// }).(lambda.GetFunctionUrlCorOutput)
-// var tmp1 interface{}
-// if corsConfig != nil {
-// tmp1 = corsConfig.AllowOrigins
-// } else {
-// tmp1 = []interface{}{
-// }
-// }
-// allowedOrigins := tmp1;
-// ctx.Export("corsAllowedOrigins", allowedOrigins)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := lambda.LookupFunctionUrl(ctx, &lambda.LookupFunctionUrlArgs{
+//				FunctionName: "api_function",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			corsConfig := len(example.Cors).ApplyT(func(length int) (lambda.GetFunctionUrlCor, error) {
+//				var tmp0 lambda.GetFunctionUrlCor
+//				if length > 0 {
+//					tmp0 = lambda.GetFunctionUrlCor(example.Cors[0])
+//				} else {
+//					tmp0 = nil
+//				}
+//				return tmp0, nil
+//			}).(lambda.GetFunctionUrlCorOutput)
+//			var tmp1 []string
+//			if corsConfig != nil {
+//				tmp1 = corsConfig.AllowOrigins
+//			} else {
+//				tmp1 = []interface{}{}
+//			}
+//			allowedOrigins := tmp1
+//			ctx.Export("corsAllowedOrigins", allowedOrigins)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

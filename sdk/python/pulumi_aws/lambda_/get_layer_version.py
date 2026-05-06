@@ -266,7 +266,7 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_layer_version(layer_name="my-shared-utilities")
+    example = aws.lambda_.get_layer_version(layer_name="my-shared-utilities")
     # Use the layer in a Lambda function
     example_function = aws.lambda_.Function("example",
         code=pulumi.FileArchive("function.zip"),
@@ -283,7 +283,7 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_layer_version(layer_name="production-utilities",
+    example = aws.lambda_.get_layer_version(layer_name="production-utilities",
         version=5)
     pulumi.export("layerInfo", {
         "arn": example.arn,
@@ -299,10 +299,10 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Find latest layer version compatible with Python 3.12
-    python_layer = aws.lambda.get_layer_version(layer_name="python-dependencies",
+    python_layer = aws.lambda_.get_layer_version(layer_name="python-dependencies",
         compatible_runtime="python3.12")
     # Find latest layer version compatible with ARM64 architecture
-    arm_layer = aws.lambda.get_layer_version(layer_name="optimized-libraries",
+    arm_layer = aws.lambda_.get_layer_version(layer_name="optimized-libraries",
         compatible_architecture="arm64")
     # Use both layers in a function
     example = aws.lambda_.Function("example",
@@ -325,11 +325,11 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Get latest version
-    latest = aws.lambda.get_layer_version(layer_name="shared-layer")
+    latest = aws.lambda_.get_layer_version(layer_name="shared-layer")
     # Get specific version for comparison
-    stable = aws.lambda.get_layer_version(layer_name="shared-layer",
+    stable = aws.lambda_.get_layer_version(layer_name="shared-layer",
         version=3)
-    use_latest_layer = latest.version > 5
+    use_latest_layer = output(latest.version).apply(lambda x: float(x)) > float(5)
     selected_layer = latest.arn if use_latest_layer else stable.arn
     pulumi.export("selectedLayerVersion", latest.version if use_latest_layer else stable.version)
     ```
@@ -341,7 +341,7 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Reference a layer from another AWS account using full ARN with version
-    shared_layer = aws.lambda.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+    shared_layer = aws.lambda_.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
     # Use in your Lambda function
     example = aws.lambda_.Function("example",
         code=pulumi.FileArchive("function.zip"),
@@ -357,7 +357,7 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Reference a layer ARN without version (requires ListLayerVersions permission)
-    latest_shared = aws.lambda.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+    latest_shared = aws.lambda_.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
     ```
 
 
@@ -418,7 +418,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_layer_version(layer_name="my-shared-utilities")
+    example = aws.lambda_.get_layer_version(layer_name="my-shared-utilities")
     # Use the layer in a Lambda function
     example_function = aws.lambda_.Function("example",
         code=pulumi.FileArchive("function.zip"),
@@ -435,7 +435,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_layer_version(layer_name="production-utilities",
+    example = aws.lambda_.get_layer_version(layer_name="production-utilities",
         version=5)
     pulumi.export("layerInfo", {
         "arn": example.arn,
@@ -451,10 +451,10 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     import pulumi_aws as aws
 
     # Find latest layer version compatible with Python 3.12
-    python_layer = aws.lambda.get_layer_version(layer_name="python-dependencies",
+    python_layer = aws.lambda_.get_layer_version(layer_name="python-dependencies",
         compatible_runtime="python3.12")
     # Find latest layer version compatible with ARM64 architecture
-    arm_layer = aws.lambda.get_layer_version(layer_name="optimized-libraries",
+    arm_layer = aws.lambda_.get_layer_version(layer_name="optimized-libraries",
         compatible_architecture="arm64")
     # Use both layers in a function
     example = aws.lambda_.Function("example",
@@ -477,11 +477,11 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     import pulumi_aws as aws
 
     # Get latest version
-    latest = aws.lambda.get_layer_version(layer_name="shared-layer")
+    latest = aws.lambda_.get_layer_version(layer_name="shared-layer")
     # Get specific version for comparison
-    stable = aws.lambda.get_layer_version(layer_name="shared-layer",
+    stable = aws.lambda_.get_layer_version(layer_name="shared-layer",
         version=3)
-    use_latest_layer = latest.version > 5
+    use_latest_layer = output(latest.version).apply(lambda x: float(x)) > float(5)
     selected_layer = latest.arn if use_latest_layer else stable.arn
     pulumi.export("selectedLayerVersion", latest.version if use_latest_layer else stable.version)
     ```
@@ -493,7 +493,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     import pulumi_aws as aws
 
     # Reference a layer from another AWS account using full ARN with version
-    shared_layer = aws.lambda.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
+    shared_layer = aws.lambda_.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities:5")
     # Use in your Lambda function
     example = aws.lambda_.Function("example",
         code=pulumi.FileArchive("function.zip"),
@@ -509,7 +509,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     import pulumi_aws as aws
 
     # Reference a layer ARN without version (requires ListLayerVersions permission)
-    latest_shared = aws.lambda.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
+    latest_shared = aws.lambda_.get_layer_version(layer_version_arn="arn:aws:lambda:us-east-1:123456789012:layer:shared-utilities")
     ```
 
 

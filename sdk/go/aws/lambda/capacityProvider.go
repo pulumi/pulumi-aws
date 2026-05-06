@@ -32,7 +32,7 @@ import (
 // _, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
 // Name: pulumi.String("example"),
 // VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
-// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
@@ -65,7 +65,7 @@ import (
 // _, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
 // Name: pulumi.String("example"),
 // VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
-// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },

@@ -58,8 +58,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -142,8 +142,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -221,8 +221,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementIpSetReferenceStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -298,8 +298,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -353,8 +353,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -409,8 +409,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -469,8 +469,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementIpSetReferenceStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -532,8 +532,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementAndStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -554,28 +554,26 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .andStatement(WebAclRuleStatementAndStatementArgs.builder()
- *                     .statements(                    
- *                         WebAclRuleStatementArgs.builder()
- *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                                 .countryCodes("CN")
+ *                 .andStatement(Map.of("statements", Arrays.asList(                
+ *                     WebAclRuleStatementArgs.builder()
+ *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes("CN")
+ *                             .build())
+ *                         .build(),
+ *                     WebAclRuleStatementArgs.builder()
+ *                         .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
+ *                             .searchString("admin")
+ *                             .positionalConstraint("CONTAINS")
+ *                             .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
+ *                                 .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
+ *                                     .build())
  *                                 .build())
- *                             .build(),
- *                         WebAclRuleStatementArgs.builder()
- *                             .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
- *                                 .searchString("admin")
- *                                 .positionalConstraint("CONTAINS")
- *                                 .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
- *                                     .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
- *                                         .build())
- *                                     .build())
- *                                 .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
- *                                     .priority(0)
- *                                     .type("LOWERCASE")
- *                                     .build())
+ *                             .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
+ *                                 .priority(0)
+ *                                 .type("LOWERCASE")
  *                                 .build())
  *                             .build())
- *                     .build())
+ *                         .build())))
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -607,8 +605,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -629,17 +627,19 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .orStatement(Map.of("statements",                 
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("CN")
+ *                 .orStatement(WebAclRuleStatementOrStatementArgs.builder()
+ *                     .statements(                    
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("CN")
+ *                                 .build())
+ *                             .build(),
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("RU")
+ *                                 .build())
  *                             .build())
- *                         .build(),
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("RU")
- *                             .build())
- *                         .build()))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -673,8 +673,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementNotStatementStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementNotStatementStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

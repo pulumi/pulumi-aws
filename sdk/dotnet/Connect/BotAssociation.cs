@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
     ///     var example = new Aws.Lex.Intent("example", new()
     ///     {

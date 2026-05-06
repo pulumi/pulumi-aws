@@ -139,7 +139,7 @@ def get_alias(function_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_alias(function_name="my-lambda-function",
+    example = aws.lambda_.get_alias(function_name="my-lambda-function",
         name="production")
     pulumi.export("aliasArn", example.arn)
     ```
@@ -150,7 +150,7 @@ def get_alias(function_name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    api_handler = aws.lambda.get_alias(function_name="api-handler",
+    api_handler = aws.lambda_.get_alias(function_name="api-handler",
         name="live")
     example = aws.apigateway.Integration("example",
         rest_api=example_aws_api_gateway_rest_api["id"],
@@ -176,10 +176,10 @@ def get_alias(function_name: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     # Get production alias details
-    production = aws.lambda.get_alias(function_name="payment-processor",
+    production = aws.lambda_.get_alias(function_name="payment-processor",
         name="production")
     # Get staging alias details
-    staging = aws.lambda.get_alias(function_name="payment-processor",
+    staging = aws.lambda_.get_alias(function_name="payment-processor",
         name="staging")
     version_drift = production.function_version != staging.function_version
     pulumi.export("deploymentStatus", {
@@ -197,7 +197,7 @@ def get_alias(function_name: Optional[_builtins.str] = None,
     import json
     import pulumi_aws as aws
 
-    event_processor = aws.lambda.get_alias(function_name="event-processor",
+    event_processor = aws.lambda_.get_alias(function_name="event-processor",
         name="stable")
     example = aws.cloudwatch.EventRule("example",
         name="capture-events",
@@ -257,7 +257,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[_builtins.str]] = None
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.lambda.get_alias(function_name="my-lambda-function",
+    example = aws.lambda_.get_alias(function_name="my-lambda-function",
         name="production")
     pulumi.export("aliasArn", example.arn)
     ```
@@ -268,7 +268,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[_builtins.str]] = None
     import pulumi
     import pulumi_aws as aws
 
-    api_handler = aws.lambda.get_alias(function_name="api-handler",
+    api_handler = aws.lambda_.get_alias(function_name="api-handler",
         name="live")
     example = aws.apigateway.Integration("example",
         rest_api=example_aws_api_gateway_rest_api["id"],
@@ -294,10 +294,10 @@ def get_alias_output(function_name: Optional[pulumi.Input[_builtins.str]] = None
     import pulumi_aws as aws
 
     # Get production alias details
-    production = aws.lambda.get_alias(function_name="payment-processor",
+    production = aws.lambda_.get_alias(function_name="payment-processor",
         name="production")
     # Get staging alias details
-    staging = aws.lambda.get_alias(function_name="payment-processor",
+    staging = aws.lambda_.get_alias(function_name="payment-processor",
         name="staging")
     version_drift = production.function_version != staging.function_version
     pulumi.export("deploymentStatus", {
@@ -315,7 +315,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[_builtins.str]] = None
     import json
     import pulumi_aws as aws
 
-    event_processor = aws.lambda.get_alias(function_name="event-processor",
+    event_processor = aws.lambda_.get_alias(function_name="event-processor",
         name="stable")
     example = aws.cloudwatch.EventRule("example",
         name="capture-events",

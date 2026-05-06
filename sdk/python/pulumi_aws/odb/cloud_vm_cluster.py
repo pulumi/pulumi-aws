@@ -1220,7 +1220,7 @@ class CloudVmCluster(pulumi.CustomResource):
             is_local_backup_enabled=True,
             is_sparse_diskgroup_enabled=True,
             license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
+            data_storage_size_in_tbs=float(20),
             db_servers=[
                 "db-server-1",
                 "db-server-2",
@@ -1243,7 +1243,7 @@ class CloudVmCluster(pulumi.CustomResource):
             is_local_backup_enabled=True,
             is_sparse_diskgroup_enabled=True,
             license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
+            data_storage_size_in_tbs=float(20),
             db_servers=[
                 "my-dbserver-1",
                 "my-db-server-2",
@@ -1329,7 +1329,7 @@ class CloudVmCluster(pulumi.CustomResource):
             is_local_backup_enabled=True,
             is_sparse_diskgroup_enabled=True,
             license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
+            data_storage_size_in_tbs=float(20),
             db_servers=[
                 "db-server-1",
                 "db-server-2",
@@ -1352,7 +1352,7 @@ class CloudVmCluster(pulumi.CustomResource):
             is_local_backup_enabled=True,
             is_sparse_diskgroup_enabled=True,
             license_model="LICENSE_INCLUDED",
-            data_storage_size_in_tbs=20,
+            data_storage_size_in_tbs=float(20),
             db_servers=[
                 "my-dbserver-1",
                 "my-db-server-2",

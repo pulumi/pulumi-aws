@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var test = new Aws.Inspector2.Enabler("test", new()
     ///     {

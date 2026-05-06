@@ -967,7 +967,7 @@ class MetricAlarm(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[])
         ```
@@ -992,7 +992,7 @@ class MetricAlarm(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             dimensions={
                 "AutoScalingGroupName": bar["name"],
             },
@@ -1010,7 +1010,7 @@ class MetricAlarm(pulumi.CustomResource):
             name="test-foobar",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
-            threshold=10,
+            threshold=float(10),
             alarm_description="Request error rate has exceeded 10%",
             insufficient_data_actions=[],
             metric_queries=[
@@ -1246,7 +1246,7 @@ class MetricAlarm(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[])
         ```
@@ -1271,7 +1271,7 @@ class MetricAlarm(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             dimensions={
                 "AutoScalingGroupName": bar["name"],
             },
@@ -1289,7 +1289,7 @@ class MetricAlarm(pulumi.CustomResource):
             name="test-foobar",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
-            threshold=10,
+            threshold=float(10),
             alarm_description="Request error rate has exceeded 10%",
             insufficient_data_actions=[],
             metric_queries=[

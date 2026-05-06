@@ -52,8 +52,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -94,8 +94,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -178,8 +178,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -220,8 +220,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetContactsRotationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -262,8 +262,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -297,8 +297,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -340,8 +340,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -375,8 +375,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -418,8 +418,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -453,8 +453,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -496,8 +496,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -531,8 +531,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -574,8 +574,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -609,8 +609,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -650,8 +650,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -693,8 +693,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -736,8 +736,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -779,8 +779,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -822,8 +822,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -865,8 +865,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -908,8 +908,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -951,8 +951,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -994,8 +994,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1037,8 +1037,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1080,8 +1080,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1123,8 +1123,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1166,8 +1166,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1209,8 +1209,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1254,8 +1254,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1287,8 +1287,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1331,8 +1331,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1364,8 +1364,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1408,8 +1408,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1441,8 +1441,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1485,8 +1485,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1518,8 +1518,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1562,8 +1562,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1595,8 +1595,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1637,8 +1637,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1679,8 +1679,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1721,8 +1721,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1763,8 +1763,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1805,8 +1805,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1849,8 +1849,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1884,8 +1884,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1929,8 +1929,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1964,8 +1964,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2009,8 +2009,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2044,8 +2044,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2089,8 +2089,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2124,8 +2124,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2169,8 +2169,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2204,8 +2204,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2249,8 +2249,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2281,8 +2281,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2331,8 +2331,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2363,8 +2363,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2413,8 +2413,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2445,8 +2445,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2495,8 +2495,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2527,8 +2527,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2577,8 +2577,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2609,8 +2609,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2659,8 +2659,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2691,8 +2691,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2741,8 +2741,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2773,8 +2773,8 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

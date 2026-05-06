@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.vpc.SecurityGroupIngressRuleArgs;
  * import com.pulumi.aws.vpc.SecurityGroupEgressRule;
  * import com.pulumi.aws.vpc.SecurityGroupEgressRuleArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -114,8 +114,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -160,8 +160,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -204,8 +204,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -256,8 +256,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -302,8 +302,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.std.StdFunctions;
  * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -335,7 +335,7 @@ import javax.annotation.Nullable;
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
  * ", tags.workaround1(),tags.workaround2(),id))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(List.of(example))
+ *                 .dependsOn(Arrays.asList(example))
  *                 .build());
  * 
  *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
@@ -350,7 +350,7 @@ import javax.annotation.Nullable;
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
  * ", exampleAwsVpcEndpoint.id(),default_.id()))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(List.of(exampleResource))
+ *                 .dependsOn(Arrays.asList(exampleResource))
  *                 .build());
  * 
  *     }

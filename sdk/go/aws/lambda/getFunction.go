@@ -147,28 +147,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			var tmp0 *int
-//			if length > 0 {
-//				tmp0 = durableFunction.DurableConfigs[0].ExecutionTimeout
-//			} else {
-//				tmp0 = nil
-//			}
-//			var tmp1 *int
-//			if length > 0 {
-//				tmp1 = durableFunction.DurableConfigs[0].RetentionPeriod
-//			} else {
-//				tmp1 = nil
-//			}
 //			ctx.Export("durableSettings", pulumi.Map{
 //				"hasDurableConfig": len(durableFunction.DurableConfigs).ApplyT(func(length int) (bool, error) {
-//					return bool(length.ApplyT(func(__convert float64) (bool, error) {
-//						return __convert > 0, nil
-//					}).(pulumi.BoolOutput)), nil
+//					return length > 0, nil
 //				}).(pulumi.BoolOutput),
 //				"executionTimeout": len(durableFunction.DurableConfigs).ApplyT(func(length int) (*int, error) {
+//					var tmp0 *int
+//					if length > 0 {
+//						tmp0 = durableFunction.DurableConfigs[0].ExecutionTimeout
+//					} else {
+//						tmp0 = nil
+//					}
 //					return &tmp0, nil
 //				}).(pulumi.IntPtrOutput),
 //				"retentionPeriod": len(durableFunction.DurableConfigs).ApplyT(func(length int) (*int, error) {
+//					var tmp1 *int
+//					if length > 0 {
+//						tmp1 = durableFunction.DurableConfigs[0].RetentionPeriod
+//					} else {
+//						tmp1 = nil
+//					}
 //					return &tmp1, nil
 //				}).(pulumi.IntPtrOutput),
 //			})

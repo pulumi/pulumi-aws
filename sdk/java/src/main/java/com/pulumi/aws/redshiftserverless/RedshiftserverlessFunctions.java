@@ -35,8 +35,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -75,8 +75,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -115,8 +115,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -155,8 +155,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -195,8 +195,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -235,8 +235,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -275,8 +275,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -315,8 +315,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -355,8 +355,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -395,8 +395,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -437,8 +437,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -479,8 +479,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -521,8 +521,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -563,8 +563,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -605,8 +605,8 @@ public final class RedshiftserverlessFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
      * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

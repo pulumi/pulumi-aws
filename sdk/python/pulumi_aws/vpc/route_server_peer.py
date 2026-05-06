@@ -395,7 +395,7 @@ class RouteServerPeer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpc.RouteServer("test",
-            amazon_side_asn=4294967294,
+            amazon_side_asn=int(4294967294),
             tags={
                 "Name": "Test",
             })
@@ -479,7 +479,7 @@ class RouteServerPeer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpc.RouteServer("test",
-            amazon_side_asn=4294967294,
+            amazon_side_asn=int(4294967294),
             tags={
                 "Name": "Test",
             })

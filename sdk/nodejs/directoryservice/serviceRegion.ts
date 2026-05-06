@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
  *         vpcId: exampleVpc.id,
  *         availabilityZone: available.then(available => available.names[range.value]),
- *         cidrBlock: exampleVpc.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
- *             input: cidrBlock,
+ *         cidrBlock: std.cidrsubnetOutput({
+ *             input: exampleVpc.cidrBlock,
  *             newbits: 8,
  *             netnum: range.value,
- *         })).apply(invoke => invoke.result),
+ *         }).apply(invoke => invoke.result),
  *         tags: {
  *             Name: "Primary",
  *         },
@@ -74,11 +74,11 @@ import * as utilities from "../utilities";
  *     example_secondarySubnet.push(new aws.ec2.Subnet(`example-secondary-${range.value}`, {
  *         vpcId: example_secondary.id,
  *         availabilityZone: available_secondary.then(available_secondary => available_secondary.names[range.value]),
- *         cidrBlock: example_secondary.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
- *             input: cidrBlock,
+ *         cidrBlock: std.cidrsubnetOutput({
+ *             input: example_secondary.cidrBlock,
  *             newbits: 8,
  *             netnum: range.value,
- *         })).apply(invoke => invoke.result),
+ *         }).apply(invoke => invoke.result),
  *         tags: {
  *             Name: "Secondary",
  *         },

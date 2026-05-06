@@ -35,8 +35,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -76,8 +76,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -117,8 +117,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -199,8 +199,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetDnsNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -276,8 +276,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -314,8 +314,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -352,8 +352,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -390,8 +390,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetHttpNamespaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -430,8 +430,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -471,8 +471,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -512,8 +512,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -553,8 +553,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -594,8 +594,8 @@ public final class ServicediscoveryFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.servicediscovery.ServicediscoveryFunctions;
      * import com.pulumi.aws.servicediscovery.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

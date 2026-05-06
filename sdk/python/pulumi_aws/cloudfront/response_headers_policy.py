@@ -384,7 +384,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             },
             server_timing_headers_config={
                 "enabled": True,
-                "sampling_rate": 50,
+                "sampling_rate": float(50),
             })
         ```
 
@@ -491,7 +491,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             },
             server_timing_headers_config={
                 "enabled": True,
-                "sampling_rate": 50,
+                "sampling_rate": float(50),
             })
         ```
 

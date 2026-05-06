@@ -52,8 +52,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -94,8 +94,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -178,8 +178,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -220,8 +220,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetContributorManagedInsightRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -262,8 +262,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -304,8 +304,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -346,8 +346,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -388,8 +388,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -430,8 +430,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -472,8 +472,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -514,8 +514,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -556,8 +556,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -598,8 +598,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -640,8 +640,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -682,8 +682,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -724,8 +724,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventBusesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -766,8 +766,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -808,8 +808,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -850,8 +850,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -892,8 +892,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -934,8 +934,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -976,8 +976,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1018,8 +1018,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1060,8 +1060,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1102,8 +1102,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1144,8 +1144,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1186,8 +1186,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1228,8 +1228,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1272,8 +1272,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1355,8 +1355,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1438,8 +1438,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1521,8 +1521,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1604,8 +1604,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.aws.cloudwatch.inputs.GetLogDataProtectionPolicyDocumentArgs;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
      * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1683,8 +1683,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1723,8 +1723,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1763,8 +1763,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1803,8 +1803,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1843,8 +1843,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1883,8 +1883,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1923,8 +1923,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1963,8 +1963,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2003,8 +2003,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2043,8 +2043,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2083,8 +2083,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2123,8 +2123,8 @@ public final class CloudwatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
      * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

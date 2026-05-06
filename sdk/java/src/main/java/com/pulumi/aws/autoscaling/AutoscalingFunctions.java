@@ -35,8 +35,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -96,8 +96,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -157,8 +157,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -218,8 +218,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -279,8 +279,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -340,8 +340,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -401,8 +401,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -459,8 +459,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -499,8 +499,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -539,8 +539,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -579,8 +579,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -619,8 +619,8 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

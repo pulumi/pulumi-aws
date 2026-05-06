@@ -172,14 +172,14 @@ namespace Pulumi.Aws.Lambda
         ///     {
         ///         ["durableSettings"] = 
         ///         {
-        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0) },
-        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length().Apply(length =&gt; length &gt; 0) },
+        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
         ///             }) },
-        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
@@ -354,14 +354,14 @@ namespace Pulumi.Aws.Lambda
         ///     {
         ///         ["durableSettings"] = 
         ///         {
-        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0) },
-        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length().Apply(length =&gt; length &gt; 0) },
+        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
         ///             }) },
-        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
@@ -536,14 +536,14 @@ namespace Pulumi.Aws.Lambda
         ///     {
         ///         ["durableSettings"] = 
         ///         {
-        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length.Apply(length =&gt; length &gt; 0) },
-        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             { "hasDurableConfig", durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length().Apply(length =&gt; length &gt; 0) },
+        ///             { "executionTimeout", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;
         ///                 return length &gt; 0 ? durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs[0]?.ExecutionTimeout) : null;
         ///             }) },
-        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length, durableFunction).Apply(values =&gt;
+        ///             { "retentionPeriod", Output.Tuple(durableFunction.Apply(getFunctionResult =&gt; getFunctionResult.DurableConfigs).Length(), durableFunction).Apply(values =&gt;
         ///             {
         ///                 var length = values.Item1;
         ///                 var durableFunction = values.Item2;

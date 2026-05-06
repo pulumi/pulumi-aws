@@ -72,11 +72,11 @@ namespace Pulumi.Aws.DataSync
     ///             },
     ///         },
     ///         KerberosPrincipal = "user@example.com",
-    ///         KerberosKeytabBase64 = Std.Index.Filebase64.Invoke(new()
+    ///         KerberosKeytabBase64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "user.keytab",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         KerberosKrb5Conf = Std.Index.File.Invoke(new()
+    ///         KerberosKrb5Conf = Std.File.Invoke(new()
     ///         {
     ///             Input = "krb5.conf",
     ///         }).Apply(invoke =&gt; invoke.Result),

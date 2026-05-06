@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const example = aws.eks.getNodeGroups({
  *     clusterName: "example",
  * });
- * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
+ * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
  * }) }), {}));
@@ -71,7 +71,7 @@ export interface GetNodeGroupsResult {
  * const example = aws.eks.getNodeGroups({
  *     clusterName: "example",
  * });
- * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
+ * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
  * }) }), {}));

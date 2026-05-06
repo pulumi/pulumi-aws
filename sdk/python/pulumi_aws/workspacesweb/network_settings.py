@@ -276,9 +276,9 @@ class NetworkSettings(pulumi.CustomResource):
         for range in [{"value": i} for i in range(0, 2)]:
             example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
                 vpc_id=example.id,
-                cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                    netnum=range["value"]).apply(lambda invoke: invoke.result),
                 availability_zone=available["names"][range["value"]]))
         example1 = []
         for range in [{"value": i} for i in range(0, 2)]:
@@ -339,9 +339,9 @@ class NetworkSettings(pulumi.CustomResource):
         for range in [{"value": i} for i in range(0, 2)]:
             example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
                 vpc_id=example.id,
-                cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"])).apply(lambda invoke: invoke.result),
+                    netnum=range["value"]).apply(lambda invoke: invoke.result),
                 availability_zone=available["names"][range["value"]]))
         example1 = []
         for range in [{"value": i} for i in range(0, 2)]:

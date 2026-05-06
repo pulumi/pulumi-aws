@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *     plugins: [{
  *         customPlugin: {
  *             arn: exampleAwsMskconnectCustomPlugin.arn,
- *             revision: exampleAwsMskconnectCustomPlugin.latestRevision,
+ *             revision: Number(exampleAwsMskconnectCustomPlugin.latestRevision),
  *         },
  *     }],
  *     serviceExecutionRoleArn: exampleAwsIamRole.arn,

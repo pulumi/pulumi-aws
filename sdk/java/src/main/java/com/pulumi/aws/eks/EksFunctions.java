@@ -53,8 +53,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -95,8 +95,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -137,8 +137,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -179,8 +179,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -221,8 +221,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -263,8 +263,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -305,8 +305,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -347,8 +347,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -389,8 +389,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -431,8 +431,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetAddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -475,8 +475,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
      * import com.pulumi.aws.eks.Addon;
      * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -532,8 +532,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
      * import com.pulumi.aws.eks.Addon;
      * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -589,8 +589,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
      * import com.pulumi.aws.eks.Addon;
      * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -646,8 +646,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
      * import com.pulumi.aws.eks.Addon;
      * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -703,8 +703,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
      * import com.pulumi.aws.eks.Addon;
      * import com.pulumi.aws.eks.AddonArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -758,8 +758,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -800,8 +800,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -842,8 +842,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -884,8 +884,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -926,8 +926,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -974,8 +974,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
      * import com.pulumi.aws.eks.inputs.GetClusterAuthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1024,8 +1024,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
      * import com.pulumi.aws.eks.inputs.GetClusterAuthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1074,8 +1074,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
      * import com.pulumi.aws.eks.inputs.GetClusterAuthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1124,8 +1124,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
      * import com.pulumi.aws.eks.inputs.GetClusterAuthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1174,8 +1174,8 @@ public final class EksFunctions {
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterArgs;
      * import com.pulumi.aws.eks.inputs.GetClusterAuthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1222,8 +1222,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1255,8 +1255,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1299,8 +1299,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1332,8 +1332,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1376,8 +1376,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1409,8 +1409,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1453,8 +1453,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1486,8 +1486,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1530,8 +1530,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1563,8 +1563,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1607,8 +1607,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1640,8 +1640,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1684,8 +1684,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1717,8 +1717,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetClusterVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1820,8 +1820,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1861,8 +1861,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1902,8 +1902,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1943,8 +1943,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1984,8 +1984,8 @@ public final class EksFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.eks.EksFunctions;
      * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

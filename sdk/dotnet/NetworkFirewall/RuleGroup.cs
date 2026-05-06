@@ -195,7 +195,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         Capacity = 100,
     ///         Name = "example",
     ///         Type = "STATEFUL",
-    ///         Rules = Std.Index.File.Invoke(new()
+    ///         Rules = Std.File.Invoke(new()
     ///         {
     ///             Input = "example.rules",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///             },
     ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
     ///             {
-    ///                 RulesString = Std.Index.File.Invoke(new()
+    ///                 RulesString = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "suricata_rules_file",
     ///                 }).Apply(invoke =&gt; invoke.Result),

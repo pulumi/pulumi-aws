@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Budgets
     ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var current = Aws.Index.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {

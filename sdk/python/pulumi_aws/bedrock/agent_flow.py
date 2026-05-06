@@ -468,7 +468,7 @@ class AgentFlow(pulumi.CustomResource):
                                             "text": {
                                                 "max_tokens": 2048,
                                                 "stop_sequences": ["User:"],
-                                                "temperature": 0,
+                                                "temperature": float(0),
                                                 "top_p": 0.8999999761581421,
                                             },
                                         },
@@ -603,7 +603,7 @@ class AgentFlow(pulumi.CustomResource):
                                             "text": {
                                                 "max_tokens": 2048,
                                                 "stop_sequences": ["User:"],
-                                                "temperature": 0,
+                                                "temperature": float(0),
                                                 "top_p": 0.8999999761581421,
                                             },
                                         },

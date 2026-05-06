@@ -74,8 +74,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -122,8 +122,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -170,8 +170,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -218,8 +218,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -266,8 +266,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -314,8 +314,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -362,8 +362,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -489,8 +489,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -525,8 +525,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -567,8 +567,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -603,8 +603,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -645,8 +645,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -681,8 +681,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -723,8 +723,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -759,8 +759,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -801,8 +801,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -837,8 +837,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -879,8 +879,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -915,8 +915,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -957,8 +957,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -993,8 +993,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1035,8 +1035,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1071,8 +1071,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1113,8 +1113,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1149,8 +1149,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1191,8 +1191,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1227,8 +1227,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1269,8 +1269,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1305,8 +1305,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1347,8 +1347,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1383,8 +1383,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1425,8 +1425,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1461,8 +1461,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1503,8 +1503,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1539,8 +1539,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1583,8 +1583,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1628,8 +1628,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1673,8 +1673,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1718,8 +1718,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1763,8 +1763,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1808,8 +1808,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1853,8 +1853,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1896,8 +1896,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1932,8 +1932,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1974,8 +1974,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2010,8 +2010,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2052,8 +2052,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2088,8 +2088,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2130,8 +2130,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2166,8 +2166,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2208,8 +2208,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2244,8 +2244,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2286,8 +2286,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2322,8 +2322,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2364,8 +2364,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2400,8 +2400,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2442,8 +2442,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2478,8 +2478,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2520,8 +2520,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2556,8 +2556,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2598,8 +2598,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2634,8 +2634,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2676,8 +2676,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2712,8 +2712,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2754,8 +2754,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2790,8 +2790,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2832,8 +2832,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2868,8 +2868,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2910,8 +2910,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2946,8 +2946,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2988,8 +2988,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3031,8 +3031,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3074,8 +3074,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3117,8 +3117,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3160,8 +3160,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3203,8 +3203,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3246,8 +3246,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3289,8 +3289,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3330,8 +3330,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3372,8 +3372,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3413,8 +3413,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3455,8 +3455,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3496,8 +3496,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3538,8 +3538,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3579,8 +3579,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3621,8 +3621,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3662,8 +3662,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3704,8 +3704,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3745,8 +3745,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3787,8 +3787,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3828,8 +3828,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3870,8 +3870,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3912,8 +3912,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3954,8 +3954,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3996,8 +3996,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4038,8 +4038,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4080,8 +4080,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4122,8 +4122,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4164,8 +4164,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4206,8 +4206,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4248,8 +4248,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4288,8 +4288,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4332,8 +4332,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4376,8 +4376,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4420,8 +4420,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4464,8 +4464,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4510,8 +4510,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4546,8 +4546,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4588,8 +4588,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4624,8 +4624,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4666,8 +4666,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4702,8 +4702,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4744,8 +4744,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4780,8 +4780,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4822,8 +4822,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4858,8 +4858,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4900,8 +4900,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4936,8 +4936,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4978,8 +4978,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5014,8 +5014,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5058,8 +5058,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5094,8 +5094,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5138,8 +5138,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5174,8 +5174,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5218,8 +5218,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5254,8 +5254,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5298,8 +5298,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5334,8 +5334,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5378,8 +5378,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5414,8 +5414,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5458,8 +5458,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5494,8 +5494,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5538,8 +5538,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5574,8 +5574,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5695,8 +5695,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5729,8 +5729,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5776,8 +5776,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5810,8 +5810,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5857,8 +5857,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5891,8 +5891,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5938,8 +5938,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5972,8 +5972,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6019,8 +6019,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6053,8 +6053,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6100,8 +6100,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6134,8 +6134,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6181,8 +6181,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6215,8 +6215,8 @@ public final class Ec2transitgatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
      * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: exampleAwsInstance.privateIp,
  *     snapshotId: exampleAwsEbsSnapshot.id,
  *     targetName: "example",
- *     volumeSizeInBytes: exampleAwsEbsSnapshot.volumeSize * 1024 * 1024 * 1024,
+ *     volumeSizeInBytes: Number(exampleAwsEbsSnapshot.volumeSize) * 1024 * 1024 * 1024,
  * });
  * ```
  *
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: exampleAwsInstance.privateIp,
  *     sourceVolumeArn: existing.arn,
  *     targetName: "example",
- *     volumeSizeInBytes: existing.volumeSizeInBytes,
+ *     volumeSizeInBytes: Number(existing.volumeSizeInBytes),
  * });
  * ```
  *

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var currentGetOrganization = Aws.Organizations.GetOrganization.Invoke();
     /// 
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var currentGetOrganization = Aws.Organizations.GetOrganization.Invoke();
     /// 
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var currentGetOrganization = Aws.Organizations.GetOrganization.Invoke();
     /// 

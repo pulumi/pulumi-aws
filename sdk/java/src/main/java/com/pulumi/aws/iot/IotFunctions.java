@@ -34,8 +34,8 @@ public final class IotFunctions {
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
      * import com.pulumi.kubernetes.Pod;
      * import com.pulumi.kubernetes.PodArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -51,11 +51,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *             .metadata(Arrays.asList(Map.of("name", "my-device")))
+     *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
      *                 Map.entry("image", "gcr.io/my-project/image-name"),
      *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
      *                 )))
@@ -87,8 +87,8 @@ public final class IotFunctions {
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
      * import com.pulumi.kubernetes.Pod;
      * import com.pulumi.kubernetes.PodArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -104,11 +104,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *             .metadata(Arrays.asList(Map.of("name", "my-device")))
+     *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
      *                 Map.entry("image", "gcr.io/my-project/image-name"),
      *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
      *                 )))
@@ -140,8 +140,8 @@ public final class IotFunctions {
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
      * import com.pulumi.kubernetes.Pod;
      * import com.pulumi.kubernetes.PodArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -157,11 +157,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *             .metadata(Arrays.asList(Map.of("name", "my-device")))
+     *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
      *                 Map.entry("image", "gcr.io/my-project/image-name"),
      *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
      *                 )))
@@ -193,8 +193,8 @@ public final class IotFunctions {
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
      * import com.pulumi.kubernetes.Pod;
      * import com.pulumi.kubernetes.PodArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -210,11 +210,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *             .metadata(Arrays.asList(Map.of("name", "my-device")))
+     *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
      *                 Map.entry("image", "gcr.io/my-project/image-name"),
      *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
      *                 )))
@@ -246,8 +246,8 @@ public final class IotFunctions {
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
      * import com.pulumi.kubernetes.Pod;
      * import com.pulumi.kubernetes.PodArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -263,11 +263,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *             .metadata(Arrays.asList(Map.of("name", "my-device")))
+     *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
      *                 Map.entry("image", "gcr.io/my-project/image-name"),
      *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
      *                 )))
@@ -299,8 +299,8 @@ public final class IotFunctions {
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
      * import com.pulumi.kubernetes.Pod;
      * import com.pulumi.kubernetes.PodArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -316,11 +316,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *             .metadata(Arrays.asList(Map.of("name", "my-device")))
+     *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
      *                 Map.entry("image", "gcr.io/my-project/image-name"),
      *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
      *                 )))
@@ -352,8 +352,8 @@ public final class IotFunctions {
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
      * import com.pulumi.kubernetes.Pod;
      * import com.pulumi.kubernetes.PodArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -369,11 +369,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
+     *             .metadata(Arrays.asList(Map.of("name", "my-device")))
+     *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
      *                 Map.entry("image", "gcr.io/my-project/image-name"),
      *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
+     *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
      *                 )))
@@ -407,8 +407,8 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -462,8 +462,8 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -517,8 +517,8 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -572,8 +572,8 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -627,8 +627,8 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -682,8 +682,8 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -737,8 +737,8 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

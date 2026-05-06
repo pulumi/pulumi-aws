@@ -306,7 +306,7 @@ class ServiceQuota(pulumi.CustomResource):
         example = aws.servicequotas.ServiceQuota("example",
             quota_code="L-F678F1CE",
             service_code="vpc",
-            value=75)
+            value=float(75))
         ```
 
         ## Import
@@ -347,7 +347,7 @@ class ServiceQuota(pulumi.CustomResource):
         example = aws.servicequotas.ServiceQuota("example",
             quota_code="L-F678F1CE",
             service_code="vpc",
-            value=75)
+            value=float(75))
         ```
 
         ## Import

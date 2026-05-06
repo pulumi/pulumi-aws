@@ -56,8 +56,8 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      * import com.pulumi.aws.appflow.Flow;
      * import com.pulumi.aws.appflow.FlowArgs;
      * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -71,7 +71,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     public static void stack(Context ctx) {
      *         var example = new Flow("example", FlowArgs.builder()
      *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(List.of(Map.of("scheduleExpression", "rate(1minutes)")))
+     *                 .scheduled(Arrays.asList(Map.of("scheduleExpression", "rate(1minutes)")))
      *                 .build())
      *             .build());
      * 
@@ -139,8 +139,8 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      * import com.pulumi.aws.appflow.Flow;
      * import com.pulumi.aws.appflow.FlowArgs;
      * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -154,7 +154,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     public static void stack(Context ctx) {
      *         var example = new Flow("example", FlowArgs.builder()
      *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(List.of(Map.of("scheduleExpression", "rate(1minutes)")))
+     *                 .scheduled(Arrays.asList(Map.of("scheduleExpression", "rate(1minutes)")))
      *                 .build())
      *             .build());
      * 

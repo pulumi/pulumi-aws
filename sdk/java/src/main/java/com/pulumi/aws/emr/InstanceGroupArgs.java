@@ -77,8 +77,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.emr.InstanceGroup;
      * import com.pulumi.aws.emr.InstanceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -130,8 +130,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.emr.InstanceGroup;
      * import com.pulumi.aws.emr.InstanceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -370,8 +370,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.emr.InstanceGroup;
          * import com.pulumi.aws.emr.InstanceGroupArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -427,8 +427,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.emr.InstanceGroup;
          * import com.pulumi.aws.emr.InstanceGroupArgs;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;

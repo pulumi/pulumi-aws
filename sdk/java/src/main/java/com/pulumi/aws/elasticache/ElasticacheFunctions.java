@@ -44,8 +44,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -84,8 +84,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -164,8 +164,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -204,8 +204,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -244,8 +244,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -284,8 +284,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -324,8 +324,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -364,8 +364,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -404,8 +404,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -444,8 +444,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -487,8 +487,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -530,8 +530,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -573,8 +573,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -616,8 +616,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -659,8 +659,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -699,8 +699,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -739,8 +739,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -779,8 +779,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -819,8 +819,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -859,8 +859,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -899,8 +899,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -939,8 +939,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -979,8 +979,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1019,8 +1019,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1059,8 +1059,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1099,8 +1099,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1139,8 +1139,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1179,8 +1179,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1219,8 +1219,8 @@ public final class ElasticacheFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.elasticache.ElasticacheFunctions;
      * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

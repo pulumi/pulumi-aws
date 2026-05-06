@@ -39,8 +39,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -162,8 +162,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -203,8 +203,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -245,8 +245,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -278,8 +278,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -354,8 +354,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -397,8 +397,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -430,8 +430,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -473,8 +473,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -506,8 +506,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -549,8 +549,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -582,8 +582,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -625,8 +625,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -658,8 +658,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -701,8 +701,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -734,8 +734,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -776,8 +776,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -817,8 +817,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -858,8 +858,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -899,8 +899,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -940,8 +940,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -980,8 +980,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1020,8 +1020,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1060,8 +1060,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1100,8 +1100,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1140,8 +1140,8 @@ public final class BatchFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.batch.BatchFunctions;
      * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

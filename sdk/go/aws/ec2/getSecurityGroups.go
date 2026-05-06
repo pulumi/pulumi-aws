@@ -51,30 +51,32 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ec2.GetSecurityGroups(ctx, &ec2.GetSecurityGroupsArgs{
-// Filters: []ec2.GetSecurityGroupsFilter{
-// {
-// Name: "group-name",
-// Values: []string{
-// "*nodes*",
-// },
-// },
-// {
-// Name: "vpc-id",
-// Values: interface{}{
-// vpcId,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.GetSecurityGroups(ctx, &ec2.GetSecurityGroupsArgs{
+//				Filters: []ec2.GetSecurityGroupsFilter{
+//					{
+//						Name: "group-name",
+//						Values: []string{
+//							"*nodes*",
+//						},
+//					},
+//					{
+//						Name: "vpc-id",
+//						Values: pulumi.StringArray{
+//							vpcId,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

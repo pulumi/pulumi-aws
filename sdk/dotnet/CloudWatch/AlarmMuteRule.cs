@@ -50,7 +50,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Index.CloudwatchAlarm("example", new()
+    ///     var example = new Aws.CloudwatchAlarm("example", new()
     ///     {
     ///         AlarmName = "example",
     ///         ComparisonOperator = "GreaterThanThreshold",

@@ -34,8 +34,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -71,8 +71,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -136,8 +136,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -173,8 +173,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -275,8 +275,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -340,8 +340,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -377,8 +377,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -442,8 +442,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -479,8 +479,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -544,8 +544,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -587,8 +587,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -630,8 +630,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -673,8 +673,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -716,8 +716,8 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.auditmanager.AuditmanagerFunctions;
      * import com.pulumi.aws.auditmanager.inputs.GetFrameworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

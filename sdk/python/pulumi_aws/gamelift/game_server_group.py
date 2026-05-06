@@ -531,7 +531,7 @@ class GameServerGroup(pulumi.CustomResource):
             auto_scaling_policy={
                 "estimated_instance_warmup": 60,
                 "target_tracking_configuration": {
-                    "target_value": 75,
+                    "target_value": float(75),
                 },
             },
             balancing_strategy="SPOT_ONLY",
@@ -665,7 +665,7 @@ class GameServerGroup(pulumi.CustomResource):
             auto_scaling_policy={
                 "estimated_instance_warmup": 60,
                 "target_tracking_configuration": {
-                    "target_value": 75,
+                    "target_value": float(75),
                 },
             },
             balancing_strategy="SPOT_ONLY",

@@ -74,8 +74,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -118,8 +118,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -162,8 +162,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -206,8 +206,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -250,8 +250,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -292,8 +292,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -333,8 +333,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -374,8 +374,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -415,8 +415,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -456,8 +456,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -497,8 +497,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -538,8 +538,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetProfilesProfilesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -577,8 +577,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -608,8 +608,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -656,8 +656,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -687,8 +687,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -735,8 +735,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -766,8 +766,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -814,8 +814,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -845,8 +845,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -893,8 +893,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -924,8 +924,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -972,8 +972,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1003,8 +1003,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1051,8 +1051,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1082,8 +1082,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1135,8 +1135,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1176,8 +1176,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1227,8 +1227,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1268,8 +1268,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1319,8 +1319,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1360,8 +1360,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1411,8 +1411,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1452,8 +1452,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1503,8 +1503,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1544,8 +1544,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.inputs.GetRecordsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1592,8 +1592,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1623,8 +1623,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1668,8 +1668,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1699,8 +1699,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1744,8 +1744,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1775,8 +1775,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1820,8 +1820,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1851,8 +1851,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1896,8 +1896,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1927,8 +1927,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1972,8 +1972,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2003,8 +2003,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2048,8 +2048,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2079,8 +2079,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2126,8 +2126,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2170,8 +2170,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2214,8 +2214,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2258,8 +2258,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2302,8 +2302,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2346,8 +2346,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2390,8 +2390,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2434,8 +2434,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2478,8 +2478,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2522,8 +2522,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallDomainListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2566,8 +2566,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2610,8 +2610,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2654,8 +2654,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2698,8 +2698,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2742,8 +2742,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2786,8 +2786,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2830,8 +2830,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2874,8 +2874,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2918,8 +2918,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2962,8 +2962,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRuleGroupAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3004,8 +3004,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3046,8 +3046,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3088,8 +3088,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3130,8 +3130,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3172,8 +3172,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverFirewallRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3214,8 +3214,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3257,8 +3257,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3300,8 +3300,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3343,8 +3343,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3386,8 +3386,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3429,8 +3429,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3472,8 +3472,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3515,8 +3515,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3550,8 +3550,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3586,8 +3586,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3628,8 +3628,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3663,8 +3663,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3699,8 +3699,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3741,8 +3741,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3776,8 +3776,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3812,8 +3812,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3854,8 +3854,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3889,8 +3889,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3925,8 +3925,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3967,8 +3967,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4002,8 +4002,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4038,8 +4038,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4080,8 +4080,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4115,8 +4115,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4151,8 +4151,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4193,8 +4193,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4228,8 +4228,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4264,8 +4264,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4310,8 +4310,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4379,8 +4379,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4487,8 +4487,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4556,8 +4556,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4664,8 +4664,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4733,8 +4733,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4841,8 +4841,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4910,8 +4910,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5018,8 +5018,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5087,8 +5087,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5195,8 +5195,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5264,8 +5264,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5372,8 +5372,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5441,8 +5441,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5549,8 +5549,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5591,8 +5591,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5641,8 +5641,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5683,8 +5683,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5733,8 +5733,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5775,8 +5775,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5825,8 +5825,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5867,8 +5867,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5917,8 +5917,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5959,8 +5959,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6009,8 +6009,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6051,8 +6051,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6101,8 +6101,8 @@ public final class Route53Functions {
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
      * import com.pulumi.aws.route53.Record;
      * import com.pulumi.aws.route53.RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6143,8 +6143,8 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6188,8 +6188,8 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6228,8 +6228,8 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6268,8 +6268,8 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6308,8 +6308,8 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6348,8 +6348,8 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6388,8 +6388,8 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6428,8 +6428,8 @@ public final class Route53Functions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -79,25 +79,27 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
-// Filters: []ec2.GetNetworkInterfacesFilter{
-// {
-// Name: "subnet-id",
-// Values: interface{}{
-// test.Id,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// ctx.Export("example", example.Ids)
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
+//				Filters: []ec2.GetNetworkInterfacesFilter{
+//					{
+//						Name: "subnet-id",
+//						Values: pulumi.StringArray{
+//							test.Id,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example", example.Ids)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

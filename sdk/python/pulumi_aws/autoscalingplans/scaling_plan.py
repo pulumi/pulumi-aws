@@ -237,7 +237,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
             }])
         ```
@@ -281,7 +281,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
                 "predictive_scaling_max_capacity_behavior": "SetForecastCapacityToMaxCapacity",
                 "predictive_scaling_mode": "ForecastAndScale",
@@ -361,7 +361,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
             }])
         ```
@@ -405,7 +405,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
                 "predictive_scaling_max_capacity_behavior": "SetForecastCapacityToMaxCapacity",
                 "predictive_scaling_mode": "ForecastAndScale",

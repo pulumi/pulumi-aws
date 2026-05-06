@@ -103,41 +103,43 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// s3Policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "s3:GetObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/*", exampleAwsS3Bucket.Arn),
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// exampleAwsCloudfrontOriginAccessIdentity.IamArn,
-// },
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-// Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-// Policy: pulumi.String(pulumi.String(s3Policy.Json)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			s3Policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"s3:GetObject",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("%v/*", exampleAwsS3Bucket.Arn),
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "AWS",
+//								Identifiers: pulumi.StringArray{
+//									exampleAwsCloudfrontOriginAccessIdentity.IamArn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
+//				Policy: pulumi.String(pulumi.String(s3Policy.Json)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

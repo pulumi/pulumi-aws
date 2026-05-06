@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     brokerName: "example",
  *     configuration: {
  *         id: test.id,
- *         revision: test.latestRevision,
+ *         revision: Number(test.latestRevision),
  *     },
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.17.6",
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     brokerName: "example",
  *     configuration: {
  *         id: test.id,
- *         revision: test.latestRevision,
+ *         revision: Number(test.latestRevision),
  *     },
  *     engineType: "ActiveMQ",
  *     engineVersion: "5.17.6",

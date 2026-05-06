@@ -474,7 +474,7 @@ class BudgetAction(pulumi.CustomResource):
             execution_role_arn=example_role.arn,
             action_threshold={
                 "action_threshold_type": "ABSOLUTE_VALUE",
-                "action_threshold_value": 100,
+                "action_threshold_value": float(100),
             },
             definition={
                 "iam_action_definition": {
@@ -565,7 +565,7 @@ class BudgetAction(pulumi.CustomResource):
             execution_role_arn=example_role.arn,
             action_threshold={
                 "action_threshold_type": "ABSOLUTE_VALUE",
-                "action_threshold_value": 100,
+                "action_threshold_value": float(100),
             },
             definition={
                 "iam_action_definition": {

@@ -607,7 +607,7 @@ class Connector(pulumi.CustomResource):
             plugins=[{
                 "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
-                    "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
+                    "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
                 },
             }],
             service_execution_role_arn=example_aws_iam_role["arn"])
@@ -701,7 +701,7 @@ class Connector(pulumi.CustomResource):
             plugins=[{
                 "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
-                    "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
+                    "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
                 },
             }],
             service_execution_role_arn=example_aws_iam_role["arn"])

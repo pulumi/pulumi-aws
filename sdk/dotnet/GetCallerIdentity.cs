@@ -25,7 +25,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -53,7 +53,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
@@ -81,7 +81,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {

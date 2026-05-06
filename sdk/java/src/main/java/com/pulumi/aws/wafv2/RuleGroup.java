@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -122,8 +122,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -165,8 +165,8 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("notStatement", Map.of("statements", RuleGroupRuleStatementArgs.builder()
- *                         .andStatement(Map.of("statements",                         
+ *                     .statement(Map.of("notStatement", Map.of("statements", Arrays.asList(Map.of("andStatement", RuleGroupRuleStatementAndStatementArgs.builder()
+ *                         .statements(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
  *                                     .countryCodes("US")
@@ -190,8 +190,8 @@ import javax.annotation.Nullable;
  *                                             .type("LOWERCASE")
  *                                             .build())
  *                                     .build())
- *                                 .build()))
- *                         .build())))
+ *                                 .build())
+ *                         .build())))))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-1")
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .statement(RuleGroupRuleStatementArgs.builder()
- *                         .orStatement(Map.of("statements",                         
+ *                         .orStatement(Map.of("statements", Arrays.asList(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .regexMatchStatement(RuleGroupRuleStatementRegexMatchStatementArgs.builder()
  *                                     .regexString("a-z?")
@@ -253,7 +253,7 @@ import javax.annotation.Nullable;
  *                                         .type("NONE")
  *                                         .build())
  *                                     .build())
- *                                 .build()))
+ *                                 .build())))
  *                         .build())
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
@@ -301,8 +301,8 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("orStatement", RuleGroupRuleStatementOrStatementArgs.builder()
- *                         .statements(                        
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .orStatement(Map.of("statements", Arrays.asList(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .ipSetReferenceStatement(RuleGroupRuleStatementIpSetReferenceStatementArgs.builder()
  *                                     .arn(test.arn())
@@ -321,8 +321,8 @@ import javax.annotation.Nullable;
  *                                         .type("NONE")
  *                                         .build())
  *                                     .build())
- *                                 .build())
- *                         .build()))
+ *                                 .build())))
+ *                         .build())
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-4")
@@ -334,7 +334,7 @@ import javax.annotation.Nullable;
  *                 .metricName("friendly-metric-name")
  *                 .sampledRequestsEnabled(false)
  *                 .build())
- *             .captchaConfig(List.of(Map.of("immunityTimeProperty", List.of(Map.of("immunityTime", 120)))))
+ *             .captchaConfig(Arrays.asList(Map.of("immunityTimeProperty", Arrays.asList(Map.of("immunityTime", 120)))))
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example-and-statement"),
  *                 Map.entry("Code", "123456")
@@ -359,8 +359,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.RuleGroupArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

@@ -26,86 +26,88 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "cloudfront.amazonaws.com",
-// },
-// },
-// },
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// Name: pulumi.String("cloudfront-realtime-log-config-example"),
-// AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
-// })
-// if err != nil {
-// return err
-// }
-// example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "kinesis:DescribeStreamSummary",
-// "kinesis:DescribeStream",
-// "kinesis:PutRecord",
-// "kinesis:PutRecords",
-// },
-// Resources: interface{}{
-// exampleAwsKinesisStream.Arn,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleRolePolicy, err := iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Name: pulumi.String("cloudfront-realtime-log-config-example"),
-// Role: exampleRole.ID(),
-// Policy: pulumi.String(pulumi.String(example.Json)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
-// Name: pulumi.String("example"),
-// SamplingRate: pulumi.Int(75),
-// Fields: pulumi.StringArray{
-// pulumi.String("timestamp"),
-// pulumi.String("c-ip"),
-// },
-// Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
-// StreamType: pulumi.String("Kinesis"),
-// KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
-// RoleArn: exampleRole.Arn,
-// StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-// },
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleRolePolicy,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"cloudfront.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("cloudfront-realtime-log-config-example"),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"kinesis:DescribeStreamSummary",
+//							"kinesis:DescribeStream",
+//							"kinesis:PutRecord",
+//							"kinesis:PutRecords",
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleAwsKinesisStream.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRolePolicy, err := iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("cloudfront-realtime-log-config-example"),
+//				Role:   exampleRole.ID(),
+//				Policy: pulumi.String(pulumi.String(example.Json)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
+//				Name:         pulumi.String("example"),
+//				SamplingRate: pulumi.Int(75),
+//				Fields: pulumi.StringArray{
+//					pulumi.String("timestamp"),
+//					pulumi.String("c-ip"),
+//				},
+//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+//					StreamType: pulumi.String("Kinesis"),
+//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+//						RoleArn:   exampleRole.Arn,
+//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleRolePolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

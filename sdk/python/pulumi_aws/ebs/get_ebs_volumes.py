@@ -111,7 +111,7 @@ def get_ebs_volumes(filters: Optional[Sequence[Union['GetEbsVolumesFilterArgs', 
     example = aws.ebs.get_ebs_volumes(tags={
         "VolumeSet": "TestVolumeSet",
     })
-    example_get_volume = {__key: aws.ebs.get_volume(filters=[{
+    example_get_volume = {str(__key): aws.ebs.get_volume(filters=[{
         "name": "volume-id",
         "values": [__value],
     }]) for __key, __value in enumerate(example.ids)}
@@ -160,7 +160,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     example = aws.ebs.get_ebs_volumes(tags={
         "VolumeSet": "TestVolumeSet",
     })
-    example_get_volume = {__key: aws.ebs.get_volume(filters=[{
+    example_get_volume = {str(__key): aws.ebs.get_volume(filters=[{
         "name": "volume-id",
         "values": [__value],
     }]) for __key, __value in enumerate(example.ids)}

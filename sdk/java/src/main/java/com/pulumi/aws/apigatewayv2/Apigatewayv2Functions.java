@@ -38,8 +38,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -78,8 +78,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -118,8 +118,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -198,8 +198,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -278,8 +278,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -358,8 +358,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -398,8 +398,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -438,8 +438,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -478,8 +478,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -518,8 +518,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -560,8 +560,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -602,8 +602,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -644,8 +644,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -686,8 +686,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -730,8 +730,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -772,8 +772,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -814,8 +814,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -856,8 +856,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -898,8 +898,8 @@ public final class Apigatewayv2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
      * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

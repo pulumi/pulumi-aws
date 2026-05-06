@@ -95,7 +95,7 @@ def get_configuration_profiles(application_id: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+    example_get_configuration_profile = {str(__key): aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
         application_id=example_aws_appconfig_application["id"]) for __key, __value in enumerate(example.configuration_profile_ids)}
     ```
 
@@ -130,7 +130,7 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[_bui
     import pulumi_aws as aws
 
     example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+    example_get_configuration_profile = {str(__key): aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
         application_id=example_aws_appconfig_application["id"]) for __key, __value in enumerate(example.configuration_profile_ids)}
     ```
 

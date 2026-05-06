@@ -65,11 +65,11 @@ import * as utilities from "../utilities";
  * const exampleSubnet: aws.ec2.Subnet[] = [];
  * for (const range = {value: 0}; range.value < 5; range.value++) {
  *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
- *         cidrBlock: example.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
- *             input: cidrBlock,
+ *         cidrBlock: std.cidrsubnetOutput({
+ *             input: example.cidrBlock,
  *             newbits: 8,
  *             netnum: range.value,
- *         })).apply(invoke => invoke.result),
+ *         }).apply(invoke => invoke.result),
  *         availabilityZone: available.then(available => available.names[range.value]),
  *         vpcId: example.id,
  *     }));

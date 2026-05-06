@@ -516,7 +516,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
             network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
-            volume_size_in_bytes=5368709120)
+            volume_size_in_bytes=int(5368709120))
         ```
 
         ### Create Cached iSCSI Volume From Snapshot
@@ -530,7 +530,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
-            volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
+            volume_size_in_bytes=int(float(example_aws_ebs_snapshot["volumeSize"]) * float(1024) * float(1024) * float(1024)))
         ```
 
         ### Create Cached iSCSI Volume From Source Volume
@@ -544,7 +544,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=existing["volumeSizeInBytes"])
+            volume_size_in_bytes=int(existing["volumeSizeInBytes"]))
         ```
 
         ## Import
@@ -596,7 +596,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             gateway_arn=example_aws_storagegateway_cache["gatewayArn"],
             network_interface_id=example_aws_instance["privateIp"],
             target_name="example",
-            volume_size_in_bytes=5368709120)
+            volume_size_in_bytes=int(5368709120))
         ```
 
         ### Create Cached iSCSI Volume From Snapshot
@@ -610,7 +610,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             snapshot_id=example_aws_ebs_snapshot["id"],
             target_name="example",
-            volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
+            volume_size_in_bytes=int(float(example_aws_ebs_snapshot["volumeSize"]) * float(1024) * float(1024) * float(1024)))
         ```
 
         ### Create Cached iSCSI Volume From Source Volume
@@ -624,7 +624,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             network_interface_id=example_aws_instance["privateIp"],
             source_volume_arn=existing["arn"],
             target_name="example",
-            volume_size_in_bytes=existing["volumeSizeInBytes"])
+            volume_size_in_bytes=int(existing["volumeSizeInBytes"]))
         ```
 
         ## Import

@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *     clusterId: config?.cache?.clusterId,
  *     engine: config?.cache?.engine,
  *     nodeType: config?.cache?.nodeType,
- *     numCacheNodes: config?.cache?.nodes,
+ *     numCacheNodes: Number(config?.cache?.nodes),
  *     parameterGroupName: config?.cache?.parameterGroup,
  *     tags: config?.tags,
  * });
@@ -177,7 +177,7 @@ export interface GetInvocationResult {
  *     clusterId: config?.cache?.clusterId,
  *     engine: config?.cache?.engine,
  *     nodeType: config?.cache?.nodeType,
- *     numCacheNodes: config?.cache?.nodes,
+ *     numCacheNodes: Number(config?.cache?.nodes),
  *     parameterGroupName: config?.cache?.parameterGroup,
  *     tags: config?.tags,
  * });

@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         vpcId: cloudhsmV2Vpc.id,
  *         cidrBlock: subnets[range.value],
  *         mapPublicIpOnLaunch: false,
- *         availabilityZone: available.then(available => available.names[range.value]),
+ *         availabilityZone: available.then(available => available.names)[range.value],
  *         tags: {
  *             Name: "example-aws_cloudhsm_v2_cluster",
  *         },

@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
  *             id: foo.id,
- *             version: foo.latestVersion,
+ *             version: foo.latestVersion.apply(x =>String(x)),
  *         },
  *     }],
  * }, {
@@ -179,7 +179,7 @@ import * as utilities from "../utilities";
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
  *             id: foo.id,
- *             version: foo.latestVersion,
+ *             version: foo.latestVersion.apply(x =>String(x)),
  *         },
  *         overrides: [
  *             {

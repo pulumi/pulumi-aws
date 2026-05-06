@@ -36,8 +36,8 @@ import (
 // DesiredCount: pulumi.IntRef(1),
 // LaunchType: pulumi.StringRef("FARGATE"),
 // NetworkConfiguration: ecs.GetTaskExecutionNetworkConfiguration{
-// Subnets: []string(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,22-44)),
-// SecurityGroups: interface{}{
+// Subnets: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,22-44)),
+// SecurityGroups: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
 // AssignPublicIp: pulumi.BoolRef(false),

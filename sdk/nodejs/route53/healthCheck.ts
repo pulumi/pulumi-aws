@@ -112,7 +112,7 @@ import * as utilities from "../utilities";
  *     cloudwatchAlarmRegion: "us-west-2",
  *     insufficientDataHealthStatus: "Healthy",
  *     triggers: {
- *         threshold: example.threshold,
+ *         threshold: example.threshold.apply(x =>String(x)),
  *     },
  * });
  * ```

@@ -601,7 +601,7 @@ class Plan(pulumi.CustomResource):
                             "execution_block_type": "CustomActionLambda",
                             "custom_action_lambda_configs": [{
                                 "region_to_run": "activatingRegion",
-                                "retry_interval_minutes": 5,
+                                "retry_interval_minutes": float(5),
                                 "timeout_minutes": 30,
                                 "lambdas": [{
                                     "arn": example["arn"],
@@ -790,7 +790,7 @@ class Plan(pulumi.CustomResource):
                             "execution_block_type": "CustomActionLambda",
                             "custom_action_lambda_configs": [{
                                 "region_to_run": "activatingRegion",
-                                "retry_interval_minutes": 5,
+                                "retry_interval_minutes": float(5),
                                 "timeout_minutes": 30,
                                 "lambdas": [{
                                     "arn": example["arn"],

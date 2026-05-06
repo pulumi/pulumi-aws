@@ -1360,7 +1360,7 @@ class Service(pulumi.CustomResource):
                 "strategy": "LINEAR",
                 "bake_time_in_minutes": "10",
                 "linear_configuration": {
-                    "step_percent": 25,
+                    "step_percent": float(25),
                     "step_bake_time_in_minutes": "5",
                 },
             })
@@ -1379,7 +1379,7 @@ class Service(pulumi.CustomResource):
                 "strategy": "CANARY",
                 "bake_time_in_minutes": "15",
                 "canary_configuration": {
-                    "canary_percent": 10,
+                    "canary_percent": float(10),
                     "canary_bake_time_in_minutes": "5",
                 },
             })
@@ -1625,7 +1625,7 @@ class Service(pulumi.CustomResource):
                 "strategy": "LINEAR",
                 "bake_time_in_minutes": "10",
                 "linear_configuration": {
-                    "step_percent": 25,
+                    "step_percent": float(25),
                     "step_bake_time_in_minutes": "5",
                 },
             })
@@ -1644,7 +1644,7 @@ class Service(pulumi.CustomResource):
                 "strategy": "CANARY",
                 "bake_time_in_minutes": "15",
                 "canary_configuration": {
-                    "canary_percent": 10,
+                    "canary_percent": float(10),
                     "canary_bake_time_in_minutes": "5",
                 },
             })

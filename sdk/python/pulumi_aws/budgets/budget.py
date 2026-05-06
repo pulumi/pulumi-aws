@@ -710,7 +710,7 @@ class Budget(pulumi.CustomResource):
             }],
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
@@ -999,7 +999,7 @@ class Budget(pulumi.CustomResource):
             },
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
@@ -1070,7 +1070,7 @@ class Budget(pulumi.CustomResource):
             }],
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],
@@ -1359,7 +1359,7 @@ class Budget(pulumi.CustomResource):
             },
             notifications=[{
                 "comparison_operator": "GREATER_THAN",
-                "threshold": 100,
+                "threshold": float(100),
                 "threshold_type": "PERCENTAGE",
                 "notification_type": "FORECASTED",
                 "subscriber_email_addresses": ["test@example.com"],

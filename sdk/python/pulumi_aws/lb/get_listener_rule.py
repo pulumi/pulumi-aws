@@ -174,7 +174,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
     lb_listener_arn = config.require("lbListenerArn")
     lb_rule_priority = config.require_float("lbRulePriority")
     example = aws.lb.get_listener_rule(listener_arn=lb_listener_arn,
-        priority=lb_rule_priority)
+        priority=int(lb_rule_priority))
     ```
 
 
@@ -246,7 +246,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
     lb_listener_arn = config.require("lbListenerArn")
     lb_rule_priority = config.require_float("lbRulePriority")
     example = aws.lb.get_listener_rule(listener_arn=lb_listener_arn,
-        priority=lb_rule_priority)
+        priority=int(lb_rule_priority))
     ```
 
 

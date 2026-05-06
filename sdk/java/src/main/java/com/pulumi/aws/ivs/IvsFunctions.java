@@ -31,8 +31,8 @@ public final class IvsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ivs.IvsFunctions;
      * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -73,8 +73,8 @@ public final class IvsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ivs.IvsFunctions;
      * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -115,8 +115,8 @@ public final class IvsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ivs.IvsFunctions;
      * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -157,8 +157,8 @@ public final class IvsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ivs.IvsFunctions;
      * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -199,8 +199,8 @@ public final class IvsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ivs.IvsFunctions;
      * import com.pulumi.aws.ivs.inputs.GetStreamKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -374,7 +374,7 @@ class AutomationRule(pulumi.CustomResource):
                 "finding_fields_update": {
                     "severity": {
                         "label": "CRITICAL",
-                        "product": 0,
+                        "product": float(0),
                     },
                     "note": {
                         "text": "This is a critical resource. Please review ASAP.",
@@ -446,7 +446,7 @@ class AutomationRule(pulumi.CustomResource):
                 "finding_fields_update": {
                     "severity": {
                         "label": "CRITICAL",
-                        "product": 0,
+                        "product": float(0),
                     },
                     "note": {
                         "text": "This is a critical resource. Please review ASAP.",

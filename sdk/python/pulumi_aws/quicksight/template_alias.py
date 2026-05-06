@@ -241,7 +241,7 @@ class TemplateAlias(pulumi.CustomResource):
         example = aws.quicksight.TemplateAlias("example",
             alias_name="example-alias",
             template_id=test["templateId"],
-            template_version_number=test["versionNumber"])
+            template_version_number=int(test["versionNumber"]))
         ```
 
         ## Import
@@ -283,7 +283,7 @@ class TemplateAlias(pulumi.CustomResource):
         example = aws.quicksight.TemplateAlias("example",
             alias_name="example-alias",
             template_id=test["templateId"],
-            template_version_number=test["versionNumber"])
+            template_version_number=int(test["versionNumber"]))
         ```
 
         ## Import

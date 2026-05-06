@@ -314,10 +314,10 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
             description="Shared compute for production collections",
             standby_replicas="ENABLED",
             capacity_limits=[{
-                "min_indexing_capacity_in_ocu": 2,
-                "max_indexing_capacity_in_ocu": 16,
-                "min_search_capacity_in_ocu": 2,
-                "max_search_capacity_in_ocu": 16,
+                "min_indexing_capacity_in_ocu": float(2),
+                "max_indexing_capacity_in_ocu": float(16),
+                "min_search_capacity_in_ocu": float(2),
+                "max_search_capacity_in_ocu": float(16),
             }])
         ```
 
@@ -376,10 +376,10 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
             description="Shared compute for production collections",
             standby_replicas="ENABLED",
             capacity_limits=[{
-                "min_indexing_capacity_in_ocu": 2,
-                "max_indexing_capacity_in_ocu": 16,
-                "min_search_capacity_in_ocu": 2,
-                "max_search_capacity_in_ocu": 16,
+                "min_indexing_capacity_in_ocu": float(2),
+                "max_indexing_capacity_in_ocu": float(16),
+                "min_search_capacity_in_ocu": float(2),
+                "max_search_capacity_in_ocu": float(16),
             }])
         ```
 

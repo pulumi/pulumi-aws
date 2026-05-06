@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const example = new aws.quicksight.TemplateAlias("example", {
  *     aliasName: "example-alias",
  *     templateId: test.templateId,
- *     templateVersionNumber: test.versionNumber,
+ *     templateVersionNumber: Number(test.versionNumber),
  * });
  * ```
  *

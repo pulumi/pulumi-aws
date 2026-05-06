@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleGetPolicy = example.then(example => std.toset({
  *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.organizations.getPolicy({
  *     policyId: __value,
  * }) }), {}));
  * ```
@@ -74,7 +74,7 @@ export interface GetPoliciesResult {
  * });
  * const exampleGetPolicy = example.then(example => std.toset({
  *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.organizations.getPolicy({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.organizations.getPolicy({
  *     policyId: __value,
  * }) }), {}));
  * ```

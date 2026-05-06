@@ -145,9 +145,9 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var current = Aws.Index.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var kmsKeyPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {

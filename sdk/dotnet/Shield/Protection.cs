@@ -25,11 +25,11 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.Index.GetAvailabilityZones.Invoke();
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
     /// 
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentGetCallerIdentity = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.Ec2.Eip("example", new()
     ///     {

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.SecurityHub
     /// {
     ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
     ///     var cis = new Aws.SecurityHub.StandardsSubscription("cis", new()
     ///     {

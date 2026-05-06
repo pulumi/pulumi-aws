@@ -890,7 +890,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         foo = aws.route53.HealthCheck("foo",
             type="CLOUDWATCH_METRIC",
@@ -916,7 +916,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         example_health_check = aws.route53.HealthCheck("example",
             type="CLOUDWATCH_METRIC",
@@ -924,7 +924,7 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy",
             triggers={
-                "threshold": example.threshold,
+                "threshold": example.threshold.apply(lambda x: str(x)),
             })
         ```
 
@@ -1042,7 +1042,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         foo = aws.route53.HealthCheck("foo",
             type="CLOUDWATCH_METRIC",
@@ -1068,7 +1068,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         example_health_check = aws.route53.HealthCheck("example",
             type="CLOUDWATCH_METRIC",
@@ -1076,7 +1076,7 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy",
             triggers={
-                "threshold": example.threshold,
+                "threshold": example.threshold.apply(lambda x: str(x)),
             })
         ```
 

@@ -418,7 +418,7 @@ class CapacityProvider(pulumi.CustomResource):
                 "scaling_mode": "Manual",
                 "scaling_policies": [{
                     "predefined_metric_type": "LambdaCapacityProviderAverageCPUUtilization",
-                    "target_value": 50,
+                    "target_value": float(50),
                 }],
             }])
         ```
@@ -499,7 +499,7 @@ class CapacityProvider(pulumi.CustomResource):
                 "scaling_mode": "Manual",
                 "scaling_policies": [{
                     "predefined_metric_type": "LambdaCapacityProviderAverageCPUUtilization",
-                    "target_value": 50,
+                    "target_value": float(50),
                 }],
             }])
         ```

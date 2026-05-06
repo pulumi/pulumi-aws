@@ -687,7 +687,7 @@ class TaskSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.TaskSet("example", scale={
-            "value": 50,
+            "value": float(50),
         })
         ```
 
@@ -758,7 +758,7 @@ class TaskSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.TaskSet("example", scale={
-            "value": 50,
+            "value": float(50),
         })
         ```
 

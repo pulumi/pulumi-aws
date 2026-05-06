@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///         {
     ///             new Aws.WorkSpacesWeb.Inputs.TrustStoreCertificateArgs
     ///             {
-    ///                 Body = Std.Index.File.Invoke(new()
+    ///                 Body = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "certificate.pem",
     ///                 }).Apply(invoke =&gt; invoke.Result),
@@ -59,14 +59,14 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///         {
     ///             new Aws.WorkSpacesWeb.Inputs.TrustStoreCertificateArgs
     ///             {
-    ///                 Body = Std.Index.File.Invoke(new()
+    ///                 Body = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "certificate1.pem",
     ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///             new Aws.WorkSpacesWeb.Inputs.TrustStoreCertificateArgs
     ///             {
-    ///                 Body = Std.Index.File.Invoke(new()
+    ///                 Body = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "certificate2.pem",
     ///                 }).Apply(invoke =&gt; invoke.Result),

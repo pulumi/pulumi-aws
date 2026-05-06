@@ -429,7 +429,7 @@ class ShardGroup(pulumi.CustomResource):
         example_shard_group = aws.rds.ShardGroup("example",
             db_shard_group_identifier="example-shard-group",
             db_cluster_identifier=example.id,
-            max_acu=1200)
+            max_acu=float(1200))
         ```
 
         ## Import
@@ -488,7 +488,7 @@ class ShardGroup(pulumi.CustomResource):
         example_shard_group = aws.rds.ShardGroup("example",
             db_shard_group_identifier="example-shard-group",
             db_cluster_identifier=example.id,
-            max_acu=1200)
+            max_acu=float(1200))
         ```
 
         ## Import

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ram
     ///         },
     ///     });
     /// 
-    ///     var receiver = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var receiver = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var senderInvite = new Aws.Ram.PrincipalAssociation("sender_invite", new()
     ///     {

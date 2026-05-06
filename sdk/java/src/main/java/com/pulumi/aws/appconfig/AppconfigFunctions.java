@@ -43,8 +43,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -211,8 +211,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -253,8 +253,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -295,8 +295,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -337,8 +337,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -380,8 +380,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -423,8 +423,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -466,8 +466,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -509,8 +509,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetConfigurationProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -612,8 +612,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -655,8 +655,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -698,8 +698,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -741,8 +741,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -784,8 +784,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -828,8 +828,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -871,8 +871,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -914,8 +914,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -957,8 +957,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1000,8 +1000,8 @@ public final class AppconfigFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appconfig.AppconfigFunctions;
      * import com.pulumi.aws.appconfig.inputs.GetEnvironmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

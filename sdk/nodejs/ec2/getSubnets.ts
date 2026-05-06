@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleGetSubnet = example.then(example => std.toset({
  *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getSubnet({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getSubnet({
  *     id: __value,
  * }) }), {}));
  * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));
@@ -130,7 +130,7 @@ export interface GetSubnetsResult {
  * });
  * const exampleGetSubnet = example.then(example => std.toset({
  *     input: example.ids,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getSubnet({
+ * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getSubnet({
  *     id: __value,
  * }) }), {}));
  * export const subnetCidrBlocks = exampleGetSubnet.apply(exampleGetSubnet => Object.values(exampleGetSubnet).map(s => (s.cidrBlock)));

@@ -41,8 +41,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -201,8 +201,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -241,8 +241,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -361,8 +361,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -401,8 +401,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -444,8 +444,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -487,8 +487,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -530,8 +530,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -573,8 +573,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -616,8 +616,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -659,8 +659,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -701,8 +701,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -743,8 +743,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -785,8 +785,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -827,8 +827,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -869,8 +869,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -911,8 +911,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetLocationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -952,8 +952,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -995,8 +995,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1038,8 +1038,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1081,8 +1081,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1124,8 +1124,8 @@ public final class DirectconnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.directconnect.DirectconnectFunctions;
      * import com.pulumi.aws.directconnect.inputs.GetRouterConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

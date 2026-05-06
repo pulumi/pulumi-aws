@@ -164,7 +164,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
+            for range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],
@@ -180,7 +180,7 @@ class CertificateValidation(pulumi.CustomResource):
         } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example_certificate.arn,
-            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
+            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record.values()]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
 
@@ -203,7 +203,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
+            for range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],
@@ -220,7 +220,7 @@ class CertificateValidation(pulumi.CustomResource):
         } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example.arn,
-            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
+            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record.values()]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
 
@@ -276,7 +276,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
+            for range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],
@@ -292,7 +292,7 @@ class CertificateValidation(pulumi.CustomResource):
         } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example_certificate.arn,
-            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
+            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record.values()]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
 
@@ -315,7 +315,7 @@ class CertificateValidation(pulumi.CustomResource):
             private_zone=False)
         example_record = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in (range_body).items()]:
+            for range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
                 example_record.append(aws.route53.Record(f"example-{range['key']}",
                     allow_overwrite=True,
                     name=range["value"]["name"],
@@ -332,7 +332,7 @@ class CertificateValidation(pulumi.CustomResource):
         } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example.arn,
-            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
+            validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record.values()]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
 

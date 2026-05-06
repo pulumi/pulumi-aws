@@ -36,8 +36,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -168,8 +168,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -212,8 +212,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -254,8 +254,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -296,8 +296,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -338,8 +338,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -380,8 +380,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -422,8 +422,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -464,8 +464,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -506,8 +506,8 @@ public final class SqsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sqs.SqsFunctions;
      * import com.pulumi.aws.sqs.inputs.GetQueuesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -61,13 +61,21 @@ import (
 //				return err
 //			}
 //			_, err = uxc.NewAccountCustomizations(ctx, "example", &uxc.AccountCustomizationsArgs{
-//				VisibleServices: interface{}(example.Services),
+//				VisibleServices: toPulumiStringArray(example.Services),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			return nil
 //		})
+//	}
+//
+//	func toPulumiStringArray(arr []string) pulumi.StringArray {
+//		var pulumiArr pulumi.StringArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.String(v))
+//		}
+//		return pulumiArr
 //	}
 //
 // ```

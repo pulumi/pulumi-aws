@@ -32,139 +32,137 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// assumeRoleTransfer, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "sts:AssumeRole",
-// "sts:SetContext",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "transfer.amazonaws.com",
-// },
-// },
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "aws:SourceAccount",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-// Name: pulumi.String("example"),
-// AssumeRolePolicy: pulumi.String(pulumi.String(assumeRoleTransfer.Json)),
-// })
-// if err != nil {
-// return err
-// }
-// exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "s3:GetDataAccess",
-// "s3:ListCallerAccessGrants",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:%v:s3:%v:%v:access-grants/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "s3:ResourceAccount",
-// },
-// },
-// },
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "s3:ListAccessGrantsInstances",
-// },
-// Resources: []string{
-// "*",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Values: interface{}{
-// current.AccountId,
-// },
-// Variable: "s3:ResourceAccount",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-// Policy: pulumi.String(pulumi.String(exampleGetPolicyDocument.Json)),
-// Role: exampleRole.Name,
-// })
-// if err != nil {
-// return err
-// }
-// _, err = transfer.NewWebApp(ctx, "example", &transfer.WebAppArgs{
-// IdentityProviderDetails: &transfer.WebAppIdentityProviderDetailsArgs{
-// IdentityCenterConfig: &transfer.WebAppIdentityProviderDetailsIdentityCenterConfigArgs{
-// InstanceArn: pulumi.String(example.Arns[0]),
-// Role: exampleRole.Arn,
-// },
-// },
-// WebAppUnits: transfer.WebAppWebAppUnitArray{
-// &transfer.WebAppWebAppUnitArgs{
-// Provisioned: pulumi.Int(1),
-// },
-// },
-// Tags: pulumi.StringMap{
-// "Name": pulumi.String("test"),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			assumeRoleTransfer, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//							"sts:SetContext",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"transfer.amazonaws.com",
+//								},
+//							},
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test: "StringEquals",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//								Variable: "aws:SourceAccount",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRoleTransfer.Json)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"s3:GetDataAccess",
+//							"s3:ListCallerAccessGrants",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:%v:s3:%v:%v:access-grants/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test: "StringEquals",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//								Variable: "s3:ResourceAccount",
+//							},
+//						},
+//					},
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"s3:ListAccessGrantsInstances",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test: "StringEquals",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//								Variable: "s3:ResourceAccount",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+//				Policy: pulumi.String(pulumi.String(exampleGetPolicyDocument.Json)),
+//				Role:   exampleRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = transfer.NewWebApp(ctx, "example", &transfer.WebAppArgs{
+//				IdentityProviderDetails: &transfer.WebAppIdentityProviderDetailsArgs{
+//					IdentityCenterConfig: &transfer.WebAppIdentityProviderDetailsIdentityCenterConfigArgs{
+//						InstanceArn: pulumi.String(example.Arns[0]),
+//						Role:        exampleRole.Arn,
+//					},
+//				},
+//				WebAppUnits: transfer.WebAppWebAppUnitArray{
+//					&transfer.WebAppWebAppUnitArgs{
+//						Provisioned: pulumi.Int(1),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

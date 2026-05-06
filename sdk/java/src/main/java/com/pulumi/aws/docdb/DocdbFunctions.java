@@ -32,8 +32,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -72,8 +72,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -112,8 +112,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -152,8 +152,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -192,8 +192,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -232,8 +232,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -272,8 +272,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -312,8 +312,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -358,8 +358,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -404,8 +404,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -450,8 +450,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -496,8 +496,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -542,8 +542,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -588,8 +588,8 @@ public final class DocdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.docdb.DocdbFunctions;
      * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

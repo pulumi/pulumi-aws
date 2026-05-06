@@ -396,7 +396,7 @@ class Policy(pulumi.CustomResource):
                 "predefined_metric_specification": {
                     "predefined_metric_type": "DynamoDBReadCapacityUtilization",
                 },
-                "target_value": 70,
+                "target_value": float(70),
             })
         ```
 
@@ -464,7 +464,7 @@ class Policy(pulumi.CustomResource):
                 "predefined_metric_specification": {
                     "predefined_metric_type": "RDSReaderAverageCPUUtilization",
                 },
-                "target_value": 75,
+                "target_value": float(75),
                 "scale_in_cooldown": 300,
                 "scale_out_cooldown": 300,
             })
@@ -489,7 +489,7 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
             target_tracking_scaling_policy_configuration={
-                "target_value": 100,
+                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
@@ -585,7 +585,7 @@ class Policy(pulumi.CustomResource):
                 "predefined_metric_specification": {
                     "predefined_metric_type": "KafkaBrokerStorageUtilization",
                 },
-                "target_value": 55,
+                "target_value": float(55),
             })
         ```
 
@@ -643,7 +643,7 @@ class Policy(pulumi.CustomResource):
                 "predefined_metric_specification": {
                     "predefined_metric_type": "DynamoDBReadCapacityUtilization",
                 },
-                "target_value": 70,
+                "target_value": float(70),
             })
         ```
 
@@ -711,7 +711,7 @@ class Policy(pulumi.CustomResource):
                 "predefined_metric_specification": {
                     "predefined_metric_type": "RDSReaderAverageCPUUtilization",
                 },
-                "target_value": 75,
+                "target_value": float(75),
                 "scale_in_cooldown": 300,
                 "scale_out_cooldown": 300,
             })
@@ -736,7 +736,7 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
             target_tracking_scaling_policy_configuration={
-                "target_value": 100,
+                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
@@ -832,7 +832,7 @@ class Policy(pulumi.CustomResource):
                 "predefined_metric_specification": {
                     "predefined_metric_type": "KafkaBrokerStorageUtilization",
                 },
-                "target_value": 55,
+                "target_value": float(55),
             })
         ```
 

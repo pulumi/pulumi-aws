@@ -861,7 +861,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",
@@ -883,7 +883,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",
@@ -1011,7 +1011,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",
@@ -1033,7 +1033,7 @@ class Broker(pulumi.CustomResource):
             broker_name="example",
             configuration={
                 "id": test["id"],
-                "revision": test["latestRevision"],
+                "revision": int(test["latestRevision"]),
             },
             engine_type="ActiveMQ",
             engine_version="5.17.6",

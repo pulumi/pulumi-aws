@@ -327,7 +327,7 @@ class InstanceFleet(pulumi.CustomResource):
             cluster_id=cluster["id"],
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -337,7 +337,7 @@ class InstanceFleet(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -403,7 +403,7 @@ class InstanceFleet(pulumi.CustomResource):
             cluster_id=cluster["id"],
             instance_type_configs=[
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",
@@ -413,7 +413,7 @@ class InstanceFleet(pulumi.CustomResource):
                     "weighted_capacity": 1,
                 },
                 {
-                    "bid_price_as_percentage_of_on_demand_price": 100,
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
                     "ebs_configs": [{
                         "size": 100,
                         "type": "gp2",

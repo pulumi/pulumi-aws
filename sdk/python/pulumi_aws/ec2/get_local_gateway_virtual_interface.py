@@ -170,7 +170,7 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[Union['GetLoc
     import pulumi
     import pulumi_aws as aws
 
-    example = {__key: aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
+    example = {str(__key): aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
     ```
 
 
@@ -213,7 +213,7 @@ def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Op
     import pulumi
     import pulumi_aws as aws
 
-    example = {__key: aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
+    example = {str(__key): aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in enumerate(example_aws_ec2_local_gateway_virtual_interface_group["localGatewayVirtualInterfaceIds"])}
     ```
 
 

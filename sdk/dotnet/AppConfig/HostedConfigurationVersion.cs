@@ -151,7 +151,7 @@ namespace Pulumi.Aws.AppConfig
     ///             {
     ///                 ["loggingenabled"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["_variants"] = Std.Index.Concat.Invoke(new()
+    ///                     ["_variants"] = Std.Concat.Invoke(new()
     ///                     {
     ///                         Input = new[]
     ///                         {

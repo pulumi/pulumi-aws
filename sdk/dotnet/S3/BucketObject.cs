@@ -30,7 +30,7 @@ namespace Pulumi.Aws.S3
     ///         Bucket = "your_bucket_name",
     ///         Key = "new_object_key",
     ///         Source = new FileAsset("path/to/file"),
-    ///         Etag = Std.Index.Filemd5.Invoke(new()
+    ///         Etag = Std.Filemd5.Invoke(new()
     ///         {
     ///             Input = "path/to/file",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Organizations
         ///         Filter = "SERVICE_CONTROL_POLICY",
         ///     });
         /// 
-        ///     var exampleGetPolicy = Std.Index.Toset.Invoke(new()
+        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
         ///     {
         ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
         ///     }).Apply(invoke =&gt; );
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Organizations
         ///         Filter = "SERVICE_CONTROL_POLICY",
         ///     });
         /// 
-        ///     var exampleGetPolicy = Std.Index.Toset.Invoke(new()
+        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
         ///     {
         ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
         ///     }).Apply(invoke =&gt; );
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Organizations
         ///         Filter = "SERVICE_CONTROL_POLICY",
         ///     });
         /// 
-        ///     var exampleGetPolicy = Std.Index.Toset.Invoke(new()
+        ///     var exampleGetPolicy = Std.Toset.Invoke(new()
         ///     {
         ///         Input = exampleGetPoliciesForTarget.Apply(getPoliciesForTargetResult =&gt; getPoliciesForTargetResult.Ids),
         ///     }).Apply(invoke =&gt; );
