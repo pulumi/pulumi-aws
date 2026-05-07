@@ -157,7 +157,7 @@ type DbClusterLogDeliveryConfigurationS3Configuration struct {
 	BucketName string `pulumi:"bucketName"`
 	// Indicates whether log delivery to the S3 bucket is enabled.
 	//
-	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -177,7 +177,7 @@ type DbClusterLogDeliveryConfigurationS3ConfigurationArgs struct {
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// Indicates whether log delivery to the S3 bucket is enabled.
 	//
-	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+	// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -265,7 +265,7 @@ func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) BucketName() pul
 
 // Indicates whether log delivery to the S3 bucket is enabled.
 //
-// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 func (o DbClusterLogDeliveryConfigurationS3ConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DbClusterLogDeliveryConfigurationS3Configuration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -306,7 +306,7 @@ func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) BucketName() 
 
 // Indicates whether log delivery to the S3 bucket is enabled.
 //
-// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
+// **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
 func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbClusterLogDeliveryConfigurationS3Configuration) *bool {
 		if v == nil {
@@ -314,6 +314,162 @@ func (o DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput) Enabled() pul
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type DbClusterMaintenanceSchedule struct {
+	// Preferred maintenance window in the format `ddd:HH:MM-ddd:HH:MM`. Day must be one of `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, or `Sun`. Provide an empty string to let the system choose a window.
+	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
+	// IANA timezone identifier for the maintenance window. For example, `America/New_York` or `UTC`.
+	Timezone string `pulumi:"timezone"`
+}
+
+// DbClusterMaintenanceScheduleInput is an input type that accepts DbClusterMaintenanceScheduleArgs and DbClusterMaintenanceScheduleOutput values.
+// You can construct a concrete instance of `DbClusterMaintenanceScheduleInput` via:
+//
+//	DbClusterMaintenanceScheduleArgs{...}
+type DbClusterMaintenanceScheduleInput interface {
+	pulumi.Input
+
+	ToDbClusterMaintenanceScheduleOutput() DbClusterMaintenanceScheduleOutput
+	ToDbClusterMaintenanceScheduleOutputWithContext(context.Context) DbClusterMaintenanceScheduleOutput
+}
+
+type DbClusterMaintenanceScheduleArgs struct {
+	// Preferred maintenance window in the format `ddd:HH:MM-ddd:HH:MM`. Day must be one of `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, or `Sun`. Provide an empty string to let the system choose a window.
+	PreferredMaintenanceWindow pulumi.StringInput `pulumi:"preferredMaintenanceWindow"`
+	// IANA timezone identifier for the maintenance window. For example, `America/New_York` or `UTC`.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (DbClusterMaintenanceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i DbClusterMaintenanceScheduleArgs) ToDbClusterMaintenanceScheduleOutput() DbClusterMaintenanceScheduleOutput {
+	return i.ToDbClusterMaintenanceScheduleOutputWithContext(context.Background())
+}
+
+func (i DbClusterMaintenanceScheduleArgs) ToDbClusterMaintenanceScheduleOutputWithContext(ctx context.Context) DbClusterMaintenanceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterMaintenanceScheduleOutput)
+}
+
+func (i DbClusterMaintenanceScheduleArgs) ToDbClusterMaintenanceSchedulePtrOutput() DbClusterMaintenanceSchedulePtrOutput {
+	return i.ToDbClusterMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DbClusterMaintenanceScheduleArgs) ToDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) DbClusterMaintenanceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterMaintenanceScheduleOutput).ToDbClusterMaintenanceSchedulePtrOutputWithContext(ctx)
+}
+
+// DbClusterMaintenanceSchedulePtrInput is an input type that accepts DbClusterMaintenanceScheduleArgs, DbClusterMaintenanceSchedulePtr and DbClusterMaintenanceSchedulePtrOutput values.
+// You can construct a concrete instance of `DbClusterMaintenanceSchedulePtrInput` via:
+//
+//	        DbClusterMaintenanceScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DbClusterMaintenanceSchedulePtrInput interface {
+	pulumi.Input
+
+	ToDbClusterMaintenanceSchedulePtrOutput() DbClusterMaintenanceSchedulePtrOutput
+	ToDbClusterMaintenanceSchedulePtrOutputWithContext(context.Context) DbClusterMaintenanceSchedulePtrOutput
+}
+
+type dbClusterMaintenanceSchedulePtrType DbClusterMaintenanceScheduleArgs
+
+func DbClusterMaintenanceSchedulePtr(v *DbClusterMaintenanceScheduleArgs) DbClusterMaintenanceSchedulePtrInput {
+	return (*dbClusterMaintenanceSchedulePtrType)(v)
+}
+
+func (*dbClusterMaintenanceSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i *dbClusterMaintenanceSchedulePtrType) ToDbClusterMaintenanceSchedulePtrOutput() DbClusterMaintenanceSchedulePtrOutput {
+	return i.ToDbClusterMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *dbClusterMaintenanceSchedulePtrType) ToDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) DbClusterMaintenanceSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DbClusterMaintenanceSchedulePtrOutput)
+}
+
+type DbClusterMaintenanceScheduleOutput struct{ *pulumi.OutputState }
+
+func (DbClusterMaintenanceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o DbClusterMaintenanceScheduleOutput) ToDbClusterMaintenanceScheduleOutput() DbClusterMaintenanceScheduleOutput {
+	return o
+}
+
+func (o DbClusterMaintenanceScheduleOutput) ToDbClusterMaintenanceScheduleOutputWithContext(ctx context.Context) DbClusterMaintenanceScheduleOutput {
+	return o
+}
+
+func (o DbClusterMaintenanceScheduleOutput) ToDbClusterMaintenanceSchedulePtrOutput() DbClusterMaintenanceSchedulePtrOutput {
+	return o.ToDbClusterMaintenanceSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DbClusterMaintenanceScheduleOutput) ToDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) DbClusterMaintenanceSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DbClusterMaintenanceSchedule) *DbClusterMaintenanceSchedule {
+		return &v
+	}).(DbClusterMaintenanceSchedulePtrOutput)
+}
+
+// Preferred maintenance window in the format `ddd:HH:MM-ddd:HH:MM`. Day must be one of `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, or `Sun`. Provide an empty string to let the system choose a window.
+func (o DbClusterMaintenanceScheduleOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v DbClusterMaintenanceSchedule) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// IANA timezone identifier for the maintenance window. For example, `America/New_York` or `UTC`.
+func (o DbClusterMaintenanceScheduleOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v DbClusterMaintenanceSchedule) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type DbClusterMaintenanceSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DbClusterMaintenanceSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DbClusterMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o DbClusterMaintenanceSchedulePtrOutput) ToDbClusterMaintenanceSchedulePtrOutput() DbClusterMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o DbClusterMaintenanceSchedulePtrOutput) ToDbClusterMaintenanceSchedulePtrOutputWithContext(ctx context.Context) DbClusterMaintenanceSchedulePtrOutput {
+	return o
+}
+
+func (o DbClusterMaintenanceSchedulePtrOutput) Elem() DbClusterMaintenanceScheduleOutput {
+	return o.ApplyT(func(v *DbClusterMaintenanceSchedule) DbClusterMaintenanceSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DbClusterMaintenanceSchedule
+		return ret
+	}).(DbClusterMaintenanceScheduleOutput)
+}
+
+// Preferred maintenance window in the format `ddd:HH:MM-ddd:HH:MM`. Day must be one of `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, or `Sun`. Provide an empty string to let the system choose a window.
+func (o DbClusterMaintenanceSchedulePtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredMaintenanceWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// IANA timezone identifier for the maintenance window. For example, `America/New_York` or `UTC`.
+func (o DbClusterMaintenanceSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbClusterMaintenanceSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
 }
 
 type DbClusterTimeouts struct {
@@ -974,6 +1130,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterLogDeliveryConfigurationPtrInput)(nil)).Elem(), DbClusterLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterLogDeliveryConfigurationS3ConfigurationInput)(nil)).Elem(), DbClusterLogDeliveryConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterLogDeliveryConfigurationS3ConfigurationPtrInput)(nil)).Elem(), DbClusterLogDeliveryConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterMaintenanceScheduleInput)(nil)).Elem(), DbClusterMaintenanceScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterMaintenanceSchedulePtrInput)(nil)).Elem(), DbClusterMaintenanceScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterTimeoutsInput)(nil)).Elem(), DbClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbClusterTimeoutsPtrInput)(nil)).Elem(), DbClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbInstanceLogDeliveryConfigurationInput)(nil)).Elem(), DbInstanceLogDeliveryConfigurationArgs{})
@@ -986,6 +1144,8 @@ func init() {
 	pulumi.RegisterOutputType(DbClusterLogDeliveryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DbClusterLogDeliveryConfigurationS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(DbClusterLogDeliveryConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DbClusterMaintenanceScheduleOutput{})
+	pulumi.RegisterOutputType(DbClusterMaintenanceSchedulePtrOutput{})
 	pulumi.RegisterOutputType(DbClusterTimeoutsOutput{})
 	pulumi.RegisterOutputType(DbClusterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DbInstanceLogDeliveryConfigurationOutput{})

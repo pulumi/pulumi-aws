@@ -10,6 +10,11 @@ export type AutoshiftObserverNotificationStatus = import("./autoshiftObserverNot
 export const AutoshiftObserverNotificationStatus: typeof import("./autoshiftObserverNotificationStatus").AutoshiftObserverNotificationStatus = null as any;
 utilities.lazyLoad(exports, ["AutoshiftObserverNotificationStatus"], () => require("./autoshiftObserverNotificationStatus"));
 
+export { ZonalAutoshiftConfigurationArgs, ZonalAutoshiftConfigurationState } from "./zonalAutoshiftConfiguration";
+export type ZonalAutoshiftConfiguration = import("./zonalAutoshiftConfiguration").ZonalAutoshiftConfiguration;
+export const ZonalAutoshiftConfiguration: typeof import("./zonalAutoshiftConfiguration").ZonalAutoshiftConfiguration = null as any;
+utilities.lazyLoad(exports, ["ZonalAutoshiftConfiguration"], () => require("./zonalAutoshiftConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:arczonalshift/autoshiftObserverNotificationStatus:AutoshiftObserverNotificationStatus":
                 return new AutoshiftObserverNotificationStatus(name, <any>undefined, { urn })
+            case "aws:arczonalshift/zonalAutoshiftConfiguration:ZonalAutoshiftConfiguration":
+                return new ZonalAutoshiftConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "arczonalshift/autoshiftObserverNotificationStatus", _module)
+pulumi.runtime.registerResourceModule("aws", "arczonalshift/zonalAutoshiftConfiguration", _module)

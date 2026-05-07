@@ -27,13 +27,16 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, athena_properties=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, region=None, tags=None):
+    def __init__(__self__, arn=None, athena_properties=None, authentication_configurations=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if athena_properties and not isinstance(athena_properties, dict):
             raise TypeError("Expected argument 'athena_properties' to be a dict")
         pulumi.set(__self__, "athena_properties", athena_properties)
+        if authentication_configurations and not isinstance(authentication_configurations, list):
+            raise TypeError("Expected argument 'authentication_configurations' to be a list")
+        pulumi.set(__self__, "authentication_configurations", authentication_configurations)
         if catalog_id and not isinstance(catalog_id, str):
             raise TypeError("Expected argument 'catalog_id' to be a str")
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -77,9 +80,17 @@ class GetConnectionResult:
     @pulumi.getter(name="athenaProperties")
     def athena_properties(self) -> Mapping[str, _builtins.str]:
         """
-        A map of connection properties specific to the Athena compute environment.
+        Map of connection properties specific to the Athena compute environment.
         """
         return pulumi.get(self, "athena_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationConfigurations")
+    def authentication_configurations(self) -> Sequence['outputs.GetConnectionAuthenticationConfigurationResult']:
+        """
+        Configuration block for authentication options.
+        """
+        return pulumi.get(self, "authentication_configurations")
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
@@ -93,7 +104,7 @@ class GetConnectionResult:
     @pulumi.getter(name="connectionProperties")
     def connection_properties(self) -> Mapping[str, _builtins.str]:
         """
-        A map of connection properties.
+        Map of connection properties.
         """
         return pulumi.get(self, "connection_properties")
 
@@ -122,7 +133,7 @@ class GetConnectionResult:
     @pulumi.getter(name="matchCriterias")
     def match_criterias(self) -> Sequence[_builtins.str]:
         """
-        A list of criteria that can be used in selecting this connection.
+        List of criteria that can be used in selecting this connection.
         """
         return pulumi.get(self, "match_criterias")
 
@@ -138,7 +149,7 @@ class GetConnectionResult:
     @pulumi.getter(name="physicalConnectionRequirements")
     def physical_connection_requirements(self) -> Sequence['outputs.GetConnectionPhysicalConnectionRequirementResult']:
         """
-        A map of physical connection requirements, such as VPC and SecurityGroup.
+        Map of physical connection requirements, such as VPC and SecurityGroup.
         """
         return pulumi.get(self, "physical_connection_requirements")
 
@@ -151,7 +162,7 @@ class GetConnectionResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        Tags assigned to the resource
+        Tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -164,6 +175,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
         return GetConnectionResult(
             arn=self.arn,
             athena_properties=self.athena_properties,
+            authentication_configurations=self.authentication_configurations,
             catalog_id=self.catalog_id,
             connection_properties=self.connection_properties,
             connection_type=self.connection_type,
@@ -181,7 +193,7 @@ def get_connection(id: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
-    This data source can be used to fetch information about a specific Glue Connection.
+    Provides details about an AWS Glue Connection.
 
     ## Example Usage
 
@@ -193,10 +205,11 @@ def get_connection(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
-           `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param _builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+           
+           The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
+    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -208,6 +221,7 @@ def get_connection(id: Optional[_builtins.str] = None,
     return AwaitableGetConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
         athena_properties=pulumi.get(__ret__, 'athena_properties'),
+        authentication_configurations=pulumi.get(__ret__, 'authentication_configurations'),
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         connection_properties=pulumi.get(__ret__, 'connection_properties'),
         connection_type=pulumi.get(__ret__, 'connection_type'),
@@ -223,7 +237,7 @@ def get_connection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
-    This data source can be used to fetch information about a specific Glue Connection.
+    Provides details about an AWS Glue Connection.
 
     ## Example Usage
 
@@ -235,10 +249,11 @@ def get_connection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
-           `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param _builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+           
+           The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource
+    :param Mapping[str, _builtins.str] tags: Tags assigned to the resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -249,6 +264,7 @@ def get_connection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetConnectionResult(
         arn=pulumi.get(__response__, 'arn'),
         athena_properties=pulumi.get(__response__, 'athena_properties'),
+        authentication_configurations=pulumi.get(__response__, 'authentication_configurations'),
         catalog_id=pulumi.get(__response__, 'catalog_id'),
         connection_properties=pulumi.get(__response__, 'connection_properties'),
         connection_type=pulumi.get(__response__, 'connection_type'),

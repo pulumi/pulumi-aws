@@ -4,6 +4,8 @@
 package com.pulumi.aws.glue;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.glue.inputs.GetCatalogArgs;
+import com.pulumi.aws.glue.inputs.GetCatalogPlainArgs;
 import com.pulumi.aws.glue.inputs.GetCatalogTableArgs;
 import com.pulumi.aws.glue.inputs.GetCatalogTablePlainArgs;
 import com.pulumi.aws.glue.inputs.GetConnectionArgs;
@@ -14,6 +16,7 @@ import com.pulumi.aws.glue.inputs.GetRegistryArgs;
 import com.pulumi.aws.glue.inputs.GetRegistryPlainArgs;
 import com.pulumi.aws.glue.inputs.GetScriptArgs;
 import com.pulumi.aws.glue.inputs.GetScriptPlainArgs;
+import com.pulumi.aws.glue.outputs.GetCatalogResult;
 import com.pulumi.aws.glue.outputs.GetCatalogTableResult;
 import com.pulumi.aws.glue.outputs.GetConnectionResult;
 import com.pulumi.aws.glue.outputs.GetDataCatalogEncryptionSettingsResult;
@@ -27,6 +30,206 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class GlueFunctions {
+    /**
+     * Provides details about an AWS Glue Catalog.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalog(GetCatalogArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCatalogResult> getCatalog(GetCatalogArgs args) {
+        return getCatalog(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Glue Catalog.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalog(GetCatalogArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCatalogResult> getCatalogPlain(GetCatalogPlainArgs args) {
+        return getCatalogPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Glue Catalog.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalog(GetCatalogArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCatalogResult> getCatalog(GetCatalogArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getCatalog:getCatalog", TypeShape.of(GetCatalogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Glue Catalog.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalog(GetCatalogArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCatalogResult> getCatalog(GetCatalogArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getCatalog:getCatalog", TypeShape.of(GetCatalogResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Glue Catalog.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetCatalogArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getCatalog(GetCatalogArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCatalogResult> getCatalogPlain(GetCatalogPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:glue/getCatalog:getCatalog", TypeShape.of(GetCatalogResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
      * 
@@ -233,7 +436,7 @@ public final class GlueFunctions {
         return Deployment.getInstance().invokeAsync("aws:glue/getCatalogTable:getCatalogTable", TypeShape.of(GetCatalogTableResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source can be used to fetch information about a specific Glue Connection.
+     * Provides details about an AWS Glue Connection.
      * 
      * ## Example Usage
      * 
@@ -273,7 +476,7 @@ public final class GlueFunctions {
         return getConnection(args, InvokeOptions.Empty);
     }
     /**
-     * This data source can be used to fetch information about a specific Glue Connection.
+     * Provides details about an AWS Glue Connection.
      * 
      * ## Example Usage
      * 
@@ -313,7 +516,7 @@ public final class GlueFunctions {
         return getConnectionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * This data source can be used to fetch information about a specific Glue Connection.
+     * Provides details about an AWS Glue Connection.
      * 
      * ## Example Usage
      * 
@@ -353,7 +556,7 @@ public final class GlueFunctions {
         return Deployment.getInstance().invoke("aws:glue/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source can be used to fetch information about a specific Glue Connection.
+     * Provides details about an AWS Glue Connection.
      * 
      * ## Example Usage
      * 
@@ -393,7 +596,7 @@ public final class GlueFunctions {
         return Deployment.getInstance().invoke("aws:glue/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * This data source can be used to fetch information about a specific Glue Connection.
+     * Provides details about an AWS Glue Connection.
      * 
      * ## Example Usage
      * 

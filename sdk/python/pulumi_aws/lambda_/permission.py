@@ -505,7 +505,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         test_alias = aws.lambda_.Alias("test_alias",
             name="testalias",
             description="a sample description",
@@ -700,7 +700,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         test_alias = aws.lambda_.Alias("test_alias",
             name="testalias",
             description="a sample description",

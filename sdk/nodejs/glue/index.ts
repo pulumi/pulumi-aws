@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CatalogArgs, CatalogState } from "./catalog";
+export type Catalog = import("./catalog").Catalog;
+export const Catalog: typeof import("./catalog").Catalog = null as any;
+utilities.lazyLoad(exports, ["Catalog"], () => require("./catalog"));
+
 export { CatalogDatabaseArgs, CatalogDatabaseState } from "./catalogDatabase";
 export type CatalogDatabase = import("./catalogDatabase").CatalogDatabase;
 export const CatalogDatabase: typeof import("./catalogDatabase").CatalogDatabase = null as any;
@@ -49,6 +54,11 @@ export { DevEndpointArgs, DevEndpointState } from "./devEndpoint";
 export type DevEndpoint = import("./devEndpoint").DevEndpoint;
 export const DevEndpoint: typeof import("./devEndpoint").DevEndpoint = null as any;
 utilities.lazyLoad(exports, ["DevEndpoint"], () => require("./devEndpoint"));
+
+export { GetCatalogArgs, GetCatalogResult, GetCatalogOutputArgs } from "./getCatalog";
+export const getCatalog: typeof import("./getCatalog").getCatalog = null as any;
+export const getCatalogOutput: typeof import("./getCatalog").getCatalogOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalog","getCatalogOutput"], () => require("./getCatalog"));
 
 export { GetCatalogTableArgs, GetCatalogTableResult, GetCatalogTableOutputArgs } from "./getCatalogTable";
 export const getCatalogTable: typeof import("./getCatalogTable").getCatalogTable = null as any;
@@ -135,6 +145,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:glue/catalog:Catalog":
+                return new Catalog(name, <any>undefined, { urn })
             case "aws:glue/catalogDatabase:CatalogDatabase":
                 return new CatalogDatabase(name, <any>undefined, { urn })
             case "aws:glue/catalogTable:CatalogTable":
@@ -180,6 +192,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "glue/catalog", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/catalogDatabase", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/catalogTable", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/catalogTableOptimizer", _module)

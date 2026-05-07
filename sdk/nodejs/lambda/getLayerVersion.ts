@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     name: "example_function",
  *     role: lambdaRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     layers: [example.then(example => example.arn)],
  * });
  * ```
@@ -113,7 +113,7 @@ import * as utilities from "../utilities";
  *     name: "cross_account_example",
  *     role: lambdaRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     layers: [sharedLayer.then(sharedLayer => sharedLayer.arn)],
  * });
  * ```
@@ -258,7 +258,7 @@ export interface GetLayerVersionResult {
  *     name: "example_function",
  *     role: lambdaRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     layers: [example.then(example => example.arn)],
  * });
  * ```
@@ -347,7 +347,7 @@ export interface GetLayerVersionResult {
  *     name: "cross_account_example",
  *     role: lambdaRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     layers: [sharedLayer.then(sharedLayer => sharedLayer.arn)],
  * });
  * ```

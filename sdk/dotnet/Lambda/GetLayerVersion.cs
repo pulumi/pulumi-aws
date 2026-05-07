@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "example_function",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         Layers = new[]
         ///         {
         ///             example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "cross_account_example",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         Layers = new[]
         ///         {
         ///             sharedLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "example_function",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         Layers = new[]
         ///         {
         ///             example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "cross_account_example",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         Layers = new[]
         ///         {
         ///             sharedLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
@@ -434,7 +434,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "example_function",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         Layers = new[]
         ///         {
         ///             example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
@@ -575,7 +575,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "cross_account_example",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         Layers = new[]
         ///         {
         ///             sharedLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),

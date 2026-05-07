@@ -2654,9 +2654,9 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedS
 }
 
 type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification struct {
-	// Metric type.
+	// Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a target group.
+	// Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -2672,9 +2672,9 @@ type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoad
 }
 
 type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs struct {
-	// Metric type.
+	// Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a target group.
+	// Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -2755,14 +2755,14 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedL
 	}).(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
 }
 
-// Metric type.
+// Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a target group.
+// Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		return v.ResourceLabel
@@ -2793,7 +2793,7 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedL
 	}).(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput)
 }
 
-// Metric type.
+// Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		if v == nil {
@@ -2803,7 +2803,7 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedL
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a target group.
+// Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		if v == nil {
@@ -2814,9 +2814,9 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedL
 }
 
 type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification struct {
-	// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+	// Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific target group from which to determine the total and average request count.
+	// Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -2832,9 +2832,9 @@ type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetr
 }
 
 type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs struct {
-	// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+	// Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific target group from which to determine the total and average request count.
+	// Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -2915,14 +2915,14 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedM
 	}).(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
 }
 
-// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+// Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific target group from which to determine the total and average request count.
+// Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		return v.ResourceLabel
@@ -2953,7 +2953,7 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedM
 	}).(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput)
 }
 
-// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+// Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		if v == nil {
@@ -2963,7 +2963,7 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedM
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific target group from which to determine the total and average request count.
+// Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		if v == nil {
@@ -2974,9 +2974,9 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedM
 }
 
 type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification struct {
-	// Metric type.
+	// Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific target group from which to determine the average request count.
+	// Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -2992,9 +2992,9 @@ type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScal
 }
 
 type PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs struct {
-	// Metric type.
+	// Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific target group from which to determine the average request count.
+	// Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -3075,14 +3075,14 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedS
 	}).(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
 }
 
-// Metric type.
+// Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific target group from which to determine the average request count.
+// Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		return v.ResourceLabel
@@ -3113,7 +3113,7 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedS
 	}).(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput)
 }
 
-// Metric type.
+// Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		if v == nil {
@@ -3123,7 +3123,7 @@ func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific target group from which to determine the average request count.
+// Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
 func (o PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		if v == nil {

@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Lambda
     ///         Description = "Common dependencies for Lambda functions",
     ///         CompatibleRuntimes = new[]
     ///         {
-    ///             "nodejs20.x",
+    ///             "nodejs24.x",
     ///             "python3.12",
     ///         },
     ///         CompatibleArchitectures = new[]
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "example_layered_function",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         Layers = new[]
     ///         {
     ///             example.Arn,
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "example_efs_function",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
     ///         {
     ///             SubnetIds = subnetIds,
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "example_function",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
     ///         {
     ///             LogFormat = "JSON",
@@ -447,7 +447,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "example_function",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         DeadLetterConfig = new Aws.Lambda.Inputs.FunctionDeadLetterConfigArgs
     ///         {
     ///             TargetArn = dlq.Arn,
@@ -567,7 +567,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = functionName,
     ///         Role = exampleRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
     ///         {
     ///             LogFormat = "JSON",
@@ -665,7 +665,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "example",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         MemorySize = 2048,
     ///         Publish = true,
     ///         CapacityProviderConfig = new Aws.Lambda.Inputs.FunctionCapacityProviderConfigArgs

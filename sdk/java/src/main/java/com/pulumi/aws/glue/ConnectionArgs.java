@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.glue;
 
+import com.pulumi.aws.glue.inputs.ConnectionAuthenticationConfigurationArgs;
 import com.pulumi.aws.glue.inputs.ConnectionPhysicalConnectionRequirementsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -34,6 +35,21 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for authentication options. See `authenticationConfiguration` below.
+     * 
+     */
+    @Import(name="authenticationConfiguration")
+    private @Nullable Output<ConnectionAuthenticationConfigurationArgs> authenticationConfiguration;
+
+    /**
+     * @return Configuration block for authentication options. See `authenticationConfiguration` below.
+     * 
+     */
+    public Optional<Output<ConnectionAuthenticationConfigurationArgs>> authenticationConfiguration() {
+        return Optional.ofNullable(this.authenticationConfiguration);
+    }
+
+    /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
@@ -51,8 +67,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
      * 
-     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-     * 
      */
     @Import(name="connectionProperties")
     private @Nullable Output<Map<String,String>> connectionProperties;
@@ -60,22 +74,20 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
      * 
-     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-     * 
      */
     public Optional<Output<Map<String,String>>> connectionProperties() {
         return Optional.ofNullable(this.connectionProperties);
     }
 
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     @Import(name="connectionType")
     private @Nullable Output<String> connectionType;
 
     /**
-     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     public Optional<Output<String>> connectionType() {
@@ -132,14 +144,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
      * 
      */
     @Import(name="physicalConnectionRequirements")
     private @Nullable Output<ConnectionPhysicalConnectionRequirementsArgs> physicalConnectionRequirements;
 
     /**
-     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
      * 
      */
     public Optional<Output<ConnectionPhysicalConnectionRequirementsArgs>> physicalConnectionRequirements() {
@@ -180,6 +192,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
     private ConnectionArgs(ConnectionArgs $) {
         this.athenaProperties = $.athenaProperties;
+        this.authenticationConfiguration = $.authenticationConfiguration;
         this.catalogId = $.catalogId;
         this.connectionProperties = $.connectionProperties;
         this.connectionType = $.connectionType;
@@ -231,6 +244,27 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param authenticationConfiguration Configuration block for authentication options. See `authenticationConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationConfiguration(@Nullable Output<ConnectionAuthenticationConfigurationArgs> authenticationConfiguration) {
+            $.authenticationConfiguration = authenticationConfiguration;
+            return this;
+        }
+
+        /**
+         * @param authenticationConfiguration Configuration block for authentication options. See `authenticationConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationConfiguration(ConnectionAuthenticationConfigurationArgs authenticationConfiguration) {
+            return authenticationConfiguration(Output.of(authenticationConfiguration));
+        }
+
+        /**
          * @param catalogId ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
          * 
          * @return builder
@@ -254,8 +288,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param connectionProperties Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
          * 
-         * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-         * 
          * @return builder
          * 
          */
@@ -267,8 +299,6 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param connectionProperties Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
          * 
-         * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-         * 
          * @return builder
          * 
          */
@@ -277,7 +307,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
          * 
          * @return builder
          * 
@@ -288,7 +318,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
          * 
          * @return builder
          * 
@@ -375,7 +405,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param physicalConnectionRequirements Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+         * @param physicalConnectionRequirements Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
          * 
          * @return builder
          * 
@@ -386,7 +416,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param physicalConnectionRequirements Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+         * @param physicalConnectionRequirements Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
          * 
          * @return builder
          * 

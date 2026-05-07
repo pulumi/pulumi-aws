@@ -359,7 +359,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             name="example-function",
             role=lambda_role.arn,
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
             name="example-gateway",
             role_arn=gateway_role.arn,
@@ -676,7 +676,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             name="example-function",
             role=lambda_role.arn,
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         example_agentcore_gateway = aws.bedrock.AgentcoreGateway("example",
             name="example-gateway",
             role_arn=gateway_role.arn,

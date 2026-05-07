@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .name("example-function")
  *             .role(lambdaRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .build());
  * 
  *         var exampleAgentcoreGateway = new AgentcoreGateway("exampleAgentcoreGateway", AgentcoreGatewayArgs.builder()

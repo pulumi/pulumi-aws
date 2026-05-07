@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.
+        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret` and `PasswordWo`.
         /// </summary>
         public Input<string>? Password
         {
@@ -63,6 +63,29 @@ namespace Pulumi.Aws.Fsx.Inputs
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("passwordWo")]
+        private Input<string>? _passwordWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `DomainJoinServiceAccountSecret` and `Password`. Required with `PasswordWoVersion`.
+        /// </summary>
+        public Input<string>? PasswordWo
+        {
+            get => _passwordWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version of the password. Required with `PasswordWo`. Update this argument when the value of `PasswordWo` has changed to trigger an update to the remote password.
+        /// </summary>
+        [Input("passwordWoVersion")]
+        public Input<int>? PasswordWoVersion { get; set; }
 
         /// <summary>
         /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.

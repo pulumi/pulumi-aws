@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.timestreaminfluxdb.DbClusterArgs;
 import com.pulumi.aws.timestreaminfluxdb.inputs.DbClusterState;
 import com.pulumi.aws.timestreaminfluxdb.outputs.DbClusterLogDeliveryConfiguration;
+import com.pulumi.aws.timestreaminfluxdb.outputs.DbClusterMaintenanceSchedule;
 import com.pulumi.aws.timestreaminfluxdb.outputs.DbClusterTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -224,7 +225,7 @@ import javax.annotation.Nullable;
  * 
  * ### Usage with InfluxDB V3
  * 
- * For InfluxDB V3 clusters, you can create a cluster without providing `allocatedStorage`, `bucket`, `organization`, `username`, `password`, or `deploymentType` by specifying a `dbParameterGroupIdentifier` such as `&#34;InfluxDBV3Core&#34;`. The following example shows how to create an InfluxDB V3 cluster:
+ * For InfluxDB V3 clusters, you can create a cluster without providing `allocatedStorage`, `bucket`, `organization`, `username`, `password`, or `deploymentType` by specifying a `dbParameterGroupIdentifier` such as `&#34;InfluxDBV3Core&#34;`. You can also optionally configure a maintenance schedule.
  * 
  * <pre>
  * {@code
@@ -235,6 +236,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.timestreaminfluxdb.DbCluster;
  * import com.pulumi.aws.timestreaminfluxdb.DbClusterArgs;
+ * import com.pulumi.aws.timestreaminfluxdb.inputs.DbClusterMaintenanceScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -256,6 +258,10 @@ import javax.annotation.Nullable;
  *                 example1.id(),
  *                 example2.id())
  *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *             .maintenanceSchedule(DbClusterMaintenanceScheduleArgs.builder()
+ *                 .preferredMaintenanceWindow("Sun:02:00-Sun:06:00")
+ *                 .timezone("America/New_York")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -291,10 +297,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Timestream for InfluxDB cluster using its identifier. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) ID of the Timestream for InfluxDB cluster.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Timestream for InfluxDB clusters using `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example 12345abcde
+ * $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example hzfuy146ke
  * ```
  * 
  */
@@ -467,6 +484,20 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<DbClusterLogDeliveryConfiguration>> logDeliveryConfiguration() {
         return Codegen.optional(this.logDeliveryConfiguration);
+    }
+    /**
+     * Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * 
+     */
+    @Export(name="maintenanceSchedule", refs={DbClusterMaintenanceSchedule.class}, tree="[0]")
+    private Output</* @Nullable */ DbClusterMaintenanceSchedule> maintenanceSchedule;
+
+    /**
+     * @return Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * 
+     */
+    public Output<Optional<DbClusterMaintenanceSchedule>> maintenanceSchedule() {
+        return Codegen.optional(this.maintenanceSchedule);
     }
     /**
      * Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.

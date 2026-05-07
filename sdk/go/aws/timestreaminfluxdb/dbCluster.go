@@ -219,7 +219,7 @@ import (
 //
 // ### Usage with InfluxDB V3
 //
-// For InfluxDB V3 clusters, you can create a cluster without providing `allocatedStorage`, `bucket`, `organization`, `username`, `password`, or `deploymentType` by specifying a `dbParameterGroupIdentifier` such as `"InfluxDBV3Core"`. The following example shows how to create an InfluxDB V3 cluster:
+// For InfluxDB V3 clusters, you can create a cluster without providing `allocatedStorage`, `bucket`, `organization`, `username`, `password`, or `deploymentType` by specifying a `dbParameterGroupIdentifier` such as `"InfluxDBV3Core"`. You can also optionally configure a maintenance schedule.
 //
 // ```go
 // package main
@@ -243,6 +243,10 @@ import (
 //				},
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
+//				},
+//				MaintenanceSchedule: &timestreaminfluxdb.DbClusterMaintenanceScheduleArgs{
+//					PreferredMaintenanceWindow: pulumi.String("Sun:02:00-Sun:06:00"),
+//					Timezone:                   pulumi.String("America/New_York"),
 //				},
 //			})
 //			if err != nil {
@@ -282,10 +286,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Timestream for InfluxDB cluster using its identifier. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) ID of the Timestream for InfluxDB cluster.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Timestream for InfluxDB clusters using `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example 12345abcde
+// $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example hzfuy146ke
 // ```
 type DbCluster struct {
 	pulumi.CustomResourceState
@@ -314,6 +329,8 @@ type DbCluster struct {
 	InfluxAuthParametersSecretArn pulumi.StringOutput `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbClusterLogDeliveryConfigurationPtrOutput `pulumi:"logDeliveryConfiguration"`
+	// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+	MaintenanceSchedule DbClusterMaintenanceSchedulePtrOutput `pulumi:"maintenanceSchedule"`
 	// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -415,6 +432,8 @@ type dbClusterState struct {
 	InfluxAuthParametersSecretArn *string `pulumi:"influxAuthParametersSecretArn"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration *DbClusterLogDeliveryConfiguration `pulumi:"logDeliveryConfiguration"`
+	// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+	MaintenanceSchedule *DbClusterMaintenanceSchedule `pulumi:"maintenanceSchedule"`
 	// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name *string `pulumi:"name"`
 	// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -471,6 +490,8 @@ type DbClusterState struct {
 	InfluxAuthParametersSecretArn pulumi.StringPtrInput
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbClusterLogDeliveryConfigurationPtrInput
+	// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+	MaintenanceSchedule DbClusterMaintenanceSchedulePtrInput
 	// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name pulumi.StringPtrInput
 	// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -523,6 +544,8 @@ type dbClusterArgs struct {
 	FailoverMode *string `pulumi:"failoverMode"`
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration *DbClusterLogDeliveryConfiguration `pulumi:"logDeliveryConfiguration"`
+	// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+	MaintenanceSchedule *DbClusterMaintenanceSchedule `pulumi:"maintenanceSchedule"`
 	// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name *string `pulumi:"name"`
 	// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -568,6 +591,8 @@ type DbClusterArgs struct {
 	FailoverMode pulumi.StringPtrInput
 	// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 	LogDeliveryConfiguration DbClusterLogDeliveryConfigurationPtrInput
+	// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+	MaintenanceSchedule DbClusterMaintenanceSchedulePtrInput
 	// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
 	Name pulumi.StringPtrInput
 	// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
@@ -740,6 +765,11 @@ func (o DbClusterOutput) InfluxAuthParametersSecretArn() pulumi.StringOutput {
 // Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
 func (o DbClusterOutput) LogDeliveryConfiguration() DbClusterLogDeliveryConfigurationPtrOutput {
 	return o.ApplyT(func(v *DbCluster) DbClusterLogDeliveryConfigurationPtrOutput { return v.LogDeliveryConfiguration }).(DbClusterLogDeliveryConfigurationPtrOutput)
+}
+
+// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+func (o DbClusterOutput) MaintenanceSchedule() DbClusterMaintenanceSchedulePtrOutput {
+	return o.ApplyT(func(v *DbCluster) DbClusterMaintenanceSchedulePtrOutput { return v.MaintenanceSchedule }).(DbClusterMaintenanceSchedulePtrOutput)
 }
 
 // Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.

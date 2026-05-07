@@ -54,7 +54,7 @@ class CloudVmClusterArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `gi_version`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
@@ -177,7 +177,7 @@ class CloudVmClusterArgs:
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> pulumi.Input[_builtins.str]:
         """
-        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `gi_version`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         """
         return pulumi.get(self, "gi_version")
 
@@ -458,7 +458,7 @@ class _CloudVmClusterState:
                * `AttrDomain` - The domain name associated with the VM cluster.
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] domain: The domain name associated with the VM cluster.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `gi_version`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
@@ -764,7 +764,7 @@ class _CloudVmClusterState:
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `gi_version`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         """
         return pulumi.get(self, "gi_version")
 
@@ -1232,6 +1232,14 @@ class CloudVmCluster(pulumi.CustomResource):
                 "is_health_monitoring_enabled": False,
                 "is_incident_logs_enabled": False,
             })
+        ```
+
+        ### With Optional Arguments
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
         with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
@@ -1263,6 +1271,43 @@ class CloudVmCluster(pulumi.CustomResource):
             })
         ```
 
+        ### With GI Version Tag
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gi_version_tag_example = aws.odb.CloudVmCluster("gi_version_tag_example",
+            display_name="my_vm_cluster",
+            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
+            cpu_core_count=6,
+            gi_version="23.0.0.0",
+            hostname_prefix="apollo12",
+            ssh_public_keys=["my-ssh-key"],
+            odb_network_id="<aws_odb_network_id>",
+            is_local_backup_enabled=True,
+            is_sparse_diskgroup_enabled=True,
+            license_model="LICENSE_INCLUDED",
+            data_storage_size_in_tbs=20,
+            db_servers=[
+                "my-dbserver-1",
+                "my-db-server-2",
+            ],
+            db_node_storage_size_in_gbs=120,
+            memory_size_in_gbs=60,
+            cluster_name="julia-13",
+            timezone="UTC",
+            scan_listener_port_tcp=1521,
+            tags={
+                "odb:input_gi_version": "23.0.0.0",
+            },
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import cloud vm cluster using the `id`. For example:
@@ -1285,7 +1330,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of database servers for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `gi_version`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -1341,6 +1386,14 @@ class CloudVmCluster(pulumi.CustomResource):
                 "is_health_monitoring_enabled": False,
                 "is_incident_logs_enabled": False,
             })
+        ```
+
+        ### With Optional Arguments
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
         with_all_parameters = aws.odb.CloudVmCluster("with_all_parameters",
             display_name="my_vm_cluster",
             cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
@@ -1364,6 +1417,43 @@ class CloudVmCluster(pulumi.CustomResource):
             scan_listener_port_tcp=1521,
             tags={
                 "env": "dev",
+            },
+            data_collection_options={
+                "is_diagnostics_events_enabled": True,
+                "is_health_monitoring_enabled": True,
+                "is_incident_logs_enabled": True,
+            })
+        ```
+
+        ### With GI Version Tag
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        gi_version_tag_example = aws.odb.CloudVmCluster("gi_version_tag_example",
+            display_name="my_vm_cluster",
+            cloud_exadata_infrastructure_id="<aws_odb_cloud_exadata_infrastructure_id>",
+            cpu_core_count=6,
+            gi_version="23.0.0.0",
+            hostname_prefix="apollo12",
+            ssh_public_keys=["my-ssh-key"],
+            odb_network_id="<aws_odb_network_id>",
+            is_local_backup_enabled=True,
+            is_sparse_diskgroup_enabled=True,
+            license_model="LICENSE_INCLUDED",
+            data_storage_size_in_tbs=20,
+            db_servers=[
+                "my-dbserver-1",
+                "my-db-server-2",
+            ],
+            db_node_storage_size_in_gbs=120,
+            memory_size_in_gbs=60,
+            cluster_name="julia-13",
+            timezone="UTC",
+            scan_listener_port_tcp=1521,
+            tags={
+                "odb:input_gi_version": "23.0.0.0",
             },
             data_collection_options={
                 "is_diagnostics_events_enabled": True,
@@ -1574,7 +1664,7 @@ class CloudVmCluster(pulumi.CustomResource):
                * `AttrDomain` - The domain name associated with the VM cluster.
         :param pulumi.Input[_builtins.str] display_name: A user-friendly name for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] domain: The domain name associated with the VM cluster.
-        :param pulumi.Input[_builtins.str] gi_version: A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `gi_version`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         :param pulumi.Input[_builtins.str] gi_version_computed: A complete software version of Oracle Grid Infrastructure (GI).
         :param pulumi.Input[_builtins.str] hostname_prefix: The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] hostname_prefix_computed: The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
@@ -1781,7 +1871,7 @@ class CloudVmCluster(pulumi.CustomResource):
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> pulumi.Output[_builtins.str]:
         """
-        A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `gi_version`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         """
         return pulumi.get(self, "gi_version")
 

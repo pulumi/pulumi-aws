@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Integration{}
 	case "aws:redshift/logging:Logging":
 		r = &Logging{}
+	case "aws:redshift/namespaceRegistration:NamespaceRegistration":
+		r = &NamespaceRegistration{}
 	case "aws:redshift/parameterGroup:ParameterGroup":
 		r = &ParameterGroup{}
 	case "aws:redshift/partner:Partner":
@@ -150,6 +152,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/logging",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/namespaceRegistration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

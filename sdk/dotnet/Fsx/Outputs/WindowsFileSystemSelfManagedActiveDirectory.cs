@@ -34,9 +34,18 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string? OrganizationalUnitDistinguishedName;
         /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.
+        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret` and `PasswordWo`.
         /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `DomainJoinServiceAccountSecret` and `Password`. Required with `PasswordWoVersion`.
+        /// </summary>
+        public readonly string? PasswordWo;
+        /// <summary>
+        /// Version of the password. Required with `PasswordWo`. Update this argument when the value of `PasswordWo` has changed to trigger an update to the remote password.
+        /// </summary>
+        public readonly int? PasswordWoVersion;
         /// <summary>
         /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.
         /// </summary>
@@ -56,6 +65,10 @@ namespace Pulumi.Aws.Fsx.Outputs
 
             string? password,
 
+            string? passwordWo,
+
+            int? passwordWoVersion,
+
             string? username)
         {
             DnsIps = dnsIps;
@@ -64,6 +77,8 @@ namespace Pulumi.Aws.Fsx.Outputs
             FileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             OrganizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             Password = password;
+            PasswordWo = passwordWo;
+            PasswordWoVersion = passwordWoVersion;
             Username = username;
         }
     }

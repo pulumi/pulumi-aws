@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     name: "example-function",
  *     role: lambdaRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * });
  * const exampleAgentcoreGateway = new aws.bedrock.AgentcoreGateway("example", {
  *     name: "example-gateway",

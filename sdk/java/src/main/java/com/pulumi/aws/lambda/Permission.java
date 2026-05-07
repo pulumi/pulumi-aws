@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .name("lambda_function_name")
  *             .role(iamForLambda.arn())
  *             .handler("exports.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .build());
  * 
  *         var testAlias = new Alias("testAlias", AliasArgs.builder()

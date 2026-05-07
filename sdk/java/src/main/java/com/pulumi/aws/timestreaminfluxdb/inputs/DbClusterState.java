@@ -4,6 +4,7 @@
 package com.pulumi.aws.timestreaminfluxdb.inputs;
 
 import com.pulumi.aws.timestreaminfluxdb.inputs.DbClusterLogDeliveryConfigurationArgs;
+import com.pulumi.aws.timestreaminfluxdb.inputs.DbClusterMaintenanceScheduleArgs;
 import com.pulumi.aws.timestreaminfluxdb.inputs.DbClusterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -199,6 +200,21 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DbClusterLogDeliveryConfigurationArgs>> logDeliveryConfiguration() {
         return Optional.ofNullable(this.logDeliveryConfiguration);
+    }
+
+    /**
+     * Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * 
+     */
+    @Import(name="maintenanceSchedule")
+    private @Nullable Output<DbClusterMaintenanceScheduleArgs> maintenanceSchedule;
+
+    /**
+     * @return Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * 
+     */
+    public Optional<Output<DbClusterMaintenanceScheduleArgs>> maintenanceSchedule() {
+        return Optional.ofNullable(this.maintenanceSchedule);
     }
 
     /**
@@ -422,6 +438,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         this.failoverMode = $.failoverMode;
         this.influxAuthParametersSecretArn = $.influxAuthParametersSecretArn;
         this.logDeliveryConfiguration = $.logDeliveryConfiguration;
+        this.maintenanceSchedule = $.maintenanceSchedule;
         this.name = $.name;
         this.networkType = $.networkType;
         this.organization = $.organization;
@@ -706,6 +723,27 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder logDeliveryConfiguration(DbClusterLogDeliveryConfigurationArgs logDeliveryConfiguration) {
             return logDeliveryConfiguration(Output.of(logDeliveryConfiguration));
+        }
+
+        /**
+         * @param maintenanceSchedule Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceSchedule(@Nullable Output<DbClusterMaintenanceScheduleArgs> maintenanceSchedule) {
+            $.maintenanceSchedule = maintenanceSchedule;
+            return this;
+        }
+
+        /**
+         * @param maintenanceSchedule Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceSchedule(DbClusterMaintenanceScheduleArgs maintenanceSchedule) {
+            return maintenanceSchedule(Output.of(maintenanceSchedule));
         }
 
         /**

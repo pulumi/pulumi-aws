@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
     /**
-     * @return Metric type.
+     * @return Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
      * 
      */
     private String predefinedMetricType;
     /**
-     * @return Label that uniquely identifies a target group.
+     * @return Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
      * 
      */
     private @Nullable String resourceLabel;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification() {}
     /**
-     * @return Metric type.
+     * @return Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
      * 
      */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
     /**
-     * @return Label that uniquely identifies a target group.
+     * @return Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
      * 
      */
     public Optional<String> resourceLabel() {

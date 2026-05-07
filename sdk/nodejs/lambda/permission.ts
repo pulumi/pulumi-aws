@@ -36,7 +36,7 @@ import {Function} from "./index";
  *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "exports.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * });
  * const testAlias = new aws.lambda.Alias("test_alias", {
  *     name: "testalias",

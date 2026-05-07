@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Lambda
     ///         LayerName = "lambda_layer_name",
     ///         CompatibleRuntimes = new[]
     ///         {
-    ///             "nodejs20.x",
+    ///             "nodejs24.x",
     ///         },
     ///     });
     /// 
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Lambda
     ///         LayerName = "lambda_layer_name",
     ///         CompatibleRuntimes = new[]
     ///         {
-    ///             "nodejs20.x",
+    ///             "nodejs24.x",
     ///             "python3.12",
     ///         },
     ///         CompatibleArchitectures = new[]
@@ -94,8 +94,8 @@ namespace Pulumi.Aws.Lambda
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         CompatibleRuntimes = new[]
     ///         {
-    ///             "nodejs18.x",
-    ///             "nodejs20.x",
+    ///             "nodejs22.x",
+    ///             "nodejs24.x",
     ///             "python3.11",
     ///             "python3.12",
     ///         },

@@ -1594,7 +1594,7 @@ class Function(pulumi.CustomResource):
             layer_name="example_dependencies_layer",
             description="Common dependencies for Lambda functions",
             compatible_runtimes=[
-                "nodejs20.x",
+                "nodejs24.x",
                 "python3.12",
             ],
             compatible_architectures=[
@@ -1607,7 +1607,7 @@ class Function(pulumi.CustomResource):
             name="example_layered_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             layers=[example.arn],
             tracing_config={
                 "mode": "Active",
@@ -1692,7 +1692,7 @@ class Function(pulumi.CustomResource):
             name="example_efs_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             vpc_config={
                 "subnet_ids": subnet_ids,
                 "security_group_ids": [lambda_["id"]],
@@ -1722,7 +1722,7 @@ class Function(pulumi.CustomResource):
             name="example_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
@@ -1814,7 +1814,7 @@ class Function(pulumi.CustomResource):
             name="example_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             dead_letter_config={
                 "target_arn": dlq["arn"],
             })
@@ -1893,7 +1893,7 @@ class Function(pulumi.CustomResource):
             name=function_name,
             role=example_role.arn,
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
@@ -1956,7 +1956,7 @@ class Function(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             memory_size=2048,
             publish=True,
             capacity_provider_config={
@@ -2094,7 +2094,7 @@ class Function(pulumi.CustomResource):
             layer_name="example_dependencies_layer",
             description="Common dependencies for Lambda functions",
             compatible_runtimes=[
-                "nodejs20.x",
+                "nodejs24.x",
                 "python3.12",
             ],
             compatible_architectures=[
@@ -2107,7 +2107,7 @@ class Function(pulumi.CustomResource):
             name="example_layered_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             layers=[example.arn],
             tracing_config={
                 "mode": "Active",
@@ -2192,7 +2192,7 @@ class Function(pulumi.CustomResource):
             name="example_efs_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             vpc_config={
                 "subnet_ids": subnet_ids,
                 "security_group_ids": [lambda_["id"]],
@@ -2222,7 +2222,7 @@ class Function(pulumi.CustomResource):
             name="example_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
@@ -2314,7 +2314,7 @@ class Function(pulumi.CustomResource):
             name="example_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             dead_letter_config={
                 "target_arn": dlq["arn"],
             })
@@ -2393,7 +2393,7 @@ class Function(pulumi.CustomResource):
             name=function_name,
             role=example_role.arn,
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
@@ -2456,7 +2456,7 @@ class Function(pulumi.CustomResource):
             name="example",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             memory_size=2048,
             publish=True,
             capacity_provider_config={

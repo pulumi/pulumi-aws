@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const example = new aws.lambda.LayerVersion("example", {
  *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
  *     layerName: "lambda_layer_name",
- *     compatibleRuntimes: ["nodejs20.x"],
+ *     compatibleRuntimes: ["nodejs24.x"],
  * });
  * ```
  *
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     s3Key: lambdaLayerZip.key,
  *     layerName: "lambda_layer_name",
  *     compatibleRuntimes: [
- *         "nodejs20.x",
+ *         "nodejs24.x",
  *         "python3.12",
  *     ],
  *     compatibleArchitectures: [
@@ -63,8 +63,8 @@ import * as utilities from "../utilities";
  *         input: "lambda_layer_payload.zip",
  *     }).then(invoke => invoke.result),
  *     compatibleRuntimes: [
- *         "nodejs18.x",
- *         "nodejs20.x",
+ *         "nodejs22.x",
+ *         "nodejs24.x",
  *         "python3.11",
  *         "python3.12",
  *     ],

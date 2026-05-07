@@ -93,7 +93,7 @@ import (
 //				Name:    pulumi.String("example-function"),
 //				Role:    lambdaRole.Arn,
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //			})
 //			if err != nil {
 //				return err

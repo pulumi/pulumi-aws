@@ -105,6 +105,11 @@ export type Logging = import("./logging").Logging;
 export const Logging: typeof import("./logging").Logging = null as any;
 utilities.lazyLoad(exports, ["Logging"], () => require("./logging"));
 
+export { NamespaceRegistrationArgs, NamespaceRegistrationState } from "./namespaceRegistration";
+export type NamespaceRegistration = import("./namespaceRegistration").NamespaceRegistration;
+export const NamespaceRegistration: typeof import("./namespaceRegistration").NamespaceRegistration = null as any;
+utilities.lazyLoad(exports, ["NamespaceRegistration"], () => require("./namespaceRegistration"));
+
 export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
@@ -188,6 +193,8 @@ const _module = {
                 return new Integration(name, <any>undefined, { urn })
             case "aws:redshift/logging:Logging":
                 return new Logging(name, <any>undefined, { urn })
+            case "aws:redshift/namespaceRegistration:NamespaceRegistration":
+                return new NamespaceRegistration(name, <any>undefined, { urn })
             case "aws:redshift/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:redshift/partner:Partner":
@@ -227,6 +234,7 @@ pulumi.runtime.registerResourceModule("aws", "redshift/hsmConfiguration", _modul
 pulumi.runtime.registerResourceModule("aws", "redshift/idcApplication", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/integration", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/logging", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/namespaceRegistration", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/partner", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/resourcePolicy", _module)

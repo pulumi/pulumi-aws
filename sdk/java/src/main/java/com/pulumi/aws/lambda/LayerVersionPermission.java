@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .layerName("shared_utilities")
  *             .description("Common utilities for Lambda functions")
  *             .compatibleRuntimes(            
- *                 "nodejs20.x",
+ *                 "nodejs24.x",
  *                 "python3.12")
  *             .build());
  * 

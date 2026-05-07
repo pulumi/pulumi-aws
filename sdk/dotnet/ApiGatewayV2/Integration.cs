@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         Name = "Example",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///     });
     /// 
     ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("example", new()

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:arczonalshift/autoshiftObserverNotificationStatus:AutoshiftObserverNotificationStatus":
 		r = &AutoshiftObserverNotificationStatus{}
+	case "aws:arczonalshift/zonalAutoshiftConfiguration:ZonalAutoshiftConfiguration":
+		r = &ZonalAutoshiftConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"arczonalshift/autoshiftObserverNotificationStatus",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"arczonalshift/zonalAutoshiftConfiguration",
 		&module{version},
 	)
 }

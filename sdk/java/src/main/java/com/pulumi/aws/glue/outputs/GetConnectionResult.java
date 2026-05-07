@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.glue.outputs;
 
+import com.pulumi.aws.glue.outputs.GetConnectionAuthenticationConfiguration;
 import com.pulumi.aws.glue.outputs.GetConnectionPhysicalConnectionRequirement;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,17 +20,22 @@ public final class GetConnectionResult {
      */
     private String arn;
     /**
-     * @return A map of connection properties specific to the Athena compute environment.
+     * @return Map of connection properties specific to the Athena compute environment.
      * 
      */
     private Map<String,String> athenaProperties;
+    /**
+     * @return Configuration block for authentication options.
+     * 
+     */
+    private List<GetConnectionAuthenticationConfiguration> authenticationConfigurations;
     /**
      * @return Catalog ID of the Glue Connection.
      * 
      */
     private String catalogId;
     /**
-     * @return A map of connection properties.
+     * @return Map of connection properties.
      * 
      */
     private Map<String,String> connectionProperties;
@@ -45,7 +51,7 @@ public final class GetConnectionResult {
     private String description;
     private String id;
     /**
-     * @return A list of criteria that can be used in selecting this connection.
+     * @return List of criteria that can be used in selecting this connection.
      * 
      */
     private List<String> matchCriterias;
@@ -55,13 +61,13 @@ public final class GetConnectionResult {
      */
     private String name;
     /**
-     * @return A map of physical connection requirements, such as VPC and SecurityGroup.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup.
      * 
      */
     private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
     private String region;
     /**
-     * @return Tags assigned to the resource
+     * @return Tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -75,11 +81,18 @@ public final class GetConnectionResult {
         return this.arn;
     }
     /**
-     * @return A map of connection properties specific to the Athena compute environment.
+     * @return Map of connection properties specific to the Athena compute environment.
      * 
      */
     public Map<String,String> athenaProperties() {
         return this.athenaProperties;
+    }
+    /**
+     * @return Configuration block for authentication options.
+     * 
+     */
+    public List<GetConnectionAuthenticationConfiguration> authenticationConfigurations() {
+        return this.authenticationConfigurations;
     }
     /**
      * @return Catalog ID of the Glue Connection.
@@ -89,7 +102,7 @@ public final class GetConnectionResult {
         return this.catalogId;
     }
     /**
-     * @return A map of connection properties.
+     * @return Map of connection properties.
      * 
      */
     public Map<String,String> connectionProperties() {
@@ -113,7 +126,7 @@ public final class GetConnectionResult {
         return this.id;
     }
     /**
-     * @return A list of criteria that can be used in selecting this connection.
+     * @return List of criteria that can be used in selecting this connection.
      * 
      */
     public List<String> matchCriterias() {
@@ -127,7 +140,7 @@ public final class GetConnectionResult {
         return this.name;
     }
     /**
-     * @return A map of physical connection requirements, such as VPC and SecurityGroup.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup.
      * 
      */
     public List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements() {
@@ -137,7 +150,7 @@ public final class GetConnectionResult {
         return this.region;
     }
     /**
-     * @return Tags assigned to the resource
+     * @return Tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
@@ -155,6 +168,7 @@ public final class GetConnectionResult {
     public static final class Builder {
         private String arn;
         private Map<String,String> athenaProperties;
+        private List<GetConnectionAuthenticationConfiguration> authenticationConfigurations;
         private String catalogId;
         private Map<String,String> connectionProperties;
         private String connectionType;
@@ -170,6 +184,7 @@ public final class GetConnectionResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.athenaProperties = defaults.athenaProperties;
+    	      this.authenticationConfigurations = defaults.authenticationConfigurations;
     	      this.catalogId = defaults.catalogId;
     	      this.connectionProperties = defaults.connectionProperties;
     	      this.connectionType = defaults.connectionType;
@@ -197,6 +212,17 @@ public final class GetConnectionResult {
             }
             this.athenaProperties = athenaProperties;
             return this;
+        }
+        @CustomType.Setter
+        public Builder authenticationConfigurations(List<GetConnectionAuthenticationConfiguration> authenticationConfigurations) {
+            if (authenticationConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "authenticationConfigurations");
+            }
+            this.authenticationConfigurations = authenticationConfigurations;
+            return this;
+        }
+        public Builder authenticationConfigurations(GetConnectionAuthenticationConfiguration... authenticationConfigurations) {
+            return authenticationConfigurations(List.of(authenticationConfigurations));
         }
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
@@ -288,6 +314,7 @@ public final class GetConnectionResult {
             final var _resultValue = new GetConnectionResult();
             _resultValue.arn = arn;
             _resultValue.athenaProperties = athenaProperties;
+            _resultValue.authenticationConfigurations = authenticationConfigurations;
             _resultValue.catalogId = catalogId;
             _resultValue.connectionProperties = connectionProperties;
             _resultValue.connectionType = connectionType;

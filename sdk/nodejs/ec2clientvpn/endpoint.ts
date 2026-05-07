@@ -74,7 +74,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Information about the authentication method to be used to authenticate clients.
+     * Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      */
     declare public readonly authenticationOptions: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOption[]>;
     /**
@@ -82,19 +82,19 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly clientCidrBlock: pulumi.Output<string | undefined>;
     /**
-     * The options for managing connection authorization for new client connections.
+     * The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      */
     declare public readonly clientConnectOptions: pulumi.Output<outputs.ec2clientvpn.EndpointClientConnectOptions>;
     /**
-     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      */
     declare public readonly clientLoginBannerOptions: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
     /**
-     * Options for enforce administrator defined routes on devices connected through the VPN.
+     * Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      */
     declare public readonly clientRouteEnforcementOptions: pulumi.Output<outputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
     /**
-     * Information about the client connection logging options.
+     * Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      */
     declare public readonly connectionLogOptions: pulumi.Output<outputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
@@ -122,7 +122,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
@@ -158,11 +158,15 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly trafficIpAddressType: pulumi.Output<string>;
     /**
+     * Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+     */
+    declare public readonly transitGatewayConfiguration: pulumi.Output<outputs.ec2clientvpn.EndpointTransitGatewayConfiguration>;
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     declare public readonly transportProtocol: pulumi.Output<string | undefined>;
     /**
-     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      */
     declare public readonly vpcId: pulumi.Output<string>;
     /**
@@ -205,6 +209,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["trafficIpAddressType"] = state?.trafficIpAddressType;
+            resourceInputs["transitGatewayConfiguration"] = state?.transitGatewayConfiguration;
             resourceInputs["transportProtocol"] = state?.transportProtocol;
             resourceInputs["vpcId"] = state?.vpcId;
             resourceInputs["vpnPort"] = state?.vpnPort;
@@ -237,6 +242,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["splitTunnel"] = args?.splitTunnel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trafficIpAddressType"] = args?.trafficIpAddressType;
+            resourceInputs["transitGatewayConfiguration"] = args?.transitGatewayConfiguration;
             resourceInputs["transportProtocol"] = args?.transportProtocol;
             resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["vpnPort"] = args?.vpnPort;
@@ -259,7 +265,7 @@ export interface EndpointState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Information about the authentication method to be used to authenticate clients.
+     * Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      */
     authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
@@ -267,19 +273,19 @@ export interface EndpointState {
      */
     clientCidrBlock?: pulumi.Input<string>;
     /**
-     * The options for managing connection authorization for new client connections.
+     * The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      */
     clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
     /**
-     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      */
     clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
     /**
-     * Options for enforce administrator defined routes on devices connected through the VPN.
+     * Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      */
     clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
     /**
-     * Information about the client connection logging options.
+     * Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      */
     connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
@@ -307,7 +313,7 @@ export interface EndpointState {
      */
     region?: pulumi.Input<string>;
     /**
-     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -343,11 +349,15 @@ export interface EndpointState {
      */
     trafficIpAddressType?: pulumi.Input<string>;
     /**
+     * Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+     */
+    transitGatewayConfiguration?: pulumi.Input<inputs.ec2clientvpn.EndpointTransitGatewayConfiguration>;
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     transportProtocol?: pulumi.Input<string>;
     /**
-     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      */
     vpcId?: pulumi.Input<string>;
     /**
@@ -361,7 +371,7 @@ export interface EndpointState {
  */
 export interface EndpointArgs {
     /**
-     * Information about the authentication method to be used to authenticate clients.
+     * Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      */
     authenticationOptions: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
@@ -369,19 +379,19 @@ export interface EndpointArgs {
      */
     clientCidrBlock?: pulumi.Input<string>;
     /**
-     * The options for managing connection authorization for new client connections.
+     * The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      */
     clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
     /**
-     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      */
     clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
     /**
-     * Options for enforce administrator defined routes on devices connected through the VPN.
+     * Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      */
     clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
     /**
-     * Information about the client connection logging options.
+     * Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      */
     connectionLogOptions: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
@@ -405,7 +415,7 @@ export interface EndpointArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -433,11 +443,15 @@ export interface EndpointArgs {
      */
     trafficIpAddressType?: pulumi.Input<string>;
     /**
+     * Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+     */
+    transitGatewayConfiguration?: pulumi.Input<inputs.ec2clientvpn.EndpointTransitGatewayConfiguration>;
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
     transportProtocol?: pulumi.Input<string>;
     /**
-     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      */
     vpcId?: pulumi.Input<string>;
     /**

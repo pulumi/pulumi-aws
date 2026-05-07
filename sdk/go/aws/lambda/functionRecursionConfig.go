@@ -77,7 +77,7 @@ import (
 //				Name:    pulumi.String("production-data-processor"),
 //				Role:    pulumi.Any(lambdaRole.Arn),
 //				Handler: pulumi.String("app.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Purpose":     pulumi.String("data-processing"),

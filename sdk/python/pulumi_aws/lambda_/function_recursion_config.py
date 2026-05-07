@@ -184,7 +184,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
             name="production-data-processor",
             role=lambda_role["arn"],
             handler="app.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             tags={
                 "Environment": "production",
                 "Purpose": "data-processing",
@@ -256,7 +256,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
             name="production-data-processor",
             role=lambda_role["arn"],
             handler="app.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             tags={
                 "Environment": "production",
                 "Purpose": "data-processing",

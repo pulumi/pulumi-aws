@@ -195,7 +195,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     /// ### Usage with InfluxDB V3
     /// 
-    /// For InfluxDB V3 clusters, you can create a cluster without providing `AllocatedStorage`, `Bucket`, `Organization`, `Username`, `Password`, or `DeploymentType` by specifying a `DbParameterGroupIdentifier` such as `"InfluxDBV3Core"`. The following example shows how to create an InfluxDB V3 cluster:
+    /// For InfluxDB V3 clusters, you can create a cluster without providing `AllocatedStorage`, `Bucket`, `Organization`, `Username`, `Password`, or `DeploymentType` by specifying a `DbParameterGroupIdentifier` such as `"InfluxDBV3Core"`. You can also optionally configure a maintenance schedule.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -218,6 +218,11 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///         VpcSecurityGroupIds = new[]
     ///         {
     ///             exampleAwsSecurityGroup.Id,
+    ///         },
+    ///         MaintenanceSchedule = new Aws.TimestreamInfluxDB.Inputs.DbClusterMaintenanceScheduleArgs
+    ///         {
+    ///             PreferredMaintenanceWindow = "Sun:02:00-Sun:06:00",
+    ///             Timezone = "America/New_York",
     ///         },
     ///     });
     /// 
@@ -252,10 +257,21 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Timestream for InfluxDB cluster using its identifier. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) ID of the Timestream for InfluxDB cluster.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Timestream for InfluxDB clusters using `Id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example 12345abcde
+    /// $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example hzfuy146ke
     /// ```
     /// </summary>
     [AwsResourceType("aws:timestreaminfluxdb/dbCluster:DbCluster")]
@@ -332,6 +348,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Output("logDeliveryConfiguration")]
         public Output<Outputs.DbClusterLogDeliveryConfiguration?> LogDeliveryConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// </summary>
+        [Output("maintenanceSchedule")]
+        public Output<Outputs.DbClusterMaintenanceSchedule?> MaintenanceSchedule { get; private set; } = null!;
 
         /// <summary>
         /// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
@@ -515,6 +537,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<Inputs.DbClusterLogDeliveryConfigurationArgs>? LogDeliveryConfiguration { get; set; }
 
         /// <summary>
+        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// </summary>
+        [Input("maintenanceSchedule")]
+        public Input<Inputs.DbClusterMaintenanceScheduleArgs>? MaintenanceSchedule { get; set; }
+
+        /// <summary>
         /// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         /// </summary>
         [Input("name")]
@@ -692,6 +720,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Input("logDeliveryConfiguration")]
         public Input<Inputs.DbClusterLogDeliveryConfigurationGetArgs>? LogDeliveryConfiguration { get; set; }
+
+        /// <summary>
+        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// </summary>
+        [Input("maintenanceSchedule")]
+        public Input<Inputs.DbClusterMaintenanceScheduleGetArgs>? MaintenanceSchedule { get; set; }
 
         /// <summary>
         /// Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.

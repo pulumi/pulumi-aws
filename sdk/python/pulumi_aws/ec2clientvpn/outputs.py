@@ -20,12 +20,14 @@ __all__ = [
     'EndpointClientLoginBannerOptions',
     'EndpointClientRouteEnforcementOptions',
     'EndpointConnectionLogOptions',
+    'EndpointTransitGatewayConfiguration',
     'GetEndpointAuthenticationOptionResult',
     'GetEndpointClientConnectOptionResult',
     'GetEndpointClientLoginBannerOptionResult',
     'GetEndpointClientRouteEnforcementOptionResult',
     'GetEndpointConnectionLogOptionResult',
     'GetEndpointFilterResult',
+    'GetEndpointTransitGatewayConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -294,6 +296,84 @@ class EndpointConnectionLogOptions(dict):
 
 
 @pulumi.output_type
+class EndpointTransitGatewayConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZoneIds":
+            suggest = "availability_zone_ids"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "transitGatewayAttachmentId":
+            suggest = "transit_gateway_attachment_id"
+        elif key == "transitGatewayId":
+            suggest = "transit_gateway_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointTransitGatewayConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointTransitGatewayConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointTransitGatewayConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone_ids: Optional[Sequence[_builtins.str]] = None,
+                 availability_zones: Optional[Sequence[_builtins.str]] = None,
+                 transit_gateway_attachment_id: Optional[_builtins.str] = None,
+                 transit_gateway_id: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] availability_zone_ids: List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
+        :param Sequence[_builtins.str] availability_zones: List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
+        :param _builtins.str transit_gateway_attachment_id: ID of the Transit Gateway attachment.
+        :param _builtins.str transit_gateway_id: ID of the Transit Gateway to which the Client VPN endpoint is associated.
+        """
+        if availability_zone_ids is not None:
+            pulumi.set(__self__, "availability_zone_ids", availability_zone_ids)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneIds")
+    def availability_zone_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
+        """
+        return pulumi.get(self, "availability_zone_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the Transit Gateway attachment.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the Transit Gateway to which the Client VPN endpoint is associated.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+
+@pulumi.output_type
 class GetEndpointAuthenticationOptionResult(dict):
     def __init__(__self__, *,
                  active_directory_id: _builtins.str,
@@ -436,5 +516,38 @@ class GetEndpointFilterResult(dict):
         Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEndpointTransitGatewayConfigurationResult(dict):
+    def __init__(__self__, *,
+                 availability_zone_ids: Sequence[_builtins.str],
+                 availability_zones: Sequence[_builtins.str],
+                 transit_gateway_attachment_id: _builtins.str,
+                 transit_gateway_id: _builtins.str):
+        pulumi.set(__self__, "availability_zone_ids", availability_zone_ids)
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneIds")
+    def availability_zone_ids(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "availability_zone_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "availability_zones")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> _builtins.str:
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> _builtins.str:
+        return pulumi.get(self, "transit_gateway_id")
 
 

@@ -166,7 +166,7 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
         name="secure-function",
         role=lambda_role["arn"],
         handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+        runtime=aws.lambda_.Runtime.NODE_JS24D_X,
         code_signing_config_arn=security_config.arn,
         tags={
             "Environment": "production",
@@ -282,7 +282,7 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[_builtins.str]] = 
         name="secure-function",
         role=lambda_role["arn"],
         handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+        runtime=aws.lambda_.Runtime.NODE_JS24D_X,
         code_signing_config_arn=security_config.arn,
         tags={
             "Environment": "production",

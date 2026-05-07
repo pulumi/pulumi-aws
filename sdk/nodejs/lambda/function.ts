@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     layerName: "example_dependencies_layer",
  *     description: "Common dependencies for Lambda functions",
  *     compatibleRuntimes: [
- *         "nodejs20.x",
+ *         "nodejs24.x",
  *         "python3.12",
  *     ],
  *     compatibleArchitectures: [
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     name: "example_layered_function",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     layers: [example.arn],
  *     tracingConfig: {
  *         mode: "Active",
@@ -158,7 +158,7 @@ import * as utilities from "../utilities";
  *     name: "example_efs_function",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     vpcConfig: {
  *         subnetIds: subnetIds,
  *         securityGroupIds: [lambda.id],
@@ -191,7 +191,7 @@ import * as utilities from "../utilities";
  *     name: "example_function",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     loggingConfig: {
  *         logFormat: "JSON",
  *         applicationLogLevel: "INFO",
@@ -295,7 +295,7 @@ import * as utilities from "../utilities";
  *     name: "example_function",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     deadLetterConfig: {
  *         targetArn: dlq.arn,
  *     },
@@ -377,7 +377,7 @@ import * as utilities from "../utilities";
  *     name: functionName,
  *     role: exampleRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     loggingConfig: {
  *         logFormat: "JSON",
  *         applicationLogLevel: "INFO",
@@ -444,7 +444,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     memorySize: 2048,
  *     publish: true,
  *     capacityProviderConfig: {

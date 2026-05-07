@@ -73,19 +73,19 @@ type AccountSubscription struct {
 	AuthorProGroups pulumi.StringArrayOutput `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrOutput `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId pulumi.StringPtrOutput `pulumi:"directoryId"`
 	// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
 	Edition pulumi.StringOutput `pulumi:"edition"`
-	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	EmailAddress pulumi.StringPtrOutput `pulumi:"emailAddress"`
-	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
 	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrOutput `pulumi:"iamIdentityCenterInstanceArn"`
-	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
 	//
@@ -161,19 +161,19 @@ type accountSubscriptionState struct {
 	AuthorProGroups []string `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber *string `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId *string `pulumi:"directoryId"`
 	// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
 	Edition *string `pulumi:"edition"`
-	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	EmailAddress *string `pulumi:"emailAddress"`
-	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName *string `pulumi:"firstName"`
 	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
-	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
 	//
@@ -208,19 +208,19 @@ type AccountSubscriptionState struct {
 	AuthorProGroups pulumi.StringArrayInput
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrInput
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId pulumi.StringPtrInput
 	// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
 	Edition pulumi.StringPtrInput
-	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	EmailAddress pulumi.StringPtrInput
-	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrInput
-	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
 	//
@@ -257,19 +257,19 @@ type accountSubscriptionArgs struct {
 	AuthorProGroups []string `pulumi:"authorProGroups"`
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber *string `pulumi:"contactNumber"`
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId *string `pulumi:"directoryId"`
 	// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
 	Edition string `pulumi:"edition"`
-	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	EmailAddress *string `pulumi:"emailAddress"`
-	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName *string `pulumi:"firstName"`
 	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
-	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
 	//
@@ -303,19 +303,19 @@ type AccountSubscriptionArgs struct {
 	AuthorProGroups pulumi.StringArrayInput
 	// AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	ContactNumber pulumi.StringPtrInput
 	// Active Directory ID that is associated with your Amazon QuickSight account.
 	DirectoryId pulumi.StringPtrInput
 	// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
 	Edition pulumi.StringInput
-	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	EmailAddress pulumi.StringPtrInput
-	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrInput
-	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
 	//
@@ -463,7 +463,7 @@ func (o AccountSubscriptionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) ContactNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.ContactNumber }).(pulumi.StringPtrOutput)
 }
@@ -478,12 +478,12 @@ func (o AccountSubscriptionOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.Edition }).(pulumi.StringOutput)
 }
 
-// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
 }
@@ -493,7 +493,7 @@ func (o AccountSubscriptionOutput) IamIdentityCenterInstanceArn() pulumi.StringP
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.IamIdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }
 
-// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
 }

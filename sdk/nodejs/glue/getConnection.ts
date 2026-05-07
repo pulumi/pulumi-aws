@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This data source can be used to fetch information about a specific Glue Connection.
+ * Provides details about an AWS Glue Connection.
  *
  * ## Example Usage
  *
@@ -35,8 +35,9 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetConnectionArgs {
     /**
-     * Concatenation of the catalog ID and connection name. For example, if your account ID is
-     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     *
+     * The following arguments are optional:
      */
     id: string;
     /**
@@ -44,7 +45,7 @@ export interface GetConnectionArgs {
      */
     region?: string;
     /**
-     * Tags assigned to the resource
+     * Tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -58,15 +59,19 @@ export interface GetConnectionResult {
      */
     readonly arn: string;
     /**
-     * A map of connection properties specific to the Athena compute environment.
+     * Map of connection properties specific to the Athena compute environment.
      */
     readonly athenaProperties: {[key: string]: string};
+    /**
+     * Configuration block for authentication options.
+     */
+    readonly authenticationConfigurations: outputs.glue.GetConnectionAuthenticationConfiguration[];
     /**
      * Catalog ID of the Glue Connection.
      */
     readonly catalogId: string;
     /**
-     * A map of connection properties.
+     * Map of connection properties.
      */
     readonly connectionProperties: {[key: string]: string};
     /**
@@ -79,7 +84,7 @@ export interface GetConnectionResult {
     readonly description: string;
     readonly id: string;
     /**
-     * A list of criteria that can be used in selecting this connection.
+     * List of criteria that can be used in selecting this connection.
      */
     readonly matchCriterias: string[];
     /**
@@ -87,17 +92,17 @@ export interface GetConnectionResult {
      */
     readonly name: string;
     /**
-     * A map of physical connection requirements, such as VPC and SecurityGroup.
+     * Map of physical connection requirements, such as VPC and SecurityGroup.
      */
     readonly physicalConnectionRequirements: outputs.glue.GetConnectionPhysicalConnectionRequirement[];
     readonly region: string;
     /**
-     * Tags assigned to the resource
+     * Tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
 }
 /**
- * This data source can be used to fetch information about a specific Glue Connection.
+ * Provides details about an AWS Glue Connection.
  *
  * ## Example Usage
  *
@@ -124,8 +129,9 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
  */
 export interface GetConnectionOutputArgs {
     /**
-     * Concatenation of the catalog ID and connection name. For example, if your account ID is
-     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     *
+     * The following arguments are optional:
      */
     id: pulumi.Input<string>;
     /**
@@ -133,7 +139,7 @@ export interface GetConnectionOutputArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * Tags assigned to the resource
+     * Tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

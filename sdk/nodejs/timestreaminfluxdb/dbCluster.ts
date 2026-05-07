@@ -125,7 +125,7 @@ import * as utilities from "../utilities";
  *
  * ### Usage with InfluxDB V3
  *
- * For InfluxDB V3 clusters, you can create a cluster without providing `allocatedStorage`, `bucket`, `organization`, `username`, `password`, or `deploymentType` by specifying a `dbParameterGroupIdentifier` such as `"InfluxDBV3Core"`. The following example shows how to create an InfluxDB V3 cluster:
+ * For InfluxDB V3 clusters, you can create a cluster without providing `allocatedStorage`, `bucket`, `organization`, `username`, `password`, or `deploymentType` by specifying a `dbParameterGroupIdentifier` such as `"InfluxDBV3Core"`. You can also optionally configure a maintenance schedule.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -140,6 +140,10 @@ import * as utilities from "../utilities";
  *         example2.id,
  *     ],
  *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
+ *     maintenanceSchedule: {
+ *         preferredMaintenanceWindow: "Sun:02:00-Sun:06:00",
+ *         timezone: "America/New_York",
+ *     },
  * });
  * ```
  *
@@ -171,10 +175,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Timestream for InfluxDB cluster using its identifier. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) ID of the Timestream for InfluxDB cluster.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Timestream for InfluxDB clusters using `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example 12345abcde
+ * $ pulumi import aws:timestreaminfluxdb/dbCluster:DbCluster example hzfuy146ke
  * ```
  */
 export class DbCluster extends pulumi.CustomResource {
@@ -253,6 +268,10 @@ export class DbCluster extends pulumi.CustomResource {
      * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     declare public readonly logDeliveryConfiguration: pulumi.Output<outputs.timestreaminfluxdb.DbClusterLogDeliveryConfiguration | undefined>;
+    /**
+     * Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     */
+    declare public readonly maintenanceSchedule: pulumi.Output<outputs.timestreaminfluxdb.DbClusterMaintenanceSchedule | undefined>;
     /**
      * Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
@@ -334,6 +353,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["failoverMode"] = state?.failoverMode;
             resourceInputs["influxAuthParametersSecretArn"] = state?.influxAuthParametersSecretArn;
             resourceInputs["logDeliveryConfiguration"] = state?.logDeliveryConfiguration;
+            resourceInputs["maintenanceSchedule"] = state?.maintenanceSchedule;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkType"] = state?.networkType;
             resourceInputs["organization"] = state?.organization;
@@ -367,6 +387,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = args?.deploymentType;
             resourceInputs["failoverMode"] = args?.failoverMode;
             resourceInputs["logDeliveryConfiguration"] = args?.logDeliveryConfiguration;
+            resourceInputs["maintenanceSchedule"] = args?.maintenanceSchedule;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkType"] = args?.networkType;
             resourceInputs["organization"] = args?.organization;
@@ -445,6 +466,10 @@ export interface DbClusterState {
      * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     logDeliveryConfiguration?: pulumi.Input<inputs.timestreaminfluxdb.DbClusterLogDeliveryConfiguration>;
+    /**
+     * Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     */
+    maintenanceSchedule?: pulumi.Input<inputs.timestreaminfluxdb.DbClusterMaintenanceSchedule>;
     /**
      * Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */
@@ -538,6 +563,10 @@ export interface DbClusterArgs {
      * Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
      */
     logDeliveryConfiguration?: pulumi.Input<inputs.timestreaminfluxdb.DbClusterLogDeliveryConfiguration>;
+    /**
+     * Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     */
+    maintenanceSchedule?: pulumi.Input<inputs.timestreaminfluxdb.DbClusterMaintenanceSchedule>;
     /**
      * Name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. Cluster names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
      */

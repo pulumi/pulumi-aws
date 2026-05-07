@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:glue/catalog:Catalog":
+		r = &Catalog{}
 	case "aws:glue/catalogDatabase:CatalogDatabase":
 		r = &CatalogDatabase{}
 	case "aws:glue/catalogTable:CatalogTable":
@@ -74,6 +76,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"glue/catalog",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"glue/catalogDatabase",

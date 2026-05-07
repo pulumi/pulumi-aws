@@ -273,7 +273,7 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
         name="example_function",
         role=lambda_role["arn"],
         handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+        runtime=aws.lambda_.Runtime.NODE_JS24D_X,
         layers=[example.arn])
     ```
 
@@ -348,7 +348,7 @@ def get_layer_version(compatible_architecture: Optional[_builtins.str] = None,
         name="cross_account_example",
         role=lambda_role["arn"],
         handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+        runtime=aws.lambda_.Runtime.NODE_JS24D_X,
         layers=[shared_layer.arn])
     ```
 
@@ -425,7 +425,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
         name="example_function",
         role=lambda_role["arn"],
         handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+        runtime=aws.lambda_.Runtime.NODE_JS24D_X,
         layers=[example.arn])
     ```
 
@@ -500,7 +500,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
         name="cross_account_example",
         role=lambda_role["arn"],
         handler="index.handler",
-        runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+        runtime=aws.lambda_.Runtime.NODE_JS24D_X,
         layers=[shared_layer.arn])
     ```
 

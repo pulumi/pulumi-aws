@@ -75,7 +75,7 @@ import (
 //				Name:                 pulumi.String("secure-function"),
 //				Role:                 pulumi.Any(lambdaRole.Arn),
 //				Handler:              pulumi.String("index.handler"),
-//				Runtime:              pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime:              pulumi.String(lambda.RuntimeNodeJS24dX),
 //				CodeSigningConfigArn: pulumi.String(pulumi.String(securityConfig.Arn)),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),

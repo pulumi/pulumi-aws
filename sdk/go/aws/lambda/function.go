@@ -88,7 +88,7 @@ import (
 //				LayerName:   pulumi.String("example_dependencies_layer"),
 //				Description: pulumi.String("Common dependencies for Lambda functions"),
 //				CompatibleRuntimes: pulumi.StringArray{
-//					pulumi.String("nodejs20.x"),
+//					pulumi.String("nodejs24.x"),
 //					pulumi.String("python3.12"),
 //				},
 //				CompatibleArchitectures: pulumi.StringArray{
@@ -105,7 +105,7 @@ import (
 //				Name:    pulumi.String("example_layered_function"),
 //				Role:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				Layers: pulumi.StringArray{
 //					example.Arn,
 //				},
@@ -249,7 +249,7 @@ import (
 //				Name:    pulumi.String("example_efs_function"),
 //				Role:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				VpcConfig: &lambda.FunctionVpcConfigArgs{
 //					SubnetIds: subnetIds,
 //					SecurityGroupIds: pulumi.StringArray{
@@ -303,7 +303,7 @@ import (
 //				Name:    pulumi.String("example_function"),
 //				Role:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
 //					LogFormat:           pulumi.String("JSON"),
 //					ApplicationLogLevel: pulumi.String("INFO"),
@@ -480,7 +480,7 @@ import (
 //				Name:    pulumi.String("example_function"),
 //				Role:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				DeadLetterConfig: &lambda.FunctionDeadLetterConfigArgs{
 //					TargetArn: pulumi.Any(dlq.Arn),
 //				},
@@ -616,7 +616,7 @@ import (
 //				Name:    pulumi.String(pulumi.String(functionName)),
 //				Role:    exampleRole.Arn,
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
 //					LogFormat:           pulumi.String("JSON"),
 //					ApplicationLogLevel: pulumi.String("INFO"),
@@ -718,7 +718,7 @@ import (
 //				Name:       pulumi.String("example"),
 //				Role:       pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler:    pulumi.String("index.handler"),
-//				Runtime:    pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime:    pulumi.String(lambda.RuntimeNodeJS24dX),
 //				MemorySize: pulumi.Int(2048),
 //				Publish:    pulumi.Bool(true),
 //				CapacityProviderConfig: &lambda.FunctionCapacityProviderConfigArgs{

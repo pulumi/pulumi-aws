@@ -1744,6 +1744,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "arczonalshift/zonalAutoshiftConfiguration",
+  "fqn": "pulumi_aws.arczonalshift",
+  "classes": {
+   "aws:arczonalshift/zonalAutoshiftConfiguration:ZonalAutoshiftConfiguration": "ZonalAutoshiftConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "athena/capacityReservation",
   "fqn": "pulumi_aws.athena",
   "classes": {
@@ -6720,6 +6728,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "glue/catalog",
+  "fqn": "pulumi_aws.glue",
+  "classes": {
+   "aws:glue/catalog:Catalog": "Catalog"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "glue/catalogDatabase",
   "fqn": "pulumi_aws.glue",
   "classes": {
@@ -9552,6 +9568,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "outposts/capacityTask",
+  "fqn": "pulumi_aws.outposts",
+  "classes": {
+   "aws:outposts/capacityTask:CapacityTask": "CapacityTask"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "paymentcryptography/key",
   "fqn": "pulumi_aws.paymentcryptography",
   "classes": {
@@ -10324,6 +10348,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/logging:Logging": "Logging"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/namespaceRegistration",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/namespaceRegistration:NamespaceRegistration": "NamespaceRegistration"
   }
  },
  {

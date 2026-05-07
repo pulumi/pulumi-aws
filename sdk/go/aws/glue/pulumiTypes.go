@@ -13,6 +13,1141 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CatalogCatalogProperties struct {
+	// Map of custom key-value pairs for the catalog properties.
+	CustomProperties map[string]string `pulumi:"customProperties"`
+	// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+	DataLakeAccessProperties *CatalogCatalogPropertiesDataLakeAccessProperties `pulumi:"dataLakeAccessProperties"`
+	// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	IcebergOptimizationProperties *CatalogCatalogPropertiesIcebergOptimizationProperties `pulumi:"icebergOptimizationProperties"`
+}
+
+// CatalogCatalogPropertiesInput is an input type that accepts CatalogCatalogPropertiesArgs and CatalogCatalogPropertiesOutput values.
+// You can construct a concrete instance of `CatalogCatalogPropertiesInput` via:
+//
+//	CatalogCatalogPropertiesArgs{...}
+type CatalogCatalogPropertiesInput interface {
+	pulumi.Input
+
+	ToCatalogCatalogPropertiesOutput() CatalogCatalogPropertiesOutput
+	ToCatalogCatalogPropertiesOutputWithContext(context.Context) CatalogCatalogPropertiesOutput
+}
+
+type CatalogCatalogPropertiesArgs struct {
+	// Map of custom key-value pairs for the catalog properties.
+	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
+	// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+	DataLakeAccessProperties CatalogCatalogPropertiesDataLakeAccessPropertiesPtrInput `pulumi:"dataLakeAccessProperties"`
+	// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	IcebergOptimizationProperties CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrInput `pulumi:"icebergOptimizationProperties"`
+}
+
+func (CatalogCatalogPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCatalogProperties)(nil)).Elem()
+}
+
+func (i CatalogCatalogPropertiesArgs) ToCatalogCatalogPropertiesOutput() CatalogCatalogPropertiesOutput {
+	return i.ToCatalogCatalogPropertiesOutputWithContext(context.Background())
+}
+
+func (i CatalogCatalogPropertiesArgs) ToCatalogCatalogPropertiesOutputWithContext(ctx context.Context) CatalogCatalogPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesOutput)
+}
+
+func (i CatalogCatalogPropertiesArgs) ToCatalogCatalogPropertiesPtrOutput() CatalogCatalogPropertiesPtrOutput {
+	return i.ToCatalogCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogCatalogPropertiesArgs) ToCatalogCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesOutput).ToCatalogCatalogPropertiesPtrOutputWithContext(ctx)
+}
+
+// CatalogCatalogPropertiesPtrInput is an input type that accepts CatalogCatalogPropertiesArgs, CatalogCatalogPropertiesPtr and CatalogCatalogPropertiesPtrOutput values.
+// You can construct a concrete instance of `CatalogCatalogPropertiesPtrInput` via:
+//
+//	        CatalogCatalogPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogCatalogPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCatalogCatalogPropertiesPtrOutput() CatalogCatalogPropertiesPtrOutput
+	ToCatalogCatalogPropertiesPtrOutputWithContext(context.Context) CatalogCatalogPropertiesPtrOutput
+}
+
+type catalogCatalogPropertiesPtrType CatalogCatalogPropertiesArgs
+
+func CatalogCatalogPropertiesPtr(v *CatalogCatalogPropertiesArgs) CatalogCatalogPropertiesPtrInput {
+	return (*catalogCatalogPropertiesPtrType)(v)
+}
+
+func (*catalogCatalogPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCatalogProperties)(nil)).Elem()
+}
+
+func (i *catalogCatalogPropertiesPtrType) ToCatalogCatalogPropertiesPtrOutput() CatalogCatalogPropertiesPtrOutput {
+	return i.ToCatalogCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogCatalogPropertiesPtrType) ToCatalogCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesPtrOutput)
+}
+
+type CatalogCatalogPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CatalogCatalogPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCatalogProperties)(nil)).Elem()
+}
+
+func (o CatalogCatalogPropertiesOutput) ToCatalogCatalogPropertiesOutput() CatalogCatalogPropertiesOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesOutput) ToCatalogCatalogPropertiesOutputWithContext(ctx context.Context) CatalogCatalogPropertiesOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesOutput) ToCatalogCatalogPropertiesPtrOutput() CatalogCatalogPropertiesPtrOutput {
+	return o.ToCatalogCatalogPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogCatalogPropertiesOutput) ToCatalogCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogCatalogProperties) *CatalogCatalogProperties {
+		return &v
+	}).(CatalogCatalogPropertiesPtrOutput)
+}
+
+// Map of custom key-value pairs for the catalog properties.
+func (o CatalogCatalogPropertiesOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogCatalogProperties) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
+}
+
+// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+func (o CatalogCatalogPropertiesOutput) DataLakeAccessProperties() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogProperties) *CatalogCatalogPropertiesDataLakeAccessProperties {
+		return v.DataLakeAccessProperties
+	}).(CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput)
+}
+
+// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+func (o CatalogCatalogPropertiesOutput) IcebergOptimizationProperties() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogProperties) *CatalogCatalogPropertiesIcebergOptimizationProperties {
+		return v.IcebergOptimizationProperties
+	}).(CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput)
+}
+
+type CatalogCatalogPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogCatalogPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCatalogProperties)(nil)).Elem()
+}
+
+func (o CatalogCatalogPropertiesPtrOutput) ToCatalogCatalogPropertiesPtrOutput() CatalogCatalogPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesPtrOutput) ToCatalogCatalogPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesPtrOutput) Elem() CatalogCatalogPropertiesOutput {
+	return o.ApplyT(func(v *CatalogCatalogProperties) CatalogCatalogProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogCatalogProperties
+		return ret
+	}).(CatalogCatalogPropertiesOutput)
+}
+
+// Map of custom key-value pairs for the catalog properties.
+func (o CatalogCatalogPropertiesPtrOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CatalogCatalogProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomProperties
+	}).(pulumi.StringMapOutput)
+}
+
+// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+func (o CatalogCatalogPropertiesPtrOutput) DataLakeAccessProperties() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogProperties) *CatalogCatalogPropertiesDataLakeAccessProperties {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeAccessProperties
+	}).(CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput)
+}
+
+// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+func (o CatalogCatalogPropertiesPtrOutput) IcebergOptimizationProperties() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogProperties) *CatalogCatalogPropertiesIcebergOptimizationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergOptimizationProperties
+	}).(CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput)
+}
+
+type CatalogCatalogPropertiesDataLakeAccessProperties struct {
+	// Type of the catalog.
+	CatalogType *string `pulumi:"catalogType"`
+	// Whether data lake access is enabled.
+	DataLakeAccess *bool `pulumi:"dataLakeAccess"`
+	// ARN of the IAM role used for data transfer.
+	DataTransferRole *string `pulumi:"dataTransferRole"`
+	// ARN of the KMS key used for encryption.
+	KmsKey *string `pulumi:"kmsKey"`
+	// Managed workgroup name.
+	ManagedWorkgroupName *string `pulumi:"managedWorkgroupName"`
+	// Managed workgroup status.
+	ManagedWorkgroupStatus *string `pulumi:"managedWorkgroupStatus"`
+	// Redshift database name.
+	RedshiftDatabaseName *string `pulumi:"redshiftDatabaseName"`
+	// Status message.
+	StatusMessage *string `pulumi:"statusMessage"`
+}
+
+// CatalogCatalogPropertiesDataLakeAccessPropertiesInput is an input type that accepts CatalogCatalogPropertiesDataLakeAccessPropertiesArgs and CatalogCatalogPropertiesDataLakeAccessPropertiesOutput values.
+// You can construct a concrete instance of `CatalogCatalogPropertiesDataLakeAccessPropertiesInput` via:
+//
+//	CatalogCatalogPropertiesDataLakeAccessPropertiesArgs{...}
+type CatalogCatalogPropertiesDataLakeAccessPropertiesInput interface {
+	pulumi.Input
+
+	ToCatalogCatalogPropertiesDataLakeAccessPropertiesOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesOutput
+	ToCatalogCatalogPropertiesDataLakeAccessPropertiesOutputWithContext(context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesOutput
+}
+
+type CatalogCatalogPropertiesDataLakeAccessPropertiesArgs struct {
+	// Type of the catalog.
+	CatalogType pulumi.StringPtrInput `pulumi:"catalogType"`
+	// Whether data lake access is enabled.
+	DataLakeAccess pulumi.BoolPtrInput `pulumi:"dataLakeAccess"`
+	// ARN of the IAM role used for data transfer.
+	DataTransferRole pulumi.StringPtrInput `pulumi:"dataTransferRole"`
+	// ARN of the KMS key used for encryption.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	// Managed workgroup name.
+	ManagedWorkgroupName pulumi.StringPtrInput `pulumi:"managedWorkgroupName"`
+	// Managed workgroup status.
+	ManagedWorkgroupStatus pulumi.StringPtrInput `pulumi:"managedWorkgroupStatus"`
+	// Redshift database name.
+	RedshiftDatabaseName pulumi.StringPtrInput `pulumi:"redshiftDatabaseName"`
+	// Status message.
+	StatusMessage pulumi.StringPtrInput `pulumi:"statusMessage"`
+}
+
+func (CatalogCatalogPropertiesDataLakeAccessPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCatalogPropertiesDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (i CatalogCatalogPropertiesDataLakeAccessPropertiesArgs) ToCatalogCatalogPropertiesDataLakeAccessPropertiesOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesOutput {
+	return i.ToCatalogCatalogPropertiesDataLakeAccessPropertiesOutputWithContext(context.Background())
+}
+
+func (i CatalogCatalogPropertiesDataLakeAccessPropertiesArgs) ToCatalogCatalogPropertiesDataLakeAccessPropertiesOutputWithContext(ctx context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesDataLakeAccessPropertiesOutput)
+}
+
+func (i CatalogCatalogPropertiesDataLakeAccessPropertiesArgs) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return i.ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogCatalogPropertiesDataLakeAccessPropertiesArgs) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesDataLakeAccessPropertiesOutput).ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(ctx)
+}
+
+// CatalogCatalogPropertiesDataLakeAccessPropertiesPtrInput is an input type that accepts CatalogCatalogPropertiesDataLakeAccessPropertiesArgs, CatalogCatalogPropertiesDataLakeAccessPropertiesPtr and CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput values.
+// You can construct a concrete instance of `CatalogCatalogPropertiesDataLakeAccessPropertiesPtrInput` via:
+//
+//	        CatalogCatalogPropertiesDataLakeAccessPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogCatalogPropertiesDataLakeAccessPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput
+	ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput
+}
+
+type catalogCatalogPropertiesDataLakeAccessPropertiesPtrType CatalogCatalogPropertiesDataLakeAccessPropertiesArgs
+
+func CatalogCatalogPropertiesDataLakeAccessPropertiesPtr(v *CatalogCatalogPropertiesDataLakeAccessPropertiesArgs) CatalogCatalogPropertiesDataLakeAccessPropertiesPtrInput {
+	return (*catalogCatalogPropertiesDataLakeAccessPropertiesPtrType)(v)
+}
+
+func (*catalogCatalogPropertiesDataLakeAccessPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCatalogPropertiesDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (i *catalogCatalogPropertiesDataLakeAccessPropertiesPtrType) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return i.ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogCatalogPropertiesDataLakeAccessPropertiesPtrType) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput)
+}
+
+type CatalogCatalogPropertiesDataLakeAccessPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCatalogPropertiesDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) ToCatalogCatalogPropertiesDataLakeAccessPropertiesOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) ToCatalogCatalogPropertiesDataLakeAccessPropertiesOutputWithContext(ctx context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return o.ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogCatalogPropertiesDataLakeAccessProperties) *CatalogCatalogPropertiesDataLakeAccessProperties {
+		return &v
+	}).(CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput)
+}
+
+// Type of the catalog.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) CatalogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *string { return v.CatalogType }).(pulumi.StringPtrOutput)
+}
+
+// Whether data lake access is enabled.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) DataLakeAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *bool { return v.DataLakeAccess }).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the IAM role used for data transfer.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) DataTransferRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *string { return v.DataTransferRole }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the KMS key used for encryption.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+// Managed workgroup name.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) ManagedWorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *string { return v.ManagedWorkgroupName }).(pulumi.StringPtrOutput)
+}
+
+// Managed workgroup status.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) ManagedWorkgroupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *string { return v.ManagedWorkgroupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Redshift database name.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) RedshiftDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *string { return v.RedshiftDatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Status message.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesDataLakeAccessProperties) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+type CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCatalogPropertiesDataLakeAccessProperties)(nil)).Elem()
+}
+
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) ToCatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) Elem() CatalogCatalogPropertiesDataLakeAccessPropertiesOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) CatalogCatalogPropertiesDataLakeAccessProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogCatalogPropertiesDataLakeAccessProperties
+		return ret
+	}).(CatalogCatalogPropertiesDataLakeAccessPropertiesOutput)
+}
+
+// Type of the catalog.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) CatalogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether data lake access is enabled.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) DataLakeAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakeAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// ARN of the IAM role used for data transfer.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) DataTransferRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the KMS key used for encryption.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed workgroup name.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) ManagedWorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedWorkgroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Managed workgroup status.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) ManagedWorkgroupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedWorkgroupStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Redshift database name.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) RedshiftDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status message.
+func (o CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesDataLakeAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogCatalogPropertiesIcebergOptimizationProperties struct {
+	// Map of key-value pairs for compaction settings.
+	Compaction map[string]string `pulumi:"compaction"`
+	// Map of key-value pairs for orphan file deletion settings.
+	OrphanFileDeletion map[string]string `pulumi:"orphanFileDeletion"`
+	// Map of key-value pairs for retention settings.
+	Retention map[string]string `pulumi:"retention"`
+	// ARN of the IAM role for Iceberg optimization.
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// CatalogCatalogPropertiesIcebergOptimizationPropertiesInput is an input type that accepts CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs and CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput values.
+// You can construct a concrete instance of `CatalogCatalogPropertiesIcebergOptimizationPropertiesInput` via:
+//
+//	CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs{...}
+type CatalogCatalogPropertiesIcebergOptimizationPropertiesInput interface {
+	pulumi.Input
+
+	ToCatalogCatalogPropertiesIcebergOptimizationPropertiesOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput
+	ToCatalogCatalogPropertiesIcebergOptimizationPropertiesOutputWithContext(context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput
+}
+
+type CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs struct {
+	// Map of key-value pairs for compaction settings.
+	Compaction pulumi.StringMapInput `pulumi:"compaction"`
+	// Map of key-value pairs for orphan file deletion settings.
+	OrphanFileDeletion pulumi.StringMapInput `pulumi:"orphanFileDeletion"`
+	// Map of key-value pairs for retention settings.
+	Retention pulumi.StringMapInput `pulumi:"retention"`
+	// ARN of the IAM role for Iceberg optimization.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCatalogPropertiesIcebergOptimizationProperties)(nil)).Elem()
+}
+
+func (i CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput {
+	return i.ToCatalogCatalogPropertiesIcebergOptimizationPropertiesOutputWithContext(context.Background())
+}
+
+func (i CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesOutputWithContext(ctx context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput)
+}
+
+func (i CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return i.ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput).ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(ctx)
+}
+
+// CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrInput is an input type that accepts CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs, CatalogCatalogPropertiesIcebergOptimizationPropertiesPtr and CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput values.
+// You can construct a concrete instance of `CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrInput` via:
+//
+//	        CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput
+	ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput
+}
+
+type catalogCatalogPropertiesIcebergOptimizationPropertiesPtrType CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs
+
+func CatalogCatalogPropertiesIcebergOptimizationPropertiesPtr(v *CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs) CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrInput {
+	return (*catalogCatalogPropertiesIcebergOptimizationPropertiesPtrType)(v)
+}
+
+func (*catalogCatalogPropertiesIcebergOptimizationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCatalogPropertiesIcebergOptimizationProperties)(nil)).Elem()
+}
+
+func (i *catalogCatalogPropertiesIcebergOptimizationPropertiesPtrType) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return i.ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogCatalogPropertiesIcebergOptimizationPropertiesPtrType) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput)
+}
+
+type CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCatalogPropertiesIcebergOptimizationProperties)(nil)).Elem()
+}
+
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesOutputWithContext(ctx context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return o.ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogCatalogPropertiesIcebergOptimizationProperties) *CatalogCatalogPropertiesIcebergOptimizationProperties {
+		return &v
+	}).(CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput)
+}
+
+// Map of key-value pairs for compaction settings.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) Compaction() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesIcebergOptimizationProperties) map[string]string { return v.Compaction }).(pulumi.StringMapOutput)
+}
+
+// Map of key-value pairs for orphan file deletion settings.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) OrphanFileDeletion() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesIcebergOptimizationProperties) map[string]string {
+		return v.OrphanFileDeletion
+	}).(pulumi.StringMapOutput)
+}
+
+// Map of key-value pairs for retention settings.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) Retention() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesIcebergOptimizationProperties) map[string]string { return v.Retention }).(pulumi.StringMapOutput)
+}
+
+// ARN of the IAM role for Iceberg optimization.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCatalogPropertiesIcebergOptimizationProperties) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCatalogPropertiesIcebergOptimizationProperties)(nil)).Elem()
+}
+
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) ToCatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
+	return o
+}
+
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) Elem() CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesIcebergOptimizationProperties) CatalogCatalogPropertiesIcebergOptimizationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogCatalogPropertiesIcebergOptimizationProperties
+		return ret
+	}).(CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput)
+}
+
+// Map of key-value pairs for compaction settings.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) Compaction() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesIcebergOptimizationProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Compaction
+	}).(pulumi.StringMapOutput)
+}
+
+// Map of key-value pairs for orphan file deletion settings.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) OrphanFileDeletion() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesIcebergOptimizationProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.OrphanFileDeletion
+	}).(pulumi.StringMapOutput)
+}
+
+// Map of key-value pairs for retention settings.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) Retention() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesIcebergOptimizationProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Retention
+	}).(pulumi.StringMapOutput)
+}
+
+// ARN of the IAM role for Iceberg optimization.
+func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCatalogPropertiesIcebergOptimizationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogCreateDatabaseDefaultPermission struct {
+	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
+	Permissions []string `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principal *CatalogCreateDatabaseDefaultPermissionPrincipal `pulumi:"principal"`
+}
+
+// CatalogCreateDatabaseDefaultPermissionInput is an input type that accepts CatalogCreateDatabaseDefaultPermissionArgs and CatalogCreateDatabaseDefaultPermissionOutput values.
+// You can construct a concrete instance of `CatalogCreateDatabaseDefaultPermissionInput` via:
+//
+//	CatalogCreateDatabaseDefaultPermissionArgs{...}
+type CatalogCreateDatabaseDefaultPermissionInput interface {
+	pulumi.Input
+
+	ToCatalogCreateDatabaseDefaultPermissionOutput() CatalogCreateDatabaseDefaultPermissionOutput
+	ToCatalogCreateDatabaseDefaultPermissionOutputWithContext(context.Context) CatalogCreateDatabaseDefaultPermissionOutput
+}
+
+type CatalogCreateDatabaseDefaultPermissionArgs struct {
+	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principal CatalogCreateDatabaseDefaultPermissionPrincipalPtrInput `pulumi:"principal"`
+}
+
+func (CatalogCreateDatabaseDefaultPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionArgs) ToCatalogCreateDatabaseDefaultPermissionOutput() CatalogCreateDatabaseDefaultPermissionOutput {
+	return i.ToCatalogCreateDatabaseDefaultPermissionOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionArgs) ToCatalogCreateDatabaseDefaultPermissionOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateDatabaseDefaultPermissionOutput)
+}
+
+// CatalogCreateDatabaseDefaultPermissionArrayInput is an input type that accepts CatalogCreateDatabaseDefaultPermissionArray and CatalogCreateDatabaseDefaultPermissionArrayOutput values.
+// You can construct a concrete instance of `CatalogCreateDatabaseDefaultPermissionArrayInput` via:
+//
+//	CatalogCreateDatabaseDefaultPermissionArray{ CatalogCreateDatabaseDefaultPermissionArgs{...} }
+type CatalogCreateDatabaseDefaultPermissionArrayInput interface {
+	pulumi.Input
+
+	ToCatalogCreateDatabaseDefaultPermissionArrayOutput() CatalogCreateDatabaseDefaultPermissionArrayOutput
+	ToCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(context.Context) CatalogCreateDatabaseDefaultPermissionArrayOutput
+}
+
+type CatalogCreateDatabaseDefaultPermissionArray []CatalogCreateDatabaseDefaultPermissionInput
+
+func (CatalogCreateDatabaseDefaultPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionArray) ToCatalogCreateDatabaseDefaultPermissionArrayOutput() CatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return i.ToCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionArray) ToCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateDatabaseDefaultPermissionArrayOutput)
+}
+
+type CatalogCreateDatabaseDefaultPermissionOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateDatabaseDefaultPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionOutput) ToCatalogCreateDatabaseDefaultPermissionOutput() CatalogCreateDatabaseDefaultPermissionOutput {
+	return o
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionOutput) ToCatalogCreateDatabaseDefaultPermissionOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionOutput {
+	return o
+}
+
+// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
+func (o CatalogCreateDatabaseDefaultPermissionOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogCreateDatabaseDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// Principal who is granted permissions. See `principal` below.
+func (o CatalogCreateDatabaseDefaultPermissionOutput) Principal() CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return o.ApplyT(func(v CatalogCreateDatabaseDefaultPermission) *CatalogCreateDatabaseDefaultPermissionPrincipal {
+		return v.Principal
+	}).(CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput)
+}
+
+type CatalogCreateDatabaseDefaultPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateDatabaseDefaultPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionArrayOutput) ToCatalogCreateDatabaseDefaultPermissionArrayOutput() CatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionArrayOutput) ToCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionArrayOutput) Index(i pulumi.IntInput) CatalogCreateDatabaseDefaultPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogCreateDatabaseDefaultPermission {
+		return vs[0].([]CatalogCreateDatabaseDefaultPermission)[vs[1].(int)]
+	}).(CatalogCreateDatabaseDefaultPermissionOutput)
+}
+
+type CatalogCreateDatabaseDefaultPermissionPrincipal struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// CatalogCreateDatabaseDefaultPermissionPrincipalInput is an input type that accepts CatalogCreateDatabaseDefaultPermissionPrincipalArgs and CatalogCreateDatabaseDefaultPermissionPrincipalOutput values.
+// You can construct a concrete instance of `CatalogCreateDatabaseDefaultPermissionPrincipalInput` via:
+//
+//	CatalogCreateDatabaseDefaultPermissionPrincipalArgs{...}
+type CatalogCreateDatabaseDefaultPermissionPrincipalInput interface {
+	pulumi.Input
+
+	ToCatalogCreateDatabaseDefaultPermissionPrincipalOutput() CatalogCreateDatabaseDefaultPermissionPrincipalOutput
+	ToCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalOutput
+}
+
+type CatalogCreateDatabaseDefaultPermissionPrincipalArgs struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (CatalogCreateDatabaseDefaultPermissionPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionPrincipalArgs) ToCatalogCreateDatabaseDefaultPermissionPrincipalOutput() CatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return i.ToCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionPrincipalArgs) ToCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateDatabaseDefaultPermissionPrincipalOutput)
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionPrincipalArgs) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput() CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return i.ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateDatabaseDefaultPermissionPrincipalArgs) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateDatabaseDefaultPermissionPrincipalOutput).ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(ctx)
+}
+
+// CatalogCreateDatabaseDefaultPermissionPrincipalPtrInput is an input type that accepts CatalogCreateDatabaseDefaultPermissionPrincipalArgs, CatalogCreateDatabaseDefaultPermissionPrincipalPtr and CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput values.
+// You can construct a concrete instance of `CatalogCreateDatabaseDefaultPermissionPrincipalPtrInput` via:
+//
+//	        CatalogCreateDatabaseDefaultPermissionPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogCreateDatabaseDefaultPermissionPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput() CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput
+	ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput
+}
+
+type catalogCreateDatabaseDefaultPermissionPrincipalPtrType CatalogCreateDatabaseDefaultPermissionPrincipalArgs
+
+func CatalogCreateDatabaseDefaultPermissionPrincipalPtr(v *CatalogCreateDatabaseDefaultPermissionPrincipalArgs) CatalogCreateDatabaseDefaultPermissionPrincipalPtrInput {
+	return (*catalogCreateDatabaseDefaultPermissionPrincipalPtrType)(v)
+}
+
+func (*catalogCreateDatabaseDefaultPermissionPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i *catalogCreateDatabaseDefaultPermissionPrincipalPtrType) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput() CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return i.ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogCreateDatabaseDefaultPermissionPrincipalPtrType) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput)
+}
+
+type CatalogCreateDatabaseDefaultPermissionPrincipalOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateDatabaseDefaultPermissionPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalOutput) ToCatalogCreateDatabaseDefaultPermissionPrincipalOutput() CatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalOutput) ToCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalOutput) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput() CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return o.ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalOutput) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogCreateDatabaseDefaultPermissionPrincipal) *CatalogCreateDatabaseDefaultPermissionPrincipal {
+		return &v
+	}).(CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput)
+}
+
+// Identifier for the Lake Formation principal.
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCreateDatabaseDefaultPermissionPrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput() CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput) ToCatalogCreateDatabaseDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput) Elem() CatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return o.ApplyT(func(v *CatalogCreateDatabaseDefaultPermissionPrincipal) CatalogCreateDatabaseDefaultPermissionPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogCreateDatabaseDefaultPermissionPrincipal
+		return ret
+	}).(CatalogCreateDatabaseDefaultPermissionPrincipalOutput)
+}
+
+// Identifier for the Lake Formation principal.
+func (o CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCreateDatabaseDefaultPermissionPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogCreateTableDefaultPermission struct {
+	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
+	Permissions []string `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principal *CatalogCreateTableDefaultPermissionPrincipal `pulumi:"principal"`
+}
+
+// CatalogCreateTableDefaultPermissionInput is an input type that accepts CatalogCreateTableDefaultPermissionArgs and CatalogCreateTableDefaultPermissionOutput values.
+// You can construct a concrete instance of `CatalogCreateTableDefaultPermissionInput` via:
+//
+//	CatalogCreateTableDefaultPermissionArgs{...}
+type CatalogCreateTableDefaultPermissionInput interface {
+	pulumi.Input
+
+	ToCatalogCreateTableDefaultPermissionOutput() CatalogCreateTableDefaultPermissionOutput
+	ToCatalogCreateTableDefaultPermissionOutputWithContext(context.Context) CatalogCreateTableDefaultPermissionOutput
+}
+
+type CatalogCreateTableDefaultPermissionArgs struct {
+	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principal CatalogCreateTableDefaultPermissionPrincipalPtrInput `pulumi:"principal"`
+}
+
+func (CatalogCreateTableDefaultPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (i CatalogCreateTableDefaultPermissionArgs) ToCatalogCreateTableDefaultPermissionOutput() CatalogCreateTableDefaultPermissionOutput {
+	return i.ToCatalogCreateTableDefaultPermissionOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateTableDefaultPermissionArgs) ToCatalogCreateTableDefaultPermissionOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateTableDefaultPermissionOutput)
+}
+
+// CatalogCreateTableDefaultPermissionArrayInput is an input type that accepts CatalogCreateTableDefaultPermissionArray and CatalogCreateTableDefaultPermissionArrayOutput values.
+// You can construct a concrete instance of `CatalogCreateTableDefaultPermissionArrayInput` via:
+//
+//	CatalogCreateTableDefaultPermissionArray{ CatalogCreateTableDefaultPermissionArgs{...} }
+type CatalogCreateTableDefaultPermissionArrayInput interface {
+	pulumi.Input
+
+	ToCatalogCreateTableDefaultPermissionArrayOutput() CatalogCreateTableDefaultPermissionArrayOutput
+	ToCatalogCreateTableDefaultPermissionArrayOutputWithContext(context.Context) CatalogCreateTableDefaultPermissionArrayOutput
+}
+
+type CatalogCreateTableDefaultPermissionArray []CatalogCreateTableDefaultPermissionInput
+
+func (CatalogCreateTableDefaultPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (i CatalogCreateTableDefaultPermissionArray) ToCatalogCreateTableDefaultPermissionArrayOutput() CatalogCreateTableDefaultPermissionArrayOutput {
+	return i.ToCatalogCreateTableDefaultPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateTableDefaultPermissionArray) ToCatalogCreateTableDefaultPermissionArrayOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateTableDefaultPermissionArrayOutput)
+}
+
+type CatalogCreateTableDefaultPermissionOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateTableDefaultPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (o CatalogCreateTableDefaultPermissionOutput) ToCatalogCreateTableDefaultPermissionOutput() CatalogCreateTableDefaultPermissionOutput {
+	return o
+}
+
+func (o CatalogCreateTableDefaultPermissionOutput) ToCatalogCreateTableDefaultPermissionOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionOutput {
+	return o
+}
+
+// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
+func (o CatalogCreateTableDefaultPermissionOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogCreateTableDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// Principal who is granted permissions. See `principal` below.
+func (o CatalogCreateTableDefaultPermissionOutput) Principal() CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o.ApplyT(func(v CatalogCreateTableDefaultPermission) *CatalogCreateTableDefaultPermissionPrincipal {
+		return v.Principal
+	}).(CatalogCreateTableDefaultPermissionPrincipalPtrOutput)
+}
+
+type CatalogCreateTableDefaultPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateTableDefaultPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (o CatalogCreateTableDefaultPermissionArrayOutput) ToCatalogCreateTableDefaultPermissionArrayOutput() CatalogCreateTableDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o CatalogCreateTableDefaultPermissionArrayOutput) ToCatalogCreateTableDefaultPermissionArrayOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o CatalogCreateTableDefaultPermissionArrayOutput) Index(i pulumi.IntInput) CatalogCreateTableDefaultPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogCreateTableDefaultPermission {
+		return vs[0].([]CatalogCreateTableDefaultPermission)[vs[1].(int)]
+	}).(CatalogCreateTableDefaultPermissionOutput)
+}
+
+type CatalogCreateTableDefaultPermissionPrincipal struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// CatalogCreateTableDefaultPermissionPrincipalInput is an input type that accepts CatalogCreateTableDefaultPermissionPrincipalArgs and CatalogCreateTableDefaultPermissionPrincipalOutput values.
+// You can construct a concrete instance of `CatalogCreateTableDefaultPermissionPrincipalInput` via:
+//
+//	CatalogCreateTableDefaultPermissionPrincipalArgs{...}
+type CatalogCreateTableDefaultPermissionPrincipalInput interface {
+	pulumi.Input
+
+	ToCatalogCreateTableDefaultPermissionPrincipalOutput() CatalogCreateTableDefaultPermissionPrincipalOutput
+	ToCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(context.Context) CatalogCreateTableDefaultPermissionPrincipalOutput
+}
+
+type CatalogCreateTableDefaultPermissionPrincipalArgs struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (CatalogCreateTableDefaultPermissionPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i CatalogCreateTableDefaultPermissionPrincipalArgs) ToCatalogCreateTableDefaultPermissionPrincipalOutput() CatalogCreateTableDefaultPermissionPrincipalOutput {
+	return i.ToCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateTableDefaultPermissionPrincipalArgs) ToCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateTableDefaultPermissionPrincipalOutput)
+}
+
+func (i CatalogCreateTableDefaultPermissionPrincipalArgs) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutput() CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return i.ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogCreateTableDefaultPermissionPrincipalArgs) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateTableDefaultPermissionPrincipalOutput).ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx)
+}
+
+// CatalogCreateTableDefaultPermissionPrincipalPtrInput is an input type that accepts CatalogCreateTableDefaultPermissionPrincipalArgs, CatalogCreateTableDefaultPermissionPrincipalPtr and CatalogCreateTableDefaultPermissionPrincipalPtrOutput values.
+// You can construct a concrete instance of `CatalogCreateTableDefaultPermissionPrincipalPtrInput` via:
+//
+//	        CatalogCreateTableDefaultPermissionPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogCreateTableDefaultPermissionPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToCatalogCreateTableDefaultPermissionPrincipalPtrOutput() CatalogCreateTableDefaultPermissionPrincipalPtrOutput
+	ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Context) CatalogCreateTableDefaultPermissionPrincipalPtrOutput
+}
+
+type catalogCreateTableDefaultPermissionPrincipalPtrType CatalogCreateTableDefaultPermissionPrincipalArgs
+
+func CatalogCreateTableDefaultPermissionPrincipalPtr(v *CatalogCreateTableDefaultPermissionPrincipalArgs) CatalogCreateTableDefaultPermissionPrincipalPtrInput {
+	return (*catalogCreateTableDefaultPermissionPrincipalPtrType)(v)
+}
+
+func (*catalogCreateTableDefaultPermissionPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i *catalogCreateTableDefaultPermissionPrincipalPtrType) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutput() CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return i.ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogCreateTableDefaultPermissionPrincipalPtrType) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogCreateTableDefaultPermissionPrincipalPtrOutput)
+}
+
+type CatalogCreateTableDefaultPermissionPrincipalOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateTableDefaultPermissionPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o CatalogCreateTableDefaultPermissionPrincipalOutput) ToCatalogCreateTableDefaultPermissionPrincipalOutput() CatalogCreateTableDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o CatalogCreateTableDefaultPermissionPrincipalOutput) ToCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o CatalogCreateTableDefaultPermissionPrincipalOutput) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutput() CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o.ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogCreateTableDefaultPermissionPrincipalOutput) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogCreateTableDefaultPermissionPrincipal) *CatalogCreateTableDefaultPermissionPrincipal {
+		return &v
+	}).(CatalogCreateTableDefaultPermissionPrincipalPtrOutput)
+}
+
+// Identifier for the Lake Formation principal.
+func (o CatalogCreateTableDefaultPermissionPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogCreateTableDefaultPermissionPrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type CatalogCreateTableDefaultPermissionPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogCreateTableDefaultPermissionPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o CatalogCreateTableDefaultPermissionPrincipalPtrOutput) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutput() CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogCreateTableDefaultPermissionPrincipalPtrOutput) ToCatalogCreateTableDefaultPermissionPrincipalPtrOutputWithContext(ctx context.Context) CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
+	return o
+}
+
+func (o CatalogCreateTableDefaultPermissionPrincipalPtrOutput) Elem() CatalogCreateTableDefaultPermissionPrincipalOutput {
+	return o.ApplyT(func(v *CatalogCreateTableDefaultPermissionPrincipal) CatalogCreateTableDefaultPermissionPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogCreateTableDefaultPermissionPrincipal
+		return ret
+	}).(CatalogCreateTableDefaultPermissionPrincipalOutput)
+}
+
+// Identifier for the Lake Formation principal.
+func (o CatalogCreateTableDefaultPermissionPrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogCreateTableDefaultPermissionPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type CatalogDatabaseCreateTableDefaultPermission struct {
 	// The permissions that are granted to the principal.
 	Permissions []string `pulumi:"permissions"`
@@ -588,6 +1723,181 @@ func (o CatalogDatabaseTargetDatabasePtrOutput) Region() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogFederatedCatalog struct {
+	// Name of the connection to the external metastore.
+	ConnectionName *string `pulumi:"connectionName"`
+	// Type of connection used to access the federated catalog.
+	ConnectionType *string `pulumi:"connectionType"`
+	// Unique identifier for the federated catalog.
+	Identifier *string `pulumi:"identifier"`
+}
+
+// CatalogFederatedCatalogInput is an input type that accepts CatalogFederatedCatalogArgs and CatalogFederatedCatalogOutput values.
+// You can construct a concrete instance of `CatalogFederatedCatalogInput` via:
+//
+//	CatalogFederatedCatalogArgs{...}
+type CatalogFederatedCatalogInput interface {
+	pulumi.Input
+
+	ToCatalogFederatedCatalogOutput() CatalogFederatedCatalogOutput
+	ToCatalogFederatedCatalogOutputWithContext(context.Context) CatalogFederatedCatalogOutput
+}
+
+type CatalogFederatedCatalogArgs struct {
+	// Name of the connection to the external metastore.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// Type of connection used to access the federated catalog.
+	ConnectionType pulumi.StringPtrInput `pulumi:"connectionType"`
+	// Unique identifier for the federated catalog.
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (CatalogFederatedCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogOutput() CatalogFederatedCatalogOutput {
+	return i.ToCatalogFederatedCatalogOutputWithContext(context.Background())
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogOutputWithContext(ctx context.Context) CatalogFederatedCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogFederatedCatalogOutput)
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return i.ToCatalogFederatedCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogFederatedCatalogArgs) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogFederatedCatalogOutput).ToCatalogFederatedCatalogPtrOutputWithContext(ctx)
+}
+
+// CatalogFederatedCatalogPtrInput is an input type that accepts CatalogFederatedCatalogArgs, CatalogFederatedCatalogPtr and CatalogFederatedCatalogPtrOutput values.
+// You can construct a concrete instance of `CatalogFederatedCatalogPtrInput` via:
+//
+//	        CatalogFederatedCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogFederatedCatalogPtrInput interface {
+	pulumi.Input
+
+	ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput
+	ToCatalogFederatedCatalogPtrOutputWithContext(context.Context) CatalogFederatedCatalogPtrOutput
+}
+
+type catalogFederatedCatalogPtrType CatalogFederatedCatalogArgs
+
+func CatalogFederatedCatalogPtr(v *CatalogFederatedCatalogArgs) CatalogFederatedCatalogPtrInput {
+	return (*catalogFederatedCatalogPtrType)(v)
+}
+
+func (*catalogFederatedCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (i *catalogFederatedCatalogPtrType) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return i.ToCatalogFederatedCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogFederatedCatalogPtrType) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogFederatedCatalogPtrOutput)
+}
+
+type CatalogFederatedCatalogOutput struct{ *pulumi.OutputState }
+
+func (CatalogFederatedCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogOutput() CatalogFederatedCatalogOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogOutputWithContext(ctx context.Context) CatalogFederatedCatalogOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return o.ToCatalogFederatedCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogFederatedCatalogOutput) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogFederatedCatalog) *CatalogFederatedCatalog {
+		return &v
+	}).(CatalogFederatedCatalogPtrOutput)
+}
+
+// Name of the connection to the external metastore.
+func (o CatalogFederatedCatalogOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// Type of connection used to access the federated catalog.
+func (o CatalogFederatedCatalogOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+// Unique identifier for the federated catalog.
+func (o CatalogFederatedCatalogOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogFederatedCatalog) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type CatalogFederatedCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogFederatedCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (o CatalogFederatedCatalogPtrOutput) ToCatalogFederatedCatalogPtrOutput() CatalogFederatedCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogPtrOutput) ToCatalogFederatedCatalogPtrOutputWithContext(ctx context.Context) CatalogFederatedCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogFederatedCatalogPtrOutput) Elem() CatalogFederatedCatalogOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) CatalogFederatedCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogFederatedCatalog
+		return ret
+	}).(CatalogFederatedCatalogOutput)
+}
+
+// Name of the connection to the external metastore.
+func (o CatalogFederatedCatalogPtrOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of connection used to access the federated catalog.
+func (o CatalogFederatedCatalogPtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique identifier for the federated catalog.
+func (o CatalogFederatedCatalogPtrOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogFederatedCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5083,6 +6393,318 @@ func (o CatalogTableViewDefinitionRepresentationArrayOutput) Index(i pulumi.IntI
 	}).(CatalogTableViewDefinitionRepresentationOutput)
 }
 
+type CatalogTargetRedshiftCatalog struct {
+	// ARN of the target Redshift catalog.
+	CatalogArn string `pulumi:"catalogArn"`
+}
+
+// CatalogTargetRedshiftCatalogInput is an input type that accepts CatalogTargetRedshiftCatalogArgs and CatalogTargetRedshiftCatalogOutput values.
+// You can construct a concrete instance of `CatalogTargetRedshiftCatalogInput` via:
+//
+//	CatalogTargetRedshiftCatalogArgs{...}
+type CatalogTargetRedshiftCatalogInput interface {
+	pulumi.Input
+
+	ToCatalogTargetRedshiftCatalogOutput() CatalogTargetRedshiftCatalogOutput
+	ToCatalogTargetRedshiftCatalogOutputWithContext(context.Context) CatalogTargetRedshiftCatalogOutput
+}
+
+type CatalogTargetRedshiftCatalogArgs struct {
+	// ARN of the target Redshift catalog.
+	CatalogArn pulumi.StringInput `pulumi:"catalogArn"`
+}
+
+func (CatalogTargetRedshiftCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogOutput() CatalogTargetRedshiftCatalogOutput {
+	return i.ToCatalogTargetRedshiftCatalogOutputWithContext(context.Background())
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTargetRedshiftCatalogOutput)
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return i.ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTargetRedshiftCatalogArgs) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTargetRedshiftCatalogOutput).ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx)
+}
+
+// CatalogTargetRedshiftCatalogPtrInput is an input type that accepts CatalogTargetRedshiftCatalogArgs, CatalogTargetRedshiftCatalogPtr and CatalogTargetRedshiftCatalogPtrOutput values.
+// You can construct a concrete instance of `CatalogTargetRedshiftCatalogPtrInput` via:
+//
+//	        CatalogTargetRedshiftCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTargetRedshiftCatalogPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput
+	ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Context) CatalogTargetRedshiftCatalogPtrOutput
+}
+
+type catalogTargetRedshiftCatalogPtrType CatalogTargetRedshiftCatalogArgs
+
+func CatalogTargetRedshiftCatalogPtr(v *CatalogTargetRedshiftCatalogArgs) CatalogTargetRedshiftCatalogPtrInput {
+	return (*catalogTargetRedshiftCatalogPtrType)(v)
+}
+
+func (*catalogTargetRedshiftCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (i *catalogTargetRedshiftCatalogPtrType) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return i.ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTargetRedshiftCatalogPtrType) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTargetRedshiftCatalogPtrOutput)
+}
+
+type CatalogTargetRedshiftCatalogOutput struct{ *pulumi.OutputState }
+
+func (CatalogTargetRedshiftCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogOutput() CatalogTargetRedshiftCatalogOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return o.ToCatalogTargetRedshiftCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTargetRedshiftCatalogOutput) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTargetRedshiftCatalog) *CatalogTargetRedshiftCatalog {
+		return &v
+	}).(CatalogTargetRedshiftCatalogPtrOutput)
+}
+
+// ARN of the target Redshift catalog.
+func (o CatalogTargetRedshiftCatalogOutput) CatalogArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTargetRedshiftCatalog) string { return v.CatalogArn }).(pulumi.StringOutput)
+}
+
+type CatalogTargetRedshiftCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTargetRedshiftCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (o CatalogTargetRedshiftCatalogPtrOutput) ToCatalogTargetRedshiftCatalogPtrOutput() CatalogTargetRedshiftCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogPtrOutput) ToCatalogTargetRedshiftCatalogPtrOutputWithContext(ctx context.Context) CatalogTargetRedshiftCatalogPtrOutput {
+	return o
+}
+
+func (o CatalogTargetRedshiftCatalogPtrOutput) Elem() CatalogTargetRedshiftCatalogOutput {
+	return o.ApplyT(func(v *CatalogTargetRedshiftCatalog) CatalogTargetRedshiftCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTargetRedshiftCatalog
+		return ret
+	}).(CatalogTargetRedshiftCatalogOutput)
+}
+
+// ARN of the target Redshift catalog.
+func (o CatalogTargetRedshiftCatalogPtrOutput) CatalogArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTargetRedshiftCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// CatalogTimeoutsInput is an input type that accepts CatalogTimeoutsArgs and CatalogTimeoutsOutput values.
+// You can construct a concrete instance of `CatalogTimeoutsInput` via:
+//
+//	CatalogTimeoutsArgs{...}
+type CatalogTimeoutsInput interface {
+	pulumi.Input
+
+	ToCatalogTimeoutsOutput() CatalogTimeoutsOutput
+	ToCatalogTimeoutsOutputWithContext(context.Context) CatalogTimeoutsOutput
+}
+
+type CatalogTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (CatalogTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTimeouts)(nil)).Elem()
+}
+
+func (i CatalogTimeoutsArgs) ToCatalogTimeoutsOutput() CatalogTimeoutsOutput {
+	return i.ToCatalogTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CatalogTimeoutsArgs) ToCatalogTimeoutsOutputWithContext(ctx context.Context) CatalogTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTimeoutsOutput)
+}
+
+func (i CatalogTimeoutsArgs) ToCatalogTimeoutsPtrOutput() CatalogTimeoutsPtrOutput {
+	return i.ToCatalogTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTimeoutsArgs) ToCatalogTimeoutsPtrOutputWithContext(ctx context.Context) CatalogTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTimeoutsOutput).ToCatalogTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CatalogTimeoutsPtrInput is an input type that accepts CatalogTimeoutsArgs, CatalogTimeoutsPtr and CatalogTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CatalogTimeoutsPtrInput` via:
+//
+//	        CatalogTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTimeoutsPtrOutput() CatalogTimeoutsPtrOutput
+	ToCatalogTimeoutsPtrOutputWithContext(context.Context) CatalogTimeoutsPtrOutput
+}
+
+type catalogTimeoutsPtrType CatalogTimeoutsArgs
+
+func CatalogTimeoutsPtr(v *CatalogTimeoutsArgs) CatalogTimeoutsPtrInput {
+	return (*catalogTimeoutsPtrType)(v)
+}
+
+func (*catalogTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTimeouts)(nil)).Elem()
+}
+
+func (i *catalogTimeoutsPtrType) ToCatalogTimeoutsPtrOutput() CatalogTimeoutsPtrOutput {
+	return i.ToCatalogTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTimeoutsPtrType) ToCatalogTimeoutsPtrOutputWithContext(ctx context.Context) CatalogTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTimeoutsPtrOutput)
+}
+
+type CatalogTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CatalogTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTimeouts)(nil)).Elem()
+}
+
+func (o CatalogTimeoutsOutput) ToCatalogTimeoutsOutput() CatalogTimeoutsOutput {
+	return o
+}
+
+func (o CatalogTimeoutsOutput) ToCatalogTimeoutsOutputWithContext(ctx context.Context) CatalogTimeoutsOutput {
+	return o
+}
+
+func (o CatalogTimeoutsOutput) ToCatalogTimeoutsPtrOutput() CatalogTimeoutsPtrOutput {
+	return o.ToCatalogTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTimeoutsOutput) ToCatalogTimeoutsPtrOutputWithContext(ctx context.Context) CatalogTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTimeouts) *CatalogTimeouts {
+		return &v
+	}).(CatalogTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CatalogTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CatalogTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CatalogTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type CatalogTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTimeouts)(nil)).Elem()
+}
+
+func (o CatalogTimeoutsPtrOutput) ToCatalogTimeoutsPtrOutput() CatalogTimeoutsPtrOutput {
+	return o
+}
+
+func (o CatalogTimeoutsPtrOutput) ToCatalogTimeoutsPtrOutputWithContext(ctx context.Context) CatalogTimeoutsPtrOutput {
+	return o
+}
+
+func (o CatalogTimeoutsPtrOutput) Elem() CatalogTimeoutsOutput {
+	return o.ApplyT(func(v *CatalogTimeouts) CatalogTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTimeouts
+		return ret
+	}).(CatalogTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CatalogTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o CatalogTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CatalogTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClassifierCsvClassifier struct {
 	// Enables the processing of files that contain only one column.
 	AllowSingleColumn *bool `pulumi:"allowSingleColumn"`
@@ -5840,12 +7462,1168 @@ func (o ClassifierXmlClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectionAuthenticationConfiguration struct {
+	// Type of authentication. Valid values: `BASIC`, `CUSTOM`, `IAM`, `OAUTH2`.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Basic authentication credentials. See `basicAuthenticationCredentials` below.
+	BasicAuthenticationCredentials *ConnectionAuthenticationConfigurationBasicAuthenticationCredentials `pulumi:"basicAuthenticationCredentials"`
+	// Map of custom authentication credentials.
+	CustomAuthenticationCredentials map[string]string `pulumi:"customAuthenticationCredentials"`
+	// ARN of the KMS key used for encryption.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// OAuth2 properties. See `oauth2Properties` below.
+	Oauth2Properties *ConnectionAuthenticationConfigurationOauth2Properties `pulumi:"oauth2Properties"`
+	// ARN of the Secrets Manager secret containing credentials.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// ConnectionAuthenticationConfigurationInput is an input type that accepts ConnectionAuthenticationConfigurationArgs and ConnectionAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationInput` via:
+//
+//	ConnectionAuthenticationConfigurationArgs{...}
+type ConnectionAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOutput() ConnectionAuthenticationConfigurationOutput
+	ToConnectionAuthenticationConfigurationOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOutput
+}
+
+type ConnectionAuthenticationConfigurationArgs struct {
+	// Type of authentication. Valid values: `BASIC`, `CUSTOM`, `IAM`, `OAUTH2`.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Basic authentication credentials. See `basicAuthenticationCredentials` below.
+	BasicAuthenticationCredentials ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrInput `pulumi:"basicAuthenticationCredentials"`
+	// Map of custom authentication credentials.
+	CustomAuthenticationCredentials pulumi.StringMapInput `pulumi:"customAuthenticationCredentials"`
+	// ARN of the KMS key used for encryption.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// OAuth2 properties. See `oauth2Properties` below.
+	Oauth2Properties ConnectionAuthenticationConfigurationOauth2PropertiesPtrInput `pulumi:"oauth2Properties"`
+	// ARN of the Secrets Manager secret containing credentials.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (ConnectionAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationOutput() ConnectionAuthenticationConfigurationOutput {
+	return i.ToConnectionAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOutput).ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationPtrInput is an input type that accepts ConnectionAuthenticationConfigurationArgs, ConnectionAuthenticationConfigurationPtr and ConnectionAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput
+	ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationPtrOutput
+}
+
+type connectionAuthenticationConfigurationPtrType ConnectionAuthenticationConfigurationArgs
+
+func ConnectionAuthenticationConfigurationPtr(v *ConnectionAuthenticationConfigurationArgs) ConnectionAuthenticationConfigurationPtrInput {
+	return (*connectionAuthenticationConfigurationPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationPtrType) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationPtrType) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationOutput() ConnectionAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfiguration) *ConnectionAuthenticationConfiguration {
+		return &v
+	}).(ConnectionAuthenticationConfigurationPtrOutput)
+}
+
+// Type of authentication. Valid values: `BASIC`, `CUSTOM`, `IAM`, `OAUTH2`.
+func (o ConnectionAuthenticationConfigurationOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Basic authentication credentials. See `basicAuthenticationCredentials` below.
+func (o ConnectionAuthenticationConfigurationOutput) BasicAuthenticationCredentials() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *ConnectionAuthenticationConfigurationBasicAuthenticationCredentials {
+		return v.BasicAuthenticationCredentials
+	}).(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput)
+}
+
+// Map of custom authentication credentials.
+func (o ConnectionAuthenticationConfigurationOutput) CustomAuthenticationCredentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) map[string]string {
+		return v.CustomAuthenticationCredentials
+	}).(pulumi.StringMapOutput)
+}
+
+// ARN of the KMS key used for encryption.
+func (o ConnectionAuthenticationConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 properties. See `oauth2Properties` below.
+func (o ConnectionAuthenticationConfigurationOutput) Oauth2Properties() ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *ConnectionAuthenticationConfigurationOauth2Properties {
+		return v.Oauth2Properties
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput)
+}
+
+// ARN of the Secrets Manager secret containing credentials.
+func (o ConnectionAuthenticationConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationPtrOutput) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationPtrOutput) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationPtrOutput) Elem() ConnectionAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) ConnectionAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfiguration
+		return ret
+	}).(ConnectionAuthenticationConfigurationOutput)
+}
+
+// Type of authentication. Valid values: `BASIC`, `CUSTOM`, `IAM`, `OAUTH2`.
+func (o ConnectionAuthenticationConfigurationPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Basic authentication credentials. See `basicAuthenticationCredentials` below.
+func (o ConnectionAuthenticationConfigurationPtrOutput) BasicAuthenticationCredentials() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *ConnectionAuthenticationConfigurationBasicAuthenticationCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthenticationCredentials
+	}).(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput)
+}
+
+// Map of custom authentication credentials.
+func (o ConnectionAuthenticationConfigurationPtrOutput) CustomAuthenticationCredentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAuthenticationCredentials
+	}).(pulumi.StringMapOutput)
+}
+
+// ARN of the KMS key used for encryption.
+func (o ConnectionAuthenticationConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 properties. See `oauth2Properties` below.
+func (o ConnectionAuthenticationConfigurationPtrOutput) Oauth2Properties() ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *ConnectionAuthenticationConfigurationOauth2Properties {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth2Properties
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput)
+}
+
+// ARN of the Secrets Manager secret containing credentials.
+func (o ConnectionAuthenticationConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationBasicAuthenticationCredentials struct {
+	// Password for authentication.
+	Password string `pulumi:"password"`
+	// Username for authentication.
+	Username string `pulumi:"username"`
+}
+
+// ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsInput is an input type that accepts ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs and ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsInput` via:
+//
+//	ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs{...}
+type ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput
+	ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutputWithContext(context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput
+}
+
+type ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs struct {
+	// Password for authentication.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Username for authentication.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput {
+	return i.ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput).ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrInput is an input type that accepts ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs, ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtr and ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput
+	ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput
+}
+
+type connectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrType ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs
+
+func ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtr(v *ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrInput {
+	return (*connectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrType) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrType) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfigurationBasicAuthenticationCredentials) *ConnectionAuthenticationConfigurationBasicAuthenticationCredentials {
+		return &v
+	}).(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput)
+}
+
+// Password for authentication.
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationBasicAuthenticationCredentials) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Username for authentication.
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationBasicAuthenticationCredentials) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput) ToConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput) Elem() ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationBasicAuthenticationCredentials) ConnectionAuthenticationConfigurationBasicAuthenticationCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfigurationBasicAuthenticationCredentials
+		return ret
+	}).(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput)
+}
+
+// Password for authentication.
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationBasicAuthenticationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username for authentication.
+func (o ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationBasicAuthenticationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2Properties struct {
+	// Authorization code properties. See `authorizationCodeProperties` below.
+	AuthorizationCodeProperties *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties `pulumi:"authorizationCodeProperties"`
+	// OAuth2 client application details. See `oauth2ClientApplication` below.
+	Oauth2ClientApplication *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication `pulumi:"oauth2ClientApplication"`
+	// OAuth2 credentials. See `oauth2Credentials` below.
+	Oauth2Credentials *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials `pulumi:"oauth2Credentials"`
+	// OAuth2 grant type. Valid values: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`, `JWT_BEARER`.
+	Oauth2GrantType *string `pulumi:"oauth2GrantType"`
+	// Token URL for OAuth2 authentication.
+	TokenUrl *string `pulumi:"tokenUrl"`
+	// Map of additional parameters for the token URL.
+	TokenUrlParametersMap map[string]string `pulumi:"tokenUrlParametersMap"`
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesArgs and ConnectionAuthenticationConfigurationOauth2PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesInput` via:
+//
+//	ConnectionAuthenticationConfigurationOauth2PropertiesArgs{...}
+type ConnectionAuthenticationConfigurationOauth2PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOutput
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesArgs struct {
+	// Authorization code properties. See `authorizationCodeProperties` below.
+	AuthorizationCodeProperties ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrInput `pulumi:"authorizationCodeProperties"`
+	// OAuth2 client application details. See `oauth2ClientApplication` below.
+	Oauth2ClientApplication ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrInput `pulumi:"oauth2ClientApplication"`
+	// OAuth2 credentials. See `oauth2Credentials` below.
+	Oauth2Credentials ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrInput `pulumi:"oauth2Credentials"`
+	// OAuth2 grant type. Valid values: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`, `JWT_BEARER`.
+	Oauth2GrantType pulumi.StringPtrInput `pulumi:"oauth2GrantType"`
+	// Token URL for OAuth2 authentication.
+	TokenUrl pulumi.StringPtrInput `pulumi:"tokenUrl"`
+	// Map of additional parameters for the token URL.
+	TokenUrlParametersMap pulumi.StringMapInput `pulumi:"tokenUrlParametersMap"`
+}
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2Properties)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOutput).ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesPtrInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesArgs, ConnectionAuthenticationConfigurationOauth2PropertiesPtr and ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationOauth2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationOauth2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput
+}
+
+type connectionAuthenticationConfigurationOauth2PropertiesPtrType ConnectionAuthenticationConfigurationOauth2PropertiesArgs
+
+func ConnectionAuthenticationConfigurationOauth2PropertiesPtr(v *ConnectionAuthenticationConfigurationOauth2PropertiesArgs) ConnectionAuthenticationConfigurationOauth2PropertiesPtrInput {
+	return (*connectionAuthenticationConfigurationOauth2PropertiesPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationOauth2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2Properties)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2Properties)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfigurationOauth2Properties) *ConnectionAuthenticationConfigurationOauth2Properties {
+		return &v
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput)
+}
+
+// Authorization code properties. See `authorizationCodeProperties` below.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) AuthorizationCodeProperties() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2Properties) *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties {
+		return v.AuthorizationCodeProperties
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput)
+}
+
+// OAuth2 client application details. See `oauth2ClientApplication` below.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) Oauth2ClientApplication() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2Properties) *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication {
+		return v.Oauth2ClientApplication
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput)
+}
+
+// OAuth2 credentials. See `oauth2Credentials` below.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) Oauth2Credentials() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2Properties) *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials {
+		return v.Oauth2Credentials
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput)
+}
+
+// OAuth2 grant type. Valid values: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`, `JWT_BEARER`.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) Oauth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2Properties) *string { return v.Oauth2GrantType }).(pulumi.StringPtrOutput)
+}
+
+// Token URL for OAuth2 authentication.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2Properties) *string { return v.TokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// Map of additional parameters for the token URL.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOutput) TokenUrlParametersMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2Properties) map[string]string {
+		return v.TokenUrlParametersMap
+	}).(pulumi.StringMapOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2Properties)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) Elem() ConnectionAuthenticationConfigurationOauth2PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2Properties) ConnectionAuthenticationConfigurationOauth2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfigurationOauth2Properties
+		return ret
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOutput)
+}
+
+// Authorization code properties. See `authorizationCodeProperties` below.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) AuthorizationCodeProperties() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2Properties) *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationCodeProperties
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput)
+}
+
+// OAuth2 client application details. See `oauth2ClientApplication` below.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) Oauth2ClientApplication() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2Properties) *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth2ClientApplication
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput)
+}
+
+// OAuth2 credentials. See `oauth2Credentials` below.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) Oauth2Credentials() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2Properties) *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth2Credentials
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput)
+}
+
+// OAuth2 grant type. Valid values: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`, `JWT_BEARER`.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) Oauth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth2GrantType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Token URL for OAuth2 authentication.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Map of additional parameters for the token URL.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput) TokenUrlParametersMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2Properties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUrlParametersMap
+	}).(pulumi.StringMapOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties struct {
+	// Authorization code.
+	AuthorizationCode string `pulumi:"authorizationCode"`
+	// Redirect URI for OAuth2 flow.
+	RedirectUri string `pulumi:"redirectUri"`
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs and ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesInput` via:
+//
+//	ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs{...}
+type ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs struct {
+	// Authorization code.
+	AuthorizationCode pulumi.StringInput `pulumi:"authorizationCode"`
+	// Redirect URI for OAuth2 flow.
+	RedirectUri pulumi.StringInput `pulumi:"redirectUri"`
+}
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput).ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs, ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtr and ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput
+}
+
+type connectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrType ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs
+
+func ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtr(v *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrInput {
+	return (*connectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties) *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties {
+		return &v
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput)
+}
+
+// Authorization code.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput) AuthorizationCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties) string {
+		return v.AuthorizationCode
+	}).(pulumi.StringOutput)
+}
+
+// Redirect URI for OAuth2 flow.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput) RedirectUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties) string {
+		return v.RedirectUri
+	}).(pulumi.StringOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput) Elem() ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties) ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties
+		return ret
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput)
+}
+
+// Authorization code.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput) AuthorizationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Redirect URI for OAuth2 flow.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication struct {
+	// Reference to an AWS-managed client application.
+	AwsManagedClientApplicationReference *string `pulumi:"awsManagedClientApplicationReference"`
+	// Client ID for a user-managed client application.
+	UserManagedClientApplicationClientId *string `pulumi:"userManagedClientApplicationClientId"`
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs and ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationInput` via:
+//
+//	ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs{...}
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs struct {
+	// Reference to an AWS-managed client application.
+	AwsManagedClientApplicationReference pulumi.StringPtrInput `pulumi:"awsManagedClientApplicationReference"`
+	// Client ID for a user-managed client application.
+	UserManagedClientApplicationClientId pulumi.StringPtrInput `pulumi:"userManagedClientApplicationClientId"`
+}
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput).ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs, ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtr and ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput
+}
+
+type connectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrType ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs
+
+func ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtr(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrInput {
+	return (*connectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication) *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication {
+		return &v
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput)
+}
+
+// Reference to an AWS-managed client application.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput) AwsManagedClientApplicationReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication) *string {
+		return v.AwsManagedClientApplicationReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client ID for a user-managed client application.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput) UserManagedClientApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication) *string {
+		return v.UserManagedClientApplicationClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput) Elem() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication
+		return ret
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput)
+}
+
+// Reference to an AWS-managed client application.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput) AwsManagedClientApplicationReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsManagedClientApplicationReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client ID for a user-managed client application.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput) UserManagedClientApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserManagedClientApplicationClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials struct {
+	// OAuth2 access token.
+	AccessToken *string `pulumi:"accessToken"`
+	// JWT token.
+	JwtToken *string `pulumi:"jwtToken"`
+	// OAuth2 refresh token.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// Client secret for user-managed client application.
+	UserManagedClientApplicationClientSecret *string `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs and ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsInput` via:
+//
+//	ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs{...}
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs struct {
+	// OAuth2 access token.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// JWT token.
+	JwtToken pulumi.StringPtrInput `pulumi:"jwtToken"`
+	// OAuth2 refresh token.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// Client secret for user-managed client application.
+	UserManagedClientApplicationClientSecret pulumi.StringPtrInput `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput).ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrInput is an input type that accepts ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs, ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtr and ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput
+	ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput
+}
+
+type connectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrType ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs
+
+func ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtr(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrInput {
+	return (*connectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrType) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials {
+		return &v
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput)
+}
+
+// OAuth2 access token.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// JWT token.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 refresh token.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client secret for user-managed client application.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput) UserManagedClientApplicationClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		return v.UserManagedClientApplicationClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) ToConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) Elem() ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials
+		return ret
+	}).(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput)
+}
+
+// OAuth2 access token.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// JWT token.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 refresh token.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client secret for user-managed client application.
+func (o ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput) UserManagedClientApplicationClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfigurationOauth2PropertiesOauth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserManagedClientApplicationClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectionPhysicalConnectionRequirements struct {
-	// The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+	// Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The security group ID list used by the connection.
+	// Security group ID list used by the connection.
 	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
-	// The subnet ID used by the connection.
+	// Subnet ID used by the connection.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -5861,11 +8639,11 @@ type ConnectionPhysicalConnectionRequirementsInput interface {
 }
 
 type ConnectionPhysicalConnectionRequirementsArgs struct {
-	// The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+	// Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The security group ID list used by the connection.
+	// Security group ID list used by the connection.
 	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
-	// The subnet ID used by the connection.
+	// Subnet ID used by the connection.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -5946,17 +8724,17 @@ func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConn
 	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
 
-// The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+// Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
 func (o ConnectionPhysicalConnectionRequirementsOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The security group ID list used by the connection.
+// Security group ID list used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
 }
 
-// The subnet ID used by the connection.
+// Subnet ID used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -5985,7 +8763,7 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) Elem() ConnectionPhys
 	}).(ConnectionPhysicalConnectionRequirementsOutput)
 }
 
-// The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+// Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
 		if v == nil {
@@ -5995,7 +8773,7 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) AvailabilityZone() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The security group ID list used by the connection.
+// Security group ID list used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) []string {
 		if v == nil {
@@ -6005,7 +8783,7 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SecurityGroupIdLists(
 	}).(pulumi.StringArrayOutput)
 }
 
-// The subnet ID used by the connection.
+// Subnet ID used by the connection.
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
 		if v == nil {
@@ -12139,6 +14917,926 @@ func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) User
 	}).(UserDefinedFunctionResourceUriOutput)
 }
 
+type GetCatalogCatalogProperty struct {
+	// Map of custom key-value pairs for the catalog properties.
+	CustomProperties map[string]string `pulumi:"customProperties"`
+	// Data lake access properties. See `dataLakeAccessProperties` below.
+	DataLakeAccessProperties []GetCatalogCatalogPropertyDataLakeAccessProperty `pulumi:"dataLakeAccessProperties"`
+	// Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	IcebergOptimizationProperties []GetCatalogCatalogPropertyIcebergOptimizationProperty `pulumi:"icebergOptimizationProperties"`
+}
+
+// GetCatalogCatalogPropertyInput is an input type that accepts GetCatalogCatalogPropertyArgs and GetCatalogCatalogPropertyOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogPropertyInput` via:
+//
+//	GetCatalogCatalogPropertyArgs{...}
+type GetCatalogCatalogPropertyInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogPropertyOutput() GetCatalogCatalogPropertyOutput
+	ToGetCatalogCatalogPropertyOutputWithContext(context.Context) GetCatalogCatalogPropertyOutput
+}
+
+type GetCatalogCatalogPropertyArgs struct {
+	// Map of custom key-value pairs for the catalog properties.
+	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
+	// Data lake access properties. See `dataLakeAccessProperties` below.
+	DataLakeAccessProperties GetCatalogCatalogPropertyDataLakeAccessPropertyArrayInput `pulumi:"dataLakeAccessProperties"`
+	// Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	IcebergOptimizationProperties GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayInput `pulumi:"icebergOptimizationProperties"`
+}
+
+func (GetCatalogCatalogPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogProperty)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogPropertyArgs) ToGetCatalogCatalogPropertyOutput() GetCatalogCatalogPropertyOutput {
+	return i.ToGetCatalogCatalogPropertyOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogPropertyArgs) ToGetCatalogCatalogPropertyOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogPropertyOutput)
+}
+
+// GetCatalogCatalogPropertyArrayInput is an input type that accepts GetCatalogCatalogPropertyArray and GetCatalogCatalogPropertyArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogPropertyArrayInput` via:
+//
+//	GetCatalogCatalogPropertyArray{ GetCatalogCatalogPropertyArgs{...} }
+type GetCatalogCatalogPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogPropertyArrayOutput() GetCatalogCatalogPropertyArrayOutput
+	ToGetCatalogCatalogPropertyArrayOutputWithContext(context.Context) GetCatalogCatalogPropertyArrayOutput
+}
+
+type GetCatalogCatalogPropertyArray []GetCatalogCatalogPropertyInput
+
+func (GetCatalogCatalogPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogProperty)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogPropertyArray) ToGetCatalogCatalogPropertyArrayOutput() GetCatalogCatalogPropertyArrayOutput {
+	return i.ToGetCatalogCatalogPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogPropertyArray) ToGetCatalogCatalogPropertyArrayOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogPropertyArrayOutput)
+}
+
+type GetCatalogCatalogPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogProperty)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogPropertyOutput) ToGetCatalogCatalogPropertyOutput() GetCatalogCatalogPropertyOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyOutput) ToGetCatalogCatalogPropertyOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyOutput {
+	return o
+}
+
+// Map of custom key-value pairs for the catalog properties.
+func (o GetCatalogCatalogPropertyOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogCatalogProperty) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
+}
+
+// Data lake access properties. See `dataLakeAccessProperties` below.
+func (o GetCatalogCatalogPropertyOutput) DataLakeAccessProperties() GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput {
+	return o.ApplyT(func(v GetCatalogCatalogProperty) []GetCatalogCatalogPropertyDataLakeAccessProperty {
+		return v.DataLakeAccessProperties
+	}).(GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput)
+}
+
+// Iceberg optimization properties. See `icebergOptimizationProperties` below.
+func (o GetCatalogCatalogPropertyOutput) IcebergOptimizationProperties() GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput {
+	return o.ApplyT(func(v GetCatalogCatalogProperty) []GetCatalogCatalogPropertyIcebergOptimizationProperty {
+		return v.IcebergOptimizationProperties
+	}).(GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput)
+}
+
+type GetCatalogCatalogPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogProperty)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogPropertyArrayOutput) ToGetCatalogCatalogPropertyArrayOutput() GetCatalogCatalogPropertyArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyArrayOutput) ToGetCatalogCatalogPropertyArrayOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyArrayOutput) Index(i pulumi.IntInput) GetCatalogCatalogPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCatalogProperty {
+		return vs[0].([]GetCatalogCatalogProperty)[vs[1].(int)]
+	}).(GetCatalogCatalogPropertyOutput)
+}
+
+type GetCatalogCatalogPropertyDataLakeAccessProperty struct {
+	// Type of the catalog.
+	CatalogType string `pulumi:"catalogType"`
+	// Whether data lake access is enabled.
+	DataLakeAccess bool `pulumi:"dataLakeAccess"`
+	// ARN of the IAM role used for data transfer.
+	DataTransferRole string `pulumi:"dataTransferRole"`
+	// ARN of the KMS key used for encryption.
+	KmsKey string `pulumi:"kmsKey"`
+	// Managed workgroup name.
+	ManagedWorkgroupName string `pulumi:"managedWorkgroupName"`
+	// Managed workgroup status.
+	ManagedWorkgroupStatus string `pulumi:"managedWorkgroupStatus"`
+	// Redshift database name.
+	RedshiftDatabaseName string `pulumi:"redshiftDatabaseName"`
+	// Status message.
+	StatusMessage string `pulumi:"statusMessage"`
+}
+
+// GetCatalogCatalogPropertyDataLakeAccessPropertyInput is an input type that accepts GetCatalogCatalogPropertyDataLakeAccessPropertyArgs and GetCatalogCatalogPropertyDataLakeAccessPropertyOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogPropertyDataLakeAccessPropertyInput` via:
+//
+//	GetCatalogCatalogPropertyDataLakeAccessPropertyArgs{...}
+type GetCatalogCatalogPropertyDataLakeAccessPropertyInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogPropertyDataLakeAccessPropertyOutput() GetCatalogCatalogPropertyDataLakeAccessPropertyOutput
+	ToGetCatalogCatalogPropertyDataLakeAccessPropertyOutputWithContext(context.Context) GetCatalogCatalogPropertyDataLakeAccessPropertyOutput
+}
+
+type GetCatalogCatalogPropertyDataLakeAccessPropertyArgs struct {
+	// Type of the catalog.
+	CatalogType pulumi.StringInput `pulumi:"catalogType"`
+	// Whether data lake access is enabled.
+	DataLakeAccess pulumi.BoolInput `pulumi:"dataLakeAccess"`
+	// ARN of the IAM role used for data transfer.
+	DataTransferRole pulumi.StringInput `pulumi:"dataTransferRole"`
+	// ARN of the KMS key used for encryption.
+	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
+	// Managed workgroup name.
+	ManagedWorkgroupName pulumi.StringInput `pulumi:"managedWorkgroupName"`
+	// Managed workgroup status.
+	ManagedWorkgroupStatus pulumi.StringInput `pulumi:"managedWorkgroupStatus"`
+	// Redshift database name.
+	RedshiftDatabaseName pulumi.StringInput `pulumi:"redshiftDatabaseName"`
+	// Status message.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+}
+
+func (GetCatalogCatalogPropertyDataLakeAccessPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogPropertyDataLakeAccessProperty)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogPropertyDataLakeAccessPropertyArgs) ToGetCatalogCatalogPropertyDataLakeAccessPropertyOutput() GetCatalogCatalogPropertyDataLakeAccessPropertyOutput {
+	return i.ToGetCatalogCatalogPropertyDataLakeAccessPropertyOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogPropertyDataLakeAccessPropertyArgs) ToGetCatalogCatalogPropertyDataLakeAccessPropertyOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyDataLakeAccessPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogPropertyDataLakeAccessPropertyOutput)
+}
+
+// GetCatalogCatalogPropertyDataLakeAccessPropertyArrayInput is an input type that accepts GetCatalogCatalogPropertyDataLakeAccessPropertyArray and GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogPropertyDataLakeAccessPropertyArrayInput` via:
+//
+//	GetCatalogCatalogPropertyDataLakeAccessPropertyArray{ GetCatalogCatalogPropertyDataLakeAccessPropertyArgs{...} }
+type GetCatalogCatalogPropertyDataLakeAccessPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput() GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput
+	ToGetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutputWithContext(context.Context) GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput
+}
+
+type GetCatalogCatalogPropertyDataLakeAccessPropertyArray []GetCatalogCatalogPropertyDataLakeAccessPropertyInput
+
+func (GetCatalogCatalogPropertyDataLakeAccessPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogPropertyDataLakeAccessProperty)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogPropertyDataLakeAccessPropertyArray) ToGetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput() GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput {
+	return i.ToGetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogPropertyDataLakeAccessPropertyArray) ToGetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput)
+}
+
+type GetCatalogCatalogPropertyDataLakeAccessPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogPropertyDataLakeAccessProperty)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) ToGetCatalogCatalogPropertyDataLakeAccessPropertyOutput() GetCatalogCatalogPropertyDataLakeAccessPropertyOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) ToGetCatalogCatalogPropertyDataLakeAccessPropertyOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyDataLakeAccessPropertyOutput {
+	return o
+}
+
+// Type of the catalog.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) CatalogType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) string { return v.CatalogType }).(pulumi.StringOutput)
+}
+
+// Whether data lake access is enabled.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) DataLakeAccess() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) bool { return v.DataLakeAccess }).(pulumi.BoolOutput)
+}
+
+// ARN of the IAM role used for data transfer.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) DataTransferRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) string { return v.DataTransferRole }).(pulumi.StringOutput)
+}
+
+// ARN of the KMS key used for encryption.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) KmsKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) string { return v.KmsKey }).(pulumi.StringOutput)
+}
+
+// Managed workgroup name.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) ManagedWorkgroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) string { return v.ManagedWorkgroupName }).(pulumi.StringOutput)
+}
+
+// Managed workgroup status.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) ManagedWorkgroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) string { return v.ManagedWorkgroupStatus }).(pulumi.StringOutput)
+}
+
+// Redshift database name.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) RedshiftDatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) string { return v.RedshiftDatabaseName }).(pulumi.StringOutput)
+}
+
+// Status message.
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyDataLakeAccessProperty) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+type GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogPropertyDataLakeAccessProperty)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput) ToGetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput() GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput) ToGetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput) Index(i pulumi.IntInput) GetCatalogCatalogPropertyDataLakeAccessPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCatalogPropertyDataLakeAccessProperty {
+		return vs[0].([]GetCatalogCatalogPropertyDataLakeAccessProperty)[vs[1].(int)]
+	}).(GetCatalogCatalogPropertyDataLakeAccessPropertyOutput)
+}
+
+type GetCatalogCatalogPropertyIcebergOptimizationProperty struct {
+	Compaction         map[string]string `pulumi:"compaction"`
+	OrphanFileDeletion map[string]string `pulumi:"orphanFileDeletion"`
+	Retention          map[string]string `pulumi:"retention"`
+	RoleArn            string            `pulumi:"roleArn"`
+}
+
+// GetCatalogCatalogPropertyIcebergOptimizationPropertyInput is an input type that accepts GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs and GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogPropertyIcebergOptimizationPropertyInput` via:
+//
+//	GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs{...}
+type GetCatalogCatalogPropertyIcebergOptimizationPropertyInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogPropertyIcebergOptimizationPropertyOutput() GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput
+	ToGetCatalogCatalogPropertyIcebergOptimizationPropertyOutputWithContext(context.Context) GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput
+}
+
+type GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs struct {
+	Compaction         pulumi.StringMapInput `pulumi:"compaction"`
+	OrphanFileDeletion pulumi.StringMapInput `pulumi:"orphanFileDeletion"`
+	Retention          pulumi.StringMapInput `pulumi:"retention"`
+	RoleArn            pulumi.StringInput    `pulumi:"roleArn"`
+}
+
+func (GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogPropertyIcebergOptimizationProperty)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyOutput() GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput {
+	return i.ToGetCatalogCatalogPropertyIcebergOptimizationPropertyOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput)
+}
+
+// GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayInput is an input type that accepts GetCatalogCatalogPropertyIcebergOptimizationPropertyArray and GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayInput` via:
+//
+//	GetCatalogCatalogPropertyIcebergOptimizationPropertyArray{ GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs{...} }
+type GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput() GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput
+	ToGetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutputWithContext(context.Context) GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput
+}
+
+type GetCatalogCatalogPropertyIcebergOptimizationPropertyArray []GetCatalogCatalogPropertyIcebergOptimizationPropertyInput
+
+func (GetCatalogCatalogPropertyIcebergOptimizationPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogPropertyIcebergOptimizationProperty)(nil)).Elem()
+}
+
+func (i GetCatalogCatalogPropertyIcebergOptimizationPropertyArray) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput() GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput {
+	return i.ToGetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCatalogPropertyIcebergOptimizationPropertyArray) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput)
+}
+
+type GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCatalogPropertyIcebergOptimizationProperty)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyOutput() GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) Compaction() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) map[string]string { return v.Compaction }).(pulumi.StringMapOutput)
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) OrphanFileDeletion() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) map[string]string {
+		return v.OrphanFileDeletion
+	}).(pulumi.StringMapOutput)
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) Retention() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) map[string]string { return v.Retention }).(pulumi.StringMapOutput)
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCatalogPropertyIcebergOptimizationProperty)(nil)).Elem()
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput() GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput) ToGetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutputWithContext(ctx context.Context) GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput {
+	return o
+}
+
+func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput) Index(i pulumi.IntInput) GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCatalogPropertyIcebergOptimizationProperty {
+		return vs[0].([]GetCatalogCatalogPropertyIcebergOptimizationProperty)[vs[1].(int)]
+	}).(GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput)
+}
+
+type GetCatalogCreateDatabaseDefaultPermission struct {
+	// Permissions that are granted to the principal.
+	Permissions []string `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principals []GetCatalogCreateDatabaseDefaultPermissionPrincipal `pulumi:"principals"`
+}
+
+// GetCatalogCreateDatabaseDefaultPermissionInput is an input type that accepts GetCatalogCreateDatabaseDefaultPermissionArgs and GetCatalogCreateDatabaseDefaultPermissionOutput values.
+// You can construct a concrete instance of `GetCatalogCreateDatabaseDefaultPermissionInput` via:
+//
+//	GetCatalogCreateDatabaseDefaultPermissionArgs{...}
+type GetCatalogCreateDatabaseDefaultPermissionInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateDatabaseDefaultPermissionOutput() GetCatalogCreateDatabaseDefaultPermissionOutput
+	ToGetCatalogCreateDatabaseDefaultPermissionOutputWithContext(context.Context) GetCatalogCreateDatabaseDefaultPermissionOutput
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionArgs struct {
+	// Permissions that are granted to the principal.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principals GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayInput `pulumi:"principals"`
+}
+
+func (GetCatalogCreateDatabaseDefaultPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionArgs) ToGetCatalogCreateDatabaseDefaultPermissionOutput() GetCatalogCreateDatabaseDefaultPermissionOutput {
+	return i.ToGetCatalogCreateDatabaseDefaultPermissionOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionArgs) ToGetCatalogCreateDatabaseDefaultPermissionOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateDatabaseDefaultPermissionOutput)
+}
+
+// GetCatalogCreateDatabaseDefaultPermissionArrayInput is an input type that accepts GetCatalogCreateDatabaseDefaultPermissionArray and GetCatalogCreateDatabaseDefaultPermissionArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCreateDatabaseDefaultPermissionArrayInput` via:
+//
+//	GetCatalogCreateDatabaseDefaultPermissionArray{ GetCatalogCreateDatabaseDefaultPermissionArgs{...} }
+type GetCatalogCreateDatabaseDefaultPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateDatabaseDefaultPermissionArrayOutput() GetCatalogCreateDatabaseDefaultPermissionArrayOutput
+	ToGetCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(context.Context) GetCatalogCreateDatabaseDefaultPermissionArrayOutput
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionArray []GetCatalogCreateDatabaseDefaultPermissionInput
+
+func (GetCatalogCreateDatabaseDefaultPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionArray) ToGetCatalogCreateDatabaseDefaultPermissionArrayOutput() GetCatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return i.ToGetCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionArray) ToGetCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateDatabaseDefaultPermissionArrayOutput)
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateDatabaseDefaultPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionOutput) ToGetCatalogCreateDatabaseDefaultPermissionOutput() GetCatalogCreateDatabaseDefaultPermissionOutput {
+	return o
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionOutput) ToGetCatalogCreateDatabaseDefaultPermissionOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionOutput {
+	return o
+}
+
+// Permissions that are granted to the principal.
+func (o GetCatalogCreateDatabaseDefaultPermissionOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogCreateDatabaseDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// Principal who is granted permissions. See `principal` below.
+func (o GetCatalogCreateDatabaseDefaultPermissionOutput) Principals() GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput {
+	return o.ApplyT(func(v GetCatalogCreateDatabaseDefaultPermission) []GetCatalogCreateDatabaseDefaultPermissionPrincipal {
+		return v.Principals
+	}).(GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput)
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateDatabaseDefaultPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateDatabaseDefaultPermission)(nil)).Elem()
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionArrayOutput) ToGetCatalogCreateDatabaseDefaultPermissionArrayOutput() GetCatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionArrayOutput) ToGetCatalogCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionArrayOutput) Index(i pulumi.IntInput) GetCatalogCreateDatabaseDefaultPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCreateDatabaseDefaultPermission {
+		return vs[0].([]GetCatalogCreateDatabaseDefaultPermission)[vs[1].(int)]
+	}).(GetCatalogCreateDatabaseDefaultPermissionOutput)
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionPrincipal struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// GetCatalogCreateDatabaseDefaultPermissionPrincipalInput is an input type that accepts GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs and GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput values.
+// You can construct a concrete instance of `GetCatalogCreateDatabaseDefaultPermissionPrincipalInput` via:
+//
+//	GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs{...}
+type GetCatalogCreateDatabaseDefaultPermissionPrincipalInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateDatabaseDefaultPermissionPrincipalOutput() GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput
+	ToGetCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(context.Context) GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalOutput() GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return i.ToGetCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput)
+}
+
+// GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayInput is an input type that accepts GetCatalogCreateDatabaseDefaultPermissionPrincipalArray and GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayInput` via:
+//
+//	GetCatalogCreateDatabaseDefaultPermissionPrincipalArray{ GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs{...} }
+type GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput() GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput
+	ToGetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutputWithContext(context.Context) GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionPrincipalArray []GetCatalogCreateDatabaseDefaultPermissionPrincipalInput
+
+func (GetCatalogCreateDatabaseDefaultPermissionPrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionPrincipalArray) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput() GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput {
+	return i.ToGetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateDatabaseDefaultPermissionPrincipalArray) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput)
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalOutput() GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return o
+}
+
+// Identifier for the Lake Formation principal.
+func (o GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCreateDatabaseDefaultPermissionPrincipal) string {
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateDatabaseDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput() GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput) ToGetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutputWithContext(ctx context.Context) GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput) Index(i pulumi.IntInput) GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCreateDatabaseDefaultPermissionPrincipal {
+		return vs[0].([]GetCatalogCreateDatabaseDefaultPermissionPrincipal)[vs[1].(int)]
+	}).(GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput)
+}
+
+type GetCatalogCreateTableDefaultPermission struct {
+	// Permissions that are granted to the principal.
+	Permissions []string `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principals []GetCatalogCreateTableDefaultPermissionPrincipal `pulumi:"principals"`
+}
+
+// GetCatalogCreateTableDefaultPermissionInput is an input type that accepts GetCatalogCreateTableDefaultPermissionArgs and GetCatalogCreateTableDefaultPermissionOutput values.
+// You can construct a concrete instance of `GetCatalogCreateTableDefaultPermissionInput` via:
+//
+//	GetCatalogCreateTableDefaultPermissionArgs{...}
+type GetCatalogCreateTableDefaultPermissionInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateTableDefaultPermissionOutput() GetCatalogCreateTableDefaultPermissionOutput
+	ToGetCatalogCreateTableDefaultPermissionOutputWithContext(context.Context) GetCatalogCreateTableDefaultPermissionOutput
+}
+
+type GetCatalogCreateTableDefaultPermissionArgs struct {
+	// Permissions that are granted to the principal.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// Principal who is granted permissions. See `principal` below.
+	Principals GetCatalogCreateTableDefaultPermissionPrincipalArrayInput `pulumi:"principals"`
+}
+
+func (GetCatalogCreateTableDefaultPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (i GetCatalogCreateTableDefaultPermissionArgs) ToGetCatalogCreateTableDefaultPermissionOutput() GetCatalogCreateTableDefaultPermissionOutput {
+	return i.ToGetCatalogCreateTableDefaultPermissionOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateTableDefaultPermissionArgs) ToGetCatalogCreateTableDefaultPermissionOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateTableDefaultPermissionOutput)
+}
+
+// GetCatalogCreateTableDefaultPermissionArrayInput is an input type that accepts GetCatalogCreateTableDefaultPermissionArray and GetCatalogCreateTableDefaultPermissionArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCreateTableDefaultPermissionArrayInput` via:
+//
+//	GetCatalogCreateTableDefaultPermissionArray{ GetCatalogCreateTableDefaultPermissionArgs{...} }
+type GetCatalogCreateTableDefaultPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateTableDefaultPermissionArrayOutput() GetCatalogCreateTableDefaultPermissionArrayOutput
+	ToGetCatalogCreateTableDefaultPermissionArrayOutputWithContext(context.Context) GetCatalogCreateTableDefaultPermissionArrayOutput
+}
+
+type GetCatalogCreateTableDefaultPermissionArray []GetCatalogCreateTableDefaultPermissionInput
+
+func (GetCatalogCreateTableDefaultPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (i GetCatalogCreateTableDefaultPermissionArray) ToGetCatalogCreateTableDefaultPermissionArrayOutput() GetCatalogCreateTableDefaultPermissionArrayOutput {
+	return i.ToGetCatalogCreateTableDefaultPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateTableDefaultPermissionArray) ToGetCatalogCreateTableDefaultPermissionArrayOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateTableDefaultPermissionArrayOutput)
+}
+
+type GetCatalogCreateTableDefaultPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateTableDefaultPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (o GetCatalogCreateTableDefaultPermissionOutput) ToGetCatalogCreateTableDefaultPermissionOutput() GetCatalogCreateTableDefaultPermissionOutput {
+	return o
+}
+
+func (o GetCatalogCreateTableDefaultPermissionOutput) ToGetCatalogCreateTableDefaultPermissionOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionOutput {
+	return o
+}
+
+// Permissions that are granted to the principal.
+func (o GetCatalogCreateTableDefaultPermissionOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogCreateTableDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// Principal who is granted permissions. See `principal` below.
+func (o GetCatalogCreateTableDefaultPermissionOutput) Principals() GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput {
+	return o.ApplyT(func(v GetCatalogCreateTableDefaultPermission) []GetCatalogCreateTableDefaultPermissionPrincipal {
+		return v.Principals
+	}).(GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput)
+}
+
+type GetCatalogCreateTableDefaultPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateTableDefaultPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateTableDefaultPermission)(nil)).Elem()
+}
+
+func (o GetCatalogCreateTableDefaultPermissionArrayOutput) ToGetCatalogCreateTableDefaultPermissionArrayOutput() GetCatalogCreateTableDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateTableDefaultPermissionArrayOutput) ToGetCatalogCreateTableDefaultPermissionArrayOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateTableDefaultPermissionArrayOutput) Index(i pulumi.IntInput) GetCatalogCreateTableDefaultPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCreateTableDefaultPermission {
+		return vs[0].([]GetCatalogCreateTableDefaultPermission)[vs[1].(int)]
+	}).(GetCatalogCreateTableDefaultPermissionOutput)
+}
+
+type GetCatalogCreateTableDefaultPermissionPrincipal struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// GetCatalogCreateTableDefaultPermissionPrincipalInput is an input type that accepts GetCatalogCreateTableDefaultPermissionPrincipalArgs and GetCatalogCreateTableDefaultPermissionPrincipalOutput values.
+// You can construct a concrete instance of `GetCatalogCreateTableDefaultPermissionPrincipalInput` via:
+//
+//	GetCatalogCreateTableDefaultPermissionPrincipalArgs{...}
+type GetCatalogCreateTableDefaultPermissionPrincipalInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateTableDefaultPermissionPrincipalOutput() GetCatalogCreateTableDefaultPermissionPrincipalOutput
+	ToGetCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(context.Context) GetCatalogCreateTableDefaultPermissionPrincipalOutput
+}
+
+type GetCatalogCreateTableDefaultPermissionPrincipalArgs struct {
+	// Identifier for the Lake Formation principal.
+	DataLakePrincipalIdentifier pulumi.StringInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (GetCatalogCreateTableDefaultPermissionPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i GetCatalogCreateTableDefaultPermissionPrincipalArgs) ToGetCatalogCreateTableDefaultPermissionPrincipalOutput() GetCatalogCreateTableDefaultPermissionPrincipalOutput {
+	return i.ToGetCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateTableDefaultPermissionPrincipalArgs) ToGetCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateTableDefaultPermissionPrincipalOutput)
+}
+
+// GetCatalogCreateTableDefaultPermissionPrincipalArrayInput is an input type that accepts GetCatalogCreateTableDefaultPermissionPrincipalArray and GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput values.
+// You can construct a concrete instance of `GetCatalogCreateTableDefaultPermissionPrincipalArrayInput` via:
+//
+//	GetCatalogCreateTableDefaultPermissionPrincipalArray{ GetCatalogCreateTableDefaultPermissionPrincipalArgs{...} }
+type GetCatalogCreateTableDefaultPermissionPrincipalArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogCreateTableDefaultPermissionPrincipalArrayOutput() GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput
+	ToGetCatalogCreateTableDefaultPermissionPrincipalArrayOutputWithContext(context.Context) GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput
+}
+
+type GetCatalogCreateTableDefaultPermissionPrincipalArray []GetCatalogCreateTableDefaultPermissionPrincipalInput
+
+func (GetCatalogCreateTableDefaultPermissionPrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (i GetCatalogCreateTableDefaultPermissionPrincipalArray) ToGetCatalogCreateTableDefaultPermissionPrincipalArrayOutput() GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput {
+	return i.ToGetCatalogCreateTableDefaultPermissionPrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogCreateTableDefaultPermissionPrincipalArray) ToGetCatalogCreateTableDefaultPermissionPrincipalArrayOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput)
+}
+
+type GetCatalogCreateTableDefaultPermissionPrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateTableDefaultPermissionPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o GetCatalogCreateTableDefaultPermissionPrincipalOutput) ToGetCatalogCreateTableDefaultPermissionPrincipalOutput() GetCatalogCreateTableDefaultPermissionPrincipalOutput {
+	return o
+}
+
+func (o GetCatalogCreateTableDefaultPermissionPrincipalOutput) ToGetCatalogCreateTableDefaultPermissionPrincipalOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionPrincipalOutput {
+	return o
+}
+
+// Identifier for the Lake Formation principal.
+func (o GetCatalogCreateTableDefaultPermissionPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogCreateTableDefaultPermissionPrincipal) string { return v.DataLakePrincipalIdentifier }).(pulumi.StringOutput)
+}
+
+type GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogCreateTableDefaultPermissionPrincipal)(nil)).Elem()
+}
+
+func (o GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput) ToGetCatalogCreateTableDefaultPermissionPrincipalArrayOutput() GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput) ToGetCatalogCreateTableDefaultPermissionPrincipalArrayOutputWithContext(ctx context.Context) GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput {
+	return o
+}
+
+func (o GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput) Index(i pulumi.IntInput) GetCatalogCreateTableDefaultPermissionPrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogCreateTableDefaultPermissionPrincipal {
+		return vs[0].([]GetCatalogCreateTableDefaultPermissionPrincipal)[vs[1].(int)]
+	}).(GetCatalogCreateTableDefaultPermissionPrincipalOutput)
+}
+
+type GetCatalogFederatedCatalog struct {
+	// Name of the connection to the external metastore.
+	ConnectionName string `pulumi:"connectionName"`
+	// Type of connection used to access the federated catalog.
+	ConnectionType string `pulumi:"connectionType"`
+	// Unique identifier for the federated catalog.
+	Identifier string `pulumi:"identifier"`
+}
+
+// GetCatalogFederatedCatalogInput is an input type that accepts GetCatalogFederatedCatalogArgs and GetCatalogFederatedCatalogOutput values.
+// You can construct a concrete instance of `GetCatalogFederatedCatalogInput` via:
+//
+//	GetCatalogFederatedCatalogArgs{...}
+type GetCatalogFederatedCatalogInput interface {
+	pulumi.Input
+
+	ToGetCatalogFederatedCatalogOutput() GetCatalogFederatedCatalogOutput
+	ToGetCatalogFederatedCatalogOutputWithContext(context.Context) GetCatalogFederatedCatalogOutput
+}
+
+type GetCatalogFederatedCatalogArgs struct {
+	// Name of the connection to the external metastore.
+	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
+	// Type of connection used to access the federated catalog.
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// Unique identifier for the federated catalog.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+}
+
+func (GetCatalogFederatedCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (i GetCatalogFederatedCatalogArgs) ToGetCatalogFederatedCatalogOutput() GetCatalogFederatedCatalogOutput {
+	return i.ToGetCatalogFederatedCatalogOutputWithContext(context.Background())
+}
+
+func (i GetCatalogFederatedCatalogArgs) ToGetCatalogFederatedCatalogOutputWithContext(ctx context.Context) GetCatalogFederatedCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogFederatedCatalogOutput)
+}
+
+// GetCatalogFederatedCatalogArrayInput is an input type that accepts GetCatalogFederatedCatalogArray and GetCatalogFederatedCatalogArrayOutput values.
+// You can construct a concrete instance of `GetCatalogFederatedCatalogArrayInput` via:
+//
+//	GetCatalogFederatedCatalogArray{ GetCatalogFederatedCatalogArgs{...} }
+type GetCatalogFederatedCatalogArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogFederatedCatalogArrayOutput() GetCatalogFederatedCatalogArrayOutput
+	ToGetCatalogFederatedCatalogArrayOutputWithContext(context.Context) GetCatalogFederatedCatalogArrayOutput
+}
+
+type GetCatalogFederatedCatalogArray []GetCatalogFederatedCatalogInput
+
+func (GetCatalogFederatedCatalogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (i GetCatalogFederatedCatalogArray) ToGetCatalogFederatedCatalogArrayOutput() GetCatalogFederatedCatalogArrayOutput {
+	return i.ToGetCatalogFederatedCatalogArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogFederatedCatalogArray) ToGetCatalogFederatedCatalogArrayOutputWithContext(ctx context.Context) GetCatalogFederatedCatalogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogFederatedCatalogArrayOutput)
+}
+
+type GetCatalogFederatedCatalogOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogFederatedCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (o GetCatalogFederatedCatalogOutput) ToGetCatalogFederatedCatalogOutput() GetCatalogFederatedCatalogOutput {
+	return o
+}
+
+func (o GetCatalogFederatedCatalogOutput) ToGetCatalogFederatedCatalogOutputWithContext(ctx context.Context) GetCatalogFederatedCatalogOutput {
+	return o
+}
+
+// Name of the connection to the external metastore.
+func (o GetCatalogFederatedCatalogOutput) ConnectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogFederatedCatalog) string { return v.ConnectionName }).(pulumi.StringOutput)
+}
+
+// Type of connection used to access the federated catalog.
+func (o GetCatalogFederatedCatalogOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogFederatedCatalog) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the federated catalog.
+func (o GetCatalogFederatedCatalogOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogFederatedCatalog) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+type GetCatalogFederatedCatalogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogFederatedCatalogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogFederatedCatalog)(nil)).Elem()
+}
+
+func (o GetCatalogFederatedCatalogArrayOutput) ToGetCatalogFederatedCatalogArrayOutput() GetCatalogFederatedCatalogArrayOutput {
+	return o
+}
+
+func (o GetCatalogFederatedCatalogArrayOutput) ToGetCatalogFederatedCatalogArrayOutputWithContext(ctx context.Context) GetCatalogFederatedCatalogArrayOutput {
+	return o
+}
+
+func (o GetCatalogFederatedCatalogArrayOutput) Index(i pulumi.IntInput) GetCatalogFederatedCatalogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogFederatedCatalog {
+		return vs[0].([]GetCatalogFederatedCatalog)[vs[1].(int)]
+	}).(GetCatalogFederatedCatalogOutput)
+}
+
 type GetCatalogTablePartitionIndex struct {
 	// Name of the partition index.
 	IndexName   string `pulumi:"indexName"`
@@ -13415,6 +17113,797 @@ func (o GetCatalogTableTargetTableArrayOutput) Index(i pulumi.IntInput) GetCatal
 	}).(GetCatalogTableTargetTableOutput)
 }
 
+type GetCatalogTargetRedshiftCatalog struct {
+	// ARN of the target Redshift catalog.
+	CatalogArn string `pulumi:"catalogArn"`
+}
+
+// GetCatalogTargetRedshiftCatalogInput is an input type that accepts GetCatalogTargetRedshiftCatalogArgs and GetCatalogTargetRedshiftCatalogOutput values.
+// You can construct a concrete instance of `GetCatalogTargetRedshiftCatalogInput` via:
+//
+//	GetCatalogTargetRedshiftCatalogArgs{...}
+type GetCatalogTargetRedshiftCatalogInput interface {
+	pulumi.Input
+
+	ToGetCatalogTargetRedshiftCatalogOutput() GetCatalogTargetRedshiftCatalogOutput
+	ToGetCatalogTargetRedshiftCatalogOutputWithContext(context.Context) GetCatalogTargetRedshiftCatalogOutput
+}
+
+type GetCatalogTargetRedshiftCatalogArgs struct {
+	// ARN of the target Redshift catalog.
+	CatalogArn pulumi.StringInput `pulumi:"catalogArn"`
+}
+
+func (GetCatalogTargetRedshiftCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (i GetCatalogTargetRedshiftCatalogArgs) ToGetCatalogTargetRedshiftCatalogOutput() GetCatalogTargetRedshiftCatalogOutput {
+	return i.ToGetCatalogTargetRedshiftCatalogOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTargetRedshiftCatalogArgs) ToGetCatalogTargetRedshiftCatalogOutputWithContext(ctx context.Context) GetCatalogTargetRedshiftCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTargetRedshiftCatalogOutput)
+}
+
+// GetCatalogTargetRedshiftCatalogArrayInput is an input type that accepts GetCatalogTargetRedshiftCatalogArray and GetCatalogTargetRedshiftCatalogArrayOutput values.
+// You can construct a concrete instance of `GetCatalogTargetRedshiftCatalogArrayInput` via:
+//
+//	GetCatalogTargetRedshiftCatalogArray{ GetCatalogTargetRedshiftCatalogArgs{...} }
+type GetCatalogTargetRedshiftCatalogArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogTargetRedshiftCatalogArrayOutput() GetCatalogTargetRedshiftCatalogArrayOutput
+	ToGetCatalogTargetRedshiftCatalogArrayOutputWithContext(context.Context) GetCatalogTargetRedshiftCatalogArrayOutput
+}
+
+type GetCatalogTargetRedshiftCatalogArray []GetCatalogTargetRedshiftCatalogInput
+
+func (GetCatalogTargetRedshiftCatalogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (i GetCatalogTargetRedshiftCatalogArray) ToGetCatalogTargetRedshiftCatalogArrayOutput() GetCatalogTargetRedshiftCatalogArrayOutput {
+	return i.ToGetCatalogTargetRedshiftCatalogArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogTargetRedshiftCatalogArray) ToGetCatalogTargetRedshiftCatalogArrayOutputWithContext(ctx context.Context) GetCatalogTargetRedshiftCatalogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogTargetRedshiftCatalogArrayOutput)
+}
+
+type GetCatalogTargetRedshiftCatalogOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTargetRedshiftCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (o GetCatalogTargetRedshiftCatalogOutput) ToGetCatalogTargetRedshiftCatalogOutput() GetCatalogTargetRedshiftCatalogOutput {
+	return o
+}
+
+func (o GetCatalogTargetRedshiftCatalogOutput) ToGetCatalogTargetRedshiftCatalogOutputWithContext(ctx context.Context) GetCatalogTargetRedshiftCatalogOutput {
+	return o
+}
+
+// ARN of the target Redshift catalog.
+func (o GetCatalogTargetRedshiftCatalogOutput) CatalogArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogTargetRedshiftCatalog) string { return v.CatalogArn }).(pulumi.StringOutput)
+}
+
+type GetCatalogTargetRedshiftCatalogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogTargetRedshiftCatalogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogTargetRedshiftCatalog)(nil)).Elem()
+}
+
+func (o GetCatalogTargetRedshiftCatalogArrayOutput) ToGetCatalogTargetRedshiftCatalogArrayOutput() GetCatalogTargetRedshiftCatalogArrayOutput {
+	return o
+}
+
+func (o GetCatalogTargetRedshiftCatalogArrayOutput) ToGetCatalogTargetRedshiftCatalogArrayOutputWithContext(ctx context.Context) GetCatalogTargetRedshiftCatalogArrayOutput {
+	return o
+}
+
+func (o GetCatalogTargetRedshiftCatalogArrayOutput) Index(i pulumi.IntInput) GetCatalogTargetRedshiftCatalogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogTargetRedshiftCatalog {
+		return vs[0].([]GetCatalogTargetRedshiftCatalog)[vs[1].(int)]
+	}).(GetCatalogTargetRedshiftCatalogOutput)
+}
+
+type GetConnectionAuthenticationConfiguration struct {
+	AuthenticationType              string                                                                  `pulumi:"authenticationType"`
+	BasicAuthenticationCredentials  []GetConnectionAuthenticationConfigurationBasicAuthenticationCredential `pulumi:"basicAuthenticationCredentials"`
+	CustomAuthenticationCredentials map[string]string                                                       `pulumi:"customAuthenticationCredentials"`
+	KmsKeyArn                       string                                                                  `pulumi:"kmsKeyArn"`
+	Oauth2Properties                []GetConnectionAuthenticationConfigurationOauth2Property                `pulumi:"oauth2Properties"`
+	SecretArn                       string                                                                  `pulumi:"secretArn"`
+}
+
+// GetConnectionAuthenticationConfigurationInput is an input type that accepts GetConnectionAuthenticationConfigurationArgs and GetConnectionAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationInput` via:
+//
+//	GetConnectionAuthenticationConfigurationArgs{...}
+type GetConnectionAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOutput() GetConnectionAuthenticationConfigurationOutput
+	ToGetConnectionAuthenticationConfigurationOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOutput
+}
+
+type GetConnectionAuthenticationConfigurationArgs struct {
+	AuthenticationType              pulumi.StringInput                                                              `pulumi:"authenticationType"`
+	BasicAuthenticationCredentials  GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayInput `pulumi:"basicAuthenticationCredentials"`
+	CustomAuthenticationCredentials pulumi.StringMapInput                                                           `pulumi:"customAuthenticationCredentials"`
+	KmsKeyArn                       pulumi.StringInput                                                              `pulumi:"kmsKeyArn"`
+	Oauth2Properties                GetConnectionAuthenticationConfigurationOauth2PropertyArrayInput                `pulumi:"oauth2Properties"`
+	SecretArn                       pulumi.StringInput                                                              `pulumi:"secretArn"`
+}
+
+func (GetConnectionAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationArgs) ToGetConnectionAuthenticationConfigurationOutput() GetConnectionAuthenticationConfigurationOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationArgs) ToGetConnectionAuthenticationConfigurationOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOutput)
+}
+
+// GetConnectionAuthenticationConfigurationArrayInput is an input type that accepts GetConnectionAuthenticationConfigurationArray and GetConnectionAuthenticationConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationArrayInput` via:
+//
+//	GetConnectionAuthenticationConfigurationArray{ GetConnectionAuthenticationConfigurationArgs{...} }
+type GetConnectionAuthenticationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationArrayOutput() GetConnectionAuthenticationConfigurationArrayOutput
+	ToGetConnectionAuthenticationConfigurationArrayOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationArrayOutput
+}
+
+type GetConnectionAuthenticationConfigurationArray []GetConnectionAuthenticationConfigurationInput
+
+func (GetConnectionAuthenticationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationArray) ToGetConnectionAuthenticationConfigurationArrayOutput() GetConnectionAuthenticationConfigurationArrayOutput {
+	return i.ToGetConnectionAuthenticationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationArray) ToGetConnectionAuthenticationConfigurationArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationArrayOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) ToGetConnectionAuthenticationConfigurationOutput() GetConnectionAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) ToGetConnectionAuthenticationConfigurationOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) BasicAuthenticationCredentials() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) []GetConnectionAuthenticationConfigurationBasicAuthenticationCredential {
+		return v.BasicAuthenticationCredentials
+	}).(GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) CustomAuthenticationCredentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) map[string]string {
+		return v.CustomAuthenticationCredentials
+	}).(pulumi.StringMapOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) Oauth2Properties() GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) []GetConnectionAuthenticationConfigurationOauth2Property {
+		return v.Oauth2Properties
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type GetConnectionAuthenticationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationArrayOutput) ToGetConnectionAuthenticationConfigurationArrayOutput() GetConnectionAuthenticationConfigurationArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationArrayOutput) ToGetConnectionAuthenticationConfigurationArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationArrayOutput) Index(i pulumi.IntInput) GetConnectionAuthenticationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionAuthenticationConfiguration {
+		return vs[0].([]GetConnectionAuthenticationConfiguration)[vs[1].(int)]
+	}).(GetConnectionAuthenticationConfigurationOutput)
+}
+
+type GetConnectionAuthenticationConfigurationBasicAuthenticationCredential struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+
+// GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialInput is an input type that accepts GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs and GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialInput` via:
+//
+//	GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs{...}
+type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput
+	ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput
+}
+
+type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationBasicAuthenticationCredential)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput {
+	return i.ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput)
+}
+
+// GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayInput is an input type that accepts GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArray and GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayInput` via:
+//
+//	GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArray{ GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs{...} }
+type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput
+	ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput
+}
+
+type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArray []GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialInput
+
+func (GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationBasicAuthenticationCredential)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArray) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput {
+	return i.ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArray) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput)
+}
+
+type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationBasicAuthenticationCredential)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationBasicAuthenticationCredential) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationBasicAuthenticationCredential) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationBasicAuthenticationCredential)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput) ToGetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput) Index(i pulumi.IntInput) GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionAuthenticationConfigurationBasicAuthenticationCredential {
+		return vs[0].([]GetConnectionAuthenticationConfigurationBasicAuthenticationCredential)[vs[1].(int)]
+	}).(GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2Property struct {
+	AuthorizationCodeProperties []GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty `pulumi:"authorizationCodeProperties"`
+	Oauth2ClientApplications    []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication   `pulumi:"oauth2ClientApplications"`
+	Oauth2Credentials           []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential          `pulumi:"oauth2Credentials"`
+	Oauth2GrantType             string                                                                            `pulumi:"oauth2GrantType"`
+	TokenUrl                    string                                                                            `pulumi:"tokenUrl"`
+	TokenUrlParametersMap       map[string]string                                                                 `pulumi:"tokenUrlParametersMap"`
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyArgs and GetConnectionAuthenticationConfigurationOauth2PropertyOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyArgs{...}
+type GetConnectionAuthenticationConfigurationOauth2PropertyInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyArgs struct {
+	AuthorizationCodeProperties GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayInput `pulumi:"authorizationCodeProperties"`
+	Oauth2ClientApplications    GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayInput   `pulumi:"oauth2ClientApplications"`
+	Oauth2Credentials           GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayInput          `pulumi:"oauth2Credentials"`
+	Oauth2GrantType             pulumi.StringInput                                                                        `pulumi:"oauth2GrantType"`
+	TokenUrl                    pulumi.StringInput                                                                        `pulumi:"tokenUrl"`
+	TokenUrlParametersMap       pulumi.StringMapInput                                                                     `pulumi:"tokenUrlParametersMap"`
+}
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2Property)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyOutput)
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyArrayInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyArray and GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyArrayInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyArray{ GetConnectionAuthenticationConfigurationOauth2PropertyArgs{...} }
+type GetConnectionAuthenticationConfigurationOauth2PropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyArrayOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyArray []GetConnectionAuthenticationConfigurationOauth2PropertyInput
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2Property)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2Property)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) AuthorizationCodeProperties() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) []GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty {
+		return v.AuthorizationCodeProperties
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) Oauth2ClientApplications() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication {
+		return v.Oauth2ClientApplications
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) Oauth2Credentials() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential {
+		return v.Oauth2Credentials
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) Oauth2GrantType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) string { return v.Oauth2GrantType }).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) TokenUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) string { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) TokenUrlParametersMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) map[string]string {
+		return v.TokenUrlParametersMap
+	}).(pulumi.StringMapOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2Property)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput) Index(i pulumi.IntInput) GetConnectionAuthenticationConfigurationOauth2PropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionAuthenticationConfigurationOauth2Property {
+		return vs[0].([]GetConnectionAuthenticationConfigurationOauth2Property)[vs[1].(int)]
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty struct {
+	AuthorizationCode string `pulumi:"authorizationCode"`
+	RedirectUri       string `pulumi:"redirectUri"`
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs and GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs{...}
+type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs struct {
+	AuthorizationCode pulumi.StringInput `pulumi:"authorizationCode"`
+	RedirectUri       pulumi.StringInput `pulumi:"redirectUri"`
+}
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput)
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArray and GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArray{ GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs{...} }
+type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArray []GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyInput
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput) AuthorizationCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty) string {
+		return v.AuthorizationCode
+	}).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput) RedirectUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty) string {
+		return v.RedirectUri
+	}).(pulumi.StringOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput) Index(i pulumi.IntInput) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty {
+		return vs[0].([]GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty)[vs[1].(int)]
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication struct {
+	AwsManagedClientApplicationReference string `pulumi:"awsManagedClientApplicationReference"`
+	UserManagedClientApplicationClientId string `pulumi:"userManagedClientApplicationClientId"`
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs and GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs{...}
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs struct {
+	AwsManagedClientApplicationReference pulumi.StringInput `pulumi:"awsManagedClientApplicationReference"`
+	UserManagedClientApplicationClientId pulumi.StringInput `pulumi:"userManagedClientApplicationClientId"`
+}
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput)
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArray and GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArray{ GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs{...} }
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArray []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationInput
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput) AwsManagedClientApplicationReference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication) string {
+		return v.AwsManagedClientApplicationReference
+	}).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput) UserManagedClientApplicationClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication) string {
+		return v.UserManagedClientApplicationClientId
+	}).(pulumi.StringOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput) Index(i pulumi.IntInput) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication {
+		return vs[0].([]GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication)[vs[1].(int)]
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential struct {
+	AccessToken                              string `pulumi:"accessToken"`
+	JwtToken                                 string `pulumi:"jwtToken"`
+	RefreshToken                             string `pulumi:"refreshToken"`
+	UserManagedClientApplicationClientSecret string `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs and GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs{...}
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs struct {
+	AccessToken                              pulumi.StringInput `pulumi:"accessToken"`
+	JwtToken                                 pulumi.StringInput `pulumi:"jwtToken"`
+	RefreshToken                             pulumi.StringInput `pulumi:"refreshToken"`
+	UserManagedClientApplicationClientSecret pulumi.StringInput `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput)
+}
+
+// GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArray and GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput values.
+// You can construct a concrete instance of `GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayInput` via:
+//
+//	GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArray{ GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs{...} }
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput
+	ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutputWithContext(context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArray []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialInput
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential)(nil)).Elem()
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput {
+	return i.ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArray) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
+		return v.AccessToken
+	}).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) JwtToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
+		return v.JwtToken
+	}).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) RefreshToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
+		return v.RefreshToken
+	}).(pulumi.StringOutput)
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) UserManagedClientApplicationClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
+		return v.UserManagedClientApplicationClientSecret
+	}).(pulumi.StringOutput)
+}
+
+type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential)(nil)).Elem()
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput) ToGetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutputWithContext(ctx context.Context) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput {
+	return o
+}
+
+func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput) Index(i pulumi.IntInput) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential {
+		return vs[0].([]GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential)[vs[1].(int)]
+	}).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput)
+}
+
 type GetConnectionPhysicalConnectionRequirement struct {
 	AvailabilityZone     string   `pulumi:"availabilityZone"`
 	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
@@ -14217,6 +18706,20 @@ func (o GetScriptDagNodeArgArrayOutput) Index(i pulumi.IntInput) GetScriptDagNod
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogPropertiesInput)(nil)).Elem(), CatalogCatalogPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogPropertiesPtrInput)(nil)).Elem(), CatalogCatalogPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogPropertiesDataLakeAccessPropertiesInput)(nil)).Elem(), CatalogCatalogPropertiesDataLakeAccessPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogPropertiesDataLakeAccessPropertiesPtrInput)(nil)).Elem(), CatalogCatalogPropertiesDataLakeAccessPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogPropertiesIcebergOptimizationPropertiesInput)(nil)).Elem(), CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrInput)(nil)).Elem(), CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateDatabaseDefaultPermissionInput)(nil)).Elem(), CatalogCreateDatabaseDefaultPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), CatalogCreateDatabaseDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateDatabaseDefaultPermissionPrincipalInput)(nil)).Elem(), CatalogCreateDatabaseDefaultPermissionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateDatabaseDefaultPermissionPrincipalPtrInput)(nil)).Elem(), CatalogCreateDatabaseDefaultPermissionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateTableDefaultPermissionInput)(nil)).Elem(), CatalogCreateTableDefaultPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateTableDefaultPermissionArrayInput)(nil)).Elem(), CatalogCreateTableDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateTableDefaultPermissionPrincipalInput)(nil)).Elem(), CatalogCreateTableDefaultPermissionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCreateTableDefaultPermissionPrincipalPtrInput)(nil)).Elem(), CatalogCreateTableDefaultPermissionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionArrayInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipalInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{})
@@ -14225,6 +18728,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseFederatedDatabasePtrInput)(nil)).Elem(), CatalogDatabaseFederatedDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabaseInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabasePtrInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogFederatedCatalogInput)(nil)).Elem(), CatalogFederatedCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogFederatedCatalogPtrInput)(nil)).Elem(), CatalogFederatedCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
@@ -14277,6 +18782,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableViewDefinitionPtrInput)(nil)).Elem(), CatalogTableViewDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableViewDefinitionRepresentationInput)(nil)).Elem(), CatalogTableViewDefinitionRepresentationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableViewDefinitionRepresentationArrayInput)(nil)).Elem(), CatalogTableViewDefinitionRepresentationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogPtrInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTimeoutsInput)(nil)).Elem(), CatalogTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTimeoutsPtrInput)(nil)).Elem(), CatalogTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierCsvClassifierInput)(nil)).Elem(), ClassifierCsvClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierCsvClassifierPtrInput)(nil)).Elem(), ClassifierCsvClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierGrokClassifierInput)(nil)).Elem(), ClassifierGrokClassifierArgs{})
@@ -14285,6 +18794,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierJsonClassifierPtrInput)(nil)).Elem(), ClassifierJsonClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierPtrInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationInput)(nil)).Elem(), ConnectionAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsInput)(nil)).Elem(), ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsPtrInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
@@ -14367,6 +18888,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateConditionArrayInput)(nil)).Elem(), TriggerPredicateConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriInput)(nil)).Elem(), UserDefinedFunctionResourceUriArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriArrayInput)(nil)).Elem(), UserDefinedFunctionResourceUriArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogPropertyInput)(nil)).Elem(), GetCatalogCatalogPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogPropertyArrayInput)(nil)).Elem(), GetCatalogCatalogPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogPropertyDataLakeAccessPropertyInput)(nil)).Elem(), GetCatalogCatalogPropertyDataLakeAccessPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogPropertyDataLakeAccessPropertyArrayInput)(nil)).Elem(), GetCatalogCatalogPropertyDataLakeAccessPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogPropertyIcebergOptimizationPropertyInput)(nil)).Elem(), GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayInput)(nil)).Elem(), GetCatalogCatalogPropertyIcebergOptimizationPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermissionInput)(nil)).Elem(), GetCatalogCreateDatabaseDefaultPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), GetCatalogCreateDatabaseDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermissionPrincipalInput)(nil)).Elem(), GetCatalogCreateDatabaseDefaultPermissionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayInput)(nil)).Elem(), GetCatalogCreateDatabaseDefaultPermissionPrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateTableDefaultPermissionInput)(nil)).Elem(), GetCatalogCreateTableDefaultPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateTableDefaultPermissionArrayInput)(nil)).Elem(), GetCatalogCreateTableDefaultPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateTableDefaultPermissionPrincipalInput)(nil)).Elem(), GetCatalogCreateTableDefaultPermissionPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogCreateTableDefaultPermissionPrincipalArrayInput)(nil)).Elem(), GetCatalogCreateTableDefaultPermissionPrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogFederatedCatalogInput)(nil)).Elem(), GetCatalogFederatedCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogFederatedCatalogArrayInput)(nil)).Elem(), GetCatalogFederatedCatalogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTablePartitionIndexInput)(nil)).Elem(), GetCatalogTablePartitionIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTablePartitionIndexArrayInput)(nil)).Elem(), GetCatalogTablePartitionIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTablePartitionKeyInput)(nil)).Elem(), GetCatalogTablePartitionKeyArgs{})
@@ -14387,6 +18924,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableStorageDescriptorSortColumnArrayInput)(nil)).Elem(), GetCatalogTableStorageDescriptorSortColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableTargetTableInput)(nil)).Elem(), GetCatalogTableTargetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTableTargetTableArrayInput)(nil)).Elem(), GetCatalogTableTargetTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTargetRedshiftCatalogInput)(nil)).Elem(), GetCatalogTargetRedshiftCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogTargetRedshiftCatalogArrayInput)(nil)).Elem(), GetCatalogTargetRedshiftCatalogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationArrayInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyArrayInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayInput)(nil)).Elem(), GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionPhysicalConnectionRequirementInput)(nil)).Elem(), GetConnectionPhysicalConnectionRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionPhysicalConnectionRequirementArrayInput)(nil)).Elem(), GetConnectionPhysicalConnectionRequirementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs{})
@@ -14401,6 +18952,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagNodeArrayInput)(nil)).Elem(), GetScriptDagNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagNodeArgInput)(nil)).Elem(), GetScriptDagNodeArgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagNodeArgArrayInput)(nil)).Elem(), GetScriptDagNodeArgArray{})
+	pulumi.RegisterOutputType(CatalogCatalogPropertiesOutput{})
+	pulumi.RegisterOutputType(CatalogCatalogPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CatalogCatalogPropertiesDataLakeAccessPropertiesOutput{})
+	pulumi.RegisterOutputType(CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CatalogCatalogPropertiesIcebergOptimizationPropertiesOutput{})
+	pulumi.RegisterOutputType(CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CatalogCreateDatabaseDefaultPermissionOutput{})
+	pulumi.RegisterOutputType(CatalogCreateDatabaseDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(CatalogCreateDatabaseDefaultPermissionPrincipalOutput{})
+	pulumi.RegisterOutputType(CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(CatalogCreateTableDefaultPermissionOutput{})
+	pulumi.RegisterOutputType(CatalogCreateTableDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(CatalogCreateTableDefaultPermissionPrincipalOutput{})
+	pulumi.RegisterOutputType(CatalogCreateTableDefaultPermissionPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput{})
@@ -14409,6 +18974,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogDatabaseFederatedDatabasePtrOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabaseOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabasePtrOutput{})
+	pulumi.RegisterOutputType(CatalogFederatedCatalogOutput{})
+	pulumi.RegisterOutputType(CatalogFederatedCatalogPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputOutput{})
@@ -14461,6 +19028,10 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableViewDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableViewDefinitionRepresentationOutput{})
 	pulumi.RegisterOutputType(CatalogTableViewDefinitionRepresentationArrayOutput{})
+	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogOutput{})
+	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTimeoutsOutput{})
+	pulumi.RegisterOutputType(CatalogTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierCsvClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierCsvClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierGrokClassifierOutput{})
@@ -14469,6 +19040,18 @@ func init() {
 	pulumi.RegisterOutputType(ClassifierJsonClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierXmlClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierXmlClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{})
 	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
@@ -14551,6 +19134,22 @@ func init() {
 	pulumi.RegisterOutputType(TriggerPredicateConditionArrayOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogPropertyOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogPropertyDataLakeAccessPropertyOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput{})
+	pulumi.RegisterOutputType(GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateDatabaseDefaultPermissionOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateDatabaseDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateDatabaseDefaultPermissionPrincipalOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateTableDefaultPermissionOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateTableDefaultPermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateTableDefaultPermissionPrincipalOutput{})
+	pulumi.RegisterOutputType(GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogFederatedCatalogOutput{})
+	pulumi.RegisterOutputType(GetCatalogFederatedCatalogArrayOutput{})
 	pulumi.RegisterOutputType(GetCatalogTablePartitionIndexOutput{})
 	pulumi.RegisterOutputType(GetCatalogTablePartitionIndexArrayOutput{})
 	pulumi.RegisterOutputType(GetCatalogTablePartitionKeyOutput{})
@@ -14571,6 +19170,20 @@ func init() {
 	pulumi.RegisterOutputType(GetCatalogTableStorageDescriptorSortColumnArrayOutput{})
 	pulumi.RegisterOutputType(GetCatalogTableTargetTableOutput{})
 	pulumi.RegisterOutputType(GetCatalogTableTargetTableArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogTargetRedshiftCatalogOutput{})
+	pulumi.RegisterOutputType(GetCatalogTargetRedshiftCatalogArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput{})
+	pulumi.RegisterOutputType(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectionPhysicalConnectionRequirementOutput{})
 	pulumi.RegisterOutputType(GetConnectionPhysicalConnectionRequirementArrayOutput{})
 	pulumi.RegisterOutputType(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput{})

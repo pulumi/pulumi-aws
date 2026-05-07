@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *             .name("production-data-processor")
  *             .role(lambdaRole.arn())
  *             .handler("app.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Purpose", "data-processing")

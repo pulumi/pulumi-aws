@@ -17,16 +17,18 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
     /**
-     * Concatenation of the catalog ID and connection name. For example, if your account ID is
-     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return Concatenation of the catalog ID and connection name. For example, if your account ID is
-     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * @return Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String id() {
@@ -49,14 +51,14 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Tags assigned to the resource
+     * Tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Tags assigned to the resource
+     * @return Tags assigned to the resource.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -90,8 +92,9 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is
-         * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -113,7 +116,7 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags Tags assigned to the resource
+         * @param tags Tags assigned to the resource.
          * 
          * @return builder
          * 

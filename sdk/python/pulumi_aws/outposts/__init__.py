@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .capacity_task import *
 from .get_asset import *
 from .get_assets import *
 from .get_outpost import *
@@ -14,3 +15,5 @@ from .get_outpost_instance_types import *
 from .get_outposts import *
 from .get_site import *
 from .get_sites import *
+from ._inputs import *
+from . import outputs

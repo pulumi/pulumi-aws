@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .catalog import *
 from .catalog_database import *
 from .catalog_table import *
 from .catalog_table_optimizer import *
@@ -15,6 +16,7 @@ from .crawler import *
 from .data_catalog_encryption_settings import *
 from .data_quality_ruleset import *
 from .dev_endpoint import *
+from .get_catalog import *
 from .get_catalog_table import *
 from .get_connection import *
 from .get_data_catalog_encryption_settings import *

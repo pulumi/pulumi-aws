@@ -9,6 +9,7 @@ import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointClientLoginBannerOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointClientRouteEnforcementOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointConnectionLogOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointFilter;
+import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointTransitGatewayConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -120,6 +121,11 @@ public final class GetEndpointResult {
      * 
      */
     private String trafficIpAddressType;
+    /**
+     * @return ID of the Transit Gateway to which the Client VPN endpoint is associated.
+     * 
+     */
+    private List<GetEndpointTransitGatewayConfiguration> transitGatewayConfigurations;
     /**
      * @return Transport protocol used by the Client VPN endpoint.
      * 
@@ -283,6 +289,13 @@ public final class GetEndpointResult {
         return this.trafficIpAddressType;
     }
     /**
+     * @return ID of the Transit Gateway to which the Client VPN endpoint is associated.
+     * 
+     */
+    public List<GetEndpointTransitGatewayConfiguration> transitGatewayConfigurations() {
+        return this.transitGatewayConfigurations;
+    }
+    /**
      * @return Transport protocol used by the Client VPN endpoint.
      * 
      */
@@ -336,6 +349,7 @@ public final class GetEndpointResult {
         private Boolean splitTunnel;
         private Map<String,String> tags;
         private String trafficIpAddressType;
+        private List<GetEndpointTransitGatewayConfiguration> transitGatewayConfigurations;
         private String transportProtocol;
         private String vpcId;
         private Integer vpnPort;
@@ -365,6 +379,7 @@ public final class GetEndpointResult {
     	      this.splitTunnel = defaults.splitTunnel;
     	      this.tags = defaults.tags;
     	      this.trafficIpAddressType = defaults.trafficIpAddressType;
+    	      this.transitGatewayConfigurations = defaults.transitGatewayConfigurations;
     	      this.transportProtocol = defaults.transportProtocol;
     	      this.vpcId = defaults.vpcId;
     	      this.vpnPort = defaults.vpnPort;
@@ -577,6 +592,17 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder transitGatewayConfigurations(List<GetEndpointTransitGatewayConfiguration> transitGatewayConfigurations) {
+            if (transitGatewayConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "transitGatewayConfigurations");
+            }
+            this.transitGatewayConfigurations = transitGatewayConfigurations;
+            return this;
+        }
+        public Builder transitGatewayConfigurations(GetEndpointTransitGatewayConfiguration... transitGatewayConfigurations) {
+            return transitGatewayConfigurations(List.of(transitGatewayConfigurations));
+        }
+        @CustomType.Setter
         public Builder transportProtocol(String transportProtocol) {
             if (transportProtocol == null) {
               throw new MissingRequiredPropertyException("GetEndpointResult", "transportProtocol");
@@ -625,6 +651,7 @@ public final class GetEndpointResult {
             _resultValue.splitTunnel = splitTunnel;
             _resultValue.tags = tags;
             _resultValue.trafficIpAddressType = trafficIpAddressType;
+            _resultValue.transitGatewayConfigurations = transitGatewayConfigurations;
             _resultValue.transportProtocol = transportProtocol;
             _resultValue.vpcId = vpcId;
             _resultValue.vpnPort = vpnPort;

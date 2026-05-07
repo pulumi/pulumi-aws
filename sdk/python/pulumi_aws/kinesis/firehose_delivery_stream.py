@@ -718,7 +718,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="firehose_lambda_processor",
             role=lambda_iam.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",
@@ -1380,7 +1380,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             name="firehose_lambda_processor",
             role=lambda_iam.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extended_s3_stream",
             name="kinesis-firehose-extended-s3-test-stream",
             destination="extended_s3",

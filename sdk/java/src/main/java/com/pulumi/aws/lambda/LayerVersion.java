@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *         var example = new LayerVersion("example", LayerVersionArgs.builder()
  *             .code(new FileArchive("lambda_layer_payload.zip"))
  *             .layerName("lambda_layer_name")
- *             .compatibleRuntimes("nodejs20.x")
+ *             .compatibleRuntimes("nodejs24.x")
  *             .build());
  * 
  *     }
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .s3Key(lambdaLayerZip.key())
  *             .layerName("lambda_layer_name")
  *             .compatibleRuntimes(            
- *                 "nodejs20.x",
+ *                 "nodejs24.x",
  *                 "python3.12")
  *             .compatibleArchitectures(            
  *                 "x86_64",
@@ -140,8 +140,8 @@ import javax.annotation.Nullable;
  *                 .input("lambda_layer_payload.zip")
  *                 .build()).result())
  *             .compatibleRuntimes(            
- *                 "nodejs18.x",
- *                 "nodejs20.x",
+ *                 "nodejs22.x",
+ *                 "nodejs24.x",
  *                 "python3.11",
  *                 "python3.12")
  *             .compatibleArchitectures(            

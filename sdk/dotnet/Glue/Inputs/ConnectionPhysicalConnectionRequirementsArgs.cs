@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class ConnectionPhysicalConnectionRequirementsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The availability zone of the connection. This field is redundant and implied by `SubnetId`, but is currently an api requirement.
+        /// Availability zone of the connection. This field is redundant and implied by `SubnetId`, but is currently an API requirement.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _securityGroupIdLists;
 
         /// <summary>
-        /// The security group ID list used by the connection.
+        /// Security group ID list used by the connection.
         /// </summary>
         public InputList<string> SecurityGroupIdLists
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The subnet ID used by the connection.
+        /// Subnet ID used by the connection.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

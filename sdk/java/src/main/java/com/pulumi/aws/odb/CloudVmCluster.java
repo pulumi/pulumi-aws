@@ -78,6 +78,36 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With Optional Arguments
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.odb.CloudVmCluster;
+ * import com.pulumi.aws.odb.CloudVmClusterArgs;
+ * import com.pulumi.aws.odb.inputs.CloudVmClusterDataCollectionOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
  *         var withAllParameters = new CloudVmCluster("withAllParameters", CloudVmClusterArgs.builder()
  *             .displayName("my_vm_cluster")
  *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
@@ -99,6 +129,64 @@ import javax.annotation.Nullable;
  *             .timezone("UTC")
  *             .scanListenerPortTcp(1521)
  *             .tags(Map.of("env", "dev"))
+ *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
+ *                 .isDiagnosticsEventsEnabled(true)
+ *                 .isHealthMonitoringEnabled(true)
+ *                 .isIncidentLogsEnabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With GI Version Tag
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.odb.CloudVmCluster;
+ * import com.pulumi.aws.odb.CloudVmClusterArgs;
+ * import com.pulumi.aws.odb.inputs.CloudVmClusterDataCollectionOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var giVersionTagExample = new CloudVmCluster("giVersionTagExample", CloudVmClusterArgs.builder()
+ *             .displayName("my_vm_cluster")
+ *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
+ *             .cpuCoreCount(6)
+ *             .giVersion("23.0.0.0")
+ *             .hostnamePrefix("apollo12")
+ *             .sshPublicKeys("my-ssh-key")
+ *             .odbNetworkId("<aws_odb_network_id>")
+ *             .isLocalBackupEnabled(true)
+ *             .isSparseDiskgroupEnabled(true)
+ *             .licenseModel("LICENSE_INCLUDED")
+ *             .dataStorageSizeInTbs(20.0)
+ *             .dbServers(            
+ *                 "my-dbserver-1",
+ *                 "my-db-server-2")
+ *             .dbNodeStorageSizeInGbs(120)
+ *             .memorySizeInGbs(60)
+ *             .clusterName("julia-13")
+ *             .timezone("UTC")
+ *             .scanListenerPortTcp(1521)
+ *             .tags(Map.of("odb:input_gi_version", "23.0.0.0"))
  *             .dataCollectionOptions(CloudVmClusterDataCollectionOptionsArgs.builder()
  *                 .isDiagnosticsEventsEnabled(true)
  *                 .isHealthMonitoringEnabled(true)
@@ -325,14 +413,14 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.domain;
     }
     /**
-     * A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+     * A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
      * 
      */
     @Export(name="giVersion", refs={String.class}, tree="[0]")
     private Output<String> giVersion;
 
     /**
-     * @return A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+     * @return A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
      * 
      */
     public Output<String> giVersion() {

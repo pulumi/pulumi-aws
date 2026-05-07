@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Lambda
     ///         Description = "Common utilities for Lambda functions",
     ///         CompatibleRuntimes = new[]
     ///         {
-    ///             "nodejs20.x",
+    ///             "nodejs24.x",
     ///             "python3.12",
     ///         },
     ///     });
