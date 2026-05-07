@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> ExportPath { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        /// Sets the Lustre version for the file system. Valid values are `2.10`, `2.12`, and `2.15`. When creating a file system, `2.10` is valid for `SCRATCH_1`, `SCRATCH_2`, and `PERSISTENT_1` deployment types; `2.12` and `2.15` are valid for all deployment types. Changing this value to a higher version triggers an in-place upgrade. Changing to a lower version forces resource replacement (destroy and recreate).
         /// </summary>
         [Output("fileSystemTypeVersion")]
         public Output<string> FileSystemTypeVersion { get; private set; } = null!;
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? ExportPath { get; set; }
 
         /// <summary>
-        /// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        /// Sets the Lustre version for the file system. Valid values are `2.10`, `2.12`, and `2.15`. When creating a file system, `2.10` is valid for `SCRATCH_1`, `SCRATCH_2`, and `PERSISTENT_1` deployment types; `2.12` and `2.15` are valid for all deployment types. Changing this value to a higher version triggers an in-place upgrade. Changing to a lower version forces resource replacement (destroy and recreate).
         /// </summary>
         [Input("fileSystemTypeVersion")]
         public Input<string>? FileSystemTypeVersion { get; set; }
@@ -610,7 +610,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? ExportPath { get; set; }
 
         /// <summary>
-        /// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
+        /// Sets the Lustre version for the file system. Valid values are `2.10`, `2.12`, and `2.15`. When creating a file system, `2.10` is valid for `SCRATCH_1`, `SCRATCH_2`, and `PERSISTENT_1` deployment types; `2.12` and `2.15` are valid for all deployment types. Changing this value to a higher version triggers an in-place upgrade. Changing to a lower version forces resource replacement (destroy and recreate).
         /// </summary>
         [Input("fileSystemTypeVersion")]
         public Input<string>? FileSystemTypeVersion { get; set; }

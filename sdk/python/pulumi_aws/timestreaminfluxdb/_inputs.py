@@ -19,6 +19,8 @@ __all__ = [
     'DbClusterLogDeliveryConfigurationArgsDict',
     'DbClusterLogDeliveryConfigurationS3ConfigurationArgs',
     'DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict',
+    'DbClusterMaintenanceScheduleArgs',
+    'DbClusterMaintenanceScheduleArgsDict',
     'DbClusterTimeoutsArgs',
     'DbClusterTimeoutsArgsDict',
     'DbInstanceLogDeliveryConfigurationArgs',
@@ -67,7 +69,7 @@ class DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
     """
     Indicates whether log delivery to the S3 bucket is enabled.
 
-    **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
+    **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
     """
 
 @pulumi.input_type
@@ -79,7 +81,7 @@ class DbClusterLogDeliveryConfigurationS3ConfigurationArgs:
         :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket to deliver logs to.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether log delivery to the S3 bucket is enabled.
                
-               **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
+               **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "enabled", enabled)
@@ -102,13 +104,60 @@ class DbClusterLogDeliveryConfigurationS3ConfigurationArgs:
         """
         Indicates whether log delivery to the S3 bucket is enabled.
 
-        **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
+        **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `maintenance_schedule`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
     def enabled(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "enabled", value)
+
+
+class DbClusterMaintenanceScheduleArgsDict(TypedDict):
+    preferred_maintenance_window: pulumi.Input[_builtins.str]
+    """
+    Preferred maintenance window in the format `ddd:HH:MM-ddd:HH:MM`. Day must be one of `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, or `Sun`. Provide an empty string to let the system choose a window.
+    """
+    timezone: pulumi.Input[_builtins.str]
+    """
+    IANA timezone identifier for the maintenance window. For example, `America/New_York` or `UTC`.
+    """
+
+@pulumi.input_type
+class DbClusterMaintenanceScheduleArgs:
+    def __init__(__self__, *,
+                 preferred_maintenance_window: pulumi.Input[_builtins.str],
+                 timezone: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] preferred_maintenance_window: Preferred maintenance window in the format `ddd:HH:MM-ddd:HH:MM`. Day must be one of `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, or `Sun`. Provide an empty string to let the system choose a window.
+        :param pulumi.Input[_builtins.str] timezone: IANA timezone identifier for the maintenance window. For example, `America/New_York` or `UTC`.
+        """
+        pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> pulumi.Input[_builtins.str]:
+        """
+        Preferred maintenance window in the format `ddd:HH:MM-ddd:HH:MM`. Day must be one of `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, or `Sun`. Provide an empty string to let the system choose a window.
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @preferred_maintenance_window.setter
+    def preferred_maintenance_window(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "preferred_maintenance_window", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[_builtins.str]:
+        """
+        IANA timezone identifier for the maintenance window. For example, `America/New_York` or `UTC`.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "timezone", value)
 
 
 class DbClusterTimeoutsArgsDict(TypedDict):

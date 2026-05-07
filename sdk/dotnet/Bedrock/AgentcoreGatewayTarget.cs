@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Bedrock
     ///         Name = "example-function",
     ///         Role = lambdaRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///     });
     /// 
     ///     var exampleAgentcoreGateway = new Aws.Bedrock.AgentcoreGateway("example", new()

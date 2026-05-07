@@ -17,14 +17,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs();
 
     /**
-     * Metric type.
+     * Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
      * 
      */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
     /**
-     * @return Metric type.
+     * @return Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
      * 
      */
     public Output<String> predefinedMetricType() {
@@ -32,14 +32,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     }
 
     /**
-     * Label that uniquely identifies a target group.
+     * Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
      * 
      */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
     /**
-     * @return Label that uniquely identifies a target group.
+     * @return Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
      * 
      */
     public Optional<Output<String>> resourceLabel() {
@@ -72,7 +72,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedMetricType Metric type.
+         * @param predefinedMetricType Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedMetricType Metric type.
+         * @param predefinedMetricType Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param resourceLabel Label that uniquely identifies a target group.
+         * @param resourceLabel Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param resourceLabel Label that uniquely identifies a target group.
+         * @param resourceLabel Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
          * 
          * @return builder
          * 

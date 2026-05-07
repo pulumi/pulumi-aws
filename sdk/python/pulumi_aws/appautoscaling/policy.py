@@ -591,6 +591,20 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the scaling policy.
+        * `resource_id` - (String) Resource type and unique identifier string for the resource associated with the scaling policy.
+        * `scalable_dimension` - (String) Scalable dimension of the scalable target.
+        * `service_namespace` - (String) AWS service namespace of the scalable target.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
@@ -837,6 +851,20 @@ class Policy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the scaling policy.
+        * `resource_id` - (String) Resource type and unique identifier string for the resource associated with the scaling policy.
+        * `scalable_dimension` - (String) Scalable dimension of the scalable target.
+        * `service_namespace` - (String) AWS service namespace of the scalable target.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 

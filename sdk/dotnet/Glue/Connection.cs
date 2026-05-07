@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue
 {
     /// <summary>
-    /// Provides a Glue Connection resource.
+    /// Manages an AWS Glue Connection.
     /// 
     /// ## Example Usage
     /// 
@@ -430,6 +430,50 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// 
+    /// ### MySQL Federated Connection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Connection("example", new()
+    ///     {
+    ///         Name = "athenafederatedcatalog_mysql",
+    ///         ConnectionType = "MYSQL",
+    ///         AthenaProperties = 
+    ///         {
+    ///             { "lambda_function_arn", "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql" },
+    ///             { "spill_bucket", exampleAwsS3Bucket.Bucket },
+    ///         },
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "HOST", exampleAwsRdsCluster.Endpoint },
+    ///             { "PORT", exampleAwsRdsCluster.Port },
+    ///             { "DATABASE", exampleAwsRdsCluster.DatabaseName },
+    ///         },
+    ///         AuthenticationConfiguration = new Aws.Glue.Inputs.ConnectionAuthenticationConfigurationArgs
+    ///         {
+    ///             AuthenticationType = "BASIC",
+    ///             SecretArn = exampleAwsSecretsmanagerSecret.Arn,
+    ///         },
+    ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
+    ///         {
+    ///             AvailabilityZone = exampleAwsSubnet.AvailabilityZone,
+    ///             SecurityGroupIdLists = new[]
+    ///             {
+    ///                 exampleAwsSecurityGroup.Id,
+    ///             },
+    ///             SubnetId = exampleAwsSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -454,6 +498,12 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> AthenaProperties { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for authentication options. See `AuthenticationConfiguration` below.
+        /// </summary>
+        [Output("authenticationConfiguration")]
+        public Output<Outputs.ConnectionAuthenticationConfiguration?> AuthenticationConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Output("catalogId")]
@@ -461,14 +511,12 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-        /// 
-        /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         [Output("connectionProperties")]
         public Output<ImmutableDictionary<string, string>?> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         [Output("connectionType")]
         public Output<string?> ConnectionType { get; private set; } = null!;
@@ -494,7 +542,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `PhysicalConnectionRequirements` Block for details.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `PhysicalConnectionRequirements` below.
         /// </summary>
         [Output("physicalConnectionRequirements")]
         public Output<Outputs.ConnectionPhysicalConnectionRequirements?> PhysicalConnectionRequirements { get; private set; } = null!;
@@ -512,7 +560,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -585,6 +633,12 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
+        /// Configuration block for authentication options. See `AuthenticationConfiguration` below.
+        /// </summary>
+        [Input("authenticationConfiguration")]
+        public Input<Inputs.ConnectionAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
+
+        /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
@@ -595,8 +649,6 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-        /// 
-        /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         public InputMap<string> ConnectionProperties
         {
@@ -609,7 +661,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -641,7 +693,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `PhysicalConnectionRequirements` Block for details.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `PhysicalConnectionRequirements` below.
         /// </summary>
         [Input("physicalConnectionRequirements")]
         public Input<Inputs.ConnectionPhysicalConnectionRequirementsArgs>? PhysicalConnectionRequirements { get; set; }
@@ -695,6 +747,12 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
+        /// Configuration block for authentication options. See `AuthenticationConfiguration` below.
+        /// </summary>
+        [Input("authenticationConfiguration")]
+        public Input<Inputs.ConnectionAuthenticationConfigurationGetArgs>? AuthenticationConfiguration { get; set; }
+
+        /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
@@ -705,8 +763,6 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-        /// 
-        /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         public InputMap<string> ConnectionProperties
         {
@@ -719,7 +775,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -751,7 +807,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `PhysicalConnectionRequirements` Block for details.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `PhysicalConnectionRequirements` below.
         /// </summary>
         [Input("physicalConnectionRequirements")]
         public Input<Inputs.ConnectionPhysicalConnectionRequirementsGetArgs>? PhysicalConnectionRequirements { get; set; }
@@ -778,7 +834,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

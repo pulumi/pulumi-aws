@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -39,10 +40,21 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
      */
     private @Nullable String organizationalUnitDistinguishedName;
     /**
-     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
      * 
      */
     private @Nullable String password;
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * 
+     */
+    private @Nullable String passwordWo;
+    /**
+     * @return Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+     * 
+     */
+    private @Nullable Integer passwordWoVersion;
     /**
      * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
@@ -86,11 +98,26 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
         return Optional.ofNullable(this.organizationalUnitDistinguishedName);
     }
     /**
-     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
      * 
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
+    }
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * 
+     */
+    public Optional<String> passwordWo() {
+        return Optional.ofNullable(this.passwordWo);
+    }
+    /**
+     * @return Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+     * 
+     */
+    public Optional<Integer> passwordWoVersion() {
+        return Optional.ofNullable(this.passwordWoVersion);
     }
     /**
      * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
@@ -115,6 +142,8 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
         private @Nullable String fileSystemAdministratorsGroup;
         private @Nullable String organizationalUnitDistinguishedName;
         private @Nullable String password;
+        private @Nullable String passwordWo;
+        private @Nullable Integer passwordWoVersion;
         private @Nullable String username;
         public Builder() {}
         public Builder(WindowsFileSystemSelfManagedActiveDirectory defaults) {
@@ -125,6 +154,8 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
     	      this.fileSystemAdministratorsGroup = defaults.fileSystemAdministratorsGroup;
     	      this.organizationalUnitDistinguishedName = defaults.organizationalUnitDistinguishedName;
     	      this.password = defaults.password;
+    	      this.passwordWo = defaults.passwordWo;
+    	      this.passwordWoVersion = defaults.passwordWoVersion;
     	      this.username = defaults.username;
         }
 
@@ -172,6 +203,18 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
             return this;
         }
         @CustomType.Setter
+        public Builder passwordWo(@Nullable String passwordWo) {
+
+            this.passwordWo = passwordWo;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passwordWoVersion(@Nullable Integer passwordWoVersion) {
+
+            this.passwordWoVersion = passwordWoVersion;
+            return this;
+        }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
 
             this.username = username;
@@ -185,6 +228,8 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
             _resultValue.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             _resultValue.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;
             _resultValue.password = password;
+            _resultValue.passwordWo = passwordWo;
+            _resultValue.passwordWoVersion = passwordWoVersion;
             _resultValue.username = username;
             return _resultValue;
         }

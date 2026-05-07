@@ -96,7 +96,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     declare public readonly contactNumber: pulumi.Output<string | undefined>;
     /**
@@ -108,11 +108,11 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     declare public readonly edition: pulumi.Output<string>;
     /**
-     * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     declare public readonly emailAddress: pulumi.Output<string | undefined>;
     /**
-     * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     declare public readonly firstName: pulumi.Output<string | undefined>;
     /**
@@ -120,7 +120,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     declare public readonly iamIdentityCenterInstanceArn: pulumi.Output<string | undefined>;
     /**
-     * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     declare public readonly lastName: pulumi.Output<string | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface AccountSubscriptionState {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     contactNumber?: pulumi.Input<string>;
     /**
@@ -274,11 +274,11 @@ export interface AccountSubscriptionState {
      */
     edition?: pulumi.Input<string>;
     /**
-     * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     emailAddress?: pulumi.Input<string>;
     /**
-     * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     firstName?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface AccountSubscriptionState {
      */
     iamIdentityCenterInstanceArn?: pulumi.Input<string>;
     /**
-     * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     lastName?: pulumi.Input<string>;
     /**
@@ -350,7 +350,7 @@ export interface AccountSubscriptionArgs {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     contactNumber?: pulumi.Input<string>;
     /**
@@ -362,11 +362,11 @@ export interface AccountSubscriptionArgs {
      */
     edition: pulumi.Input<string>;
     /**
-     * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     emailAddress?: pulumi.Input<string>;
     /**
-     * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     firstName?: pulumi.Input<string>;
     /**
@@ -374,7 +374,7 @@ export interface AccountSubscriptionArgs {
      */
     iamIdentityCenterInstanceArn?: pulumi.Input<string>;
     /**
-     * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     lastName?: pulumi.Input<string>;
     /**

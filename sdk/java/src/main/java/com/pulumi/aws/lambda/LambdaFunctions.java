@@ -961,7 +961,7 @@ public final class LambdaFunctions {
      *             .name("secure-function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
      *             .tags(Map.ofEntries(
      *                 Map.entry("Environment", "production"),
@@ -1177,7 +1177,7 @@ public final class LambdaFunctions {
      *             .name("secure-function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
      *             .tags(Map.ofEntries(
      *                 Map.entry("Environment", "production"),
@@ -1393,7 +1393,7 @@ public final class LambdaFunctions {
      *             .name("secure-function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
      *             .tags(Map.ofEntries(
      *                 Map.entry("Environment", "production"),
@@ -1609,7 +1609,7 @@ public final class LambdaFunctions {
      *             .name("secure-function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
      *             .tags(Map.ofEntries(
      *                 Map.entry("Environment", "production"),
@@ -1825,7 +1825,7 @@ public final class LambdaFunctions {
      *             .name("secure-function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .codeSigningConfigArn(securityConfig.arn())
      *             .tags(Map.ofEntries(
      *                 Map.entry("Environment", "production"),
@@ -4854,7 +4854,7 @@ public final class LambdaFunctions {
      *             .name("example_function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(example.arn())
      *             .build());
      * 
@@ -5042,7 +5042,7 @@ public final class LambdaFunctions {
      *             .name("cross_account_example")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
      *             .build());
      * 
@@ -5129,7 +5129,7 @@ public final class LambdaFunctions {
      *             .name("example_function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(example.arn())
      *             .build());
      * 
@@ -5317,7 +5317,7 @@ public final class LambdaFunctions {
      *             .name("cross_account_example")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
      *             .build());
      * 
@@ -5404,7 +5404,7 @@ public final class LambdaFunctions {
      *             .name("example_function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(example.arn())
      *             .build());
      * 
@@ -5592,7 +5592,7 @@ public final class LambdaFunctions {
      *             .name("cross_account_example")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
      *             .build());
      * 
@@ -5679,7 +5679,7 @@ public final class LambdaFunctions {
      *             .name("example_function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(example.arn())
      *             .build());
      * 
@@ -5867,7 +5867,7 @@ public final class LambdaFunctions {
      *             .name("cross_account_example")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
      *             .build());
      * 
@@ -5954,7 +5954,7 @@ public final class LambdaFunctions {
      *             .name("example_function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(example.arn())
      *             .build());
      * 
@@ -6142,7 +6142,7 @@ public final class LambdaFunctions {
      *             .name("cross_account_example")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
      *             .build());
      * 
@@ -6229,7 +6229,7 @@ public final class LambdaFunctions {
      *             .name("example_function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(example.arn())
      *             .build());
      * 
@@ -6417,7 +6417,7 @@ public final class LambdaFunctions {
      *             .name("cross_account_example")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
      *             .build());
      * 
@@ -6504,7 +6504,7 @@ public final class LambdaFunctions {
      *             .name("example_function")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(example.arn())
      *             .build());
      * 
@@ -6692,7 +6692,7 @@ public final class LambdaFunctions {
      *             .name("cross_account_example")
      *             .role(lambdaRole.arn())
      *             .handler("index.handler")
-     *             .runtime("nodejs20.x")
+     *             .runtime("nodejs24.x")
      *             .layers(sharedLayer.arn())
      *             .build());
      * 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Glue
     public static class GetConnection
     {
         /// <summary>
-        /// This data source can be used to fetch information about a specific Glue Connection.
+        /// Provides details about an AWS Glue Connection.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Glue
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:glue/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source can be used to fetch information about a specific Glue Connection.
+        /// Provides details about an AWS Glue Connection.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Glue
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:glue/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This data source can be used to fetch information about a specific Glue Connection.
+        /// Provides details about an AWS Glue Connection.
         /// 
         /// ## Example Usage
         /// 
@@ -88,8 +88,9 @@ namespace Pulumi.Aws.Glue
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Concatenation of the catalog ID and connection name. For example, if your account ID is
-        /// `123456789123` and the connection name is `Conn` then the ID is `123456789123:conn`.
+        /// Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `Conn` then the ID is `123456789123:conn`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -104,7 +105,7 @@ namespace Pulumi.Aws.Glue
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Tags assigned to the resource
+        /// Tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -121,8 +122,9 @@ namespace Pulumi.Aws.Glue
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Concatenation of the catalog ID and connection name. For example, if your account ID is
-        /// `123456789123` and the connection name is `Conn` then the ID is `123456789123:conn`.
+        /// Concatenation of the catalog ID and connection name. For example, if your account ID is `123456789123` and the connection name is `Conn` then the ID is `123456789123:conn`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -137,7 +139,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags assigned to the resource
+        /// Tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -160,15 +162,19 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A map of connection properties specific to the Athena compute environment.
+        /// Map of connection properties specific to the Athena compute environment.
         /// </summary>
         public readonly ImmutableDictionary<string, string> AthenaProperties;
+        /// <summary>
+        /// Configuration block for authentication options.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationResult> AuthenticationConfigurations;
         /// <summary>
         /// Catalog ID of the Glue Connection.
         /// </summary>
         public readonly string CatalogId;
         /// <summary>
-        /// A map of connection properties.
+        /// Map of connection properties.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ConnectionProperties;
         /// <summary>
@@ -181,7 +187,7 @@ namespace Pulumi.Aws.Glue
         public readonly string Description;
         public readonly string Id;
         /// <summary>
-        /// A list of criteria that can be used in selecting this connection.
+        /// List of criteria that can be used in selecting this connection.
         /// </summary>
         public readonly ImmutableArray<string> MatchCriterias;
         /// <summary>
@@ -189,12 +195,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A map of physical connection requirements, such as VPC and SecurityGroup.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> PhysicalConnectionRequirements;
         public readonly string Region;
         /// <summary>
-        /// Tags assigned to the resource
+        /// Tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -203,6 +209,8 @@ namespace Pulumi.Aws.Glue
             string arn,
 
             ImmutableDictionary<string, string> athenaProperties,
+
+            ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationResult> authenticationConfigurations,
 
             string catalogId,
 
@@ -226,6 +234,7 @@ namespace Pulumi.Aws.Glue
         {
             Arn = arn;
             AthenaProperties = athenaProperties;
+            AuthenticationConfigurations = authenticationConfigurations;
             CatalogId = catalogId;
             ConnectionProperties = connectionProperties;
             ConnectionType = connectionType;

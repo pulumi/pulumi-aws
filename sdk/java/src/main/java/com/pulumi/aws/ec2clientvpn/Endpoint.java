@@ -11,6 +11,7 @@ import com.pulumi.aws.ec2clientvpn.outputs.EndpointClientConnectOptions;
 import com.pulumi.aws.ec2clientvpn.outputs.EndpointClientLoginBannerOptions;
 import com.pulumi.aws.ec2clientvpn.outputs.EndpointClientRouteEnforcementOptions;
 import com.pulumi.aws.ec2clientvpn.outputs.EndpointConnectionLogOptions;
+import com.pulumi.aws.ec2clientvpn.outputs.EndpointTransitGatewayConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -99,14 +100,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Information about the authentication method to be used to authenticate clients.
+     * Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      * 
      */
     @Export(name="authenticationOptions", refs={List.class,EndpointAuthenticationOption.class}, tree="[0,1]")
     private Output<List<EndpointAuthenticationOption>> authenticationOptions;
 
     /**
-     * @return Information about the authentication method to be used to authenticate clients.
+     * @return Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      * 
      */
     public Output<List<EndpointAuthenticationOption>> authenticationOptions() {
@@ -127,56 +128,56 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCidrBlock);
     }
     /**
-     * The options for managing connection authorization for new client connections.
+     * The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      * 
      */
     @Export(name="clientConnectOptions", refs={EndpointClientConnectOptions.class}, tree="[0]")
     private Output<EndpointClientConnectOptions> clientConnectOptions;
 
     /**
-     * @return The options for managing connection authorization for new client connections.
+     * @return The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      * 
      */
     public Output<EndpointClientConnectOptions> clientConnectOptions() {
         return this.clientConnectOptions;
     }
     /**
-     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      * 
      */
     @Export(name="clientLoginBannerOptions", refs={EndpointClientLoginBannerOptions.class}, tree="[0]")
     private Output<EndpointClientLoginBannerOptions> clientLoginBannerOptions;
 
     /**
-     * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      * 
      */
     public Output<EndpointClientLoginBannerOptions> clientLoginBannerOptions() {
         return this.clientLoginBannerOptions;
     }
     /**
-     * Options for enforce administrator defined routes on devices connected through the VPN.
+     * Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      * 
      */
     @Export(name="clientRouteEnforcementOptions", refs={EndpointClientRouteEnforcementOptions.class}, tree="[0]")
     private Output<EndpointClientRouteEnforcementOptions> clientRouteEnforcementOptions;
 
     /**
-     * @return Options for enforce administrator defined routes on devices connected through the VPN.
+     * @return Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      * 
      */
     public Output<EndpointClientRouteEnforcementOptions> clientRouteEnforcementOptions() {
         return this.clientRouteEnforcementOptions;
     }
     /**
-     * Information about the client connection logging options.
+     * Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      * 
      */
     @Export(name="connectionLogOptions", refs={EndpointConnectionLogOptions.class}, tree="[0]")
     private Output<EndpointConnectionLogOptions> connectionLogOptions;
 
     /**
-     * @return Information about the client connection logging options.
+     * @return Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      * 
      */
     public Output<EndpointConnectionLogOptions> connectionLogOptions() {
@@ -267,14 +268,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     * @return The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -393,6 +394,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.trafficIpAddressType;
     }
     /**
+     * Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+     * 
+     */
+    @Export(name="transitGatewayConfiguration", refs={EndpointTransitGatewayConfiguration.class}, tree="[0]")
+    private Output<EndpointTransitGatewayConfiguration> transitGatewayConfiguration;
+
+    /**
+     * @return Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+     * 
+     */
+    public Output<EndpointTransitGatewayConfiguration> transitGatewayConfiguration() {
+        return this.transitGatewayConfiguration;
+    }
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      * 
      */
@@ -407,14 +422,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.transportProtocol);
     }
     /**
-     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     * @return The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     public Output<String> vpcId() {

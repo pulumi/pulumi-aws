@@ -40,7 +40,7 @@ import (
 //				LayerName:   pulumi.String("shared_utilities"),
 //				Description: pulumi.String("Common utilities for Lambda functions"),
 //				CompatibleRuntimes: pulumi.StringArray{
-//					pulumi.String("nodejs20.x"),
+//					pulumi.String("nodejs24.x"),
 //					pulumi.String("python3.12"),
 //				},
 //			})

@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.glue.ConnectionArgs;
 import com.pulumi.aws.glue.inputs.ConnectionState;
+import com.pulumi.aws.glue.outputs.ConnectionAuthenticationConfiguration;
 import com.pulumi.aws.glue.outputs.ConnectionPhysicalConnectionRequirements;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -18,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Glue Connection resource.
+ * Manages an AWS Glue Connection.
  * 
  * ## Example Usage
  * 
@@ -571,6 +572,60 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### MySQL Federated Connection
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import com.pulumi.aws.glue.inputs.ConnectionAuthenticationConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.ConnectionPhysicalConnectionRequirementsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Connection("example", ConnectionArgs.builder()
+ *             .name("athenafederatedcatalog_mysql")
+ *             .connectionType("MYSQL")
+ *             .athenaProperties(Map.ofEntries(
+ *                 Map.entry("lambda_function_arn", "arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql"),
+ *                 Map.entry("spill_bucket", exampleAwsS3Bucket.bucket())
+ *             ))
+ *             .connectionProperties(Map.ofEntries(
+ *                 Map.entry("HOST", exampleAwsRdsCluster.endpoint()),
+ *                 Map.entry("PORT", exampleAwsRdsCluster.port()),
+ *                 Map.entry("DATABASE", exampleAwsRdsCluster.databaseName())
+ *             ))
+ *             .authenticationConfiguration(ConnectionAuthenticationConfigurationArgs.builder()
+ *                 .authenticationType("BASIC")
+ *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .build())
+ *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
+ *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
+ *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
+ *                 .subnetId(exampleAwsSubnet.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -611,6 +666,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.athenaProperties);
     }
     /**
+     * Configuration block for authentication options. See `authenticationConfiguration` below.
+     * 
+     */
+    @Export(name="authenticationConfiguration", refs={ConnectionAuthenticationConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ConnectionAuthenticationConfiguration> authenticationConfiguration;
+
+    /**
+     * @return Configuration block for authentication options. See `authenticationConfiguration` below.
+     * 
+     */
+    public Output<Optional<ConnectionAuthenticationConfiguration>> authenticationConfiguration() {
+        return Codegen.optional(this.authenticationConfiguration);
+    }
+    /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
@@ -627,8 +696,6 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
      * 
-     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-     * 
      */
     @Export(name="connectionProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> connectionProperties;
@@ -636,21 +703,19 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * @return Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
      * 
-     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
-     * 
      */
     public Output<Optional<Map<String,String>>> connectionProperties() {
         return Codegen.optional(this.connectionProperties);
     }
     /**
-     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     @Export(name="connectionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionType;
 
     /**
-     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     public Output<Optional<String>> connectionType() {
@@ -703,14 +768,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
      * 
      */
     @Export(name="physicalConnectionRequirements", refs={ConnectionPhysicalConnectionRequirements.class}, tree="[0]")
     private Output</* @Nullable */ ConnectionPhysicalConnectionRequirements> physicalConnectionRequirements;
 
     /**
-     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
      * 
      */
     public Output<Optional<ConnectionPhysicalConnectionRequirements>> physicalConnectionRequirements() {
@@ -745,14 +810,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

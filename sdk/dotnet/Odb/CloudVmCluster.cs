@@ -57,6 +57,19 @@ namespace Pulumi.Aws.Odb
     ///         },
     ///     });
     /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Optional Arguments
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
     ///     var withAllParameters = new Aws.Odb.CloudVmCluster("with_all_parameters", new()
     ///     {
     ///         DisplayName = "my_vm_cluster",
@@ -86,6 +99,57 @@ namespace Pulumi.Aws.Odb
     ///         Tags = 
     ///         {
     ///             { "env", "dev" },
+    ///         },
+    ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
+    ///         {
+    ///             IsDiagnosticsEventsEnabled = true,
+    ///             IsHealthMonitoringEnabled = true,
+    ///             IsIncidentLogsEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With GI Version Tag
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var giVersionTagExample = new Aws.Odb.CloudVmCluster("gi_version_tag_example", new()
+    ///     {
+    ///         DisplayName = "my_vm_cluster",
+    ///         CloudExadataInfrastructureId = "&lt;aws_odb_cloud_exadata_infrastructure_id&gt;",
+    ///         CpuCoreCount = 6,
+    ///         GiVersion = "23.0.0.0",
+    ///         HostnamePrefix = "apollo12",
+    ///         SshPublicKeys = new[]
+    ///         {
+    ///             "my-ssh-key",
+    ///         },
+    ///         OdbNetworkId = "&lt;aws_odb_network_id&gt;",
+    ///         IsLocalBackupEnabled = true,
+    ///         IsSparseDiskgroupEnabled = true,
+    ///         LicenseModel = "LICENSE_INCLUDED",
+    ///         DataStorageSizeInTbs = 20,
+    ///         DbServers = new[]
+    ///         {
+    ///             "my-dbserver-1",
+    ///             "my-db-server-2",
+    ///         },
+    ///         DbNodeStorageSizeInGbs = 120,
+    ///         MemorySizeInGbs = 60,
+    ///         ClusterName = "julia-13",
+    ///         Timezone = "UTC",
+    ///         ScanListenerPortTcp = 1521,
+    ///         Tags = 
+    ///         {
+    ///             { "odb:input_gi_version", "23.0.0.0" },
     ///         },
     ///         DataCollectionOptions = new Aws.Odb.Inputs.CloudVmClusterDataCollectionOptionsArgs
     ///         {
@@ -197,7 +261,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        /// A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `GiVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         /// </summary>
         [Output("giVersion")]
         public Output<string> GiVersion { get; private set; } = null!;
@@ -506,7 +570,7 @@ namespace Pulumi.Aws.Odb
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        /// A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `GiVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         /// </summary>
         [Input("giVersion", required: true)]
         public Input<string> GiVersion { get; set; } = null!;
@@ -700,7 +764,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 Changing this will create a new resource.
+        /// A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `GiVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
         /// </summary>
         [Input("giVersion")]
         public Input<string>? GiVersion { get; set; }

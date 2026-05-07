@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *             .layerName("example_dependencies_layer")
  *             .description("Common dependencies for Lambda functions")
  *             .compatibleRuntimes(            
- *                 "nodejs20.x",
+ *                 "nodejs24.x",
  *                 "python3.12")
  *             .compatibleArchitectures(            
  *                 "x86_64",
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *             .name("example_layered_function")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .layers(example.arn())
  *             .tracingConfig(FunctionTracingConfigArgs.builder()
  *                 .mode("Active")
@@ -286,7 +286,7 @@ import javax.annotation.Nullable;
  *             .name("example_efs_function")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .vpcConfig(FunctionVpcConfigArgs.builder()
  *                 .subnetIds(subnetIds)
  *                 .securityGroupIds(lambda.id())
@@ -347,7 +347,7 @@ import javax.annotation.Nullable;
  *             .name("example_function")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .loggingConfig(FunctionLoggingConfigArgs.builder()
  *                 .logFormat("JSON")
  *                 .applicationLogLevel("INFO")
@@ -527,7 +527,7 @@ import javax.annotation.Nullable;
  *             .name("example_function")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .deadLetterConfig(FunctionDeadLetterConfigArgs.builder()
  *                 .targetArn(dlq.arn())
  *                 .build())
@@ -649,7 +649,7 @@ import javax.annotation.Nullable;
  *             .name(functionName)
  *             .role(exampleRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .loggingConfig(FunctionLoggingConfigArgs.builder()
  *                 .logFormat("JSON")
  *                 .applicationLogLevel("INFO")
@@ -768,7 +768,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs20.x")
+ *             .runtime("nodejs24.x")
  *             .memorySize(2048)
  *             .publish(true)
  *             .capacityProviderConfig(FunctionCapacityProviderConfigArgs.builder()

@@ -361,7 +361,7 @@ class LayerVersionPermission(pulumi.CustomResource):
             layer_name="shared_utilities",
             description="Common utilities for Lambda functions",
             compatible_runtimes=[
-                "nodejs20.x",
+                "nodejs24.x",
                 "python3.12",
             ])
         # Grant permission to specific AWS account
@@ -478,7 +478,7 @@ class LayerVersionPermission(pulumi.CustomResource):
             layer_name="shared_utilities",
             description="Common utilities for Lambda functions",
             compatible_runtimes=[
-                "nodejs20.x",
+                "nodejs24.x",
                 "python3.12",
             ])
         # Grant permission to specific AWS account

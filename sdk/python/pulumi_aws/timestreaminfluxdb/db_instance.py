@@ -883,10 +883,21 @@ class DbInstance(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Timestream for InfluxDB Db Instance using its identifier. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the Timestream for InfluxDB cluster.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Timestream for InfluxDB instances using `id`. For example:
 
         ```sh
-        $ pulumi import aws:timestreaminfluxdb/dbInstance:DbInstance example 12345abcde
+        $ pulumi import aws:timestreaminfluxdb/dbInstance:DbInstance example 0oo7rzble5
         ```
 
 
@@ -1044,10 +1055,21 @@ class DbInstance(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Timestream for InfluxDB Db Instance using its identifier. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the Timestream for InfluxDB cluster.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Timestream for InfluxDB instances using `id`. For example:
 
         ```sh
-        $ pulumi import aws:timestreaminfluxdb/dbInstance:DbInstance example 12345abcde
+        $ pulumi import aws:timestreaminfluxdb/dbInstance:DbInstance example 0oo7rzble5
         ```
 
 

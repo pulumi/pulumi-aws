@@ -17,14 +17,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs();
 
     /**
-     * Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+     * Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
      * 
      */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
     /**
-     * @return Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+     * @return Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
      * 
      */
     public Output<String> predefinedMetricType() {
@@ -32,14 +32,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     }
 
     /**
-     * Label that uniquely identifies a specific target group from which to determine the total and average request count.
+     * Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
      * 
      */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
     /**
-     * @return Label that uniquely identifies a specific target group from which to determine the total and average request count.
+     * @return Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
      * 
      */
     public Optional<Output<String>> resourceLabel() {
@@ -72,7 +72,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedMetricType Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+         * @param predefinedMetricType Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedMetricType Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+         * @param predefinedMetricType Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the total and average request count.
+         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the total and average request count.
+         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
          * 
          * @return builder
          * 

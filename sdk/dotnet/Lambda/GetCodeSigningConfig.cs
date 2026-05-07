@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "secure-function",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         CodeSigningConfigArn = securityConfig.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Arn),
         ///         Tags = 
         ///         {
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "secure-function",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         CodeSigningConfigArn = securityConfig.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Arn),
         ///         Tags = 
         ///         {
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.Lambda
         ///         Name = "secure-function",
         ///         Role = lambdaRole.Arn,
         ///         Handler = "index.handler",
-        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
         ///         CodeSigningConfigArn = securityConfig.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Arn),
         ///         Tags = 
         ///         {

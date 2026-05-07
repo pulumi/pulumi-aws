@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     name: "production-data-processor",
  *     role: lambdaRole.arn,
  *     handler: "app.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     tags: {
  *         Environment: "production",
  *         Purpose: "data-processing",

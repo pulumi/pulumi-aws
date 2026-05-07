@@ -233,10 +233,21 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Timestream for InfluxDB Db Instance using its identifier. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) ID of the Timestream for InfluxDB cluster.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Timestream for InfluxDB instances using `Id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:timestreaminfluxdb/dbInstance:DbInstance example 12345abcde
+    /// $ pulumi import aws:timestreaminfluxdb/dbInstance:DbInstance example 0oo7rzble5
     /// ```
     /// </summary>
     [AwsResourceType("aws:timestreaminfluxdb/dbInstance:DbInstance")]

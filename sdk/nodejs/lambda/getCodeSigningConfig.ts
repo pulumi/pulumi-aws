@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     name: "secure-function",
  *     role: lambdaRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     codeSigningConfigArn: securityConfig.then(securityConfig => securityConfig.arn),
  *     tags: {
  *         Environment: "production",
@@ -212,7 +212,7 @@ export interface GetCodeSigningConfigResult {
  *     name: "secure-function",
  *     role: lambdaRole.arn,
  *     handler: "index.handler",
- *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     runtime: aws.lambda.Runtime.NodeJS24dX,
  *     codeSigningConfigArn: securityConfig.then(securityConfig => securityConfig.arn),
  *     tags: {
  *         Environment: "production",

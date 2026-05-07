@@ -39,32 +39,34 @@ class EndpointArgs:
                  split_tunnel: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_gateway_configuration: Optional[pulumi.Input['EndpointTransitGatewayConfigurationArgs']] = None,
                  transport_protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]] authentication_options: Information about the authentication method to be used to authenticate clients.
-        :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]] authentication_options: Information about the authentication method to be used to authenticate clients. See `authentication_options` Block Reference below for details.
+        :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options. See `connection_log_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[_builtins.str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
-        :param pulumi.Input['EndpointClientConnectOptionsArgs'] client_connect_options: The options for managing connection authorization for new client connections.
-        :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-        :param pulumi.Input['EndpointClientRouteEnforcementOptionsArgs'] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
+        :param pulumi.Input['EndpointClientConnectOptionsArgs'] client_connect_options: The options for managing connection authorization for new client connections. See `client_connect_options` Block Reference below for details.
+        :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `client_login_banner_options` Block Reference below for details.
+        :param pulumi.Input['EndpointClientRouteEnforcementOptionsArgs'] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN. See `client_route_enforcement_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[_builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_type: IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[_builtins.int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[_builtins.bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] traffic_ip_address_type: IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        :param pulumi.Input['EndpointTransitGatewayConfigurationArgs'] transit_gateway_configuration: Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpc_id` and `security_group_ids`. See `transit_gateway_configuration` Block Reference below for details.
         :param pulumi.Input[_builtins.str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         """
         pulumi.set(__self__, "authentication_options", authentication_options)
@@ -100,6 +102,8 @@ class EndpointArgs:
             pulumi.set(__self__, "tags", tags)
         if traffic_ip_address_type is not None:
             pulumi.set(__self__, "traffic_ip_address_type", traffic_ip_address_type)
+        if transit_gateway_configuration is not None:
+            pulumi.set(__self__, "transit_gateway_configuration", transit_gateway_configuration)
         if transport_protocol is not None:
             pulumi.set(__self__, "transport_protocol", transport_protocol)
         if vpc_id is not None:
@@ -111,7 +115,7 @@ class EndpointArgs:
     @pulumi.getter(name="authenticationOptions")
     def authentication_options(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]]:
         """
-        Information about the authentication method to be used to authenticate clients.
+        Information about the authentication method to be used to authenticate clients. See `authentication_options` Block Reference below for details.
         """
         return pulumi.get(self, "authentication_options")
 
@@ -123,7 +127,7 @@ class EndpointArgs:
     @pulumi.getter(name="connectionLogOptions")
     def connection_log_options(self) -> pulumi.Input['EndpointConnectionLogOptionsArgs']:
         """
-        Information about the client connection logging options.
+        Information about the client connection logging options. See `connection_log_options` Block Reference below for details.
         """
         return pulumi.get(self, "connection_log_options")
 
@@ -159,7 +163,7 @@ class EndpointArgs:
     @pulumi.getter(name="clientConnectOptions")
     def client_connect_options(self) -> Optional[pulumi.Input['EndpointClientConnectOptionsArgs']]:
         """
-        The options for managing connection authorization for new client connections.
+        The options for managing connection authorization for new client connections. See `client_connect_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_connect_options")
 
@@ -171,7 +175,7 @@ class EndpointArgs:
     @pulumi.getter(name="clientLoginBannerOptions")
     def client_login_banner_options(self) -> Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']]:
         """
-        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `client_login_banner_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_login_banner_options")
 
@@ -183,7 +187,7 @@ class EndpointArgs:
     @pulumi.getter(name="clientRouteEnforcementOptions")
     def client_route_enforcement_options(self) -> Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']]:
         """
-        Options for enforce administrator defined routes on devices connected through the VPN.
+        Options for enforce administrator defined routes on devices connected through the VPN. See `client_route_enforcement_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_route_enforcement_options")
 
@@ -255,7 +259,7 @@ class EndpointArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transit_gateway_configuration`.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -324,6 +328,18 @@ class EndpointArgs:
         pulumi.set(self, "traffic_ip_address_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="transitGatewayConfiguration")
+    def transit_gateway_configuration(self) -> Optional[pulumi.Input['EndpointTransitGatewayConfigurationArgs']]:
+        """
+        Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpc_id` and `security_group_ids`. See `transit_gateway_configuration` Block Reference below for details.
+        """
+        return pulumi.get(self, "transit_gateway_configuration")
+
+    @transit_gateway_configuration.setter
+    def transit_gateway_configuration(self, value: Optional[pulumi.Input['EndpointTransitGatewayConfigurationArgs']]):
+        pulumi.set(self, "transit_gateway_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -339,7 +355,7 @@ class EndpointArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transit_gateway_configuration`.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -385,6 +401,7 @@ class _EndpointState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_gateway_configuration: Optional[pulumi.Input['EndpointTransitGatewayConfigurationArgs']] = None,
                  transport_protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_port: Optional[pulumi.Input[_builtins.int]] = None):
@@ -392,19 +409,19 @@ class _EndpointState:
         Input properties used for looking up and filtering Endpoint resources.
 
         :param pulumi.Input[_builtins.str] arn: The ARN of the Client VPN endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]] authentication_options: Information about the authentication method to be used to authenticate clients.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]] authentication_options: Information about the authentication method to be used to authenticate clients. See `authentication_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
-        :param pulumi.Input['EndpointClientConnectOptionsArgs'] client_connect_options: The options for managing connection authorization for new client connections.
-        :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-        :param pulumi.Input['EndpointClientRouteEnforcementOptionsArgs'] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
-        :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options.
+        :param pulumi.Input['EndpointClientConnectOptionsArgs'] client_connect_options: The options for managing connection authorization for new client connections. See `client_connect_options` Block Reference below for details.
+        :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `client_login_banner_options` Block Reference below for details.
+        :param pulumi.Input['EndpointClientRouteEnforcementOptionsArgs'] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN. See `client_route_enforcement_options` Block Reference below for details.
+        :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options. See `connection_log_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[_builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_type: IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[_builtins.str] self_service_portal_url: The URL of the self-service portal.
         :param pulumi.Input[_builtins.str] server_certificate_arn: The ARN of the ACM server certificate.
@@ -413,8 +430,9 @@ class _EndpointState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] traffic_ip_address_type: IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        :param pulumi.Input['EndpointTransitGatewayConfigurationArgs'] transit_gateway_configuration: Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpc_id` and `security_group_ids`. See `transit_gateway_configuration` Block Reference below for details.
         :param pulumi.Input[_builtins.str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         """
         if arn is not None:
@@ -461,6 +479,8 @@ class _EndpointState:
             pulumi.set(__self__, "tags_all", tags_all)
         if traffic_ip_address_type is not None:
             pulumi.set(__self__, "traffic_ip_address_type", traffic_ip_address_type)
+        if transit_gateway_configuration is not None:
+            pulumi.set(__self__, "transit_gateway_configuration", transit_gateway_configuration)
         if transport_protocol is not None:
             pulumi.set(__self__, "transport_protocol", transport_protocol)
         if vpc_id is not None:
@@ -484,7 +504,7 @@ class _EndpointState:
     @pulumi.getter(name="authenticationOptions")
     def authentication_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]]]:
         """
-        Information about the authentication method to be used to authenticate clients.
+        Information about the authentication method to be used to authenticate clients. See `authentication_options` Block Reference below for details.
         """
         return pulumi.get(self, "authentication_options")
 
@@ -508,7 +528,7 @@ class _EndpointState:
     @pulumi.getter(name="clientConnectOptions")
     def client_connect_options(self) -> Optional[pulumi.Input['EndpointClientConnectOptionsArgs']]:
         """
-        The options for managing connection authorization for new client connections.
+        The options for managing connection authorization for new client connections. See `client_connect_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_connect_options")
 
@@ -520,7 +540,7 @@ class _EndpointState:
     @pulumi.getter(name="clientLoginBannerOptions")
     def client_login_banner_options(self) -> Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']]:
         """
-        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `client_login_banner_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_login_banner_options")
 
@@ -532,7 +552,7 @@ class _EndpointState:
     @pulumi.getter(name="clientRouteEnforcementOptions")
     def client_route_enforcement_options(self) -> Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']]:
         """
-        Options for enforce administrator defined routes on devices connected through the VPN.
+        Options for enforce administrator defined routes on devices connected through the VPN. See `client_route_enforcement_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_route_enforcement_options")
 
@@ -544,7 +564,7 @@ class _EndpointState:
     @pulumi.getter(name="connectionLogOptions")
     def connection_log_options(self) -> Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']]:
         """
-        Information about the client connection logging options.
+        Information about the client connection logging options. See `connection_log_options` Block Reference below for details.
         """
         return pulumi.get(self, "connection_log_options")
 
@@ -628,7 +648,7 @@ class _EndpointState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transit_gateway_configuration`.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -733,6 +753,18 @@ class _EndpointState:
         pulumi.set(self, "traffic_ip_address_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="transitGatewayConfiguration")
+    def transit_gateway_configuration(self) -> Optional[pulumi.Input['EndpointTransitGatewayConfigurationArgs']]:
+        """
+        Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpc_id` and `security_group_ids`. See `transit_gateway_configuration` Block Reference below for details.
+        """
+        return pulumi.get(self, "transit_gateway_configuration")
+
+    @transit_gateway_configuration.setter
+    def transit_gateway_configuration(self, value: Optional[pulumi.Input['EndpointTransitGatewayConfigurationArgs']]):
+        pulumi.set(self, "transit_gateway_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -748,7 +780,7 @@ class _EndpointState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transit_gateway_configuration`.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -793,6 +825,7 @@ class Endpoint(pulumi.CustomResource):
                  split_tunnel: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_gateway_configuration: Optional[pulumi.Input[Union['EndpointTransitGatewayConfigurationArgs', 'EndpointTransitGatewayConfigurationArgsDict']]] = None,
                  transport_protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -833,26 +866,27 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAuthenticationOptionArgs', 'EndpointAuthenticationOptionArgsDict']]]] authentication_options: Information about the authentication method to be used to authenticate clients.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAuthenticationOptionArgs', 'EndpointAuthenticationOptionArgsDict']]]] authentication_options: Information about the authentication method to be used to authenticate clients. See `authentication_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
-        :param pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']] client_connect_options: The options for managing connection authorization for new client connections.
-        :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-        :param pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
-        :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options.
+        :param pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']] client_connect_options: The options for managing connection authorization for new client connections. See `client_connect_options` Block Reference below for details.
+        :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `client_login_banner_options` Block Reference below for details.
+        :param pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN. See `client_route_enforcement_options` Block Reference below for details.
+        :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options. See `connection_log_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[_builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_type: IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[_builtins.str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[_builtins.int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[_builtins.bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] traffic_ip_address_type: IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        :param pulumi.Input[Union['EndpointTransitGatewayConfigurationArgs', 'EndpointTransitGatewayConfigurationArgsDict']] transit_gateway_configuration: Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpc_id` and `security_group_ids`. See `transit_gateway_configuration` Block Reference below for details.
         :param pulumi.Input[_builtins.str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         """
         ...
@@ -928,6 +962,7 @@ class Endpoint(pulumi.CustomResource):
                  split_tunnel: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_gateway_configuration: Optional[pulumi.Input[Union['EndpointTransitGatewayConfigurationArgs', 'EndpointTransitGatewayConfigurationArgsDict']]] = None,
                  transport_protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -964,6 +999,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["split_tunnel"] = split_tunnel
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_ip_address_type"] = traffic_ip_address_type
+            __props__.__dict__["transit_gateway_configuration"] = transit_gateway_configuration
             __props__.__dict__["transport_protocol"] = transport_protocol
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["vpn_port"] = vpn_port
@@ -1003,6 +1039,7 @@ class Endpoint(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             traffic_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
+            transit_gateway_configuration: Optional[pulumi.Input[Union['EndpointTransitGatewayConfigurationArgs', 'EndpointTransitGatewayConfigurationArgsDict']]] = None,
             transport_protocol: Optional[pulumi.Input[_builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
             vpn_port: Optional[pulumi.Input[_builtins.int]] = None) -> 'Endpoint':
@@ -1014,19 +1051,19 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Client VPN endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAuthenticationOptionArgs', 'EndpointAuthenticationOptionArgsDict']]]] authentication_options: Information about the authentication method to be used to authenticate clients.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAuthenticationOptionArgs', 'EndpointAuthenticationOptionArgsDict']]]] authentication_options: Information about the authentication method to be used to authenticate clients. See `authentication_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `traffic_ip_address_type` is set to `ipv6`, it must not be specified. Otherwise, it is required.
-        :param pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']] client_connect_options: The options for managing connection authorization for new client connections.
-        :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-        :param pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
-        :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options.
+        :param pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']] client_connect_options: The options for managing connection authorization for new client connections. See `client_connect_options` Block Reference below for details.
+        :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `client_login_banner_options` Block Reference below for details.
+        :param pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN. See `client_route_enforcement_options` Block Reference below for details.
+        :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options. See `connection_log_options` Block Reference below for details.
         :param pulumi.Input[_builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[_builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[_builtins.str] endpoint_ip_address_type: IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[_builtins.str] self_service_portal_url: The URL of the self-service portal.
         :param pulumi.Input[_builtins.str] server_certificate_arn: The ARN of the ACM server certificate.
@@ -1035,8 +1072,9 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] traffic_ip_address_type: IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `client_cidr_block` must not be specified.
+        :param pulumi.Input[Union['EndpointTransitGatewayConfigurationArgs', 'EndpointTransitGatewayConfigurationArgsDict']] transit_gateway_configuration: Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpc_id` and `security_group_ids`. See `transit_gateway_configuration` Block Reference below for details.
         :param pulumi.Input[_builtins.str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transit_gateway_configuration`.
         :param pulumi.Input[_builtins.int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1065,6 +1103,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["traffic_ip_address_type"] = traffic_ip_address_type
+        __props__.__dict__["transit_gateway_configuration"] = transit_gateway_configuration
         __props__.__dict__["transport_protocol"] = transport_protocol
         __props__.__dict__["vpc_id"] = vpc_id
         __props__.__dict__["vpn_port"] = vpn_port
@@ -1082,7 +1121,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="authenticationOptions")
     def authentication_options(self) -> pulumi.Output[Sequence['outputs.EndpointAuthenticationOption']]:
         """
-        Information about the authentication method to be used to authenticate clients.
+        Information about the authentication method to be used to authenticate clients. See `authentication_options` Block Reference below for details.
         """
         return pulumi.get(self, "authentication_options")
 
@@ -1098,7 +1137,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="clientConnectOptions")
     def client_connect_options(self) -> pulumi.Output['outputs.EndpointClientConnectOptions']:
         """
-        The options for managing connection authorization for new client connections.
+        The options for managing connection authorization for new client connections. See `client_connect_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_connect_options")
 
@@ -1106,7 +1145,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="clientLoginBannerOptions")
     def client_login_banner_options(self) -> pulumi.Output['outputs.EndpointClientLoginBannerOptions']:
         """
-        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `client_login_banner_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_login_banner_options")
 
@@ -1114,7 +1153,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="clientRouteEnforcementOptions")
     def client_route_enforcement_options(self) -> pulumi.Output['outputs.EndpointClientRouteEnforcementOptions']:
         """
-        Options for enforce administrator defined routes on devices connected through the VPN.
+        Options for enforce administrator defined routes on devices connected through the VPN. See `client_route_enforcement_options` Block Reference below for details.
         """
         return pulumi.get(self, "client_route_enforcement_options")
 
@@ -1122,7 +1161,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="connectionLogOptions")
     def connection_log_options(self) -> pulumi.Output['outputs.EndpointConnectionLogOptions']:
         """
-        Information about the client connection logging options.
+        Information about the client connection logging options. See `connection_log_options` Block Reference below for details.
         """
         return pulumi.get(self, "connection_log_options")
 
@@ -1178,7 +1217,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transit_gateway_configuration`.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1247,6 +1286,14 @@ class Endpoint(pulumi.CustomResource):
         return pulumi.get(self, "traffic_ip_address_type")
 
     @_builtins.property
+    @pulumi.getter(name="transitGatewayConfiguration")
+    def transit_gateway_configuration(self) -> pulumi.Output['outputs.EndpointTransitGatewayConfiguration']:
+        """
+        Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpc_id` and `security_group_ids`. See `transit_gateway_configuration` Block Reference below for details.
+        """
+        return pulumi.get(self, "transit_gateway_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="transportProtocol")
     def transport_protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -1258,7 +1305,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transit_gateway_configuration`.
         """
         return pulumi.get(self, "vpc_id")
 

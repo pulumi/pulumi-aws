@@ -41,7 +41,7 @@ import (
 //				Name:    pulumi.String("example_function"),
 //				Role:    pulumi.Any(lambdaRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				Layers: pulumi.StringArray{
 //					pulumi.String(pulumi.String(example.Arn)),
 //				},
@@ -218,7 +218,7 @@ import (
 //				Name:    pulumi.String("cross_account_example"),
 //				Role:    pulumi.Any(lambdaRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //				Layers: pulumi.StringArray{
 //					pulumi.String(pulumi.String(sharedLayer.Arn)),
 //				},

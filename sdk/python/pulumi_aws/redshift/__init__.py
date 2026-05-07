@@ -26,6 +26,7 @@ from .hsm_configuration import *
 from .idc_application import *
 from .integration import *
 from .logging import *
+from .namespace_registration import *
 from .parameter_group import *
 from .partner import *
 from .resource_policy import *

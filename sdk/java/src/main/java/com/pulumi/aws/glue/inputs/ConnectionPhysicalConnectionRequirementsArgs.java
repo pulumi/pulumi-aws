@@ -17,14 +17,14 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
     public static final ConnectionPhysicalConnectionRequirementsArgs Empty = new ConnectionPhysicalConnectionRequirementsArgs();
 
     /**
-     * The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+     * Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+     * @return Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -32,14 +32,14 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
     }
 
     /**
-     * The security group ID list used by the connection.
+     * Security group ID list used by the connection.
      * 
      */
     @Import(name="securityGroupIdLists")
     private @Nullable Output<List<String>> securityGroupIdLists;
 
     /**
-     * @return The security group ID list used by the connection.
+     * @return Security group ID list used by the connection.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIdLists() {
@@ -47,14 +47,14 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
     }
 
     /**
-     * The subnet ID used by the connection.
+     * Subnet ID used by the connection.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The subnet ID used by the connection.
+     * @return Subnet ID used by the connection.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -88,7 +88,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param availabilityZone The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+         * @param availabilityZone Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param availabilityZone The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
+         * @param availabilityZone Availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an API requirement.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param securityGroupIdLists The security group ID list used by the connection.
+         * @param securityGroupIdLists Security group ID list used by the connection.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param securityGroupIdLists The security group ID list used by the connection.
+         * @param securityGroupIdLists Security group ID list used by the connection.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param securityGroupIdLists The security group ID list used by the connection.
+         * @param securityGroupIdLists Security group ID list used by the connection.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param subnetId The subnet ID used by the connection.
+         * @param subnetId Subnet ID used by the connection.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ConnectionPhysicalConnectionRequirementsArgs extends com.pulu
         }
 
         /**
-         * @param subnetId The subnet ID used by the connection.
+         * @param subnetId Subnet ID used by the connection.
          * 
          * @return builder
          * 

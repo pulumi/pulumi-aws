@@ -66,17 +66,17 @@ type Endpoint struct {
 
 	// The ARN of the Client VPN endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Information about the authentication method to be used to authenticate clients.
+	// Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
 	AuthenticationOptions EndpointAuthenticationOptionArrayOutput `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
 	ClientCidrBlock pulumi.StringPtrOutput `pulumi:"clientCidrBlock"`
-	// The options for managing connection authorization for new client connections.
+	// The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
 	ClientConnectOptions EndpointClientConnectOptionsOutput `pulumi:"clientConnectOptions"`
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsOutput `pulumi:"clientLoginBannerOptions"`
-	// Options for enforce administrator defined routes on devices connected through the VPN.
+	// Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
 	ClientRouteEnforcementOptions EndpointClientRouteEnforcementOptionsOutput `pulumi:"clientRouteEnforcementOptions"`
-	// Information about the client connection logging options.
+	// Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
 	ConnectionLogOptions EndpointConnectionLogOptionsOutput `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -90,7 +90,7 @@ type Endpoint struct {
 	EndpointIpAddressType pulumi.StringOutput `pulumi:"endpointIpAddressType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrOutput `pulumi:"selfServicePortal"`
@@ -108,9 +108,11 @@ type Endpoint struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
 	TrafficIpAddressType pulumi.StringOutput `pulumi:"trafficIpAddressType"`
+	// Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+	TransitGatewayConfiguration EndpointTransitGatewayConfigurationOutput `pulumi:"transitGatewayConfiguration"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrOutput `pulumi:"transportProtocol"`
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
 	VpnPort pulumi.IntPtrOutput `pulumi:"vpnPort"`
@@ -157,17 +159,17 @@ func GetEndpoint(ctx *pulumi.Context,
 type endpointState struct {
 	// The ARN of the Client VPN endpoint.
 	Arn *string `pulumi:"arn"`
-	// Information about the authentication method to be used to authenticate clients.
+	// Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
 	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
 	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
-	// The options for managing connection authorization for new client connections.
+	// The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
 	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
 	ClientLoginBannerOptions *EndpointClientLoginBannerOptions `pulumi:"clientLoginBannerOptions"`
-	// Options for enforce administrator defined routes on devices connected through the VPN.
+	// Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
 	ClientRouteEnforcementOptions *EndpointClientRouteEnforcementOptions `pulumi:"clientRouteEnforcementOptions"`
-	// Information about the client connection logging options.
+	// Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
 	ConnectionLogOptions *EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
 	Description *string `pulumi:"description"`
@@ -181,7 +183,7 @@ type endpointState struct {
 	EndpointIpAddressType *string `pulumi:"endpointIpAddressType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal *string `pulumi:"selfServicePortal"`
@@ -199,9 +201,11 @@ type endpointState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
 	TrafficIpAddressType *string `pulumi:"trafficIpAddressType"`
+	// Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+	TransitGatewayConfiguration *EndpointTransitGatewayConfiguration `pulumi:"transitGatewayConfiguration"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
 	VpcId *string `pulumi:"vpcId"`
 	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
 	VpnPort *int `pulumi:"vpnPort"`
@@ -210,17 +214,17 @@ type endpointState struct {
 type EndpointState struct {
 	// The ARN of the Client VPN endpoint.
 	Arn pulumi.StringPtrInput
-	// Information about the authentication method to be used to authenticate clients.
+	// Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
 	AuthenticationOptions EndpointAuthenticationOptionArrayInput
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
 	ClientCidrBlock pulumi.StringPtrInput
-	// The options for managing connection authorization for new client connections.
+	// The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
 	ClientConnectOptions EndpointClientConnectOptionsPtrInput
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsPtrInput
-	// Options for enforce administrator defined routes on devices connected through the VPN.
+	// Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
 	ClientRouteEnforcementOptions EndpointClientRouteEnforcementOptionsPtrInput
-	// Information about the client connection logging options.
+	// Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
 	ConnectionLogOptions EndpointConnectionLogOptionsPtrInput
 	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrInput
@@ -234,7 +238,7 @@ type EndpointState struct {
 	EndpointIpAddressType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrInput
@@ -252,9 +256,11 @@ type EndpointState struct {
 	TagsAll pulumi.StringMapInput
 	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
 	TrafficIpAddressType pulumi.StringPtrInput
+	// Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+	TransitGatewayConfiguration EndpointTransitGatewayConfigurationPtrInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
 	VpcId pulumi.StringPtrInput
 	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
 	VpnPort pulumi.IntPtrInput
@@ -265,17 +271,17 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// Information about the authentication method to be used to authenticate clients.
+	// Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
 	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
 	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
-	// The options for managing connection authorization for new client connections.
+	// The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
 	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
 	ClientLoginBannerOptions *EndpointClientLoginBannerOptions `pulumi:"clientLoginBannerOptions"`
-	// Options for enforce administrator defined routes on devices connected through the VPN.
+	// Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
 	ClientRouteEnforcementOptions *EndpointClientRouteEnforcementOptions `pulumi:"clientRouteEnforcementOptions"`
-	// Information about the client connection logging options.
+	// Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
 	ConnectionLogOptions EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
 	Description *string `pulumi:"description"`
@@ -287,7 +293,7 @@ type endpointArgs struct {
 	EndpointIpAddressType *string `pulumi:"endpointIpAddressType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal *string `pulumi:"selfServicePortal"`
@@ -301,9 +307,11 @@ type endpointArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
 	TrafficIpAddressType *string `pulumi:"trafficIpAddressType"`
+	// Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+	TransitGatewayConfiguration *EndpointTransitGatewayConfiguration `pulumi:"transitGatewayConfiguration"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
 	VpcId *string `pulumi:"vpcId"`
 	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
 	VpnPort *int `pulumi:"vpnPort"`
@@ -311,17 +319,17 @@ type endpointArgs struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// Information about the authentication method to be used to authenticate clients.
+	// Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
 	AuthenticationOptions EndpointAuthenticationOptionArrayInput
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
 	ClientCidrBlock pulumi.StringPtrInput
-	// The options for managing connection authorization for new client connections.
+	// The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
 	ClientConnectOptions EndpointClientConnectOptionsPtrInput
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsPtrInput
-	// Options for enforce administrator defined routes on devices connected through the VPN.
+	// Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
 	ClientRouteEnforcementOptions EndpointClientRouteEnforcementOptionsPtrInput
-	// Information about the client connection logging options.
+	// Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
 	ConnectionLogOptions EndpointConnectionLogOptionsInput
 	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrInput
@@ -333,7 +341,7 @@ type EndpointArgs struct {
 	EndpointIpAddressType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrInput
@@ -347,9 +355,11 @@ type EndpointArgs struct {
 	Tags pulumi.StringMapInput
 	// IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
 	TrafficIpAddressType pulumi.StringPtrInput
+	// Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+	TransitGatewayConfiguration EndpointTransitGatewayConfigurationPtrInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
 	VpcId pulumi.StringPtrInput
 	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
 	VpnPort pulumi.IntPtrInput
@@ -447,7 +457,7 @@ func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Information about the authentication method to be used to authenticate clients.
+// Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
 func (o EndpointOutput) AuthenticationOptions() EndpointAuthenticationOptionArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointAuthenticationOptionArrayOutput { return v.AuthenticationOptions }).(EndpointAuthenticationOptionArrayOutput)
 }
@@ -457,22 +467,22 @@ func (o EndpointOutput) ClientCidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ClientCidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// The options for managing connection authorization for new client connections.
+// The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
 func (o EndpointOutput) ClientConnectOptions() EndpointClientConnectOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointClientConnectOptionsOutput { return v.ClientConnectOptions }).(EndpointClientConnectOptionsOutput)
 }
 
-// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
 func (o EndpointOutput) ClientLoginBannerOptions() EndpointClientLoginBannerOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointClientLoginBannerOptionsOutput { return v.ClientLoginBannerOptions }).(EndpointClientLoginBannerOptionsOutput)
 }
 
-// Options for enforce administrator defined routes on devices connected through the VPN.
+// Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
 func (o EndpointOutput) ClientRouteEnforcementOptions() EndpointClientRouteEnforcementOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointClientRouteEnforcementOptionsOutput { return v.ClientRouteEnforcementOptions }).(EndpointClientRouteEnforcementOptionsOutput)
 }
 
-// Information about the client connection logging options.
+// Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
 func (o EndpointOutput) ConnectionLogOptions() EndpointConnectionLogOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointConnectionLogOptionsOutput { return v.ConnectionLogOptions }).(EndpointConnectionLogOptionsOutput)
 }
@@ -507,7 +517,7 @@ func (o EndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
 func (o EndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -552,12 +562,17 @@ func (o EndpointOutput) TrafficIpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.TrafficIpAddressType }).(pulumi.StringOutput)
 }
 
+// Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+func (o EndpointOutput) TransitGatewayConfiguration() EndpointTransitGatewayConfigurationOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointTransitGatewayConfigurationOutput { return v.TransitGatewayConfiguration }).(EndpointTransitGatewayConfigurationOutput)
+}
+
 // The transport protocol to be used by the VPN session. Default value is `udp`.
 func (o EndpointOutput) TransportProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.TransportProtocol }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
 func (o EndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

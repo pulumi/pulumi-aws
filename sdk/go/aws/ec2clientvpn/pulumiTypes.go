@@ -770,6 +770,200 @@ func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type EndpointTransitGatewayConfiguration struct {
+	// List of availability zone IDs in which the transit gateway is present. Conflicts with `availabilityZones`.
+	AvailabilityZoneIds []string `pulumi:"availabilityZoneIds"`
+	// List of availability zones in which the transit gateway is present. Conflicts with `availabilityZoneIds`.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// ID of the Transit Gateway attachment.
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	// ID of the Transit Gateway to which the Client VPN endpoint is associated.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
+}
+
+// EndpointTransitGatewayConfigurationInput is an input type that accepts EndpointTransitGatewayConfigurationArgs and EndpointTransitGatewayConfigurationOutput values.
+// You can construct a concrete instance of `EndpointTransitGatewayConfigurationInput` via:
+//
+//	EndpointTransitGatewayConfigurationArgs{...}
+type EndpointTransitGatewayConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointTransitGatewayConfigurationOutput() EndpointTransitGatewayConfigurationOutput
+	ToEndpointTransitGatewayConfigurationOutputWithContext(context.Context) EndpointTransitGatewayConfigurationOutput
+}
+
+type EndpointTransitGatewayConfigurationArgs struct {
+	// List of availability zone IDs in which the transit gateway is present. Conflicts with `availabilityZones`.
+	AvailabilityZoneIds pulumi.StringArrayInput `pulumi:"availabilityZoneIds"`
+	// List of availability zones in which the transit gateway is present. Conflicts with `availabilityZoneIds`.
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// ID of the Transit Gateway attachment.
+	TransitGatewayAttachmentId pulumi.StringPtrInput `pulumi:"transitGatewayAttachmentId"`
+	// ID of the Transit Gateway to which the Client VPN endpoint is associated.
+	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+}
+
+func (EndpointTransitGatewayConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (i EndpointTransitGatewayConfigurationArgs) ToEndpointTransitGatewayConfigurationOutput() EndpointTransitGatewayConfigurationOutput {
+	return i.ToEndpointTransitGatewayConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointTransitGatewayConfigurationArgs) ToEndpointTransitGatewayConfigurationOutputWithContext(ctx context.Context) EndpointTransitGatewayConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointTransitGatewayConfigurationOutput)
+}
+
+func (i EndpointTransitGatewayConfigurationArgs) ToEndpointTransitGatewayConfigurationPtrOutput() EndpointTransitGatewayConfigurationPtrOutput {
+	return i.ToEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointTransitGatewayConfigurationArgs) ToEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) EndpointTransitGatewayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointTransitGatewayConfigurationOutput).ToEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointTransitGatewayConfigurationPtrInput is an input type that accepts EndpointTransitGatewayConfigurationArgs, EndpointTransitGatewayConfigurationPtr and EndpointTransitGatewayConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointTransitGatewayConfigurationPtrInput` via:
+//
+//	        EndpointTransitGatewayConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointTransitGatewayConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointTransitGatewayConfigurationPtrOutput() EndpointTransitGatewayConfigurationPtrOutput
+	ToEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Context) EndpointTransitGatewayConfigurationPtrOutput
+}
+
+type endpointTransitGatewayConfigurationPtrType EndpointTransitGatewayConfigurationArgs
+
+func EndpointTransitGatewayConfigurationPtr(v *EndpointTransitGatewayConfigurationArgs) EndpointTransitGatewayConfigurationPtrInput {
+	return (*endpointTransitGatewayConfigurationPtrType)(v)
+}
+
+func (*endpointTransitGatewayConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (i *endpointTransitGatewayConfigurationPtrType) ToEndpointTransitGatewayConfigurationPtrOutput() EndpointTransitGatewayConfigurationPtrOutput {
+	return i.ToEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointTransitGatewayConfigurationPtrType) ToEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) EndpointTransitGatewayConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointTransitGatewayConfigurationPtrOutput)
+}
+
+type EndpointTransitGatewayConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointTransitGatewayConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (o EndpointTransitGatewayConfigurationOutput) ToEndpointTransitGatewayConfigurationOutput() EndpointTransitGatewayConfigurationOutput {
+	return o
+}
+
+func (o EndpointTransitGatewayConfigurationOutput) ToEndpointTransitGatewayConfigurationOutputWithContext(ctx context.Context) EndpointTransitGatewayConfigurationOutput {
+	return o
+}
+
+func (o EndpointTransitGatewayConfigurationOutput) ToEndpointTransitGatewayConfigurationPtrOutput() EndpointTransitGatewayConfigurationPtrOutput {
+	return o.ToEndpointTransitGatewayConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointTransitGatewayConfigurationOutput) ToEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) EndpointTransitGatewayConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointTransitGatewayConfiguration) *EndpointTransitGatewayConfiguration {
+		return &v
+	}).(EndpointTransitGatewayConfigurationPtrOutput)
+}
+
+// List of availability zone IDs in which the transit gateway is present. Conflicts with `availabilityZones`.
+func (o EndpointTransitGatewayConfigurationOutput) AvailabilityZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointTransitGatewayConfiguration) []string { return v.AvailabilityZoneIds }).(pulumi.StringArrayOutput)
+}
+
+// List of availability zones in which the transit gateway is present. Conflicts with `availabilityZoneIds`.
+func (o EndpointTransitGatewayConfigurationOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointTransitGatewayConfiguration) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// ID of the Transit Gateway attachment.
+func (o EndpointTransitGatewayConfigurationOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointTransitGatewayConfiguration) *string { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the Transit Gateway to which the Client VPN endpoint is associated.
+func (o EndpointTransitGatewayConfigurationOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointTransitGatewayConfiguration) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointTransitGatewayConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointTransitGatewayConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (o EndpointTransitGatewayConfigurationPtrOutput) ToEndpointTransitGatewayConfigurationPtrOutput() EndpointTransitGatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointTransitGatewayConfigurationPtrOutput) ToEndpointTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) EndpointTransitGatewayConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointTransitGatewayConfigurationPtrOutput) Elem() EndpointTransitGatewayConfigurationOutput {
+	return o.ApplyT(func(v *EndpointTransitGatewayConfiguration) EndpointTransitGatewayConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointTransitGatewayConfiguration
+		return ret
+	}).(EndpointTransitGatewayConfigurationOutput)
+}
+
+// List of availability zone IDs in which the transit gateway is present. Conflicts with `availabilityZones`.
+func (o EndpointTransitGatewayConfigurationPtrOutput) AvailabilityZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointTransitGatewayConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZoneIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of availability zones in which the transit gateway is present. Conflicts with `availabilityZoneIds`.
+func (o EndpointTransitGatewayConfigurationPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointTransitGatewayConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
+// ID of the Transit Gateway attachment.
+func (o EndpointTransitGatewayConfigurationPtrOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointTransitGatewayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitGatewayAttachmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the Transit Gateway to which the Client VPN endpoint is associated.
+func (o EndpointTransitGatewayConfigurationPtrOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointTransitGatewayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetEndpointAuthenticationOption struct {
 	ActiveDirectoryId          string `pulumi:"activeDirectoryId"`
 	RootCertificateChainArn    string `pulumi:"rootCertificateChainArn"`
@@ -1394,6 +1588,118 @@ func (o GetEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetEndpointFilter
 	}).(GetEndpointFilterOutput)
 }
 
+type GetEndpointTransitGatewayConfiguration struct {
+	AvailabilityZoneIds        []string `pulumi:"availabilityZoneIds"`
+	AvailabilityZones          []string `pulumi:"availabilityZones"`
+	TransitGatewayAttachmentId string   `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayId           string   `pulumi:"transitGatewayId"`
+}
+
+// GetEndpointTransitGatewayConfigurationInput is an input type that accepts GetEndpointTransitGatewayConfigurationArgs and GetEndpointTransitGatewayConfigurationOutput values.
+// You can construct a concrete instance of `GetEndpointTransitGatewayConfigurationInput` via:
+//
+//	GetEndpointTransitGatewayConfigurationArgs{...}
+type GetEndpointTransitGatewayConfigurationInput interface {
+	pulumi.Input
+
+	ToGetEndpointTransitGatewayConfigurationOutput() GetEndpointTransitGatewayConfigurationOutput
+	ToGetEndpointTransitGatewayConfigurationOutputWithContext(context.Context) GetEndpointTransitGatewayConfigurationOutput
+}
+
+type GetEndpointTransitGatewayConfigurationArgs struct {
+	AvailabilityZoneIds        pulumi.StringArrayInput `pulumi:"availabilityZoneIds"`
+	AvailabilityZones          pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	TransitGatewayAttachmentId pulumi.StringInput      `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayId           pulumi.StringInput      `pulumi:"transitGatewayId"`
+}
+
+func (GetEndpointTransitGatewayConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (i GetEndpointTransitGatewayConfigurationArgs) ToGetEndpointTransitGatewayConfigurationOutput() GetEndpointTransitGatewayConfigurationOutput {
+	return i.ToGetEndpointTransitGatewayConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetEndpointTransitGatewayConfigurationArgs) ToGetEndpointTransitGatewayConfigurationOutputWithContext(ctx context.Context) GetEndpointTransitGatewayConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointTransitGatewayConfigurationOutput)
+}
+
+// GetEndpointTransitGatewayConfigurationArrayInput is an input type that accepts GetEndpointTransitGatewayConfigurationArray and GetEndpointTransitGatewayConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetEndpointTransitGatewayConfigurationArrayInput` via:
+//
+//	GetEndpointTransitGatewayConfigurationArray{ GetEndpointTransitGatewayConfigurationArgs{...} }
+type GetEndpointTransitGatewayConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointTransitGatewayConfigurationArrayOutput() GetEndpointTransitGatewayConfigurationArrayOutput
+	ToGetEndpointTransitGatewayConfigurationArrayOutputWithContext(context.Context) GetEndpointTransitGatewayConfigurationArrayOutput
+}
+
+type GetEndpointTransitGatewayConfigurationArray []GetEndpointTransitGatewayConfigurationInput
+
+func (GetEndpointTransitGatewayConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (i GetEndpointTransitGatewayConfigurationArray) ToGetEndpointTransitGatewayConfigurationArrayOutput() GetEndpointTransitGatewayConfigurationArrayOutput {
+	return i.ToGetEndpointTransitGatewayConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointTransitGatewayConfigurationArray) ToGetEndpointTransitGatewayConfigurationArrayOutputWithContext(ctx context.Context) GetEndpointTransitGatewayConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointTransitGatewayConfigurationArrayOutput)
+}
+
+type GetEndpointTransitGatewayConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointTransitGatewayConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (o GetEndpointTransitGatewayConfigurationOutput) ToGetEndpointTransitGatewayConfigurationOutput() GetEndpointTransitGatewayConfigurationOutput {
+	return o
+}
+
+func (o GetEndpointTransitGatewayConfigurationOutput) ToGetEndpointTransitGatewayConfigurationOutputWithContext(ctx context.Context) GetEndpointTransitGatewayConfigurationOutput {
+	return o
+}
+
+func (o GetEndpointTransitGatewayConfigurationOutput) AvailabilityZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEndpointTransitGatewayConfiguration) []string { return v.AvailabilityZoneIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEndpointTransitGatewayConfigurationOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEndpointTransitGatewayConfiguration) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEndpointTransitGatewayConfigurationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointTransitGatewayConfiguration) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointTransitGatewayConfigurationOutput) TransitGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointTransitGatewayConfiguration) string { return v.TransitGatewayId }).(pulumi.StringOutput)
+}
+
+type GetEndpointTransitGatewayConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointTransitGatewayConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointTransitGatewayConfiguration)(nil)).Elem()
+}
+
+func (o GetEndpointTransitGatewayConfigurationArrayOutput) ToGetEndpointTransitGatewayConfigurationArrayOutput() GetEndpointTransitGatewayConfigurationArrayOutput {
+	return o
+}
+
+func (o GetEndpointTransitGatewayConfigurationArrayOutput) ToGetEndpointTransitGatewayConfigurationArrayOutputWithContext(ctx context.Context) GetEndpointTransitGatewayConfigurationArrayOutput {
+	return o
+}
+
+func (o GetEndpointTransitGatewayConfigurationArrayOutput) Index(i pulumi.IntInput) GetEndpointTransitGatewayConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointTransitGatewayConfiguration {
+		return vs[0].([]GetEndpointTransitGatewayConfiguration)[vs[1].(int)]
+	}).(GetEndpointTransitGatewayConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionInput)(nil)).Elem(), EndpointAuthenticationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionArrayInput)(nil)).Elem(), EndpointAuthenticationOptionArray{})
@@ -1405,6 +1711,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointClientRouteEnforcementOptionsPtrInput)(nil)).Elem(), EndpointClientRouteEnforcementOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsPtrInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTransitGatewayConfigurationInput)(nil)).Elem(), EndpointTransitGatewayConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTransitGatewayConfigurationPtrInput)(nil)).Elem(), EndpointTransitGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAuthenticationOptionInput)(nil)).Elem(), GetEndpointAuthenticationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAuthenticationOptionArrayInput)(nil)).Elem(), GetEndpointAuthenticationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointClientConnectOptionInput)(nil)).Elem(), GetEndpointClientConnectOptionArgs{})
@@ -1417,6 +1725,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointConnectionLogOptionArrayInput)(nil)).Elem(), GetEndpointConnectionLogOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterInput)(nil)).Elem(), GetEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointFilterArrayInput)(nil)).Elem(), GetEndpointFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointTransitGatewayConfigurationInput)(nil)).Elem(), GetEndpointTransitGatewayConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointTransitGatewayConfigurationArrayInput)(nil)).Elem(), GetEndpointTransitGatewayConfigurationArray{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionOutput{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointClientConnectOptionsOutput{})
@@ -1427,6 +1737,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointClientRouteEnforcementOptionsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointTransitGatewayConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointTransitGatewayConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointAuthenticationOptionOutput{})
 	pulumi.RegisterOutputType(GetEndpointAuthenticationOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointClientConnectOptionOutput{})
@@ -1439,4 +1751,6 @@ func init() {
 	pulumi.RegisterOutputType(GetEndpointConnectionLogOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetEndpointFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointTransitGatewayConfigurationOutput{})
+	pulumi.RegisterOutputType(GetEndpointTransitGatewayConfigurationArrayOutput{})
 }

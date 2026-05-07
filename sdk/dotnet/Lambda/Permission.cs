@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "lambda_function_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "exports.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///     });
     /// 
     ///     var testAlias = new Aws.Lambda.Alias("test_alias", new()

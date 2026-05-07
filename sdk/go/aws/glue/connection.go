@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Glue Connection resource.
+// Manages an AWS Glue Connection.
 //
 // ## Example Usage
 //
@@ -579,6 +579,53 @@ import (
 //
 // ```
 //
+// ### MySQL Federated Connection
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				Name:           pulumi.String("athenafederatedcatalog_mysql"),
+//				ConnectionType: pulumi.String("MYSQL"),
+//				AthenaProperties: pulumi.StringMap{
+//					"lambda_function_arn": pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql"),
+//					"spill_bucket":        pulumi.Any(exampleAwsS3Bucket.Bucket),
+//				},
+//				ConnectionProperties: pulumi.StringMap{
+//					"HOST":     pulumi.Any(exampleAwsRdsCluster.Endpoint),
+//					"PORT":     pulumi.Any(exampleAwsRdsCluster.Port),
+//					"DATABASE": pulumi.Any(exampleAwsRdsCluster.DatabaseName),
+//				},
+//				AuthenticationConfiguration: &glue.ConnectionAuthenticationConfigurationArgs{
+//					AuthenticationType: pulumi.String("BASIC"),
+//					SecretArn:          pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
+//				},
+//				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
+//					AvailabilityZone: pulumi.Any(exampleAwsSubnet.AvailabilityZone),
+//					SecurityGroupIdLists: pulumi.StringArray{
+//						exampleAwsSecurityGroup.Id,
+//					},
+//					SubnetId: pulumi.Any(exampleAwsSubnet.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
@@ -593,13 +640,13 @@ type Connection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Map of key-value pairs used as connection properties specific to the Athena compute environment.
 	AthenaProperties pulumi.StringMapOutput `pulumi:"athenaProperties"`
+	// Configuration block for authentication options. See `authenticationConfiguration` below.
+	AuthenticationConfiguration ConnectionAuthenticationConfigurationPtrOutput `pulumi:"authenticationConfiguration"`
 	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-	//
-	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties pulumi.StringMapOutput `pulumi:"connectionProperties"`
-	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -609,13 +656,13 @@ type Connection struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrOutput `pulumi:"physicalConnectionRequirements"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -664,13 +711,13 @@ type connectionState struct {
 	Arn *string `pulumi:"arn"`
 	// Map of key-value pairs used as connection properties specific to the Athena compute environment.
 	AthenaProperties map[string]string `pulumi:"athenaProperties"`
+	// Configuration block for authentication options. See `authenticationConfiguration` below.
+	AuthenticationConfiguration *ConnectionAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
 	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-	//
-	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -680,13 +727,13 @@ type connectionState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -695,13 +742,13 @@ type ConnectionState struct {
 	Arn pulumi.StringPtrInput
 	// Map of key-value pairs used as connection properties specific to the Athena compute environment.
 	AthenaProperties pulumi.StringMapInput
+	// Configuration block for authentication options. See `authenticationConfiguration` below.
+	AuthenticationConfiguration ConnectionAuthenticationConfigurationPtrInput
 	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
 	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-	//
-	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties pulumi.StringMapInput
-	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
@@ -711,13 +758,13 @@ type ConnectionState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -728,13 +775,13 @@ func (ConnectionState) ElementType() reflect.Type {
 type connectionArgs struct {
 	// Map of key-value pairs used as connection properties specific to the Athena compute environment.
 	AthenaProperties map[string]string `pulumi:"athenaProperties"`
+	// Configuration block for authentication options. See `authenticationConfiguration` below.
+	AuthenticationConfiguration *ConnectionAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId *string `pulumi:"catalogId"`
 	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-	//
-	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -744,7 +791,7 @@ type connectionArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -756,13 +803,13 @@ type connectionArgs struct {
 type ConnectionArgs struct {
 	// Map of key-value pairs used as connection properties specific to the Athena compute environment.
 	AthenaProperties pulumi.StringMapInput
+	// Configuration block for authentication options. See `authenticationConfiguration` below.
+	AuthenticationConfiguration ConnectionAuthenticationConfigurationPtrInput
 	// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 	CatalogId pulumi.StringPtrInput
 	// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-	//
-	// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionProperties pulumi.StringMapInput
-	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+	// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
@@ -772,7 +819,7 @@ type ConnectionArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -877,19 +924,24 @@ func (o ConnectionOutput) AthenaProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.AthenaProperties }).(pulumi.StringMapOutput)
 }
 
+// Configuration block for authentication options. See `authenticationConfiguration` below.
+func (o ConnectionOutput) AuthenticationConfiguration() ConnectionAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v *Connection) ConnectionAuthenticationConfigurationPtrOutput {
+		return v.AuthenticationConfiguration
+	}).(ConnectionAuthenticationConfigurationPtrOutput)
+}
+
 // ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 func (o ConnectionOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
 // Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
-//
-// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 func (o ConnectionOutput) ConnectionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.ConnectionProperties }).(pulumi.StringMapOutput)
 }
 
-// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
 func (o ConnectionOutput) ConnectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
 }
@@ -911,7 +963,7 @@ func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
+// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
 func (o ConnectionOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
 	return o.ApplyT(func(v *Connection) ConnectionPhysicalConnectionRequirementsPtrOutput {
 		return v.PhysicalConnectionRequirements
@@ -928,7 +980,7 @@ func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

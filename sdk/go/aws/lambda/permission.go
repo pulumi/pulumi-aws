@@ -62,7 +62,7 @@ import (
 //				Name:    pulumi.String("lambda_function_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS24dX),
 //			})
 //			if err != nil {
 //				return err

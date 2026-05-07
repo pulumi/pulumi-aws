@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2clientvpn.inputs.EndpointClientConnectOptionsArgs;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointClientLoginBannerOptionsArgs;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointClientRouteEnforcementOptionsArgs;
 import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
+import com.pulumi.aws.ec2clientvpn.inputs.EndpointTransitGatewayConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -26,14 +27,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     public static final EndpointArgs Empty = new EndpointArgs();
 
     /**
-     * Information about the authentication method to be used to authenticate clients.
+     * Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      * 
      */
     @Import(name="authenticationOptions", required=true)
     private Output<List<EndpointAuthenticationOptionArgs>> authenticationOptions;
 
     /**
-     * @return Information about the authentication method to be used to authenticate clients.
+     * @return Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      * 
      */
     public Output<List<EndpointAuthenticationOptionArgs>> authenticationOptions() {
@@ -56,14 +57,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The options for managing connection authorization for new client connections.
+     * The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      * 
      */
     @Import(name="clientConnectOptions")
     private @Nullable Output<EndpointClientConnectOptionsArgs> clientConnectOptions;
 
     /**
-     * @return The options for managing connection authorization for new client connections.
+     * @return The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      * 
      */
     public Optional<Output<EndpointClientConnectOptionsArgs>> clientConnectOptions() {
@@ -71,14 +72,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      * 
      */
     @Import(name="clientLoginBannerOptions")
     private @Nullable Output<EndpointClientLoginBannerOptionsArgs> clientLoginBannerOptions;
 
     /**
-     * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+     * @return Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      * 
      */
     public Optional<Output<EndpointClientLoginBannerOptionsArgs>> clientLoginBannerOptions() {
@@ -86,14 +87,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Options for enforce administrator defined routes on devices connected through the VPN.
+     * Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      * 
      */
     @Import(name="clientRouteEnforcementOptions")
     private @Nullable Output<EndpointClientRouteEnforcementOptionsArgs> clientRouteEnforcementOptions;
 
     /**
-     * @return Options for enforce administrator defined routes on devices connected through the VPN.
+     * @return Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      * 
      */
     public Optional<Output<EndpointClientRouteEnforcementOptionsArgs>> clientRouteEnforcementOptions() {
@@ -101,14 +102,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Information about the client connection logging options.
+     * Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      * 
      */
     @Import(name="connectionLogOptions", required=true)
     private Output<EndpointConnectionLogOptionsArgs> connectionLogOptions;
 
     /**
-     * @return Information about the client connection logging options.
+     * @return Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      * 
      */
     public Output<EndpointConnectionLogOptionsArgs> connectionLogOptions() {
@@ -191,14 +192,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+     * @return The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -296,6 +297,21 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+     * 
+     */
+    @Import(name="transitGatewayConfiguration")
+    private @Nullable Output<EndpointTransitGatewayConfigurationArgs> transitGatewayConfiguration;
+
+    /**
+     * @return Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+     * 
+     */
+    public Optional<Output<EndpointTransitGatewayConfigurationArgs>> transitGatewayConfiguration() {
+        return Optional.ofNullable(this.transitGatewayConfiguration);
+    }
+
+    /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      * 
      */
@@ -311,14 +327,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+     * @return The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -361,6 +377,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.splitTunnel = $.splitTunnel;
         this.tags = $.tags;
         this.trafficIpAddressType = $.trafficIpAddressType;
+        this.transitGatewayConfiguration = $.transitGatewayConfiguration;
         this.transportProtocol = $.transportProtocol;
         this.vpcId = $.vpcId;
         this.vpnPort = $.vpnPort;
@@ -385,7 +402,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationOptions Information about the authentication method to be used to authenticate clients.
+         * @param authenticationOptions Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -396,7 +413,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationOptions Information about the authentication method to be used to authenticate clients.
+         * @param authenticationOptions Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -406,7 +423,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationOptions Information about the authentication method to be used to authenticate clients.
+         * @param authenticationOptions Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -437,7 +454,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientConnectOptions The options for managing connection authorization for new client connections.
+         * @param clientConnectOptions The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -448,7 +465,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientConnectOptions The options for managing connection authorization for new client connections.
+         * @param clientConnectOptions The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -458,7 +475,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientLoginBannerOptions Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+         * @param clientLoginBannerOptions Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -469,7 +486,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientLoginBannerOptions Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+         * @param clientLoginBannerOptions Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -479,7 +496,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientRouteEnforcementOptions Options for enforce administrator defined routes on devices connected through the VPN.
+         * @param clientRouteEnforcementOptions Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -490,7 +507,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientRouteEnforcementOptions Options for enforce administrator defined routes on devices connected through the VPN.
+         * @param clientRouteEnforcementOptions Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -500,7 +517,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionLogOptions Information about the client connection logging options.
+         * @param connectionLogOptions Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -511,7 +528,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionLogOptions Information about the client connection logging options.
+         * @param connectionLogOptions Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
          * 
          * @return builder
          * 
@@ -636,7 +653,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+         * @param securityGroupIds The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
          * 
          * @return builder
          * 
@@ -647,7 +664,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+         * @param securityGroupIds The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
          * 
          * @return builder
          * 
@@ -657,7 +674,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+         * @param securityGroupIds The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
          * 
          * @return builder
          * 
@@ -793,6 +810,27 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param transitGatewayConfiguration Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayConfiguration(@Nullable Output<EndpointTransitGatewayConfigurationArgs> transitGatewayConfiguration) {
+            $.transitGatewayConfiguration = transitGatewayConfiguration;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayConfiguration Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayConfiguration(EndpointTransitGatewayConfigurationArgs transitGatewayConfiguration) {
+            return transitGatewayConfiguration(Output.of(transitGatewayConfiguration));
+        }
+
+        /**
          * @param transportProtocol The transport protocol to be used by the VPN session. Default value is `udp`.
          * 
          * @return builder
@@ -814,7 +852,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+         * @param vpcId The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
          * 
          * @return builder
          * 
@@ -825,7 +863,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+         * @param vpcId The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
          * 
          * @return builder
          * 

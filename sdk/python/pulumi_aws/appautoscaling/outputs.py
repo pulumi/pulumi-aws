@@ -1033,8 +1033,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoa
                  predefined_metric_type: _builtins.str,
                  resource_label: Optional[_builtins.str] = None):
         """
-        :param _builtins.str predefined_metric_type: Metric type.
-        :param _builtins.str resource_label: Label that uniquely identifies a target group.
+        :param _builtins.str predefined_metric_type: Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
+        :param _builtins.str resource_label: Label that uniquely identifies a target group. Required when `predefined_metric_type` is an ALB-based value.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
@@ -1044,7 +1044,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoa
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> _builtins.str:
         """
-        Metric type.
+        Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
         """
         return pulumi.get(self, "predefined_metric_type")
 
@@ -1052,7 +1052,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoa
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[_builtins.str]:
         """
-        Label that uniquely identifies a target group.
+        Label that uniquely identifies a target group. Required when `predefined_metric_type` is an ALB-based value.
         """
         return pulumi.get(self, "resource_label")
 
@@ -1082,8 +1082,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMet
                  predefined_metric_type: _builtins.str,
                  resource_label: Optional[_builtins.str] = None):
         """
-        :param _builtins.str predefined_metric_type: Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
-        :param _builtins.str resource_label: Label that uniquely identifies a specific target group from which to determine the total and average request count.
+        :param _builtins.str predefined_metric_type: Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
+        :param _builtins.str resource_label: Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefined_metric_type` is an ALB-based value.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
@@ -1093,7 +1093,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMet
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> _builtins.str:
         """
-        Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+        Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
         """
         return pulumi.get(self, "predefined_metric_type")
 
@@ -1101,7 +1101,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMet
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[_builtins.str]:
         """
-        Label that uniquely identifies a specific target group from which to determine the total and average request count.
+        Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefined_metric_type` is an ALB-based value.
         """
         return pulumi.get(self, "resource_label")
 
@@ -1131,8 +1131,8 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedSca
                  predefined_metric_type: _builtins.str,
                  resource_label: Optional[_builtins.str] = None):
         """
-        :param _builtins.str predefined_metric_type: Metric type.
-        :param _builtins.str resource_label: Label that uniquely identifies a specific target group from which to determine the average request count.
+        :param _builtins.str predefined_metric_type: Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
+        :param _builtins.str resource_label: Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefined_metric_type` is an ALB-based value.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
@@ -1142,7 +1142,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedSca
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> _builtins.str:
         """
-        Metric type.
+        Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
         """
         return pulumi.get(self, "predefined_metric_type")
 
@@ -1150,7 +1150,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedSca
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[_builtins.str]:
         """
-        Label that uniquely identifies a specific target group from which to determine the average request count.
+        Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefined_metric_type` is an ALB-based value.
         """
         return pulumi.get(self, "resource_label")
 

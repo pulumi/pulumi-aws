@@ -25,6 +25,8 @@ __all__ = [
     'EndpointClientRouteEnforcementOptionsArgsDict',
     'EndpointConnectionLogOptionsArgs',
     'EndpointConnectionLogOptionsArgsDict',
+    'EndpointTransitGatewayConfigurationArgs',
+    'EndpointTransitGatewayConfigurationArgsDict',
     'GetEndpointFilterArgs',
     'GetEndpointFilterArgsDict',
 ]
@@ -330,6 +332,95 @@ class EndpointConnectionLogOptionsArgs:
     @cloudwatch_log_stream.setter
     def cloudwatch_log_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cloudwatch_log_stream", value)
+
+
+class EndpointTransitGatewayConfigurationArgsDict(TypedDict):
+    availability_zone_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
+    """
+    availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
+    """
+    transit_gateway_attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the Transit Gateway attachment.
+    """
+    transit_gateway_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the Transit Gateway to which the Client VPN endpoint is associated.
+    """
+
+@pulumi.input_type
+class EndpointTransitGatewayConfigurationArgs:
+    def __init__(__self__, *,
+                 availability_zone_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zone_ids: List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
+        :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: ID of the Transit Gateway attachment.
+        :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the Transit Gateway to which the Client VPN endpoint is associated.
+        """
+        if availability_zone_ids is not None:
+            pulumi.set(__self__, "availability_zone_ids", availability_zone_ids)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        if transit_gateway_id is not None:
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneIds")
+    def availability_zone_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
+        """
+        return pulumi.get(self, "availability_zone_ids")
+
+    @availability_zone_ids.setter
+    def availability_zone_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "availability_zone_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayAttachmentId")
+    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the Transit Gateway attachment.
+        """
+        return pulumi.get(self, "transit_gateway_attachment_id")
+
+    @transit_gateway_attachment_id.setter
+    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "transit_gateway_attachment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transitGatewayId")
+    def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of the Transit Gateway to which the Client VPN endpoint is associated.
+        """
+        return pulumi.get(self, "transit_gateway_id")
+
+    @transit_gateway_id.setter
+    def transit_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "transit_gateway_id", value)
 
 
 class GetEndpointFilterArgsDict(TypedDict):

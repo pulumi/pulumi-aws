@@ -241,6 +241,20 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` - (String) Name of the scaling policy.
+ * * `resourceId` - (String) Resource type and unique identifier string for the resource associated with the scaling policy.
+ * * `scalableDimension` - (String) Scalable dimension of the scalable target.
+ * * `serviceNamespace` - (String) AWS service namespace of the scalable target.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
  *
  * ```sh

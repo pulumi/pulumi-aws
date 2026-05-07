@@ -7202,8 +7202,13 @@ type WindowsFileSystemSelfManagedActiveDirectory struct {
 	FileSystemAdministratorsGroup *string `pulumi:"fileSystemAdministratorsGroup"`
 	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 	Password *string `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+	PasswordWo *string `pulumi:"passwordWo"`
+	// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 	Username *string `pulumi:"username"`
 }
@@ -7230,8 +7235,13 @@ type WindowsFileSystemSelfManagedActiveDirectoryArgs struct {
 	FileSystemAdministratorsGroup pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
 	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+	PasswordWo pulumi.StringPtrInput `pulumi:"passwordWo"`
+	// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+	PasswordWoVersion pulumi.IntPtrInput `pulumi:"passwordWoVersion"`
 	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
@@ -7340,9 +7350,20 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) OrganizationalUnitDis
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) PasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.PasswordWo }).(pulumi.StringPtrOutput)
+}
+
+// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) PasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *int { return v.PasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
@@ -7424,7 +7445,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) OrganizationalUnit
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7432,6 +7453,27 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Password() pulumi.
 		}
 		return v.Password
 	}).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) PasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordWo
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) PasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordWoVersion
+	}).(pulumi.IntPtrOutput)
 }
 
 // The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.

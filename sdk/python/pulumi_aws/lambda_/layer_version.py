@@ -590,7 +590,7 @@ class LayerVersion(pulumi.CustomResource):
         example = aws.lambda_.LayerVersion("example",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
             layer_name="lambda_layer_name",
-            compatible_runtimes=["nodejs20.x"])
+            compatible_runtimes=["nodejs24.x"])
         ```
 
         ### Layer with S3 Source
@@ -604,7 +604,7 @@ class LayerVersion(pulumi.CustomResource):
             s3_key=lambda_layer_zip["key"],
             layer_name="lambda_layer_name",
             compatible_runtimes=[
-                "nodejs20.x",
+                "nodejs24.x",
                 "python3.12",
             ],
             compatible_architectures=[
@@ -627,8 +627,8 @@ class LayerVersion(pulumi.CustomResource):
             license_info="MIT",
             source_code_hash=std.filebase64sha256(input="lambda_layer_payload.zip").result,
             compatible_runtimes=[
-                "nodejs18.x",
-                "nodejs20.x",
+                "nodejs22.x",
+                "nodejs24.x",
                 "python3.11",
                 "python3.12",
             ],
@@ -708,7 +708,7 @@ class LayerVersion(pulumi.CustomResource):
         example = aws.lambda_.LayerVersion("example",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
             layer_name="lambda_layer_name",
-            compatible_runtimes=["nodejs20.x"])
+            compatible_runtimes=["nodejs24.x"])
         ```
 
         ### Layer with S3 Source
@@ -722,7 +722,7 @@ class LayerVersion(pulumi.CustomResource):
             s3_key=lambda_layer_zip["key"],
             layer_name="lambda_layer_name",
             compatible_runtimes=[
-                "nodejs20.x",
+                "nodejs24.x",
                 "python3.12",
             ],
             compatible_architectures=[
@@ -745,8 +745,8 @@ class LayerVersion(pulumi.CustomResource):
             license_info="MIT",
             source_code_hash=std.filebase64sha256(input="lambda_layer_payload.zip").result,
             compatible_runtimes=[
-                "nodejs18.x",
-                "nodejs20.x",
+                "nodejs22.x",
+                "nodejs24.x",
                 "python3.11",
                 "python3.12",
             ],

@@ -139,6 +139,8 @@ type LookupEndpointResult struct {
 	Tags        map[string]string `pulumi:"tags"`
 	// IP address type for traffic within the Client VPN tunnel.
 	TrafficIpAddressType string `pulumi:"trafficIpAddressType"`
+	// ID of the Transit Gateway to which the Client VPN endpoint is associated.
+	TransitGatewayConfigurations []GetEndpointTransitGatewayConfiguration `pulumi:"transitGatewayConfigurations"`
 	// Transport protocol used by the Client VPN endpoint.
 	TransportProtocol string `pulumi:"transportProtocol"`
 	// ID of the VPC associated with the Client VPN endpoint.
@@ -298,6 +300,13 @@ func (o LookupEndpointResultOutput) Tags() pulumi.StringMapOutput {
 // IP address type for traffic within the Client VPN tunnel.
 func (o LookupEndpointResultOutput) TrafficIpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.TrafficIpAddressType }).(pulumi.StringOutput)
+}
+
+// ID of the Transit Gateway to which the Client VPN endpoint is associated.
+func (o LookupEndpointResultOutput) TransitGatewayConfigurations() GetEndpointTransitGatewayConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupEndpointResult) []GetEndpointTransitGatewayConfiguration {
+		return v.TransitGatewayConfigurations
+	}).(GetEndpointTransitGatewayConfigurationArrayOutput)
 }
 
 // Transport protocol used by the Client VPN endpoint.

@@ -348,6 +348,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         public readonly string TrafficIpAddressType;
         /// <summary>
+        /// ID of the Transit Gateway to which the Client VPN endpoint is associated.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetEndpointTransitGatewayConfigurationResult> TransitGatewayConfigurations;
+        /// <summary>
         /// Transport protocol used by the Client VPN endpoint.
         /// </summary>
         public readonly string TransportProtocol;
@@ -408,6 +412,8 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
             string trafficIpAddressType,
 
+            ImmutableArray<Outputs.GetEndpointTransitGatewayConfigurationResult> transitGatewayConfigurations,
+
             string transportProtocol,
 
             string vpcId,
@@ -437,6 +443,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
             SplitTunnel = splitTunnel;
             Tags = tags;
             TrafficIpAddressType = trafficIpAddressType;
+            TransitGatewayConfigurations = transitGatewayConfigurations;
             TransportProtocol = transportProtocol;
             VpcId = vpcId;
             VpnPort = vpnPort;

@@ -155,6 +155,10 @@ export interface GetEndpointResult {
      */
     readonly trafficIpAddressType: string;
     /**
+     * ID of the Transit Gateway to which the Client VPN endpoint is associated.
+     */
+    readonly transitGatewayConfigurations: outputs.ec2clientvpn.GetEndpointTransitGatewayConfiguration[];
+    /**
      * Transport protocol used by the Client VPN endpoint.
      */
     readonly transportProtocol: string;

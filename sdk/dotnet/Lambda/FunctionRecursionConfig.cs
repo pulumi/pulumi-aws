@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "production-data-processor",
     ///         Role = lambdaRole.Arn,
     ///         Handler = "app.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
