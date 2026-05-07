@@ -75,6 +75,16 @@ jobs:
         github_token: ${{ steps.app-auth.outputs.token }}
         # also save this cache since we are using a different mise env.
         cache_save: true
+    - name: Setup Go Cache
+      uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
+      with:
+        cache-dependency-path: |
+          examples/*.sum
+          provider/*.sum
+          upstream/*.sum
+          sdk/go/*.sum
+          sdk/*.sum
+          *.sum
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:

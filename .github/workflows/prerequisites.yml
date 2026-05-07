@@ -99,41 +99,9 @@ jobs:
       run: make prepare_local_workspace
       env:
         GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
-    - name: Generate schema
-      run: make schema
-    - name: Build provider binary
-      run: make provider
-    - name: Unit-test provider code
-      run: make test_provider
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
-      env:
-        CODECOV_TOKEN: ${{ steps.esc-secrets.outputs.CODECOV_TOKEN }}
-    - if: inputs.is_pr
-      name: Check Schema is Valid
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-        {
-          echo "SCHEMA_CHANGES<<$EOF";
-          schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ inputs.default_branch }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
-          echo "$EOF";
-        } >> "$GITHUB_ENV"
-    - if: inputs.is_pr && inputs.is_automated == false && github.actor != 'dependabot[bot]'
-      name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        comment-tag: schemaCheck
-        message: >+
-          ${{ env.SCHEMA_CHANGES }}
-
-
-          Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
-
+    - name: Generate schema-embed
+      run: make schema_embed
+    - name: Build tfgen
+      run: make tfgen_build_only
     - name: Upload artifacts
       uses: ./.github/actions/upload-prerequisites

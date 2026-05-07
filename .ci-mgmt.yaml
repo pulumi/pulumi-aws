@@ -8,6 +8,16 @@ disableMajorProviderUpgrades: true
 generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-aws/version.ProviderVersion
 buildProviderPre: "VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh"
+# Keep the generated acceptance-test workflow's prerequisite phase small:
+# schema comparison and provider unit tests are independent jobs so provider/SDK
+# builds can start earlier.
+testProviderCmd: |
+    VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh && \
+    cd provider && $(GO_TEST_EXEC) -v -short \
+        -coverprofile="coverage.txt" \
+        -coverpkg="./...,github.com/hashicorp/terraform-provider-..." \
+        -parallel $(TESTPARALLELISM) \
+        .
 esc:
     enabled: true
 env:
