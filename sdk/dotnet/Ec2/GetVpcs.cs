@@ -58,14 +58,18 @@ namespace Pulumi.Aws.Ec2
         ///     var fooGetVpc = ;
         /// 
         ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length; rangeIndex++)
+        ///     foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
-        ///         }));
-        ///     }
+        ///             var range = new { Value = rangeIndex };
+        ///             testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
+        ///             {
+        ///                 VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),
@@ -123,14 +127,18 @@ namespace Pulumi.Aws.Ec2
         ///     var fooGetVpc = ;
         /// 
         ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length; rangeIndex++)
+        ///     foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
-        ///         }));
-        ///     }
+        ///             var range = new { Value = rangeIndex };
+        ///             testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
+        ///             {
+        ///                 VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),
@@ -188,14 +196,18 @@ namespace Pulumi.Aws.Ec2
         ///     var fooGetVpc = ;
         /// 
         ///     var testFlowLog = new List&lt;Aws.Ec2.FlowLog&gt;();
-        ///     for (var rangeIndex = 0; rangeIndex &lt; foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length; rangeIndex++)
+        ///     foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids).Length().Apply(rangeBody =&gt;
         ///     {
-        ///         var range = new { Value = rangeIndex };
-        ///         testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
+        ///         for (var rangeIndex = 0; rangeIndex &lt; rangeBody; rangeIndex++)
         ///         {
-        ///             VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
-        ///         }));
-        ///     }
+        ///             var range = new { Value = rangeIndex };
+        ///             testFlowLog.Add(new Aws.Ec2.FlowLog($"test_flow_log-{range.Value}", new()
+        ///             {
+        ///                 VpcId = fooGetVpc.Apply(fooGetVpc =&gt; fooGetVpc[range.Value].Id),
+        ///             }));
+        ///         }
+        ///         return 0;
+        ///     });
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["foo"] = foo.Apply(getVpcsResult =&gt; getVpcsResult.Ids),

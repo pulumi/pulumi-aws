@@ -199,93 +199,93 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// var vpc interface{}
-// cfg.RequireObject("vpc", &vpc)
-// domain := "tf-test";
-// if param := cfg.Get("domain"); param != ""{
-// domain = param
-// }
-// selected, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
-// Tags: pulumi.StringMap{
-// "Name": vpc,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// selectedGetSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-// Filters: []ec2.GetSubnetsFilter{
-// {
-// Name: "vpc-id",
-// Values: interface{}{
-// selected.Id,
-// },
-// },
-// },
-// Tags: map[string]interface{}{
-// "Tier": "private",
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// es, err := ec2.NewSecurityGroup(ctx, "es", &ec2.SecurityGroupArgs{
-// Name: pulumi.Sprintf("%v-elasticsearch-%v", vpc, domain),
-// Description: pulumi.String("Managed by Pulumi"),
-// VpcId: pulumi.String(pulumi.String(selected.Id)),
-// Ingress: ec2.SecurityGroupIngressArray{
-// &ec2.SecurityGroupIngressArgs{
-// FromPort: pulumi.Int(443),
-// ToPort: pulumi.Int(443),
-// Protocol: pulumi.String("tcp"),
-// CidrBlocks: pulumi.StringArray{
-// pulumi.String(selected.CidrBlock),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// esServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "es", &iam.ServiceLinkedRoleArgs{
-// AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = elasticsearch.NewDomain(ctx, "es", &elasticsearch.DomainArgs{
-// DomainName: pulumi.String(pulumi.String(domain)),
-// ElasticsearchVersion: pulumi.String("6.3"),
-// ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
-// InstanceType: pulumi.String("m4.large.elasticsearch"),
-// ZoneAwarenessEnabled: pulumi.Bool(true),
-// },
-// VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
-// SubnetIds: pulumi.StringArray{
-// pulumi.String(selectedGetSubnets.Ids[0]),
-// pulumi.String(selectedGetSubnets.Ids[1]),
-// },
-// SecurityGroupIds: pulumi.StringArray{
-// es.ID(),
-// },
-// },
-// AdvancedOptions: pulumi.StringMap{
-// "rest.action.multi.allow_explicit_index": pulumi.String("true"),
-// },
-// AccessPolicies: pulumi.Any(fmt.Sprintf(`{
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			var vpc interface{}
+//			cfg.RequireObject("vpc", &vpc)
+//			domain := "tf-test"
+//			if param := cfg.Get("domain"); param != "" {
+//				domain = param
+//			}
+//			selected, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": vpc,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			selectedGetSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+//				Filters: []ec2.GetSubnetsFilter{
+//					{
+//						Name: "vpc-id",
+//						Values: pulumi.StringArray{
+//							selected.Id,
+//						},
+//					},
+//				},
+//				Tags: map[string]interface{}{
+//					"Tier": "private",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			es, err := ec2.NewSecurityGroup(ctx, "es", &ec2.SecurityGroupArgs{
+//				Name:        pulumi.Sprintf("%v-elasticsearch-%v", vpc, domain),
+//				Description: pulumi.String("Managed by Pulumi"),
+//				VpcId:       pulumi.String(pulumi.String(selected.Id)),
+//				Ingress: ec2.SecurityGroupIngressArray{
+//					&ec2.SecurityGroupIngressArgs{
+//						FromPort: pulumi.Int(443),
+//						ToPort:   pulumi.Int(443),
+//						Protocol: pulumi.String("tcp"),
+//						CidrBlocks: pulumi.StringArray{
+//							pulumi.String(selected.CidrBlock),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			esServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "es", &iam.ServiceLinkedRoleArgs{
+//				AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticsearch.NewDomain(ctx, "es", &elasticsearch.DomainArgs{
+//				DomainName:           pulumi.String(pulumi.String(domain)),
+//				ElasticsearchVersion: pulumi.String("6.3"),
+//				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+//					InstanceType:         pulumi.String("m4.large.elasticsearch"),
+//					ZoneAwarenessEnabled: pulumi.Bool(true),
+//				},
+//				VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
+//					SubnetIds: pulumi.StringArray{
+//						pulumi.String(selectedGetSubnets.Ids[0]),
+//						pulumi.String(selectedGetSubnets.Ids[1]),
+//					},
+//					SecurityGroupIds: pulumi.StringArray{
+//						es.ID(),
+//					},
+//				},
+//				AdvancedOptions: pulumi.StringMap{
+//					"rest.action.multi.allow_explicit_index": pulumi.String("true"),
+//				},
+//				AccessPolicies: pulumi.Any(fmt.Sprintf(`{
+//
 // \t\"Version\": \"2012-10-17\",
 // \t\"Statement\": [
 // \t\t{
@@ -297,18 +297,20 @@ import (
 // \t]
 // }
 // `, current.Region, currentGetCallerIdentity.AccountId, domain)),
-// Tags: pulumi.StringMap{
-// "Domain": pulumi.String("TestDomain"),
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// esServiceLinkedRole,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//				Tags: pulumi.StringMap{
+//					"Domain": pulumi.String("TestDomain"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				esServiceLinkedRole,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

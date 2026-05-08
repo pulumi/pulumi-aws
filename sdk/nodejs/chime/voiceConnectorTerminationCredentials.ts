@@ -132,15 +132,15 @@ export interface VoiceConnectorTerminationCredentialsState {
     /**
      * List of termination SIP credentials.
      */
-    credentials?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[]>;
+    credentials?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Chime Voice Connector ID.
      */
-    voiceConnectorId?: pulumi.Input<string>;
+    voiceConnectorId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -154,7 +154,7 @@ export interface VoiceConnectorTerminationCredentialsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Chime Voice Connector ID.
      */

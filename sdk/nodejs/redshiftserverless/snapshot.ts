@@ -156,47 +156,47 @@ export interface SnapshotState {
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
      */
-    accountsWithProvisionedRestoreAccesses?: pulumi.Input<pulumi.Input<string>[]>;
+    accountsWithProvisionedRestoreAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      */
-    accountsWithRestoreAccesses?: pulumi.Input<pulumi.Input<string>[]>;
+    accountsWithRestoreAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The username of the database within a snapshot.
      */
-    adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the snapshot.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the KMS key used to encrypt the snapshot.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      */
-    namespaceArn?: pulumi.Input<string>;
+    namespaceArn?: pulumi.Input<string | undefined>;
     /**
      * The namespace to create a snapshot for.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The owner Amazon Web Services; account of the snapshot.
      */
-    ownerAccount?: pulumi.Input<string>;
+    ownerAccount?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * How long to retain the created snapshot. Default value is `-1`.
      */
-    retentionPeriod?: pulumi.Input<number>;
+    retentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * The name of the snapshot.
      */
-    snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -210,11 +210,11 @@ export interface SnapshotArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * How long to retain the created snapshot. Default value is `-1`.
      */
-    retentionPeriod?: pulumi.Input<number>;
+    retentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * The name of the snapshot.
      */

@@ -114,15 +114,15 @@ export interface RetentionConfigurationState {
     /**
      * The name of the retention configuration object. The object is always named **default**.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The number of days AWS Config stores historical information.
      */
-    retentionPeriodInDays?: pulumi.Input<number>;
+    retentionPeriodInDays?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -132,7 +132,7 @@ export interface RetentionConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The number of days AWS Config stores historical information.
      */

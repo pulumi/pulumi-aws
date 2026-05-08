@@ -32,8 +32,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -73,8 +73,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -114,8 +114,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -155,8 +155,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -196,8 +196,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -237,8 +237,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -277,8 +277,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -317,8 +317,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -357,8 +357,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -397,8 +397,8 @@ public final class AcmpcaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.acmpca.AcmpcaFunctions;
      * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

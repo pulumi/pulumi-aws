@@ -181,12 +181,12 @@ export interface NetworkInsightsAccessScopeState {
     /**
      * ARN of the Network Insights Access Scope.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Set of access scope path statements to exclude.
      * See `excludePaths` below for details.
      */
-    excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeExcludePath>[]>;
+    excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeExcludePath>[] | undefined>;
     /**
      * Set of access scope path statements to match.
      * At least one must be specified.
@@ -194,21 +194,21 @@ export interface NetworkInsightsAccessScopeState {
      *
      * The following arguments are optional:
      */
-    matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeMatchPath>[]>;
+    matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeMatchPath>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
      * Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource.
      * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -219,7 +219,7 @@ export interface NetworkInsightsAccessScopeArgs {
      * Set of access scope path statements to exclude.
      * See `excludePaths` below for details.
      */
-    excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeExcludePath>[]>;
+    excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeExcludePath>[] | undefined>;
     /**
      * Set of access scope path statements to match.
      * At least one must be specified.
@@ -227,15 +227,15 @@ export interface NetworkInsightsAccessScopeArgs {
      *
      * The following arguments are optional:
      */
-    matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeMatchPath>[]>;
+    matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeMatchPath>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
      * Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource.
      * If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

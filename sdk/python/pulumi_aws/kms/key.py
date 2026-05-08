@@ -19,20 +19,20 @@ __all__ = ['KeyArgs', 'Key']
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_key_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_master_key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 xks_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_key_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_master_key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 xks_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Key resource.
 
@@ -91,7 +91,7 @@ class KeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
-    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag to indicate whether to bypass the key policy lockout safety check.
         Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
@@ -101,24 +101,24 @@ class KeyArgs:
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
-    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_safety_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @_builtins.property
     @pulumi.getter(name="customKeyStoreId")
-    def custom_key_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_key_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         """
         return pulumi.get(self, "custom_key_store_id")
 
     @custom_key_store_id.setter
-    def custom_key_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_key_store_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_key_store_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerMasterKeySpec")
-    def customer_master_key_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_master_key_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
@@ -126,12 +126,12 @@ class KeyArgs:
         return pulumi.get(self, "customer_master_key_spec")
 
     @customer_master_key_spec.setter
-    def customer_master_key_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_master_key_spec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_master_key_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
         If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
@@ -140,48 +140,48 @@ class KeyArgs:
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
-    def deletion_window_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deletion_window_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deletion_window_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the key as viewed in AWS console.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enableKeyRotation")
-    def enable_key_rotation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_key_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_key_rotation")
 
     @enable_key_rotation.setter
-    def enable_key_rotation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_key_rotation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_key_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the key is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
         Defaults to `ENCRYPT_DECRYPT`.
@@ -189,24 +189,24 @@ class KeyArgs:
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_region(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
         return pulumi.get(self, "multi_region")
 
     @multi_region.setter
-    def multi_region(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_region(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
 
@@ -215,78 +215,78 @@ class KeyArgs:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationPeriodInDays")
-    def rotation_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rotation_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         """
         return pulumi.get(self, "rotation_period_in_days")
 
     @rotation_period_in_days.setter
-    def rotation_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rotation_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rotation_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="xksKeyId")
-    def xks_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xks_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the external key that serves as key material for the KMS key in an external key store.
         """
         return pulumi.get(self, "xks_key_id")
 
     @xks_key_id.setter
-    def xks_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xks_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xks_key_id", value)
 
 
 @pulumi.input_type
 class _KeyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_key_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_master_key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 xks_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_key_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_master_key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 xks_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
 
@@ -354,19 +354,19 @@ class _KeyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the key.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
-    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag to indicate whether to bypass the key policy lockout safety check.
         Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
@@ -376,24 +376,24 @@ class _KeyState:
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
-    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_safety_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @_builtins.property
     @pulumi.getter(name="customKeyStoreId")
-    def custom_key_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_key_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         """
         return pulumi.get(self, "custom_key_store_id")
 
     @custom_key_store_id.setter
-    def custom_key_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_key_store_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_key_store_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customerMasterKeySpec")
-    def customer_master_key_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_master_key_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, `SM2` (China Regions only), or `ECC_NIST_EDWARDS25519`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
@@ -401,12 +401,12 @@ class _KeyState:
         return pulumi.get(self, "customer_master_key_spec")
 
     @customer_master_key_spec.setter
-    def customer_master_key_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_master_key_spec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_master_key_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
         If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
@@ -415,60 +415,60 @@ class _KeyState:
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
-    def deletion_window_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deletion_window_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deletion_window_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the key as viewed in AWS console.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enableKeyRotation")
-    def enable_key_rotation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_key_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enable_key_rotation")
 
     @enable_key_rotation.setter
-    def enable_key_rotation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_key_rotation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_key_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the key is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The globally unique identifier for the key.
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
         Defaults to `ENCRYPT_DECRYPT`.
@@ -476,24 +476,24 @@ class _KeyState:
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_region(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
         return pulumi.get(self, "multi_region")
 
     @multi_region.setter
-    def multi_region(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_region(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
 
@@ -502,67 +502,67 @@ class _KeyState:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationPeriodInDays")
-    def rotation_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rotation_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         """
         return pulumi.get(self, "rotation_period_in_days")
 
     @rotation_period_in_days.setter
-    def rotation_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rotation_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rotation_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="xksKeyId")
-    def xks_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xks_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the external key that serves as key material for the KMS key in an external key store.
         """
         return pulumi.get(self, "xks_key_id")
 
     @xks_key_id.setter
-    def xks_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xks_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xks_key_id", value)
 
 
@@ -572,20 +572,20 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_key_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_master_key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 xks_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_key_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_master_key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 xks_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a single-Region or multi-Region primary KMS key.
@@ -1284,20 +1284,20 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_key_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_master_key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 xks_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_key_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_master_key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 xks_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1334,23 +1334,23 @@ class Key(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-            custom_key_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_master_key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-            deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-            multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rotation_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            xks_key_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Key':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_key_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_master_key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+            deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rotation_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            xks_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Key':
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

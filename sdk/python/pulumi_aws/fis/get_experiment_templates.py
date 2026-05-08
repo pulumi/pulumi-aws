@@ -134,8 +134,8 @@ def get_experiment_templates(region: Optional[_builtins.str] = None,
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_experiment_templates_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_experiment_templates_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentTemplatesResult]:
     """
     This resource can be useful for getting back a set of FIS experiment template IDs.

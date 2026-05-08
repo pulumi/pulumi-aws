@@ -554,50 +554,50 @@ export interface WebAclRuleState {
     /**
      * Action to take when the rule matches. See Action below. Conflicts with `overrideAction`.
      */
-    action?: pulumi.Input<inputs.wafv2.WebAclRuleAction>;
+    action?: pulumi.Input<inputs.wafv2.WebAclRuleAction | undefined>;
     /**
      * CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
      */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfig>;
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfig | undefined>;
     /**
      * Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
      */
-    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclRuleChallengeConfig>;
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclRuleChallengeConfig | undefined>;
     /**
      * Name of the rule. Must be unique within the Web ACL.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Override action for managed rule groups. See Override Action below. Conflicts with `action`.
      */
-    overrideAction?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideAction>;
+    overrideAction?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideAction | undefined>;
     /**
      * Rule priority. Rules with lower priority are evaluated first.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Labels to apply to matching web requests. See Rule Label below.
      */
-    ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleRuleLabel>[]>;
+    ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleRuleLabel>[] | undefined>;
     /**
      * Rule statement. See Statement below.
      */
-    statement?: pulumi.Input<inputs.wafv2.WebAclRuleStatement>;
-    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleTimeouts>;
+    statement?: pulumi.Input<inputs.wafv2.WebAclRuleStatement | undefined>;
+    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleTimeouts | undefined>;
     /**
      * CloudWatch metrics configuration. See Visibility Config below.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleVisibilityConfig | undefined>;
     /**
      * ARN of the Web ACL to add the rule to.
      *
      * The following arguments are optional:
      */
-    webAclArn?: pulumi.Input<string>;
+    webAclArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -607,23 +607,23 @@ export interface WebAclRuleArgs {
     /**
      * Action to take when the rule matches. See Action below. Conflicts with `overrideAction`.
      */
-    action?: pulumi.Input<inputs.wafv2.WebAclRuleAction>;
+    action?: pulumi.Input<inputs.wafv2.WebAclRuleAction | undefined>;
     /**
      * CAPTCHA configuration that overrides the web ACL level setting. See Captcha Config below.
      */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfig>;
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfig | undefined>;
     /**
      * Challenge configuration that overrides the web ACL level setting. See Challenge Config below.
      */
-    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclRuleChallengeConfig>;
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclRuleChallengeConfig | undefined>;
     /**
      * Name of the rule. Must be unique within the Web ACL.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Override action for managed rule groups. See Override Action below. Conflicts with `action`.
      */
-    overrideAction?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideAction>;
+    overrideAction?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideAction | undefined>;
     /**
      * Rule priority. Rules with lower priority are evaluated first.
      */
@@ -631,20 +631,20 @@ export interface WebAclRuleArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Labels to apply to matching web requests. See Rule Label below.
      */
-    ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleRuleLabel>[]>;
+    ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleRuleLabel>[] | undefined>;
     /**
      * Rule statement. See Statement below.
      */
-    statement?: pulumi.Input<inputs.wafv2.WebAclRuleStatement>;
-    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleTimeouts>;
+    statement?: pulumi.Input<inputs.wafv2.WebAclRuleStatement | undefined>;
+    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleTimeouts | undefined>;
     /**
      * CloudWatch metrics configuration. See Visibility Config below.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleVisibilityConfig | undefined>;
     /**
      * ARN of the Web ACL to add the rule to.
      *

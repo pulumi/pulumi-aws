@@ -124,11 +124,11 @@ export interface UserPoliciesExclusiveState {
     /**
      * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
      */
-    policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    policyNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IAM user name.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**

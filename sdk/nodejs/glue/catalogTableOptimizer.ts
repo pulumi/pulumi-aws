@@ -195,27 +195,27 @@ export interface CatalogTableOptimizerState {
     /**
      * The Catalog ID of the table.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      */
-    configuration?: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration>;
+    configuration?: pulumi.Input<inputs.glue.CatalogTableOptimizerConfiguration | undefined>;
     /**
      * The name of the database in the catalog in which the table resides.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the table.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -237,7 +237,7 @@ export interface CatalogTableOptimizerArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the table.
      */

@@ -169,42 +169,42 @@ export interface StatementState {
     /**
      * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * The database user name.
      */
-    dbUser?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    dbUser?: pulumi.Input<string | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */
-    secretArn?: pulumi.Input<string>;
+    secretArn?: pulumi.Input<string | undefined>;
     /**
      * The SQL statement text to run.
      *
      * The following arguments are optional:
      */
-    sql?: pulumi.Input<string>;
+    sql?: pulumi.Input<string | undefined>;
     /**
      * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      */
-    statementName?: pulumi.Input<string>;
+    statementName?: pulumi.Input<string | undefined>;
     /**
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      */
-    withEvent?: pulumi.Input<boolean>;
+    withEvent?: pulumi.Input<boolean | undefined>;
     /**
      * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
      */
-    workgroupName?: pulumi.Input<string>;
+    workgroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface StatementArgs {
     /**
      * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the database.
      */
@@ -222,16 +222,16 @@ export interface StatementArgs {
     /**
      * The database user name.
      */
-    dbUser?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    dbUser?: pulumi.Input<string | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */
-    secretArn?: pulumi.Input<string>;
+    secretArn?: pulumi.Input<string | undefined>;
     /**
      * The SQL statement text to run.
      *
@@ -241,13 +241,13 @@ export interface StatementArgs {
     /**
      * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      */
-    statementName?: pulumi.Input<string>;
+    statementName?: pulumi.Input<string | undefined>;
     /**
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      */
-    withEvent?: pulumi.Input<boolean>;
+    withEvent?: pulumi.Input<boolean | undefined>;
     /**
      * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
      */
-    workgroupName?: pulumi.Input<string>;
+    workgroupName?: pulumi.Input<string | undefined>;
 }

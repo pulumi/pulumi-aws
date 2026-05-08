@@ -135,5 +135,5 @@ export interface GetReportDefinitionOutputArgs {
     /**
      * Map of key-value pairs assigned to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

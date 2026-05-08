@@ -139,5 +139,5 @@ export interface GetPlanOutputArgs {
      *
      * @deprecated This attribute will be removed in a future version of the provider.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

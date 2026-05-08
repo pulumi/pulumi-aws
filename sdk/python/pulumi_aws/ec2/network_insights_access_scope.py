@@ -21,10 +21,10 @@ __all__ = ['NetworkInsightsAccessScopeArgs', 'NetworkInsightsAccessScope']
 @pulumi.input_type
 class NetworkInsightsAccessScopeArgs:
     def __init__(__self__, *,
-                 exclude_paths: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]] = None,
-                 match_paths: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAccessScope resource.
 
@@ -51,7 +51,7 @@ class NetworkInsightsAccessScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludePaths")
-    def exclude_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]:
+    def exclude_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]:
         """
         Set of access scope path statements to exclude.
         See `exclude_paths` below for details.
@@ -59,12 +59,12 @@ class NetworkInsightsAccessScopeArgs:
         return pulumi.get(self, "exclude_paths")
 
     @exclude_paths.setter
-    def exclude_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]):
+    def exclude_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]):
         pulumi.set(self, "exclude_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="matchPaths")
-    def match_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]:
+    def match_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]:
         """
         Set of access scope path statements to match.
         At least one must be specified.
@@ -75,12 +75,12 @@ class NetworkInsightsAccessScopeArgs:
         return pulumi.get(self, "match_paths")
 
     @match_paths.setter
-    def match_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]):
+    def match_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]):
         pulumi.set(self, "match_paths", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
         Defaults to the Region set in the provider configuration.
@@ -88,12 +88,12 @@ class NetworkInsightsAccessScopeArgs:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource.
         If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -101,19 +101,19 @@ class NetworkInsightsAccessScopeArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _NetworkInsightsAccessScopeState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_paths: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]] = None,
-                 match_paths: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkInsightsAccessScope resources.
 
@@ -146,19 +146,19 @@ class _NetworkInsightsAccessScopeState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Network Insights Access Scope.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="excludePaths")
-    def exclude_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]:
+    def exclude_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]:
         """
         Set of access scope path statements to exclude.
         See `exclude_paths` below for details.
@@ -166,12 +166,12 @@ class _NetworkInsightsAccessScopeState:
         return pulumi.get(self, "exclude_paths")
 
     @exclude_paths.setter
-    def exclude_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]):
+    def exclude_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathArgs']]]]):
         pulumi.set(self, "exclude_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="matchPaths")
-    def match_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]:
+    def match_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]:
         """
         Set of access scope path statements to match.
         At least one must be specified.
@@ -182,12 +182,12 @@ class _NetworkInsightsAccessScopeState:
         return pulumi.get(self, "match_paths")
 
     @match_paths.setter
-    def match_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]):
+    def match_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeMatchPathArgs']]]]):
         pulumi.set(self, "match_paths", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints).
         Defaults to the Region set in the provider configuration.
@@ -195,12 +195,12 @@ class _NetworkInsightsAccessScopeState:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource.
         If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -208,19 +208,19 @@ class _NetworkInsightsAccessScopeState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -230,10 +230,10 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
-                 match_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Network Insights Access Scope resource.
@@ -418,10 +418,10 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
-                 match_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -447,12 +447,12 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            exclude_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
-            match_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NetworkInsightsAccessScope':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
+            match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NetworkInsightsAccessScope':
         """
         Get an existing NetworkInsightsAccessScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

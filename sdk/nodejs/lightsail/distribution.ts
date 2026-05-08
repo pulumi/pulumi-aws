@@ -339,90 +339,90 @@ export interface DistributionState {
     /**
      * Alternate domain names of the distribution.
      */
-    alternativeDomainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    alternativeDomainNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the distribution.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Bundle ID to use for the distribution.
      */
-    bundleId?: pulumi.Input<string>;
+    bundleId?: pulumi.Input<string | undefined>;
     /**
      * Cache behavior settings of the distribution. See below.
      */
-    cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
+    cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings | undefined>;
     /**
      * Per-path cache behavior of the distribution. See below.
      */
-    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[]>;
+    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[] | undefined>;
     /**
      * Name of the SSL/TLS certificate attached to the distribution.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the distribution was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Default cache behavior of the distribution. See below.
      */
-    defaultCacheBehavior?: pulumi.Input<inputs.lightsail.DistributionDefaultCacheBehavior>;
+    defaultCacheBehavior?: pulumi.Input<inputs.lightsail.DistributionDefaultCacheBehavior | undefined>;
     /**
      * Domain name of the distribution.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * Whether the distribution is enabled. Default: `true`.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Location of the distribution, such as the AWS Region and Availability Zone. See below.
      */
-    locations?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionLocation>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionLocation>[] | undefined>;
     /**
      * Name of the distribution.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
      *
      * The following arguments are optional:
      */
-    origin?: pulumi.Input<inputs.lightsail.DistributionOrigin>;
+    origin?: pulumi.Input<inputs.lightsail.DistributionOrigin | undefined>;
     /**
      * Public DNS of the origin.
      * * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
      */
-    originPublicDns?: pulumi.Input<string>;
+    originPublicDns?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Lightsail resource type (e.g., Distribution).
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Status of the distribution.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      */
-    supportCode?: pulumi.Input<string>;
+    supportCode?: pulumi.Input<string | undefined>;
     /**
      * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -436,15 +436,15 @@ export interface DistributionArgs {
     /**
      * Cache behavior settings of the distribution. See below.
      */
-    cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
+    cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings | undefined>;
     /**
      * Per-path cache behavior of the distribution. See below.
      */
-    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[]>;
+    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[] | undefined>;
     /**
      * Name of the SSL/TLS certificate attached to the distribution.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Default cache behavior of the distribution. See below.
      */
@@ -452,15 +452,15 @@ export interface DistributionArgs {
     /**
      * IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * Whether the distribution is enabled. Default: `true`.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the distribution.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
      *
@@ -470,9 +470,9 @@ export interface DistributionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

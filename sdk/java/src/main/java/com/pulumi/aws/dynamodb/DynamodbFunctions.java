@@ -40,8 +40,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -166,8 +166,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -208,8 +208,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -250,8 +250,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -292,8 +292,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetBackupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -332,8 +332,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -372,8 +372,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -412,8 +412,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -452,8 +452,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -492,8 +492,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -534,8 +534,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -583,8 +583,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -632,8 +632,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -681,8 +681,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -730,8 +730,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTableItemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -779,8 +779,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -821,8 +821,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -863,8 +863,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -905,8 +905,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -947,8 +947,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -989,8 +989,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1031,8 +1031,8 @@ public final class DynamodbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.dynamodb.DynamodbFunctions;
      * import com.pulumi.aws.dynamodb.inputs.GetTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

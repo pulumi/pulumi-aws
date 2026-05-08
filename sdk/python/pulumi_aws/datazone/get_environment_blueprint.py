@@ -155,10 +155,10 @@ def get_environment_blueprint(domain_id: Optional[_builtins.str] = None,
         managed=pulumi.get(__ret__, 'managed'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'))
-def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                                     name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_environment_blueprint_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                                     name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentBlueprintResult]:
     """
     Data source for managing an AWS DataZone Environment Blueprint.

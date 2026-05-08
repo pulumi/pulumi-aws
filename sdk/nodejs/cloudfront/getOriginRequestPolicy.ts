@@ -131,9 +131,9 @@ export interface GetOriginRequestPolicyOutputArgs {
     /**
      * Identifier for the origin request policy.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Unique name to identify the origin request policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -21,20 +21,20 @@ __all__ = ['PatchBaselineArgs', 'PatchBaseline']
 @pulumi.input_type
 class PatchBaselineArgs:
     def __init__(__self__, *,
-                 approval_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]] = None,
-                 approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rejected_patches_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 approval_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]] = None,
+                 approved_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 approved_patches_compliance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 approved_patches_enable_non_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 available_security_updates_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_filters: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejected_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rejected_patches_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PatchBaseline resource.
 
@@ -86,91 +86,91 @@ class PatchBaselineArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvalRules")
-    def approval_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]:
+    def approval_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]:
         """
         Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         """
         return pulumi.get(self, "approval_rules")
 
     @approval_rules.setter
-    def approval_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]):
+    def approval_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]):
         pulumi.set(self, "approval_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="approvedPatches")
-    def approved_patches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def approved_patches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         """
         return pulumi.get(self, "approved_patches")
 
     @approved_patches.setter
-    def approved_patches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def approved_patches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "approved_patches", value)
 
     @_builtins.property
     @pulumi.getter(name="approvedPatchesComplianceLevel")
-    def approved_patches_compliance_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approved_patches_compliance_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         """
         return pulumi.get(self, "approved_patches_compliance_level")
 
     @approved_patches_compliance_level.setter
-    def approved_patches_compliance_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approved_patches_compliance_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approved_patches_compliance_level", value)
 
     @_builtins.property
     @pulumi.getter(name="approvedPatchesEnableNonSecurity")
-    def approved_patches_enable_non_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def approved_patches_enable_non_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         """
         return pulumi.get(self, "approved_patches_enable_non_security")
 
     @approved_patches_enable_non_security.setter
-    def approved_patches_enable_non_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def approved_patches_enable_non_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "approved_patches_enable_non_security", value)
 
     @_builtins.property
     @pulumi.getter(name="availableSecurityUpdatesComplianceStatus")
-    def available_security_updates_compliance_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def available_security_updates_compliance_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
         """
         return pulumi.get(self, "available_security_updates_compliance_status")
 
     @available_security_updates_compliance_status.setter
-    def available_security_updates_compliance_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def available_security_updates_compliance_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "available_security_updates_compliance_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the patch baseline.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="globalFilters")
-    def global_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]:
+    def global_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]:
         """
         Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         """
         return pulumi.get(self, "global_filters")
 
     @global_filters.setter
-    def global_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]):
+    def global_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]):
         pulumi.set(self, "global_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the patch baseline.
 
@@ -179,102 +179,102 @@ class PatchBaselineArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operating_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operating_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operating_system", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedPatches")
-    def rejected_patches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rejected_patches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of rejected patches.
         """
         return pulumi.get(self, "rejected_patches")
 
     @rejected_patches.setter
-    def rejected_patches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rejected_patches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rejected_patches", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedPatchesAction")
-    def rejected_patches_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rejected_patches_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         """
         return pulumi.get(self, "rejected_patches_action")
 
     @rejected_patches_action.setter
-    def rejected_patches_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rejected_patches_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rejected_patches_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]:
         """
         Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PatchBaselineState:
     def __init__(__self__, *,
-                 approval_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]] = None,
-                 approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
-                 json: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rejected_patches_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 approval_rules: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]] = None,
+                 approved_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 approved_patches_compliance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 approved_patches_enable_non_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 available_security_updates_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_filters: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
+                 json: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejected_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rejected_patches_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PatchBaseline resources.
 
@@ -335,115 +335,115 @@ class _PatchBaselineState:
 
     @_builtins.property
     @pulumi.getter(name="approvalRules")
-    def approval_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]:
+    def approval_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]:
         """
         Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         """
         return pulumi.get(self, "approval_rules")
 
     @approval_rules.setter
-    def approval_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]):
+    def approval_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]]):
         pulumi.set(self, "approval_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="approvedPatches")
-    def approved_patches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def approved_patches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         """
         return pulumi.get(self, "approved_patches")
 
     @approved_patches.setter
-    def approved_patches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def approved_patches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "approved_patches", value)
 
     @_builtins.property
     @pulumi.getter(name="approvedPatchesComplianceLevel")
-    def approved_patches_compliance_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approved_patches_compliance_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         """
         return pulumi.get(self, "approved_patches_compliance_level")
 
     @approved_patches_compliance_level.setter
-    def approved_patches_compliance_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approved_patches_compliance_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approved_patches_compliance_level", value)
 
     @_builtins.property
     @pulumi.getter(name="approvedPatchesEnableNonSecurity")
-    def approved_patches_enable_non_security(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def approved_patches_enable_non_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         """
         return pulumi.get(self, "approved_patches_enable_non_security")
 
     @approved_patches_enable_non_security.setter
-    def approved_patches_enable_non_security(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def approved_patches_enable_non_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "approved_patches_enable_non_security", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the baseline.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availableSecurityUpdatesComplianceStatus")
-    def available_security_updates_compliance_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def available_security_updates_compliance_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the compliance status of managed nodes for which security-related patches are available but were not approved. Supported for Windows Server managed nodes only. Valid values are `COMPLIANT`, `NON_COMPLIANT`.
         """
         return pulumi.get(self, "available_security_updates_compliance_status")
 
     @available_security_updates_compliance_status.setter
-    def available_security_updates_compliance_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def available_security_updates_compliance_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "available_security_updates_compliance_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the patch baseline.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="globalFilters")
-    def global_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]:
+    def global_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]:
         """
         Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         """
         return pulumi.get(self, "global_filters")
 
     @global_filters.setter
-    def global_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]):
+    def global_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]]):
         pulumi.set(self, "global_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON definition of the baseline.
         """
         return pulumi.get(self, "json")
 
     @json.setter
-    def json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "json", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the patch baseline.
 
@@ -452,91 +452,91 @@ class _PatchBaselineState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operating_system(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operating_system(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operating_system", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedPatches")
-    def rejected_patches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rejected_patches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of rejected patches.
         """
         return pulumi.get(self, "rejected_patches")
 
     @rejected_patches.setter
-    def rejected_patches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rejected_patches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rejected_patches", value)
 
     @_builtins.property
     @pulumi.getter(name="rejectedPatchesAction")
-    def rejected_patches_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rejected_patches_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         """
         return pulumi.get(self, "rejected_patches_action")
 
     @rejected_patches_action.setter
-    def rejected_patches_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rejected_patches_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rejected_patches_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]:
+    def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]:
         """
         Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]):
+    def sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -546,20 +546,20 @@ class PatchBaseline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict']]]]] = None,
-                 approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rejected_patches_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 approval_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict']]]]] = None,
+                 approved_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 approved_patches_compliance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 approved_patches_enable_non_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 available_security_updates_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejected_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rejected_patches_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an SSM Patch Baseline resource.
@@ -977,20 +977,20 @@ class PatchBaseline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict']]]]] = None,
-                 approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
-                 available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rejected_patches_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 approval_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict']]]]] = None,
+                 approved_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 approved_patches_compliance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 approved_patches_enable_non_security: pulumi.Input[Optional[_builtins.bool]] = None,
+                 available_security_updates_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rejected_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rejected_patches_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1027,23 +1027,23 @@ class PatchBaseline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            approval_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict']]]]] = None,
-            approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            approved_patches_compliance_level: Optional[pulumi.Input[_builtins.str]] = None,
-            approved_patches_enable_non_security: Optional[pulumi.Input[_builtins.bool]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            available_security_updates_compliance_status: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
-            json: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            operating_system: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            rejected_patches_action: Optional[pulumi.Input[_builtins.str]] = None,
-            sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PatchBaseline':
+            approval_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineApprovalRuleArgs', 'PatchBaselineApprovalRuleArgsDict']]]]] = None,
+            approved_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            approved_patches_compliance_level: pulumi.Input[Optional[_builtins.str]] = None,
+            approved_patches_enable_non_security: pulumi.Input[Optional[_builtins.bool]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            available_security_updates_compliance_status: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            global_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
+            json: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operating_system: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rejected_patches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rejected_patches_action: pulumi.Input[Optional[_builtins.str]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PatchBaseline':
         """
         Get an existing PatchBaseline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,8 +21,8 @@ class RouteTableAssociationArgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[_builtins.str],
                  transit_gateway_route_table_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_existing_association: Optional[pulumi.Input[_builtins.bool]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_existing_association: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RouteTableAssociation resource.
 
@@ -64,38 +64,38 @@ class RouteTableAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceExistingAssociation")
-    def replace_existing_association(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_existing_association(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         """
         return pulumi.get(self, "replace_existing_association")
 
     @replace_existing_association.setter
-    def replace_existing_association(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_existing_association(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_existing_association", value)
 
 
 @pulumi.input_type
 class _RouteTableAssociationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_existing_association: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_existing_association: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteTableAssociation resources.
 
@@ -121,74 +121,74 @@ class _RouteTableAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceExistingAssociation")
-    def replace_existing_association(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_existing_association(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         """
         return pulumi.get(self, "replace_existing_association")
 
     @replace_existing_association.setter
-    def replace_existing_association(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_existing_association(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_existing_association", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the resource
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the resource
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayRouteTableId")
-    def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Route Table.
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
-    def transit_gateway_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
@@ -198,10 +198,10 @@ class RouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_existing_association: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_existing_association: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EC2 Transit Gateway Route Table association.
@@ -379,10 +379,10 @@ class RouteTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_existing_association: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_existing_association: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -412,12 +412,12 @@ class RouteTableAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replace_existing_association: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RouteTableAssociation':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_existing_association: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteTableAssociation':
         """
         Get an existing RouteTableAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

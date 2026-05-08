@@ -20,9 +20,9 @@ __all__ = ['MemberArgs', 'Member']
 class MemberArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
 
@@ -53,50 +53,50 @@ class MemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the member AWS account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def invite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         """
         return pulumi.get(self, "invite")
 
     @invite.setter
-    def invite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invite", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _MemberState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 master_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 master_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
 
@@ -122,74 +122,74 @@ class _MemberState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the member AWS account.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email of the member AWS account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def invite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         """
         return pulumi.get(self, "invite")
 
     @invite.setter
-    def invite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invite", value)
 
     @_builtins.property
     @pulumi.getter(name="masterId")
-    def master_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the master Security Hub AWS account.
         """
         return pulumi.get(self, "master_id")
 
     @master_id.setter
-    def master_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_id", value)
 
     @_builtins.property
     @pulumi.getter(name="memberStatus")
-    def member_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def member_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the member account relationship.
         """
         return pulumi.get(self, "member_status")
 
     @member_status.setter
-    def member_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def member_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -199,10 +199,10 @@ class Member(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Security Hub member resource.
@@ -306,10 +306,10 @@ class Member(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 invite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 invite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,12 +337,12 @@ class Member(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            invite: Optional[pulumi.Input[_builtins.bool]] = None,
-            master_id: Optional[pulumi.Input[_builtins.str]] = None,
-            member_status: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Member':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            invite: pulumi.Input[Optional[_builtins.bool]] = None,
+            master_id: pulumi.Input[Optional[_builtins.str]] = None,
+            member_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Member':
         """
         Get an existing Member resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

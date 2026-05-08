@@ -170,39 +170,39 @@ export interface EventEndpointState {
     /**
      * The ARN of the endpoint that was created.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description of the global endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The URL of the endpoint that was created.
      */
-    endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string | undefined>;
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      */
-    eventBuses?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventEndpointEventBus>[]>;
+    eventBuses?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventEndpointEventBus>[] | undefined>;
     /**
      * The name of the global endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Parameters used for replication. Documented below.
      */
-    replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig>;
+    replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig | undefined>;
     /**
      * The ARN of the IAM role used for replication between event buses.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      */
-    routingConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointRoutingConfig | undefined>;
 }
 
 /**
@@ -212,7 +212,7 @@ export interface EventEndpointArgs {
     /**
      * A description of the global endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      */
@@ -220,19 +220,19 @@ export interface EventEndpointArgs {
     /**
      * The name of the global endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Parameters used for replication. Documented below.
      */
-    replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig>;
+    replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig | undefined>;
     /**
      * The ARN of the IAM role used for replication between event buses.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      */

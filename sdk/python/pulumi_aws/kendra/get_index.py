@@ -311,9 +311,9 @@ def get_index(id: Optional[_builtins.str] = None,
         user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
         user_group_resolution_configurations=pulumi.get(__ret__, 'user_group_resolution_configurations'),
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
-def get_index_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_index_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     Provides details about a specific Amazon Kendra Index.

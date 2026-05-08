@@ -22,9 +22,9 @@ namespace Pulumi.Aws.ServerlessRepository
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
-    ///     var currentGetRegion = Aws.Index.GetRegion.Invoke();
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
     ///     var postgres_rotator = new Aws.ServerlessRepository.CloudFormationStack("postgres-rotator", new()
     ///     {

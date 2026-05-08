@@ -179,25 +179,25 @@ export interface PipelineDefinitionState {
     /**
      * Configuration block for the parameter objects used in the pipeline definition. See below
      */
-    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[]>;
+    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[] | undefined>;
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      */
-    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[]>;
+    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[] | undefined>;
     /**
      * ID of the pipeline.
      */
-    pipelineId?: pulumi.Input<string>;
+    pipelineId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the objects that define the pipeline. See below
      *
      * The following arguments are optional:
      */
-    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
+    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -207,11 +207,11 @@ export interface PipelineDefinitionArgs {
     /**
      * Configuration block for the parameter objects used in the pipeline definition. See below
      */
-    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[]>;
+    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[] | undefined>;
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      */
-    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[]>;
+    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[] | undefined>;
     /**
      * ID of the pipeline.
      */
@@ -225,5 +225,5 @@ export interface PipelineDefinitionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

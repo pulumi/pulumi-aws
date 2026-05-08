@@ -127,8 +127,8 @@ def get_supported_instance_types(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         release_label=pulumi.get(__ret__, 'release_label'),
         supported_instance_types=pulumi.get(__ret__, 'supported_instance_types'))
-def get_supported_instance_types_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        release_label: Optional[pulumi.Input[_builtins.str]] = None,
+def get_supported_instance_types_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        release_label: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSupportedInstanceTypesResult]:
     """
     Data source for managing AWS EMR Supported Instance Types.

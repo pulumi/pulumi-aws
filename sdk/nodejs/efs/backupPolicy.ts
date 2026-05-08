@@ -115,15 +115,15 @@ export interface BackupPolicyState {
     /**
      * A backupPolicy object (documented below).
      */
-    backupPolicy?: pulumi.Input<inputs.efs.BackupPolicyBackupPolicy>;
+    backupPolicy?: pulumi.Input<inputs.efs.BackupPolicyBackupPolicy | undefined>;
     /**
      * The ID of the EFS file system.
      */
-    fileSystemId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface BackupPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

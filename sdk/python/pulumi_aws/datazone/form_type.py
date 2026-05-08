@@ -24,11 +24,11 @@ class FormTypeArgs:
                  domain_identifier: pulumi.Input[_builtins.str],
                  model: pulumi.Input['FormTypeModelArgs'],
                  owning_project_identifier: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['FormTypeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FormType resource.
 
@@ -92,79 +92,79 @@ class FormTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of form type. Must have a length of between 1 and 2048 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the form type. Must be the name of the structure in smithy document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['FormTypeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['FormTypeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['FormTypeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['FormTypeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _FormTypeState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input['FormTypeImportArgs']]]] = None,
-                 model: Optional[pulumi.Input['FormTypeModelArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input['FormTypeImportArgs']]]] = None,
+                 model: pulumi.Input[Optional['FormTypeModelArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['FormTypeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering FormType resources.
 
@@ -212,164 +212,164 @@ class _FormTypeState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation time of the Form Type.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creator of the Form Type.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of form type. Must have a length of between 1 and 2048 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
-    def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the domain.
         """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
-    def domain_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FormTypeImportArgs']]]]:
+    def imports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FormTypeImportArgs']]]]:
         return pulumi.get(self, "imports")
 
     @imports.setter
-    def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FormTypeImportArgs']]]]):
+    def imports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FormTypeImportArgs']]]]):
         pulumi.set(self, "imports", value)
 
     @_builtins.property
     @pulumi.getter
-    def model(self) -> Optional[pulumi.Input['FormTypeModelArgs']]:
+    def model(self) -> pulumi.Input[Optional['FormTypeModelArgs']]:
         """
         Object of the model of the form type that contains the following attributes.
         """
         return pulumi.get(self, "model")
 
     @model.setter
-    def model(self, value: Optional[pulumi.Input['FormTypeModelArgs']]):
+    def model(self, value: pulumi.Input[Optional['FormTypeModelArgs']]):
         pulumi.set(self, "model", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the form type. Must be the name of the structure in smithy document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="originDomainId")
-    def origin_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Origin domain id of the Form Type.
         """
         return pulumi.get(self, "origin_domain_id")
 
     @origin_domain_id.setter
-    def origin_domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="originProjectId")
-    def origin_project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Origin project id of the Form Type.
         """
         return pulumi.get(self, "origin_project_id")
 
     @origin_project_id.setter
-    def origin_project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_project_id", value)
 
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
-    def owning_project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owning_project_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         """
         return pulumi.get(self, "owning_project_identifier")
 
     @owning_project_identifier.setter
-    def owning_project_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owning_project_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owning_project_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Revision of the Form Type.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['FormTypeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['FormTypeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['FormTypeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['FormTypeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -379,14 +379,14 @@ class FormType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Form Type.
@@ -611,14 +611,14 @@ class FormType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -658,20 +658,20 @@ class FormType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            imports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FormTypeImportArgs', 'FormTypeImportArgsDict']]]]] = None,
-            model: Optional[pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            origin_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            origin_project_id: Optional[pulumi.Input[_builtins.str]] = None,
-            owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            revision: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None) -> 'FormType':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FormTypeImportArgs', 'FormTypeImportArgsDict']]]]] = None,
+            model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revision: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None) -> 'FormType':
         """
         Get an existing FormType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

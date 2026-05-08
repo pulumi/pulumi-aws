@@ -111,8 +111,8 @@ def get_state_machine_versions(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         statemachine_arn=pulumi.get(__ret__, 'statemachine_arn'),
         statemachine_versions=pulumi.get(__ret__, 'statemachine_versions'))
-def get_state_machine_versions_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                      statemachine_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_state_machine_versions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      statemachine_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineVersionsResult]:
     """
     Data source for managing an AWS SFN (Step Functions) State Machine Versions.

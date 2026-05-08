@@ -23,9 +23,9 @@ class SecretRotationArgs:
     def __init__(__self__, *,
                  rotation_rules: pulumi.Input['SecretRotationRotationRulesArgs'],
                  secret_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotate_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecretRotation resource.
 
@@ -70,50 +70,50 @@ class SecretRotationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rotateImmediately")
-    def rotate_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rotate_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         """
         return pulumi.get(self, "rotate_immediately")
 
     @rotate_immediately.setter
-    def rotate_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rotate_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rotate_immediately", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rotation_lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @rotation_lambda_arn.setter
-    def rotation_lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rotation_lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rotation_lambda_arn", value)
 
 
 @pulumi.input_type
 class _SecretRotationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotate_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_rules: Optional[pulumi.Input['SecretRotationRotationRulesArgs']] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_rules: pulumi.Input[Optional['SecretRotationRotationRulesArgs']] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecretRotation resources.
 
@@ -139,74 +139,74 @@ class _SecretRotationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rotateImmediately")
-    def rotate_immediately(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rotate_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         """
         return pulumi.get(self, "rotate_immediately")
 
     @rotate_immediately.setter
-    def rotate_immediately(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rotate_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rotate_immediately", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationEnabled")
-    def rotation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rotation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether automatic rotation is enabled for this secret.
         """
         return pulumi.get(self, "rotation_enabled")
 
     @rotation_enabled.setter
-    def rotation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rotation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rotation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rotation_lambda_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @rotation_lambda_arn.setter
-    def rotation_lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rotation_lambda_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rotation_lambda_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> Optional[pulumi.Input['SecretRotationRotationRulesArgs']]:
+    def rotation_rules(self) -> pulumi.Input[Optional['SecretRotationRotationRulesArgs']]:
         """
         A structure that defines the rotation configuration for this secret. Defined below.
         """
         return pulumi.get(self, "rotation_rules")
 
     @rotation_rules.setter
-    def rotation_rules(self, value: Optional[pulumi.Input['SecretRotationRotationRulesArgs']]):
+    def rotation_rules(self, value: pulumi.Input[Optional['SecretRotationRotationRulesArgs']]):
         pulumi.set(self, "rotation_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="secretId")
-    def secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
         return pulumi.get(self, "secret_id")
 
     @secret_id.setter
-    def secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_id", value)
 
 
@@ -216,11 +216,11 @@ class SecretRotation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotate_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_rules: Optional[pulumi.Input[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage AWS Secrets Manager secret rotation. To manage a secret, see the `secretsmanager.Secret` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
@@ -335,11 +335,11 @@ class SecretRotation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotate_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_rules: Optional[pulumi.Input[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
-                 secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
+                 secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -369,12 +369,12 @@ class SecretRotation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rotate_immediately: Optional[pulumi.Input[_builtins.bool]] = None,
-            rotation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            rotation_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            rotation_rules: Optional[pulumi.Input[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
-            secret_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecretRotation':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+            rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
+            secret_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecretRotation':
         """
         Get an existing SecretRotation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

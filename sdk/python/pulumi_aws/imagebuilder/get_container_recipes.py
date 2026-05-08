@@ -141,9 +141,9 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
         names=pulumi.get(__ret__, 'names'),
         owner=pulumi.get(__ret__, 'owner'),
         region=pulumi.get(__ret__, 'region'))
-def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]]]] = None,
-                                 owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_container_recipes_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]]]] = None,
+                                 owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.

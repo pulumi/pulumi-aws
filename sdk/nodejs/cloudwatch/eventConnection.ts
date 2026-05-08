@@ -355,39 +355,39 @@ export interface EventConnectionState {
     /**
      * The Amazon Resource Name (ARN) of the connection.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      */
-    authParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters>;
+    authParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters | undefined>;
     /**
      * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * Description for the connection. Maximum of 512 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Parameters to use for invoking a private API. Documented below.
      */
-    invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters>;
+    invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      */
-    secretArn?: pulumi.Input<string>;
+    secretArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -405,21 +405,21 @@ export interface EventConnectionArgs {
     /**
      * Description for the connection. Maximum of 512 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Parameters to use for invoking a private API. Documented below.
      */
-    invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters>;
+    invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -111,15 +111,15 @@ export interface OrganizationConfigurationState {
     /**
      * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
      */
-    autoEnable?: pulumi.Input<boolean>;
+    autoEnable?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the behavior graph.
      */
-    graphArn?: pulumi.Input<string>;
+    graphArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,5 +137,5 @@ export interface OrganizationConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

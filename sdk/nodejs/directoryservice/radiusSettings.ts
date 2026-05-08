@@ -176,43 +176,43 @@ export interface RadiusSettingsState {
     /**
      * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
      */
-    authenticationProtocol?: pulumi.Input<string>;
+    authenticationProtocol?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the directory for which you want to manager RADIUS settings.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Display label.
      */
-    displayLabel?: pulumi.Input<string>;
+    displayLabel?: pulumi.Input<string | undefined>;
     /**
      * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
      */
-    radiusPort?: pulumi.Input<number>;
+    radiusPort?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
      */
-    radiusRetries?: pulumi.Input<number>;
+    radiusRetries?: pulumi.Input<number | undefined>;
     /**
      * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      */
-    radiusServers?: pulumi.Input<pulumi.Input<string>[]>;
+    radiusServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
      */
-    radiusTimeout?: pulumi.Input<number>;
+    radiusTimeout?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Required for enabling RADIUS on the directory.
      */
-    sharedSecret?: pulumi.Input<string>;
+    sharedSecret?: pulumi.Input<string | undefined>;
     /**
      * Not currently used.
      */
-    useSameUsername?: pulumi.Input<boolean>;
+    useSameUsername?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -250,7 +250,7 @@ export interface RadiusSettingsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Required for enabling RADIUS on the directory.
      */
@@ -258,5 +258,5 @@ export interface RadiusSettingsArgs {
     /**
      * Not currently used.
      */
-    useSameUsername?: pulumi.Input<boolean>;
+    useSameUsername?: pulumi.Input<boolean | undefined>;
 }

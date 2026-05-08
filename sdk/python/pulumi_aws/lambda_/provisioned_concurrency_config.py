@@ -22,8 +22,8 @@ class ProvisionedConcurrencyConfigArgs:
                  function_name: pulumi.Input[_builtins.str],
                  provisioned_concurrent_executions: pulumi.Input[_builtins.int],
                  qualifier: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
 
@@ -83,37 +83,37 @@ class ProvisionedConcurrencyConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
 
 @pulumi.input_type
 class _ProvisionedConcurrencyConfigState:
     def __init__(__self__, *,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
 
@@ -138,31 +138,31 @@ class _ProvisionedConcurrencyConfigState:
 
     @_builtins.property
     @pulumi.getter(name="functionName")
-    def function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function.
         """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
-    def function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedConcurrentExecutions")
-    def provisioned_concurrent_executions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def provisioned_concurrent_executions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of capacity to allocate. Must be greater than or equal to 1.
         """
         return pulumi.get(self, "provisioned_concurrent_executions")
 
     @provisioned_concurrent_executions.setter
-    def provisioned_concurrent_executions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def provisioned_concurrent_executions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "provisioned_concurrent_executions", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda Function version or Lambda Alias name.
 
@@ -171,31 +171,31 @@ class _ProvisionedConcurrencyConfigState:
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
 
@@ -205,11 +205,11 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
@@ -322,11 +322,11 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioned_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioned_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,11 +357,11 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            function_name: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioned_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
-            qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ProvisionedConcurrencyConfig':
+            function_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
+            qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ProvisionedConcurrencyConfig':
         """
         Get an existing ProvisionedConcurrencyConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

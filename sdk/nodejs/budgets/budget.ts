@@ -532,88 +532,88 @@ export interface BudgetState {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the budget.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
-    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
+    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData | undefined>;
     /**
      * ARN of the billing view.
      */
-    billingViewArn?: pulumi.Input<string>;
+    billingViewArn?: pulumi.Input<string | undefined>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
-    budgetType?: pulumi.Input<string>;
+    budgetType?: pulumi.Input<string | undefined>;
     /**
      * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
-    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
+    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[] | undefined>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes | undefined>;
     /**
      * Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      */
-    filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression>;
+    filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression | undefined>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
-    limitAmount?: pulumi.Input<string>;
+    limitAmount?: pulumi.Input<string | undefined>;
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
-    limitUnit?: pulumi.Input<string>;
+    limitUnit?: pulumi.Input<string | undefined>;
     /**
      * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
      */
-    metrics?: pulumi.Input<string>;
+    metrics?: pulumi.Input<string | undefined>;
     /**
      * The name of a budget. Unique within accounts.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The prefix of the name of a budget. Unique within accounts.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[] | undefined>;
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
+    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[] | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
-    timePeriodEnd?: pulumi.Input<string>;
+    timePeriodEnd?: pulumi.Input<string | undefined>;
     /**
      * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      *
      * For more detailed documentation about each argument, refer to the [AWS official
      * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
      */
-    timePeriodStart?: pulumi.Input<string>;
+    timePeriodStart?: pulumi.Input<string | undefined>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      *
      * The following arguments are optional:
      */
-    timeUnit?: pulumi.Input<string>;
+    timeUnit?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -623,15 +623,15 @@ export interface BudgetArgs {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
-    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
+    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData | undefined>;
     /**
      * ARN of the billing view.
      */
-    billingViewArn?: pulumi.Input<string>;
+    billingViewArn?: pulumi.Input<string | undefined>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
@@ -639,58 +639,58 @@ export interface BudgetArgs {
     /**
      * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
-    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
+    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[] | undefined>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes | undefined>;
     /**
      * Object containing Filter Expression to apply to budget. Conflicts with `costFilter` and requires `metrics`.
      */
-    filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression>;
+    filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression | undefined>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
-    limitAmount?: pulumi.Input<string>;
+    limitAmount?: pulumi.Input<string | undefined>;
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      */
-    limitUnit?: pulumi.Input<string>;
+    limitUnit?: pulumi.Input<string | undefined>;
     /**
      * List containing definition for how the budget data is aggregated. Conflicts with `costTypes` and requires `filterExpression`.
      */
-    metrics?: pulumi.Input<string>;
+    metrics?: pulumi.Input<string | undefined>;
     /**
      * The name of a budget. Unique within accounts.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The prefix of the name of a budget. Unique within accounts.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[] | undefined>;
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
+    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[] | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
-    timePeriodEnd?: pulumi.Input<string>;
+    timePeriodEnd?: pulumi.Input<string | undefined>;
     /**
      * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      *
      * For more detailed documentation about each argument, refer to the [AWS official
      * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
      */
-    timePeriodStart?: pulumi.Input<string>;
+    timePeriodStart?: pulumi.Input<string | undefined>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      *

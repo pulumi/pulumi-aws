@@ -122,15 +122,15 @@ export interface GetUserOutputArgs {
     /**
      * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      */
-    accessString?: pulumi.Input<string>;
-    authenticationModes?: pulumi.Input<pulumi.Input<inputs.elasticache.GetUserAuthenticationModeArgs>[]>;
-    engine?: pulumi.Input<string>;
-    noPasswordRequired?: pulumi.Input<boolean>;
-    passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    accessString?: pulumi.Input<string | undefined>;
+    authenticationModes?: pulumi.Input<pulumi.Input<inputs.elasticache.GetUserAuthenticationModeArgs>[] | undefined>;
+    engine?: pulumi.Input<string | undefined>;
+    noPasswordRequired?: pulumi.Input<boolean | undefined>;
+    passwords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the user.
      */
@@ -138,5 +138,5 @@ export interface GetUserOutputArgs {
     /**
      * User name of the user.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

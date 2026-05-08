@@ -43,7 +43,7 @@ class SecurityTokenServicePreferencesArgs:
 @pulumi.input_type
 class _SecurityTokenServicePreferencesState:
     def __init__(__self__, *,
-                 global_endpoint_token_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 global_endpoint_token_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityTokenServicePreferences resources.
 
@@ -54,14 +54,14 @@ class _SecurityTokenServicePreferencesState:
 
     @_builtins.property
     @pulumi.getter(name="globalEndpointTokenVersion")
-    def global_endpoint_token_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_endpoint_token_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
         """
         return pulumi.get(self, "global_endpoint_token_version")
 
     @global_endpoint_token_version.setter
-    def global_endpoint_token_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_endpoint_token_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_endpoint_token_version", value)
 
 
@@ -71,7 +71,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_endpoint_token_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_endpoint_token_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an IAM Security Token Service Preferences resource.
@@ -124,7 +124,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 global_endpoint_token_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_endpoint_token_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -147,7 +147,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            global_endpoint_token_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecurityTokenServicePreferences':
+            global_endpoint_token_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecurityTokenServicePreferences':
         """
         Get an existing SecurityTokenServicePreferences resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

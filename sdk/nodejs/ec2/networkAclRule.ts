@@ -213,15 +213,15 @@ export interface NetworkAclRuleState {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    egress?: pulumi.Input<boolean>;
+    egress?: pulumi.Input<boolean | undefined>;
     /**
      * The from port to match.
      */
-    fromPort?: pulumi.Input<number>;
+    fromPort?: pulumi.Input<number | undefined>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      *
@@ -231,39 +231,39 @@ export interface NetworkAclRuleState {
      *
      * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
-    icmpCode?: pulumi.Input<number>;
+    icmpCode?: pulumi.Input<number | undefined>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
-    icmpType?: pulumi.Input<number>;
+    icmpType?: pulumi.Input<number | undefined>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The ID of the network ACL.
      */
-    networkAclId?: pulumi.Input<string>;
+    networkAclId?: pulumi.Input<string | undefined>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    ruleAction?: pulumi.Input<string>;
+    ruleAction?: pulumi.Input<string | undefined>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    ruleNumber?: pulumi.Input<number>;
+    ruleNumber?: pulumi.Input<number | undefined>;
     /**
      * The to port to match.
      */
-    toPort?: pulumi.Input<number>;
+    toPort?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -273,15 +273,15 @@ export interface NetworkAclRuleArgs {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    egress?: pulumi.Input<boolean>;
+    egress?: pulumi.Input<boolean | undefined>;
     /**
      * The from port to match.
      */
-    fromPort?: pulumi.Input<number>;
+    fromPort?: pulumi.Input<number | undefined>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      *
@@ -291,15 +291,15 @@ export interface NetworkAclRuleArgs {
      *
      * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
-    icmpCode?: pulumi.Input<number>;
+    icmpCode?: pulumi.Input<number | undefined>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
-    icmpType?: pulumi.Input<number>;
+    icmpType?: pulumi.Input<number | undefined>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The ID of the network ACL.
      */
@@ -311,7 +311,7 @@ export interface NetworkAclRuleArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
@@ -323,5 +323,5 @@ export interface NetworkAclRuleArgs {
     /**
      * The to port to match.
      */
-    toPort?: pulumi.Input<number>;
+    toPort?: pulumi.Input<number | undefined>;
 }

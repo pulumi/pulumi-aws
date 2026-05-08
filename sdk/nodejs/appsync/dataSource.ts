@@ -222,59 +222,59 @@ export interface DataSourceState {
     /**
      * API ID for the GraphQL API for the data source.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * ARN
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the data source.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * DynamoDB settings. See `dynamodbConfig` Block for details.
      */
-    dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig>;
+    dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig | undefined>;
     /**
      * Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
      */
-    elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
+    elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig | undefined>;
     /**
      * AWS EventBridge settings. See `eventBridgeConfig` Block for details.
      */
-    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig>;
+    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig | undefined>;
     /**
      * HTTP settings. See `httpConfig` Block for details.
      */
-    httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
+    httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig | undefined>;
     /**
      * AWS Lambda settings. See `lambdaConfig` Block for details.
      */
-    lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
+    lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig | undefined>;
     /**
      * User-supplied name for the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
      */
-    opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
+    opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS RDS settings. See `relationalDatabaseConfig` Block for details.
      */
-    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
+    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
     /**
      * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      */
-    serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -288,47 +288,47 @@ export interface DataSourceArgs {
     /**
      * Description of the data source.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * DynamoDB settings. See `dynamodbConfig` Block for details.
      */
-    dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig>;
+    dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig | undefined>;
     /**
      * Amazon Elasticsearch settings. See `elasticsearchConfig` Block for details.
      */
-    elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
+    elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig | undefined>;
     /**
      * AWS EventBridge settings. See `eventBridgeConfig` Block for details.
      */
-    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig>;
+    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig | undefined>;
     /**
      * HTTP settings. See `httpConfig` Block for details.
      */
-    httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
+    httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig | undefined>;
     /**
      * AWS Lambda settings. See `lambdaConfig` Block for details.
      */
-    lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
+    lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig | undefined>;
     /**
      * User-supplied name for the data source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Amazon OpenSearch Service settings. See `opensearchserviceConfig` Block for details.
      */
-    opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
+    opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS RDS settings. See `relationalDatabaseConfig` Block for details.
      */
-    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
+    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
     /**
      * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      */
-    serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      */

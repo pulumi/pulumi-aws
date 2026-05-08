@@ -116,18 +116,18 @@ export interface ResourceSetState {
     /**
      * ARN of the Resource Set.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */
-    resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[]>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts>;
+    resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[] | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts | undefined>;
 }
 
 /**
@@ -137,11 +137,11 @@ export interface ResourceSetArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */
-    resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[]>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts>;
+    resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[] | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts | undefined>;
 }

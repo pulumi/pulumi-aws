@@ -22,12 +22,12 @@ class MlflowTrackingServerArgs:
                  artifact_store_uri: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  tracking_server_name: pulumi.Input[_builtins.str],
-                 automatic_model_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mlflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracking_server_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracking_server_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MlflowTrackingServer resource.
 
@@ -95,92 +95,92 @@ class MlflowTrackingServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="automaticModelRegistration")
-    def automatic_model_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_model_registration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A list of Member Definitions that contains objects that identify the workers that make up the work team.
         """
         return pulumi.get(self, "automatic_model_registration")
 
     @automatic_model_registration.setter
-    def automatic_model_registration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_model_registration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_model_registration", value)
 
     @_builtins.property
     @pulumi.getter(name="mlflowVersion")
-    def mlflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mlflow_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         """
         return pulumi.get(self, "mlflow_version")
 
     @mlflow_version.setter
-    def mlflow_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mlflow_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mlflow_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingServerSize")
-    def tracking_server_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracking_server_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         """
         return pulumi.get(self, "tracking_server_size")
 
     @tracking_server_size.setter
-    def tracking_server_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracking_server_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracking_server_size", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_window_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
-    def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_window_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
 
 @pulumi.input_type
 class _MlflowTrackingServerState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_model_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mlflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracking_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracking_server_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracking_server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracking_server_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracking_server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MlflowTrackingServer resources.
 
@@ -224,146 +224,146 @@ class _MlflowTrackingServerState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactStoreUri")
-    def artifact_store_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_store_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         """
         return pulumi.get(self, "artifact_store_uri")
 
     @artifact_store_uri.setter
-    def artifact_store_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_store_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_store_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticModelRegistration")
-    def automatic_model_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_model_registration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A list of Member Definitions that contains objects that identify the workers that make up the work team.
         """
         return pulumi.get(self, "automatic_model_registration")
 
     @automatic_model_registration.setter
-    def automatic_model_registration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_model_registration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_model_registration", value)
 
     @_builtins.property
     @pulumi.getter(name="mlflowVersion")
-    def mlflow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mlflow_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         """
         return pulumi.get(self, "mlflow_version")
 
     @mlflow_version.setter
-    def mlflow_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mlflow_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mlflow_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingServerName")
-    def tracking_server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracking_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         """
         return pulumi.get(self, "tracking_server_name")
 
     @tracking_server_name.setter
-    def tracking_server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracking_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracking_server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingServerSize")
-    def tracking_server_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracking_server_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         """
         return pulumi.get(self, "tracking_server_size")
 
     @tracking_server_size.setter
-    def tracking_server_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracking_server_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracking_server_size", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingServerUrl")
-    def tracking_server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracking_server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to connect to the MLflow user interface for the described tracking server.
         """
         return pulumi.get(self, "tracking_server_url")
 
     @tracking_server_url.setter
-    def tracking_server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracking_server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracking_server_url", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_window_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
-    def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_window_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
 
@@ -373,15 +373,15 @@ class MlflowTrackingServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_model_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mlflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracking_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracking_server_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracking_server_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI MLFlow Tracking Server resource.
@@ -468,15 +468,15 @@ class MlflowTrackingServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 automatic_model_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mlflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tracking_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracking_server_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracking_server_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -514,18 +514,18 @@ class MlflowTrackingServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            automatic_model_registration: Optional[pulumi.Input[_builtins.bool]] = None,
-            mlflow_version: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tracking_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tracking_server_size: Optional[pulumi.Input[_builtins.str]] = None,
-            tracking_server_url: Optional[pulumi.Input[_builtins.str]] = None,
-            weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None) -> 'MlflowTrackingServer':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
+            mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tracking_server_size: pulumi.Input[Optional[_builtins.str]] = None,
+            tracking_server_url: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None) -> 'MlflowTrackingServer':
         """
         Get an existing MlflowTrackingServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

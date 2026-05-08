@@ -154,48 +154,48 @@ export interface GrantState {
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      */
-    constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[]>;
+    constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[] | undefined>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      */
-    grantCreationTokens?: pulumi.Input<pulumi.Input<string>[]>;
+    grantCreationTokens?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The unique identifier for the grant.
      */
-    grantId?: pulumi.Input<string>;
+    grantId?: pulumi.Input<string | undefined>;
     /**
      * The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
      */
-    grantToken?: pulumi.Input<string>;
+    grantToken?: pulumi.Input<string | undefined>;
     /**
      * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
-    granteePrincipal?: pulumi.Input<string>;
+    granteePrincipal?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * A friendly name for identifying the grant.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      */
-    operations?: pulumi.Input<pulumi.Input<string>[]>;
+    operations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
-    retireOnDelete?: pulumi.Input<boolean>;
+    retireOnDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
-    retiringPrincipal?: pulumi.Input<string>;
+    retiringPrincipal?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -205,11 +205,11 @@ export interface GrantArgs {
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
      */
-    constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[]>;
+    constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[] | undefined>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
      */
-    grantCreationTokens?: pulumi.Input<pulumi.Input<string>[]>;
+    grantCreationTokens?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
@@ -221,7 +221,7 @@ export interface GrantArgs {
     /**
      * A friendly name for identifying the grant.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      */
@@ -229,14 +229,14 @@ export interface GrantArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      */
-    retireOnDelete?: pulumi.Input<boolean>;
+    retireOnDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
      */
-    retiringPrincipal?: pulumi.Input<string>;
+    retiringPrincipal?: pulumi.Input<string | undefined>;
 }

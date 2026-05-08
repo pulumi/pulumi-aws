@@ -507,137 +507,137 @@ export interface ProjectState {
     /**
      * ARN of the CodeBuild project.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    artifacts?: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
+    artifacts?: pulumi.Input<inputs.codebuild.ProjectArtifacts | undefined>;
     /**
      * Specify a maximum number of additional automatic retries after a failed build.
      * The default is 0.
      */
-    autoRetryLimit?: pulumi.Input<number>;
+    autoRetryLimit?: pulumi.Input<number | undefined>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.
      */
-    badgeEnabled?: pulumi.Input<boolean>;
+    badgeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * URL of the build badge when `badgeEnabled` is enabled.
      */
-    badgeUrl?: pulumi.Input<string>;
+    badgeUrl?: pulumi.Input<string | undefined>;
     /**
      * Defines the batch build options for the project.
      */
-    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig | undefined>;
     /**
      * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
      * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
      * not available on the `Lambda` compute type.
      */
-    buildTimeout?: pulumi.Input<number>;
+    buildTimeout?: pulumi.Input<number | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    cache?: pulumi.Input<inputs.codebuild.ProjectCache | undefined>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value
      * specified must be greater than 0 and less than the account concurrent running builds limit.
      */
-    concurrentBuildLimit?: pulumi.Input<number>;
+    concurrentBuildLimit?: pulumi.Input<number | undefined>;
     /**
      * Short description of the project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
+    environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment | undefined>;
     /**
      * A set of file system locations to mount inside the build. File system locations
      * are documented below.
      */
-    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
+    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
+    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig | undefined>;
     /**
      * Project's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
      * and `PRIVATE`. Default value is `PRIVATE`.
      */
-    projectVisibility?: pulumi.Input<string>;
+    projectVisibility?: pulumi.Input<string | undefined>;
     /**
      * The project identifier used with the public build APIs.
      */
-    publicProjectAlias?: pulumi.Input<string>;
+    publicProjectAlias?: pulumi.Input<string | undefined>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
      * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
-    queuedTimeout?: pulumi.Input<number>;
+    queuedTimeout?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
      * `projectVisibility` is `PUBLIC_READ`.
      */
-    resourceAccessRole?: pulumi.Input<string>;
+    resourceAccessRole?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[]>;
+    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
+    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
-    serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. Detailed below.
      *
      * The following arguments are optional:
      */
-    source?: pulumi.Input<inputs.codebuild.ProjectSource>;
+    source?: pulumi.Input<inputs.codebuild.ProjectSource | undefined>;
     /**
      * Version of the build input to be built for this project. If not specified, the latest
      * version is used.
      */
-    sourceVersion?: pulumi.Input<string>;
+    sourceVersion?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider 
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider 
      * `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig | undefined>;
 }
 
 /**
@@ -652,40 +652,40 @@ export interface ProjectArgs {
      * Specify a maximum number of additional automatic retries after a failed build.
      * The default is 0.
      */
-    autoRetryLimit?: pulumi.Input<number>;
+    autoRetryLimit?: pulumi.Input<number | undefined>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as
      * `badgeUrl` attribute when enabled.
      */
-    badgeEnabled?: pulumi.Input<boolean>;
+    badgeEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Defines the batch build options for the project.
      */
-    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig | undefined>;
     /**
      * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
      * any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is
      * not available on the `Lambda` compute type.
      */
-    buildTimeout?: pulumi.Input<number>;
+    buildTimeout?: pulumi.Input<number | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    cache?: pulumi.Input<inputs.codebuild.ProjectCache | undefined>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value
      * specified must be greater than 0 and less than the account concurrent running builds limit.
      */
-    concurrentBuildLimit?: pulumi.Input<number>;
+    concurrentBuildLimit?: pulumi.Input<number | undefined>;
     /**
      * Short description of the project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
@@ -694,47 +694,47 @@ export interface ProjectArgs {
      * A set of file system locations to mount inside the build. File system locations
      * are documented below.
      */
-    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
+    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
+    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig | undefined>;
     /**
      * Project's name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
      * and `PRIVATE`. Default value is `PRIVATE`.
      */
-    projectVisibility?: pulumi.Input<string>;
+    projectVisibility?: pulumi.Input<string | undefined>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
      * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
-    queuedTimeout?: pulumi.Input<number>;
+    queuedTimeout?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
      * `projectVisibility` is `PUBLIC_READ`.
      */
-    resourceAccessRole?: pulumi.Input<string>;
+    resourceAccessRole?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[]>;
+    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
+    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
@@ -750,15 +750,15 @@ export interface ProjectArgs {
      * Version of the build input to be built for this project. If not specified, the latest
      * version is used.
      */
-    sourceVersion?: pulumi.Input<string>;
+    sourceVersion?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider 
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig | undefined>;
 }

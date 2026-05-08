@@ -262,9 +262,9 @@ def get_stream(name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_stream_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
     Use this data source to get information about a Kinesis Stream for use in other

@@ -23,9 +23,9 @@ class ConnectionFunctionArgs:
     def __init__(__self__, *,
                  connection_function_code: pulumi.Input[_builtins.str],
                  connection_function_config: pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectionFunction resource.
 
@@ -72,7 +72,7 @@ class ConnectionFunctionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
 
@@ -81,47 +81,47 @@ class ConnectionFunctionArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def publish(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
         """
         return pulumi.get(self, "publish")
 
     @publish.setter
-    def publish(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ConnectionFunctionState:
     def __init__(__self__, *,
-                 connection_function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_config: Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 live_stage_etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 connection_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_config: pulumi.Input[Optional['ConnectionFunctionConnectionFunctionConfigArgs']] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 live_stage_etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConnectionFunction resources.
 
@@ -161,67 +161,67 @@ class _ConnectionFunctionState:
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionArn")
-    def connection_function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the connection function.
         """
         return pulumi.get(self, "connection_function_arn")
 
     @connection_function_arn.setter
-    def connection_function_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_function_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_function_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionCode")
-    def connection_function_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_function_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Code for the connection function. Maximum length is 40960 characters.
         """
         return pulumi.get(self, "connection_function_code")
 
     @connection_function_code.setter
-    def connection_function_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_function_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_function_code", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionConfig")
-    def connection_function_config(self) -> Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']]:
+    def connection_function_config(self) -> pulumi.Input[Optional['ConnectionFunctionConnectionFunctionConfigArgs']]:
         """
         Configuration information for the connection function. See `connection_function_config` below.
         """
         return pulumi.get(self, "connection_function_config")
 
     @connection_function_config.setter
-    def connection_function_config(self, value: Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']]):
+    def connection_function_config(self, value: pulumi.Input[Optional['ConnectionFunctionConnectionFunctionConfigArgs']]):
         pulumi.set(self, "connection_function_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ETag of the connection function.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="liveStageEtag")
-    def live_stage_etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def live_stage_etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ETag of the function's LIVE stage. Will be empty if the function has not been published.
         """
         return pulumi.get(self, "live_stage_etag")
 
     @live_stage_etag.setter
-    def live_stage_etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def live_stage_etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "live_stage_etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
 
@@ -230,55 +230,55 @@ class _ConnectionFunctionState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def publish(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
         """
         return pulumi.get(self, "publish")
 
     @publish.setter
-    def publish(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the connection function.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -288,11 +288,11 @@ class ConnectionFunction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_function_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_config: Optional[pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an AWS CloudFront Connection Function.
@@ -495,11 +495,11 @@ class ConnectionFunction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_function_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_config: Optional[pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -533,16 +533,16 @@ class ConnectionFunction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_function_code: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_function_config: Optional[pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            live_stage_etag: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            publish: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConnectionFunction':
+            connection_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            live_stage_etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConnectionFunction':
         """
         Get an existing ConnectionFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

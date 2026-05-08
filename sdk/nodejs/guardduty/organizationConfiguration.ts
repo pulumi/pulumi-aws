@@ -143,7 +143,7 @@ export interface OrganizationConfigurationState {
      * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
      * Valid values are `ALL`, `NEW`, `NONE`.
      */
-    autoEnableOrganizationMembers?: pulumi.Input<string>;
+    autoEnableOrganizationMembers?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      *
@@ -151,15 +151,15 @@ export interface OrganizationConfigurationState {
      *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
-    datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
+    datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources | undefined>;
     /**
      * The detector ID of the GuardDuty account.
      */
-    detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface OrganizationConfigurationArgs {
      *
      * @deprecated datasources is deprecated. Use "aws.guardduty.OrganizationConfigurationFeature" resources instead.
      */
-    datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
+    datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources | undefined>;
     /**
      * The detector ID of the GuardDuty account.
      */
@@ -186,5 +186,5 @@ export interface OrganizationConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

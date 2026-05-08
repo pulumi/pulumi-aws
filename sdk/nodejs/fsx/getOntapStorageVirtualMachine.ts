@@ -169,16 +169,16 @@ export interface GetOntapStorageVirtualMachineOutputArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachineFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachineFilterArgs>[] | undefined>;
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
      *
      * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -128,31 +128,31 @@ export interface ThingState {
     /**
      * The ARN of the thing.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Map of attributes of the thing.
      */
-    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The default client ID.
      */
-    defaultClientId?: pulumi.Input<string>;
+    defaultClientId?: pulumi.Input<string | undefined>;
     /**
      * The name of the thing.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The thing type name.
      */
-    thingTypeName?: pulumi.Input<string>;
+    thingTypeName?: pulumi.Input<string | undefined>;
     /**
      * The current version of the thing record in the registry.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -162,17 +162,17 @@ export interface ThingArgs {
     /**
      * Map of attributes of the thing.
      */
-    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the thing.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The thing type name.
      */
-    thingTypeName?: pulumi.Input<string>;
+    thingTypeName?: pulumi.Input<string | undefined>;
 }

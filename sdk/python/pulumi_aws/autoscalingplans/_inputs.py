@@ -34,11 +34,11 @@ __all__ = [
 ]
 
 class ScalingPlanApplicationSourceArgsDict(TypedDict):
-    cloudformation_stack_arn: NotRequired[pulumi.Input[_builtins.str]]
+    cloudformation_stack_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of a AWS CloudFormation stack.
     """
-    tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgsDict']]]]
+    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]]]
     """
     Set of tags.
     """
@@ -46,8 +46,8 @@ class ScalingPlanApplicationSourceArgsDict(TypedDict):
 @pulumi.input_type
 class ScalingPlanApplicationSourceArgs:
     def __init__(__self__, *,
-                 cloudformation_stack_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]] = None):
+                 cloudformation_stack_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] cloudformation_stack_arn: ARN of a AWS CloudFormation stack.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]] tag_filters: Set of tags.
@@ -59,26 +59,26 @@ class ScalingPlanApplicationSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudformationStackArn")
-    def cloudformation_stack_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudformation_stack_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a AWS CloudFormation stack.
         """
         return pulumi.get(self, "cloudformation_stack_arn")
 
     @cloudformation_stack_arn.setter
-    def cloudformation_stack_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudformation_stack_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudformation_stack_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]]:
+    def tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]]:
         """
         Set of tags.
         """
         return pulumi.get(self, "tag_filters")
 
     @tag_filters.setter
-    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]]):
+    def tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]]):
         pulumi.set(self, "tag_filters", value)
 
 
@@ -87,7 +87,7 @@ class ScalingPlanApplicationSourceTagFilterArgsDict(TypedDict):
     """
     Tag key.
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Tag values.
     """
@@ -96,7 +96,7 @@ class ScalingPlanApplicationSourceTagFilterArgsDict(TypedDict):
 class ScalingPlanApplicationSourceTagFilterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: Tag key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Tag values.
@@ -119,14 +119,14 @@ class ScalingPlanApplicationSourceTagFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tag values.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -156,38 +156,38 @@ class ScalingPlanScalingInstructionArgsDict(TypedDict):
     Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
     """
-    customized_load_metric_specification: NotRequired[pulumi.Input['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgsDict']]
+    customized_load_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']]]
     """
     Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
     """
-    disable_dynamic_scaling: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_dynamic_scaling: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
     """
-    predefined_load_metric_specification: NotRequired[pulumi.Input['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgsDict']]
+    predefined_load_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']]]
     """
     Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
     """
-    predictive_scaling_max_capacity_behavior: NotRequired[pulumi.Input[_builtins.str]]
+    predictive_scaling_max_capacity_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
     Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
     """
-    predictive_scaling_max_capacity_buffer: NotRequired[pulumi.Input[_builtins.int]]
+    predictive_scaling_max_capacity_buffer: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
     """
-    predictive_scaling_mode: NotRequired[pulumi.Input[_builtins.str]]
+    predictive_scaling_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
     """
-    scaling_policy_update_behavior: NotRequired[pulumi.Input[_builtins.str]]
+    scaling_policy_update_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
     """
-    scheduled_action_buffer_time: NotRequired[pulumi.Input[_builtins.int]]
+    scheduled_action_buffer_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
     """
@@ -201,14 +201,14 @@ class ScalingPlanScalingInstructionArgs:
                  scalable_dimension: pulumi.Input[_builtins.str],
                  service_namespace: pulumi.Input[_builtins.str],
                  target_tracking_configurations: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationArgs']]],
-                 customized_load_metric_specification: Optional[pulumi.Input['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']] = None,
-                 disable_dynamic_scaling: Optional[pulumi.Input[_builtins.bool]] = None,
-                 predefined_load_metric_specification: Optional[pulumi.Input['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']] = None,
-                 predictive_scaling_max_capacity_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 predictive_scaling_max_capacity_buffer: Optional[pulumi.Input[_builtins.int]] = None,
-                 predictive_scaling_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_policy_update_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_action_buffer_time: Optional[pulumi.Input[_builtins.int]] = None):
+                 customized_load_metric_specification: pulumi.Input[Optional['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']] = None,
+                 disable_dynamic_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
+                 predefined_load_metric_specification: pulumi.Input[Optional['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']] = None,
+                 predictive_scaling_max_capacity_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 predictive_scaling_max_capacity_buffer: pulumi.Input[Optional[_builtins.int]] = None,
+                 predictive_scaling_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_policy_update_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_action_buffer_time: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_capacity: Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
         :param pulumi.Input[_builtins.int] min_capacity: Minimum capacity of the resource.
@@ -327,7 +327,7 @@ class ScalingPlanScalingInstructionArgs:
 
     @_builtins.property
     @pulumi.getter(name="customizedLoadMetricSpecification")
-    def customized_load_metric_specification(self) -> Optional[pulumi.Input['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']]:
+    def customized_load_metric_specification(self) -> pulumi.Input[Optional['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']]:
         """
         Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
@@ -335,24 +335,24 @@ class ScalingPlanScalingInstructionArgs:
         return pulumi.get(self, "customized_load_metric_specification")
 
     @customized_load_metric_specification.setter
-    def customized_load_metric_specification(self, value: Optional[pulumi.Input['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']]):
+    def customized_load_metric_specification(self, value: pulumi.Input[Optional['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']]):
         pulumi.set(self, "customized_load_metric_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="disableDynamicScaling")
-    def disable_dynamic_scaling(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_dynamic_scaling(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disable_dynamic_scaling")
 
     @disable_dynamic_scaling.setter
-    def disable_dynamic_scaling(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_dynamic_scaling(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_dynamic_scaling", value)
 
     @_builtins.property
     @pulumi.getter(name="predefinedLoadMetricSpecification")
-    def predefined_load_metric_specification(self) -> Optional[pulumi.Input['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']]:
+    def predefined_load_metric_specification(self) -> pulumi.Input[Optional['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']]:
         """
         Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
@@ -360,12 +360,12 @@ class ScalingPlanScalingInstructionArgs:
         return pulumi.get(self, "predefined_load_metric_specification")
 
     @predefined_load_metric_specification.setter
-    def predefined_load_metric_specification(self, value: Optional[pulumi.Input['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']]):
+    def predefined_load_metric_specification(self, value: pulumi.Input[Optional['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']]):
         pulumi.set(self, "predefined_load_metric_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveScalingMaxCapacityBehavior")
-    def predictive_scaling_max_capacity_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def predictive_scaling_max_capacity_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
         Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
@@ -373,55 +373,55 @@ class ScalingPlanScalingInstructionArgs:
         return pulumi.get(self, "predictive_scaling_max_capacity_behavior")
 
     @predictive_scaling_max_capacity_behavior.setter
-    def predictive_scaling_max_capacity_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def predictive_scaling_max_capacity_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "predictive_scaling_max_capacity_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveScalingMaxCapacityBuffer")
-    def predictive_scaling_max_capacity_buffer(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def predictive_scaling_max_capacity_buffer(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
         """
         return pulumi.get(self, "predictive_scaling_max_capacity_buffer")
 
     @predictive_scaling_max_capacity_buffer.setter
-    def predictive_scaling_max_capacity_buffer(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def predictive_scaling_max_capacity_buffer(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "predictive_scaling_max_capacity_buffer", value)
 
     @_builtins.property
     @pulumi.getter(name="predictiveScalingMode")
-    def predictive_scaling_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def predictive_scaling_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
         """
         return pulumi.get(self, "predictive_scaling_mode")
 
     @predictive_scaling_mode.setter
-    def predictive_scaling_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def predictive_scaling_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "predictive_scaling_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicyUpdateBehavior")
-    def scaling_policy_update_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_policy_update_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
         """
         return pulumi.get(self, "scaling_policy_update_behavior")
 
     @scaling_policy_update_behavior.setter
-    def scaling_policy_update_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_policy_update_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_policy_update_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledActionBufferTime")
-    def scheduled_action_buffer_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scheduled_action_buffer_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
         """
         return pulumi.get(self, "scheduled_action_buffer_time")
 
     @scheduled_action_buffer_time.setter
-    def scheduled_action_buffer_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scheduled_action_buffer_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scheduled_action_buffer_time", value)
 
 
@@ -438,11 +438,11 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgsDict(Typ
     """
     Statistic of the metric. Currently, the value must always be `Sum`.
     """
-    dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Dimensions of the metric.
     """
-    unit: NotRequired[pulumi.Input[_builtins.str]]
+    unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the metric.
     """
@@ -453,8 +453,8 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs:
                  metric_name: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  statistic: pulumi.Input[_builtins.str],
-                 dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 dimensions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
         :param pulumi.Input[_builtins.str] namespace: Namespace of the metric.
@@ -508,26 +508,26 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dimensions of the metric.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the metric.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -536,7 +536,7 @@ class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgsDict(Typ
     """
     Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
     """
-    resource_label: NotRequired[pulumi.Input[_builtins.str]]
+    resource_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifies the resource associated with the metric type.
     """
@@ -545,7 +545,7 @@ class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgsDict(Typ
 class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs:
     def __init__(__self__, *,
                  predefined_load_metric_type: pulumi.Input[_builtins.str],
-                 resource_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] predefined_load_metric_type: Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
         :param pulumi.Input[_builtins.str] resource_label: Identifies the resource associated with the metric type.
@@ -568,14 +568,14 @@ class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceLabel")
-    def resource_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the resource associated with the metric type.
         """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
-    def resource_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_label", value)
 
 
@@ -584,31 +584,31 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgsDict(TypedDict
     """
     Target value for the metric.
     """
-    customized_scaling_metric_specification: NotRequired[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgsDict']]
+    customized_scaling_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']]]
     """
     Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
     """
-    disable_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_scale_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
     """
-    estimated_instance_warmup: NotRequired[pulumi.Input[_builtins.int]]
+    estimated_instance_warmup: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
     This value is used only if the resource is an Auto Scaling group.
     """
-    predefined_scaling_metric_specification: NotRequired[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgsDict']]
+    predefined_scaling_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']]]
     """
     Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
     """
-    scale_in_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    scale_in_cooldown: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
     This value is not used if the scalable resource is an Auto Scaling group.
     """
-    scale_out_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    scale_out_cooldown: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
     This value is not used if the scalable resource is an Auto Scaling group.
@@ -618,12 +618,12 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgsDict(TypedDict
 class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs:
     def __init__(__self__, *,
                  target_value: pulumi.Input[_builtins.float],
-                 customized_scaling_metric_specification: Optional[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']] = None,
-                 disable_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 estimated_instance_warmup: Optional[pulumi.Input[_builtins.int]] = None,
-                 predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']] = None,
-                 scale_in_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale_out_cooldown: Optional[pulumi.Input[_builtins.int]] = None):
+                 customized_scaling_metric_specification: pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']] = None,
+                 disable_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 estimated_instance_warmup: pulumi.Input[Optional[_builtins.int]] = None,
+                 predefined_scaling_metric_specification: pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']] = None,
+                 scale_in_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale_out_cooldown: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.float] target_value: Target value for the metric.
         :param pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs'] customized_scaling_metric_specification: Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
@@ -666,7 +666,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customizedScalingMetricSpecification")
-    def customized_scaling_metric_specification(self) -> Optional[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']]:
+    def customized_scaling_metric_specification(self) -> pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']]:
         """
         Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
@@ -674,24 +674,24 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs:
         return pulumi.get(self, "customized_scaling_metric_specification")
 
     @customized_scaling_metric_specification.setter
-    def customized_scaling_metric_specification(self, value: Optional[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']]):
+    def customized_scaling_metric_specification(self, value: pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']]):
         pulumi.set(self, "customized_scaling_metric_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="disableScaleIn")
-    def disable_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disable_scale_in")
 
     @disable_scale_in.setter
-    def disable_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_scale_in", value)
 
     @_builtins.property
     @pulumi.getter(name="estimatedInstanceWarmup")
-    def estimated_instance_warmup(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def estimated_instance_warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
         This value is used only if the resource is an Auto Scaling group.
@@ -699,12 +699,12 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs:
         return pulumi.get(self, "estimated_instance_warmup")
 
     @estimated_instance_warmup.setter
-    def estimated_instance_warmup(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def estimated_instance_warmup(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "estimated_instance_warmup", value)
 
     @_builtins.property
     @pulumi.getter(name="predefinedScalingMetricSpecification")
-    def predefined_scaling_metric_specification(self) -> Optional[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']]:
+    def predefined_scaling_metric_specification(self) -> pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']]:
         """
         Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
         More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
@@ -712,12 +712,12 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs:
         return pulumi.get(self, "predefined_scaling_metric_specification")
 
     @predefined_scaling_metric_specification.setter
-    def predefined_scaling_metric_specification(self, value: Optional[pulumi.Input['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']]):
+    def predefined_scaling_metric_specification(self, value: pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']]):
         pulumi.set(self, "predefined_scaling_metric_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleInCooldown")
-    def scale_in_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_in_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         This value is not used if the scalable resource is an Auto Scaling group.
@@ -725,12 +725,12 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs:
         return pulumi.get(self, "scale_in_cooldown")
 
     @scale_in_cooldown.setter
-    def scale_in_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_in_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_in_cooldown", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleOutCooldown")
-    def scale_out_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_out_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
         This value is not used if the scalable resource is an Auto Scaling group.
@@ -738,7 +738,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs:
         return pulumi.get(self, "scale_out_cooldown")
 
     @scale_out_cooldown.setter
-    def scale_out_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_out_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_out_cooldown", value)
 
 
@@ -755,11 +755,11 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
     """
     Statistic of the metric. Valid values: `Average`, `Maximum`, `Minimum`, `SampleCount`, `Sum`.
     """
-    dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Dimensions of the metric.
     """
-    unit: NotRequired[pulumi.Input[_builtins.str]]
+    unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unit of the metric.
     """
@@ -770,8 +770,8 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
                  metric_name: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  statistic: pulumi.Input[_builtins.str],
-                 dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None):
+                 dimensions: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] metric_name: Name of the metric.
         :param pulumi.Input[_builtins.str] namespace: Namespace of the metric.
@@ -825,26 +825,26 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dimensions of the metric.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of the metric.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
 
@@ -853,7 +853,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingM
     """
     Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
     """
-    resource_label: NotRequired[pulumi.Input[_builtins.str]]
+    resource_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifies the resource associated with the metric type.
     """
@@ -862,7 +862,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingM
 class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs:
     def __init__(__self__, *,
                  predefined_scaling_metric_type: pulumi.Input[_builtins.str],
-                 resource_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] predefined_scaling_metric_type: Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
         :param pulumi.Input[_builtins.str] resource_label: Identifies the resource associated with the metric type.
@@ -885,14 +885,14 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingM
 
     @_builtins.property
     @pulumi.getter(name="resourceLabel")
-    def resource_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the resource associated with the metric type.
         """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
-    def resource_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_label", value)
 
 

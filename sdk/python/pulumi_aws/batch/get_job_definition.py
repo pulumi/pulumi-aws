@@ -262,11 +262,11 @@ def get_job_definition(arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeouts=pulumi.get(__ret__, 'timeouts'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_definition_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              revision: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                              status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_job_definition_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              revision: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                              status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Data source for managing an AWS Batch Job Definition.

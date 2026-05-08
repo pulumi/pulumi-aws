@@ -77,8 +77,8 @@ public final class ConnectFunctions {
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -123,8 +123,8 @@ public final class ConnectFunctions {
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class ConnectFunctions {
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -215,8 +215,8 @@ public final class ConnectFunctions {
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -261,8 +261,8 @@ public final class ConnectFunctions {
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
      * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -306,8 +306,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -340,8 +340,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -383,8 +383,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -460,8 +460,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -494,8 +494,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -537,8 +537,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -571,8 +571,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -614,8 +614,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -648,8 +648,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -691,8 +691,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -725,8 +725,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -768,8 +768,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -802,8 +802,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -845,8 +845,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -879,8 +879,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -922,8 +922,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -956,8 +956,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -999,8 +999,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1033,8 +1033,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1076,8 +1076,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1110,8 +1110,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1153,8 +1153,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1187,8 +1187,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1230,8 +1230,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1264,8 +1264,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1307,8 +1307,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1341,8 +1341,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1384,8 +1384,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1418,8 +1418,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1461,8 +1461,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1494,8 +1494,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1536,8 +1536,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1569,8 +1569,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1611,8 +1611,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1644,8 +1644,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1686,8 +1686,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1719,8 +1719,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1761,8 +1761,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1794,8 +1794,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1836,8 +1836,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1869,8 +1869,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1911,8 +1911,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1944,8 +1944,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1984,8 +1984,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2026,8 +2026,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2068,8 +2068,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2110,8 +2110,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2152,8 +2152,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetInstanceStorageConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2194,8 +2194,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2235,8 +2235,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2276,8 +2276,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2317,8 +2317,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2358,8 +2358,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2401,8 +2401,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetPromptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2444,8 +2444,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetPromptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2487,8 +2487,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetPromptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2530,8 +2530,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetPromptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2573,8 +2573,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetPromptArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2616,8 +2616,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2650,8 +2650,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2693,8 +2693,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2727,8 +2727,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2770,8 +2770,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2804,8 +2804,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2847,8 +2847,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2881,8 +2881,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2924,8 +2924,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2958,8 +2958,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQueueArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3001,8 +3001,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3035,8 +3035,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3078,8 +3078,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3112,8 +3112,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3155,8 +3155,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3189,8 +3189,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3232,8 +3232,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3266,8 +3266,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3309,8 +3309,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3343,8 +3343,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3386,8 +3386,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3420,8 +3420,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3463,8 +3463,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3497,8 +3497,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3540,8 +3540,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3574,8 +3574,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3617,8 +3617,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3651,8 +3651,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3694,8 +3694,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3728,8 +3728,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3771,8 +3771,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3805,8 +3805,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3848,8 +3848,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3882,8 +3882,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3925,8 +3925,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3959,8 +3959,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4002,8 +4002,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4036,8 +4036,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4079,8 +4079,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4113,8 +4113,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4156,8 +4156,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4190,8 +4190,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4233,8 +4233,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4267,8 +4267,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4310,8 +4310,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4344,8 +4344,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4387,8 +4387,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4421,8 +4421,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4464,8 +4464,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4498,8 +4498,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4541,8 +4541,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4575,8 +4575,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4618,8 +4618,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4652,8 +4652,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4695,8 +4695,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4729,8 +4729,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4772,8 +4772,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4806,8 +4806,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4849,8 +4849,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4883,8 +4883,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4924,8 +4924,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4964,8 +4964,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5004,8 +5004,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5044,8 +5044,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5084,8 +5084,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5126,8 +5126,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5160,8 +5160,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5203,8 +5203,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5237,8 +5237,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5280,8 +5280,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5314,8 +5314,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5357,8 +5357,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5391,8 +5391,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5434,8 +5434,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5468,8 +5468,8 @@ public final class ConnectFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.connect.ConnectFunctions;
      * import com.pulumi.aws.connect.inputs.GetVocabularyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

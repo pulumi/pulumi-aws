@@ -96,55 +96,55 @@ class CertificateAuthorityCertificateAuthorityConfigurationArgs:
 
 
 class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgsDict(TypedDict):
-    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
     """
-    country: NotRequired[pulumi.Input[_builtins.str]]
+    country: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
     """
-    distinguished_name_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    distinguished_name_qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
     """
-    generation_qualifier: NotRequired[pulumi.Input[_builtins.str]]
+    generation_qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
     """
-    given_name: NotRequired[pulumi.Input[_builtins.str]]
+    given_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     First name. Must be less than or equal to 16 characters in length.
     """
-    initials: NotRequired[pulumi.Input[_builtins.str]]
+    initials: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
     """
-    locality: NotRequired[pulumi.Input[_builtins.str]]
+    locality: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
     """
-    organization: NotRequired[pulumi.Input[_builtins.str]]
+    organization: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
     """
-    organizational_unit: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
     """
-    pseudonym: NotRequired[pulumi.Input[_builtins.str]]
+    pseudonym: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
     """
-    state: NotRequired[pulumi.Input[_builtins.str]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
     """
-    surname: NotRequired[pulumi.Input[_builtins.str]]
+    surname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
     """
-    title: NotRequired[pulumi.Input[_builtins.str]]
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
     """
@@ -152,19 +152,19 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgsDict(Typed
 @pulumi.input_type
 class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
     def __init__(__self__, *,
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 distinguished_name_qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 generation_qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 given_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initials: Optional[pulumi.Input[_builtins.str]] = None,
-                 locality: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 pseudonym: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 surname: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 distinguished_name_qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation_qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 given_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initials: pulumi.Input[Optional[_builtins.str]] = None,
+                 locality: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 pseudonym: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 surname: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] common_name: Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
         :param pulumi.Input[_builtins.str] country: Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
@@ -209,167 +209,167 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "common_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="distinguishedNameQualifier")
-    def distinguished_name_qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distinguished_name_qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
-    def distinguished_name_qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distinguished_name_qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distinguished_name_qualifier", value)
 
     @_builtins.property
     @pulumi.getter(name="generationQualifier")
-    def generation_qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generation_qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
         """
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
-    def generation_qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generation_qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generation_qualifier", value)
 
     @_builtins.property
     @pulumi.getter(name="givenName")
-    def given_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def given_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name. Must be less than or equal to 16 characters in length.
         """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
-    def given_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def given_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "given_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def initials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
         """
         return pulumi.get(self, "initials")
 
     @initials.setter
-    def initials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initials", value)
 
     @_builtins.property
     @pulumi.getter
-    def locality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locality(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "locality")
 
     @locality.setter
-    def locality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locality", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnit")
-    def organizational_unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
-    def organizational_unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def pseudonym(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pseudonym(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
-    def pseudonym(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pseudonym(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pseudonym", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def surname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def surname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
         """
         return pulumi.get(self, "surname")
 
     @surname.setter
-    def surname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def surname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "surname", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
 class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
-    crl_configuration: NotRequired[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict']]
+    crl_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]]
     """
     Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
     """
-    ocsp_configuration: NotRequired[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict']]
+    ocsp_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]]
     """
     Nested argument containing configuration of
     the custom OCSP responder endpoint. Defined below.
@@ -378,8 +378,8 @@ class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationArgs:
     def __init__(__self__, *,
-                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']] = None,
-                 ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']] = None):
+                 crl_configuration: pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']] = None,
+                 ocsp_configuration: pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']] = None):
         """
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs'] crl_configuration: Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs'] ocsp_configuration: Nested argument containing configuration of
@@ -392,19 +392,19 @@ class CertificateAuthorityRevocationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crlConfiguration")
-    def crl_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]:
+    def crl_configuration(self) -> pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]:
         """
         Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
         """
         return pulumi.get(self, "crl_configuration")
 
     @crl_configuration.setter
-    def crl_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]):
+    def crl_configuration(self, value: pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]):
         pulumi.set(self, "crl_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="ocspConfiguration")
-    def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]:
+    def ocsp_configuration(self) -> pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]:
         """
         Nested argument containing configuration of
         the custom OCSP responder endpoint. Defined below.
@@ -412,32 +412,32 @@ class CertificateAuthorityRevocationConfigurationArgs:
         return pulumi.get(self, "ocsp_configuration")
 
     @ocsp_configuration.setter
-    def ocsp_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]):
+    def ocsp_configuration(self, value: pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]):
         pulumi.set(self, "ocsp_configuration", value)
 
 
 class CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict(TypedDict):
-    custom_cname: NotRequired[pulumi.Input[_builtins.str]]
+    custom_cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
     """
-    custom_path: NotRequired[pulumi.Input[_builtins.str]]
+    custom_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
     """
-    expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    expiration_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of days until a certificate expires. Must be between 1 and 5000.
     """
-    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
     """
-    s3_object_acl: NotRequired[pulumi.Input[_builtins.str]]
+    s3_object_acl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
     """
@@ -445,12 +445,12 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict(TypedD
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     def __init__(__self__, *,
-                 custom_cname: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiration_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_acl: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_cname: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiration_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_acl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         :param pulumi.Input[_builtins.str] custom_path: Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
@@ -474,74 +474,74 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="customCname")
-    def custom_cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         """
         return pulumi.get(self, "custom_cname")
 
     @custom_cname.setter
-    def custom_cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_cname", value)
 
     @_builtins.property
     @pulumi.getter(name="customPath")
-    def custom_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
         """
         return pulumi.get(self, "custom_path")
 
     @custom_path.setter
-    def custom_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiration_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days until a certificate expires. Must be between 1 and 5000.
         """
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
-    def expiration_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiration_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiration_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
-    def s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectAcl")
-    def s3_object_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
         """
         return pulumi.get(self, "s3_object_acl")
 
     @s3_object_acl.setter
-    def s3_object_acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_acl", value)
 
 
@@ -550,7 +550,7 @@ class CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict(Typed
     """
     Boolean value that specifies whether a custom OCSP responder is enabled.
     """
-    ocsp_custom_cname: NotRequired[pulumi.Input[_builtins.str]]
+    ocsp_custom_cname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
     """
@@ -559,7 +559,7 @@ class CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict(Typed
 class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 ocsp_custom_cname: Optional[pulumi.Input[_builtins.str]] = None):
+                 ocsp_custom_cname: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param pulumi.Input[_builtins.str] ocsp_custom_cname: CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
@@ -582,14 +582,14 @@ class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ocspCustomCname")
-    def ocsp_custom_cname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocsp_custom_cname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         """
         return pulumi.get(self, "ocsp_custom_cname")
 
     @ocsp_custom_cname.setter
-    def ocsp_custom_cname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocsp_custom_cname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocsp_custom_cname", value)
 
 

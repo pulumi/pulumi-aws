@@ -140,9 +140,9 @@ def get_group_memberships(group_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_group_memberships_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_group_memberships_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMembershipsResult]:
     """
     Use this data source to get a list of members in an Identity Store Group.

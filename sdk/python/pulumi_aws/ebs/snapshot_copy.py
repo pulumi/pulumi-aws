@@ -21,15 +21,15 @@ class SnapshotCopyArgs:
     def __init__(__self__, *,
                  source_region: pulumi.Input[_builtins.str],
                  source_snapshot_id: pulumi.Input[_builtins.str],
-                 completion_duration_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permanent_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 completion_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_restore_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
 
@@ -92,135 +92,135 @@ class SnapshotCopyArgs:
 
     @_builtins.property
     @pulumi.getter(name="completionDurationMinutes")
-    def completion_duration_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def completion_duration_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         """
         return pulumi.get(self, "completion_duration_minutes")
 
     @completion_duration_minutes.setter
-    def completion_duration_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def completion_duration_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "completion_duration_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of what the snapshot is.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="permanentRestore")
-    def permanent_restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def permanent_restore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to permanently restore an archived snapshot.
         """
         return pulumi.get(self, "permanent_restore")
 
     @permanent_restore.setter
-    def permanent_restore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def permanent_restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "permanent_restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="storageTier")
-    def storage_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         """
         return pulumi.get(self, "storage_tier")
 
     @storage_tier.setter
-    def storage_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags for the snapshot.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryRestoreDays")
-    def temporary_restore_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def temporary_restore_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         return pulumi.get(self, "temporary_restore_days")
 
     @temporary_restore_days.setter
-    def temporary_restore_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def temporary_restore_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "temporary_restore_days", value)
 
 
 @pulumi.input_type
 class _SnapshotCopyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 completion_duration_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_encryption_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permanent_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 completion_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_restore_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
 
@@ -283,224 +283,224 @@ class _SnapshotCopyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="completionDurationMinutes")
-    def completion_duration_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def completion_duration_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         """
         return pulumi.get(self, "completion_duration_minutes")
 
     @completion_duration_minutes.setter
-    def completion_duration_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def completion_duration_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "completion_duration_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="dataEncryptionKeyId")
-    def data_encryption_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_encryption_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data encryption key identifier for the snapshot.
         """
         return pulumi.get(self, "data_encryption_key_id")
 
     @data_encryption_key_id.setter
-    def data_encryption_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_encryption_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_encryption_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of what the snapshot is.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAlias")
-    def owner_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         """
         return pulumi.get(self, "owner_alias")
 
     @owner_alias.setter
-    def owner_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the snapshot owner.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="permanentRestore")
-    def permanent_restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def permanent_restore(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to permanently restore an archived snapshot.
         """
         return pulumi.get(self, "permanent_restore")
 
     @permanent_restore.setter
-    def permanent_restore(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def permanent_restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "permanent_restore", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRegion")
-    def source_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the source snapshot.
         """
         return pulumi.get(self, "source_region")
 
     @source_region.setter
-    def source_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSnapshotId")
-    def source_snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the snapshot to be copied.
         """
         return pulumi.get(self, "source_snapshot_id")
 
     @source_snapshot_id.setter
-    def source_snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageTier")
-    def storage_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         """
         return pulumi.get(self, "storage_tier")
 
     @storage_tier.setter
-    def storage_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_tier", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags for the snapshot.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryRestoreDays")
-    def temporary_restore_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def temporary_restore_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         return pulumi.get(self, "temporary_restore_days")
 
     @temporary_restore_days.setter
-    def temporary_restore_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def temporary_restore_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "temporary_restore_days", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeId")
-    def volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
-    def volume_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_id", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeSize")
-    def volume_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the drive in GiBs.
         """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
-    def volume_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_size", value)
 
 
@@ -510,17 +510,17 @@ class SnapshotCopy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 completion_duration_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permanent_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 completion_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_restore_days: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Creates a Snapshot of a snapshot.
@@ -615,17 +615,17 @@ class SnapshotCopy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 completion_duration_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 permanent_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 completion_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 temporary_restore_days: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -668,25 +668,25 @@ class SnapshotCopy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            completion_duration_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            data_encryption_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            permanent_restore: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            temporary_restore_days: Optional[pulumi.Input[_builtins.int]] = None,
-            volume_id: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_size: Optional[pulumi.Input[_builtins.int]] = None) -> 'SnapshotCopy':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            completion_duration_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            data_encryption_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            permanent_restore: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            temporary_restore_days: pulumi.Input[Optional[_builtins.int]] = None,
+            volume_id: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_size: pulumi.Input[Optional[_builtins.int]] = None) -> 'SnapshotCopy':
         """
         Get an existing SnapshotCopy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,9 +24,9 @@ class LayerVersionPermissionArgs:
                  principal: pulumi.Input[_builtins.str],
                  statement_id: pulumi.Input[_builtins.str],
                  version_number: pulumi.Input[_builtins.int],
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None):
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
 
@@ -117,54 +117,54 @@ class LayerVersionPermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the permission when the resource is destroyed. Default is `false`.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
 
 @pulumi.input_type
 class _LayerVersionPermissionState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_number: Optional[pulumi.Input[_builtins.int]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_number: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering LayerVersionPermission resources.
 
@@ -204,115 +204,115 @@ class _LayerVersionPermissionState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="layerName")
-    def layer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def layer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ARN of the Lambda Layer.
         """
         return pulumi.get(self, "layer_name")
 
     @layer_name.setter
-    def layer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def layer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "layer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organization_id` is provided.
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Full Lambda Layer Permission policy.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="revisionId")
-    def revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the current revision of the policy.
         """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
-    def revision_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision_id", value)
 
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
-    def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to retain the permission when the resource is destroyed. Default is `false`.
         """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
-    def skip_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="statementId")
-    def statement_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the permission statement.
         """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
-    def statement_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_id", value)
 
     @_builtins.property
     @pulumi.getter(name="versionNumber")
-    def version_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
 
@@ -321,7 +321,7 @@ class _LayerVersionPermissionState:
         return pulumi.get(self, "version_number")
 
     @version_number.setter
-    def version_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "version_number", value)
 
 
@@ -331,14 +331,14 @@ class LayerVersionPermission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_number: Optional[pulumi.Input[_builtins.int]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_number: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Layer Version Permission. Use this resource to share Lambda Layers with other AWS accounts, organizations, or make them publicly accessible.
@@ -367,7 +367,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Grant permission to specific AWS account
         example_layer_version_permission = aws.lambda_.LayerVersionPermission("example",
             layer_name=example.layer_name,
-            version_number=example.version,
+            version_number=example.version.apply(lambda x: int(x)),
             principal="123456789012",
             action="lambda:GetLayerVersion",
             statement_id="dev-account-access")
@@ -381,7 +381,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             organization_id="o-1234567890",
             action="lambda:GetLayerVersion",
@@ -396,7 +396,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             action="lambda:GetLayerVersion",
             statement_id="public-access")
@@ -411,19 +411,19 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Share with multiple specific accounts
         dev_account = aws.lambda_.LayerVersionPermission("dev_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="111111111111",
             action="lambda:GetLayerVersion",
             statement_id="dev-account")
         staging_account = aws.lambda_.LayerVersionPermission("staging_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="222222222222",
             action="lambda:GetLayerVersion",
             statement_id="staging-account")
         prod_account = aws.lambda_.LayerVersionPermission("prod_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="333333333333",
             action="lambda:GetLayerVersion",
             statement_id="prod-account")
@@ -484,7 +484,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Grant permission to specific AWS account
         example_layer_version_permission = aws.lambda_.LayerVersionPermission("example",
             layer_name=example.layer_name,
-            version_number=example.version,
+            version_number=example.version.apply(lambda x: int(x)),
             principal="123456789012",
             action="lambda:GetLayerVersion",
             statement_id="dev-account-access")
@@ -498,7 +498,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             organization_id="o-1234567890",
             action="lambda:GetLayerVersion",
@@ -513,7 +513,7 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         example = aws.lambda_.LayerVersionPermission("example",
             layer_name=example_aws_lambda_layer_version["layerName"],
-            version_number=example_aws_lambda_layer_version["version"],
+            version_number=int(example_aws_lambda_layer_version["version"]),
             principal="*",
             action="lambda:GetLayerVersion",
             statement_id="public-access")
@@ -528,19 +528,19 @@ class LayerVersionPermission(pulumi.CustomResource):
         # Share with multiple specific accounts
         dev_account = aws.lambda_.LayerVersionPermission("dev_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="111111111111",
             action="lambda:GetLayerVersion",
             statement_id="dev-account")
         staging_account = aws.lambda_.LayerVersionPermission("staging_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="222222222222",
             action="lambda:GetLayerVersion",
             statement_id="staging-account")
         prod_account = aws.lambda_.LayerVersionPermission("prod_account",
             layer_name=example["layerName"],
-            version_number=example["version"],
+            version_number=int(example["version"]),
             principal="333333333333",
             action="lambda:GetLayerVersion",
             statement_id="prod-account")
@@ -570,14 +570,14 @@ class LayerVersionPermission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_number: Optional[pulumi.Input[_builtins.int]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_number: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -617,16 +617,16 @@ class LayerVersionPermission(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            layer_name: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            principal: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            revision_id: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-            version_number: Optional[pulumi.Input[_builtins.int]] = None) -> 'LayerVersionPermission':
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            layer_name: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revision_id: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+            version_number: pulumi.Input[Optional[_builtins.int]] = None) -> 'LayerVersionPermission':
         """
         Get an existing LayerVersionPermission resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

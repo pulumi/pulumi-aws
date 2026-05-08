@@ -139,26 +139,26 @@ export interface VpcOriginState {
     /**
      * The VPC origin ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The current version of the origin.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.VpcOriginTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.VpcOriginTimeouts | undefined>;
     /**
      * The VPC origin endpoint configuration.
      *
      * The following arguments are optional:
      */
-    vpcOriginEndpointConfig?: pulumi.Input<inputs.cloudfront.VpcOriginVpcOriginEndpointConfig>;
+    vpcOriginEndpointConfig?: pulumi.Input<inputs.cloudfront.VpcOriginVpcOriginEndpointConfig | undefined>;
 }
 
 /**
@@ -168,8 +168,8 @@ export interface VpcOriginArgs {
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.VpcOriginTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.VpcOriginTimeouts | undefined>;
     /**
      * The VPC origin endpoint configuration.
      *

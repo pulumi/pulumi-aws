@@ -141,15 +141,15 @@ export interface QueryLogState {
     /**
      * The Amazon Resource Name (ARN) of the Query Logging Config.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * CloudWatch log group ARN to send query logs.
      */
-    cloudwatchLogGroupArn?: pulumi.Input<string>;
+    cloudwatchLogGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Route53 hosted zone ID to enable query logs.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -161,11 +161,11 @@ def get_outposts(availability_zone: Optional[_builtins.str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         region=pulumi.get(__ret__, 'region'),
         site_id=pulumi.get(__ret__, 'site_id'))
-def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        availability_zone_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        owner_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        site_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_outposts_output(availability_zone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        availability_zone_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        owner_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        site_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostsResult]:
     """
     Provides details about multiple Outposts.

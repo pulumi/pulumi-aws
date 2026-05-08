@@ -331,11 +331,11 @@ def get_target_group(arn: Optional[_builtins.str] = None,
         target_control_port=pulumi.get(__ret__, 'target_control_port'),
         target_type=pulumi.get(__ret__, 'target_type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_target_group_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            load_balancing_anomaly_mitigation: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_target_group_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            load_balancing_anomaly_mitigation: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.

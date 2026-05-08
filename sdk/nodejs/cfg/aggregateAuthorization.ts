@@ -125,29 +125,29 @@ export interface AggregateAuthorizationState {
     /**
      * Account ID.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the authorization
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The region authorized to collect aggregated data.
      */
-    authorizedAwsRegion?: pulumi.Input<string>;
+    authorizedAwsRegion?: pulumi.Input<string | undefined>;
     /**
      * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
      *
      * @deprecated region is deprecated. Use authorizedAwsRegion instead.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -161,15 +161,15 @@ export interface AggregateAuthorizationArgs {
     /**
      * The region authorized to collect aggregated data.
      */
-    authorizedAwsRegion?: pulumi.Input<string>;
+    authorizedAwsRegion?: pulumi.Input<string | undefined>;
     /**
      * The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
      *
      * @deprecated region is deprecated. Use authorizedAwsRegion instead.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

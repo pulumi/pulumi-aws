@@ -52,6 +52,6 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretOutputArgs {
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     secrets: pulumi.Input<pulumi.Input<inputs.kms.GetSecretSecretArgs>[]>;
 }

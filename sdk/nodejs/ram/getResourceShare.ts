@@ -162,15 +162,15 @@ export interface GetResourceShareOutputArgs {
     /**
      * Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ram.GetResourceShareFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ram.GetResourceShareFilterArgs>[] | undefined>;
     /**
      * Name of the resource share to retrieve.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */
@@ -178,9 +178,9 @@ export interface GetResourceShareOutputArgs {
     /**
      * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
      */
-    resourceShareStatus?: pulumi.Input<string>;
+    resourceShareStatus?: pulumi.Input<string | undefined>;
     /**
      * Tags attached to the resource share.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

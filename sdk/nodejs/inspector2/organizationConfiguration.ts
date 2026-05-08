@@ -109,15 +109,15 @@ export interface OrganizationConfigurationState {
     /**
      * Configuration block for auto enabling. See below.
      */
-    autoEnable?: pulumi.Input<inputs.inspector2.OrganizationConfigurationAutoEnable>;
+    autoEnable?: pulumi.Input<inputs.inspector2.OrganizationConfigurationAutoEnable | undefined>;
     /**
      * Whether your configuration reached the max account limit.
      */
-    maxAccountLimitReached?: pulumi.Input<boolean>;
+    maxAccountLimitReached?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -131,5 +131,5 @@ export interface OrganizationConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

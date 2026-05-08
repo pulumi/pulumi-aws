@@ -142,26 +142,26 @@ export interface DeploymentState {
     /**
      * Application to deploy.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Version to application to deploy
      */
-    applicationVersion?: pulumi.Input<number>;
-    deploymentId?: pulumi.Input<string>;
+    applicationVersion?: pulumi.Input<number | undefined>;
+    deploymentId?: pulumi.Input<string | undefined>;
     /**
      * Environment to deploy application to.
      */
-    environmentId?: pulumi.Input<string>;
-    forceStop?: pulumi.Input<boolean>;
+    environmentId?: pulumi.Input<string | undefined>;
+    forceStop?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Start the application once deployed.
      */
-    start?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts>;
+    start?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts | undefined>;
 }
 
 /**
@@ -180,14 +180,14 @@ export interface DeploymentArgs {
      * Environment to deploy application to.
      */
     environmentId: pulumi.Input<string>;
-    forceStop?: pulumi.Input<boolean>;
+    forceStop?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Start the application once deployed.
      */
     start: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts>;
+    timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts | undefined>;
 }

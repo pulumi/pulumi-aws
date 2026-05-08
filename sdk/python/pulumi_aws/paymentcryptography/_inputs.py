@@ -36,7 +36,7 @@ class KeyKeyAttributeArgsDict(TypedDict):
     """
     Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
     """
-    key_modes_of_uses: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgsDict']]]]
+    key_modes_of_uses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]]
     """
     List of cryptographic operations that you can perform using the key.
     """
@@ -47,7 +47,7 @@ class KeyKeyAttributeArgs:
                  key_algorithm: pulumi.Input[_builtins.str],
                  key_class: pulumi.Input[_builtins.str],
                  key_usage: pulumi.Input[_builtins.str],
-                 key_modes_of_uses: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]] = None):
+                 key_modes_of_uses: pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] key_algorithm: Key algorithm to be use during creation of an AWS Payment Cryptography key.
         :param pulumi.Input[_builtins.str] key_class: Type of AWS Payment Cryptography key to create.
@@ -98,51 +98,51 @@ class KeyKeyAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyModesOfUses")
-    def key_modes_of_uses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]:
+    def key_modes_of_uses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]:
         """
         List of cryptographic operations that you can perform using the key.
         """
         return pulumi.get(self, "key_modes_of_uses")
 
     @key_modes_of_uses.setter
-    def key_modes_of_uses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]):
+    def key_modes_of_uses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]):
         pulumi.set(self, "key_modes_of_uses", value)
 
 
 class KeyKeyAttributeKeyModesOfUseArgsDict(TypedDict):
-    decrypt: NotRequired[pulumi.Input[_builtins.bool]]
+    decrypt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used to decrypt data.
     """
-    derive_key: NotRequired[pulumi.Input[_builtins.bool]]
+    derive_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used to derive new keys.
     """
-    encrypt: NotRequired[pulumi.Input[_builtins.bool]]
+    encrypt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used to encrypt data.
     """
-    generate: NotRequired[pulumi.Input[_builtins.bool]]
+    generate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
     """
-    no_restrictions: NotRequired[pulumi.Input[_builtins.bool]]
+    no_restrictions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
     """
-    sign: NotRequired[pulumi.Input[_builtins.bool]]
+    sign: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used for signing.
     """
-    unwrap: NotRequired[pulumi.Input[_builtins.bool]]
+    unwrap: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used to unwrap other keys.
     """
-    verify: NotRequired[pulumi.Input[_builtins.bool]]
+    verify: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used to verify signatures.
     """
-    wrap: NotRequired[pulumi.Input[_builtins.bool]]
+    wrap: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether an AWS Payment Cryptography key can be used to wrap other keys.
     """
@@ -150,15 +150,15 @@ class KeyKeyAttributeKeyModesOfUseArgsDict(TypedDict):
 @pulumi.input_type
 class KeyKeyAttributeKeyModesOfUseArgs:
     def __init__(__self__, *,
-                 decrypt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 derive_key: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encrypt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 generate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_restrictions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sign: Optional[pulumi.Input[_builtins.bool]] = None,
-                 unwrap: Optional[pulumi.Input[_builtins.bool]] = None,
-                 verify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wrap: Optional[pulumi.Input[_builtins.bool]] = None):
+                 decrypt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 derive_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encrypt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 generate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_restrictions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sign: pulumi.Input[Optional[_builtins.bool]] = None,
+                 unwrap: pulumi.Input[Optional[_builtins.bool]] = None,
+                 verify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wrap: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] decrypt: Whether an AWS Payment Cryptography key can be used to decrypt data.
         :param pulumi.Input[_builtins.bool] derive_key: Whether an AWS Payment Cryptography key can be used to derive new keys.
@@ -191,123 +191,123 @@ class KeyKeyAttributeKeyModesOfUseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def decrypt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def decrypt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used to decrypt data.
         """
         return pulumi.get(self, "decrypt")
 
     @decrypt.setter
-    def decrypt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def decrypt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "decrypt", value)
 
     @_builtins.property
     @pulumi.getter(name="deriveKey")
-    def derive_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def derive_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used to derive new keys.
         """
         return pulumi.get(self, "derive_key")
 
     @derive_key.setter
-    def derive_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def derive_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "derive_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def encrypt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used to encrypt data.
         """
         return pulumi.get(self, "encrypt")
 
     @encrypt.setter
-    def encrypt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypt", value)
 
     @_builtins.property
     @pulumi.getter
-    def generate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def generate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
         """
         return pulumi.get(self, "generate")
 
     @generate.setter
-    def generate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def generate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "generate", value)
 
     @_builtins.property
     @pulumi.getter(name="noRestrictions")
-    def no_restrictions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_restrictions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
         """
         return pulumi.get(self, "no_restrictions")
 
     @no_restrictions.setter
-    def no_restrictions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_restrictions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_restrictions", value)
 
     @_builtins.property
     @pulumi.getter
-    def sign(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sign(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used for signing.
         """
         return pulumi.get(self, "sign")
 
     @sign.setter
-    def sign(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sign(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sign", value)
 
     @_builtins.property
     @pulumi.getter
-    def unwrap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unwrap(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used to unwrap other keys.
         """
         return pulumi.get(self, "unwrap")
 
     @unwrap.setter
-    def unwrap(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unwrap(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unwrap", value)
 
     @_builtins.property
     @pulumi.getter
-    def verify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used to verify signatures.
         """
         return pulumi.get(self, "verify")
 
     @verify.setter
-    def verify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verify", value)
 
     @_builtins.property
     @pulumi.getter
-    def wrap(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wrap(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether an AWS Payment Cryptography key can be used to wrap other keys.
         """
         return pulumi.get(self, "wrap")
 
     @wrap.setter
-    def wrap(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wrap(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wrap", value)
 
 
 class KeyTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -315,9 +315,9 @@ class KeyTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class KeyTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -332,38 +332,38 @@ class KeyTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

@@ -168,37 +168,37 @@ export interface ManagedLoginBrandingState {
     /**
      * Image files to apply to roles like backgrounds, logos, and icons. See details below.
      */
-    assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAsset>[]>;
+    assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAsset>[] | undefined>;
     /**
      * App client that the branding style is for.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * ID of the managed login branding style.
      */
-    managedLoginBrandingId?: pulumi.Input<string>;
+    managedLoginBrandingId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * JSON document with the the settings to apply to the style.
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
     /**
      * Settings including Amazon Cognito defaults.
      */
-    settingsAll?: pulumi.Input<string>;
+    settingsAll?: pulumi.Input<string | undefined>;
     /**
      * When `true`, applies the default branding style options.
      */
-    useCognitoProvidedValues?: pulumi.Input<boolean>;
+    useCognitoProvidedValues?: pulumi.Input<boolean | undefined>;
     /**
      * User pool the client belongs to.
      *
      * The following arguments are optional:
      */
-    userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface ManagedLoginBrandingArgs {
     /**
      * Image files to apply to roles like backgrounds, logos, and icons. See details below.
      */
-    assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAsset>[]>;
+    assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAsset>[] | undefined>;
     /**
      * App client that the branding style is for.
      */
@@ -216,15 +216,15 @@ export interface ManagedLoginBrandingArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * JSON document with the the settings to apply to the style.
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
     /**
      * When `true`, applies the default branding style options.
      */
-    useCognitoProvidedValues?: pulumi.Input<boolean>;
+    useCognitoProvidedValues?: pulumi.Input<boolean | undefined>;
     /**
      * User pool the client belongs to.
      *

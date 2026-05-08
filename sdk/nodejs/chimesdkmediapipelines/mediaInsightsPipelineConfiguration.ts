@@ -399,32 +399,32 @@ export interface MediaInsightsPipelineConfigurationState {
     /**
      * ARN of the Media Insights Pipeline Configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Collection of processors and sinks to transform media and deliver data.
      */
-    elements?: pulumi.Input<pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement>[]>;
+    elements?: pulumi.Input<pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement>[] | undefined>;
     /**
      * Configuration name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      */
-    realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
+    realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */
-    resourceAccessRoleArn?: pulumi.Input<string>;
+    resourceAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of tags for the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -438,15 +438,15 @@ export interface MediaInsightsPipelineConfigurationArgs {
     /**
      * Configuration name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      */
-    realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
+    realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */
@@ -454,5 +454,5 @@ export interface MediaInsightsPipelineConfigurationArgs {
     /**
      * Key-value map of tags for the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

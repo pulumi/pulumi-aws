@@ -481,78 +481,78 @@ export interface ScheduledQueryState {
     /**
      * ARN of the Scheduled Query.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Creation time for the scheduled query.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for error reporting configuration. See below.
      */
-    errorReportConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryErrorReportConfiguration>;
+    errorReportConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryErrorReportConfiguration | undefined>;
     /**
      * ARN for the IAM role that Timestream will assume when running the scheduled query.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Runtime summary for the last scheduled query run.
      */
-    lastRunSummaries?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryLastRunSummary>[]>;
+    lastRunSummaries?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryLastRunSummary>[] | undefined>;
     /**
      * Name of the scheduled query.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Next time the scheduled query is scheduled to run.
      */
-    nextInvocationTime?: pulumi.Input<string>;
+    nextInvocationTime?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
      */
-    notificationConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryNotificationConfiguration>;
+    notificationConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryNotificationConfiguration | undefined>;
     /**
      * Last time the scheduled query was run.
      */
-    previousInvocationTime?: pulumi.Input<string>;
+    previousInvocationTime?: pulumi.Input<string | undefined>;
     /**
      * Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      */
-    queryString?: pulumi.Input<string>;
+    queryString?: pulumi.Input<string | undefined>;
     /**
      * Runtime summary for the last five failed scheduled query runs.
      */
-    recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[]>;
+    recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for schedule configuration for the query. See below.
      */
-    scheduleConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryScheduleConfiguration>;
+    scheduleConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryScheduleConfiguration | undefined>;
     /**
      * State of the scheduled query, either `ENABLED` or `DISABLED`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for writing the result of a query. See below.
      *
      * The following arguments are optional:
      */
-    targetConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryTargetConfiguration>;
-    timeouts?: pulumi.Input<inputs.timestreamquery.ScheduledQueryTimeouts>;
+    targetConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryTargetConfiguration | undefined>;
+    timeouts?: pulumi.Input<inputs.timestreamquery.ScheduledQueryTimeouts | undefined>;
 }
 
 /**
@@ -570,15 +570,15 @@ export interface ScheduledQueryArgs {
     /**
      * Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Runtime summary for the last scheduled query run.
      */
-    lastRunSummaries?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryLastRunSummary>[]>;
+    lastRunSummaries?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryLastRunSummary>[] | undefined>;
     /**
      * Name of the scheduled query.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
      */
@@ -590,11 +590,11 @@ export interface ScheduledQueryArgs {
     /**
      * Runtime summary for the last five failed scheduled query runs.
      */
-    recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[]>;
+    recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for schedule configuration for the query. See below.
      */
@@ -602,12 +602,12 @@ export interface ScheduledQueryArgs {
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for writing the result of a query. See below.
      *
      * The following arguments are optional:
      */
     targetConfiguration: pulumi.Input<inputs.timestreamquery.ScheduledQueryTargetConfiguration>;
-    timeouts?: pulumi.Input<inputs.timestreamquery.ScheduledQueryTimeouts>;
+    timeouts?: pulumi.Input<inputs.timestreamquery.ScheduledQueryTimeouts | undefined>;
 }

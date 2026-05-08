@@ -33,41 +33,43 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// private, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-// Filters: []ec2.GetSubnetsFilter{
-// {
-// Name: "vpc-id",
-// Values: interface{}{
-// vpcId,
-// },
-// },
-// },
-// Tags: map[string]interface{}{
-// "Tier": "Private",
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// var app []*ec2.Instance
-// for key0, val0 := range interface{}(std.Toset(ctx, &std.TosetArgs{
-// Input: private.Ids,
-// }, nil).Result) {
-// __res, err := ec2.NewInstance(ctx, fmt.Sprintf("app-%v", key0), &ec2.InstanceArgs{
-// Ami: pulumi.Any(ami),
-// InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-// SubnetId: pulumi.Any(val0),
-// })
-// if err != nil {
-// return err
-// }
-// app = append(app, __res)
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			private, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+//				Filters: []ec2.GetSubnetsFilter{
+//					{
+//						Name: "vpc-id",
+//						Values: pulumi.StringArray{
+//							vpcId,
+//						},
+//					},
+//				},
+//				Tags: map[string]interface{}{
+//					"Tier": "Private",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var app []*ec2.Instance
+//			for key0, val0 := range []interface{}(std.Toset(ctx, &std.TosetArgs{
+//				Input: private.Ids,
+//			}, nil).Result) {
+//				__res, err := ec2.NewInstance(ctx, fmt.Sprintf("app-%v", key0), &ec2.InstanceArgs{
+//					Ami:          pulumi.Any(ami),
+//					InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
+//					SubnetId:     pulumi.Any(val0),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				app = append(app, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.InvokeOption) (*GetSubnetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

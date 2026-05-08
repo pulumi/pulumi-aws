@@ -223,79 +223,79 @@ export interface UserState {
     /**
      * Details about the user's address. At most 1 address is allowed. Detailed below.
      */
-    addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
+    addresses?: pulumi.Input<inputs.identitystore.UserAddresses | undefined>;
     /**
      * The name that is typically displayed when the user is referenced.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Details about the user's email. At most 1 email is allowed. Detailed below.
      */
-    emails?: pulumi.Input<inputs.identitystore.UserEmails>;
+    emails?: pulumi.Input<inputs.identitystore.UserEmails | undefined>;
     /**
      * A list of identifiers issued to this resource by an external identity provider.
      */
-    externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.UserExternalId>[]>;
+    externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.UserExternalId>[] | undefined>;
     /**
      * The globally unique identifier for the identity store that this user is in.
      */
-    identityStoreId?: pulumi.Input<string>;
+    identityStoreId?: pulumi.Input<string | undefined>;
     /**
      * The user's geographical region or location.
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * Details about the user's full name. Detailed below.
      */
-    name?: pulumi.Input<inputs.identitystore.UserName>;
+    name?: pulumi.Input<inputs.identitystore.UserName | undefined>;
     /**
      * An alternate name for the user.
      */
-    nickname?: pulumi.Input<string>;
+    nickname?: pulumi.Input<string | undefined>;
     /**
      * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
      */
-    phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
+    phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers | undefined>;
     /**
      * The preferred language of the user.
      */
-    preferredLanguage?: pulumi.Input<string>;
+    preferredLanguage?: pulumi.Input<string | undefined>;
     /**
      * An URL that may be associated with the user.
      */
-    profileUrl?: pulumi.Input<string>;
+    profileUrl?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The user's time zone.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * The user's title.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The identifier for this user in the identity store.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
      *
      * The following arguments are optional:
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
     /**
      * The current status of the user account.
      */
-    userStatus?: pulumi.Input<string>;
+    userStatus?: pulumi.Input<string | undefined>;
     /**
      * The user type.
      *
      * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -305,7 +305,7 @@ export interface UserArgs {
     /**
      * Details about the user's address. At most 1 address is allowed. Detailed below.
      */
-    addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
+    addresses?: pulumi.Input<inputs.identitystore.UserAddresses | undefined>;
     /**
      * The name that is typically displayed when the user is referenced.
      */
@@ -313,7 +313,7 @@ export interface UserArgs {
     /**
      * Details about the user's email. At most 1 email is allowed. Detailed below.
      */
-    emails?: pulumi.Input<inputs.identitystore.UserEmails>;
+    emails?: pulumi.Input<inputs.identitystore.UserEmails | undefined>;
     /**
      * The globally unique identifier for the identity store that this user is in.
      */
@@ -321,39 +321,39 @@ export interface UserArgs {
     /**
      * The user's geographical region or location.
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * Details about the user's full name. Detailed below.
      */
-    name?: pulumi.Input<inputs.identitystore.UserName>;
+    name?: pulumi.Input<inputs.identitystore.UserName | undefined>;
     /**
      * An alternate name for the user.
      */
-    nickname?: pulumi.Input<string>;
+    nickname?: pulumi.Input<string | undefined>;
     /**
      * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
      */
-    phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
+    phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers | undefined>;
     /**
      * The preferred language of the user.
      */
-    preferredLanguage?: pulumi.Input<string>;
+    preferredLanguage?: pulumi.Input<string | undefined>;
     /**
      * An URL that may be associated with the user.
      */
-    profileUrl?: pulumi.Input<string>;
+    profileUrl?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The user's time zone.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * The user's title.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
      *
@@ -365,5 +365,5 @@ export interface UserArgs {
      *
      * > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }

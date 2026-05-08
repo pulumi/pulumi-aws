@@ -215,31 +215,31 @@ export interface AccountAssignmentState {
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
      */
-    permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn?: pulumi.Input<string | undefined>;
     /**
      * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      */
-    targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string | undefined>;
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      */
-    targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface AccountAssignmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      */

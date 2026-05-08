@@ -145,10 +145,10 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]]]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                            vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_nat_gateways_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]]]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                            vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewaysResult]:
     """
     This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.

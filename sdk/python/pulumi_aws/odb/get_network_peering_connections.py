@@ -101,7 +101,7 @@ def get_network_peering_connections(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         odb_peering_connections=pulumi.get(__ret__, 'odb_peering_connections'),
         region=pulumi.get(__ret__, 'region'))
-def get_network_peering_connections_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_peering_connections_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPeeringConnectionsResult]:
     """
     Data source for retrieving all oracle database network peering resource in Oracle Database@AWS.

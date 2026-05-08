@@ -35,8 +35,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -75,8 +75,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -115,8 +115,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -155,8 +155,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -195,8 +195,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -235,8 +235,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -275,8 +275,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -320,8 +320,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -357,8 +357,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -395,8 +395,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -454,8 +454,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -491,8 +491,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -529,8 +529,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -588,8 +588,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -625,8 +625,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -663,8 +663,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -722,8 +722,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -759,8 +759,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -797,8 +797,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -856,8 +856,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -893,8 +893,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -931,8 +931,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -985,8 +985,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1025,8 +1025,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1065,8 +1065,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1105,8 +1105,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1145,8 +1145,8 @@ public final class LakeformationFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

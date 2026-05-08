@@ -130,9 +130,9 @@ def get_solution_stack(most_recent: Optional[_builtins.bool] = None,
         name=pulumi.get(__ret__, 'name'),
         name_regex=pulumi.get(__ret__, 'name_regex'),
         region=pulumi.get(__ret__, 'region'))
-def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                              name_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_solution_stack_output(most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                              name_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionStackResult]:
     """
     Use this data source to get the name of a elastic beanstalk solution stack.

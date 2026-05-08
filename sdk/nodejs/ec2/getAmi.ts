@@ -343,27 +343,27 @@ export interface GetAmiOutputArgs {
      * will be returned by this data source. Consider filtering by owner or image ID rather
      * than setting this argument.
      */
-    allowUnsafeFilter?: pulumi.Input<boolean>;
+    allowUnsafeFilter?: pulumi.Input<boolean | undefined>;
     /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
      */
-    executableUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    executableUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more name/value pairs to filter off of. There are
      * several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetAmiFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetAmiFilterArgs>[] | undefined>;
     /**
      * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
      */
-    includeDeprecated?: pulumi.Input<boolean>;
+    includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
      * If more than one result is returned, use the most
      * recent AMI.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
@@ -376,23 +376,23 @@ export interface GetAmiOutputArgs {
      * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
      * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      */
-    nameRegex?: pulumi.Input<string>;
+    nameRegex?: pulumi.Input<string | undefined>;
     /**
      * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
-    owners?: pulumi.Input<pulumi.Input<string>[]>;
+    owners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.
      * * `tags.#.value` - Value of the tag.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional) Base64 representation of the non-volatile UEFI variable store.
      */
-    uefiData?: pulumi.Input<string>;
+    uefiData?: pulumi.Input<string | undefined>;
 }

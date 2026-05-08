@@ -181,27 +181,27 @@ export interface ClassifierState {
     /**
      * A classifier for CSV content. Defined below.
      */
-    csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
+    csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier | undefined>;
     /**
      * A classifier that uses grok patterns. Defined below.
      */
-    grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
+    grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier | undefined>;
     /**
      * A classifier for JSON content. Defined below.
      */
-    jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
+    jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier | undefined>;
     /**
      * The name of the classifier.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A classifier for XML content. Defined below.
      */
-    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
+    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier | undefined>;
 }
 
 /**
@@ -211,25 +211,25 @@ export interface ClassifierArgs {
     /**
      * A classifier for CSV content. Defined below.
      */
-    csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
+    csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier | undefined>;
     /**
      * A classifier that uses grok patterns. Defined below.
      */
-    grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
+    grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier | undefined>;
     /**
      * A classifier for JSON content. Defined below.
      */
-    jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
+    jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier | undefined>;
     /**
      * The name of the classifier.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A classifier for XML content. Defined below.
      */
-    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
+    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier | undefined>;
 }

@@ -205,73 +205,73 @@ export interface ReservedCacheNodeState {
     /**
      * ARN for the reserved cache node.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Number of cache node instances to reserve.
      * Default value is `1`.
      */
-    cacheNodeCount?: pulumi.Input<number>;
+    cacheNodeCount?: pulumi.Input<number | undefined>;
     /**
      * Node type for the reserved cache nodes.
      */
-    cacheNodeType?: pulumi.Input<string>;
+    cacheNodeType?: pulumi.Input<string | undefined>;
     /**
      * Duration of the reservation as an RFC3339 duration.
      */
-    duration?: pulumi.Input<string>;
+    duration?: pulumi.Input<string | undefined>;
     /**
      * Customer-specified identifier to track this reservation.
      * If not specified, AWS will assign a random ID.
      */
-    elasticacheReservedCacheNodeId?: pulumi.Input<string>;
+    elasticacheReservedCacheNodeId?: pulumi.Input<string | undefined>;
     /**
      * Fixed price charged for this reserved cache node.
      */
-    fixedPrice?: pulumi.Input<number>;
+    fixedPrice?: pulumi.Input<number | undefined>;
     /**
      * Offering type of this reserved cache node.
      */
-    offeringType?: pulumi.Input<string>;
+    offeringType?: pulumi.Input<string | undefined>;
     /**
      * Engine type for the reserved cache node.
      */
-    productDescription?: pulumi.Input<string>;
+    productDescription?: pulumi.Input<string | undefined>;
     /**
      * Recurring price charged to run this reserved cache node.
      */
-    recurringCharges?: pulumi.Input<pulumi.Input<inputs.elasticache.ReservedCacheNodeRecurringCharge>[]>;
+    recurringCharges?: pulumi.Input<pulumi.Input<inputs.elasticache.ReservedCacheNodeRecurringCharge>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
      *
      * The following arguments are optional:
      */
-    reservedCacheNodesOfferingId?: pulumi.Input<string>;
+    reservedCacheNodesOfferingId?: pulumi.Input<string | undefined>;
     /**
      * Time the reservation started.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * State of the reserved cache node.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.elasticache.ReservedCacheNodeTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.elasticache.ReservedCacheNodeTimeouts | undefined>;
     /**
      * Hourly price charged for this reserved cache node.
      */
-    usagePrice?: pulumi.Input<number>;
+    usagePrice?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -282,16 +282,16 @@ export interface ReservedCacheNodeArgs {
      * Number of cache node instances to reserve.
      * Default value is `1`.
      */
-    cacheNodeCount?: pulumi.Input<number>;
+    cacheNodeCount?: pulumi.Input<number | undefined>;
     /**
      * Customer-specified identifier to track this reservation.
      * If not specified, AWS will assign a random ID.
      */
-    elasticacheReservedCacheNodeId?: pulumi.Input<string>;
+    elasticacheReservedCacheNodeId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
@@ -302,6 +302,6 @@ export interface ReservedCacheNodeArgs {
     /**
      * Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.elasticache.ReservedCacheNodeTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.elasticache.ReservedCacheNodeTimeouts | undefined>;
 }

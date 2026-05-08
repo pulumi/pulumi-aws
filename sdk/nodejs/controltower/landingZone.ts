@@ -136,39 +136,39 @@ export interface LandingZoneState {
     /**
      * The ARN of the landing zone.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The drift status summary of the landing zone.
      */
-    driftStatuses?: pulumi.Input<pulumi.Input<inputs.controltower.LandingZoneDriftStatus>[]>;
+    driftStatuses?: pulumi.Input<pulumi.Input<inputs.controltower.LandingZoneDriftStatus>[] | undefined>;
     /**
      * The latest available version of the landing zone.
      */
-    latestAvailableVersion?: pulumi.Input<string>;
+    latestAvailableVersion?: pulumi.Input<string | undefined>;
     /**
      * The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
      */
-    manifestJson?: pulumi.Input<string>;
+    manifestJson?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
      */
-    remediationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    remediationTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the landing zone, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The landing zone version.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,15 +182,15 @@ export interface LandingZoneArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies list of remediation actions to apply. Currently only supports the `INHERITANCE_DRIFT` value.
      */
-    remediationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    remediationTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tags to apply to the landing zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The landing zone version.
      */

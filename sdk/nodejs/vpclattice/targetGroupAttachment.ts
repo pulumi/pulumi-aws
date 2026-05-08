@@ -108,15 +108,15 @@ export interface TargetGroupAttachmentState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The target.
      */
-    target?: pulumi.Input<inputs.vpclattice.TargetGroupAttachmentTarget>;
+    target?: pulumi.Input<inputs.vpclattice.TargetGroupAttachmentTarget | undefined>;
     /**
      * The ID or Amazon Resource Name (ARN) of the target group.
      */
-    targetGroupIdentifier?: pulumi.Input<string>;
+    targetGroupIdentifier?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -126,7 +126,7 @@ export interface TargetGroupAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The target.
      */

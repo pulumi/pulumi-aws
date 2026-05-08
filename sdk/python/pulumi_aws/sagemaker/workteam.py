@@ -24,11 +24,11 @@ class WorkteamArgs:
                  description: pulumi.Input[_builtins.str],
                  member_definitions: pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]],
                  workteam_name: pulumi.Input[_builtins.str],
-                 notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_access_configuration: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']] = None,
-                 workforce_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 notification_configuration: pulumi.Input[Optional['WorkteamNotificationConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_access_configuration: pulumi.Input[Optional['WorkteamWorkerAccessConfigurationArgs']] = None,
+                 workforce_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workteam resource.
 
@@ -93,79 +93,79 @@ class WorkteamArgs:
 
     @_builtins.property
     @pulumi.getter(name="notificationConfiguration")
-    def notification_configuration(self) -> Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']]:
+    def notification_configuration(self) -> pulumi.Input[Optional['WorkteamNotificationConfigurationArgs']]:
         """
         Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         """
         return pulumi.get(self, "notification_configuration")
 
     @notification_configuration.setter
-    def notification_configuration(self, value: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']]):
+    def notification_configuration(self, value: pulumi.Input[Optional['WorkteamNotificationConfigurationArgs']]):
         pulumi.set(self, "notification_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workerAccessConfiguration")
-    def worker_access_configuration(self) -> Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']]:
+    def worker_access_configuration(self) -> pulumi.Input[Optional['WorkteamWorkerAccessConfigurationArgs']]:
         """
         Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         """
         return pulumi.get(self, "worker_access_configuration")
 
     @worker_access_configuration.setter
-    def worker_access_configuration(self, value: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']]):
+    def worker_access_configuration(self, value: pulumi.Input[Optional['WorkteamWorkerAccessConfigurationArgs']]):
         pulumi.set(self, "worker_access_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="workforceName")
-    def workforce_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workforce_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workforce.
         """
         return pulumi.get(self, "workforce_name")
 
     @workforce_name.setter
-    def workforce_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workforce_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workforce_name", value)
 
 
 @pulumi.input_type
 class _WorkteamState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]] = None,
-                 notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdomain: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_access_configuration: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']] = None,
-                 workforce_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workteam_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]] = None,
+                 notification_configuration: pulumi.Input[Optional['WorkteamNotificationConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_access_configuration: pulumi.Input[Optional['WorkteamWorkerAccessConfigurationArgs']] = None,
+                 workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workteam_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Workteam resources.
 
@@ -206,134 +206,134 @@ class _WorkteamState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the work team.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memberDefinitions")
-    def member_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]]:
+    def member_definitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]]:
         """
         A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         """
         return pulumi.get(self, "member_definitions")
 
     @member_definitions.setter
-    def member_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]]):
+    def member_definitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]]):
         pulumi.set(self, "member_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationConfiguration")
-    def notification_configuration(self) -> Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']]:
+    def notification_configuration(self) -> pulumi.Input[Optional['WorkteamNotificationConfigurationArgs']]:
         """
         Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         """
         return pulumi.get(self, "notification_configuration")
 
     @notification_configuration.setter
-    def notification_configuration(self, value: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']]):
+    def notification_configuration(self, value: pulumi.Input[Optional['WorkteamNotificationConfigurationArgs']]):
         pulumi.set(self, "notification_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdomain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdomain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdomain for your OIDC Identity Provider.
         """
         return pulumi.get(self, "subdomain")
 
     @subdomain.setter
-    def subdomain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdomain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdomain", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="workerAccessConfiguration")
-    def worker_access_configuration(self) -> Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']]:
+    def worker_access_configuration(self) -> pulumi.Input[Optional['WorkteamWorkerAccessConfigurationArgs']]:
         """
         Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         """
         return pulumi.get(self, "worker_access_configuration")
 
     @worker_access_configuration.setter
-    def worker_access_configuration(self, value: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationArgs']]):
+    def worker_access_configuration(self, value: pulumi.Input[Optional['WorkteamWorkerAccessConfigurationArgs']]):
         pulumi.set(self, "worker_access_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="workforceName")
-    def workforce_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workforce_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workforce.
         """
         return pulumi.get(self, "workforce_name")
 
     @workforce_name.setter
-    def workforce_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workforce_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workforce_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workteamName")
-    def workteam_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workteam_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Workteam (must be unique).
         """
         return pulumi.get(self, "workteam_name")
 
     @workteam_name.setter
-    def workteam_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workteam_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workteam_name", value)
 
 
@@ -343,14 +343,14 @@ class Workteam(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_access_configuration: Optional[pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
-                 workforce_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workteam_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
+                 workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workteam_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Workteam resource.
@@ -484,14 +484,14 @@ class Workteam(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_access_configuration: Optional[pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
-                 workforce_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workteam_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
+                 workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workteam_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -528,17 +528,17 @@ class Workteam(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-            notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            subdomain: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            worker_access_configuration: Optional[pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
-            workforce_name: Optional[pulumi.Input[_builtins.str]] = None,
-            workteam_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Workteam':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
+            notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            worker_access_configuration: pulumi.Input[Optional[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']]] = None,
+            workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
+            workteam_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workteam':
         """
         Get an existing Workteam resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

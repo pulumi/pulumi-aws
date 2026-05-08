@@ -232,53 +232,53 @@ export interface VpcPeeringConnectionAccepterState {
     /**
      * The status of the VPC Peering Connection request.
      */
-    acceptStatus?: pulumi.Input<string>;
+    acceptStatus?: pulumi.Input<string | undefined>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter | undefined>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
-    autoAccept?: pulumi.Input<boolean>;
+    autoAccept?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS account ID of the owner of the requester VPC.
      */
-    peerOwnerId?: pulumi.Input<string>;
+    peerOwnerId?: pulumi.Input<string | undefined>;
     /**
      * The region of the accepter VPC.
      */
-    peerRegion?: pulumi.Input<string>;
+    peerRegion?: pulumi.Input<string | undefined>;
     /**
      * The ID of the requester VPC.
      */
-    peerVpcId?: pulumi.Input<string>;
+    peerVpcId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the accepter VPC.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * The VPC Peering Connection ID to manage.
      */
-    vpcPeeringConnectionId?: pulumi.Input<string>;
+    vpcPeeringConnectionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,24 +289,24 @@ export interface VpcPeeringConnectionAccepterArgs {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter | undefined>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
-    autoAccept?: pulumi.Input<boolean>;
+    autoAccept?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VPC Peering Connection ID to manage.
      */

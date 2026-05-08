@@ -100,11 +100,11 @@ export interface GetLocalDiskOutputArgs {
     /**
      * Device node of the local disk to retrieve. For example, `/dev/sdb`.
      */
-    diskNode?: pulumi.Input<string>;
+    diskNode?: pulumi.Input<string | undefined>;
     /**
      * Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
      */
-    diskPath?: pulumi.Input<string>;
+    diskPath?: pulumi.Input<string | undefined>;
     /**
      * ARN of the gateway.
      */
@@ -112,5 +112,5 @@ export interface GetLocalDiskOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

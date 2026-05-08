@@ -145,27 +145,27 @@ export interface AlternativeContactState {
     /**
      * ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      */
-    alternateContactType?: pulumi.Input<string>;
+    alternateContactType?: pulumi.Input<string | undefined>;
     /**
      * An email address for the alternate contact.
      */
-    emailAddress?: pulumi.Input<string>;
+    emailAddress?: pulumi.Input<string | undefined>;
     /**
      * Name of the alternate contact.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Phone number for the alternate contact.
      */
-    phoneNumber?: pulumi.Input<string>;
+    phoneNumber?: pulumi.Input<string | undefined>;
     /**
      * Title for the alternate contact.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface AlternativeContactArgs {
     /**
      * ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      */
@@ -187,7 +187,7 @@ export interface AlternativeContactArgs {
     /**
      * Name of the alternate contact.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Phone number for the alternate contact.
      */

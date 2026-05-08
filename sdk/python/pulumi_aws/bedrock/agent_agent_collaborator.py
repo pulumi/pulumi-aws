@@ -25,11 +25,11 @@ class AgentAgentCollaboratorArgs:
                  agent_id: pulumi.Input[_builtins.str],
                  collaboration_instruction: pulumi.Input[_builtins.str],
                  collaborator_name: pulumi.Input[_builtins.str],
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 prepare_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_conversation_history: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentCollaborator resource.
 
@@ -106,72 +106,72 @@ class AgentAgentCollaboratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
-    def agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_version", value)
 
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
-    def prepare_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def prepare_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to prepare the agent after creation or modification. Defaults to `true`.
         """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
-    def prepare_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def prepare_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prepare_agent", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="relayConversationHistory")
-    def relay_conversation_history(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_conversation_history(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configure relaying the history to the collaborator.
         """
         return pulumi.get(self, "relay_conversation_history")
 
     @relay_conversation_history.setter
-    def relay_conversation_history(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_conversation_history(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_conversation_history", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentAgentCollaboratorTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentAgentCollaboratorTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentAgentCollaboratorState:
     def __init__(__self__, *,
-                 agent_descriptor: Optional[pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaboration_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaborator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaborator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prepare_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_conversation_history: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
+                 agent_descriptor: pulumi.Input[Optional['AgentAgentCollaboratorAgentDescriptorArgs']] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaborator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaborator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentCollaborator resources.
 
@@ -208,61 +208,61 @@ class _AgentAgentCollaboratorState:
 
     @_builtins.property
     @pulumi.getter(name="agentDescriptor")
-    def agent_descriptor(self) -> Optional[pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']]:
+    def agent_descriptor(self) -> pulumi.Input[Optional['AgentAgentCollaboratorAgentDescriptorArgs']]:
         return pulumi.get(self, "agent_descriptor")
 
     @agent_descriptor.setter
-    def agent_descriptor(self, value: Optional[pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']]):
+    def agent_descriptor(self, value: pulumi.Input[Optional['AgentAgentCollaboratorAgentDescriptorArgs']]):
         pulumi.set(self, "agent_descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="agentId")
-    def agent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID if the agent to associate the collaborator.
         """
         return pulumi.get(self, "agent_id")
 
     @agent_id.setter
-    def agent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
-    def agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "agent_version")
 
     @agent_version.setter
-    def agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_version", value)
 
     @_builtins.property
     @pulumi.getter(name="collaborationInstruction")
-    def collaboration_instruction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collaboration_instruction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instruction to give the collaborator.
         """
         return pulumi.get(self, "collaboration_instruction")
 
     @collaboration_instruction.setter
-    def collaboration_instruction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collaboration_instruction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collaboration_instruction", value)
 
     @_builtins.property
     @pulumi.getter(name="collaboratorId")
-    def collaborator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collaborator_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Agent Collaborator.
         """
         return pulumi.get(self, "collaborator_id")
 
     @collaborator_id.setter
-    def collaborator_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collaborator_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collaborator_id", value)
 
     @_builtins.property
     @pulumi.getter(name="collaboratorName")
-    def collaborator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collaborator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of this collaborator.
 
@@ -271,52 +271,52 @@ class _AgentAgentCollaboratorState:
         return pulumi.get(self, "collaborator_name")
 
     @collaborator_name.setter
-    def collaborator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collaborator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collaborator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="prepareAgent")
-    def prepare_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def prepare_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to prepare the agent after creation or modification. Defaults to `true`.
         """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
-    def prepare_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def prepare_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prepare_agent", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="relayConversationHistory")
-    def relay_conversation_history(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def relay_conversation_history(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configure relaying the history to the collaborator.
         """
         return pulumi.get(self, "relay_conversation_history")
 
     @relay_conversation_history.setter
-    def relay_conversation_history(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def relay_conversation_history(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_conversation_history", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentAgentCollaboratorTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentAgentCollaboratorTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -326,15 +326,15 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_descriptor: Optional[pulumi.Input[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaboration_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaborator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prepare_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_conversation_history: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
+                 agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaborator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Agents Agent Collaborator.
@@ -552,15 +552,15 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_descriptor: Optional[pulumi.Input[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
-                 agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaboration_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-                 collaborator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 prepare_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 relay_conversation_history: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
+                 agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
+                 agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+                 collaborator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -598,16 +598,16 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_descriptor: Optional[pulumi.Input[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
-            agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-            collaboration_instruction: Optional[pulumi.Input[_builtins.str]] = None,
-            collaborator_id: Optional[pulumi.Input[_builtins.str]] = None,
-            collaborator_name: Optional[pulumi.Input[_builtins.str]] = None,
-            prepare_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            relay_conversation_history: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None) -> 'AgentAgentCollaborator':
+            agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
+            agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+            collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
+            collaborator_id: pulumi.Input[Optional[_builtins.str]] = None,
+            collaborator_name: pulumi.Input[Optional[_builtins.str]] = None,
+            prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None) -> 'AgentAgentCollaborator':
         """
         Get an existing AgentAgentCollaborator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

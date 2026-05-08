@@ -170,43 +170,43 @@ export interface TrustStoreState {
     /**
      * ARN of the Trust Store (matches `id`).
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN suffix for use with CloudWatch Metrics.
      */
-    arnSuffix?: pulumi.Input<string>;
+    arnSuffix?: pulumi.Input<string | undefined>;
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      */
-    caCertificatesBundleS3Bucket?: pulumi.Input<string>;
+    caCertificatesBundleS3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 object key holding the client certificate CA bundle.
      */
-    caCertificatesBundleS3Key?: pulumi.Input<string>;
+    caCertificatesBundleS3Key?: pulumi.Input<string | undefined>;
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
-    caCertificatesBundleS3ObjectVersion?: pulumi.Input<string>;
+    caCertificatesBundleS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -224,21 +224,21 @@ export interface TrustStoreArgs {
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
-    caCertificatesBundleS3ObjectVersion?: pulumi.Input<string>;
+    caCertificatesBundleS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

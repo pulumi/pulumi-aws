@@ -111,12 +111,12 @@ export interface FirewallTransitGatewayAttachmentAccepterState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.networkfirewall.FirewallTransitGatewayAttachmentAccepterTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.networkfirewall.FirewallTransitGatewayAttachmentAccepterTimeouts | undefined>;
     /**
      * The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -126,8 +126,8 @@ export interface FirewallTransitGatewayAttachmentAccepterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.networkfirewall.FirewallTransitGatewayAttachmentAccepterTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.networkfirewall.FirewallTransitGatewayAttachmentAccepterTimeouts | undefined>;
     /**
      * The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
      */

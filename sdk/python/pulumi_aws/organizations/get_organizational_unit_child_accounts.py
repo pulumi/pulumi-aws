@@ -98,7 +98,7 @@ def get_organizational_unit_child_accounts(parent_id: Optional[_builtins.str] = 
         accounts=pulumi.get(__ret__, 'accounts'),
         id=pulumi.get(__ret__, 'id'),
         parent_id=pulumi.get(__ret__, 'parent_id'))
-def get_organizational_unit_child_accounts_output(parent_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organizational_unit_child_accounts_output(parent_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitChildAccountsResult]:
     """
     Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.

@@ -22,11 +22,11 @@ __all__ = ['QuicksetupConfigurationManagerArgs', 'QuicksetupConfigurationManager
 class QuicksetupConfigurationManagerArgs:
     def __init__(__self__, *,
                  configuration_definition: pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a QuicksetupConfigurationManager resource.
 
@@ -64,19 +64,19 @@ class QuicksetupConfigurationManagerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the configuration manager.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration manager name.
 
@@ -85,55 +85,55 @@ class QuicksetupConfigurationManagerArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['QuicksetupConfigurationManagerTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['QuicksetupConfigurationManagerTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _QuicksetupConfigurationManagerState:
     def __init__(__self__, *,
-                 configuration_definition: Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
+                 configuration_definition: pulumi.Input[Optional['QuicksetupConfigurationManagerConfigurationDefinitionArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_summaries: pulumi.Input[Optional[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering QuicksetupConfigurationManager resources.
 
@@ -169,43 +169,43 @@ class _QuicksetupConfigurationManagerState:
 
     @_builtins.property
     @pulumi.getter(name="configurationDefinition")
-    def configuration_definition(self) -> Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]:
+    def configuration_definition(self) -> pulumi.Input[Optional['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]:
         """
         Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         """
         return pulumi.get(self, "configuration_definition")
 
     @configuration_definition.setter
-    def configuration_definition(self, value: Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]):
+    def configuration_definition(self, value: pulumi.Input[Optional['QuicksetupConfigurationManagerConfigurationDefinitionArgs']]):
         pulumi.set(self, "configuration_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the configuration manager.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="managerArn")
-    def manager_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Configuration Manager.
         """
         return pulumi.get(self, "manager_arn")
 
     @manager_arn.setter
-    def manager_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration manager name.
 
@@ -214,64 +214,64 @@ class _QuicksetupConfigurationManagerState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="statusSummaries")
-    def status_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]]:
+    def status_summaries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]]:
         """
         A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
         """
         return pulumi.get(self, "status_summaries")
 
     @status_summaries.setter
-    def status_summaries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]]):
+    def status_summaries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]]):
         pulumi.set(self, "status_summaries", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['QuicksetupConfigurationManagerTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['QuicksetupConfigurationManagerTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -281,12 +281,12 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_definition: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
+                 configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSM Quick Setup Configuration Manager.
@@ -435,12 +435,12 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_definition: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
+                 configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -471,15 +471,15 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration_definition: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None) -> 'QuicksetupConfigurationManager':
+            configuration_definition: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None) -> 'QuicksetupConfigurationManager':
         """
         Get an existing QuicksetupConfigurationManager resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

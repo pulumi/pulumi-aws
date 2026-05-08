@@ -20,10 +20,10 @@ __all__ = ['InstanceAutomatedBackupsReplicationArgs', 'InstanceAutomatedBackupsR
 class InstanceAutomatedBackupsReplicationArgs:
     def __init__(__self__, *,
                  source_db_instance_arn: pulumi.Input[_builtins.str],
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_signed_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_signed_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a InstanceAutomatedBackupsReplication resource.
 
@@ -57,61 +57,61 @@ class InstanceAutomatedBackupsReplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="preSignedUrl")
-    def pre_signed_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pre_signed_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         """
         return pulumi.get(self, "pre_signed_url")
 
     @pre_signed_url.setter
-    def pre_signed_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pre_signed_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pre_signed_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The retention period for the replicated automated backups, defaults to `7`.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
 
 @pulumi.input_type
 class _InstanceAutomatedBackupsReplicationState:
     def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_signed_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_db_instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_signed_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_db_instance_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceAutomatedBackupsReplication resources.
 
@@ -134,62 +134,62 @@ class _InstanceAutomatedBackupsReplicationState:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="preSignedUrl")
-    def pre_signed_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pre_signed_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         """
         return pulumi.get(self, "pre_signed_url")
 
     @pre_signed_url.setter
-    def pre_signed_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pre_signed_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pre_signed_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The retention period for the replicated automated backups, defaults to `7`.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDbInstanceArn")
-    def source_db_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_db_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         """
         return pulumi.get(self, "source_db_instance_arn")
 
     @source_db_instance_arn.setter
-    def source_db_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_db_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_db_instance_arn", value)
 
 
@@ -199,11 +199,11 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_signed_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_db_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_signed_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_db_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage cross-region replication of automated backups to a different AWS Region. Documentation for cross-region automated backup replication can be found at:
@@ -358,11 +358,11 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_signed_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_db_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_signed_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_db_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -389,11 +389,11 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            pre_signed_url: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-            source_db_instance_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'InstanceAutomatedBackupsReplication':
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            pre_signed_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            source_db_instance_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'InstanceAutomatedBackupsReplication':
         """
         Get an existing InstanceAutomatedBackupsReplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -23,34 +23,34 @@ class ListenerArgs:
     def __init__(__self__, *,
                  default_actions: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]],
                  load_balancer_arn: pulumi.Input[_builtins.str],
-                 alpn_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_cipher_suite_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_credentials_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_methods_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_origin_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_expose_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_max_age_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_content_security_policy_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_server_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 routing_http_response_strict_transport_security_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_content_type_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tcp_idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_authentication: pulumi.Input[Optional['ListenerMutualAuthenticationArgs']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_cipher_suite_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_credentials_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_methods_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_origin_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_expose_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_max_age_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_content_security_policy_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_server_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 routing_http_response_strict_transport_security_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_content_type_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_frame_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tcp_idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Listener resource.
 
@@ -176,319 +176,319 @@ class ListenerArgs:
 
     @_builtins.property
     @pulumi.getter(name="alpnPolicy")
-    def alpn_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alpn_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         """
         return pulumi.get(self, "alpn_policy")
 
     @alpn_policy.setter
-    def alpn_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alpn_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alpn_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="mutualAuthentication")
-    def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
+    def mutual_authentication(self) -> pulumi.Input[Optional['ListenerMutualAuthenticationArgs']]:
         """
         The mutual authentication configuration information. See below.
         """
         return pulumi.get(self, "mutual_authentication")
 
     @mutual_authentication.setter
-    def mutual_authentication(self, value: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]):
+    def mutual_authentication(self, value: pulumi.Input[Optional['ListenerMutualAuthenticationArgs']]):
         pulumi.set(self, "mutual_authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `QUIC`, and `TCP_QUIC`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid to use `QUIC` or `TCP_QUIC` if security groups are configured or dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertIssuerHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_issuer_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_issuer_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_issuer_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertLeafHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_leaf_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_leaf_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_leaf_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertSubjectHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_subject_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_subject_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_subject_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertValidityHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_validity_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_validity_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_validity_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznTlsCipherSuiteHeaderName")
-    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_tls_cipher_suite_header_name")
 
     @routing_http_request_x_amzn_tls_cipher_suite_header_name.setter
-    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_tls_cipher_suite_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznTlsVersionHeaderName")
-    def routing_http_request_x_amzn_tls_version_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_tls_version_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_tls_version_header_name")
 
     @routing_http_request_x_amzn_tls_version_header_name.setter
-    def routing_http_request_x_amzn_tls_version_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_tls_version_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_tls_version_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowCredentialsHeaderValue")
-    def routing_http_response_access_control_allow_credentials_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_credentials_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_credentials_header_value")
 
     @routing_http_response_access_control_allow_credentials_header_value.setter
-    def routing_http_response_access_control_allow_credentials_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_credentials_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_credentials_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowHeadersHeaderValue")
-    def routing_http_response_access_control_allow_headers_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_headers_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_headers_header_value")
 
     @routing_http_response_access_control_allow_headers_header_value.setter
-    def routing_http_response_access_control_allow_headers_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_headers_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_headers_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowMethodsHeaderValue")
-    def routing_http_response_access_control_allow_methods_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_methods_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_methods_header_value")
 
     @routing_http_response_access_control_allow_methods_header_value.setter
-    def routing_http_response_access_control_allow_methods_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_methods_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_methods_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowOriginHeaderValue")
-    def routing_http_response_access_control_allow_origin_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_origin_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_origin_header_value")
 
     @routing_http_response_access_control_allow_origin_header_value.setter
-    def routing_http_response_access_control_allow_origin_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_origin_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_origin_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlExposeHeadersHeaderValue")
-    def routing_http_response_access_control_expose_headers_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_expose_headers_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
         """
         return pulumi.get(self, "routing_http_response_access_control_expose_headers_header_value")
 
     @routing_http_response_access_control_expose_headers_header_value.setter
-    def routing_http_response_access_control_expose_headers_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_expose_headers_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_expose_headers_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlMaxAgeHeaderValue")
-    def routing_http_response_access_control_max_age_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_max_age_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
         """
         return pulumi.get(self, "routing_http_response_access_control_max_age_header_value")
 
     @routing_http_response_access_control_max_age_header_value.setter
-    def routing_http_response_access_control_max_age_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_max_age_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_max_age_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseContentSecurityPolicyHeaderValue")
-    def routing_http_response_content_security_policy_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_content_security_policy_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
         """
         return pulumi.get(self, "routing_http_response_content_security_policy_header_value")
 
     @routing_http_response_content_security_policy_header_value.setter
-    def routing_http_response_content_security_policy_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_content_security_policy_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_content_security_policy_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseServerEnabled")
-    def routing_http_response_server_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def routing_http_response_server_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
         """
         return pulumi.get(self, "routing_http_response_server_enabled")
 
     @routing_http_response_server_enabled.setter
-    def routing_http_response_server_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def routing_http_response_server_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "routing_http_response_server_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseStrictTransportSecurityHeaderValue")
-    def routing_http_response_strict_transport_security_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_strict_transport_security_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
         """
         return pulumi.get(self, "routing_http_response_strict_transport_security_header_value")
 
     @routing_http_response_strict_transport_security_header_value.setter
-    def routing_http_response_strict_transport_security_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_strict_transport_security_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_strict_transport_security_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseXContentTypeOptionsHeaderValue")
-    def routing_http_response_x_content_type_options_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_x_content_type_options_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
         """
         return pulumi.get(self, "routing_http_response_x_content_type_options_header_value")
 
     @routing_http_response_x_content_type_options_header_value.setter
-    def routing_http_response_x_content_type_options_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_x_content_type_options_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_x_content_type_options_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseXFrameOptionsHeaderValue")
-    def routing_http_response_x_frame_options_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_x_frame_options_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
         """
         return pulumi.get(self, "routing_http_response_x_frame_options_header_value")
 
     @routing_http_response_x_frame_options_header_value.setter
-    def routing_http_response_x_frame_options_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_x_frame_options_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_x_frame_options_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="sslPolicy")
-    def ssl_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         """
         return pulumi.get(self, "ssl_policy")
 
     @ssl_policy.setter
-    def ssl_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -497,57 +497,57 @@ class ListenerArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpIdleTimeoutSeconds")
-    def tcp_idle_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tcp_idle_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         """
         return pulumi.get(self, "tcp_idle_timeout_seconds")
 
     @tcp_idle_timeout_seconds.setter
-    def tcp_idle_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tcp_idle_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tcp_idle_timeout_seconds", value)
 
 
 @pulumi.input_type
 class _ListenerState:
     def __init__(__self__, *,
-                 alpn_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]] = None,
-                 load_balancer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_cipher_suite_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_credentials_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_methods_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_origin_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_expose_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_max_age_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_content_security_policy_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_server_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 routing_http_response_strict_transport_security_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_content_type_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tcp_idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]] = None,
+                 load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_authentication: pulumi.Input[Optional['ListenerMutualAuthenticationArgs']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_cipher_suite_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_credentials_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_methods_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_origin_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_expose_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_max_age_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_content_security_policy_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_server_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 routing_http_response_strict_transport_security_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_content_type_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_frame_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tcp_idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Listener resources.
 
@@ -655,55 +655,55 @@ class _ListenerState:
 
     @_builtins.property
     @pulumi.getter(name="alpnPolicy")
-    def alpn_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alpn_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         """
         return pulumi.get(self, "alpn_policy")
 
     @alpn_policy.setter
-    def alpn_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alpn_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alpn_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the listener.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultActions")
-    def default_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]:
+    def default_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]:
         """
         Configuration block for default actions. See below.
         """
         return pulumi.get(self, "default_actions")
 
     @default_actions.setter
-    def default_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]):
+    def default_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]):
         pulumi.set(self, "default_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerArn")
-    def load_balancer_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the load balancer.
 
@@ -712,300 +712,300 @@ class _ListenerState:
         return pulumi.get(self, "load_balancer_arn")
 
     @load_balancer_arn.setter
-    def load_balancer_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="mutualAuthentication")
-    def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
+    def mutual_authentication(self) -> pulumi.Input[Optional['ListenerMutualAuthenticationArgs']]:
         """
         The mutual authentication configuration information. See below.
         """
         return pulumi.get(self, "mutual_authentication")
 
     @mutual_authentication.setter
-    def mutual_authentication(self, value: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]):
+    def mutual_authentication(self, value: pulumi.Input[Optional['ListenerMutualAuthenticationArgs']]):
         pulumi.set(self, "mutual_authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, `TCP_UDP`, `QUIC`, and `TCP_QUIC`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid to use `QUIC` or `TCP_QUIC` if security groups are configured or dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertIssuerHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_issuer_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_issuer_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_issuer_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_issuer_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertLeafHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_leaf_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_leaf_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_leaf_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_leaf_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertSubjectHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_subject_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_subject_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_subject_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_subject_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertValidityHeaderName")
-    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_mtls_clientcert_validity_header_name")
 
     @routing_http_request_x_amzn_mtls_clientcert_validity_header_name.setter
-    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_mtls_clientcert_validity_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_mtls_clientcert_validity_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznTlsCipherSuiteHeaderName")
-    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_tls_cipher_suite_header_name")
 
     @routing_http_request_x_amzn_tls_cipher_suite_header_name.setter
-    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_tls_cipher_suite_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_tls_cipher_suite_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpRequestXAmznTlsVersionHeaderName")
-    def routing_http_request_x_amzn_tls_version_header_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_request_x_amzn_tls_version_header_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         """
         return pulumi.get(self, "routing_http_request_x_amzn_tls_version_header_name")
 
     @routing_http_request_x_amzn_tls_version_header_name.setter
-    def routing_http_request_x_amzn_tls_version_header_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_request_x_amzn_tls_version_header_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_request_x_amzn_tls_version_header_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowCredentialsHeaderValue")
-    def routing_http_response_access_control_allow_credentials_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_credentials_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_credentials_header_value")
 
     @routing_http_response_access_control_allow_credentials_header_value.setter
-    def routing_http_response_access_control_allow_credentials_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_credentials_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_credentials_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowHeadersHeaderValue")
-    def routing_http_response_access_control_allow_headers_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_headers_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_headers_header_value")
 
     @routing_http_response_access_control_allow_headers_header_value.setter
-    def routing_http_response_access_control_allow_headers_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_headers_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_headers_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowMethodsHeaderValue")
-    def routing_http_response_access_control_allow_methods_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_methods_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_methods_header_value")
 
     @routing_http_response_access_control_allow_methods_header_value.setter
-    def routing_http_response_access_control_allow_methods_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_methods_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_methods_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlAllowOriginHeaderValue")
-    def routing_http_response_access_control_allow_origin_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_allow_origin_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
         """
         return pulumi.get(self, "routing_http_response_access_control_allow_origin_header_value")
 
     @routing_http_response_access_control_allow_origin_header_value.setter
-    def routing_http_response_access_control_allow_origin_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_allow_origin_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_allow_origin_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlExposeHeadersHeaderValue")
-    def routing_http_response_access_control_expose_headers_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_expose_headers_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
         """
         return pulumi.get(self, "routing_http_response_access_control_expose_headers_header_value")
 
     @routing_http_response_access_control_expose_headers_header_value.setter
-    def routing_http_response_access_control_expose_headers_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_expose_headers_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_expose_headers_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseAccessControlMaxAgeHeaderValue")
-    def routing_http_response_access_control_max_age_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_access_control_max_age_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
         """
         return pulumi.get(self, "routing_http_response_access_control_max_age_header_value")
 
     @routing_http_response_access_control_max_age_header_value.setter
-    def routing_http_response_access_control_max_age_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_access_control_max_age_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_access_control_max_age_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseContentSecurityPolicyHeaderValue")
-    def routing_http_response_content_security_policy_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_content_security_policy_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
         """
         return pulumi.get(self, "routing_http_response_content_security_policy_header_value")
 
     @routing_http_response_content_security_policy_header_value.setter
-    def routing_http_response_content_security_policy_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_content_security_policy_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_content_security_policy_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseServerEnabled")
-    def routing_http_response_server_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def routing_http_response_server_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
         """
         return pulumi.get(self, "routing_http_response_server_enabled")
 
     @routing_http_response_server_enabled.setter
-    def routing_http_response_server_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def routing_http_response_server_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "routing_http_response_server_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseStrictTransportSecurityHeaderValue")
-    def routing_http_response_strict_transport_security_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_strict_transport_security_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
         """
         return pulumi.get(self, "routing_http_response_strict_transport_security_header_value")
 
     @routing_http_response_strict_transport_security_header_value.setter
-    def routing_http_response_strict_transport_security_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_strict_transport_security_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_strict_transport_security_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseXContentTypeOptionsHeaderValue")
-    def routing_http_response_x_content_type_options_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_x_content_type_options_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
         """
         return pulumi.get(self, "routing_http_response_x_content_type_options_header_value")
 
     @routing_http_response_x_content_type_options_header_value.setter
-    def routing_http_response_x_content_type_options_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_x_content_type_options_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_x_content_type_options_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="routingHttpResponseXFrameOptionsHeaderValue")
-    def routing_http_response_x_frame_options_header_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_http_response_x_frame_options_header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
         """
         return pulumi.get(self, "routing_http_response_x_frame_options_header_value")
 
     @routing_http_response_x_frame_options_header_value.setter
-    def routing_http_response_x_frame_options_header_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_http_response_x_frame_options_header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_http_response_x_frame_options_header_value", value)
 
     @_builtins.property
     @pulumi.getter(name="sslPolicy")
-    def ssl_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         """
         return pulumi.get(self, "ssl_policy")
 
     @ssl_policy.setter
-    def ssl_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -1014,31 +1014,31 @@ class _ListenerState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpIdleTimeoutSeconds")
-    def tcp_idle_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tcp_idle_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         """
         return pulumi.get(self, "tcp_idle_timeout_seconds")
 
     @tcp_idle_timeout_seconds.setter
-    def tcp_idle_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tcp_idle_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tcp_idle_timeout_seconds", value)
 
 
@@ -1048,36 +1048,36 @@ class Listener(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alpn_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
-                 load_balancer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_cipher_suite_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_credentials_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_methods_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_origin_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_expose_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_max_age_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_content_security_policy_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_server_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 routing_http_response_strict_transport_security_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_content_type_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tcp_idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
+                 load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_cipher_suite_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_credentials_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_methods_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_origin_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_expose_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_max_age_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_content_security_policy_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_server_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 routing_http_response_strict_transport_security_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_content_type_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_frame_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tcp_idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Load Balancer Listener resource.
@@ -1713,36 +1713,36 @@ class Listener(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alpn_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
-                 load_balancer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_cipher_suite_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_request_x_amzn_tls_version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_credentials_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_methods_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_allow_origin_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_expose_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_access_control_max_age_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_content_security_policy_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_server_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 routing_http_response_strict_transport_security_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_content_type_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tcp_idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
+                 load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_subject_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_mtls_clientcert_validity_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_cipher_suite_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_request_x_amzn_tls_version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_credentials_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_methods_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_allow_origin_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_expose_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_access_control_max_age_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_content_security_policy_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_server_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 routing_http_response_strict_transport_security_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_content_type_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_http_response_x_frame_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tcp_idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1800,38 +1800,38 @@ class Listener(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alpn_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
-            load_balancer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_mtls_clientcert_subject_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_mtls_clientcert_validity_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_tls_cipher_suite_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_request_x_amzn_tls_version_header_name: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_access_control_allow_credentials_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_access_control_allow_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_access_control_allow_methods_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_access_control_allow_origin_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_access_control_expose_headers_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_access_control_max_age_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_content_security_policy_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_server_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            routing_http_response_strict_transport_security_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_x_content_type_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_http_response_x_frame_options_header_value: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tcp_idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None) -> 'Listener':
+            alpn_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]]] = None,
+            load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_subject_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_mtls_clientcert_validity_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_tls_cipher_suite_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_request_x_amzn_tls_version_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_credentials_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_methods_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_allow_origin_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_expose_headers_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_access_control_max_age_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_content_security_policy_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_server_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            routing_http_response_strict_transport_security_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_x_content_type_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_http_response_x_frame_options_header_value: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tcp_idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> 'Listener':
         """
         Get an existing Listener resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

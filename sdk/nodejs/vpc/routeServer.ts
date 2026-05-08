@@ -178,44 +178,44 @@ export interface RouteServerState {
      *
      * The following arguments are optional:
      */
-    amazonSideAsn?: pulumi.Input<number>;
+    amazonSideAsn?: pulumi.Input<number | undefined>;
     /**
      * The ARN of the route server.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
      */
-    persistRoutes?: pulumi.Input<string>;
+    persistRoutes?: pulumi.Input<string | undefined>;
     /**
      * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      */
-    persistRoutesDuration?: pulumi.Input<number>;
+    persistRoutesDuration?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the route server.
      */
-    routeServerId?: pulumi.Input<string>;
+    routeServerId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
      */
-    snsNotificationsEnabled?: pulumi.Input<boolean>;
+    snsNotificationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the SNS topic where notifications are published.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpc.RouteServerTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpc.RouteServerTimeouts | undefined>;
 }
 
 /**
@@ -231,22 +231,22 @@ export interface RouteServerArgs {
     /**
      * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
      */
-    persistRoutes?: pulumi.Input<string>;
+    persistRoutes?: pulumi.Input<string | undefined>;
     /**
      * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      */
-    persistRoutesDuration?: pulumi.Input<number>;
+    persistRoutesDuration?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
      */
-    snsNotificationsEnabled?: pulumi.Input<boolean>;
+    snsNotificationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.vpc.RouteServerTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.vpc.RouteServerTimeouts | undefined>;
 }

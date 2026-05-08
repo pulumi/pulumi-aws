@@ -152,43 +152,43 @@ export interface AccountPasswordPolicyState {
     /**
      * Whether to allow users to change their own password
      */
-    allowUsersToChangePassword?: pulumi.Input<boolean>;
+    allowUsersToChangePassword?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether passwords in the account expire. Returns `true` if `maxPasswordAge` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      */
-    expirePasswords?: pulumi.Input<boolean>;
+    expirePasswords?: pulumi.Input<boolean | undefined>;
     /**
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      */
-    hardExpiry?: pulumi.Input<boolean>;
+    hardExpiry?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days that an user password is valid.
      */
-    maxPasswordAge?: pulumi.Input<number>;
+    maxPasswordAge?: pulumi.Input<number | undefined>;
     /**
      * Minimum length to require for user passwords.
      */
-    minimumPasswordLength?: pulumi.Input<number>;
+    minimumPasswordLength?: pulumi.Input<number | undefined>;
     /**
      * The number of previous passwords that users are prevented from reusing.
      */
-    passwordReusePrevention?: pulumi.Input<number>;
+    passwordReusePrevention?: pulumi.Input<number | undefined>;
     /**
      * Whether to require lowercase characters for user passwords.
      */
-    requireLowercaseCharacters?: pulumi.Input<boolean>;
+    requireLowercaseCharacters?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to require numbers for user passwords.
      */
-    requireNumbers?: pulumi.Input<boolean>;
+    requireNumbers?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to require symbols for user passwords.
      */
-    requireSymbols?: pulumi.Input<boolean>;
+    requireSymbols?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to require uppercase characters for user passwords.
      */
-    requireUppercaseCharacters?: pulumi.Input<boolean>;
+    requireUppercaseCharacters?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -198,37 +198,37 @@ export interface AccountPasswordPolicyArgs {
     /**
      * Whether to allow users to change their own password
      */
-    allowUsersToChangePassword?: pulumi.Input<boolean>;
+    allowUsersToChangePassword?: pulumi.Input<boolean | undefined>;
     /**
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      */
-    hardExpiry?: pulumi.Input<boolean>;
+    hardExpiry?: pulumi.Input<boolean | undefined>;
     /**
      * The number of days that an user password is valid.
      */
-    maxPasswordAge?: pulumi.Input<number>;
+    maxPasswordAge?: pulumi.Input<number | undefined>;
     /**
      * Minimum length to require for user passwords.
      */
-    minimumPasswordLength?: pulumi.Input<number>;
+    minimumPasswordLength?: pulumi.Input<number | undefined>;
     /**
      * The number of previous passwords that users are prevented from reusing.
      */
-    passwordReusePrevention?: pulumi.Input<number>;
+    passwordReusePrevention?: pulumi.Input<number | undefined>;
     /**
      * Whether to require lowercase characters for user passwords.
      */
-    requireLowercaseCharacters?: pulumi.Input<boolean>;
+    requireLowercaseCharacters?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to require numbers for user passwords.
      */
-    requireNumbers?: pulumi.Input<boolean>;
+    requireNumbers?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to require symbols for user passwords.
      */
-    requireSymbols?: pulumi.Input<boolean>;
+    requireSymbols?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to require uppercase characters for user passwords.
      */
-    requireUppercaseCharacters?: pulumi.Input<boolean>;
+    requireUppercaseCharacters?: pulumi.Input<boolean | undefined>;
 }

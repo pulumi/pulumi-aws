@@ -23,9 +23,9 @@ class BucketVersioningV2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  versioning_configuration: pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'],
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketVersioningV2 resource.
 
@@ -74,49 +74,49 @@ class BucketVersioningV2Args:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def mfa(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mfa(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
         return pulumi.get(self, "mfa")
 
     @mfa.setter
-    def mfa(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mfa(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mfa", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _BucketVersioningV2State:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 versioning_configuration: Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 versioning_configuration: pulumi.Input[Optional['BucketVersioningV2VersioningConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering BucketVersioningV2 resources.
 
@@ -142,63 +142,63 @@ class _BucketVersioningV2State:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the S3 bucket.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def mfa(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mfa(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
         return pulumi.get(self, "mfa")
 
     @mfa.setter
-    def mfa(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mfa(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mfa", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="versioningConfiguration")
-    def versioning_configuration(self) -> Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']]:
+    def versioning_configuration(self) -> pulumi.Input[Optional['BucketVersioningV2VersioningConfigurationArgs']]:
         """
         Configuration block for the versioning parameters. See below.
         """
         return pulumi.get(self, "versioning_configuration")
 
     @versioning_configuration.setter
-    def versioning_configuration(self, value: Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']]):
+    def versioning_configuration(self, value: pulumi.Input[Optional['BucketVersioningV2VersioningConfigurationArgs']]):
         pulumi.set(self, "versioning_configuration", value)
 
 
@@ -213,11 +213,11 @@ class BucketVersioningV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource for controlling versioning on an S3 bucket.
@@ -450,11 +450,11 @@ class BucketVersioningV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         pulumi.log.warn("""BucketVersioningV2 is deprecated: aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -486,11 +486,11 @@ class BucketVersioningV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            mfa: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None) -> 'BucketVersioningV2':
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None) -> 'BucketVersioningV2':
         """
         Get an existing BucketVersioningV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

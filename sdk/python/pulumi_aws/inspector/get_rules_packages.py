@@ -111,7 +111,7 @@ def get_rules_packages(region: Optional[_builtins.str] = None,
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_rules_packages_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_rules_packages_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesPackagesResult]:
     """
     The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS

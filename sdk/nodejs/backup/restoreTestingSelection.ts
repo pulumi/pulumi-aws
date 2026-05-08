@@ -175,39 +175,39 @@ export interface RestoreTestingSelectionState {
     /**
      * The ARN of the IAM role.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the backup restore testing selection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARNs for the protected resources.
      */
-    protectedResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    protectedResourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The conditions for the protected resource.
      */
-    protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditions>;
+    protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
      * The type of the protected resource.
      */
-    protectedResourceType?: pulumi.Input<string>;
+    protectedResourceType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */
-    restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the restore testing plan.
      */
-    restoreTestingPlanName?: pulumi.Input<string>;
+    restoreTestingPlanName?: pulumi.Input<string | undefined>;
     /**
      * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      */
-    validationWindowHours?: pulumi.Input<number>;
+    validationWindowHours?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -221,15 +221,15 @@ export interface RestoreTestingSelectionArgs {
     /**
      * The name of the backup restore testing selection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARNs for the protected resources.
      */
-    protectedResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    protectedResourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The conditions for the protected resource.
      */
-    protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditions>;
+    protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
      * The type of the protected resource.
      */
@@ -237,11 +237,11 @@ export interface RestoreTestingSelectionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */
-    restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    restoreMetadataOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the restore testing plan.
      */
@@ -249,5 +249,5 @@ export interface RestoreTestingSelectionArgs {
     /**
      * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      */
-    validationWindowHours?: pulumi.Input<number>;
+    validationWindowHours?: pulumi.Input<number | undefined>;
 }

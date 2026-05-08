@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var delegated = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var delegated = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.CloudTrail.OrganizationDelegatedAdminAccount("example", new()
     ///     {

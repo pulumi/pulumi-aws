@@ -282,8 +282,8 @@ def get_received_license(license_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         validities=pulumi.get(__ret__, 'validities'),
         version=pulumi.get(__ret__, 'version'))
-def get_received_license_output(license_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_received_license_output(license_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicenseResult]:
     """
     This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.

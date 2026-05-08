@@ -200,8 +200,8 @@ def get_namespace(namespace_name: Optional[_builtins.str] = None,
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         region=pulumi.get(__ret__, 'region'))
-def get_namespace_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_namespace_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Data source for managing an AWS Redshift Serverless Namespace.

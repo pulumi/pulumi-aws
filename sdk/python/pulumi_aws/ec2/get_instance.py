@@ -732,13 +732,13 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
         user_data=pulumi.get(__ret__, 'user_data'),
         user_data_base64=pulumi.get(__ret__, 'user_data_base64'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']]]]] = None,
-                        get_password_data: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        get_user_data: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        instance_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        instance_tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_instance_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']]]]] = None,
+                        get_password_data: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        get_user_data: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        instance_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        instance_tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.

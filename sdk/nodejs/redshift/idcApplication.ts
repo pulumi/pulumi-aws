@@ -174,49 +174,49 @@ export interface IdcApplicationState {
     /**
      * Type of application being created. Valid values are `None` or `Lakehouse`.
      */
-    applicationType?: pulumi.Input<string>;
+    applicationType?: pulumi.Input<string | undefined>;
     /**
      * Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
      */
-    authorizedTokenIssuer?: pulumi.Input<inputs.redshift.IdcApplicationAuthorizedTokenIssuer>;
+    authorizedTokenIssuer?: pulumi.Input<inputs.redshift.IdcApplicationAuthorizedTokenIssuer | undefined>;
     /**
      * IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Display name for the Amazon Redshift IAM Identity Center application instance.
      */
-    idcDisplayName?: pulumi.Input<string>;
+    idcDisplayName?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM Identity Center instance where Amazon Redshift creates a new managed application.
      */
-    idcInstanceArn?: pulumi.Input<string>;
+    idcInstanceArn?: pulumi.Input<string | undefined>;
     /**
      * ARN for the Amazon Redshift IAM Identity Center application.
      */
-    idcManagedApplicationArn?: pulumi.Input<string>;
+    idcManagedApplicationArn?: pulumi.Input<string | undefined>;
     /**
      * Namespace for the Amazon Redshift IAM Identity Center application instance.
      */
-    identityNamespace?: pulumi.Input<string>;
+    identityNamespace?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Redshift application in IAM Identity Center.
      */
-    redshiftIdcApplicationArn?: pulumi.Input<string>;
+    redshiftIdcApplicationArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the Redshift application in IAM Identity Center.
      */
-    redshiftIdcApplicationName?: pulumi.Input<string>;
+    redshiftIdcApplicationName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
      */
-    serviceIntegration?: pulumi.Input<inputs.redshift.IdcApplicationServiceIntegration>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    serviceIntegration?: pulumi.Input<inputs.redshift.IdcApplicationServiceIntegration | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -226,11 +226,11 @@ export interface IdcApplicationArgs {
     /**
      * Type of application being created. Valid values are `None` or `Lakehouse`.
      */
-    applicationType?: pulumi.Input<string>;
+    applicationType?: pulumi.Input<string | undefined>;
     /**
      * Token issuer list for the Amazon Redshift IAM Identity Center application instance. Refer to the authorizedTokenIssuer documentation for more details.
      */
-    authorizedTokenIssuer?: pulumi.Input<inputs.redshift.IdcApplicationAuthorizedTokenIssuer>;
+    authorizedTokenIssuer?: pulumi.Input<inputs.redshift.IdcApplicationAuthorizedTokenIssuer | undefined>;
     /**
      * IAM role ARN for the Amazon Redshift IAM Identity Center application instance.
      */
@@ -246,7 +246,7 @@ export interface IdcApplicationArgs {
     /**
      * Namespace for the Amazon Redshift IAM Identity Center application instance.
      */
-    identityNamespace?: pulumi.Input<string>;
+    identityNamespace?: pulumi.Input<string | undefined>;
     /**
      * Name of the Redshift application in IAM Identity Center.
      */
@@ -254,10 +254,10 @@ export interface IdcApplicationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Collection of service integrations for the Redshift IAM Identity Center application. Refer to the serviceIntegration documentation for more details.
      */
-    serviceIntegration?: pulumi.Input<inputs.redshift.IdcApplicationServiceIntegration>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    serviceIntegration?: pulumi.Input<inputs.redshift.IdcApplicationServiceIntegration | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

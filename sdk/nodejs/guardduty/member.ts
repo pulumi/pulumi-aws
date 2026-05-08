@@ -146,35 +146,35 @@ export interface MemberState {
     /**
      * AWS account ID for member account.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The detector ID of the GuardDuty account where you want to create member accounts.
      */
-    detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
      */
-    disableEmailNotification?: pulumi.Input<boolean>;
+    disableEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Email address for member account.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Message for invitation.
      */
-    invitationMessage?: pulumi.Input<string>;
+    invitationMessage?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      */
-    invite?: pulumi.Input<boolean>;
+    invite?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
-    relationshipStatus?: pulumi.Input<string>;
+    relationshipStatus?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface MemberArgs {
     /**
      * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
      */
-    disableEmailNotification?: pulumi.Input<boolean>;
+    disableEmailNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Email address for member account.
      */
@@ -200,13 +200,13 @@ export interface MemberArgs {
     /**
      * Message for invitation.
      */
-    invitationMessage?: pulumi.Input<string>;
+    invitationMessage?: pulumi.Input<string | undefined>;
     /**
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      */
-    invite?: pulumi.Input<boolean>;
+    invite?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -122,19 +122,19 @@ export interface SecurityGroupAssociationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
-    replaceDefaultAssociation?: pulumi.Input<boolean>;
+    replaceDefaultAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the security group to be associated with the VPC endpoint.
      */
-    securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC endpoint with which the security group will be associated.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -144,11 +144,11 @@ export interface SecurityGroupAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
-    replaceDefaultAssociation?: pulumi.Input<boolean>;
+    replaceDefaultAssociation?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the security group to be associated with the VPC endpoint.
      */

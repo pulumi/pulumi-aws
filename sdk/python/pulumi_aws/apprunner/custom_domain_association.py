@@ -23,8 +23,8 @@ class CustomDomainAssociationArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
                  service_arn: pulumi.Input[_builtins.str],
-                 enable_www_subdomain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_www_subdomain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDomainAssociation resource.
 
@@ -66,39 +66,39 @@ class CustomDomainAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableWwwSubdomain")
-    def enable_www_subdomain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_www_subdomain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
         """
         return pulumi.get(self, "enable_www_subdomain")
 
     @enable_www_subdomain.setter
-    def enable_www_subdomain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_www_subdomain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_www_subdomain", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _CustomDomainAssociationState:
     def __init__(__self__, *,
-                 certificate_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]] = None,
-                 dns_target: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_www_subdomain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]] = None,
+                 dns_target: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_www_subdomain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomDomainAssociation resources.
 
@@ -127,86 +127,86 @@ class _CustomDomainAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="certificateValidationRecords")
-    def certificate_validation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]]:
+    def certificate_validation_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]]:
         """
         A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
         """
         return pulumi.get(self, "certificate_validation_records")
 
     @certificate_validation_records.setter
-    def certificate_validation_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]]):
+    def certificate_validation_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]]):
         pulumi.set(self, "certificate_validation_records", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsTarget")
-    def dns_target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         """
         return pulumi.get(self, "dns_target")
 
     @dns_target.setter
-    def dns_target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_target", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableWwwSubdomain")
-    def enable_www_subdomain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_www_subdomain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
         """
         return pulumi.get(self, "enable_www_subdomain")
 
     @enable_www_subdomain.setter
-    def enable_www_subdomain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_www_subdomain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_www_subdomain", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceArn")
-    def service_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the App Runner service.
         """
         return pulumi.get(self, "service_arn")
 
     @service_arn.setter
-    def service_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -216,10 +216,10 @@ class CustomDomainAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_www_subdomain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_www_subdomain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an App Runner Custom Domain association.
@@ -299,10 +299,10 @@ class CustomDomainAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_www_subdomain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_www_subdomain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,13 +333,13 @@ class CustomDomainAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainAssociationCertificateValidationRecordArgs', 'CustomDomainAssociationCertificateValidationRecordArgsDict']]]]] = None,
-            dns_target: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_www_subdomain: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomDomainAssociation':
+            certificate_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomDomainAssociationCertificateValidationRecordArgs', 'CustomDomainAssociationCertificateValidationRecordArgsDict']]]]] = None,
+            dns_target: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_www_subdomain: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomDomainAssociation':
         """
         Get an existing CustomDomainAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

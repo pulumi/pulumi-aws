@@ -225,47 +225,47 @@ export interface WebhookState {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      */
-    branchFilter?: pulumi.Input<string>;
+    branchFilter?: pulumi.Input<string | undefined>;
     /**
      * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
      */
-    buildType?: pulumi.Input<string>;
+    buildType?: pulumi.Input<string | undefined>;
     /**
      * Information about the webhook's trigger. See filterGroup for details.
      */
-    filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
+    filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[] | undefined>;
     /**
      * If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
      */
-    manualCreation?: pulumi.Input<boolean>;
+    manualCreation?: pulumi.Input<boolean | undefined>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
-    payloadUrl?: pulumi.Input<string>;
+    payloadUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the build project.
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
      */
-    pullRequestBuildPolicy?: pulumi.Input<inputs.codebuild.WebhookPullRequestBuildPolicy>;
+    pullRequestBuildPolicy?: pulumi.Input<inputs.codebuild.WebhookPullRequestBuildPolicy | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      */
-    scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration>;
+    scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration | undefined>;
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
-    secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string | undefined>;
     /**
      * The URL to the webhook.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -275,19 +275,19 @@ export interface WebhookArgs {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      */
-    branchFilter?: pulumi.Input<string>;
+    branchFilter?: pulumi.Input<string | undefined>;
     /**
      * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
      */
-    buildType?: pulumi.Input<string>;
+    buildType?: pulumi.Input<string | undefined>;
     /**
      * Information about the webhook's trigger. See filterGroup for details.
      */
-    filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
+    filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[] | undefined>;
     /**
      * If true, CodeBuild doesn't create a webhook in GitHub and instead returns `payloadUrl` and `secret` values for the webhook. The `payloadUrl` and `secret` values in the output can be used to manually create a webhook within GitHub.
      */
-    manualCreation?: pulumi.Input<boolean>;
+    manualCreation?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the build project.
      */
@@ -295,13 +295,13 @@ export interface WebhookArgs {
     /**
      * Defines comment-based approval requirements for triggering builds on pull requests. See pullRequestBuildPolicy for details.
      */
-    pullRequestBuildPolicy?: pulumi.Input<inputs.codebuild.WebhookPullRequestBuildPolicy>;
+    pullRequestBuildPolicy?: pulumi.Input<inputs.codebuild.WebhookPullRequestBuildPolicy | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Scope configuration for global or organization webhooks. See scopeConfiguration for details.
      */
-    scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration>;
+    scopeConfiguration?: pulumi.Input<inputs.codebuild.WebhookScopeConfiguration | undefined>;
 }

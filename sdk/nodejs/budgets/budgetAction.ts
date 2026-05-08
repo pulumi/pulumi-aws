@@ -251,59 +251,59 @@ export interface BudgetActionState {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The id of the budget action.
      */
-    actionId?: pulumi.Input<string>;
+    actionId?: pulumi.Input<string | undefined>;
     /**
      * The trigger threshold of the action. See Action Threshold.
      */
-    actionThreshold?: pulumi.Input<inputs.budgets.BudgetActionActionThreshold>;
+    actionThreshold?: pulumi.Input<inputs.budgets.BudgetActionActionThreshold | undefined>;
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
-    actionType?: pulumi.Input<string>;
+    actionType?: pulumi.Input<string | undefined>;
     /**
      * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      */
-    approvalModel?: pulumi.Input<string>;
+    approvalModel?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the budget action.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of a budget.
      */
-    budgetName?: pulumi.Input<string>;
+    budgetName?: pulumi.Input<string | undefined>;
     /**
      * Specifies all of the type-specific parameters. See Definition.
      */
-    definition?: pulumi.Input<inputs.budgets.BudgetActionDefinition>;
+    definition?: pulumi.Input<inputs.budgets.BudgetActionDefinition | undefined>;
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      */
-    notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string | undefined>;
     /**
      * The status of the budget action.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A list of subscribers. See Subscriber.
      */
-    subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[]>;
+    subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[] | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -313,7 +313,7 @@ export interface BudgetActionArgs {
     /**
      * The ID of the target account for budget. Will use current user's accountId by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The trigger threshold of the action. See Action Threshold.
      */
@@ -349,5 +349,5 @@ export interface BudgetActionArgs {
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

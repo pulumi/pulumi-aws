@@ -136,29 +136,29 @@ export interface DomainEntryState {
     /**
      * Name of the Lightsail domain in which to create the entry.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Whether the entry should be an alias. Default: `false`.
      */
-    isAlias?: pulumi.Input<boolean>;
+    isAlias?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the entry record.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Target of the domain entry.
      */
-    target?: pulumi.Input<string>;
+    target?: pulumi.Input<string | undefined>;
     /**
      * Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
      *
      * The following arguments are optional:
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,15 +172,15 @@ export interface DomainEntryArgs {
     /**
      * Whether the entry should be an alias. Default: `false`.
      */
-    isAlias?: pulumi.Input<boolean>;
+    isAlias?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the entry record.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Target of the domain entry.
      */

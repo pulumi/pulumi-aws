@@ -411,145 +411,145 @@ export interface EnvironmentState {
     /**
      * The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      */
-    airflowConfigurationOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    airflowConfigurationOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Airflow version of your environment, will be set by default to the latest version that MWAA supports.
      */
-    airflowVersion?: pulumi.Input<string>;
+    airflowVersion?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the MWAA Environment
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Created At date of the MWAA Environment
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    dagS3Path?: pulumi.Input<string>;
+    dagS3Path?: pulumi.Input<string | undefined>;
     /**
      * The VPC endpoint for the environment's Amazon RDS database
      * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      */
-    databaseVpcEndpointService?: pulumi.Input<string>;
+    databaseVpcEndpointService?: pulumi.Input<string | undefined>;
     /**
      * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
      */
-    endpointManagement?: pulumi.Input<string>;
+    endpointManagement?: pulumi.Input<string | undefined>;
     /**
      * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
-    environmentClass?: pulumi.Input<string>;
+    environmentClass?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      */
-    kmsKey?: pulumi.Input<string>;
-    lastUpdateds?: pulumi.Input<pulumi.Input<inputs.mwaa.EnvironmentLastUpdated>[]>;
+    kmsKey?: pulumi.Input<string | undefined>;
+    lastUpdateds?: pulumi.Input<pulumi.Input<inputs.mwaa.EnvironmentLastUpdated>[] | undefined>;
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      */
-    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration | undefined>;
     /**
      * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
-    maxWebservers?: pulumi.Input<number>;
+    maxWebservers?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
-    maxWorkers?: pulumi.Input<number>;
+    maxWorkers?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
-    minWebservers?: pulumi.Input<number>;
+    minWebservers?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      */
-    minWorkers?: pulumi.Input<number>;
+    minWorkers?: pulumi.Input<number | undefined>;
     /**
      * The name of the Apache Airflow Environment
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      */
-    networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfiguration | undefined>;
     /**
      * The plugins.zip file version you want to use.
      */
-    pluginsS3ObjectVersion?: pulumi.Input<string>;
+    pluginsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    pluginsS3Path?: pulumi.Input<string>;
+    pluginsS3Path?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The requirements.txt file version you want to use.
      */
-    requirementsS3ObjectVersion?: pulumi.Input<string>;
+    requirementsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    requirementsS3Path?: pulumi.Input<string>;
+    requirementsS3Path?: pulumi.Input<string | undefined>;
     /**
      * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      */
-    schedulers?: pulumi.Input<number>;
+    schedulers?: pulumi.Input<number | undefined>;
     /**
      * The Service Role ARN of the Amazon MWAA Environment
      */
-    serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      */
-    sourceBucketArn?: pulumi.Input<string>;
+    sourceBucketArn?: pulumi.Input<string | undefined>;
     /**
      * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      */
-    startupScriptS3ObjectVersion?: pulumi.Input<string>;
+    startupScriptS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
      */
-    startupScriptS3Path?: pulumi.Input<string>;
+    startupScriptS3Path?: pulumi.Input<string | undefined>;
     /**
      * The status of the Amazon MWAA Environment
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */
-    webserverAccessMode?: pulumi.Input<string>;
+    webserverAccessMode?: pulumi.Input<string | undefined>;
     /**
      * The webserver URL of the MWAA Environment
      */
-    webserverUrl?: pulumi.Input<string>;
+    webserverUrl?: pulumi.Input<string | undefined>;
     /**
      * The VPC endpoint for the environment's web server
      */
-    webserverVpcEndpointService?: pulumi.Input<string>;
+    webserverVpcEndpointService?: pulumi.Input<string | undefined>;
     /**
      * Specifies the start date for the weekly maintenance window.
      */
-    weeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    weeklyMaintenanceWindowStart?: pulumi.Input<string | undefined>;
     /**
      * Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
      */
-    workerReplacementStrategy?: pulumi.Input<string>;
+    workerReplacementStrategy?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -559,11 +559,11 @@ export interface EnvironmentArgs {
     /**
      * The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      */
-    airflowConfigurationOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    airflowConfigurationOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Airflow version of your environment, will be set by default to the latest version that MWAA supports.
      */
-    airflowVersion?: pulumi.Input<string>;
+    airflowVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
@@ -571,11 +571,11 @@ export interface EnvironmentArgs {
     /**
      * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
      */
-    endpointManagement?: pulumi.Input<string>;
+    endpointManagement?: pulumi.Input<string | undefined>;
     /**
      * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      */
-    environmentClass?: pulumi.Input<string>;
+    environmentClass?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      */
@@ -583,31 +583,31 @@ export interface EnvironmentArgs {
     /**
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      */
-    kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string | undefined>;
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `loggingConfiguration` Block for details.
      */
-    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration | undefined>;
     /**
      * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
-    maxWebservers?: pulumi.Input<number>;
+    maxWebservers?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
-    maxWorkers?: pulumi.Input<number>;
+    maxWorkers?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environmentClass` is not `mw1.micro`, `1` otherwise.
      */
-    minWebservers?: pulumi.Input<number>;
+    minWebservers?: pulumi.Input<number | undefined>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      */
-    minWorkers?: pulumi.Input<number>;
+    minWorkers?: pulumi.Input<number | undefined>;
     /**
      * The name of the Apache Airflow Environment
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `networkConfiguration` Block for details.
      */
@@ -615,27 +615,27 @@ export interface EnvironmentArgs {
     /**
      * The plugins.zip file version you want to use.
      */
-    pluginsS3ObjectVersion?: pulumi.Input<string>;
+    pluginsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    pluginsS3Path?: pulumi.Input<string>;
+    pluginsS3Path?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The requirements.txt file version you want to use.
      */
-    requirementsS3ObjectVersion?: pulumi.Input<string>;
+    requirementsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
-    requirementsS3Path?: pulumi.Input<string>;
+    requirementsS3Path?: pulumi.Input<string | undefined>;
     /**
      * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      */
-    schedulers?: pulumi.Input<number>;
+    schedulers?: pulumi.Input<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      */
@@ -643,25 +643,25 @@ export interface EnvironmentArgs {
     /**
      * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      */
-    startupScriptS3ObjectVersion?: pulumi.Input<string>;
+    startupScriptS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
      */
-    startupScriptS3Path?: pulumi.Input<string>;
+    startupScriptS3Path?: pulumi.Input<string | undefined>;
     /**
      * A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */
-    webserverAccessMode?: pulumi.Input<string>;
+    webserverAccessMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the start date for the weekly maintenance window.
      */
-    weeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    weeklyMaintenanceWindowStart?: pulumi.Input<string | undefined>;
     /**
      * Worker replacement strategy. Valid values: `FORCED`, `GRACEFUL`.
      */
-    workerReplacementStrategy?: pulumi.Input<string>;
+    workerReplacementStrategy?: pulumi.Input<string | undefined>;
 }

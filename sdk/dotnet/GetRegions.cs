@@ -26,7 +26,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke();
+        ///     var current = Aws.GetRegions.Invoke();
         /// 
         /// });
         /// ```
@@ -41,7 +41,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke(new()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
         ///         AllRegions = true,
         ///     });
@@ -59,7 +59,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke(new()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
         ///         AllRegions = true,
         ///         Filters = new[]
@@ -96,7 +96,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke();
+        ///     var current = Aws.GetRegions.Invoke();
         /// 
         /// });
         /// ```
@@ -111,7 +111,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke(new()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
         ///         AllRegions = true,
         ///     });
@@ -129,7 +129,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke(new()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
         ///         AllRegions = true,
         ///         Filters = new[]
@@ -166,7 +166,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke();
+        ///     var current = Aws.GetRegions.Invoke();
         /// 
         /// });
         /// ```
@@ -181,7 +181,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke(new()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
         ///         AllRegions = true,
         ///     });
@@ -199,7 +199,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetRegions.Invoke(new()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
         ///         AllRegions = true,
         ///         Filters = new[]

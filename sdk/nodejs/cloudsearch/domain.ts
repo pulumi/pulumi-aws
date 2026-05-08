@@ -171,43 +171,43 @@ export interface DomainState {
     /**
      * The domain's ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The service endpoint for updating documents in a search domain.
      */
-    documentServiceEndpoint?: pulumi.Input<string>;
+    documentServiceEndpoint?: pulumi.Input<string | undefined>;
     /**
      * An internally generated unique identifier for the domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * Domain endpoint options. Documented below.
      */
-    endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions>;
+    endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions | undefined>;
     /**
      * The index fields for documents added to the domain. Documented below.
      */
-    indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[]>;
+    indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[] | undefined>;
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      */
-    multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the CloudSearch domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Domain scaling parameters. Documented below.
      */
-    scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters>;
+    scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters | undefined>;
     /**
      * The service endpoint for requesting search results from a search domain.
      */
-    searchServiceEndpoint?: pulumi.Input<string>;
+    searchServiceEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -217,25 +217,25 @@ export interface DomainArgs {
     /**
      * Domain endpoint options. Documented below.
      */
-    endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions>;
+    endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions | undefined>;
     /**
      * The index fields for documents added to the domain. Documented below.
      */
-    indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[]>;
+    indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[] | undefined>;
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      */
-    multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the CloudSearch domain.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Domain scaling parameters. Documented below.
      */
-    scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters>;
+    scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters | undefined>;
 }

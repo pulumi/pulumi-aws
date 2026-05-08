@@ -22,28 +22,28 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[_builtins.str],
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']] = None,
-                 enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interface_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_address_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ena_srd_specification: pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationArgs']] = None,
+                 enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interface_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_address_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
 
@@ -134,298 +134,298 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]:
+    def attachments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]:
         """
         Configuration block to define the attachment of the ENI. See Attachment below for more details!
         """
         return pulumi.get(self, "attachments")
 
     @attachments.setter
-    def attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]):
+    def attachments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]):
         pulumi.set(self, "attachments", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the network interface.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enaSrdSpecification")
-    def ena_srd_specification(self) -> Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]:
+    def ena_srd_specification(self) -> pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationArgs']]:
         """
         Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
         """
         return pulumi.get(self, "ena_srd_specification")
 
     @ena_srd_specification.setter
-    def ena_srd_specification(self, value: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]):
+    def ena_srd_specification(self, value: pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationArgs']]):
         pulumi.set(self, "ena_srd_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
-    def enable_primary_ipv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_primary_ipv6(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         """
         return pulumi.get(self, "enable_primary_ipv6")
 
     @enable_primary_ipv6.setter
-    def enable_primary_ipv6(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_primary_ipv6(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_primary_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceType")
-    def interface_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interface_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "interface_type")
 
     @interface_type.setter
-    def interface_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interface_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interface_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4PrefixCount")
-    def ipv4_prefix_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv4_prefix_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         """
         return pulumi.get(self, "ipv4_prefix_count")
 
     @ipv4_prefix_count.setter
-    def ipv4_prefix_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv4_prefix_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv4_prefix_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4Prefixes")
-    def ipv4_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv4_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IPv4 prefixes assigned to the network interface.
         """
         return pulumi.get(self, "ipv4_prefixes")
 
     @ipv4_prefixes.setter
-    def ipv4_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv4_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv4_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
-    def ipv6_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_address_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         """
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
-    def ipv6_address_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_address_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_address_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressListEnabled")
-    def ipv6_address_list_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_address_list_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         """
         return pulumi.get(self, "ipv6_address_list_enabled")
 
     @ipv6_address_list_enabled.setter
-    def ipv6_address_list_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_address_list_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_address_list_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressLists")
-    def ipv6_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_address_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of private IPs to assign to the ENI in sequential order.
         """
         return pulumi.get(self, "ipv6_address_lists")
 
     @ipv6_address_lists.setter
-    def ipv6_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_address_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_address_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
-    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6PrefixCount")
-    def ipv6_prefix_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_prefix_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         """
         return pulumi.get(self, "ipv6_prefix_count")
 
     @ipv6_prefix_count.setter
-    def ipv6_prefix_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_prefix_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_prefix_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Prefixes")
-    def ipv6_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IPv6 prefixes assigned to the network interface.
         """
         return pulumi.get(self, "ipv6_prefixes")
 
     @ipv6_prefixes.setter
-    def ipv6_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
-    def private_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpListEnabled")
-    def private_ip_list_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_ip_list_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         """
         return pulumi.get(self, "private_ip_list_enabled")
 
     @private_ip_list_enabled.setter
-    def private_ip_list_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_ip_list_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_ip_list_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpLists")
-    def private_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         """
         return pulumi.get(self, "private_ip_lists")
 
     @private_ip_lists.setter
-    def private_ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIps")
-    def private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of private IPs to assign to the ENI without regard to order.
         """
         return pulumi.get(self, "private_ips")
 
     @private_ips.setter
-    def private_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpsCount")
-    def private_ips_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def private_ips_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         """
         return pulumi.get(self, "private_ips_count")
 
     @private_ips_count.setter
-    def private_ips_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def private_ips_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "private_ips_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group IDs to assign to the ENI.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDestCheck")
-    def source_dest_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def source_dest_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable source destination checking for the ENI. Default true.
         """
         return pulumi.get(self, "source_dest_check")
 
     @source_dest_check.setter
-    def source_dest_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def source_dest_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "source_dest_check", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _NetworkInterfaceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']] = None,
-                 enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interface_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_address_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ena_srd_specification: pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationArgs']] = None,
+                 enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interface_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_address_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkInterface resources.
 
@@ -520,313 +520,313 @@ class _NetworkInterfaceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the network interface.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]:
+    def attachments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]:
         """
         Configuration block to define the attachment of the ENI. See Attachment below for more details!
         """
         return pulumi.get(self, "attachments")
 
     @attachments.setter
-    def attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]):
+    def attachments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]]):
         pulumi.set(self, "attachments", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the network interface.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enaSrdSpecification")
-    def ena_srd_specification(self) -> Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]:
+    def ena_srd_specification(self) -> pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationArgs']]:
         """
         Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
         """
         return pulumi.get(self, "ena_srd_specification")
 
     @ena_srd_specification.setter
-    def ena_srd_specification(self, value: Optional[pulumi.Input['NetworkInterfaceEnaSrdSpecificationArgs']]):
+    def ena_srd_specification(self, value: pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationArgs']]):
         pulumi.set(self, "ena_srd_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePrimaryIpv6")
-    def enable_primary_ipv6(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_primary_ipv6(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         """
         return pulumi.get(self, "enable_primary_ipv6")
 
     @enable_primary_ipv6.setter
-    def enable_primary_ipv6(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_primary_ipv6(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_primary_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceType")
-    def interface_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interface_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "interface_type")
 
     @interface_type.setter
-    def interface_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interface_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interface_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4PrefixCount")
-    def ipv4_prefix_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv4_prefix_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         """
         return pulumi.get(self, "ipv4_prefix_count")
 
     @ipv4_prefix_count.setter
-    def ipv4_prefix_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv4_prefix_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv4_prefix_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4Prefixes")
-    def ipv4_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv4_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IPv4 prefixes assigned to the network interface.
         """
         return pulumi.get(self, "ipv4_prefixes")
 
     @ipv4_prefixes.setter
-    def ipv4_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv4_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv4_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressCount")
-    def ipv6_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_address_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         """
         return pulumi.get(self, "ipv6_address_count")
 
     @ipv6_address_count.setter
-    def ipv6_address_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_address_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_address_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressListEnabled")
-    def ipv6_address_list_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_address_list_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         """
         return pulumi.get(self, "ipv6_address_list_enabled")
 
     @ipv6_address_list_enabled.setter
-    def ipv6_address_list_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_address_list_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_address_list_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressLists")
-    def ipv6_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_address_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of private IPs to assign to the ENI in sequential order.
         """
         return pulumi.get(self, "ipv6_address_lists")
 
     @ipv6_address_lists.setter
-    def ipv6_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_address_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_address_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         """
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
-    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6PrefixCount")
-    def ipv6_prefix_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_prefix_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         """
         return pulumi.get(self, "ipv6_prefix_count")
 
     @ipv6_prefix_count.setter
-    def ipv6_prefix_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_prefix_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_prefix_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Prefixes")
-    def ipv6_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more IPv6 prefixes assigned to the network interface.
         """
         return pulumi.get(self, "ipv6_prefixes")
 
     @ipv6_prefixes.setter
-    def ipv6_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MAC address of the network interface.
         """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the owner of the network interface.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsName")
-    def private_dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Private DNS name of the network interface (IPv4).
         """
         return pulumi.get(self, "private_dns_name")
 
     @private_dns_name.setter
-    def private_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
-    def private_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpListEnabled")
-    def private_ip_list_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def private_ip_list_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         """
         return pulumi.get(self, "private_ip_list_enabled")
 
     @private_ip_list_enabled.setter
-    def private_ip_list_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def private_ip_list_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "private_ip_list_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpLists")
-    def private_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         """
         return pulumi.get(self, "private_ip_lists")
 
     @private_ip_lists.setter
-    def private_ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIps")
-    def private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def private_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of private IPs to assign to the ENI without regard to order.
         """
         return pulumi.get(self, "private_ips")
 
     @private_ips.setter
-    def private_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def private_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpsCount")
-    def private_ips_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def private_ips_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         """
         return pulumi.get(self, "private_ips_count")
 
     @private_ips_count.setter
-    def private_ips_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def private_ips_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "private_ips_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of security group IDs to assign to the ENI.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDestCheck")
-    def source_dest_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def source_dest_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable source destination checking for the ENI. Default true.
         """
         return pulumi.get(self, "source_dest_check")
 
     @source_dest_check.setter
-    def source_dest_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def source_dest_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "source_dest_check", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet ID to create the ENI in.
 
@@ -835,31 +835,31 @@ class _NetworkInterfaceState:
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -869,29 +869,29 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
-                 enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interface_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_address_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
+                 enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interface_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_address_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Elastic network interface (ENI) resource.
@@ -1031,29 +1031,29 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
-                 enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-                 interface_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_address_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_ips_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
+                 enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+                 interface_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipv4_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv4_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_address_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 private_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_ips_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1104,35 +1104,35 @@ class NetworkInterface(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
-            enable_primary_ipv6: Optional[pulumi.Input[_builtins.bool]] = None,
-            interface_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ipv4_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-            ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ipv6_address_count: Optional[pulumi.Input[_builtins.int]] = None,
-            ipv6_address_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ipv6_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ipv6_prefix_count: Optional[pulumi.Input[_builtins.int]] = None,
-            ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-            outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            private_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip_list_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            private_ips_count: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NetworkInterface':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInterfaceAttachmentArgs', 'NetworkInterfaceAttachmentArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceEnaSrdSpecificationArgs', 'NetworkInterfaceEnaSrdSpecificationArgsDict']]] = None,
+            enable_primary_ipv6: pulumi.Input[Optional[_builtins.bool]] = None,
+            interface_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ipv4_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv4_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipv6_address_count: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_address_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ipv6_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ipv6_prefix_count: pulumi.Input[Optional[_builtins.int]] = None,
+            ipv6_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip_list_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            private_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            private_ips_count: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            source_dest_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NetworkInterface':
         """
         Get an existing NetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,12 +24,12 @@ class WebAclRuleGroupAssociationArgs:
                  priority: pulumi.Input[_builtins.int],
                  rule_name: pulumi.Input[_builtins.str],
                  web_acl_arn: pulumi.Input[_builtins.str],
-                 managed_rule_group: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupArgs']] = None,
-                 override_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_reference: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceArgs']] = None,
-                 timeouts: Optional[pulumi.Input['WebAclRuleGroupAssociationTimeoutsArgs']] = None,
-                 visibility_config: Optional[pulumi.Input['WebAclRuleGroupAssociationVisibilityConfigArgs']] = None):
+                 managed_rule_group: pulumi.Input[Optional['WebAclRuleGroupAssociationManagedRuleGroupArgs']] = None,
+                 override_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_reference: pulumi.Input[Optional['WebAclRuleGroupAssociationRuleGroupReferenceArgs']] = None,
+                 timeouts: pulumi.Input[Optional['WebAclRuleGroupAssociationTimeoutsArgs']] = None,
+                 visibility_config: pulumi.Input[Optional['WebAclRuleGroupAssociationVisibilityConfigArgs']] = None):
         """
         The set of arguments for constructing a WebAclRuleGroupAssociation resource.
 
@@ -100,86 +100,86 @@ class WebAclRuleGroupAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedRuleGroup")
-    def managed_rule_group(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupArgs']]:
+    def managed_rule_group(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationManagedRuleGroupArgs']]:
         """
         Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
         """
         return pulumi.get(self, "managed_rule_group")
 
     @managed_rule_group.setter
-    def managed_rule_group(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupArgs']]):
+    def managed_rule_group(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationManagedRuleGroupArgs']]):
         pulumi.set(self, "managed_rule_group", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideAction")
-    def override_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def override_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
         """
         return pulumi.get(self, "override_action")
 
     @override_action.setter
-    def override_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def override_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "override_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleGroupReference")
-    def rule_group_reference(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]:
+    def rule_group_reference(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]:
         """
         Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
         """
         return pulumi.get(self, "rule_group_reference")
 
     @rule_group_reference.setter
-    def rule_group_reference(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]):
+    def rule_group_reference(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]):
         pulumi.set(self, "rule_group_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationVisibilityConfigArgs']]:
+    def visibility_config(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationVisibilityConfigArgs']]:
         """
         Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
         """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationVisibilityConfigArgs']]):
+    def visibility_config(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationVisibilityConfigArgs']]):
         pulumi.set(self, "visibility_config", value)
 
 
 @pulumi.input_type
 class _WebAclRuleGroupAssociationState:
     def __init__(__self__, *,
-                 managed_rule_group: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupArgs']] = None,
-                 override_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_reference: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceArgs']] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['WebAclRuleGroupAssociationTimeoutsArgs']] = None,
-                 visibility_config: Optional[pulumi.Input['WebAclRuleGroupAssociationVisibilityConfigArgs']] = None,
-                 web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 managed_rule_group: pulumi.Input[Optional['WebAclRuleGroupAssociationManagedRuleGroupArgs']] = None,
+                 override_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_reference: pulumi.Input[Optional['WebAclRuleGroupAssociationRuleGroupReferenceArgs']] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['WebAclRuleGroupAssociationTimeoutsArgs']] = None,
+                 visibility_config: pulumi.Input[Optional['WebAclRuleGroupAssociationVisibilityConfigArgs']] = None,
+                 web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAclRuleGroupAssociation resources.
 
@@ -215,100 +215,100 @@ class _WebAclRuleGroupAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="managedRuleGroup")
-    def managed_rule_group(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupArgs']]:
+    def managed_rule_group(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationManagedRuleGroupArgs']]:
         """
         Managed Rule Group configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `rule_group_reference`. See below.
         """
         return pulumi.get(self, "managed_rule_group")
 
     @managed_rule_group.setter
-    def managed_rule_group(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationManagedRuleGroupArgs']]):
+    def managed_rule_group(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationManagedRuleGroupArgs']]):
         pulumi.set(self, "managed_rule_group", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideAction")
-    def override_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def override_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
         """
         return pulumi.get(self, "override_action")
 
     @override_action.setter
-    def override_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def override_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "override_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleGroupReference")
-    def rule_group_reference(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]:
+    def rule_group_reference(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]:
         """
         Custom Rule Group reference configuration. One of `rule_group_reference` or `managed_rule_group` is required. Conflicts with `managed_rule_group`. See below.
         """
         return pulumi.get(self, "rule_group_reference")
 
     @rule_group_reference.setter
-    def rule_group_reference(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]):
+    def rule_group_reference(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationRuleGroupReferenceArgs']]):
         pulumi.set(self, "rule_group_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> Optional[pulumi.Input['WebAclRuleGroupAssociationVisibilityConfigArgs']]:
+    def visibility_config(self) -> pulumi.Input[Optional['WebAclRuleGroupAssociationVisibilityConfigArgs']]:
         """
         Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
         """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: Optional[pulumi.Input['WebAclRuleGroupAssociationVisibilityConfigArgs']]):
+    def visibility_config(self, value: pulumi.Input[Optional['WebAclRuleGroupAssociationVisibilityConfigArgs']]):
         pulumi.set(self, "visibility_config", value)
 
     @_builtins.property
     @pulumi.getter(name="webAclArn")
-    def web_acl_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_acl_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Web ACL to associate the Rule Group with.
 
@@ -317,7 +317,7 @@ class _WebAclRuleGroupAssociationState:
         return pulumi.get(self, "web_acl_arn")
 
     @web_acl_arn.setter
-    def web_acl_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_acl_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_acl_arn", value)
 
 
@@ -327,15 +327,15 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_rule_group: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict']]] = None,
-                 override_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_reference: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationRuleGroupReferenceArgs', 'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationTimeoutsArgs', 'WebAclRuleGroupAssociationTimeoutsArgsDict']]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationVisibilityConfigArgs', 'WebAclRuleGroupAssociationVisibilityConfigArgsDict']]] = None,
-                 web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_rule_group: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict']]] = None,
+                 override_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_reference: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationRuleGroupReferenceArgs', 'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationTimeoutsArgs', 'WebAclRuleGroupAssociationTimeoutsArgsDict']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationVisibilityConfigArgs', 'WebAclRuleGroupAssociationVisibilityConfigArgsDict']]] = None,
+                 web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Associates a WAFv2 Rule Group (custom or managed) with a Web ACL by adding a rule that references the Rule Group. Use this resource to apply the rules defined in a Rule Group to a Web ACL without duplicating rule definitions.
@@ -863,15 +863,15 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_rule_group: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict']]] = None,
-                 override_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_group_reference: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationRuleGroupReferenceArgs', 'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationTimeoutsArgs', 'WebAclRuleGroupAssociationTimeoutsArgsDict']]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationVisibilityConfigArgs', 'WebAclRuleGroupAssociationVisibilityConfigArgsDict']]] = None,
-                 web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_rule_group: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict']]] = None,
+                 override_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_group_reference: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationRuleGroupReferenceArgs', 'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationTimeoutsArgs', 'WebAclRuleGroupAssociationTimeoutsArgsDict']]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationVisibilityConfigArgs', 'WebAclRuleGroupAssociationVisibilityConfigArgsDict']]] = None,
+                 web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -906,15 +906,15 @@ class WebAclRuleGroupAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            managed_rule_group: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict']]] = None,
-            override_action: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_group_reference: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationRuleGroupReferenceArgs', 'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict']]] = None,
-            rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationTimeoutsArgs', 'WebAclRuleGroupAssociationTimeoutsArgsDict']]] = None,
-            visibility_config: Optional[pulumi.Input[Union['WebAclRuleGroupAssociationVisibilityConfigArgs', 'WebAclRuleGroupAssociationVisibilityConfigArgsDict']]] = None,
-            web_acl_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'WebAclRuleGroupAssociation':
+            managed_rule_group: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationManagedRuleGroupArgs', 'WebAclRuleGroupAssociationManagedRuleGroupArgsDict']]] = None,
+            override_action: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_group_reference: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationRuleGroupReferenceArgs', 'WebAclRuleGroupAssociationRuleGroupReferenceArgsDict']]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationTimeoutsArgs', 'WebAclRuleGroupAssociationTimeoutsArgsDict']]] = None,
+            visibility_config: pulumi.Input[Optional[Union['WebAclRuleGroupAssociationVisibilityConfigArgs', 'WebAclRuleGroupAssociationVisibilityConfigArgsDict']]] = None,
+            web_acl_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'WebAclRuleGroupAssociation':
         """
         Get an existing WebAclRuleGroupAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -27,6 +27,73 @@ import (
 //
 // The following example below creates a CloudHSM cluster.
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudhsmv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			cloudhsmV2Vpc, err := ec2.NewVpc(ctx, "cloudhsm_v2_vpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-aws_cloudhsm_v2_cluster"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var cloudhsmV2Subnets []*ec2.Subnet
+//			for index := 0; index < 2; index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("cloudhsm_v2_subnets-%v", key0), &ec2.SubnetArgs{
+//					VpcId:               cloudhsmV2Vpc.ID(),
+//					CidrBlock:           subnets[val0],
+//					MapPublicIpOnLaunch: pulumi.Bool(false),
+//					AvailabilityZone:    available.Names[val0],
+//					Tags: pulumi.StringMap{
+//						"Name": pulumi.String("example-aws_cloudhsm_v2_cluster"),
+//					},
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				cloudhsmV2Subnets = append(cloudhsmV2Subnets, __res)
+//			}
+//			var splat0 pulumi.StringArray
+//			for _, val0 := range cloudhsmV2Subnets {
+//				splat0 = append(splat0, val0.ID())
+//			}
+//			_, err = cloudhsmv2.NewCluster(ctx, "cloudhsm_v2_cluster", &cloudhsmv2.ClusterArgs{
+//				HsmType:   pulumi.String("hsm1.medium"),
+//				SubnetIds: splat0,
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-aws_cloudhsm_v2_cluster"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:

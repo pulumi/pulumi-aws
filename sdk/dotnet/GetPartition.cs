@@ -25,7 +25,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetPartition.Invoke();
+        ///     var current = Aws.GetPartition.Invoke();
         /// 
         ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
@@ -66,7 +66,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetPartition.Invoke();
+        ///     var current = Aws.GetPartition.Invoke();
         /// 
         ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {
@@ -107,7 +107,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Aws.Index.GetPartition.Invoke();
+        ///     var current = Aws.GetPartition.Invoke();
         /// 
         ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
         ///     {

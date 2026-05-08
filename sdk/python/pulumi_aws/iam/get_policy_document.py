@@ -463,13 +463,13 @@ def get_policy_document(override_json: Optional[_builtins.str] = None,
         source_policy_documents=pulumi.get(__ret__, 'source_policy_documents'),
         statements=pulumi.get(__ret__, 'statements'),
         version=pulumi.get(__ret__, 'version'))
-def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               override_policy_documents: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                               policy_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               source_json: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               source_policy_documents: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                               statements: Optional[pulumi.Input[Optional[Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']]]]] = None,
-                               version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_policy_document_output(override_json: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               override_policy_documents: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                               policy_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               source_json: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               source_policy_documents: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                               statements: pulumi.Input[Optional[Optional[Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']]]]] = None,
+                               version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDocumentResult]:
     """
     Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `iam.Policy`.

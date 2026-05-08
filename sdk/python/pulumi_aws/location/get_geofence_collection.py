@@ -182,10 +182,10 @@ def get_geofence_collection(collection_name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_geofence_collection_output(collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   kms_key_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_geofence_collection_output(collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   kms_key_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGeofenceCollectionResult]:
     """
     Retrieve information about a Location Service Geofence Collection.

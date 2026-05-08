@@ -127,9 +127,9 @@ def get_provisioning_artifacts(accept_language: Optional[_builtins.str] = None,
         product_id=pulumi.get(__ret__, 'product_id'),
         provisioning_artifact_details=pulumi.get(__ret__, 'provisioning_artifact_details'),
         region=pulumi.get(__ret__, 'region'))
-def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                      product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_provisioning_artifacts_output(accept_language: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisioningArtifactsResult]:
     """
     Lists the provisioning artifacts for the specified product.

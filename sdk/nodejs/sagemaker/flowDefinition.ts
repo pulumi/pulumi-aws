@@ -242,43 +242,43 @@ export interface FlowDefinitionState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of your flow definition.
      */
-    flowDefinitionName?: pulumi.Input<string>;
+    flowDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      */
-    humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig>;
+    humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig | undefined>;
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      */
-    humanLoopConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfig>;
+    humanLoopConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfig | undefined>;
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      */
-    humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource>;
+    humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource | undefined>;
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      */
-    outputConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig>;
+    outputConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -292,7 +292,7 @@ export interface FlowDefinitionArgs {
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      */
-    humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig>;
+    humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig | undefined>;
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      */
@@ -300,7 +300,7 @@ export interface FlowDefinitionArgs {
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      */
-    humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource>;
+    humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource | undefined>;
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      */
@@ -308,7 +308,7 @@ export interface FlowDefinitionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */
@@ -316,5 +316,5 @@ export interface FlowDefinitionArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

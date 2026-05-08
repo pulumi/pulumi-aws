@@ -22,8 +22,8 @@ class TableItemArgs:
                  hash_key: pulumi.Input[_builtins.str],
                  item: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 range_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 range_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TableItem resource.
 
@@ -83,37 +83,37 @@ class TableItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="rangeKey")
-    def range_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
         return pulumi.get(self, "range_key")
 
     @range_key.setter
-    def range_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _TableItemState:
     def __init__(__self__, *,
-                 hash_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 item: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 item: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableItem resources.
 
@@ -138,55 +138,55 @@ class _TableItemState:
 
     @_builtins.property
     @pulumi.getter(name="hashKey")
-    def hash_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hash_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hash key to use for lookups and identification of the item
         """
         return pulumi.get(self, "hash_key")
 
     @hash_key.setter
-    def hash_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hash_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def item(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def item(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         """
         return pulumi.get(self, "item")
 
     @item.setter
-    def item(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def item(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "item", value)
 
     @_builtins.property
     @pulumi.getter(name="rangeKey")
-    def range_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def range_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
         return pulumi.get(self, "range_key")
 
     @range_key.setter
-    def range_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def range_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ARN of the table to contain the item.
 
@@ -195,7 +195,7 @@ class _TableItemState:
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
 
@@ -205,11 +205,11 @@ class TableItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hash_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 item: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 item: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a DynamoDB table item resource
@@ -320,11 +320,11 @@ class TableItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hash_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 item: Optional[pulumi.Input[_builtins.str]] = None,
-                 range_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 item: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -355,11 +355,11 @@ class TableItem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            hash_key: Optional[pulumi.Input[_builtins.str]] = None,
-            item: Optional[pulumi.Input[_builtins.str]] = None,
-            range_key: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            table_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'TableItem':
+            hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+            item: pulumi.Input[Optional[_builtins.str]] = None,
+            range_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableItem':
         """
         Get an existing TableItem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

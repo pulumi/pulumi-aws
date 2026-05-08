@@ -98,8 +98,8 @@ export interface NotificationHubState {
     /**
      * Notification Hub region.
      */
-    notificationHubRegion?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.notifications.NotificationHubTimeouts>;
+    notificationHubRegion?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.notifications.NotificationHubTimeouts | undefined>;
 }
 
 /**
@@ -110,5 +110,5 @@ export interface NotificationHubArgs {
      * Notification Hub region.
      */
     notificationHubRegion: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.notifications.NotificationHubTimeouts>;
+    timeouts?: pulumi.Input<inputs.notifications.NotificationHubTimeouts | undefined>;
 }

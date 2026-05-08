@@ -383,9 +383,9 @@ def get_key(grant_tokens: Optional[Sequence[_builtins.str]] = None,
         region=pulumi.get(__ret__, 'region'),
         valid_to=pulumi.get(__ret__, 'valid_to'),
         xks_key_configurations=pulumi.get(__ret__, 'xks_key_configurations'))
-def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                   key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_key_output(grant_tokens: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                   key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Use this data source to get detailed information about

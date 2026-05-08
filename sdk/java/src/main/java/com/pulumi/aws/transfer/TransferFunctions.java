@@ -32,8 +32,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetConnectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -72,8 +72,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetConnectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -112,8 +112,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetConnectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -152,8 +152,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetConnectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -192,8 +192,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetConnectorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -233,8 +233,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -274,8 +274,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -315,8 +315,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -356,8 +356,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -397,8 +397,8 @@ public final class TransferFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.transfer.TransferFunctions;
      * import com.pulumi.aws.transfer.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

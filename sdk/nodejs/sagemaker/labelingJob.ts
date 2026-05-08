@@ -236,71 +236,71 @@ export interface LabelingJobState {
     /**
      * If the job failed, the reason that it failed.
      */
-    failureReason?: pulumi.Input<string>;
+    failureReason?: pulumi.Input<string | undefined>;
     /**
      * Configuration information required for human workers to complete a labeling task. Fields are documented below.
      */
-    humanTaskConfig?: pulumi.Input<inputs.sagemaker.LabelingJobHumanTaskConfig>;
+    humanTaskConfig?: pulumi.Input<inputs.sagemaker.LabelingJobHumanTaskConfig | undefined>;
     /**
      * Input data for the labeling job. Fields are documented below.
      */
-    inputConfig?: pulumi.Input<inputs.sagemaker.LabelingJobInputConfig>;
+    inputConfig?: pulumi.Input<inputs.sagemaker.LabelingJobInputConfig | undefined>;
     /**
      * Unique identifier for work done as part of a labeling job.
      */
-    jobReferenceCode?: pulumi.Input<string>;
+    jobReferenceCode?: pulumi.Input<string | undefined>;
     /**
      * Attribute name to use for the label in the output manifest file.
      */
-    labelAttributeName?: pulumi.Input<string>;
+    labelAttributeName?: pulumi.Input<string | undefined>;
     /**
      * S3 URI of the file that defines the categories used to label the data objects.
      */
-    labelCategoryConfigS3Uri?: pulumi.Input<string>;
+    labelCategoryConfigS3Uri?: pulumi.Input<string | undefined>;
     /**
      * A breakdown of the number of objects labeled.
      */
-    labelCounters?: pulumi.Input<pulumi.Input<inputs.sagemaker.LabelingJobLabelCounter>[]>;
+    labelCounters?: pulumi.Input<pulumi.Input<inputs.sagemaker.LabelingJobLabelCounter>[] | undefined>;
     /**
      * Information required to perform automated data labeling.. Fields are documented below.
      */
-    labelingJobAlgorithmsConfig?: pulumi.Input<inputs.sagemaker.LabelingJobLabelingJobAlgorithmsConfig>;
+    labelingJobAlgorithmsConfig?: pulumi.Input<inputs.sagemaker.LabelingJobLabelingJobAlgorithmsConfig | undefined>;
     /**
      * ARN of the labeling job.
      */
-    labelingJobArn?: pulumi.Input<string>;
+    labelingJobArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the labeling job.
      */
-    labelingJobName?: pulumi.Input<string>;
+    labelingJobName?: pulumi.Input<string | undefined>;
     /**
      * Processing status of the labeling job.
      */
-    labelingJobStatus?: pulumi.Input<string>;
+    labelingJobStatus?: pulumi.Input<string | undefined>;
     /**
      * Location of the output data. Fields are documented below.
      */
-    outputConfig?: pulumi.Input<inputs.sagemaker.LabelingJobOutputConfig>;
+    outputConfig?: pulumi.Input<inputs.sagemaker.LabelingJobOutputConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
      */
-    stoppingConditions?: pulumi.Input<pulumi.Input<inputs.sagemaker.LabelingJobStoppingCondition>[]>;
+    stoppingConditions?: pulumi.Input<pulumi.Input<inputs.sagemaker.LabelingJobStoppingCondition>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -322,11 +322,11 @@ export interface LabelingJobArgs {
     /**
      * S3 URI of the file that defines the categories used to label the data objects.
      */
-    labelCategoryConfigS3Uri?: pulumi.Input<string>;
+    labelCategoryConfigS3Uri?: pulumi.Input<string | undefined>;
     /**
      * Information required to perform automated data labeling.. Fields are documented below.
      */
-    labelingJobAlgorithmsConfig?: pulumi.Input<inputs.sagemaker.LabelingJobLabelingJobAlgorithmsConfig>;
+    labelingJobAlgorithmsConfig?: pulumi.Input<inputs.sagemaker.LabelingJobLabelingJobAlgorithmsConfig | undefined>;
     /**
      * Name of the labeling job.
      */
@@ -338,7 +338,7 @@ export interface LabelingJobArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
      */
@@ -346,9 +346,9 @@ export interface LabelingJobArgs {
     /**
      * Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
      */
-    stoppingConditions?: pulumi.Input<pulumi.Input<inputs.sagemaker.LabelingJobStoppingCondition>[]>;
+    stoppingConditions?: pulumi.Input<pulumi.Input<inputs.sagemaker.LabelingJobStoppingCondition>[] | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

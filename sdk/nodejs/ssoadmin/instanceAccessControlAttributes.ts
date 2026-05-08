@@ -131,17 +131,17 @@ export interface InstanceAccessControlAttributesState {
     /**
      * See AccessControlAttribute for more details.
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
-    statusReason?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    statusReason?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,5 +159,5 @@ export interface InstanceAccessControlAttributesArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

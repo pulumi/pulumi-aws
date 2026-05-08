@@ -217,12 +217,12 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[_builtins.int]
         start_date_range=pulumi.get(__ret__, 'start_date_range'),
         tenancy=pulumi.get(__ret__, 'tenancy'),
         upfront_fee=pulumi.get(__ret__, 'upfront_fee'))
-def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                                       end_date_range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                                       instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       start_date_range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_capacity_block_offering_output(capacity_duration_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                                       end_date_range: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                                       instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       start_date_range: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityBlockOfferingResult]:
     """
     Information about a single EC2 Capacity Block Offering.

@@ -161,10 +161,10 @@ def get_credentials(db_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
-def get_credentials_output(db_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           duration_seconds: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           workgroup_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_credentials_output(db_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           duration_seconds: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           workgroup_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialsResult]:
     """
     Provides redshift serverless temporary credentials for a workgroup.

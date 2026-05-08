@@ -112,12 +112,12 @@ export interface DrtAccessLogBucketAssociationState {
     /**
      * The Amazon S3 bucket that contains the logs that you want to share.
      */
-    logBucket?: pulumi.Input<string>;
+    logBucket?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      */
-    roleArnAssociationId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts>;
+    roleArnAssociationId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
 }
 
 /**
@@ -132,5 +132,5 @@ export interface DrtAccessLogBucketAssociationArgs {
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      */
     roleArnAssociationId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
 }

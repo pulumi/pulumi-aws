@@ -351,9 +351,9 @@ def get_endpoint(endpoint_id: Optional[_builtins.str] = None,
         ssl_mode=pulumi.get(__ret__, 'ssl_mode'),
         tags=pulumi.get(__ret__, 'tags'),
         username=pulumi.get(__ret__, 'username'))
-def get_endpoint_output(endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_endpoint_output(endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Data source for managing an AWS DMS (Database Migration) Endpoint.

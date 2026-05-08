@@ -22,11 +22,11 @@ class EmailChannelArgs:
                  application_id: pulumi.Input[_builtins.str],
                  from_address: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[_builtins.str],
-                 configuration_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 orchestration_sending_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 orchestration_sending_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailChannel resource.
 
@@ -91,77 +91,77 @@ class EmailChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationSet")
-    def configuration_set(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         """
         return pulumi.get(self, "configuration_set")
 
     @configuration_set.setter
-    def configuration_set(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestrationSendingRoleArn")
-    def orchestration_sending_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def orchestration_sending_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         """
         return pulumi.get(self, "orchestration_sending_role_arn")
 
     @orchestration_sending_role_arn.setter
-    def orchestration_sending_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def orchestration_sending_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "orchestration_sending_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
 @pulumi.input_type
 class _EmailChannelState:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 messages_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 orchestration_sending_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 orchestration_sending_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailChannel resources.
 
@@ -196,110 +196,110 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application ID.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationSet")
-    def configuration_set(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         """
         return pulumi.get(self, "configuration_set")
 
     @configuration_set.setter
-    def configuration_set(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fromAddress")
-    def from_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         """
         return pulumi.get(self, "from_address")
 
     @from_address.setter
-    def from_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an identity verified with SES.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="messagesPerSecond")
-    def messages_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def messages_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Messages per second that can be sent.
         """
         return pulumi.get(self, "messages_per_second")
 
     @messages_per_second.setter
-    def messages_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def messages_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "messages_per_second", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestrationSendingRoleArn")
-    def orchestration_sending_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def orchestration_sending_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         """
         return pulumi.get(self, "orchestration_sending_role_arn")
 
     @orchestration_sending_role_arn.setter
-    def orchestration_sending_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def orchestration_sending_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "orchestration_sending_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -309,14 +309,14 @@ class EmailChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 orchestration_sending_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 orchestration_sending_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Pinpoint Email Channel resource.
@@ -444,14 +444,14 @@ class EmailChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_set: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity: Optional[pulumi.Input[_builtins.str]] = None,
-                 orchestration_sending_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_set: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 orchestration_sending_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -486,15 +486,15 @@ class EmailChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_set: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            from_address: Optional[pulumi.Input[_builtins.str]] = None,
-            identity: Optional[pulumi.Input[_builtins.str]] = None,
-            messages_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-            orchestration_sending_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailChannel':
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_set: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            from_address: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[_builtins.str]] = None,
+            messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+            orchestration_sending_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailChannel':
         """
         Get an existing EmailChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

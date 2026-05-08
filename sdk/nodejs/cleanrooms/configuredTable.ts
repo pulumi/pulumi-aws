@@ -187,46 +187,46 @@ export interface ConfiguredTableState {
     /**
      * The columns of the references table which will be included in the configured table.
      */
-    allowedColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
      */
-    analysisMethod?: pulumi.Input<string>;
+    analysisMethod?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the configured table.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The date and time the configured table was created.
      */
-    createTime?: pulumi.Input<string>;
+    createTime?: pulumi.Input<string | undefined>;
     /**
      * A description for the configured table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the configured table.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
-    tableReference?: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference>;
+    tableReference?: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference | undefined>;
     /**
      * Key value pairs which tag the configured table.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The date and time the configured table was last updated.
      */
-    updateTime?: pulumi.Input<string>;
+    updateTime?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -244,15 +244,15 @@ export interface ConfiguredTableArgs {
     /**
      * A description for the configured table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the configured table.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
@@ -262,5 +262,5 @@ export interface ConfiguredTableArgs {
     /**
      * Key value pairs which tag the configured table.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

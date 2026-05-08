@@ -291,88 +291,88 @@ export interface ServerlessCacheState {
     /**
      * The Amazon Resource Name (ARN) of the serverless cache.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
-    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
+    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
     /**
      * Timestamp of when the serverless cache was created.
      */
-    createTime?: pulumi.Input<string>;
+    createTime?: pulumi.Input<string | undefined>;
     /**
      * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
      */
-    dailySnapshotTime?: pulumi.Input<string>;
+    dailySnapshotTime?: pulumi.Input<string | undefined>;
     /**
      * User-provided description for the serverless cache. The default is NULL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheEndpoint>[] | undefined>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * The name and version number of the engine the serverless cache is compatible with.
      */
-    fullEngineVersion?: pulumi.Input<string>;
+    fullEngineVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The version of the cache engine that will be used to create the serverless cache.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
      */
-    majorEngineVersion?: pulumi.Input<string>;
+    majorEngineVersion?: pulumi.Input<string | undefined>;
     /**
      * The Cluster name which serves as a unique identifier to the serverless cache
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      */
-    readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[]>;
+    readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
      */
-    snapshotArnsToRestores?: pulumi.Input<pulumi.Input<string>[]>;
+    snapshotArnsToRestores?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
      */
-    snapshotRetentionLimit?: pulumi.Input<number>;
+    snapshotRetentionLimit?: pulumi.Input<number | undefined>;
     /**
      * The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts | undefined>;
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      */
-    userGroupId?: pulumi.Input<string>;
+    userGroupId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -382,15 +382,15 @@ export interface ServerlessCacheArgs {
     /**
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
-    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
+    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
     /**
      * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
      */
-    dailySnapshotTime?: pulumi.Input<string>;
+    dailySnapshotTime?: pulumi.Input<string | undefined>;
     /**
      * User-provided description for the serverless cache. The default is NULL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      */
@@ -398,45 +398,45 @@ export interface ServerlessCacheArgs {
     /**
      * ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The version of the cache engine that will be used to create the serverless cache.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
      */
-    majorEngineVersion?: pulumi.Input<string>;
+    majorEngineVersion?: pulumi.Input<string | undefined>;
     /**
      * The Cluster name which serves as a unique identifier to the serverless cache
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
      */
-    snapshotArnsToRestores?: pulumi.Input<pulumi.Input<string>[]>;
+    snapshotArnsToRestores?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
      */
-    snapshotRetentionLimit?: pulumi.Input<number>;
+    snapshotRetentionLimit?: pulumi.Input<number | undefined>;
     /**
      * A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts | undefined>;
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
      */
-    userGroupId?: pulumi.Input<string>;
+    userGroupId?: pulumi.Input<string | undefined>;
 }

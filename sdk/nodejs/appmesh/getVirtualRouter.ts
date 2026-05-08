@@ -127,7 +127,7 @@ export interface GetVirtualRouterOutputArgs {
      * Name of the mesh in which the virtual router exists
      */
     meshName: pulumi.Input<string>;
-    meshOwner?: pulumi.Input<string>;
+    meshOwner?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual router.
      */
@@ -135,9 +135,9 @@ export interface GetVirtualRouterOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

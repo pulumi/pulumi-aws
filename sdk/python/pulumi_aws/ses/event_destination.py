@@ -23,12 +23,12 @@ class EventDestinationArgs:
     def __init__(__self__, *,
                  configuration_set_name: pulumi.Input[_builtins.str],
                  matching_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kinesis_destination: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
+                 cloudwatch_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kinesis_destination: pulumi.Input[Optional['EventDestinationKinesisDestinationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_destination: pulumi.Input[Optional['EventDestinationSnsDestinationArgs']] = None):
         """
         The set of arguments for constructing a EventDestination resource.
 
@@ -84,67 +84,67 @@ class EventDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchDestinations")
-    def cloudwatch_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]:
+    def cloudwatch_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]:
         """
         CloudWatch destination for the events
         """
         return pulumi.get(self, "cloudwatch_destinations")
 
     @cloudwatch_destinations.setter
-    def cloudwatch_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]):
+    def cloudwatch_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]):
         pulumi.set(self, "cloudwatch_destinations", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the event destination will be enabled
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisDestination")
-    def kinesis_destination(self) -> Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']]:
+    def kinesis_destination(self) -> pulumi.Input[Optional['EventDestinationKinesisDestinationArgs']]:
         """
         Send the events to a kinesis firehose destination
         """
         return pulumi.get(self, "kinesis_destination")
 
     @kinesis_destination.setter
-    def kinesis_destination(self, value: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']]):
+    def kinesis_destination(self, value: pulumi.Input[Optional['EventDestinationKinesisDestinationArgs']]):
         pulumi.set(self, "kinesis_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event destination
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snsDestination")
-    def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
+    def sns_destination(self) -> pulumi.Input[Optional['EventDestinationSnsDestinationArgs']]:
         """
         Send the events to an SNS Topic destination
 
@@ -153,22 +153,22 @@ class EventDestinationArgs:
         return pulumi.get(self, "sns_destination")
 
     @sns_destination.setter
-    def sns_destination(self, value: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]):
+    def sns_destination(self, value: pulumi.Input[Optional['EventDestinationSnsDestinationArgs']]):
         pulumi.set(self, "sns_destination", value)
 
 
 @pulumi.input_type
 class _EventDestinationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kinesis_destination: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']] = None,
-                 matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kinesis_destination: pulumi.Input[Optional['EventDestinationKinesisDestinationArgs']] = None,
+                 matching_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_destination: pulumi.Input[Optional['EventDestinationSnsDestinationArgs']] = None):
         """
         Input properties used for looking up and filtering EventDestination resources.
 
@@ -205,103 +205,103 @@ class _EventDestinationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SES event destination ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchDestinations")
-    def cloudwatch_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]:
+    def cloudwatch_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]:
         """
         CloudWatch destination for the events
         """
         return pulumi.get(self, "cloudwatch_destinations")
 
     @cloudwatch_destinations.setter
-    def cloudwatch_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]):
+    def cloudwatch_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]):
         pulumi.set(self, "cloudwatch_destinations", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration set
         """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
-    def configuration_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the event destination will be enabled
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisDestination")
-    def kinesis_destination(self) -> Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']]:
+    def kinesis_destination(self) -> pulumi.Input[Optional['EventDestinationKinesisDestinationArgs']]:
         """
         Send the events to a kinesis firehose destination
         """
         return pulumi.get(self, "kinesis_destination")
 
     @kinesis_destination.setter
-    def kinesis_destination(self, value: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']]):
+    def kinesis_destination(self, value: pulumi.Input[Optional['EventDestinationKinesisDestinationArgs']]):
         pulumi.set(self, "kinesis_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="matchingTypes")
-    def matching_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def matching_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         """
         return pulumi.get(self, "matching_types")
 
     @matching_types.setter
-    def matching_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def matching_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "matching_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the event destination
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snsDestination")
-    def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
+    def sns_destination(self) -> pulumi.Input[Optional['EventDestinationSnsDestinationArgs']]:
         """
         Send the events to an SNS Topic destination
 
@@ -310,7 +310,7 @@ class _EventDestinationState:
         return pulumi.get(self, "sns_destination")
 
     @sns_destination.setter
-    def sns_destination(self, value: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]):
+    def sns_destination(self, value: pulumi.Input[Optional['EventDestinationSnsDestinationArgs']]):
         pulumi.set(self, "sns_destination", value)
 
 
@@ -320,14 +320,14 @@ class EventDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict']]]]] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kinesis_destination: Optional[pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
-                 matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_destination: Optional[pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None,
+                 cloudwatch_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict']]]]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kinesis_destination: pulumi.Input[Optional[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
+                 matching_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_destination: pulumi.Input[Optional[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None,
                  __props__=None):
         """
         Provides an SES event destination
@@ -511,14 +511,14 @@ class EventDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict']]]]] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kinesis_destination: Optional[pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
-                 matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_destination: Optional[pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None,
+                 cloudwatch_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict']]]]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kinesis_destination: pulumi.Input[Optional[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
+                 matching_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_destination: pulumi.Input[Optional[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -551,15 +551,15 @@ class EventDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict']]]]] = None,
-            configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            kinesis_destination: Optional[pulumi.Input[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
-            matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sns_destination: Optional[pulumi.Input[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None) -> 'EventDestination':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDestinationCloudwatchDestinationArgs', 'EventDestinationCloudwatchDestinationArgsDict']]]]] = None,
+            configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            kinesis_destination: pulumi.Input[Optional[Union['EventDestinationKinesisDestinationArgs', 'EventDestinationKinesisDestinationArgsDict']]] = None,
+            matching_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_destination: pulumi.Input[Optional[Union['EventDestinationSnsDestinationArgs', 'EventDestinationSnsDestinationArgsDict']]] = None) -> 'EventDestination':
         """
         Get an existing EventDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

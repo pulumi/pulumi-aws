@@ -176,25 +176,25 @@ export interface GetResolverRulesOutputArgs {
      * The filtering is done locally, so could have a performance impact if the result is large.
      * This argument should be used along with other arguments to limit the number of results returned.
      */
-    nameRegex?: pulumi.Input<string>;
+    nameRegex?: pulumi.Input<string | undefined>;
     /**
      * When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the outbound resolver endpoint for the desired resolver rules.
      */
-    resolverEndpointId?: pulumi.Input<string>;
+    resolverEndpointId?: pulumi.Input<string | undefined>;
     /**
      * Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
-    ruleType?: pulumi.Input<string>;
+    ruleType?: pulumi.Input<string | undefined>;
     /**
      * Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    shareStatus?: pulumi.Input<string>;
+    shareStatus?: pulumi.Input<string | undefined>;
 }

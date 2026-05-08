@@ -261,94 +261,94 @@ export interface SavingsPlanState {
      *
      * The following arguments are optional:
      */
-    commitment?: pulumi.Input<string>;
+    commitment?: pulumi.Input<string | undefined>;
     /**
      * The currency of the Savings Plan (e.g., `USD`).
      */
-    currency?: pulumi.Input<string>;
+    currency?: pulumi.Input<string | undefined>;
     /**
      * The description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The EC2 instance family for the Savings Plan (only applicable to EC2 Instance Savings Plans).
      */
-    ec2InstanceFamily?: pulumi.Input<string>;
+    ec2InstanceFamily?: pulumi.Input<string | undefined>;
     /**
      * The end time of the Savings Plan in RFC3339 format.
      */
-    end?: pulumi.Input<string>;
+    end?: pulumi.Input<string | undefined>;
     /**
      * The ID of the offering.
      *
      * @deprecated offering_id is deprecated. Use savingsPlanOfferingId instead.
      */
-    offeringId?: pulumi.Input<string>;
+    offeringId?: pulumi.Input<string | undefined>;
     /**
      * The payment option for the Savings Plan (e.g., `All Upfront`, `Partial Upfront`, `No Upfront`).
      */
-    paymentOption?: pulumi.Input<string>;
+    paymentOption?: pulumi.Input<string | undefined>;
     /**
      * The product types.
      */
-    productTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    productTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      */
-    purchaseTime?: pulumi.Input<string>;
+    purchaseTime?: pulumi.Input<string | undefined>;
     /**
      * The recurring payment amount.
      */
-    recurringPaymentAmount?: pulumi.Input<string>;
+    recurringPaymentAmount?: pulumi.Input<string | undefined>;
     /**
      * The AWS Region.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The recurring payment amount.
      */
-    returnableUntil?: pulumi.Input<string>;
+    returnableUntil?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the Savings Plan.
      */
-    savingsPlanArn?: pulumi.Input<string>;
+    savingsPlanArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Savings Plan.
      */
-    savingsPlanId?: pulumi.Input<string>;
+    savingsPlanId?: pulumi.Input<string | undefined>;
     /**
      * The unique ID of a Savings Plan offering. You can find available offerings using the `aws savingsplans describe-savings-plans-offerings` CLI command.
      */
-    savingsPlanOfferingId?: pulumi.Input<string>;
+    savingsPlanOfferingId?: pulumi.Input<string | undefined>;
     /**
      * The type of Savings Plan (e.g., `Compute`, `EC2Instance`).
      */
-    savingsPlanType?: pulumi.Input<string>;
+    savingsPlanType?: pulumi.Input<string | undefined>;
     /**
      * The start time of the Savings Plan in RFC3339 format.
      */
-    start?: pulumi.Input<string>;
+    start?: pulumi.Input<string | undefined>;
     /**
      * The current state of the Savings Plan (e.g., `active`, `queued`, `retired`).
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The duration of the term, in seconds.
      */
-    termDurationInSeconds?: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.savingsplans.SavingsPlanTimeouts>;
+    termDurationInSeconds?: pulumi.Input<number | undefined>;
+    timeouts?: pulumi.Input<inputs.savingsplans.SavingsPlanTimeouts | undefined>;
     /**
      * The up-front payment amount.
      */
-    upfrontPaymentAmount?: pulumi.Input<string>;
+    upfrontPaymentAmount?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -364,7 +364,7 @@ export interface SavingsPlanArgs {
     /**
      * The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      */
-    purchaseTime?: pulumi.Input<string>;
+    purchaseTime?: pulumi.Input<string | undefined>;
     /**
      * The unique ID of a Savings Plan offering. You can find available offerings using the `aws savingsplans describe-savings-plans-offerings` CLI command.
      */
@@ -372,10 +372,10 @@ export interface SavingsPlanArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.savingsplans.SavingsPlanTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.savingsplans.SavingsPlanTimeouts | undefined>;
     /**
      * The up-front payment amount.
      */
-    upfrontPaymentAmount?: pulumi.Input<string>;
+    upfrontPaymentAmount?: pulumi.Input<string | undefined>;
 }

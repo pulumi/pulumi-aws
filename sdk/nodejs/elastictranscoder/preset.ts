@@ -214,50 +214,50 @@ export interface PresetState {
     /**
      * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Audio parameters object (documented below).
      */
-    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
+    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio | undefined>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
+    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions | undefined>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
-    container?: pulumi.Input<string>;
+    container?: pulumi.Input<string | undefined>;
     /**
      * A description of the preset (maximum 255 characters)
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Thumbnail parameters object (documented below)
      */
-    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
-    type?: pulumi.Input<string>;
+    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails | undefined>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Video parameters object (documented below)
      */
-    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo | undefined>;
     /**
      * Codec options for the video parameters
      *
      * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
-    videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
+    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[] | undefined>;
 }
 
 /**
@@ -267,11 +267,11 @@ export interface PresetArgs {
     /**
      * Audio parameters object (documented below).
      */
-    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
+    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio | undefined>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
+    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions | undefined>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
@@ -279,32 +279,32 @@ export interface PresetArgs {
     /**
      * A description of the preset (maximum 255 characters)
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Thumbnail parameters object (documented below)
      */
-    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
-    type?: pulumi.Input<string>;
+    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails | undefined>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Video parameters object (documented below)
      */
-    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo | undefined>;
     /**
      * Codec options for the video parameters
      *
      * See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      */
-    videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
+    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[] | undefined>;
 }

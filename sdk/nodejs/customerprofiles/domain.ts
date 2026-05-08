@@ -212,45 +212,45 @@ export interface DomainState {
     /**
      * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
      */
-    deadLetterQueueUrl?: pulumi.Input<string>;
+    deadLetterQueueUrl?: pulumi.Input<string | undefined>;
     /**
      * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
      */
-    defaultEncryptionKey?: pulumi.Input<string>;
+    defaultEncryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The default number of days until the data within the domain expires.
      *
      * The following arguments are optional:
      */
-    defaultExpirationDays?: pulumi.Input<number>;
+    defaultExpirationDays?: pulumi.Input<number | undefined>;
     /**
      * The name for your Customer Profile domain. It must be unique for your AWS account.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
-    matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
+    matching?: pulumi.Input<inputs.customerprofiles.DomainMatching | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
-    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
+    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching | undefined>;
     /**
      * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -260,11 +260,11 @@ export interface DomainArgs {
     /**
      * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
      */
-    deadLetterQueueUrl?: pulumi.Input<string>;
+    deadLetterQueueUrl?: pulumi.Input<string | undefined>;
     /**
      * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
      */
-    defaultEncryptionKey?: pulumi.Input<string>;
+    defaultEncryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The default number of days until the data within the domain expires.
      *
@@ -278,17 +278,17 @@ export interface DomainArgs {
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
-    matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
+    matching?: pulumi.Input<inputs.customerprofiles.DomainMatching | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
-    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
+    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching | undefined>;
     /**
      * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -240,81 +240,81 @@ export interface ConnectionState {
     /**
      * The ARN of the connection.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      */
-    awsDevice?: pulumi.Input<string>;
+    awsDevice?: pulumi.Input<string | undefined>;
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      */
-    bandwidth?: pulumi.Input<string>;
+    bandwidth?: pulumi.Input<string | undefined>;
     /**
      * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
      */
-    encryptionMode?: pulumi.Input<string>;
+    encryptionMode?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    hasLogicalRedundancy?: pulumi.Input<string>;
+    hasLogicalRedundancy?: pulumi.Input<string | undefined>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
-    jumboFrameCapable?: pulumi.Input<boolean>;
+    jumboFrameCapable?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Boolean value indicating whether the connection supports MAC Security (MACsec).
      */
-    macsecCapable?: pulumi.Input<boolean>;
+    macsecCapable?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the connection.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      */
-    partnerName?: pulumi.Input<string>;
+    partnerName?: pulumi.Input<string | undefined>;
     /**
      * The MAC Security (MACsec) port link status of the connection.
      */
-    portEncryptionStatus?: pulumi.Input<string>;
+    portEncryptionStatus?: pulumi.Input<string | undefined>;
     /**
      * The name of the service provider associated with the connection.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      *
      * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      */
-    requestMacsec?: pulumi.Input<boolean>;
+    requestMacsec?: pulumi.Input<boolean | undefined>;
     /**
      * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VLAN ID.
      */
-    vlanId?: pulumi.Input<number>;
+    vlanId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -328,7 +328,7 @@ export interface ConnectionArgs {
     /**
      * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `noEncrypt`, `shouldEncrypt`, and `mustEncrypt`.
      */
-    encryptionMode?: pulumi.Input<string>;
+    encryptionMode?: pulumi.Input<string | undefined>;
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      */
@@ -336,27 +336,27 @@ export interface ConnectionArgs {
     /**
      * The name of the connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the service provider associated with the connection.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      *
      * > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
      */
-    requestMacsec?: pulumi.Input<boolean>;
+    requestMacsec?: pulumi.Input<boolean | undefined>;
     /**
      * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

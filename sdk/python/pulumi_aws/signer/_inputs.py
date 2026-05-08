@@ -67,7 +67,7 @@ class SigningJobDestinationArgs:
 
 class SigningJobDestinationS3ArgsDict(TypedDict):
     bucket: pulumi.Input[_builtins.str]
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
     """
@@ -76,7 +76,7 @@ class SigningJobDestinationS3ArgsDict(TypedDict):
 class SigningJobDestinationS3Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] prefix: An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
         """
@@ -95,28 +95,28 @@ class SigningJobDestinationS3Args:
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
 class SigningJobRevocationRecordArgsDict(TypedDict):
-    reason: NotRequired[pulumi.Input[_builtins.str]]
-    revoked_at: NotRequired[pulumi.Input[_builtins.str]]
-    revoked_by: NotRequired[pulumi.Input[_builtins.str]]
+    reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    revoked_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    revoked_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SigningJobRevocationRecordArgs:
     def __init__(__self__, *,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked_by: Optional[pulumi.Input[_builtins.str]] = None):
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked_by: pulumi.Input[Optional[_builtins.str]] = None):
         if reason is not None:
             pulumi.set(__self__, "reason", reason)
         if revoked_at is not None:
@@ -126,55 +126,55 @@ class SigningJobRevocationRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "reason")
 
     @reason.setter
-    def reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reason", value)
 
     @_builtins.property
     @pulumi.getter(name="revokedAt")
-    def revoked_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revoked_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "revoked_at")
 
     @revoked_at.setter
-    def revoked_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revoked_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revoked_at", value)
 
     @_builtins.property
     @pulumi.getter(name="revokedBy")
-    def revoked_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revoked_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "revoked_by")
 
     @revoked_by.setter
-    def revoked_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revoked_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revoked_by", value)
 
 
 class SigningJobSignedObjectArgsDict(TypedDict):
-    s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3ArgsDict']]]]
+    s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]]
 
 @pulumi.input_type
 class SigningJobSignedObjectArgs:
     def __init__(__self__, *,
-                 s3s: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]] = None):
+                 s3s: pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]] = None):
         if s3s is not None:
             pulumi.set(__self__, "s3s", s3s)
 
     @_builtins.property
     @pulumi.getter
-    def s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]:
+    def s3s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]:
         return pulumi.get(self, "s3s")
 
     @s3s.setter
-    def s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]):
+    def s3s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]):
         pulumi.set(self, "s3s", value)
 
 
 class SigningJobSignedObjectS3ArgsDict(TypedDict):
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key name of the object that contains your unsigned code.
     """
@@ -182,8 +182,8 @@ class SigningJobSignedObjectS3ArgsDict(TypedDict):
 @pulumi.input_type
 class SigningJobSignedObjectS3Args:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key: Key name of the object that contains your unsigned code.
         """
@@ -194,23 +194,23 @@ class SigningJobSignedObjectS3Args:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key name of the object that contains your unsigned code.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
 
@@ -302,15 +302,15 @@ class SigningJobSourceS3Args:
 
 
 class SigningProfileRevocationRecordArgsDict(TypedDict):
-    revocation_effective_from: NotRequired[pulumi.Input[_builtins.str]]
+    revocation_effective_from: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when revocation becomes effective.
     """
-    revoked_at: NotRequired[pulumi.Input[_builtins.str]]
+    revoked_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the signing profile was revoked.
     """
-    revoked_by: NotRequired[pulumi.Input[_builtins.str]]
+    revoked_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identity of the revoker.
     """
@@ -318,9 +318,9 @@ class SigningProfileRevocationRecordArgsDict(TypedDict):
 @pulumi.input_type
 class SigningProfileRevocationRecordArgs:
     def __init__(__self__, *,
-                 revocation_effective_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked_by: Optional[pulumi.Input[_builtins.str]] = None):
+                 revocation_effective_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked_by: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] revocation_effective_from: The time when revocation becomes effective.
         :param pulumi.Input[_builtins.str] revoked_at: The time when the signing profile was revoked.
@@ -335,38 +335,38 @@ class SigningProfileRevocationRecordArgs:
 
     @_builtins.property
     @pulumi.getter(name="revocationEffectiveFrom")
-    def revocation_effective_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revocation_effective_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when revocation becomes effective.
         """
         return pulumi.get(self, "revocation_effective_from")
 
     @revocation_effective_from.setter
-    def revocation_effective_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revocation_effective_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revocation_effective_from", value)
 
     @_builtins.property
     @pulumi.getter(name="revokedAt")
-    def revoked_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revoked_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the signing profile was revoked.
         """
         return pulumi.get(self, "revoked_at")
 
     @revoked_at.setter
-    def revoked_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revoked_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revoked_at", value)
 
     @_builtins.property
     @pulumi.getter(name="revokedBy")
-    def revoked_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revoked_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identity of the revoker.
         """
         return pulumi.get(self, "revoked_by")
 
     @revoked_by.setter
-    def revoked_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revoked_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revoked_by", value)
 
 

@@ -22,9 +22,9 @@ __all__ = ['ObservabilityConfigurationArgs', 'ObservabilityConfiguration']
 class ObservabilityConfigurationArgs:
     def __init__(__self__, *,
                  observability_configuration_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trace_configuration: pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ObservabilityConfiguration resource.
 
@@ -55,53 +55,53 @@ class ObservabilityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="traceConfiguration")
-    def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]:
+    def trace_configuration(self) -> pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']]:
         """
         Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         return pulumi.get(self, "trace_configuration")
 
     @trace_configuration.setter
-    def trace_configuration(self, value: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]):
+    def trace_configuration(self, value: pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']]):
         pulumi.set(self, "trace_configuration", value)
 
 
 @pulumi.input_type
 class _ObservabilityConfigurationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 observability_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 observability_configuration_revision: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 observability_configuration_revision: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trace_configuration: pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering ObservabilityConfiguration resources.
 
@@ -136,110 +136,110 @@ class _ObservabilityConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of this observability configuration.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def latest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         """
         return pulumi.get(self, "latest")
 
     @latest.setter
-    def latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "latest", value)
 
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationName")
-    def observability_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def observability_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the observability configuration.
         """
         return pulumi.get(self, "observability_configuration_name")
 
     @observability_configuration_name.setter
-    def observability_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def observability_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "observability_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationRevision")
-    def observability_configuration_revision(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def observability_configuration_revision(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The revision of this observability configuration.
         """
         return pulumi.get(self, "observability_configuration_revision")
 
     @observability_configuration_revision.setter
-    def observability_configuration_revision(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def observability_configuration_revision(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "observability_configuration_revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="traceConfiguration")
-    def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]:
+    def trace_configuration(self) -> pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']]:
         """
         Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         return pulumi.get(self, "trace_configuration")
 
     @trace_configuration.setter
-    def trace_configuration(self, value: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]):
+    def trace_configuration(self, value: pulumi.Input[Optional['ObservabilityConfigurationTraceConfigurationArgs']]):
         pulumi.set(self, "trace_configuration", value)
 
 
@@ -249,10 +249,10 @@ class ObservabilityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 observability_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
+                 observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trace_configuration: pulumi.Input[Optional[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Manages an App Runner Observability Configuration.
@@ -350,10 +350,10 @@ class ObservabilityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 observability_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
+                 observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trace_configuration: pulumi.Input[Optional[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,15 +384,15 @@ class ObservabilityConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            latest: Optional[pulumi.Input[_builtins.bool]] = None,
-            observability_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            observability_configuration_revision: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trace_configuration: Optional[pulumi.Input[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None) -> 'ObservabilityConfiguration':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            latest: pulumi.Input[Optional[_builtins.bool]] = None,
+            observability_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            observability_configuration_revision: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trace_configuration: pulumi.Input[Optional[Union['ObservabilityConfigurationTraceConfigurationArgs', 'ObservabilityConfigurationTraceConfigurationArgsDict']]] = None) -> 'ObservabilityConfiguration':
         """
         Get an existing ObservabilityConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -147,13 +147,13 @@ export interface GetRegionsOutputArgs {
     /**
      * If true the source will query all regions regardless of availability.
      */
-    allRegions?: pulumi.Input<boolean>;
+    allRegions?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block(s) to use as filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.GetRegionsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetRegionsFilterArgs>[] | undefined>;
     /**
      * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

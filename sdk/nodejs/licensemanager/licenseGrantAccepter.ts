@@ -144,43 +144,43 @@ export interface LicenseGrantAccepterState {
     /**
      * A list of the allowed operations for the grant.
      */
-    allowedOperations?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOperations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN of the grant to accept.
      */
-    grantArn?: pulumi.Input<string>;
+    grantArn?: pulumi.Input<string | undefined>;
     /**
      * The home region for the license.
      */
-    homeRegion?: pulumi.Input<string>;
+    homeRegion?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the license for the grant.
      */
-    licenseArn?: pulumi.Input<string>;
+    licenseArn?: pulumi.Input<string | undefined>;
     /**
      * The Name of the grant.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parent ARN.
      */
-    parentArn?: pulumi.Input<string>;
+    parentArn?: pulumi.Input<string | undefined>;
     /**
      * The target account for the grant.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The grant status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The grant version.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,5 +194,5 @@ export interface LicenseGrantAccepterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

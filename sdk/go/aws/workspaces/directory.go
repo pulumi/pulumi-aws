@@ -69,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			workspaces, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			workspaces2, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -91,7 +91,7 @@ import (
 //			}
 //			workspacesDefault, err := iam.NewRole(ctx, "workspaces_default", &iam.RoleArgs{
 //				Name:             pulumi.String("workspaces_DefaultRole"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(workspaces.Json)),
+//				AssumeRolePolicy: pulumi.String(pulumi.String(workspaces2.Json)),
 //			})
 //			if err != nil {
 //				return err

@@ -28,16 +28,16 @@ __all__ = [
 ]
 
 class ResourceSetResourceArgsDict(TypedDict):
-    component_id: NotRequired[pulumi.Input[_builtins.str]]
-    dns_target_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceArgsDict']]
+    component_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    dns_target_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceArgs']]]
     """
     Component for DNS/Routing Control Readiness Checks.
     """
-    readiness_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    readiness_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Recovery group ARN or cell ARN that contains this resource set.
     """
-    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    resource_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the resource.
     """
@@ -45,10 +45,10 @@ class ResourceSetResourceArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceSetResourceArgs:
     def __init__(__self__, *,
-                 component_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_target_resource: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceArgs']] = None,
-                 readiness_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 component_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_target_resource: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceArgs']] = None,
+                 readiness_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ResourceSetResourceDnsTargetResourceArgs'] dns_target_resource: Component for DNS/Routing Control Readiness Checks.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] readiness_scopes: Recovery group ARN or cell ARN that contains this resource set.
@@ -65,47 +65,47 @@ class ResourceSetResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentId")
-    def component_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def component_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "component_id")
 
     @component_id.setter
-    def component_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def component_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "component_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsTargetResource")
-    def dns_target_resource(self) -> Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceArgs']]:
+    def dns_target_resource(self) -> pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceArgs']]:
         """
         Component for DNS/Routing Control Readiness Checks.
         """
         return pulumi.get(self, "dns_target_resource")
 
     @dns_target_resource.setter
-    def dns_target_resource(self, value: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceArgs']]):
+    def dns_target_resource(self, value: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceArgs']]):
         pulumi.set(self, "dns_target_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="readinessScopes")
-    def readiness_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def readiness_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Recovery group ARN or cell ARN that contains this resource set.
         """
         return pulumi.get(self, "readiness_scopes")
 
     @readiness_scopes.setter
-    def readiness_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def readiness_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "readiness_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the resource.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
 
@@ -114,19 +114,19 @@ class ResourceSetResourceDnsTargetResourceArgsDict(TypedDict):
     """
     DNS Name that acts as the ingress point to a portion of application.
     """
-    hosted_zone_arn: NotRequired[pulumi.Input[_builtins.str]]
+    hosted_zone_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Hosted Zone ARN that contains the DNS record with the provided name of target resource.
     """
-    record_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    record_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
     """
-    record_type: NotRequired[pulumi.Input[_builtins.str]]
+    record_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of DNS Record of target resource.
     """
-    target_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgsDict']]
+    target_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceArgs']]]
     """
     Target resource the R53 record specified with the above params points to.
     """
@@ -135,10 +135,10 @@ class ResourceSetResourceDnsTargetResourceArgsDict(TypedDict):
 class ResourceSetResourceDnsTargetResourceArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 hosted_zone_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_resource: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgs']] = None):
+                 hosted_zone_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_resource: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] domain_name: DNS Name that acts as the ingress point to a portion of application.
         :param pulumi.Input[_builtins.str] hosted_zone_arn: Hosted Zone ARN that contains the DNS record with the provided name of target resource.
@@ -170,59 +170,59 @@ class ResourceSetResourceDnsTargetResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneArn")
-    def hosted_zone_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosted_zone_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hosted Zone ARN that contains the DNS record with the provided name of target resource.
         """
         return pulumi.get(self, "hosted_zone_arn")
 
     @hosted_zone_arn.setter
-    def hosted_zone_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosted_zone_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosted_zone_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="recordSetId")
-    def record_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def record_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         return pulumi.get(self, "record_set_id")
 
     @record_set_id.setter
-    def record_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def record_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recordType")
-    def record_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def record_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of DNS Record of target resource.
         """
         return pulumi.get(self, "record_type")
 
     @record_type.setter
-    def record_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def record_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResource")
-    def target_resource(self) -> Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgs']]:
+    def target_resource(self) -> pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceArgs']]:
         """
         Target resource the R53 record specified with the above params points to.
         """
         return pulumi.get(self, "target_resource")
 
     @target_resource.setter
-    def target_resource(self, value: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgs']]):
+    def target_resource(self, value: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceArgs']]):
         pulumi.set(self, "target_resource", value)
 
 
 class ResourceSetResourceDnsTargetResourceTargetResourceArgsDict(TypedDict):
-    nlb_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict']]
+    nlb_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']]]
     """
     NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
     """
-    r53_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict']]
+    r53_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']]]
     """
     Route53 resource a DNS Target Resource record points to.
     """
@@ -230,8 +230,8 @@ class ResourceSetResourceDnsTargetResourceTargetResourceArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceSetResourceDnsTargetResourceTargetResourceArgs:
     def __init__(__self__, *,
-                 nlb_resource: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']] = None,
-                 r53_resource: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']] = None):
+                 nlb_resource: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']] = None,
+                 r53_resource: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']] = None):
         """
         :param pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs'] nlb_resource: NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
         :param pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs'] r53_resource: Route53 resource a DNS Target Resource record points to.
@@ -243,31 +243,31 @@ class ResourceSetResourceDnsTargetResourceTargetResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="nlbResource")
-    def nlb_resource(self) -> Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']]:
+    def nlb_resource(self) -> pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']]:
         """
         NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
         """
         return pulumi.get(self, "nlb_resource")
 
     @nlb_resource.setter
-    def nlb_resource(self, value: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']]):
+    def nlb_resource(self, value: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']]):
         pulumi.set(self, "nlb_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="r53Resource")
-    def r53_resource(self) -> Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']]:
+    def r53_resource(self) -> pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']]:
         """
         Route53 resource a DNS Target Resource record points to.
         """
         return pulumi.get(self, "r53_resource")
 
     @r53_resource.setter
-    def r53_resource(self, value: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']]):
+    def r53_resource(self, value: pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']]):
         pulumi.set(self, "r53_resource", value)
 
 
 class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     NLB resource ARN.
     """
@@ -275,7 +275,7 @@ class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict(Type
 @pulumi.input_type
 class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: NLB resource ARN.
         """
@@ -284,23 +284,23 @@ class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         NLB resource ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
 
 class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict(TypedDict):
-    domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Domain name that is targeted.
     """
-    record_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    record_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource record set ID that is targeted.
     """
@@ -308,8 +308,8 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict(Type
 @pulumi.input_type
 class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_set_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_set_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] domain_name: Domain name that is targeted.
         :param pulumi.Input[_builtins.str] record_set_id: Resource record set ID that is targeted.
@@ -321,26 +321,26 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name that is targeted.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="recordSetId")
-    def record_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def record_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource record set ID that is targeted.
         """
         return pulumi.get(self, "record_set_id")
 
     @record_set_id.setter
-    def record_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def record_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record_set_id", value)
 
 

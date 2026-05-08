@@ -169,44 +169,44 @@ export interface AgentcoreApiKeyCredentialProviderState {
      *
      * **Write-Only API Key (choose one approach):**
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * ARN of the AWS Secrets Manager secret containing the API key.
      */
-    apiKeySecretArns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn>[]>;
+    apiKeySecretArns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn>[] | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      */
-    apiKeyWo?: pulumi.Input<string>;
+    apiKeyWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
      */
-    apiKeyWoVersion?: pulumi.Input<number>;
+    apiKeyWoVersion?: pulumi.Input<number | undefined>;
     /**
      * ARN of the API Key credential provider.
      */
-    credentialProviderArn?: pulumi.Input<string>;
+    credentialProviderArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the API Key credential provider. Forces replacement when changed.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * **Standard API Key (choose one approach):**
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -218,30 +218,30 @@ export interface AgentcoreApiKeyCredentialProviderArgs {
      *
      * **Write-Only API Key (choose one approach):**
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
      */
-    apiKeyWo?: pulumi.Input<string>;
+    apiKeyWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
      */
-    apiKeyWoVersion?: pulumi.Input<number>;
+    apiKeyWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Name of the API Key credential provider. Forces replacement when changed.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * **Standard API Key (choose one approach):**
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

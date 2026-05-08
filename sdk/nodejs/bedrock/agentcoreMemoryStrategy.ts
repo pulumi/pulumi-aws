@@ -310,39 +310,39 @@ export interface AgentcoreMemoryStrategyState {
     /**
      * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
      */
-    configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration>;
+    configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
      * Description of the memory strategy.
      */
-    description?: pulumi.Input<string>;
-    memoryExecutionRoleArn?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the memory to associate with this strategy. Changing this forces a new resource.
      */
-    memoryId?: pulumi.Input<string>;
+    memoryId?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
      */
-    memoryStrategyId?: pulumi.Input<string>;
+    memoryStrategyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the memory strategy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
      *
      * The following arguments are optional:
      */
-    namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+    namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts | undefined>;
     /**
      * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -352,12 +352,12 @@ export interface AgentcoreMemoryStrategyArgs {
     /**
      * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
      */
-    configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration>;
+    configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
      * Description of the memory strategy.
      */
-    description?: pulumi.Input<string>;
-    memoryExecutionRoleArn?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the memory to associate with this strategy. Changing this forces a new resource.
      */
@@ -365,7 +365,7 @@ export interface AgentcoreMemoryStrategyArgs {
     /**
      * Name of the memory strategy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
      *
@@ -375,8 +375,8 @@ export interface AgentcoreMemoryStrategyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts | undefined>;
     /**
      * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
      */

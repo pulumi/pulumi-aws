@@ -171,44 +171,46 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "firehose.amazonaws.com",
-// },
-// },
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// trustedRoleArn,
-// },
-// },
-// {
-// Type: "Federated",
-// Identifiers: []string{
-// fmt.Sprintf("arn:aws:iam::%v:saml-provider/%v", accountId, providerName),
-// "cognito-identity.amazonaws.com",
-// },
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"firehose.amazonaws.com",
+//								},
+//							},
+//							{
+//								Type: "AWS",
+//								Identifiers: pulumi.StringArray{
+//									trustedRoleArn,
+//								},
+//							},
+//							{
+//								Type: "Federated",
+//								Identifiers: []string{
+//									fmt.Sprintf("arn:aws:iam::%v:saml-provider/%v", accountId, providerName),
+//									"cognito-identity.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Example Using A Source Document
@@ -222,55 +224,57 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// SourcePolicyDocuments: interface{}{
-// source.Json,
-// },
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "arn:aws:s3:::somebucket",
-// "arn:aws:s3:::somebucket/*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"ec2:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Sid: pulumi.StringRef("SidToOverride"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				SourcePolicyDocuments: pulumi.StringArray{
+//					source.Json,
+//				},
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid: pulumi.StringRef("SidToOverride"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::somebucket",
+//							"arn:aws:s3:::somebucket/*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
@@ -286,55 +290,57 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// OverridePolicyDocuments: interface{}{
-// override.Json,
-// },
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("SidToOverride"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "arn:aws:s3:::somebucket",
-// "arn:aws:s3:::somebucket/*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid: pulumi.StringRef("SidToOverride"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				OverridePolicyDocuments: pulumi.StringArray{
+//					override.Json,
+//				},
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"ec2:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Sid: pulumi.StringRef("SidToOverride"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::somebucket",
+//							"arn:aws:s3:::somebucket/*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
@@ -352,54 +358,56 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceholder"),
-// Actions: []string{
-// "ec2:DescribeAccountAttributes",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceholder"),
-// Actions: []string{
-// "s3:GetObject",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// SourcePolicyDocuments: interface{}{
-// source.Json,
-// },
-// OverridePolicyDocuments: interface{}{
-// override.Json,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			source, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid: pulumi.StringRef("OverridePlaceholder"),
+//						Actions: []string{
+//							"ec2:DescribeAccountAttributes",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			override, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid: pulumi.StringRef("OverridePlaceholder"),
+//						Actions: []string{
+//							"s3:GetObject",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				SourcePolicyDocuments: pulumi.StringArray{
+//					source.Json,
+//				},
+//				OverridePolicyDocuments: pulumi.StringArray{
+//					override.Json,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // `data.aws_iam_policy_document.politik.json` will evaluate to:
@@ -417,68 +425,70 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// sourceOne, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("UniqueSidOne"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// sourceTwo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("UniqueSidTwo"),
-// Actions: []string{
-// "iam:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Actions: []string{
-// "lambda:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// SourcePolicyDocuments: interface{}{
-// sourceOne.Json,
-// sourceTwo.Json,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sourceOne, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"ec2:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Sid: pulumi.StringRef("UniqueSidOne"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			sourceTwo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid: pulumi.StringRef("UniqueSidTwo"),
+//						Actions: []string{
+//							"iam:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Actions: []string{
+//							"lambda:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				SourcePolicyDocuments: pulumi.StringArray{
+//					sourceOne.Json,
+//					sourceTwo.Json,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // `data.aws_iam_policy_document.combined.json` will evaluate to:
@@ -494,93 +504,95 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// policyOne, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderOne"),
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "s3:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// policyTwo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "ec2:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderTwo"),
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "iam:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// policyThree, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderOne"),
-// Effect: pulumi.StringRef("Deny"),
-// Actions: []string{
-// "logs:*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// OverridePolicyDocuments: interface{}{
-// policyOne.Json,
-// policyTwo.Json,
-// policyThree.Json,
-// },
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef("OverridePlaceHolderTwo"),
-// Effect: pulumi.StringRef("Deny"),
-// Actions: []string{
-// "*",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			policyOne, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("OverridePlaceHolderOne"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			policyTwo, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"ec2:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Sid:    pulumi.StringRef("OverridePlaceHolderTwo"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"iam:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			policyThree, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("OverridePlaceHolderOne"),
+//						Effect: pulumi.StringRef("Deny"),
+//						Actions: []string{
+//							"logs:*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				OverridePolicyDocuments: pulumi.StringArray{
+//					policyOne.Json,
+//					policyTwo.Json,
+//					policyThree.Json,
+//				},
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("OverridePlaceHolderTwo"),
+//						Effect: pulumi.StringRef("Deny"),
+//						Actions: []string{
+//							"*",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // `data.aws_iam_policy_document.combined.json` will evaluate to:

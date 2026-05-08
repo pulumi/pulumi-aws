@@ -194,27 +194,27 @@ export interface VoiceConnectorStreamingState {
     /**
      * The retention period, in hours, for the Amazon Kinesis data.
      */
-    dataRetention?: pulumi.Input<number>;
+    dataRetention?: pulumi.Input<number | undefined>;
     /**
      * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
-    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
+    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
-    streamingNotificationTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    streamingNotificationTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    voiceConnectorId?: pulumi.Input<string>;
+    voiceConnectorId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,19 +228,19 @@ export interface VoiceConnectorStreamingArgs {
     /**
      * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
-    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
+    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
-    streamingNotificationTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    streamingNotificationTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */

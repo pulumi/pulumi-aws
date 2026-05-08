@@ -172,39 +172,39 @@ export interface DomainAssociationState {
     /**
      * Unique ID for an Amplify app.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * ARN for the domain association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
-    certificateSettings?: pulumi.Input<inputs.amplify.DomainAssociationCertificateSettings>;
+    certificateSettings?: pulumi.Input<inputs.amplify.DomainAssociationCertificateSettings | undefined>;
     /**
      * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
      */
-    certificateVerificationDnsRecord?: pulumi.Input<string>;
+    certificateVerificationDnsRecord?: pulumi.Input<string | undefined>;
     /**
      * Domain name for the domain association.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Enables the automated creation of subdomains for branches.
      */
-    enableAutoSubDomain?: pulumi.Input<boolean>;
+    enableAutoSubDomain?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Setting for the subdomain. Documented below.
      */
-    subDomains?: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[]>;
+    subDomains?: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[] | undefined>;
     /**
      * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
      */
-    waitForVerification?: pulumi.Input<boolean>;
+    waitForVerification?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface DomainAssociationArgs {
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
-    certificateSettings?: pulumi.Input<inputs.amplify.DomainAssociationCertificateSettings>;
+    certificateSettings?: pulumi.Input<inputs.amplify.DomainAssociationCertificateSettings | undefined>;
     /**
      * Domain name for the domain association.
      */
@@ -226,11 +226,11 @@ export interface DomainAssociationArgs {
     /**
      * Enables the automated creation of subdomains for branches.
      */
-    enableAutoSubDomain?: pulumi.Input<boolean>;
+    enableAutoSubDomain?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Setting for the subdomain. Documented below.
      */
@@ -238,5 +238,5 @@ export interface DomainAssociationArgs {
     /**
      * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
      */
-    waitForVerification?: pulumi.Input<boolean>;
+    waitForVerification?: pulumi.Input<boolean | undefined>;
 }

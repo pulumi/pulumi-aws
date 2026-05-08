@@ -144,9 +144,9 @@ def search(query_string: Optional[_builtins.str] = None,
         resource_counts=pulumi.get(__ret__, 'resource_counts'),
         resources=pulumi.get(__ret__, 'resources'),
         view_arn=pulumi.get(__ret__, 'view_arn'))
-def search_output(query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                  view_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def search_output(query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                  view_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[SearchResult]:
     """
     Data source for managing an AWS Resource Explorer Search.

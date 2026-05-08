@@ -152,28 +152,28 @@ export interface LogMetricFilterState {
     /**
      * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
      */
-    applyOnTransformedLogs?: pulumi.Input<boolean>;
+    applyOnTransformedLogs?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the log group to associate the metric filter with.
      */
-    logGroupName?: pulumi.Input<string>;
+    logGroupName?: pulumi.Input<string | undefined>;
     /**
      * A block defining collection of information needed to define how metric data gets emitted. See below.
      */
-    metricTransformation?: pulumi.Input<inputs.cloudwatch.LogMetricFilterMetricTransformation>;
+    metricTransformation?: pulumi.Input<inputs.cloudwatch.LogMetricFilterMetricTransformation | undefined>;
     /**
      * A name for the metric filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
      * for extracting metric data out of ingested log events.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface LogMetricFilterArgs {
     /**
      * Whether the metric filter will be applied on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
      */
-    applyOnTransformedLogs?: pulumi.Input<boolean>;
+    applyOnTransformedLogs?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the log group to associate the metric filter with.
      */
@@ -195,7 +195,7 @@ export interface LogMetricFilterArgs {
     /**
      * A name for the metric filter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
      * for extracting metric data out of ingested log events.
@@ -204,5 +204,5 @@ export interface LogMetricFilterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

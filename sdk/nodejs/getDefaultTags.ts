@@ -101,5 +101,5 @@ export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pul
  * A collection of arguments for invoking getDefaultTags.
  */
 export interface GetDefaultTagsOutputArgs {
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

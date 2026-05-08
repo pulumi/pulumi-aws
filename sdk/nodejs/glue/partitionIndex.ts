@@ -198,23 +198,23 @@ export interface PartitionIndexState {
     /**
      * The catalog ID where the table resides.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a partition index. See `partitionIndex` below.
      */
-    partitionIndex?: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
+    partitionIndex?: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -224,7 +224,7 @@ export interface PartitionIndexArgs {
     /**
      * The catalog ID where the table resides.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
@@ -236,7 +236,7 @@ export interface PartitionIndexArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */

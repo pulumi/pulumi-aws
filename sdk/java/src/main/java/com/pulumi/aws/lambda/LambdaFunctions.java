@@ -49,8 +49,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -88,8 +88,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.apigateway.IntegrationArgs;
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -150,8 +150,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -218,8 +218,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -257,8 +257,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.apigateway.IntegrationArgs;
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -319,8 +319,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -387,8 +387,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -426,8 +426,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.apigateway.IntegrationArgs;
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -488,8 +488,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -556,8 +556,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -595,8 +595,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.apigateway.IntegrationArgs;
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -657,8 +657,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -725,8 +725,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -764,8 +764,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.apigateway.IntegrationArgs;
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -826,8 +826,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Permission;
      * import com.pulumi.aws.lambda.PermissionArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -896,8 +896,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -937,8 +937,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -991,8 +991,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1051,8 +1051,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1112,8 +1112,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1153,8 +1153,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1207,8 +1207,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1267,8 +1267,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1328,8 +1328,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1369,8 +1369,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1423,8 +1423,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1483,8 +1483,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1544,8 +1544,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1585,8 +1585,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1639,8 +1639,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1699,8 +1699,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1760,8 +1760,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1801,8 +1801,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1855,8 +1855,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1915,8 +1915,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1976,8 +1976,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2012,8 +2012,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import com.pulumi.aws.apigateway.Integration;
      * import com.pulumi.aws.apigateway.IntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2058,8 +2058,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2104,8 +2104,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2153,8 +2153,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2189,8 +2189,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import com.pulumi.aws.apigateway.Integration;
      * import com.pulumi.aws.apigateway.IntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2235,8 +2235,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2281,8 +2281,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2330,8 +2330,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2366,8 +2366,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import com.pulumi.aws.apigateway.Integration;
      * import com.pulumi.aws.apigateway.IntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2412,8 +2412,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2458,8 +2458,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2507,8 +2507,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2543,8 +2543,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import com.pulumi.aws.apigateway.Integration;
      * import com.pulumi.aws.apigateway.IntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2589,8 +2589,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2635,8 +2635,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2684,8 +2684,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2720,8 +2720,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
      * import com.pulumi.aws.apigateway.Integration;
      * import com.pulumi.aws.apigateway.IntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2766,8 +2766,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2812,8 +2812,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2859,8 +2859,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2897,8 +2897,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.ReplaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2944,8 +2944,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2963,7 +2963,7 @@ public final class LambdaFunctions {
      * 
      *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -2991,8 +2991,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3029,8 +3029,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.ReplaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3076,8 +3076,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3095,7 +3095,7 @@ public final class LambdaFunctions {
      * 
      *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3123,8 +3123,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3161,8 +3161,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.ReplaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3208,8 +3208,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3227,7 +3227,7 @@ public final class LambdaFunctions {
      * 
      *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3255,8 +3255,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3293,8 +3293,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.ReplaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3340,8 +3340,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3359,7 +3359,7 @@ public final class LambdaFunctions {
      * 
      *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3387,8 +3387,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3425,8 +3425,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.route53.RecordArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.ReplaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3472,8 +3472,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3491,7 +3491,7 @@ public final class LambdaFunctions {
      * 
      *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
-     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
      *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
@@ -3519,8 +3519,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3556,8 +3556,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.cloudwatch.MetricAlarm;
      * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3621,8 +3621,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3658,8 +3658,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.cloudwatch.MetricAlarm;
      * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3723,8 +3723,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3760,8 +3760,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.cloudwatch.MetricAlarm;
      * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3825,8 +3825,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3862,8 +3862,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.cloudwatch.MetricAlarm;
      * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3927,8 +3927,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3964,8 +3964,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.cloudwatch.MetricAlarm;
      * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4029,8 +4029,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4066,8 +4066,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.cloudwatch.MetricAlarm;
      * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4131,8 +4131,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4168,8 +4168,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.cloudwatch.MetricAlarm;
      * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4242,8 +4242,8 @@ public final class LambdaFunctions {
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4288,8 +4288,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.elasticache.Cluster;
      * import com.pulumi.aws.elasticache.ClusterArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4361,8 +4361,8 @@ public final class LambdaFunctions {
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4407,8 +4407,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.elasticache.Cluster;
      * import com.pulumi.aws.elasticache.ClusterArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4480,8 +4480,8 @@ public final class LambdaFunctions {
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4526,8 +4526,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.elasticache.Cluster;
      * import com.pulumi.aws.elasticache.ClusterArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4599,8 +4599,8 @@ public final class LambdaFunctions {
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4645,8 +4645,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.elasticache.Cluster;
      * import com.pulumi.aws.elasticache.ClusterArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4718,8 +4718,8 @@ public final class LambdaFunctions {
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.JsondecodeArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4764,8 +4764,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.elasticache.Cluster;
      * import com.pulumi.aws.elasticache.ClusterArgs;
      * import static com.pulumi.codegen.internal.Serialization.*;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4831,8 +4831,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4874,8 +4874,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4916,8 +4916,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4970,8 +4970,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5018,8 +5018,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5060,8 +5060,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5106,8 +5106,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5149,8 +5149,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5191,8 +5191,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5245,8 +5245,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5293,8 +5293,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5335,8 +5335,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5381,8 +5381,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5424,8 +5424,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5466,8 +5466,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5520,8 +5520,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5568,8 +5568,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5610,8 +5610,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5656,8 +5656,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5699,8 +5699,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5741,8 +5741,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5795,8 +5795,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5843,8 +5843,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5885,8 +5885,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5931,8 +5931,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5974,8 +5974,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6016,8 +6016,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6070,8 +6070,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6118,8 +6118,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6160,8 +6160,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6206,8 +6206,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6249,8 +6249,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6291,8 +6291,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6345,8 +6345,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6393,8 +6393,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6435,8 +6435,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6481,8 +6481,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6524,8 +6524,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6566,8 +6566,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6620,8 +6620,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6668,8 +6668,8 @@ public final class LambdaFunctions {
      * import com.pulumi.aws.lambda.Function;
      * import com.pulumi.aws.lambda.FunctionArgs;
      * import com.pulumi.asset.FileArchive;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6710,8 +6710,8 @@ public final class LambdaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
      * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -230,46 +230,46 @@ export interface ApiState {
     /**
      * ARN of the Event API.
      */
-    apiArn?: pulumi.Input<string>;
+    apiArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Event API.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * DNS configuration for the Event API.
      */
-    dns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    dns?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration for the Event API. See Event Config below.
      */
-    eventConfig?: pulumi.Input<inputs.appsync.ApiEventConfig>;
+    eventConfig?: pulumi.Input<inputs.appsync.ApiEventConfig | undefined>;
     /**
      * Name of the Event API.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contact information for the owner of the Event API.
      */
-    ownerContact?: pulumi.Input<string>;
+    ownerContact?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the associated WAF web ACL.
      */
-    wafWebAclArn?: pulumi.Input<string>;
-    xrayEnabled?: pulumi.Input<boolean>;
+    wafWebAclArn?: pulumi.Input<string | undefined>;
+    xrayEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -285,17 +285,17 @@ export interface ApiArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contact information for the owner of the Event API.
      */
-    ownerContact?: pulumi.Input<string>;
+    ownerContact?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

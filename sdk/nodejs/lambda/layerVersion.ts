@@ -285,85 +285,85 @@ export interface LayerVersionState {
     /**
      * ARN of the Lambda Layer with version.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    code?: pulumi.Input<pulumi.asset.Archive>;
+    code?: pulumi.Input<pulumi.asset.Archive | undefined>;
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      */
-    codeSha256?: pulumi.Input<string>;
+    codeSha256?: pulumi.Input<string | undefined>;
     /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
-    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      */
-    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Date this resource was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * Description of what your Lambda Layer does.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Lambda Layer without version.
      */
-    layerArn?: pulumi.Input<string>;
+    layerArn?: pulumi.Input<string | undefined>;
     /**
      * Unique name for your Lambda Layer.
      *
      * The following arguments are optional:
      */
-    layerName?: pulumi.Input<string>;
+    layerName?: pulumi.Input<string | undefined>;
     /**
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
-    licenseInfo?: pulumi.Input<string>;
+    licenseInfo?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string | undefined>;
     /**
      * Object version containing the function's deployment package. Conflicts with `filename`.
      */
-    s3ObjectVersion?: pulumi.Input<string>;
+    s3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN of a signing job.
      */
-    signingJobArn?: pulumi.Input<string>;
+    signingJobArn?: pulumi.Input<string | undefined>;
     /**
      * ARN for a signing profile version.
      */
-    signingProfileVersionArn?: pulumi.Input<string>;
+    signingProfileVersionArn?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
      */
-    sourceCodeHash?: pulumi.Input<string>;
+    sourceCodeHash?: pulumi.Input<string | undefined>;
     /**
      * Size in bytes of the function .zip file.
      */
-    sourceCodeSize?: pulumi.Input<number>;
+    sourceCodeSize?: pulumi.Input<number | undefined>;
     /**
      * Lambda Layer version.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -373,19 +373,19 @@ export interface LayerVersionArgs {
     /**
      * Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    code?: pulumi.Input<pulumi.asset.Archive>;
+    code?: pulumi.Input<pulumi.asset.Archive | undefined>;
     /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
-    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      */
-    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of what your Lambda Layer does.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Unique name for your Lambda Layer.
      *
@@ -395,29 +395,29 @@ export interface LayerVersionArgs {
     /**
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
-    licenseInfo?: pulumi.Input<string>;
+    licenseInfo?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string | undefined>;
     /**
      * Object version containing the function's deployment package. Conflicts with `filename`.
      */
-    s3ObjectVersion?: pulumi.Input<string>;
+    s3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `filebase64sha256("file.zip")` or `base64sha256(file("file.zip"))`, where "file.zip" is the local filename of the lambda layer source archive.
      */
-    sourceCodeHash?: pulumi.Input<string>;
+    sourceCodeHash?: pulumi.Input<string | undefined>;
 }

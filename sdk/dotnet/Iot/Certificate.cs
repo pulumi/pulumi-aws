@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         Csr = Std.Index.File.Invoke(new()
+    ///         Csr = Std.File.Invoke(new()
     ///         {
     ///             Input = "/my/csr.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         CertificatePem = Std.Index.File.Invoke(new()
+    ///         CertificatePem = Std.File.Invoke(new()
     ///         {
     ///             Input = "/my/cert.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

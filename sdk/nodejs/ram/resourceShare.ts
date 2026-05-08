@@ -138,35 +138,35 @@ export interface ResourceShareState {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    allowExternalPrincipals?: pulumi.Input<boolean>;
+    allowExternalPrincipals?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource share.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
-    permissionArns?: pulumi.Input<pulumi.Input<string>[]>;
+    permissionArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
      */
-    resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration>;
+    resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration | undefined>;
     /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -176,25 +176,25 @@ export interface ResourceShareArgs {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    allowExternalPrincipals?: pulumi.Input<boolean>;
+    allowExternalPrincipals?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource share.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
-    permissionArns?: pulumi.Input<pulumi.Input<string>[]>;
+    permissionArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
      */
-    resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration>;
+    resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration | undefined>;
     /**
      * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

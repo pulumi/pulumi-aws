@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.directoryservice.ServiceRegionArgs;
  * import com.pulumi.aws.directoryservice.inputs.ServiceRegionVpcSettingsArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .availabilityZone(available.names()[range.value()])
- *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
- *                     .input(_cidrBlock)
+ *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(exampleVpc.cidrBlock())
  *                     .newbits(8)
  *                     .netnum(range.value())
- *                     .build())).applyValue(_invoke -> _invoke.result()))
+ *                     .build()).applyValue(_invoke -> _invoke.result()))
  *                 .tags(Map.of("Name", "Primary"))
  *                 .build());
  * 
@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  *             new Subnet("example-secondarySubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(example_secondary.id())
  *                 .availabilityZone(available_secondary.names()[range.value()])
- *                 .cidrBlock(example_secondary.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
- *                     .input(_cidrBlock)
+ *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(example_secondary.cidrBlock())
  *                     .newbits(8)
  *                     .netnum(range.value())
- *                     .build())).applyValue(_invoke -> _invoke.result()))
+ *                     .build()).applyValue(_invoke -> _invoke.result()))
  *                 .tags(Map.of("Name", "Secondary"))
  *                 .build());
  * 

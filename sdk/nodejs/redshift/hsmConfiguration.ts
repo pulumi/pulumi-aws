@@ -168,43 +168,43 @@ export interface HsmConfigurationState {
     /**
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A text description of the HSM configuration to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier to be assigned to the new Amazon Redshift HSM configuration.
      */
-    hsmConfigurationIdentifier?: pulumi.Input<string>;
+    hsmConfigurationIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The IP address that the Amazon Redshift cluster must use to access the HSM.
      */
-    hsmIpAddress?: pulumi.Input<string>;
+    hsmIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
      */
-    hsmPartitionName?: pulumi.Input<string>;
+    hsmPartitionName?: pulumi.Input<string | undefined>;
     /**
      * The password required to access the HSM partition.
      */
-    hsmPartitionPassword?: pulumi.Input<string>;
+    hsmPartitionPassword?: pulumi.Input<string | undefined>;
     /**
      * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
      */
-    hsmServerPublicCertificate?: pulumi.Input<string>;
+    hsmServerPublicCertificate?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -238,9 +238,9 @@ export interface HsmConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

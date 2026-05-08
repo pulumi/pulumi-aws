@@ -25,27 +25,29 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// var vpcId interface{}
-// cfg.RequireObject("vpcId", &vpcId)
-// _, err := ec2.LookupInternetGateway(ctx, &ec2.LookupInternetGatewayArgs{
-// Filters: []ec2.GetInternetGatewayFilter{
-// {
-// Name: "attachment.vpc-id",
-// Values: interface{}{
-// vpcId,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			var vpcId interface{}
+//			cfg.RequireObject("vpcId", &vpcId)
+//			_, err := ec2.LookupInternetGateway(ctx, &ec2.LookupInternetGatewayArgs{
+//				Filters: []ec2.GetInternetGatewayFilter{
+//					{
+//						Name: "attachment.vpc-id",
+//						Values: pulumi.StringArray{
+//							vpcId,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

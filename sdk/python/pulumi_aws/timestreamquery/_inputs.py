@@ -112,11 +112,11 @@ class ScheduledQueryErrorReportConfigurationS3ConfigurationArgsDict(TypedDict):
     """
     Name of the S3 bucket under which error reports will be created.
     """
-    encryption_option: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_option: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
     """
-    object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    object_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prefix for the error report key.
     """
@@ -125,8 +125,8 @@ class ScheduledQueryErrorReportConfigurationS3ConfigurationArgsDict(TypedDict):
 class ScheduledQueryErrorReportConfigurationS3ConfigurationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 encryption_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Name of the S3 bucket under which error reports will be created.
         :param pulumi.Input[_builtins.str] encryption_option: Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
@@ -152,55 +152,55 @@ class ScheduledQueryErrorReportConfigurationS3ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionOption")
-    def encryption_option(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
         """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
-    def encryption_option(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_option(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_option", value)
 
     @_builtins.property
     @pulumi.getter(name="objectKeyPrefix")
-    def object_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prefix for the error report key.
         """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
-    def object_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key_prefix", value)
 
 
 class ScheduledQueryLastRunSummaryArgsDict(TypedDict):
-    error_report_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgsDict']]]]
+    error_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]]]
     """
     S3 location for error report.
     """
-    execution_stats: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgsDict']]]]
+    execution_stats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]]]
     """
     Statistics for a single scheduled query run.
     """
-    failure_reason: NotRequired[pulumi.Input[_builtins.str]]
+    failure_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
     """
-    invocation_time: NotRequired[pulumi.Input[_builtins.str]]
+    invocation_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
     """
-    query_insights_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgsDict']]]]
+    query_insights_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]]]
     """
     Various insights and metrics related to the run summary of the scheduled query.
     """
-    run_status: NotRequired[pulumi.Input[_builtins.str]]
+    run_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
     """
-    trigger_time: NotRequired[pulumi.Input[_builtins.str]]
+    trigger_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Actual time when the query was run.
     """
@@ -208,13 +208,13 @@ class ScheduledQueryLastRunSummaryArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryArgs:
     def __init__(__self__, *,
-                 error_report_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]] = None,
-                 execution_stats: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 invocation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_insights_responses: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]] = None,
-                 run_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 error_report_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]] = None,
+                 execution_stats: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 invocation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_insights_responses: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]] = None,
+                 run_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]] error_report_locations: S3 location for error report.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]] execution_stats: Statistics for a single scheduled query run.
@@ -241,91 +241,91 @@ class ScheduledQueryLastRunSummaryArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorReportLocations")
-    def error_report_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]]:
+    def error_report_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]]:
         """
         S3 location for error report.
         """
         return pulumi.get(self, "error_report_locations")
 
     @error_report_locations.setter
-    def error_report_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]]):
+    def error_report_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]]):
         pulumi.set(self, "error_report_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="executionStats")
-    def execution_stats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]]:
+    def execution_stats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]]:
         """
         Statistics for a single scheduled query run.
         """
         return pulumi.get(self, "execution_stats")
 
     @execution_stats.setter
-    def execution_stats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]]):
+    def execution_stats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]]):
         pulumi.set(self, "execution_stats", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
         """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationTime")
-    def invocation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invocation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
         """
         return pulumi.get(self, "invocation_time")
 
     @invocation_time.setter
-    def invocation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invocation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invocation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="queryInsightsResponses")
-    def query_insights_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]]:
+    def query_insights_responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]]:
         """
         Various insights and metrics related to the run summary of the scheduled query.
         """
         return pulumi.get(self, "query_insights_responses")
 
     @query_insights_responses.setter
-    def query_insights_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]]):
+    def query_insights_responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]]):
         pulumi.set(self, "query_insights_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="runStatus")
-    def run_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
         """
         return pulumi.get(self, "run_status")
 
     @run_status.setter
-    def run_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_status", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerTime")
-    def trigger_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Actual time when the query was run.
         """
         return pulumi.get(self, "trigger_time")
 
     @trigger_time.setter
-    def trigger_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_time", value)
 
 
 class ScheduledQueryLastRunSummaryErrorReportLocationArgsDict(TypedDict):
-    s3_report_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgsDict']]]]
+    s3_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]]]
     """
     S3 location where error reports are written.
     """
@@ -333,7 +333,7 @@ class ScheduledQueryLastRunSummaryErrorReportLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryErrorReportLocationArgs:
     def __init__(__self__, *,
-                 s3_report_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]] = None):
+                 s3_report_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]] s3_report_locations: S3 location where error reports are written.
         """
@@ -342,23 +342,23 @@ class ScheduledQueryLastRunSummaryErrorReportLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3ReportLocations")
-    def s3_report_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]]:
+    def s3_report_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]]:
         """
         S3 location where error reports are written.
         """
         return pulumi.get(self, "s3_report_locations")
 
     @s3_report_locations.setter
-    def s3_report_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]]):
+    def s3_report_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]]):
         pulumi.set(self, "s3_report_locations", value)
 
 
 class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgsDict(TypedDict):
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 bucket name.
     """
-    object_key: NotRequired[pulumi.Input[_builtins.str]]
+    object_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 key.
     """
@@ -366,8 +366,8 @@ class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgsDict(Ty
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] object_key: S3 key.
@@ -379,51 +379,51 @@ class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectKey")
-    def object_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 key.
         """
         return pulumi.get(self, "object_key")
 
     @object_key.setter
-    def object_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key", value)
 
 
 class ScheduledQueryLastRunSummaryExecutionStatArgsDict(TypedDict):
-    bytes_metered: NotRequired[pulumi.Input[_builtins.int]]
+    bytes_metered: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Bytes metered for a single scheduled query run.
     """
-    cumulative_bytes_scanned: NotRequired[pulumi.Input[_builtins.int]]
+    cumulative_bytes_scanned: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Bytes scanned for a single scheduled query run.
     """
-    data_writes: NotRequired[pulumi.Input[_builtins.int]]
+    data_writes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Data writes metered for records ingested in a single scheduled query run.
     """
-    execution_time_in_millis: NotRequired[pulumi.Input[_builtins.int]]
+    execution_time_in_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
     """
-    query_result_rows: NotRequired[pulumi.Input[_builtins.int]]
+    query_result_rows: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of rows present in the output from running a query before ingestion to destination data source.
     """
-    records_ingested: NotRequired[pulumi.Input[_builtins.int]]
+    records_ingested: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of records ingested for a single scheduled query run.
     """
@@ -431,12 +431,12 @@ class ScheduledQueryLastRunSummaryExecutionStatArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryExecutionStatArgs:
     def __init__(__self__, *,
-                 bytes_metered: Optional[pulumi.Input[_builtins.int]] = None,
-                 cumulative_bytes_scanned: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_writes: Optional[pulumi.Input[_builtins.int]] = None,
-                 execution_time_in_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_result_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 records_ingested: Optional[pulumi.Input[_builtins.int]] = None):
+                 bytes_metered: pulumi.Input[Optional[_builtins.int]] = None,
+                 cumulative_bytes_scanned: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_writes: pulumi.Input[Optional[_builtins.int]] = None,
+                 execution_time_in_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_result_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 records_ingested: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] bytes_metered: Bytes metered for a single scheduled query run.
         :param pulumi.Input[_builtins.int] cumulative_bytes_scanned: Bytes scanned for a single scheduled query run.
@@ -460,95 +460,95 @@ class ScheduledQueryLastRunSummaryExecutionStatArgs:
 
     @_builtins.property
     @pulumi.getter(name="bytesMetered")
-    def bytes_metered(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bytes_metered(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Bytes metered for a single scheduled query run.
         """
         return pulumi.get(self, "bytes_metered")
 
     @bytes_metered.setter
-    def bytes_metered(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bytes_metered(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bytes_metered", value)
 
     @_builtins.property
     @pulumi.getter(name="cumulativeBytesScanned")
-    def cumulative_bytes_scanned(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cumulative_bytes_scanned(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Bytes scanned for a single scheduled query run.
         """
         return pulumi.get(self, "cumulative_bytes_scanned")
 
     @cumulative_bytes_scanned.setter
-    def cumulative_bytes_scanned(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cumulative_bytes_scanned(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cumulative_bytes_scanned", value)
 
     @_builtins.property
     @pulumi.getter(name="dataWrites")
-    def data_writes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_writes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Data writes metered for records ingested in a single scheduled query run.
         """
         return pulumi.get(self, "data_writes")
 
     @data_writes.setter
-    def data_writes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_writes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_writes", value)
 
     @_builtins.property
     @pulumi.getter(name="executionTimeInMillis")
-    def execution_time_in_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def execution_time_in_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
         """
         return pulumi.get(self, "execution_time_in_millis")
 
     @execution_time_in_millis.setter
-    def execution_time_in_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def execution_time_in_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "execution_time_in_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="queryResultRows")
-    def query_result_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_result_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of rows present in the output from running a query before ingestion to destination data source.
         """
         return pulumi.get(self, "query_result_rows")
 
     @query_result_rows.setter
-    def query_result_rows(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_result_rows(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_result_rows", value)
 
     @_builtins.property
     @pulumi.getter(name="recordsIngested")
-    def records_ingested(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def records_ingested(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of records ingested for a single scheduled query run.
         """
         return pulumi.get(self, "records_ingested")
 
     @records_ingested.setter
-    def records_ingested(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def records_ingested(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "records_ingested", value)
 
 
 class ScheduledQueryLastRunSummaryQueryInsightsResponseArgsDict(TypedDict):
-    output_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    output_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
     """
-    output_rows: NotRequired[pulumi.Input[_builtins.int]]
+    output_rows: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
     """
-    query_spatial_coverages: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgsDict']]]]
+    query_spatial_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]]]
     """
     Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
     """
-    query_table_count: NotRequired[pulumi.Input[_builtins.int]]
+    query_table_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of tables in the query.
     """
-    query_temporal_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgsDict']]]]
+    query_temporal_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]]]
     """
     Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
     """
@@ -556,11 +556,11 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryQueryInsightsResponseArgs:
     def __init__(__self__, *,
-                 output_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 output_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_spatial_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]] = None,
-                 query_table_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_temporal_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]] = None):
+                 output_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 output_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_spatial_coverages: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]] = None,
+                 query_table_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_temporal_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.int] output_bytes: Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
         :param pulumi.Input[_builtins.int] output_rows: Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
@@ -581,67 +581,67 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="outputBytes")
-    def output_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def output_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
         """
         return pulumi.get(self, "output_bytes")
 
     @output_bytes.setter
-    def output_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def output_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "output_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="outputRows")
-    def output_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def output_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
         """
         return pulumi.get(self, "output_rows")
 
     @output_rows.setter
-    def output_rows(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def output_rows(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "output_rows", value)
 
     @_builtins.property
     @pulumi.getter(name="querySpatialCoverages")
-    def query_spatial_coverages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]]:
+    def query_spatial_coverages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]]:
         """
         Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
         """
         return pulumi.get(self, "query_spatial_coverages")
 
     @query_spatial_coverages.setter
-    def query_spatial_coverages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]]):
+    def query_spatial_coverages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]]):
         pulumi.set(self, "query_spatial_coverages", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTableCount")
-    def query_table_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_table_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of tables in the query.
         """
         return pulumi.get(self, "query_table_count")
 
     @query_table_count.setter
-    def query_table_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_table_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_table_count", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTemporalRanges")
-    def query_temporal_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]]:
+    def query_temporal_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]]:
         """
         Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
         """
         return pulumi.get(self, "query_temporal_ranges")
 
     @query_temporal_ranges.setter
-    def query_temporal_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]]):
+    def query_temporal_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]]):
         pulumi.set(self, "query_temporal_ranges", value)
 
 
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgsDict']]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -649,7 +649,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgsD
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs:
     def __init__(__self__, *,
-                 maxes: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]] = None):
+                 maxes: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]] maxes: Insights into the most sub-optimal performing table on the temporal axis:
         """
@@ -658,27 +658,27 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]:
+    def maxes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]:
         """
         Insights into the most sub-optimal performing table on the temporal axis:
         """
         return pulumi.get(self, "maxes")
 
     @maxes.setter
-    def maxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]):
+    def maxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]):
         pulumi.set(self, "maxes", value)
 
 
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgsDict(TypedDict):
-    partition_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    partition_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
     """
-    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    table_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the table which is queried with the largest time range.
     """
-    value: NotRequired[pulumi.Input[_builtins.float]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum duration in nanoseconds between the start and end of the query.
     """
@@ -686,9 +686,9 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs:
     def __init__(__self__, *,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None):
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_keys: Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
         :param pulumi.Input[_builtins.str] table_arn: ARN of the table which is queried with the largest time range.
@@ -703,43 +703,43 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis
 
     @_builtins.property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def partition_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def partition_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "partition_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
-    def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the table which is queried with the largest time range.
         """
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
-    def table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum duration in nanoseconds between the start and end of the query.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "value", value)
 
 
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgsDict']]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -747,7 +747,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgsDic
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs:
     def __init__(__self__, *,
-                 maxes: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]] = None):
+                 maxes: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]] maxes: Insights into the most sub-optimal performing table on the temporal axis:
         """
@@ -756,23 +756,23 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]:
+    def maxes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]:
         """
         Insights into the most sub-optimal performing table on the temporal axis:
         """
         return pulumi.get(self, "maxes")
 
     @maxes.setter
-    def maxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]):
+    def maxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]):
         pulumi.set(self, "maxes", value)
 
 
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgsDict(TypedDict):
-    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    table_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the table which is queried with the largest time range.
     """
-    value: NotRequired[pulumi.Input[_builtins.int]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum duration in nanoseconds between the start and end of the query.
     """
@@ -780,8 +780,8 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisAr
 @pulumi.input_type
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs:
     def __init__(__self__, *,
-                 table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.int]] = None):
+                 table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] table_arn: ARN of the table which is queried with the largest time range.
         :param pulumi.Input[_builtins.int] value: Maximum duration in nanoseconds between the start and end of the query.
@@ -793,26 +793,26 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisAr
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
-    def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the table which is queried with the largest time range.
         """
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
-    def table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum duration in nanoseconds between the start and end of the query.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value", value)
 
 
@@ -873,31 +873,31 @@ class ScheduledQueryNotificationConfigurationSnsConfigurationArgs:
 
 
 class ScheduledQueryRecentlyFailedRunArgsDict(TypedDict):
-    error_report_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgsDict']]]]
+    error_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]]]
     """
     S3 location for error report.
     """
-    execution_stats: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgsDict']]]]
+    execution_stats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]]]
     """
     Statistics for a single scheduled query run.
     """
-    failure_reason: NotRequired[pulumi.Input[_builtins.str]]
+    failure_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
     """
-    invocation_time: NotRequired[pulumi.Input[_builtins.str]]
+    invocation_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
     """
-    query_insights_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgsDict']]]]
+    query_insights_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]]]
     """
     Various insights and metrics related to the run summary of the scheduled query.
     """
-    run_status: NotRequired[pulumi.Input[_builtins.str]]
+    run_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
     """
-    trigger_time: NotRequired[pulumi.Input[_builtins.str]]
+    trigger_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Actual time when the query was run.
     """
@@ -905,13 +905,13 @@ class ScheduledQueryRecentlyFailedRunArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunArgs:
     def __init__(__self__, *,
-                 error_report_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]] = None,
-                 execution_stats: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 invocation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_insights_responses: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]] = None,
-                 run_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 error_report_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]] = None,
+                 execution_stats: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 invocation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_insights_responses: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]] = None,
+                 run_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]] error_report_locations: S3 location for error report.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]] execution_stats: Statistics for a single scheduled query run.
@@ -938,91 +938,91 @@ class ScheduledQueryRecentlyFailedRunArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorReportLocations")
-    def error_report_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]]:
+    def error_report_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]]:
         """
         S3 location for error report.
         """
         return pulumi.get(self, "error_report_locations")
 
     @error_report_locations.setter
-    def error_report_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]]):
+    def error_report_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]]):
         pulumi.set(self, "error_report_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="executionStats")
-    def execution_stats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]]:
+    def execution_stats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]]:
         """
         Statistics for a single scheduled query run.
         """
         return pulumi.get(self, "execution_stats")
 
     @execution_stats.setter
-    def execution_stats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]]):
+    def execution_stats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]]):
         pulumi.set(self, "execution_stats", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
         """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="invocationTime")
-    def invocation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invocation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
         """
         return pulumi.get(self, "invocation_time")
 
     @invocation_time.setter
-    def invocation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invocation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invocation_time", value)
 
     @_builtins.property
     @pulumi.getter(name="queryInsightsResponses")
-    def query_insights_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]]:
+    def query_insights_responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]]:
         """
         Various insights and metrics related to the run summary of the scheduled query.
         """
         return pulumi.get(self, "query_insights_responses")
 
     @query_insights_responses.setter
-    def query_insights_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]]):
+    def query_insights_responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]]):
         pulumi.set(self, "query_insights_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="runStatus")
-    def run_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
         """
         return pulumi.get(self, "run_status")
 
     @run_status.setter
-    def run_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_status", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerTime")
-    def trigger_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Actual time when the query was run.
         """
         return pulumi.get(self, "trigger_time")
 
     @trigger_time.setter
-    def trigger_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_time", value)
 
 
 class ScheduledQueryRecentlyFailedRunErrorReportLocationArgsDict(TypedDict):
-    s3_report_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgsDict']]]]
+    s3_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]]]
     """
     S3 location where error reports are written.
     """
@@ -1030,7 +1030,7 @@ class ScheduledQueryRecentlyFailedRunErrorReportLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunErrorReportLocationArgs:
     def __init__(__self__, *,
-                 s3_report_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]] = None):
+                 s3_report_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]] s3_report_locations: S3 location where error reports are written.
         """
@@ -1039,23 +1039,23 @@ class ScheduledQueryRecentlyFailedRunErrorReportLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3ReportLocations")
-    def s3_report_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]]:
+    def s3_report_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]]:
         """
         S3 location where error reports are written.
         """
         return pulumi.get(self, "s3_report_locations")
 
     @s3_report_locations.setter
-    def s3_report_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]]):
+    def s3_report_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]]):
         pulumi.set(self, "s3_report_locations", value)
 
 
 class ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgsDict(TypedDict):
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 bucket name.
     """
-    object_key: NotRequired[pulumi.Input[_builtins.str]]
+    object_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 key.
     """
@@ -1063,8 +1063,8 @@ class ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgsDict
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] object_key: S3 key.
@@ -1076,51 +1076,51 @@ class ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectKey")
-    def object_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 key.
         """
         return pulumi.get(self, "object_key")
 
     @object_key.setter
-    def object_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key", value)
 
 
 class ScheduledQueryRecentlyFailedRunExecutionStatArgsDict(TypedDict):
-    bytes_metered: NotRequired[pulumi.Input[_builtins.int]]
+    bytes_metered: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Bytes metered for a single scheduled query run.
     """
-    cumulative_bytes_scanned: NotRequired[pulumi.Input[_builtins.int]]
+    cumulative_bytes_scanned: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Bytes scanned for a single scheduled query run.
     """
-    data_writes: NotRequired[pulumi.Input[_builtins.int]]
+    data_writes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Data writes metered for records ingested in a single scheduled query run.
     """
-    execution_time_in_millis: NotRequired[pulumi.Input[_builtins.int]]
+    execution_time_in_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
     """
-    query_result_rows: NotRequired[pulumi.Input[_builtins.int]]
+    query_result_rows: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of rows present in the output from running a query before ingestion to destination data source.
     """
-    records_ingested: NotRequired[pulumi.Input[_builtins.int]]
+    records_ingested: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of records ingested for a single scheduled query run.
     """
@@ -1128,12 +1128,12 @@ class ScheduledQueryRecentlyFailedRunExecutionStatArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunExecutionStatArgs:
     def __init__(__self__, *,
-                 bytes_metered: Optional[pulumi.Input[_builtins.int]] = None,
-                 cumulative_bytes_scanned: Optional[pulumi.Input[_builtins.int]] = None,
-                 data_writes: Optional[pulumi.Input[_builtins.int]] = None,
-                 execution_time_in_millis: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_result_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 records_ingested: Optional[pulumi.Input[_builtins.int]] = None):
+                 bytes_metered: pulumi.Input[Optional[_builtins.int]] = None,
+                 cumulative_bytes_scanned: pulumi.Input[Optional[_builtins.int]] = None,
+                 data_writes: pulumi.Input[Optional[_builtins.int]] = None,
+                 execution_time_in_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_result_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 records_ingested: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] bytes_metered: Bytes metered for a single scheduled query run.
         :param pulumi.Input[_builtins.int] cumulative_bytes_scanned: Bytes scanned for a single scheduled query run.
@@ -1157,95 +1157,95 @@ class ScheduledQueryRecentlyFailedRunExecutionStatArgs:
 
     @_builtins.property
     @pulumi.getter(name="bytesMetered")
-    def bytes_metered(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bytes_metered(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Bytes metered for a single scheduled query run.
         """
         return pulumi.get(self, "bytes_metered")
 
     @bytes_metered.setter
-    def bytes_metered(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bytes_metered(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bytes_metered", value)
 
     @_builtins.property
     @pulumi.getter(name="cumulativeBytesScanned")
-    def cumulative_bytes_scanned(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cumulative_bytes_scanned(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Bytes scanned for a single scheduled query run.
         """
         return pulumi.get(self, "cumulative_bytes_scanned")
 
     @cumulative_bytes_scanned.setter
-    def cumulative_bytes_scanned(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cumulative_bytes_scanned(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cumulative_bytes_scanned", value)
 
     @_builtins.property
     @pulumi.getter(name="dataWrites")
-    def data_writes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_writes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Data writes metered for records ingested in a single scheduled query run.
         """
         return pulumi.get(self, "data_writes")
 
     @data_writes.setter
-    def data_writes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_writes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_writes", value)
 
     @_builtins.property
     @pulumi.getter(name="executionTimeInMillis")
-    def execution_time_in_millis(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def execution_time_in_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
         """
         return pulumi.get(self, "execution_time_in_millis")
 
     @execution_time_in_millis.setter
-    def execution_time_in_millis(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def execution_time_in_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "execution_time_in_millis", value)
 
     @_builtins.property
     @pulumi.getter(name="queryResultRows")
-    def query_result_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_result_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of rows present in the output from running a query before ingestion to destination data source.
         """
         return pulumi.get(self, "query_result_rows")
 
     @query_result_rows.setter
-    def query_result_rows(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_result_rows(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_result_rows", value)
 
     @_builtins.property
     @pulumi.getter(name="recordsIngested")
-    def records_ingested(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def records_ingested(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of records ingested for a single scheduled query run.
         """
         return pulumi.get(self, "records_ingested")
 
     @records_ingested.setter
-    def records_ingested(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def records_ingested(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "records_ingested", value)
 
 
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgsDict(TypedDict):
-    output_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    output_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
     """
-    output_rows: NotRequired[pulumi.Input[_builtins.int]]
+    output_rows: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
     """
-    query_spatial_coverages: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgsDict']]]]
+    query_spatial_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]]]
     """
     Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
     """
-    query_table_count: NotRequired[pulumi.Input[_builtins.int]]
+    query_table_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of tables in the query.
     """
-    query_temporal_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgsDict']]]]
+    query_temporal_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]]]
     """
     Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
     """
@@ -1253,11 +1253,11 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs:
     def __init__(__self__, *,
-                 output_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 output_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_spatial_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]] = None,
-                 query_table_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 query_temporal_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]] = None):
+                 output_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 output_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_spatial_coverages: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]] = None,
+                 query_table_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_temporal_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.int] output_bytes: Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
         :param pulumi.Input[_builtins.int] output_rows: Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
@@ -1278,67 +1278,67 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="outputBytes")
-    def output_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def output_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
         """
         return pulumi.get(self, "output_bytes")
 
     @output_bytes.setter
-    def output_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def output_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "output_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="outputRows")
-    def output_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def output_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
         """
         return pulumi.get(self, "output_rows")
 
     @output_rows.setter
-    def output_rows(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def output_rows(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "output_rows", value)
 
     @_builtins.property
     @pulumi.getter(name="querySpatialCoverages")
-    def query_spatial_coverages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]]:
+    def query_spatial_coverages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]]:
         """
         Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
         """
         return pulumi.get(self, "query_spatial_coverages")
 
     @query_spatial_coverages.setter
-    def query_spatial_coverages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]]):
+    def query_spatial_coverages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]]):
         pulumi.set(self, "query_spatial_coverages", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTableCount")
-    def query_table_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_table_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of tables in the query.
         """
         return pulumi.get(self, "query_table_count")
 
     @query_table_count.setter
-    def query_table_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_table_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_table_count", value)
 
     @_builtins.property
     @pulumi.getter(name="queryTemporalRanges")
-    def query_temporal_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]]:
+    def query_temporal_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]]:
         """
         Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
         """
         return pulumi.get(self, "query_temporal_ranges")
 
     @query_temporal_ranges.setter
-    def query_temporal_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]]):
+    def query_temporal_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]]):
         pulumi.set(self, "query_temporal_ranges", value)
 
 
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgsDict']]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -1346,7 +1346,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageAr
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs:
     def __init__(__self__, *,
-                 maxes: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]] = None):
+                 maxes: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]] maxes: Insights into the most sub-optimal performing table on the temporal axis:
         """
@@ -1355,27 +1355,27 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageAr
 
     @_builtins.property
     @pulumi.getter
-    def maxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]:
+    def maxes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]:
         """
         Insights into the most sub-optimal performing table on the temporal axis:
         """
         return pulumi.get(self, "maxes")
 
     @maxes.setter
-    def maxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]):
+    def maxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]):
         pulumi.set(self, "maxes", value)
 
 
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgsDict(TypedDict):
-    partition_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    partition_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
     """
-    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    table_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the table which is queried with the largest time range.
     """
-    value: NotRequired[pulumi.Input[_builtins.float]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum duration in nanoseconds between the start and end of the query.
     """
@@ -1383,9 +1383,9 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMa
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs:
     def __init__(__self__, *,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None):
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_keys: Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
         :param pulumi.Input[_builtins.str] table_arn: ARN of the table which is queried with the largest time range.
@@ -1400,43 +1400,43 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMa
 
     @_builtins.property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def partition_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def partition_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "partition_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
-    def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the table which is queried with the largest time range.
         """
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
-    def table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum duration in nanoseconds between the start and end of the query.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "value", value)
 
 
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgsDict']]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -1444,7 +1444,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs:
     def __init__(__self__, *,
-                 maxes: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]] = None):
+                 maxes: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]] maxes: Insights into the most sub-optimal performing table on the temporal axis:
         """
@@ -1453,23 +1453,23 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs
 
     @_builtins.property
     @pulumi.getter
-    def maxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]:
+    def maxes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]:
         """
         Insights into the most sub-optimal performing table on the temporal axis:
         """
         return pulumi.get(self, "maxes")
 
     @maxes.setter
-    def maxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]):
+    def maxes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]):
         pulumi.set(self, "maxes", value)
 
 
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgsDict(TypedDict):
-    table_arn: NotRequired[pulumi.Input[_builtins.str]]
+    table_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the table which is queried with the largest time range.
     """
-    value: NotRequired[pulumi.Input[_builtins.int]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum duration in nanoseconds between the start and end of the query.
     """
@@ -1477,8 +1477,8 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxi
 @pulumi.input_type
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs:
     def __init__(__self__, *,
-                 table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.int]] = None):
+                 table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] table_arn: ARN of the table which is queried with the largest time range.
         :param pulumi.Input[_builtins.int] value: Maximum duration in nanoseconds between the start and end of the query.
@@ -1490,26 +1490,26 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxi
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
-    def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the table which is queried with the largest time range.
         """
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
-    def table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum duration in nanoseconds between the start and end of the query.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value", value)
 
 
@@ -1586,15 +1586,15 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationArgsDict(TypedDict
     """
     Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
     """
-    measure_name_column: NotRequired[pulumi.Input[_builtins.str]]
+    measure_name_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the measure column.
     """
-    mixed_measure_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgsDict']]]]
+    mixed_measure_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]]]
     """
     Configuration block for how to map measures to multi-measure records. See below.
     """
-    multi_measure_mappings: NotRequired[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgsDict']]
+    multi_measure_mappings: NotRequired[pulumi.Input[Optional['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']]]
     """
     Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
     """
@@ -1606,9 +1606,9 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs:
                  dimension_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]],
                  table_name: pulumi.Input[_builtins.str],
                  time_column: pulumi.Input[_builtins.str],
-                 measure_name_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 mixed_measure_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]] = None,
-                 multi_measure_mappings: Optional[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']] = None):
+                 measure_name_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 mixed_measure_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]] = None,
+                 multi_measure_mappings: pulumi.Input[Optional['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] database_name: Name of Timestream database to which the query result will be written.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs']]] dimension_mappings: Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
@@ -1679,38 +1679,38 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="measureNameColumn")
-    def measure_name_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def measure_name_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the measure column.
         """
         return pulumi.get(self, "measure_name_column")
 
     @measure_name_column.setter
-    def measure_name_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def measure_name_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "measure_name_column", value)
 
     @_builtins.property
     @pulumi.getter(name="mixedMeasureMappings")
-    def mixed_measure_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]]:
+    def mixed_measure_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]]:
         """
         Configuration block for how to map measures to multi-measure records. See below.
         """
         return pulumi.get(self, "mixed_measure_mappings")
 
     @mixed_measure_mappings.setter
-    def mixed_measure_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]]):
+    def mixed_measure_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]]):
         pulumi.set(self, "mixed_measure_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="multiMeasureMappings")
-    def multi_measure_mappings(self) -> Optional[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']]:
+    def multi_measure_mappings(self) -> pulumi.Input[Optional['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']]:
         """
         Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
         """
         return pulumi.get(self, "multi_measure_mappings")
 
     @multi_measure_mappings.setter
-    def multi_measure_mappings(self, value: Optional[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']]):
+    def multi_measure_mappings(self, value: pulumi.Input[Optional['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']]):
         pulumi.set(self, "multi_measure_mappings", value)
 
 
@@ -1766,19 +1766,19 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
     """
     Type of the value that is to be read from `source_column`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
     """
-    measure_name: NotRequired[pulumi.Input[_builtins.str]]
+    measure_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Refers to the value of measure_name in a result row. This field is required if `measure_name_column` is provided.
     """
-    multi_measure_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgsDict']]]]
+    multi_measure_attribute_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]]]
     """
     Configuration block for attribute mappings for `MULTI` value measures. Required when `measure_value_type` is `MULTI`. See below.
     """
-    source_column: NotRequired[pulumi.Input[_builtins.str]]
+    source_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source column from which measure-value is to be read for result materialization.
     """
-    target_measure_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_measure_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Target measure name to be used. If not provided, the target measure name by default is `measure_name`, if provided, or `source_column` otherwise.
     """
@@ -1787,10 +1787,10 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
 class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs:
     def __init__(__self__, *,
                  measure_value_type: pulumi.Input[_builtins.str],
-                 measure_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_measure_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]] = None,
-                 source_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_measure_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 measure_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_measure_attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]] = None,
+                 source_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_measure_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] measure_value_type: Type of the value that is to be read from `source_column`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
         :param pulumi.Input[_builtins.str] measure_name: Refers to the value of measure_name in a result row. This field is required if `measure_name_column` is provided.
@@ -1822,50 +1822,50 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
 
     @_builtins.property
     @pulumi.getter(name="measureName")
-    def measure_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def measure_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Refers to the value of measure_name in a result row. This field is required if `measure_name_column` is provided.
         """
         return pulumi.get(self, "measure_name")
 
     @measure_name.setter
-    def measure_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def measure_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "measure_name", value)
 
     @_builtins.property
     @pulumi.getter(name="multiMeasureAttributeMappings")
-    def multi_measure_attribute_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]]:
+    def multi_measure_attribute_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]]:
         """
         Configuration block for attribute mappings for `MULTI` value measures. Required when `measure_value_type` is `MULTI`. See below.
         """
         return pulumi.get(self, "multi_measure_attribute_mappings")
 
     @multi_measure_attribute_mappings.setter
-    def multi_measure_attribute_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]]):
+    def multi_measure_attribute_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]]):
         pulumi.set(self, "multi_measure_attribute_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceColumn")
-    def source_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source column from which measure-value is to be read for result materialization.
         """
         return pulumi.get(self, "source_column")
 
     @source_column.setter
-    def source_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_column", value)
 
     @_builtins.property
     @pulumi.getter(name="targetMeasureName")
-    def target_measure_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_measure_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target measure name to be used. If not provided, the target measure name by default is `measure_name`, if provided, or `source_column` otherwise.
         """
         return pulumi.get(self, "target_measure_name")
 
     @target_measure_name.setter
-    def target_measure_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_measure_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_measure_name", value)
 
 
@@ -1878,7 +1878,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
     """
     Source column from where the attribute value is to be read.
     """
-    target_multi_measure_attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_multi_measure_attribute_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
     """
@@ -1888,7 +1888,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
     def __init__(__self__, *,
                  measure_value_type: pulumi.Input[_builtins.str],
                  source_column: pulumi.Input[_builtins.str],
-                 target_multi_measure_attribute_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_multi_measure_attribute_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] measure_value_type: Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
         :param pulumi.Input[_builtins.str] source_column: Source column from where the attribute value is to be read.
@@ -1925,14 +1925,14 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
 
     @_builtins.property
     @pulumi.getter(name="targetMultiMeasureAttributeName")
-    def target_multi_measure_attribute_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_multi_measure_attribute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
         """
         return pulumi.get(self, "target_multi_measure_attribute_name")
 
     @target_multi_measure_attribute_name.setter
-    def target_multi_measure_attribute_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_multi_measure_attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_multi_measure_attribute_name", value)
 
 
@@ -1941,7 +1941,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappin
     """
     Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
     """
-    target_multi_measure_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_multi_measure_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
     """
@@ -1950,7 +1950,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappin
 class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs:
     def __init__(__self__, *,
                  multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]],
-                 target_multi_measure_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_multi_measure_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs']]] multi_measure_attribute_mappings: Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
         :param pulumi.Input[_builtins.str] target_multi_measure_name: Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
@@ -1973,14 +1973,14 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappin
 
     @_builtins.property
     @pulumi.getter(name="targetMultiMeasureName")
-    def target_multi_measure_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_multi_measure_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
         """
         return pulumi.get(self, "target_multi_measure_name")
 
     @target_multi_measure_name.setter
-    def target_multi_measure_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_multi_measure_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_multi_measure_name", value)
 
 
@@ -1993,7 +1993,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappin
     """
     Source column from where the attribute value is to be read.
     """
-    target_multi_measure_attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_multi_measure_attribute_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
     """
@@ -2003,7 +2003,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappin
     def __init__(__self__, *,
                  measure_value_type: pulumi.Input[_builtins.str],
                  source_column: pulumi.Input[_builtins.str],
-                 target_multi_measure_attribute_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_multi_measure_attribute_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] measure_value_type: Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
         :param pulumi.Input[_builtins.str] source_column: Source column from where the attribute value is to be read.
@@ -2040,27 +2040,27 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappin
 
     @_builtins.property
     @pulumi.getter(name="targetMultiMeasureAttributeName")
-    def target_multi_measure_attribute_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_multi_measure_attribute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
         """
         return pulumi.get(self, "target_multi_measure_attribute_name")
 
     @target_multi_measure_attribute_name.setter
-    def target_multi_measure_attribute_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_multi_measure_attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_multi_measure_attribute_name", value)
 
 
 class ScheduledQueryTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -2068,9 +2068,9 @@ class ScheduledQueryTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledQueryTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -2085,38 +2085,38 @@ class ScheduledQueryTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

@@ -22,8 +22,8 @@ class VaultLockArgs:
                  complete_lock: pulumi.Input[_builtins.bool],
                  policy: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 ignore_deletion_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 ignore_deletion_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VaultLock resource.
 
@@ -79,37 +79,37 @@ class VaultLockArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreDeletionError")
-    def ignore_deletion_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_deletion_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         """
         return pulumi.get(self, "ignore_deletion_error")
 
     @ignore_deletion_error.setter
-    def ignore_deletion_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_deletion_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_deletion_error", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VaultLockState:
     def __init__(__self__, *,
-                 complete_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_deletion_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 complete_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_deletion_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultLock resources.
 
@@ -132,62 +132,62 @@ class _VaultLockState:
 
     @_builtins.property
     @pulumi.getter(name="completeLock")
-    def complete_lock(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def complete_lock(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         """
         return pulumi.get(self, "complete_lock")
 
     @complete_lock.setter
-    def complete_lock(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def complete_lock(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "complete_lock", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDeletionError")
-    def ignore_deletion_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_deletion_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         """
         return pulumi.get(self, "ignore_deletion_error")
 
     @ignore_deletion_error.setter
-    def ignore_deletion_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_deletion_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_deletion_error", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultName")
-    def vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Glacier Vault.
         """
         return pulumi.get(self, "vault_name")
 
     @vault_name.setter
-    def vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vault_name", value)
 
 
@@ -197,11 +197,11 @@ class VaultLock(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 complete_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_deletion_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 complete_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_deletion_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
@@ -342,11 +342,11 @@ class VaultLock(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 complete_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_deletion_error: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 complete_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_deletion_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,11 +377,11 @@ class VaultLock(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            complete_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-            ignore_deletion_error: Optional[pulumi.Input[_builtins.bool]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            vault_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'VaultLock':
+            complete_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_deletion_error: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vault_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'VaultLock':
         """
         Get an existing VaultLock resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

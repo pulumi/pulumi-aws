@@ -205,65 +205,65 @@ export interface WorkspaceSamlConfigurationState {
     /**
      * The admin role values.
      */
-    adminRoleValues?: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoleValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The allowed organizations.
      */
-    allowedOrganizations?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOrganizations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The editor role values.
      */
-    editorRoleValues?: pulumi.Input<pulumi.Input<string>[]>;
+    editorRoleValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The email assertion.
      */
-    emailAssertion?: pulumi.Input<string>;
+    emailAssertion?: pulumi.Input<string | undefined>;
     /**
      * The groups assertion.
      */
-    groupsAssertion?: pulumi.Input<string>;
+    groupsAssertion?: pulumi.Input<string | undefined>;
     /**
      * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
-    idpMetadataUrl?: pulumi.Input<string>;
+    idpMetadataUrl?: pulumi.Input<string | undefined>;
     /**
      * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
-    idpMetadataXml?: pulumi.Input<string>;
+    idpMetadataXml?: pulumi.Input<string | undefined>;
     /**
      * The login assertion.
      */
-    loginAssertion?: pulumi.Input<string>;
+    loginAssertion?: pulumi.Input<string | undefined>;
     /**
      * The login validity duration.
      */
-    loginValidityDuration?: pulumi.Input<number>;
+    loginValidityDuration?: pulumi.Input<number | undefined>;
     /**
      * The name assertion.
      */
-    nameAssertion?: pulumi.Input<string>;
+    nameAssertion?: pulumi.Input<string | undefined>;
     /**
      * The org assertion.
      */
-    orgAssertion?: pulumi.Input<string>;
+    orgAssertion?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The role assertion.
      */
-    roleAssertion?: pulumi.Input<string>;
+    roleAssertion?: pulumi.Input<string | undefined>;
     /**
      * The status of the SAML configuration.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The workspace id.
      *
      * The following arguments are optional:
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -273,11 +273,11 @@ export interface WorkspaceSamlConfigurationArgs {
     /**
      * The admin role values.
      */
-    adminRoleValues?: pulumi.Input<pulumi.Input<string>[]>;
+    adminRoleValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The allowed organizations.
      */
-    allowedOrganizations?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOrganizations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The editor role values.
      */
@@ -285,43 +285,43 @@ export interface WorkspaceSamlConfigurationArgs {
     /**
      * The email assertion.
      */
-    emailAssertion?: pulumi.Input<string>;
+    emailAssertion?: pulumi.Input<string | undefined>;
     /**
      * The groups assertion.
      */
-    groupsAssertion?: pulumi.Input<string>;
+    groupsAssertion?: pulumi.Input<string | undefined>;
     /**
      * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
-    idpMetadataUrl?: pulumi.Input<string>;
+    idpMetadataUrl?: pulumi.Input<string | undefined>;
     /**
      * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
-    idpMetadataXml?: pulumi.Input<string>;
+    idpMetadataXml?: pulumi.Input<string | undefined>;
     /**
      * The login assertion.
      */
-    loginAssertion?: pulumi.Input<string>;
+    loginAssertion?: pulumi.Input<string | undefined>;
     /**
      * The login validity duration.
      */
-    loginValidityDuration?: pulumi.Input<number>;
+    loginValidityDuration?: pulumi.Input<number | undefined>;
     /**
      * The name assertion.
      */
-    nameAssertion?: pulumi.Input<string>;
+    nameAssertion?: pulumi.Input<string | undefined>;
     /**
      * The org assertion.
      */
-    orgAssertion?: pulumi.Input<string>;
+    orgAssertion?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The role assertion.
      */
-    roleAssertion?: pulumi.Input<string>;
+    roleAssertion?: pulumi.Input<string | undefined>;
     /**
      * The workspace id.
      *

@@ -284,95 +284,95 @@ export interface TableState {
     /**
      * ARN of the table.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the namespace was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the account that created the namespace.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * A single table bucket encryption configuration object.
      * See `encryptionConfiguration` below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration | undefined>;
     /**
      * Format of the table.
      * Must be `ICEBERG`.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
     /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
-    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
+    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration | undefined>;
     /**
      * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
      * See `metadata` below.
      */
-    metadata?: pulumi.Input<inputs.s3tables.TableMetadata>;
+    metadata?: pulumi.Input<inputs.s3tables.TableMetadata | undefined>;
     /**
      * Location of table metadata.
      */
-    metadataLocation?: pulumi.Input<string>;
+    metadataLocation?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the namespace was last modified.
      */
-    modifiedAt?: pulumi.Input<string>;
+    modifiedAt?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the account that last modified the namespace.
      */
-    modifiedBy?: pulumi.Input<string>;
+    modifiedBy?: pulumi.Input<string | undefined>;
     /**
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace for this table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the account that owns the namespace.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
      * The following arguments are optional:
      */
-    tableBucketArn?: pulumi.Input<string>;
+    tableBucketArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the table.
      * One of `customer` or `aws`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the current version of table data.
      */
-    versionToken?: pulumi.Input<string>;
+    versionToken?: pulumi.Input<string | undefined>;
     /**
      * S3 URI pointing to the S3 Bucket that contains the table data.
      */
-    warehouseLocation?: pulumi.Input<string>;
+    warehouseLocation?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -383,7 +383,7 @@ export interface TableArgs {
      * A single table bucket encryption configuration object.
      * See `encryptionConfiguration` below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration | undefined>;
     /**
      * Format of the table.
      * Must be `ICEBERG`.
@@ -393,19 +393,19 @@ export interface TableArgs {
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
-    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
+    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration | undefined>;
     /**
      * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
      * See `metadata` below.
      */
-    metadata?: pulumi.Input<inputs.s3tables.TableMetadata>;
+    metadata?: pulumi.Input<inputs.s3tables.TableMetadata | undefined>;
     /**
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace for this table.
      * Must be between 1 and 255 characters in length.
@@ -415,7 +415,7 @@ export interface TableArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
@@ -425,5 +425,5 @@ export interface TableArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

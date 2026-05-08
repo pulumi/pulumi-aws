@@ -110,9 +110,9 @@ def get_lambda_function_association(function_arn: Optional[_builtins.str] = None
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                           instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_lambda_function_association_output(function_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                           instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLambdaFunctionAssociationResult]:
     """
     Provides details about a specific Connect Lambda Function Association.

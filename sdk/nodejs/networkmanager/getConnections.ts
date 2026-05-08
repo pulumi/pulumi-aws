@@ -97,7 +97,7 @@ export interface GetConnectionsOutputArgs {
     /**
      * ID of the device of the connections to retrieve.
      */
-    deviceId?: pulumi.Input<string>;
+    deviceId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Global Network of the connections to retrieve.
      */
@@ -105,5 +105,5 @@ export interface GetConnectionsOutputArgs {
     /**
      * Restricts the list to the connections with these tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

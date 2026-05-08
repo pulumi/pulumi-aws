@@ -72,12 +72,12 @@ class AwsLogSourceSourceArgsDict(TypedDict):
     """
     The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
     """
-    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specify the AWS account information where you want to enable Security Lake.
     If not specified, uses all accounts included in the Security Lake.
     """
-    source_version: NotRequired[pulumi.Input[_builtins.str]]
+    source_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version for a AWS source.
     If not specified, the version will be the default.
@@ -89,8 +89,8 @@ class AwsLogSourceSourceArgs:
     def __init__(__self__, *,
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  source_name: pulumi.Input[_builtins.str],
-                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Specify the Regions where you want to enable Security Lake.
         :param pulumi.Input[_builtins.str] source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
@@ -133,7 +133,7 @@ class AwsLogSourceSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specify the AWS account information where you want to enable Security Lake.
         If not specified, uses all accounts included in the Security Lake.
@@ -141,12 +141,12 @@ class AwsLogSourceSourceArgs:
         return pulumi.get(self, "accounts")
 
     @accounts.setter
-    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for a AWS source.
         If not specified, the version will be the default.
@@ -155,7 +155,7 @@ class AwsLogSourceSourceArgs:
         return pulumi.get(self, "source_version")
 
     @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version", value)
 
 
@@ -399,15 +399,15 @@ class DataLakeConfigurationArgsDict(TypedDict):
     """
     The AWS Regions where Security Lake is automatically enabled.
     """
-    encryption_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgsDict']]]]
+    encryption_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]]
     """
     Provides encryption details of Amazon Security Lake object.
     """
-    lifecycle_configuration: NotRequired[pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgsDict']]
+    lifecycle_configuration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationArgs']]]
     """
     Provides lifecycle details of Amazon Security Lake object.
     """
-    replication_configuration: NotRequired[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgsDict']]
+    replication_configuration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationReplicationConfigurationArgs']]]
     """
     Provides replication details of Amazon Security Lake object.
     """
@@ -416,9 +416,9 @@ class DataLakeConfigurationArgsDict(TypedDict):
 class DataLakeConfigurationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]] = None,
-                 lifecycle_configuration: Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgs']] = None,
-                 replication_configuration: Optional[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs']] = None):
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]] = None,
+                 lifecycle_configuration: pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationArgs']] = None,
+                 replication_configuration: pulumi.Input[Optional['DataLakeConfigurationReplicationConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] region: The AWS Regions where Security Lake is automatically enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Provides encryption details of Amazon Security Lake object.
@@ -447,38 +447,38 @@ class DataLakeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurations")
-    def encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]:
+    def encryption_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]:
         """
         Provides encryption details of Amazon Security Lake object.
         """
         return pulumi.get(self, "encryption_configurations")
 
     @encryption_configurations.setter
-    def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]):
+    def encryption_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]):
         pulumi.set(self, "encryption_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="lifecycleConfiguration")
-    def lifecycle_configuration(self) -> Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgs']]:
+    def lifecycle_configuration(self) -> pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationArgs']]:
         """
         Provides lifecycle details of Amazon Security Lake object.
         """
         return pulumi.get(self, "lifecycle_configuration")
 
     @lifecycle_configuration.setter
-    def lifecycle_configuration(self, value: Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationArgs']]):
+    def lifecycle_configuration(self, value: pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationArgs']]):
         pulumi.set(self, "lifecycle_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationConfiguration")
-    def replication_configuration(self) -> Optional[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs']]:
+    def replication_configuration(self) -> pulumi.Input[Optional['DataLakeConfigurationReplicationConfigurationArgs']]:
         """
         Provides replication details of Amazon Security Lake object.
         """
         return pulumi.get(self, "replication_configuration")
 
     @replication_configuration.setter
-    def replication_configuration(self, value: Optional[pulumi.Input['DataLakeConfigurationReplicationConfigurationArgs']]):
+    def replication_configuration(self, value: pulumi.Input[Optional['DataLakeConfigurationReplicationConfigurationArgs']]):
         pulumi.set(self, "replication_configuration", value)
 
 
@@ -511,11 +511,11 @@ class DataLakeConfigurationEncryptionConfigurationArgs:
 
 
 class DataLakeConfigurationLifecycleConfigurationArgsDict(TypedDict):
-    expiration: NotRequired[pulumi.Input['DataLakeConfigurationLifecycleConfigurationExpirationArgsDict']]
+    expiration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationExpirationArgs']]]
     """
     Provides data expiration details of Amazon Security Lake object.
     """
-    transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgsDict']]]]
+    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]]]
     """
     Provides data storage transition details of Amazon Security Lake object.
     """
@@ -523,8 +523,8 @@ class DataLakeConfigurationLifecycleConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeConfigurationLifecycleConfigurationArgs:
     def __init__(__self__, *,
-                 expiration: Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationExpirationArgs']] = None,
-                 transitions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]] = None):
+                 expiration: pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationExpirationArgs']] = None,
+                 transitions: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]] = None):
         """
         :param pulumi.Input['DataLakeConfigurationLifecycleConfigurationExpirationArgs'] expiration: Provides data expiration details of Amazon Security Lake object.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]] transitions: Provides data storage transition details of Amazon Security Lake object.
@@ -536,31 +536,31 @@ class DataLakeConfigurationLifecycleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationExpirationArgs']]:
+    def expiration(self) -> pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationExpirationArgs']]:
         """
         Provides data expiration details of Amazon Security Lake object.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input['DataLakeConfigurationLifecycleConfigurationExpirationArgs']]):
+    def expiration(self, value: pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationExpirationArgs']]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def transitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]]:
+    def transitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]]:
         """
         Provides data storage transition details of Amazon Security Lake object.
         """
         return pulumi.get(self, "transitions")
 
     @transitions.setter
-    def transitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]]):
+    def transitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]]):
         pulumi.set(self, "transitions", value)
 
 
 class DataLakeConfigurationLifecycleConfigurationExpirationArgsDict(TypedDict):
-    days: NotRequired[pulumi.Input[_builtins.int]]
+    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
     """
@@ -568,7 +568,7 @@ class DataLakeConfigurationLifecycleConfigurationExpirationArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeConfigurationLifecycleConfigurationExpirationArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[_builtins.int]] = None):
+                 days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] days: Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
         """
@@ -577,23 +577,23 @@ class DataLakeConfigurationLifecycleConfigurationExpirationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days", value)
 
 
 class DataLakeConfigurationLifecycleConfigurationTransitionArgsDict(TypedDict):
-    days: NotRequired[pulumi.Input[_builtins.int]]
+    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
     """
-    storage_class: NotRequired[pulumi.Input[_builtins.str]]
+    storage_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
     """
@@ -601,8 +601,8 @@ class DataLakeConfigurationLifecycleConfigurationTransitionArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeConfigurationLifecycleConfigurationTransitionArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_class: Optional[pulumi.Input[_builtins.str]] = None):
+                 days: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] days: Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
         :param pulumi.Input[_builtins.str] storage_class: The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
@@ -614,35 +614,35 @@ class DataLakeConfigurationLifecycleConfigurationTransitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
         """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
-    def storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_class", value)
 
 
 class DataLakeConfigurationReplicationConfigurationArgsDict(TypedDict):
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
     """
@@ -650,8 +650,8 @@ class DataLakeConfigurationReplicationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeConfigurationReplicationConfigurationArgs:
     def __init__(__self__, *,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
         :param pulumi.Input[_builtins.str] role_arn: Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
@@ -663,39 +663,39 @@ class DataLakeConfigurationReplicationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Amazon S3 buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Replication settings for the Amazon S3 buckets. This parameter uses the AWS Identity and Access Management (IAM) role you created that is managed by Security Lake, to ensure the replication setting is correct.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
 class DataLakeTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -703,9 +703,9 @@ class DataLakeTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -720,47 +720,47 @@ class DataLakeTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class SubscriberNotificationConfigurationArgsDict(TypedDict):
-    https_notification_configuration: NotRequired[pulumi.Input['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgsDict']]
+    https_notification_configuration: NotRequired[pulumi.Input[Optional['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']]]
     """
     The configurations for HTTPS subscriber notification.
     """
-    sqs_notification_configuration: NotRequired[pulumi.Input['SubscriberNotificationConfigurationSqsNotificationConfigurationArgsDict']]
+    sqs_notification_configuration: NotRequired[pulumi.Input[Optional['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']]]
     """
     The configurations for SQS subscriber notification.
     There are no parameters within `sqs_notification_configuration`.
@@ -769,8 +769,8 @@ class SubscriberNotificationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriberNotificationConfigurationArgs:
     def __init__(__self__, *,
-                 https_notification_configuration: Optional[pulumi.Input['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']] = None,
-                 sqs_notification_configuration: Optional[pulumi.Input['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']] = None):
+                 https_notification_configuration: pulumi.Input[Optional['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']] = None,
+                 sqs_notification_configuration: pulumi.Input[Optional['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']] = None):
         """
         :param pulumi.Input['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs'] https_notification_configuration: The configurations for HTTPS subscriber notification.
         :param pulumi.Input['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs'] sqs_notification_configuration: The configurations for SQS subscriber notification.
@@ -783,19 +783,19 @@ class SubscriberNotificationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpsNotificationConfiguration")
-    def https_notification_configuration(self) -> Optional[pulumi.Input['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']]:
+    def https_notification_configuration(self) -> pulumi.Input[Optional['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']]:
         """
         The configurations for HTTPS subscriber notification.
         """
         return pulumi.get(self, "https_notification_configuration")
 
     @https_notification_configuration.setter
-    def https_notification_configuration(self, value: Optional[pulumi.Input['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']]):
+    def https_notification_configuration(self, value: pulumi.Input[Optional['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']]):
         pulumi.set(self, "https_notification_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsNotificationConfiguration")
-    def sqs_notification_configuration(self) -> Optional[pulumi.Input['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']]:
+    def sqs_notification_configuration(self) -> pulumi.Input[Optional['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']]:
         """
         The configurations for SQS subscriber notification.
         There are no parameters within `sqs_notification_configuration`.
@@ -803,7 +803,7 @@ class SubscriberNotificationConfigurationArgs:
         return pulumi.get(self, "sqs_notification_configuration")
 
     @sqs_notification_configuration.setter
-    def sqs_notification_configuration(self, value: Optional[pulumi.Input['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']]):
+    def sqs_notification_configuration(self, value: pulumi.Input[Optional['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']]):
         pulumi.set(self, "sqs_notification_configuration", value)
 
 
@@ -818,15 +818,15 @@ class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgsDict(
     The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
     For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
     """
-    authorization_api_key_name: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_api_key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The API key name for the notification subscription.
     """
-    authorization_api_key_value: NotRequired[pulumi.Input[_builtins.str]]
+    authorization_api_key_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The API key value for the notification subscription.
     """
-    http_method: NotRequired[pulumi.Input[_builtins.str]]
+    http_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP method used for the notification subscription.
     Valid values are `POST` and `PUT`.
@@ -837,9 +837,9 @@ class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
                  target_role_arn: pulumi.Input[_builtins.str],
-                 authorization_api_key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_api_key_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorization_api_key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_api_key_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint: The subscription endpoint in Security Lake.
                If you prefer notification with an HTTPS endpoint, populate this field.
@@ -887,31 +887,31 @@ class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizationApiKeyName")
-    def authorization_api_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_api_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API key name for the notification subscription.
         """
         return pulumi.get(self, "authorization_api_key_name")
 
     @authorization_api_key_name.setter
-    def authorization_api_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_api_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_api_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationApiKeyValue")
-    def authorization_api_key_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_api_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API key value for the notification subscription.
         """
         return pulumi.get(self, "authorization_api_key_value")
 
     @authorization_api_key_value.setter
-    def authorization_api_key_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_api_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_api_key_value", value)
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP method used for the notification subscription.
         Valid values are `POST` and `PUT`.
@@ -919,7 +919,7 @@ class SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs:
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_method", value)
 
 
@@ -933,11 +933,11 @@ class SubscriberNotificationConfigurationSqsNotificationConfigurationArgs:
 
 
 class SubscriberSourceArgsDict(TypedDict):
-    aws_log_source_resource: NotRequired[pulumi.Input['SubscriberSourceAwsLogSourceResourceArgsDict']]
+    aws_log_source_resource: NotRequired[pulumi.Input[Optional['SubscriberSourceAwsLogSourceResourceArgs']]]
     """
     Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
     """
-    custom_log_source_resource: NotRequired[pulumi.Input['SubscriberSourceCustomLogSourceResourceArgsDict']]
+    custom_log_source_resource: NotRequired[pulumi.Input[Optional['SubscriberSourceCustomLogSourceResourceArgs']]]
     """
     Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
     """
@@ -945,8 +945,8 @@ class SubscriberSourceArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriberSourceArgs:
     def __init__(__self__, *,
-                 aws_log_source_resource: Optional[pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs']] = None,
-                 custom_log_source_resource: Optional[pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs']] = None):
+                 aws_log_source_resource: pulumi.Input[Optional['SubscriberSourceAwsLogSourceResourceArgs']] = None,
+                 custom_log_source_resource: pulumi.Input[Optional['SubscriberSourceCustomLogSourceResourceArgs']] = None):
         """
         :param pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs'] aws_log_source_resource: Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
         :param pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs'] custom_log_source_resource: Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
@@ -958,26 +958,26 @@ class SubscriberSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsLogSourceResource")
-    def aws_log_source_resource(self) -> Optional[pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs']]:
+    def aws_log_source_resource(self) -> pulumi.Input[Optional['SubscriberSourceAwsLogSourceResourceArgs']]:
         """
         Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
         """
         return pulumi.get(self, "aws_log_source_resource")
 
     @aws_log_source_resource.setter
-    def aws_log_source_resource(self, value: Optional[pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs']]):
+    def aws_log_source_resource(self, value: pulumi.Input[Optional['SubscriberSourceAwsLogSourceResourceArgs']]):
         pulumi.set(self, "aws_log_source_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="customLogSourceResource")
-    def custom_log_source_resource(self) -> Optional[pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs']]:
+    def custom_log_source_resource(self) -> pulumi.Input[Optional['SubscriberSourceCustomLogSourceResourceArgs']]:
         """
         Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
         """
         return pulumi.get(self, "custom_log_source_resource")
 
     @custom_log_source_resource.setter
-    def custom_log_source_resource(self, value: Optional[pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs']]):
+    def custom_log_source_resource(self, value: pulumi.Input[Optional['SubscriberSourceCustomLogSourceResourceArgs']]):
         pulumi.set(self, "custom_log_source_resource", value)
 
 
@@ -986,7 +986,7 @@ class SubscriberSourceAwsLogSourceResourceArgsDict(TypedDict):
     """
     The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
     """
-    source_version: NotRequired[pulumi.Input[_builtins.str]]
+    source_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version for a AWS source. This must be a Regionally unique value.
     """
@@ -995,7 +995,7 @@ class SubscriberSourceAwsLogSourceResourceArgsDict(TypedDict):
 class SubscriberSourceAwsLogSourceResourceArgs:
     def __init__(__self__, *,
                  source_name: pulumi.Input[_builtins.str],
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT` and `WAF`.
         :param pulumi.Input[_builtins.str] source_version: The version for a AWS source. This must be a Regionally unique value.
@@ -1018,14 +1018,14 @@ class SubscriberSourceAwsLogSourceResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for a AWS source. This must be a Regionally unique value.
         """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version", value)
 
 
@@ -1034,15 +1034,15 @@ class SubscriberSourceCustomLogSourceResourceArgsDict(TypedDict):
     """
     The name for a third-party custom source. This must be a Regionally unique value.
     """
-    attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgsDict']]]]
+    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]]
     """
     The attributes of the third-party custom source. See `attributes` Block below.
     """
-    providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgsDict']]]]
+    providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]]
     """
     The details of the log provider for the third-party custom source. See `provider` Block below.
     """
-    source_version: NotRequired[pulumi.Input[_builtins.str]]
+    source_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version for a third-party custom source. This must be a Regionally unique value.
     """
@@ -1051,9 +1051,9 @@ class SubscriberSourceCustomLogSourceResourceArgsDict(TypedDict):
 class SubscriberSourceCustomLogSourceResourceArgs:
     def __init__(__self__, *,
                  source_name: pulumi.Input[_builtins.str],
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]] = None,
-                 source_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]] = None,
+                 providers: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]] = None,
+                 source_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source_name: The name for a third-party custom source. This must be a Regionally unique value.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]] attributes: The attributes of the third-party custom source. See `attributes` Block below.
@@ -1082,38 +1082,38 @@ class SubscriberSourceCustomLogSourceResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]:
+    def attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]:
         """
         The attributes of the third-party custom source. See `attributes` Block below.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]):
+    def attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]:
+    def providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]:
         """
         The details of the log provider for the third-party custom source. See `provider` Block below.
         """
         return pulumi.get(self, "providers")
 
     @providers.setter
-    def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]):
+    def providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]):
         pulumi.set(self, "providers", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version for a third-party custom source. This must be a Regionally unique value.
         """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version", value)
 
 
@@ -1278,15 +1278,15 @@ class SubscriberSubscriberIdentityArgs:
 
 
 class SubscriberTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -1294,9 +1294,9 @@ class SubscriberTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriberTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -1311,38 +1311,38 @@ class SubscriberTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

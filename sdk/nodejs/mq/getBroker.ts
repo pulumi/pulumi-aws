@@ -153,18 +153,18 @@ export interface GetBrokerOutputArgs {
     /**
      * Unique ID of the MQ broker.
      */
-    brokerId?: pulumi.Input<string>;
+    brokerId?: pulumi.Input<string | undefined>;
     /**
      * Unique name of the MQ broker.
      */
-    brokerName?: pulumi.Input<string>;
+    brokerName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * > **Note:** Either `brokerId` or `brokerName` must be specified.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the broker.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

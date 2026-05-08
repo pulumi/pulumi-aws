@@ -22,10 +22,10 @@ __all__ = ['VpcIpamPoolCidrArgs', 'VpcIpamPoolCidr']
 class VpcIpamPoolCidrArgs:
     def __init__(__self__, *,
                  ipam_pool_id: pulumi.Input[_builtins.str],
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_authorization_context: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_authorization_context: pulumi.Input[Optional['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcIpamPoolCidr resource.
 
@@ -59,62 +59,62 @@ class VpcIpamPoolCidrArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrAuthorizationContext")
-    def cidr_authorization_context(self) -> Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']]:
+    def cidr_authorization_context(self) -> pulumi.Input[Optional['VpcIpamPoolCidrCidrAuthorizationContextArgs']]:
         """
         A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
         """
         return pulumi.get(self, "cidr_authorization_context")
 
     @cidr_authorization_context.setter
-    def cidr_authorization_context(self, value: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']]):
+    def cidr_authorization_context(self, value: pulumi.Input[Optional['VpcIpamPoolCidrCidrAuthorizationContextArgs']]):
         pulumi.set(self, "cidr_authorization_context", value)
 
     @_builtins.property
     @pulumi.getter(name="netmaskLength")
-    def netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """
         return pulumi.get(self, "netmask_length")
 
     @netmask_length.setter
-    def netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "netmask_length", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VpcIpamPoolCidrState:
     def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_authorization_context: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
-                 ipam_pool_cidr_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_authorization_context: pulumi.Input[Optional['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
+                 ipam_pool_cidr_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPoolCidr resources.
 
@@ -140,74 +140,74 @@ class _VpcIpamPoolCidrState:
 
     @_builtins.property
     @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
         """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrAuthorizationContext")
-    def cidr_authorization_context(self) -> Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']]:
+    def cidr_authorization_context(self) -> pulumi.Input[Optional['VpcIpamPoolCidrCidrAuthorizationContextArgs']]:
         """
         A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
         """
         return pulumi.get(self, "cidr_authorization_context")
 
     @cidr_authorization_context.setter
-    def cidr_authorization_context(self, value: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']]):
+    def cidr_authorization_context(self, value: pulumi.Input[Optional['VpcIpamPoolCidrCidrAuthorizationContextArgs']]):
         pulumi.set(self, "cidr_authorization_context", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolCidrId")
-    def ipam_pool_cidr_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipam_pool_cidr_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the resource id.
         """
         return pulumi.get(self, "ipam_pool_cidr_id")
 
     @ipam_pool_cidr_id.setter
-    def ipam_pool_cidr_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipam_pool_cidr_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipam_pool_cidr_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
-    def ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
-    def ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="netmaskLength")
-    def netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """
         return pulumi.get(self, "netmask_length")
 
     @netmask_length.setter
-    def netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def netmask_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "netmask_length", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -217,11 +217,11 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_authorization_context: Optional[pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_authorization_context: pulumi.Input[Optional[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provisions a CIDR from an IPAM address pool.
@@ -378,11 +378,11 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_authorization_context: Optional[pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_authorization_context: pulumi.Input[Optional[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,12 +410,12 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cidr: Optional[pulumi.Input[_builtins.str]] = None,
-            cidr_authorization_context: Optional[pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
-            ipam_pool_cidr_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcIpamPoolCidr':
+            cidr: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_authorization_context: pulumi.Input[Optional[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
+            ipam_pool_cidr_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcIpamPoolCidr':
         """
         Get an existing VpcIpamPoolCidr resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

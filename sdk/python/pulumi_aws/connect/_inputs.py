@@ -92,7 +92,7 @@ class BotAssociationLexBotArgsDict(TypedDict):
     """
     The name of the Amazon Lex (V1) bot.
     """
-    lex_region: NotRequired[pulumi.Input[_builtins.str]]
+    lex_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
     """
@@ -101,7 +101,7 @@ class BotAssociationLexBotArgsDict(TypedDict):
 class BotAssociationLexBotArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 lex_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 lex_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Amazon Lex (V1) bot.
         :param pulumi.Input[_builtins.str] lex_region: The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
@@ -124,14 +124,14 @@ class BotAssociationLexBotArgs:
 
     @_builtins.property
     @pulumi.getter(name="lexRegion")
-    def lex_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lex_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
         """
         return pulumi.get(self, "lex_region")
 
     @lex_region.setter
-    def lex_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lex_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lex_region", value)
 
 
@@ -300,19 +300,19 @@ class InstanceStorageConfigStorageConfigArgsDict(TypedDict):
     """
     A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
     """
-    kinesis_firehose_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict']]
+    kinesis_firehose_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]]
     """
     A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
     """
-    kinesis_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict']]
+    kinesis_stream_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]]
     """
     A block that specifies the configuration of the Kinesis data stream. Documented below.
     """
-    kinesis_video_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict']]
+    kinesis_video_stream_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]]
     """
     A block that specifies the configuration of the Kinesis video stream. Documented below.
     """
-    s3_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgsDict']]
+    s3_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigArgs']]]
     """
     A block that specifies the configuration of S3 Bucket. Documented below.
     """
@@ -321,10 +321,10 @@ class InstanceStorageConfigStorageConfigArgsDict(TypedDict):
 class InstanceStorageConfigStorageConfigArgs:
     def __init__(__self__, *,
                  storage_type: pulumi.Input[_builtins.str],
-                 kinesis_firehose_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']] = None,
-                 kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']] = None,
-                 kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']] = None,
-                 s3_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs']] = None):
+                 kinesis_firehose_config: pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']] = None,
+                 kinesis_stream_config: pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']] = None,
+                 kinesis_video_stream_config: pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']] = None,
+                 s3_config: pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
         :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs'] kinesis_firehose_config: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
@@ -356,50 +356,50 @@ class InstanceStorageConfigStorageConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseConfig")
-    def kinesis_firehose_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]:
+    def kinesis_firehose_config(self) -> pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]:
         """
         A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
         """
         return pulumi.get(self, "kinesis_firehose_config")
 
     @kinesis_firehose_config.setter
-    def kinesis_firehose_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]):
+    def kinesis_firehose_config(self, value: pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]):
         pulumi.set(self, "kinesis_firehose_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisStreamConfig")
-    def kinesis_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]:
+    def kinesis_stream_config(self) -> pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]:
         """
         A block that specifies the configuration of the Kinesis data stream. Documented below.
         """
         return pulumi.get(self, "kinesis_stream_config")
 
     @kinesis_stream_config.setter
-    def kinesis_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]):
+    def kinesis_stream_config(self, value: pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]):
         pulumi.set(self, "kinesis_stream_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisVideoStreamConfig")
-    def kinesis_video_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]:
+    def kinesis_video_stream_config(self) -> pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]:
         """
         A block that specifies the configuration of the Kinesis video stream. Documented below.
         """
         return pulumi.get(self, "kinesis_video_stream_config")
 
     @kinesis_video_stream_config.setter
-    def kinesis_video_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]):
+    def kinesis_video_stream_config(self, value: pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]):
         pulumi.set(self, "kinesis_video_stream_config", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Config")
-    def s3_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs']]:
+    def s3_config(self) -> pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigArgs']]:
         """
         A block that specifies the configuration of S3 Bucket. Documented below.
         """
         return pulumi.get(self, "s3_config")
 
     @s3_config.setter
-    def s3_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs']]):
+    def s3_config(self, value: pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigArgs']]):
         pulumi.set(self, "s3_config", value)
 
 
@@ -581,7 +581,7 @@ class InstanceStorageConfigStorageConfigS3ConfigArgsDict(TypedDict):
     """
     The S3 bucket prefix.
     """
-    encryption_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict']]
+    encryption_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]]
     """
     The encryption configuration. Documented below.
     """
@@ -591,7 +591,7 @@ class InstanceStorageConfigStorageConfigS3ConfigArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  bucket_prefix: pulumi.Input[_builtins.str],
-                 encryption_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']] = None):
+                 encryption_config: pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The S3 bucket name.
         :param pulumi.Input[_builtins.str] bucket_prefix: The S3 bucket prefix.
@@ -628,14 +628,14 @@ class InstanceStorageConfigStorageConfigS3ConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]:
+    def encryption_config(self) -> pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]:
         """
         The encryption configuration. Documented below.
         """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
-    def encryption_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]):
+    def encryption_config(self, value: pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]):
         pulumi.set(self, "encryption_config", value)
 
 
@@ -687,11 +687,11 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
 
 
 class PhoneNumberStatusArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status message.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
     """
@@ -699,8 +699,8 @@ class PhoneNumberStatusArgsDict(TypedDict):
 @pulumi.input_type
 class PhoneNumberStatusArgs:
     def __init__(__self__, *,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] message: The status message.
         :param pulumi.Input[_builtins.str] status: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
@@ -712,39 +712,39 @@ class PhoneNumberStatusArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status message.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class QueueOutboundCallerConfigArgsDict(TypedDict):
-    outbound_caller_id_name: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_caller_id_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the caller ID name.
     """
-    outbound_caller_id_number_id: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_caller_id_number_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the caller ID number.
     """
-    outbound_flow_id: NotRequired[pulumi.Input[_builtins.str]]
+    outbound_flow_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies outbound whisper flow to be used during an outbound call.
     """
@@ -752,9 +752,9 @@ class QueueOutboundCallerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class QueueOutboundCallerConfigArgs:
     def __init__(__self__, *,
-                 outbound_caller_id_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_caller_id_number_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_flow_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 outbound_caller_id_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_caller_id_number_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_flow_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] outbound_caller_id_name: Specifies the caller ID name.
         :param pulumi.Input[_builtins.str] outbound_caller_id_number_id: Specifies the caller ID number.
@@ -769,38 +769,38 @@ class QueueOutboundCallerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="outboundCallerIdName")
-    def outbound_caller_id_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_caller_id_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the caller ID name.
         """
         return pulumi.get(self, "outbound_caller_id_name")
 
     @outbound_caller_id_name.setter
-    def outbound_caller_id_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_caller_id_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_caller_id_name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundCallerIdNumberId")
-    def outbound_caller_id_number_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_caller_id_number_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the caller ID number.
         """
         return pulumi.get(self, "outbound_caller_id_number_id")
 
     @outbound_caller_id_number_id.setter
-    def outbound_caller_id_number_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_caller_id_number_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_caller_id_number_id", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundFlowId")
-    def outbound_flow_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_flow_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies outbound whisper flow to be used during an outbound call.
         """
         return pulumi.get(self, "outbound_flow_id")
 
     @outbound_flow_id.setter
-    def outbound_flow_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_flow_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_flow_id", value)
 
 
@@ -809,15 +809,15 @@ class QuickConnectQuickConnectConfigArgsDict(TypedDict):
     """
     Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
     """
-    phone_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgsDict']]]]
+    phone_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]]
     """
     Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
     """
-    queue_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgsDict']]]]
+    queue_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]]
     """
     Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
     """
-    user_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgsDict']]]]
+    user_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]]
     """
     Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
     """
@@ -826,9 +826,9 @@ class QuickConnectQuickConnectConfigArgsDict(TypedDict):
 class QuickConnectQuickConnectConfigArgs:
     def __init__(__self__, *,
                  quick_connect_type: pulumi.Input[_builtins.str],
-                 phone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]] = None,
-                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]] = None,
-                 user_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]] = None):
+                 phone_configs: pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]] = None,
+                 queue_configs: pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]] = None,
+                 user_configs: pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] quick_connect_type: Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
         :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
@@ -857,38 +857,38 @@ class QuickConnectQuickConnectConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="phoneConfigs")
-    def phone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]:
+    def phone_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]:
         """
         Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
         """
         return pulumi.get(self, "phone_configs")
 
     @phone_configs.setter
-    def phone_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]):
+    def phone_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]):
         pulumi.set(self, "phone_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="queueConfigs")
-    def queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]:
+    def queue_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]:
         """
         Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
         """
         return pulumi.get(self, "queue_configs")
 
     @queue_configs.setter
-    def queue_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]):
+    def queue_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]):
         pulumi.set(self, "queue_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="userConfigs")
-    def user_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]:
+    def user_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]:
         """
         Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
         return pulumi.get(self, "user_configs")
 
     @user_configs.setter
-    def user_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]):
+    def user_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]):
         pulumi.set(self, "user_configs", value)
 
 
@@ -1023,7 +1023,7 @@ class RoutingProfileMediaConcurrencyArgsDict(TypedDict):
     """
     Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
     """
-    cross_channel_behavior: NotRequired[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict']]
+    cross_channel_behavior: NotRequired[pulumi.Input[Optional['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]]
     """
     Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
     """
@@ -1033,7 +1033,7 @@ class RoutingProfileMediaConcurrencyArgs:
     def __init__(__self__, *,
                  channel: pulumi.Input[_builtins.str],
                  concurrency: pulumi.Input[_builtins.int],
-                 cross_channel_behavior: Optional[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']] = None):
+                 cross_channel_behavior: pulumi.Input[Optional['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
         :param pulumi.Input[_builtins.int] concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
@@ -1070,14 +1070,14 @@ class RoutingProfileMediaConcurrencyArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossChannelBehavior")
-    def cross_channel_behavior(self) -> Optional[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]:
+    def cross_channel_behavior(self) -> pulumi.Input[Optional['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]:
         """
         Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
         """
         return pulumi.get(self, "cross_channel_behavior")
 
     @cross_channel_behavior.setter
-    def cross_channel_behavior(self, value: Optional[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]):
+    def cross_channel_behavior(self, value: pulumi.Input[Optional['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]):
         pulumi.set(self, "cross_channel_behavior", value)
 
 
@@ -1126,11 +1126,11 @@ class RoutingProfileQueueConfigArgsDict(TypedDict):
     """
     Specifies the identifier for the queue.
     """
-    queue_arn: NotRequired[pulumi.Input[_builtins.str]]
+    queue_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN for the queue.
     """
-    queue_name: NotRequired[pulumi.Input[_builtins.str]]
+    queue_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name for the queue.
     """
@@ -1142,8 +1142,8 @@ class RoutingProfileQueueConfigArgs:
                  delay: pulumi.Input[_builtins.int],
                  priority: pulumi.Input[_builtins.int],
                  queue_id: pulumi.Input[_builtins.str],
-                 queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
         :param pulumi.Input[_builtins.int] delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
@@ -1211,47 +1211,47 @@ class RoutingProfileQueueConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="queueArn")
-    def queue_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the queue.
         """
         return pulumi.get(self, "queue_arn")
 
     @queue_arn.setter
-    def queue_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="queueName")
-    def queue_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the queue.
         """
         return pulumi.get(self, "queue_name")
 
     @queue_name.setter
-    def queue_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_name", value)
 
 
 class UserHierarchyGroupHierarchyPathArgsDict(TypedDict):
-    level_fives: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgsDict']]]]
+    level_fives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]]
     """
     A block that defines the details of level five. The level block is documented below.
     """
-    level_fours: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgsDict']]]]
+    level_fours: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]]
     """
     A block that defines the details of level four. The level block is documented below.
     """
-    level_ones: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgsDict']]]]
+    level_ones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]]
     """
     A block that defines the details of level one. The level block is documented below.
     """
-    level_threes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgsDict']]]]
+    level_threes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]]
     """
     A block that defines the details of level three. The level block is documented below.
     """
-    level_twos: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgsDict']]]]
+    level_twos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]]
     """
     A block that defines the details of level two. The level block is documented below.
     """
@@ -1259,11 +1259,11 @@ class UserHierarchyGroupHierarchyPathArgsDict(TypedDict):
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathArgs:
     def __init__(__self__, *,
-                 level_fives: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]] = None,
-                 level_fours: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]] = None,
-                 level_ones: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]] = None,
-                 level_threes: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]] = None,
-                 level_twos: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]] = None):
+                 level_fives: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]] = None,
+                 level_fours: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]] = None,
+                 level_ones: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]] = None,
+                 level_threes: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]] = None,
+                 level_twos: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]] level_fives: A block that defines the details of level five. The level block is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]] level_fours: A block that defines the details of level four. The level block is documented below.
@@ -1284,75 +1284,75 @@ class UserHierarchyGroupHierarchyPathArgs:
 
     @_builtins.property
     @pulumi.getter(name="levelFives")
-    def level_fives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]:
+    def level_fives(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]:
         """
         A block that defines the details of level five. The level block is documented below.
         """
         return pulumi.get(self, "level_fives")
 
     @level_fives.setter
-    def level_fives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]):
+    def level_fives(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]):
         pulumi.set(self, "level_fives", value)
 
     @_builtins.property
     @pulumi.getter(name="levelFours")
-    def level_fours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]:
+    def level_fours(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]:
         """
         A block that defines the details of level four. The level block is documented below.
         """
         return pulumi.get(self, "level_fours")
 
     @level_fours.setter
-    def level_fours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]):
+    def level_fours(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]):
         pulumi.set(self, "level_fours", value)
 
     @_builtins.property
     @pulumi.getter(name="levelOnes")
-    def level_ones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]:
+    def level_ones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]:
         """
         A block that defines the details of level one. The level block is documented below.
         """
         return pulumi.get(self, "level_ones")
 
     @level_ones.setter
-    def level_ones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]):
+    def level_ones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]):
         pulumi.set(self, "level_ones", value)
 
     @_builtins.property
     @pulumi.getter(name="levelThrees")
-    def level_threes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]:
+    def level_threes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]:
         """
         A block that defines the details of level three. The level block is documented below.
         """
         return pulumi.get(self, "level_threes")
 
     @level_threes.setter
-    def level_threes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]):
+    def level_threes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]):
         pulumi.set(self, "level_threes", value)
 
     @_builtins.property
     @pulumi.getter(name="levelTwos")
-    def level_twos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]:
+    def level_twos(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]:
         """
         A block that defines the details of level two. The level block is documented below.
         """
         return pulumi.get(self, "level_twos")
 
     @level_twos.setter
-    def level_twos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]):
+    def level_twos(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]):
         pulumi.set(self, "level_twos", value)
 
 
 class UserHierarchyGroupHierarchyPathLevelFifeArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy group.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy group.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user hierarchy group. Must not be more than 100 characters.
     """
@@ -1360,9 +1360,9 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgsDict(TypedDict):
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelFifeArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
@@ -1377,51 +1377,51 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user hierarchy group. Must not be more than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class UserHierarchyGroupHierarchyPathLevelFourArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy group.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy group.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user hierarchy group. Must not be more than 100 characters.
     """
@@ -1429,9 +1429,9 @@ class UserHierarchyGroupHierarchyPathLevelFourArgsDict(TypedDict):
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelFourArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
@@ -1446,51 +1446,51 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user hierarchy group. Must not be more than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class UserHierarchyGroupHierarchyPathLevelOneArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy group.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy group.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user hierarchy group. Must not be more than 100 characters.
     """
@@ -1498,9 +1498,9 @@ class UserHierarchyGroupHierarchyPathLevelOneArgsDict(TypedDict):
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelOneArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
@@ -1515,51 +1515,51 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user hierarchy group. Must not be more than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class UserHierarchyGroupHierarchyPathLevelThreeArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy group.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy group.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user hierarchy group. Must not be more than 100 characters.
     """
@@ -1567,9 +1567,9 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgsDict(TypedDict):
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelThreeArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
@@ -1584,51 +1584,51 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user hierarchy group. Must not be more than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class UserHierarchyGroupHierarchyPathLevelTwoArgsDict(TypedDict):
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy group.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy group.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user hierarchy group. Must not be more than 100 characters.
     """
@@ -1636,9 +1636,9 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgsDict(TypedDict):
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelTwoArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[_builtins.str] id: The identifier of the hierarchy group.
@@ -1653,61 +1653,61 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy group.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user hierarchy group. Must not be more than 100 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class UserHierarchyStructureHierarchyStructureArgsDict(TypedDict):
-    level_five: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgsDict']]
+    level_five: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]]
     """
     A block that defines the details of level five. The level block is documented below.
 
     Each level block supports the following arguments:
     """
-    level_four: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgsDict']]
+    level_four: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFourArgs']]]
     """
     A block that defines the details of level four. The level block is documented below.
     """
-    level_one: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgsDict']]
+    level_one: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelOneArgs']]]
     """
     A block that defines the details of level one. The level block is documented below.
     """
-    level_three: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgsDict']]
+    level_three: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]]
     """
     A block that defines the details of level three. The level block is documented below.
     """
-    level_two: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgsDict']]
+    level_two: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]]
     """
     A block that defines the details of level two. The level block is documented below.
     """
@@ -1715,11 +1715,11 @@ class UserHierarchyStructureHierarchyStructureArgsDict(TypedDict):
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureArgs:
     def __init__(__self__, *,
-                 level_five: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']] = None,
-                 level_four: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']] = None,
-                 level_one: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']] = None,
-                 level_three: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']] = None,
-                 level_two: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']] = None):
+                 level_five: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFiveArgs']] = None,
+                 level_four: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFourArgs']] = None,
+                 level_one: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelOneArgs']] = None,
+                 level_three: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelThreeArgs']] = None,
+                 level_two: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelTwoArgs']] = None):
         """
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs'] level_five: A block that defines the details of level five. The level block is documented below.
                
@@ -1742,7 +1742,7 @@ class UserHierarchyStructureHierarchyStructureArgs:
 
     @_builtins.property
     @pulumi.getter(name="levelFive")
-    def level_five(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]:
+    def level_five(self) -> pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]:
         """
         A block that defines the details of level five. The level block is documented below.
 
@@ -1751,55 +1751,55 @@ class UserHierarchyStructureHierarchyStructureArgs:
         return pulumi.get(self, "level_five")
 
     @level_five.setter
-    def level_five(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]):
+    def level_five(self, value: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]):
         pulumi.set(self, "level_five", value)
 
     @_builtins.property
     @pulumi.getter(name="levelFour")
-    def level_four(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']]:
+    def level_four(self) -> pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFourArgs']]:
         """
         A block that defines the details of level four. The level block is documented below.
         """
         return pulumi.get(self, "level_four")
 
     @level_four.setter
-    def level_four(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']]):
+    def level_four(self, value: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFourArgs']]):
         pulumi.set(self, "level_four", value)
 
     @_builtins.property
     @pulumi.getter(name="levelOne")
-    def level_one(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']]:
+    def level_one(self) -> pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelOneArgs']]:
         """
         A block that defines the details of level one. The level block is documented below.
         """
         return pulumi.get(self, "level_one")
 
     @level_one.setter
-    def level_one(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']]):
+    def level_one(self, value: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelOneArgs']]):
         pulumi.set(self, "level_one", value)
 
     @_builtins.property
     @pulumi.getter(name="levelThree")
-    def level_three(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]:
+    def level_three(self) -> pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]:
         """
         A block that defines the details of level three. The level block is documented below.
         """
         return pulumi.get(self, "level_three")
 
     @level_three.setter
-    def level_three(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]):
+    def level_three(self, value: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]):
         pulumi.set(self, "level_three", value)
 
     @_builtins.property
     @pulumi.getter(name="levelTwo")
-    def level_two(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]:
+    def level_two(self) -> pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]:
         """
         A block that defines the details of level two. The level block is documented below.
         """
         return pulumi.get(self, "level_two")
 
     @level_two.setter
-    def level_two(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]):
+    def level_two(self, value: pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]):
         pulumi.set(self, "level_two", value)
 
 
@@ -1808,11 +1808,11 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgsDict(TypedDict):
     """
     The name of the user hierarchy level. Must not be more than 50 characters.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy level.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy level.
     """
@@ -1821,8 +1821,8 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgsDict(TypedDict):
 class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
@@ -1848,26 +1848,26 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy level.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1876,11 +1876,11 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgsDict(TypedDict):
     """
     The name of the user hierarchy level. Must not be more than 50 characters.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy level.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy level.
     """
@@ -1889,8 +1889,8 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgsDict(TypedDict):
 class UserHierarchyStructureHierarchyStructureLevelFourArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
@@ -1916,26 +1916,26 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy level.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1944,11 +1944,11 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgsDict(TypedDict):
     """
     The name of the user hierarchy level. Must not be more than 50 characters.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy level.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy level.
     """
@@ -1957,8 +1957,8 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgsDict(TypedDict):
 class UserHierarchyStructureHierarchyStructureLevelOneArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
@@ -1984,26 +1984,26 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy level.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -2012,11 +2012,11 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgsDict(TypedDict):
     """
     The name of the user hierarchy level. Must not be more than 50 characters.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy level.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy level.
     """
@@ -2025,8 +2025,8 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgsDict(TypedDict):
 class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
@@ -2052,26 +2052,26 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy level.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -2080,11 +2080,11 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgsDict(TypedDict):
     """
     The name of the user hierarchy level. Must not be more than 50 characters.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the hierarchy level.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the hierarchy level.
     """
@@ -2093,8 +2093,8 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgsDict(TypedDict):
 class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
@@ -2120,43 +2120,43 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the hierarchy level.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
 class UserIdentityInfoArgsDict(TypedDict):
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
     """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
     """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
     """
-    secondary_email: NotRequired[pulumi.Input[_builtins.str]]
+    secondary_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
     """
@@ -2164,10 +2164,10 @@ class UserIdentityInfoArgsDict(TypedDict):
 @pulumi.input_type
 class UserIdentityInfoArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_email: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_email: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] email: The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[_builtins.str] first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
@@ -2185,50 +2185,50 @@ class UserIdentityInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryEmail")
-    def secondary_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
         """
         return pulumi.get(self, "secondary_email")
 
     @secondary_email.setter
-    def secondary_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_email", value)
 
 
@@ -2237,15 +2237,15 @@ class UserPhoneConfigArgsDict(TypedDict):
     """
     The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
     """
-    after_contact_work_time_limit: NotRequired[pulumi.Input[_builtins.int]]
+    after_contact_work_time_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
     """
-    auto_accept: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_accept: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
     """
-    desk_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    desk_phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
     """
@@ -2254,9 +2254,9 @@ class UserPhoneConfigArgsDict(TypedDict):
 class UserPhoneConfigArgs:
     def __init__(__self__, *,
                  phone_type: pulumi.Input[_builtins.str],
-                 after_contact_work_time_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 auto_accept: Optional[pulumi.Input[_builtins.bool]] = None,
-                 desk_phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 after_contact_work_time_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_accept: pulumi.Input[Optional[_builtins.bool]] = None,
+                 desk_phone_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] phone_type: The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
         :param pulumi.Input[_builtins.int] after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
@@ -2285,38 +2285,38 @@ class UserPhoneConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="afterContactWorkTimeLimit")
-    def after_contact_work_time_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def after_contact_work_time_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
         """
         return pulumi.get(self, "after_contact_work_time_limit")
 
     @after_contact_work_time_limit.setter
-    def after_contact_work_time_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def after_contact_work_time_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "after_contact_work_time_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="autoAccept")
-    def auto_accept(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_accept(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
         """
         return pulumi.get(self, "auto_accept")
 
     @auto_accept.setter
-    def auto_accept(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_accept(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_accept", value)
 
     @_builtins.property
     @pulumi.getter(name="deskPhoneNumber")
-    def desk_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desk_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
         """
         return pulumi.get(self, "desk_phone_number")
 
     @desk_phone_number.setter
-    def desk_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desk_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desk_phone_number", value)
 
 

@@ -283,73 +283,73 @@ export interface UserSettingsState {
     /**
      * Additional encryption context for the user settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of web portal ARNs to associate with the user settings.
      */
-    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedPortalArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
      */
-    cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration>;
+    cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
     /**
      * Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
      */
-    copyAllowed?: pulumi.Input<string>;
+    copyAllowed?: pulumi.Input<string | undefined>;
     /**
      * ARN of the customer managed KMS key.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
      */
-    deepLinkAllowed?: pulumi.Input<string>;
+    deepLinkAllowed?: pulumi.Input<string | undefined>;
     /**
      * Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
      */
-    disconnectTimeoutInMinutes?: pulumi.Input<number>;
+    disconnectTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
      */
-    downloadAllowed?: pulumi.Input<string>;
+    downloadAllowed?: pulumi.Input<string | undefined>;
     /**
      * Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
      */
-    idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;
+    idleDisconnectTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
      */
-    pasteAllowed?: pulumi.Input<string>;
+    pasteAllowed?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
      */
-    printAllowed?: pulumi.Input<string>;
+    printAllowed?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration of the toolbar. Detailed below.
      */
-    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfiguration>;
+    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfiguration | undefined>;
     /**
      * Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
      *
      * The following arguments are optional:
      */
-    uploadAllowed?: pulumi.Input<string>;
+    uploadAllowed?: pulumi.Input<string | undefined>;
     /**
      * ARN of the user settings resource.
      */
-    userSettingsArn?: pulumi.Input<string>;
+    userSettingsArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -359,11 +359,11 @@ export interface UserSettingsArgs {
     /**
      * Additional encryption context for the user settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser. Detailed below.
      */
-    cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration>;
+    cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
     /**
      * Specifies whether the user can copy text from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
      */
@@ -371,15 +371,15 @@ export interface UserSettingsArgs {
     /**
      * ARN of the customer managed KMS key.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
      */
-    deepLinkAllowed?: pulumi.Input<string>;
+    deepLinkAllowed?: pulumi.Input<string | undefined>;
     /**
      * Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
      */
-    disconnectTimeoutInMinutes?: pulumi.Input<number>;
+    disconnectTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the user can download files from the streaming session to the local device. Valid values are `Enabled` or `Disabled`.
      */
@@ -387,7 +387,7 @@ export interface UserSettingsArgs {
     /**
      * Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
      */
-    idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;
+    idleDisconnectTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
      */
@@ -399,15 +399,15 @@ export interface UserSettingsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration of the toolbar. Detailed below.
      */
-    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfiguration>;
+    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfiguration | undefined>;
     /**
      * Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
      *

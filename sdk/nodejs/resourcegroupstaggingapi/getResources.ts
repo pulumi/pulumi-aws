@@ -173,25 +173,25 @@ export interface GetResourcesOutputArgs {
     /**
      * Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `includeComplianceDetails` argument is also set to `true`.
      */
-    excludeCompliantResources?: pulumi.Input<boolean>;
+    excludeCompliantResources?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to include details regarding the compliance with the effective tag policy.
      */
-    includeComplianceDetails?: pulumi.Input<boolean>;
+    includeComplianceDetails?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
      */
-    resourceArnLists?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceArnLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
      */
-    resourceTypeFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypeFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
      */
-    tagFilters?: pulumi.Input<pulumi.Input<inputs.resourcegroupstaggingapi.GetResourcesTagFilterArgs>[]>;
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.resourcegroupstaggingapi.GetResourcesTagFilterArgs>[] | undefined>;
 }

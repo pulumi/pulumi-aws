@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  * for (const range = {value: 0}; range.value < 2; range.value++) {
  *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
  *         vpcId: exampleVpc.id,
- *         cidrBlock: exampleVpc.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
- *             input: cidrBlock,
+ *         cidrBlock: std.cidrsubnetOutput({
+ *             input: exampleVpc.cidrBlock,
  *             newbits: 8,
  *             netnum: range.value,
- *         })).apply(invoke => invoke.result),
+ *         }).apply(invoke => invoke.result),
  *     }));
  * }
  * const exampleResourceShareAssociationsExclusive = new aws.ram.ResourceShareAssociationsExclusive("example", {
@@ -225,23 +225,23 @@ export interface ResourceShareAssociationsExclusiveState {
      * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
      * * Service principal (e.g., `ec2.amazonaws.com`)
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
-    resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      */
-    resourceShareArn?: pulumi.Input<string>;
+    resourceShareArn?: pulumi.Input<string | undefined>;
     /**
      * A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      */
-    sources?: pulumi.Input<pulumi.Input<string>[]>;
+    sources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -257,15 +257,15 @@ export interface ResourceShareAssociationsExclusiveArgs {
      * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
      * * Service principal (e.g., `ec2.amazonaws.com`)
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
-    resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      */
@@ -273,5 +273,5 @@ export interface ResourceShareAssociationsExclusiveArgs {
     /**
      * A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      */
-    sources?: pulumi.Input<pulumi.Input<string>[]>;
+    sources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

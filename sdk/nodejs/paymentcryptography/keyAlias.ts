@@ -125,15 +125,15 @@ export interface KeyAliasState {
      *
      * The following arguments are optional:
      */
-    aliasName?: pulumi.Input<string>;
+    aliasName?: pulumi.Input<string | undefined>;
     /**
      * ARN of the key.
      */
-    keyArn?: pulumi.Input<string>;
+    keyArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -149,9 +149,9 @@ export interface KeyAliasArgs {
     /**
      * ARN of the key.
      */
-    keyArn?: pulumi.Input<string>;
+    keyArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

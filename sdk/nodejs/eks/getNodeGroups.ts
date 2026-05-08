@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const example = aws.eks.getNodeGroups({
  *     clusterName: "example",
  * });
- * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
+ * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
  * }) }), {}));
@@ -71,7 +71,7 @@ export interface GetNodeGroupsResult {
  * const example = aws.eks.getNodeGroups({
  *     clusterName: "example",
  * });
- * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.eks.getNodeGroup({
+ * const exampleGetNodeGroup = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.eks.getNodeGroup({
  *     clusterName: "example",
  *     nodeGroupName: __value,
  * }) }), {}));
@@ -96,5 +96,5 @@ export interface GetNodeGroupsOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

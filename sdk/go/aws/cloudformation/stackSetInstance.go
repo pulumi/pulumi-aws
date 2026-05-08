@@ -59,67 +59,69 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: interface{}{
-// aWSCloudFormationStackSetAdministrationRole.Arn,
-// },
-// Type: "AWS",
-// },
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
-// AssumeRolePolicy: pulumi.String(pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json)),
-// Name: pulumi.String("AWSCloudFormationStackSetExecutionRole"),
-// })
-// if err != nil {
-// return err
-// }
-// // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
-// // Additional IAM permissions necessary depend on the resources defined in the StackSet template
-// aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "cloudformation:*",
-// "s3:*",
-// "sns:*",
-// },
-// Effect: pulumi.StringRef("Allow"),
-// Resources: []string{
-// "*",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", &iam.RolePolicyArgs{
-// Name: pulumi.String("MinimumExecutionPolicy"),
-// Policy: pulumi.String(pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.Json)),
-// Role: aWSCloudFormationStackSetExecutionRole.Name,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Identifiers: pulumi.StringArray{
+//									aWSCloudFormationStackSetAdministrationRole.Arn,
+//								},
+//								Type: "AWS",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json)),
+//				Name:             pulumi.String("AWSCloudFormationStackSetExecutionRole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+//			// Additional IAM permissions necessary depend on the resources defined in the StackSet template
+//			aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"cloudformation:*",
+//							"s3:*",
+//							"sns:*",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("MinimumExecutionPolicy"),
+//				Policy: pulumi.String(pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.Json)),
+//				Role:   aWSCloudFormationStackSetExecutionRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Example Deployment across Organizations account

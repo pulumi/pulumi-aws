@@ -24,9 +24,9 @@ class VpcAttachmentArgs:
                  core_network_id: pulumi.Input[_builtins.str],
                  subnet_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_arn: pulumi.Input[_builtins.str],
-                 options: Optional[pulumi.Input['VpcAttachmentOptionsArgs']] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 options: pulumi.Input[Optional['VpcAttachmentOptionsArgs']] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
 
@@ -89,60 +89,60 @@ class VpcAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['VpcAttachmentOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['VpcAttachmentOptionsArgs']]:
         """
         Options for the VPC attachment. See below.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['VpcAttachmentOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['VpcAttachmentOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
-    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_policy_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
-    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_policy_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_policy_label", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _VpcAttachmentState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input['VpcAttachmentOptionsArgs']] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 segment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional['VpcAttachmentOptionsArgs']] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VpcAttachment resources.
 
@@ -200,187 +200,187 @@ class _VpcAttachmentState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the attachment.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
-    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def attachment_policy_rule_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Policy rule number associated with the attachment.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @attachment_policy_rule_number.setter
-    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def attachment_policy_rule_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "attachment_policy_rule_number", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentType")
-    def attachment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attachment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of attachment.
         """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
-    def attachment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attachment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attachment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
-    def core_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a core network for the VPC attachment.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where the edge is located.
         """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
-    def edge_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['VpcAttachmentOptionsArgs']]:
+    def options(self) -> pulumi.Input[Optional['VpcAttachmentOptionsArgs']]:
         """
         Options for the VPC attachment. See below.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['VpcAttachmentOptionsArgs']]):
+    def options(self, value: pulumi.Input[Optional['VpcAttachmentOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
-    def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
-    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_policy_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
         """
         return pulumi.get(self, "routing_policy_label")
 
     @routing_policy_label.setter
-    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_policy_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_policy_label", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentName")
-    def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def segment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the segment attachment.
         """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
-    def segment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def segment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "segment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the attachment.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetArns")
-    def subnet_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Subnet ARNs of the VPC attachment.
         """
         return pulumi.get(self, "subnet_arns")
 
     @subnet_arns.setter
-    def subnet_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcArn")
-    def vpc_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the VPC.
 
@@ -389,7 +389,7 @@ class _VpcAttachmentState:
         return pulumi.get(self, "vpc_arn")
 
     @vpc_arn.setter
-    def vpc_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_arn", value)
 
 
@@ -399,12 +399,12 @@ class VpcAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Network Manager VPC attachment.
@@ -526,12 +526,12 @@ class VpcAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
-                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
+                 routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -573,22 +573,22 @@ class VpcAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            attachment_policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-            attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_location: Optional[pulumi.Input[_builtins.str]] = None,
-            options: Optional[pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
-            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
-            segment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'VpcAttachment':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            attachment_policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+            attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
+            segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcAttachment':
         """
         Get an existing VpcAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

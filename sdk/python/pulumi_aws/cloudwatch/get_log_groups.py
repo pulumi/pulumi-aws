@@ -122,8 +122,8 @@ def get_log_groups(log_group_name_prefix: Optional[_builtins.str] = None,
         log_group_name_prefix=pulumi.get(__ret__, 'log_group_name_prefix'),
         log_group_names=pulumi.get(__ret__, 'log_group_names'),
         region=pulumi.get(__ret__, 'region'))
-def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_log_groups_output(log_group_name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupsResult]:
     """
     Use this data source to get a list of AWS Cloudwatch Log Groups

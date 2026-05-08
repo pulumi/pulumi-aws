@@ -144,19 +144,19 @@ export interface LoadBalancerBackendServerPolicyState {
     /**
      * The instance port to apply the policy to.
      */
-    instancePort?: pulumi.Input<number>;
+    instancePort?: pulumi.Input<number | undefined>;
     /**
      * The load balancer to attach the policy to.
      */
-    loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string | undefined>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    policyNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -174,9 +174,9 @@ export interface LoadBalancerBackendServerPolicyArgs {
     /**
      * List of Policy Names to apply to the backend server.
      */
-    policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    policyNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

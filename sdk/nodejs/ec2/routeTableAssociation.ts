@@ -145,21 +145,21 @@ export interface RouteTableAssociationState {
     /**
      * The gateway ID to create an association. Conflicts with `subnetId`.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the routing table to associate with.
      *
      * > **NOTE:** Please note that one of either `subnetId` or `gatewayId` is required.
      */
-    routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string | undefined>;
     /**
      * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,11 +169,11 @@ export interface RouteTableAssociationArgs {
     /**
      * The gateway ID to create an association. Conflicts with `subnetId`.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the routing table to associate with.
      *
@@ -183,5 +183,5 @@ export interface RouteTableAssociationArgs {
     /**
      * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }

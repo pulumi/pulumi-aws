@@ -707,147 +707,147 @@ export interface DistributionState {
     /**
      * Extra CNAMEs (alternate domain names), if any, for this distribution.
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Anycast static IP list that is associated with the distribution.
      */
-    anycastIpListId?: pulumi.Input<string>;
+    anycastIpListId?: pulumi.Input<string | undefined>;
     /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      */
-    callerReference?: pulumi.Input<string>;
+    callerReference?: pulumi.Input<string | undefined>;
     /**
      * Any comments you want to include about the distribution.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * A connection function association configuration block (maximum one).
      */
-    connectionFunctionAssociation?: pulumi.Input<inputs.cloudfront.DistributionConnectionFunctionAssociation>;
+    connectionFunctionAssociation?: pulumi.Input<inputs.cloudfront.DistributionConnectionFunctionAssociation | undefined>;
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      */
-    continuousDeploymentPolicyId?: pulumi.Input<string>;
+    continuousDeploymentPolicyId?: pulumi.Input<string | undefined>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[]>;
+    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[] | undefined>;
     /**
      * Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
      */
-    defaultCacheBehavior?: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehavior>;
+    defaultCacheBehavior?: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehavior | undefined>;
     /**
      * Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
      */
-    defaultRootObject?: pulumi.Input<string>;
+    defaultRootObject?: pulumi.Input<string | undefined>;
     /**
      * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Whether the distribution is enabled to accept end user requests for content.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      */
-    hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string | undefined>;
     /**
      * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
      */
-    httpVersion?: pulumi.Input<string>;
+    httpVersion?: pulumi.Input<string | undefined>;
     /**
      * Number of invalidation batches currently in progress.
      */
-    inProgressValidationBatches?: pulumi.Input<number>;
+    inProgressValidationBatches?: pulumi.Input<number | undefined>;
     /**
      * Whether the IPv6 is enabled for the distribution.
      */
-    isIpv6Enabled?: pulumi.Input<boolean>;
+    isIpv6Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Date and time the distribution was last modified.
      */
-    lastModifiedTime?: pulumi.Input<string>;
+    lastModifiedTime?: pulumi.Input<string | undefined>;
     /**
      * The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
      */
-    loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig | undefined>;
     /**
      * Whether V1 logging is enabled for the distribution.
      */
-    loggingV1Enabled?: pulumi.Input<boolean>;
+    loggingV1Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
+    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[] | undefined>;
     /**
      * One or more originGroup for this distribution (multiples allowed).
      */
-    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[] | undefined>;
     /**
      * One or more origins for this distribution (multiples allowed).
      */
-    origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
+    origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[] | undefined>;
     /**
      * Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
      */
-    priceClass?: pulumi.Input<string>;
+    priceClass?: pulumi.Input<string | undefined>;
     /**
      * The restriction configuration for this distribution (maximum one).
      */
-    restrictions?: pulumi.Input<inputs.cloudfront.DistributionRestrictions>;
+    restrictions?: pulumi.Input<inputs.cloudfront.DistributionRestrictions | undefined>;
     /**
      * Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
      */
-    retainOnDelete?: pulumi.Input<boolean>;
+    retainOnDelete?: pulumi.Input<boolean | undefined>;
     /**
      * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
      */
-    staging?: pulumi.Input<boolean>;
+    staging?: pulumi.Input<boolean | undefined>;
     /**
      * Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      */
-    trustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedKeyGroup>[]>;
+    trustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedKeyGroup>[] | undefined>;
     /**
      * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      */
-    trustedSigners?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedSigner>[]>;
+    trustedSigners?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedSigner>[] | undefined>;
     /**
      * The SSL configuration for this distribution (maximum one).
      */
-    viewerCertificate?: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
+    viewerCertificate?: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate | undefined>;
     /**
      * The viewer mTLS configuration for this distribution (maximum one).
      */
-    viewerMtlsConfig?: pulumi.Input<inputs.cloudfront.DistributionViewerMtlsConfig>;
+    viewerMtlsConfig?: pulumi.Input<inputs.cloudfront.DistributionViewerMtlsConfig | undefined>;
     /**
      * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      */
-    waitForDeployment?: pulumi.Input<boolean>;
+    waitForDeployment?: pulumi.Input<boolean | undefined>;
     /**
      * Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
-    webAclId?: pulumi.Input<string>;
+    webAclId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -857,27 +857,27 @@ export interface DistributionArgs {
     /**
      * Extra CNAMEs (alternate domain names), if any, for this distribution.
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Anycast static IP list that is associated with the distribution.
      */
-    anycastIpListId?: pulumi.Input<string>;
+    anycastIpListId?: pulumi.Input<string | undefined>;
     /**
      * Any comments you want to include about the distribution.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * A connection function association configuration block (maximum one).
      */
-    connectionFunctionAssociation?: pulumi.Input<inputs.cloudfront.DistributionConnectionFunctionAssociation>;
+    connectionFunctionAssociation?: pulumi.Input<inputs.cloudfront.DistributionConnectionFunctionAssociation | undefined>;
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      */
-    continuousDeploymentPolicyId?: pulumi.Input<string>;
+    continuousDeploymentPolicyId?: pulumi.Input<string | undefined>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
-    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[]>;
+    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[] | undefined>;
     /**
      * Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
      */
@@ -885,7 +885,7 @@ export interface DistributionArgs {
     /**
      * Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
      */
-    defaultRootObject?: pulumi.Input<string>;
+    defaultRootObject?: pulumi.Input<string | undefined>;
     /**
      * Whether the distribution is enabled to accept end user requests for content.
      */
@@ -893,23 +893,23 @@ export interface DistributionArgs {
     /**
      * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
      */
-    httpVersion?: pulumi.Input<string>;
+    httpVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether the IPv6 is enabled for the distribution.
      */
-    isIpv6Enabled?: pulumi.Input<boolean>;
+    isIpv6Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
      */
-    loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig | undefined>;
     /**
      * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
      */
-    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
+    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[] | undefined>;
     /**
      * One or more originGroup for this distribution (multiples allowed).
      */
-    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
+    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[] | undefined>;
     /**
      * One or more origins for this distribution (multiples allowed).
      */
@@ -917,7 +917,7 @@ export interface DistributionArgs {
     /**
      * Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
      */
-    priceClass?: pulumi.Input<string>;
+    priceClass?: pulumi.Input<string | undefined>;
     /**
      * The restriction configuration for this distribution (maximum one).
      */
@@ -925,15 +925,15 @@ export interface DistributionArgs {
     /**
      * Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
      */
-    retainOnDelete?: pulumi.Input<boolean>;
+    retainOnDelete?: pulumi.Input<boolean | undefined>;
     /**
      * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
      */
-    staging?: pulumi.Input<boolean>;
+    staging?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The SSL configuration for this distribution (maximum one).
      */
@@ -941,13 +941,13 @@ export interface DistributionArgs {
     /**
      * The viewer mTLS configuration for this distribution (maximum one).
      */
-    viewerMtlsConfig?: pulumi.Input<inputs.cloudfront.DistributionViewerMtlsConfig>;
+    viewerMtlsConfig?: pulumi.Input<inputs.cloudfront.DistributionViewerMtlsConfig | undefined>;
     /**
      * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
      */
-    waitForDeployment?: pulumi.Input<boolean>;
+    waitForDeployment?: pulumi.Input<boolean | undefined>;
     /**
      * Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
      */
-    webAclId?: pulumi.Input<string>;
+    webAclId?: pulumi.Input<string | undefined>;
 }

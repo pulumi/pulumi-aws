@@ -256,31 +256,31 @@ export interface GetPermissionsOutputArgs {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
-    catalogResource?: pulumi.Input<boolean>;
+    catalogResource?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    dataCellsFilter?: pulumi.Input<inputs.lakeformation.GetPermissionsDataCellsFilterArgs>;
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.GetPermissionsDataCellsFilterArgs | undefined>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    dataLocation?: pulumi.Input<inputs.lakeformation.GetPermissionsDataLocationArgs>;
+    dataLocation?: pulumi.Input<inputs.lakeformation.GetPermissionsDataLocationArgs | undefined>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    database?: pulumi.Input<inputs.lakeformation.GetPermissionsDatabaseArgs>;
+    database?: pulumi.Input<inputs.lakeformation.GetPermissionsDatabaseArgs | undefined>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagArgs>;
+    lfTag?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagArgs | undefined>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    lfTagPolicy?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagPolicyArgs>;
+    lfTagPolicy?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagPolicyArgs | undefined>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      *
@@ -290,15 +290,15 @@ export interface GetPermissionsOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    table?: pulumi.Input<inputs.lakeformation.GetPermissionsTableArgs>;
+    table?: pulumi.Input<inputs.lakeformation.GetPermissionsTableArgs | undefined>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.GetPermissionsTableWithColumnsArgs>;
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.GetPermissionsTableWithColumnsArgs | undefined>;
 }

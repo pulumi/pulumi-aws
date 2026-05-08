@@ -58,8 +58,8 @@ class ManagedNotificationAdditionalChannelAssociationArgs:
 @pulumi.input_type
 class _ManagedNotificationAdditionalChannelAssociationState:
     def __init__(__self__, *,
-                 channel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_notification_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_notification_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedNotificationAdditionalChannelAssociation resources.
 
@@ -73,26 +73,26 @@ class _ManagedNotificationAdditionalChannelAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="channelArn")
-    def channel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the channel to associate with the managed notification.
         """
         return pulumi.get(self, "channel_arn")
 
     @channel_arn.setter
-    def channel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="managedNotificationArn")
-    def managed_notification_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_notification_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the managed notification to associate the channel with.
         """
         return pulumi.get(self, "managed_notification_arn")
 
     @managed_notification_arn.setter
-    def managed_notification_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_notification_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_notification_arn", value)
 
 
@@ -102,8 +102,8 @@ class ManagedNotificationAdditionalChannelAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS User Notifications Managed Notification Additional Channel Association. This resource associates a channel (such as an email contact, mobile device, or chat channel) with a managed notification.
@@ -187,8 +187,8 @@ class ManagedNotificationAdditionalChannelAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_notification_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_notification_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,8 +214,8 @@ class ManagedNotificationAdditionalChannelAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            channel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            managed_notification_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'ManagedNotificationAdditionalChannelAssociation':
+            channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            managed_notification_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedNotificationAdditionalChannelAssociation':
         """
         Get an existing ManagedNotificationAdditionalChannelAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

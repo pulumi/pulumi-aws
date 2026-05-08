@@ -21,10 +21,10 @@ class SnapshotCopyArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[_builtins.str],
                  destination_region: pulumi.Input[_builtins.str],
-                 manual_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_copy_grant_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_copy_grant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
 
@@ -76,62 +76,62 @@ class SnapshotCopyArgs:
 
     @_builtins.property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
-    def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def manual_snapshot_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @manual_snapshot_retention_period.setter
-    def manual_snapshot_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def manual_snapshot_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "manual_snapshot_retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotCopyGrantName")
-    def snapshot_copy_grant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_copy_grant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
         return pulumi.get(self, "snapshot_copy_grant_name")
 
     @snapshot_copy_grant_name.setter
-    def snapshot_copy_grant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_copy_grant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_copy_grant_name", value)
 
 
 @pulumi.input_type
 class _SnapshotCopyState:
     def __init__(__self__, *,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_copy_grant_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_copy_grant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
 
@@ -159,19 +159,19 @@ class _SnapshotCopyState:
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the source cluster.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationRegion")
-    def destination_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Region to copy snapshots to.
 
@@ -180,55 +180,55 @@ class _SnapshotCopyState:
         return pulumi.get(self, "destination_region")
 
     @destination_region.setter
-    def destination_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_region", value)
 
     @_builtins.property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
-    def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def manual_snapshot_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @manual_snapshot_retention_period.setter
-    def manual_snapshot_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def manual_snapshot_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "manual_snapshot_retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotCopyGrantName")
-    def snapshot_copy_grant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_copy_grant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
         return pulumi.get(self, "snapshot_copy_grant_name")
 
     @snapshot_copy_grant_name.setter
-    def snapshot_copy_grant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_copy_grant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_copy_grant_name", value)
 
 
@@ -238,12 +238,12 @@ class SnapshotCopy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_copy_grant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_copy_grant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Redshift Snapshot Copy.
@@ -327,12 +327,12 @@ class SnapshotCopy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_copy_grant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_copy_grant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -362,12 +362,12 @@ class SnapshotCopy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_region: Optional[pulumi.Input[_builtins.str]] = None,
-            manual_snapshot_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-            snapshot_copy_grant_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'SnapshotCopy':
+            cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_region: pulumi.Input[Optional[_builtins.str]] = None,
+            manual_snapshot_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+            snapshot_copy_grant_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'SnapshotCopy':
         """
         Get an existing SnapshotCopy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

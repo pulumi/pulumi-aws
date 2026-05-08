@@ -102,11 +102,11 @@ export interface AwsServiceAccessState {
     /**
      * Date and time that the service was enabled, in RFC 3339 format.
      */
-    dateEnabled?: pulumi.Input<string>;
+    dateEnabled?: pulumi.Input<string | undefined>;
     /**
      * Service principal of the AWS service to enable. For example, `tagpolicies.tag.amazonaws.com`. Changing this value will force a new resource.
      */
-    servicePrincipal?: pulumi.Input<string>;
+    servicePrincipal?: pulumi.Input<string | undefined>;
 }
 
 /**

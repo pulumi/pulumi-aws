@@ -288,117 +288,117 @@ export interface UserState {
     /**
      * City where the user is located.
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * Company associated with the user.
      */
-    company?: pulumi.Input<string>;
+    company?: pulumi.Input<string | undefined>;
     /**
      * Country where the user is located.
      */
-    country?: pulumi.Input<string>;
+    country?: pulumi.Input<string | undefined>;
     /**
      * Department associated with the user.
      */
-    department?: pulumi.Input<string>;
+    department?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the user was disabled from WorkMail use.
      */
-    disabledDate?: pulumi.Input<string>;
+    disabledDate?: pulumi.Input<string | undefined>;
     /**
      * Display name of the user.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Primary email address used to register the user with WorkMail. Changing this value forces replacement.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the user was enabled for WorkMail use.
      */
-    enabledDate?: pulumi.Input<string>;
+    enabledDate?: pulumi.Input<string | undefined>;
     /**
      * First name of the user.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * Whether to hide the user from the global address list. Defaults to `false`.
      */
-    hiddenFromGlobalAddressList?: pulumi.Input<boolean>;
+    hiddenFromGlobalAddressList?: pulumi.Input<boolean | undefined>;
     /**
      * Identity store ID from IAM Identity Center associated with the user.
      */
-    identityProviderIdentityStoreId?: pulumi.Input<string>;
+    identityProviderIdentityStoreId?: pulumi.Input<string | undefined>;
     /**
      * User ID from IAM Identity Center associated with the user.
      */
-    identityProviderUserId?: pulumi.Input<string>;
+    identityProviderUserId?: pulumi.Input<string | undefined>;
     /**
      * Initials of the user.
      */
-    initials?: pulumi.Input<string>;
+    initials?: pulumi.Input<string | undefined>;
     /**
      * Job title of the user.
      */
-    jobTitle?: pulumi.Input<string>;
+    jobTitle?: pulumi.Input<string | undefined>;
     /**
      * Last name of the user.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the mailbox was removed for the user.
      */
-    mailboxDeprovisionedDate?: pulumi.Input<string>;
+    mailboxDeprovisionedDate?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the mailbox was created for the user.
      */
-    mailboxProvisionedDate?: pulumi.Input<string>;
+    mailboxProvisionedDate?: pulumi.Input<string | undefined>;
     /**
      * Username of the user.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Office where the user is located.
      */
-    office?: pulumi.Input<string>;
+    office?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the WorkMail organization where the user is managed.
      *
      * The following arguments are optional:
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * Password to set for the user.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Current WorkMail state of the user.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Street address of the user.
      */
-    street?: pulumi.Input<string>;
+    street?: pulumi.Input<string | undefined>;
     /**
      * Telephone number of the user.
      */
-    telephone?: pulumi.Input<string>;
+    telephone?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
     /**
      * Role assigned to the user. Valid values are `USER`, `REMOTE_USER`, `RESOURCE`, and `SYSTEM_USER`.
      */
-    userRole?: pulumi.Input<string>;
+    userRole?: pulumi.Input<string | undefined>;
     /**
      * ZIP or postal code of the user.
      */
-    zipCode?: pulumi.Input<string>;
+    zipCode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -408,19 +408,19 @@ export interface UserArgs {
     /**
      * City where the user is located.
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * Company associated with the user.
      */
-    company?: pulumi.Input<string>;
+    company?: pulumi.Input<string | undefined>;
     /**
      * Country where the user is located.
      */
-    country?: pulumi.Input<string>;
+    country?: pulumi.Input<string | undefined>;
     /**
      * Department associated with the user.
      */
-    department?: pulumi.Input<string>;
+    department?: pulumi.Input<string | undefined>;
     /**
      * Display name of the user.
      */
@@ -432,35 +432,35 @@ export interface UserArgs {
     /**
      * First name of the user.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * Whether to hide the user from the global address list. Defaults to `false`.
      */
-    hiddenFromGlobalAddressList?: pulumi.Input<boolean>;
+    hiddenFromGlobalAddressList?: pulumi.Input<boolean | undefined>;
     /**
      * User ID from IAM Identity Center associated with the user.
      */
-    identityProviderUserId?: pulumi.Input<string>;
+    identityProviderUserId?: pulumi.Input<string | undefined>;
     /**
      * Initials of the user.
      */
-    initials?: pulumi.Input<string>;
+    initials?: pulumi.Input<string | undefined>;
     /**
      * Job title of the user.
      */
-    jobTitle?: pulumi.Input<string>;
+    jobTitle?: pulumi.Input<string | undefined>;
     /**
      * Last name of the user.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * Username of the user.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Office where the user is located.
      */
-    office?: pulumi.Input<string>;
+    office?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the WorkMail organization where the user is managed.
      *
@@ -470,25 +470,25 @@ export interface UserArgs {
     /**
      * Password to set for the user.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Street address of the user.
      */
-    street?: pulumi.Input<string>;
+    street?: pulumi.Input<string | undefined>;
     /**
      * Telephone number of the user.
      */
-    telephone?: pulumi.Input<string>;
+    telephone?: pulumi.Input<string | undefined>;
     /**
      * Role assigned to the user. Valid values are `USER`, `REMOTE_USER`, `RESOURCE`, and `SYSTEM_USER`.
      */
-    userRole?: pulumi.Input<string>;
+    userRole?: pulumi.Input<string | undefined>;
     /**
      * ZIP or postal code of the user.
      */
-    zipCode?: pulumi.Input<string>;
+    zipCode?: pulumi.Input<string | undefined>;
 }

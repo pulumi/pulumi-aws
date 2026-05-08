@@ -159,11 +159,11 @@ export interface GetSecretVersionsOutputArgs {
      * If true, all deprecated secret versions are included in the response.
      * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
      */
-    includeDeprecated?: pulumi.Input<boolean>;
+    includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */

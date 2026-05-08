@@ -24,44 +24,44 @@ class ObjectCopyArgs:
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
                  source: pulumi.Input[_builtins.str],
-                 acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_disposition: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_modified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_none_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_unmodified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_source_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grants: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]] = None,
-                 kms_encryption_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 metadata_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_legal_hold_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_retain_until_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_provider: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_payer: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 tagging_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 website_redirect: Optional[pulumi.Input[_builtins.str]] = None):
+                 acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_modified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_none_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_unmodified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_source_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grants: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]] = None,
+                 kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metadata_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_provider: pulumi.Input[Optional['ObjectCopyOverrideProviderArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_payer: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 tagging_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 website_redirect: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ObjectCopy resource.
 
@@ -227,512 +227,512 @@ class ObjectCopyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         """
         return pulumi.get(self, "acl")
 
     @acl.setter
-    def acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acl", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bucket_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "bucket_key_enabled")
 
     @bucket_key_enabled.setter
-    def bucket_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bucket_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bucket_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheControl")
-    def cache_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         """
         return pulumi.get(self, "cache_control")
 
     @cache_control.setter
-    def cache_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_control", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumAlgorithm")
-    def checksum_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
     @checksum_algorithm.setter
-    def checksum_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
-    def content_disposition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_disposition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         """
         return pulumi.get(self, "content_disposition")
 
     @content_disposition.setter
-    def content_disposition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_disposition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_disposition", value)
 
     @_builtins.property
     @pulumi.getter(name="contentEncoding")
-    def content_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         """
         return pulumi.get(self, "content_encoding")
 
     @content_encoding.setter
-    def content_encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="contentLanguage")
-    def content_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
     @content_language.setter
-    def content_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_language", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfMatch")
-    def copy_if_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if its entity tag (ETag) matches the specified tag.
         """
         return pulumi.get(self, "copy_if_match")
 
     @copy_if_match.setter
-    def copy_if_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_match", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfModifiedSince")
-    def copy_if_modified_since(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_modified_since(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "copy_if_modified_since")
 
     @copy_if_modified_since.setter
-    def copy_if_modified_since(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_modified_since(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_modified_since", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfNoneMatch")
-    def copy_if_none_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_none_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if its entity tag (ETag) is different than the specified ETag.
         """
         return pulumi.get(self, "copy_if_none_match")
 
     @copy_if_none_match.setter
-    def copy_if_none_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_none_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_none_match", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfUnmodifiedSince")
-    def copy_if_unmodified_since(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_unmodified_since(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "copy_if_unmodified_since")
 
     @copy_if_unmodified_since.setter
-    def copy_if_unmodified_since(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_unmodified_since(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_unmodified_since", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAlgorithm")
-    def customer_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use to when encrypting the object (for example, AES256).
         """
         return pulumi.get(self, "customer_algorithm")
 
     @customer_algorithm.setter
-    def customer_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="customerKey")
-    def customer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         """
         return pulumi.get(self, "customer_key")
 
     @customer_key.setter
-    def customer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="customerKeyMd5")
-    def customer_key_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "customer_key_md5")
 
     @customer_key_md5.setter
-    def customer_key_md5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_key_md5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_key_md5", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedSourceBucketOwner")
-    def expected_source_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_source_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_source_bucket_owner")
 
     @expected_source_bucket_owner.setter
-    def expected_source_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_source_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_source_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]:
+    def grants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]:
         """
         Configuration block for header grants. Documented below. Conflicts with `acl`.
         """
         return pulumi.get(self, "grants")
 
     @grants.setter
-    def grants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]):
+    def grants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]):
         pulumi.set(self, "grants", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionContext")
-    def kms_encryption_context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_encryption_context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         """
         return pulumi.get(self, "kms_encryption_context")
 
     @kms_encryption_context.setter
-    def kms_encryption_context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_encryption_context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataDirective")
-    def metadata_directive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "metadata_directive")
 
     @metadata_directive.setter
-    def metadata_directive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_directive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_directive", value)
 
     @_builtins.property
     @pulumi.getter(name="objectLockLegalHoldStatus")
-    def object_lock_legal_hold_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_lock_legal_hold_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
     @object_lock_legal_hold_status.setter
-    def object_lock_legal_hold_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_lock_legal_hold_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_lock_legal_hold_status", value)
 
     @_builtins.property
     @pulumi.getter(name="objectLockMode")
-    def object_lock_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_lock_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         """
         return pulumi.get(self, "object_lock_mode")
 
     @object_lock_mode.setter
-    def object_lock_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_lock_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_lock_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="objectLockRetainUntilDate")
-    def object_lock_retain_until_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_lock_retain_until_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         """
         return pulumi.get(self, "object_lock_retain_until_date")
 
     @object_lock_retain_until_date.setter
-    def object_lock_retain_until_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_lock_retain_until_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_lock_retain_until_date", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideProvider")
-    def override_provider(self) -> Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]:
+    def override_provider(self) -> pulumi.Input[Optional['ObjectCopyOverrideProviderArgs']]:
         return pulumi.get(self, "override_provider")
 
     @override_provider.setter
-    def override_provider(self, value: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]):
+    def override_provider(self, value: pulumi.Input[Optional['ObjectCopyOverrideProviderArgs']]):
         pulumi.set(self, "override_provider", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestPayer")
-    def request_payer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_payer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         """
         return pulumi.get(self, "request_payer")
 
     @request_payer.setter
-    def request_payer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_payer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_payer", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_side_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         """
         return pulumi.get(self, "server_side_encryption")
 
     @server_side_encryption.setter
-    def server_side_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_side_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_side_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCustomerAlgorithm")
-    def source_customer_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use when decrypting the source object (for example, AES256).
         """
         return pulumi.get(self, "source_customer_algorithm")
 
     @source_customer_algorithm.setter
-    def source_customer_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_customer_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_customer_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCustomerKey")
-    def source_customer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         """
         return pulumi.get(self, "source_customer_key")
 
     @source_customer_key.setter
-    def source_customer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_customer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_customer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCustomerKeyMd5")
-    def source_customer_key_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "source_customer_key_md5")
 
     @source_customer_key_md5.setter
-    def source_customer_key_md5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_customer_key_md5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_customer_key_md5", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
-    def storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="taggingDirective")
-    def tagging_directive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tagging_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "tagging_directive")
 
     @tagging_directive.setter
-    def tagging_directive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tagging_directive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tagging_directive", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="websiteRedirect")
-    def website_redirect(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website_redirect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         return pulumi.get(self, "website_redirect")
 
     @website_redirect.setter
-    def website_redirect(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website_redirect(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website_redirect", value)
 
 
 @pulumi.input_type
 class _ObjectCopyState:
     def __init__(__self__, *,
-                 acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_crc32: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_crc32c: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_crc64nvme: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_sha1: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_disposition: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_modified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_none_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_unmodified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_source_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grants: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_encryption_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 metadata_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_legal_hold_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_retain_until_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_provider: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_charged: Optional[pulumi.Input[_builtins.bool]] = None,
-                 request_payer: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 tagging_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 website_redirect: Optional[pulumi.Input[_builtins.str]] = None):
+                 acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_crc32: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_crc32c: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_crc64nvme: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_sha1: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_modified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_none_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_unmodified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_source_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grants: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metadata_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_provider: pulumi.Input[Optional['ObjectCopyOverrideProviderArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_charged: pulumi.Input[Optional[_builtins.bool]] = None,
+                 request_payer: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 tagging_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 website_redirect: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectCopy resources.
 
@@ -902,517 +902,517 @@ class _ObjectCopyState:
 
     @_builtins.property
     @pulumi.getter
-    def acl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         """
         return pulumi.get(self, "acl")
 
     @acl.setter
-    def acl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acl", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the object.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bucket to put the file in.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bucket_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "bucket_key_enabled")
 
     @bucket_key_enabled.setter
-    def bucket_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bucket_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bucket_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheControl")
-    def cache_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         """
         return pulumi.get(self, "cache_control")
 
     @cache_control.setter
-    def cache_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_control", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumAlgorithm")
-    def checksum_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
     @checksum_algorithm.setter
-    def checksum_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumCrc32")
-    def checksum_crc32(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_crc32(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded, 32-bit CRC32 checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32")
 
     @checksum_crc32.setter
-    def checksum_crc32(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_crc32(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_crc32", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumCrc32c")
-    def checksum_crc32c(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_crc32c(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded, 32-bit CRC32C checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32c")
 
     @checksum_crc32c.setter
-    def checksum_crc32c(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_crc32c(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_crc32c", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumCrc64nvme")
-    def checksum_crc64nvme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_crc64nvme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded, 64-bit CRC64NVME checksum of the object.
         """
         return pulumi.get(self, "checksum_crc64nvme")
 
     @checksum_crc64nvme.setter
-    def checksum_crc64nvme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_crc64nvme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_crc64nvme", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumSha1")
-    def checksum_sha1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_sha1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded, 160-bit SHA-1 digest of the object.
         """
         return pulumi.get(self, "checksum_sha1")
 
     @checksum_sha1.setter
-    def checksum_sha1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_sha1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_sha1", value)
 
     @_builtins.property
     @pulumi.getter(name="checksumSha256")
-    def checksum_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded, 256-bit SHA-256 digest of the object.
         """
         return pulumi.get(self, "checksum_sha256")
 
     @checksum_sha256.setter
-    def checksum_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum_sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum_sha256", value)
 
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
-    def content_disposition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_disposition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         """
         return pulumi.get(self, "content_disposition")
 
     @content_disposition.setter
-    def content_disposition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_disposition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_disposition", value)
 
     @_builtins.property
     @pulumi.getter(name="contentEncoding")
-    def content_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         """
         return pulumi.get(self, "content_encoding")
 
     @content_encoding.setter
-    def content_encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="contentLanguage")
-    def content_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
     @content_language.setter
-    def content_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_language", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfMatch")
-    def copy_if_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if its entity tag (ETag) matches the specified tag.
         """
         return pulumi.get(self, "copy_if_match")
 
     @copy_if_match.setter
-    def copy_if_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_match", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfModifiedSince")
-    def copy_if_modified_since(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_modified_since(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "copy_if_modified_since")
 
     @copy_if_modified_since.setter
-    def copy_if_modified_since(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_modified_since(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_modified_since", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfNoneMatch")
-    def copy_if_none_match(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_none_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if its entity tag (ETag) is different than the specified ETag.
         """
         return pulumi.get(self, "copy_if_none_match")
 
     @copy_if_none_match.setter
-    def copy_if_none_match(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_none_match(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_none_match", value)
 
     @_builtins.property
     @pulumi.getter(name="copyIfUnmodifiedSince")
-    def copy_if_unmodified_since(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_if_unmodified_since(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "copy_if_unmodified_since")
 
     @copy_if_unmodified_since.setter
-    def copy_if_unmodified_since(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_if_unmodified_since(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_if_unmodified_since", value)
 
     @_builtins.property
     @pulumi.getter(name="customerAlgorithm")
-    def customer_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use to when encrypting the object (for example, AES256).
         """
         return pulumi.get(self, "customer_algorithm")
 
     @customer_algorithm.setter
-    def customer_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="customerKey")
-    def customer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         """
         return pulumi.get(self, "customer_key")
 
     @customer_key.setter
-    def customer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="customerKeyMd5")
-    def customer_key_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "customer_key_md5")
 
     @customer_key_md5.setter
-    def customer_key_md5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_key_md5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_key_md5", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedSourceBucketOwner")
-    def expected_source_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_source_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_source_bucket_owner")
 
     @expected_source_bucket_owner.setter
-    def expected_source_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_source_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_source_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the object expiration is configured, this attribute will be set.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def expires(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "expires")
 
     @expires.setter
-    def expires(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires", value)
 
     @_builtins.property
     @pulumi.getter(name="forceDestroy")
-    def force_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         """
         return pulumi.get(self, "force_destroy")
 
     @force_destroy.setter
-    def force_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]:
+    def grants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]:
         """
         Configuration block for header grants. Documented below. Conflicts with `acl`.
         """
         return pulumi.get(self, "grants")
 
     @grants.setter
-    def grants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]):
+    def grants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]]):
         pulumi.set(self, "grants", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the object once it is in the bucket.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionContext")
-    def kms_encryption_context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_encryption_context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         """
         return pulumi.get(self, "kms_encryption_context")
 
     @kms_encryption_context.setter
-    def kms_encryption_context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_encryption_context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
-    def last_modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataDirective")
-    def metadata_directive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "metadata_directive")
 
     @metadata_directive.setter
-    def metadata_directive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_directive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_directive", value)
 
     @_builtins.property
     @pulumi.getter(name="objectLockLegalHoldStatus")
-    def object_lock_legal_hold_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_lock_legal_hold_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
     @object_lock_legal_hold_status.setter
-    def object_lock_legal_hold_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_lock_legal_hold_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_lock_legal_hold_status", value)
 
     @_builtins.property
     @pulumi.getter(name="objectLockMode")
-    def object_lock_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_lock_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         """
         return pulumi.get(self, "object_lock_mode")
 
     @object_lock_mode.setter
-    def object_lock_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_lock_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_lock_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="objectLockRetainUntilDate")
-    def object_lock_retain_until_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_lock_retain_until_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         """
         return pulumi.get(self, "object_lock_retain_until_date")
 
     @object_lock_retain_until_date.setter
-    def object_lock_retain_until_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_lock_retain_until_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_lock_retain_until_date", value)
 
     @_builtins.property
     @pulumi.getter(name="overrideProvider")
-    def override_provider(self) -> Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]:
+    def override_provider(self) -> pulumi.Input[Optional['ObjectCopyOverrideProviderArgs']]:
         return pulumi.get(self, "override_provider")
 
     @override_provider.setter
-    def override_provider(self, value: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]):
+    def override_provider(self, value: pulumi.Input[Optional['ObjectCopyOverrideProviderArgs']]):
         pulumi.set(self, "override_provider", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestCharged")
-    def request_charged(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_charged(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If present, indicates that the requester was successfully charged for the request.
         """
         return pulumi.get(self, "request_charged")
 
     @request_charged.setter
-    def request_charged(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_charged(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_charged", value)
 
     @_builtins.property
     @pulumi.getter(name="requestPayer")
-    def request_payer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_payer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
         """
         return pulumi.get(self, "request_payer")
 
     @request_payer.setter
-    def request_payer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_payer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_payer", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_side_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         """
         return pulumi.get(self, "server_side_encryption")
 
     @server_side_encryption.setter
-    def server_side_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_side_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_side_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 
@@ -1421,127 +1421,127 @@ class _ObjectCopyState:
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCustomerAlgorithm")
-    def source_customer_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use when decrypting the source object (for example, AES256).
         """
         return pulumi.get(self, "source_customer_algorithm")
 
     @source_customer_algorithm.setter
-    def source_customer_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_customer_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_customer_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCustomerKey")
-    def source_customer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         """
         return pulumi.get(self, "source_customer_key")
 
     @source_customer_key.setter
-    def source_customer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_customer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_customer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceCustomerKeyMd5")
-    def source_customer_key_md5(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "source_customer_key_md5")
 
     @source_customer_key_md5.setter
-    def source_customer_key_md5(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_customer_key_md5(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_customer_key_md5", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceVersionId")
-    def source_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the copied object in the source bucket.
         """
         return pulumi.get(self, "source_version_id")
 
     @source_version_id.setter
-    def source_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_version_id", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
-    def storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_class", value)
 
     @_builtins.property
     @pulumi.getter(name="taggingDirective")
-    def tagging_directive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tagging_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "tagging_directive")
 
     @tagging_directive.setter
-    def tagging_directive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tagging_directive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tagging_directive", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version ID of the newly created copy.
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
     @_builtins.property
     @pulumi.getter(name="websiteRedirect")
-    def website_redirect(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website_redirect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         return pulumi.get(self, "website_redirect")
 
     @website_redirect.setter
-    def website_redirect(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website_redirect(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website_redirect", value)
 
 
@@ -1551,47 +1551,47 @@ class ObjectCopy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_disposition: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_modified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_none_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_unmodified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_source_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_encryption_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 metadata_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_legal_hold_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_retain_until_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_payer: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 tagging_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 website_redirect: Optional[pulumi.Input[_builtins.str]] = None,
+                 acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_modified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_none_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_unmodified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_source_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metadata_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_payer: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 tagging_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 website_redirect: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource for copying an S3 object.
@@ -1740,47 +1740,47 @@ class ObjectCopy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 checksum_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_disposition: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_modified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_none_match: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_if_unmodified_since: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_source_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_encryption_context: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 metadata_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_legal_hold_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_lock_retain_until_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_payer: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 tagging_directive: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 website_redirect: Optional[pulumi.Input[_builtins.str]] = None,
+                 acl: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 checksum_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_modified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_none_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_if_unmodified_since: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_source_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 metadata_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_payer: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 tagging_directive: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 website_redirect: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1862,60 +1862,60 @@ class ObjectCopy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acl: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            cache_control: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_crc32: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_crc32c: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_crc64nvme: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_sha1: Optional[pulumi.Input[_builtins.str]] = None,
-            checksum_sha256: Optional[pulumi.Input[_builtins.str]] = None,
-            content_disposition: Optional[pulumi.Input[_builtins.str]] = None,
-            content_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-            content_language: Optional[pulumi.Input[_builtins.str]] = None,
-            content_type: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_if_match: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_if_modified_since: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_if_none_match: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_if_unmodified_since: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            expected_source_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            expiration: Optional[pulumi.Input[_builtins.str]] = None,
-            expires: Optional[pulumi.Input[_builtins.str]] = None,
-            force_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_encryption_context: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            last_modified: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            metadata_directive: Optional[pulumi.Input[_builtins.str]] = None,
-            object_lock_legal_hold_status: Optional[pulumi.Input[_builtins.str]] = None,
-            object_lock_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            object_lock_retain_until_date: Optional[pulumi.Input[_builtins.str]] = None,
-            override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            request_charged: Optional[pulumi.Input[_builtins.bool]] = None,
-            request_payer: Optional[pulumi.Input[_builtins.str]] = None,
-            server_side_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-            source: Optional[pulumi.Input[_builtins.str]] = None,
-            source_customer_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            source_customer_key: Optional[pulumi.Input[_builtins.str]] = None,
-            source_customer_key_md5: Optional[pulumi.Input[_builtins.str]] = None,
-            source_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_class: Optional[pulumi.Input[_builtins.str]] = None,
-            tagging_directive: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version_id: Optional[pulumi.Input[_builtins.str]] = None,
-            website_redirect: Optional[pulumi.Input[_builtins.str]] = None) -> 'ObjectCopy':
+            acl: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cache_control: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_crc32: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_crc32c: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_crc64nvme: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_sha1: pulumi.Input[Optional[_builtins.str]] = None,
+            checksum_sha256: pulumi.Input[Optional[_builtins.str]] = None,
+            content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
+            content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            content_language: pulumi.Input[Optional[_builtins.str]] = None,
+            content_type: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_if_match: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_if_modified_since: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_if_none_match: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_if_unmodified_since: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_source_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            expires: pulumi.Input[Optional[_builtins.str]] = None,
+            force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_encryption_context: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            metadata_directive: pulumi.Input[Optional[_builtins.str]] = None,
+            object_lock_legal_hold_status: pulumi.Input[Optional[_builtins.str]] = None,
+            object_lock_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            object_lock_retain_until_date: pulumi.Input[Optional[_builtins.str]] = None,
+            override_provider: pulumi.Input[Optional[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_charged: pulumi.Input[Optional[_builtins.bool]] = None,
+            request_payer: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            source_customer_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            source_customer_key: pulumi.Input[Optional[_builtins.str]] = None,
+            source_customer_key_md5: pulumi.Input[Optional[_builtins.str]] = None,
+            source_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_class: pulumi.Input[Optional[_builtins.str]] = None,
+            tagging_directive: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            website_redirect: pulumi.Input[Optional[_builtins.str]] = None) -> 'ObjectCopy':
         """
         Get an existing ObjectCopy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -433,38 +433,38 @@ export interface AgentcoreGatewayTargetState {
     /**
      * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
      */
-    credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration>;
+    credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
      * Description of the gateway target.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the gateway that this target belongs to.
      */
-    gatewayIdentifier?: pulumi.Input<string>;
+    gatewayIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
      */
-    metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration>;
+    metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
      * Name of the gateway target.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the target endpoint. See `targetConfiguration` below.
      *
      * The following arguments are optional:
      */
-    targetConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfiguration>;
+    targetConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfiguration | undefined>;
     /**
      * Unique identifier of the gateway target.
      */
-    targetId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTimeouts>;
+    targetId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTimeouts | undefined>;
 }
 
 /**
@@ -474,11 +474,11 @@ export interface AgentcoreGatewayTargetArgs {
     /**
      * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
      */
-    credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration>;
+    credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
      * Description of the gateway target.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the gateway that this target belongs to.
      */
@@ -486,20 +486,20 @@ export interface AgentcoreGatewayTargetArgs {
     /**
      * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
      */
-    metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration>;
+    metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
      * Name of the gateway target.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the target endpoint. See `targetConfiguration` below.
      *
      * The following arguments are optional:
      */
     targetConfiguration: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfiguration>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTimeouts>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTimeouts | undefined>;
 }

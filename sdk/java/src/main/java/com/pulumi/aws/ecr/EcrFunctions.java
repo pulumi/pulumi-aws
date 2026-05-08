@@ -50,8 +50,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -89,8 +89,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -128,8 +128,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -167,8 +167,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -206,8 +206,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -245,8 +245,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -284,8 +284,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -323,8 +323,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -364,8 +364,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -405,8 +405,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -446,8 +446,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -487,8 +487,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -577,8 +577,8 @@ public final class EcrFunctions {
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -635,8 +635,8 @@ public final class EcrFunctions {
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -693,8 +693,8 @@ public final class EcrFunctions {
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -751,8 +751,8 @@ public final class EcrFunctions {
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -809,8 +809,8 @@ public final class EcrFunctions {
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -863,8 +863,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -903,8 +903,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -943,8 +943,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -983,8 +983,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1023,8 +1023,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1065,8 +1065,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1106,8 +1106,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1147,8 +1147,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1188,8 +1188,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1229,8 +1229,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1270,8 +1270,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1311,8 +1311,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1350,8 +1350,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1390,8 +1390,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1430,8 +1430,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1470,8 +1470,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1510,8 +1510,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1550,8 +1550,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1590,8 +1590,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1630,8 +1630,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1670,8 +1670,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1710,8 +1710,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

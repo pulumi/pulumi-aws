@@ -26,11 +26,11 @@ __all__ = [
 ]
 
 class DevEnvironmentIdesArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
     """
-    runtime: NotRequired[pulumi.Input[_builtins.str]]
+    runtime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
     """
@@ -38,8 +38,8 @@ class DevEnvironmentIdesArgsDict(TypedDict):
 @pulumi.input_type
 class DevEnvironmentIdesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
         :param pulumi.Input[_builtins.str] runtime: A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
@@ -51,26 +51,26 @@ class DevEnvironmentIdesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def runtime(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
         """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime", value)
 
 
@@ -107,7 +107,7 @@ class DevEnvironmentRepositoryArgsDict(TypedDict):
     """
     The name of the source repository.
     """
-    branch_name: NotRequired[pulumi.Input[_builtins.str]]
+    branch_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the branch in a source repository.
 
@@ -118,7 +118,7 @@ class DevEnvironmentRepositoryArgsDict(TypedDict):
 class DevEnvironmentRepositoryArgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[_builtins.str],
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repository_name: The name of the source repository.
         :param pulumi.Input[_builtins.str] branch_name: The name of the branch in a source repository.
@@ -143,7 +143,7 @@ class DevEnvironmentRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the branch in a source repository.
 
@@ -152,7 +152,7 @@ class DevEnvironmentRepositoryArgs:
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
-    def branch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_name", value)
 
 

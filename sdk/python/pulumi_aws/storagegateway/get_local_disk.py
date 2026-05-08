@@ -136,10 +136,10 @@ def get_local_disk(disk_node: Optional[_builtins.str] = None,
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          disk_path: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          gateway_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_local_disk_output(disk_node: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          disk_path: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalDiskResult]:
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.

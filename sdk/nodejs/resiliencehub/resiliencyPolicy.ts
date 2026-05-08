@@ -179,50 +179,50 @@ export interface ResiliencyPolicyState {
     /**
      * ARN of the Resiliency Policy.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Data Location Constraint of the Policy.
      * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
      */
-    dataLocationConstraint?: pulumi.Input<string>;
+    dataLocationConstraint?: pulumi.Input<string | undefined>;
     /**
      * Description of Resiliency Policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Estimated Cost Tier of the Resiliency Policy.
      */
-    estimatedCostTier?: pulumi.Input<string>;
+    estimatedCostTier?: pulumi.Input<string | undefined>;
     /**
      * Name of Resiliency Policy.
      * Must be between 2 and 60 characters long.
      * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
      *
      * The following arguments are optional:
      */
-    policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy>;
+    policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Resiliency Policy Tier.
      * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
      */
-    tier?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyTimeouts>;
+    tier?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyTimeouts | undefined>;
 }
 
 /**
@@ -233,35 +233,35 @@ export interface ResiliencyPolicyArgs {
      * Data Location Constraint of the Policy.
      * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
      */
-    dataLocationConstraint?: pulumi.Input<string>;
+    dataLocationConstraint?: pulumi.Input<string | undefined>;
     /**
      * Description of Resiliency Policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of Resiliency Policy.
      * Must be between 2 and 60 characters long.
      * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
      *
      * The following arguments are optional:
      */
-    policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy>;
+    policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Resiliency Policy Tier.
      * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
      */
     tier: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyTimeouts>;
+    timeouts?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyTimeouts | undefined>;
 }

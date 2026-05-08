@@ -82,7 +82,7 @@ export interface SecurityTokenServicePreferencesState {
     /**
      * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
      */
-    globalEndpointTokenVersion?: pulumi.Input<string>;
+    globalEndpointTokenVersion?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -23,20 +23,20 @@ class PolicyArgs:
     def __init__(__self__, *,
                  exclude_resource_tags: pulumi.Input[_builtins.bool],
                  security_service_policy_data: pulumi.Input['PolicySecurityServicePolicyDataArgs'],
-                 delete_all_policy_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_unused_fm_managed_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
-                 include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_tag_logical_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 delete_all_policy_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_unused_fm_managed_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_map: pulumi.Input[Optional['PolicyExcludeMapArgs']] = None,
+                 include_map: pulumi.Input[Optional['PolicyIncludeMapArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_tag_logical_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -113,192 +113,192 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteAllPolicyResources")
-    def delete_all_policy_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_all_policy_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         """
         return pulumi.get(self, "delete_all_policy_resources")
 
     @delete_all_policy_resources.setter
-    def delete_all_policy_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_all_policy_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_all_policy_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteUnusedFmManagedResources")
-    def delete_unused_fm_managed_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_unused_fm_managed_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
         """
         return pulumi.get(self, "delete_unused_fm_managed_resources")
 
     @delete_unused_fm_managed_resources.setter
-    def delete_unused_fm_managed_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_unused_fm_managed_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_unused_fm_managed_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the AWS Network Firewall firewall policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeMap")
-    def exclude_map(self) -> Optional[pulumi.Input['PolicyExcludeMapArgs']]:
+    def exclude_map(self) -> pulumi.Input[Optional['PolicyExcludeMapArgs']]:
         """
         A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
         """
         return pulumi.get(self, "exclude_map")
 
     @exclude_map.setter
-    def exclude_map(self, value: Optional[pulumi.Input['PolicyExcludeMapArgs']]):
+    def exclude_map(self, value: pulumi.Input[Optional['PolicyExcludeMapArgs']]):
         pulumi.set(self, "exclude_map", value)
 
     @_builtins.property
     @pulumi.getter(name="includeMap")
-    def include_map(self) -> Optional[pulumi.Input['PolicyIncludeMapArgs']]:
+    def include_map(self) -> pulumi.Input[Optional['PolicyIncludeMapArgs']]:
         """
         A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         """
         return pulumi.get(self, "include_map")
 
     @include_map.setter
-    def include_map(self, value: Optional[pulumi.Input['PolicyIncludeMapArgs']]):
+    def include_map(self, value: pulumi.Input[Optional['PolicyIncludeMapArgs']]):
         pulumi.set(self, "include_map", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the AWS Firewall Manager Policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationEnabled")
-    def remediation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remediation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         """
         return pulumi.get(self, "remediation_enabled")
 
     @remediation_enabled.setter
-    def remediation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remediation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remediation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSetIds")
-    def resource_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_set_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "resource_set_ids")
 
     @resource_set_ids.setter
-    def resource_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_set_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_set_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTagLogicalOperator")
-    def resource_tag_logical_operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_tag_logical_operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
         """
         return pulumi.get(self, "resource_tag_logical_operator")
 
     @resource_tag_logical_operator.setter
-    def resource_tag_logical_operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_tag_logical_operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_tag_logical_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeLists")
-    def resource_type_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_type_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         """
         return pulumi.get(self, "resource_type_lists")
 
     @resource_type_lists.setter
-    def resource_type_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_type_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_type_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PolicyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_all_policy_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_unused_fm_managed_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
-                 exclude_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_update_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_tag_logical_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_service_policy_data: Optional[pulumi.Input['PolicySecurityServicePolicyDataArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_all_policy_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_unused_fm_managed_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_map: pulumi.Input[Optional['PolicyExcludeMapArgs']] = None,
+                 exclude_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_map: pulumi.Input[Optional['PolicyIncludeMapArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_update_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_tag_logical_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_service_policy_data: pulumi.Input[Optional['PolicySecurityServicePolicyDataArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
 
@@ -361,224 +361,224 @@ class _PolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAllPolicyResources")
-    def delete_all_policy_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_all_policy_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         """
         return pulumi.get(self, "delete_all_policy_resources")
 
     @delete_all_policy_resources.setter
-    def delete_all_policy_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_all_policy_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_all_policy_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteUnusedFmManagedResources")
-    def delete_unused_fm_managed_resources(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_unused_fm_managed_resources(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
         """
         return pulumi.get(self, "delete_unused_fm_managed_resources")
 
     @delete_unused_fm_managed_resources.setter
-    def delete_unused_fm_managed_resources(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_unused_fm_managed_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_unused_fm_managed_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the AWS Network Firewall firewall policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeMap")
-    def exclude_map(self) -> Optional[pulumi.Input['PolicyExcludeMapArgs']]:
+    def exclude_map(self) -> pulumi.Input[Optional['PolicyExcludeMapArgs']]:
         """
         A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
         """
         return pulumi.get(self, "exclude_map")
 
     @exclude_map.setter
-    def exclude_map(self, value: Optional[pulumi.Input['PolicyExcludeMapArgs']]):
+    def exclude_map(self, value: pulumi.Input[Optional['PolicyExcludeMapArgs']]):
         pulumi.set(self, "exclude_map", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeResourceTags")
-    def exclude_resource_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclude_resource_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         """
         return pulumi.get(self, "exclude_resource_tags")
 
     @exclude_resource_tags.setter
-    def exclude_resource_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclude_resource_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclude_resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="includeMap")
-    def include_map(self) -> Optional[pulumi.Input['PolicyIncludeMapArgs']]:
+    def include_map(self) -> pulumi.Input[Optional['PolicyIncludeMapArgs']]:
         """
         A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         """
         return pulumi.get(self, "include_map")
 
     @include_map.setter
-    def include_map(self, value: Optional[pulumi.Input['PolicyIncludeMapArgs']]):
+    def include_map(self, value: pulumi.Input[Optional['PolicyIncludeMapArgs']]):
         pulumi.set(self, "include_map", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the AWS Firewall Manager Policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyUpdateToken")
-    def policy_update_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_update_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for each update to the policy.
         """
         return pulumi.get(self, "policy_update_token")
 
     @policy_update_token.setter
-    def policy_update_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_update_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_update_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationEnabled")
-    def remediation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remediation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         """
         return pulumi.get(self, "remediation_enabled")
 
     @remediation_enabled.setter
-    def remediation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remediation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remediation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSetIds")
-    def resource_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_set_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "resource_set_ids")
 
     @resource_set_ids.setter
-    def resource_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_set_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_set_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTagLogicalOperator")
-    def resource_tag_logical_operator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_tag_logical_operator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
         """
         return pulumi.get(self, "resource_tag_logical_operator")
 
     @resource_tag_logical_operator.setter
-    def resource_tag_logical_operator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_tag_logical_operator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_tag_logical_operator", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeLists")
-    def resource_type_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_type_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         """
         return pulumi.get(self, "resource_type_lists")
 
     @resource_type_lists.setter
-    def resource_type_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_type_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_type_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="securityServicePolicyData")
-    def security_service_policy_data(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataArgs']]:
+    def security_service_policy_data(self) -> pulumi.Input[Optional['PolicySecurityServicePolicyDataArgs']]:
         """
         The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
         """
         return pulumi.get(self, "security_service_policy_data")
 
     @security_service_policy_data.setter
-    def security_service_policy_data(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataArgs']]):
+    def security_service_policy_data(self, value: pulumi.Input[Optional['PolicySecurityServicePolicyDataArgs']]):
         pulumi.set(self, "security_service_policy_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -588,22 +588,22 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_all_policy_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_unused_fm_managed_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_map: Optional[pulumi.Input[Union['PolicyExcludeMapArgs', 'PolicyExcludeMapArgsDict']]] = None,
-                 exclude_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_tag_logical_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_service_policy_data: Optional[pulumi.Input[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 delete_all_policy_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_unused_fm_managed_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_map: pulumi.Input[Optional[Union['PolicyExcludeMapArgs', 'PolicyExcludeMapArgsDict']]] = None,
+                 exclude_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_map: pulumi.Input[Optional[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_tag_logical_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_service_policy_data: pulumi.Input[Optional[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
@@ -744,22 +744,22 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_all_policy_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_unused_fm_managed_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_map: Optional[pulumi.Input[Union['PolicyExcludeMapArgs', 'PolicyExcludeMapArgsDict']]] = None,
-                 exclude_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remediation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_tag_logical_operator: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_service_policy_data: Optional[pulumi.Input[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 delete_all_policy_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_unused_fm_managed_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_map: pulumi.Input[Optional[Union['PolicyExcludeMapArgs', 'PolicyExcludeMapArgsDict']]] = None,
+                 exclude_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_map: pulumi.Input[Optional[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remediation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_tag_logical_operator: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_service_policy_data: pulumi.Input[Optional[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -802,25 +802,25 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_all_policy_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-            delete_unused_fm_managed_resources: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            exclude_map: Optional[pulumi.Input[Union['PolicyExcludeMapArgs', 'PolicyExcludeMapArgsDict']]] = None,
-            exclude_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-            include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_update_token: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            remediation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_tag_logical_operator: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            security_service_policy_data: Optional[pulumi.Input[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Policy':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_all_policy_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_unused_fm_managed_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_map: pulumi.Input[Optional[Union['PolicyExcludeMapArgs', 'PolicyExcludeMapArgsDict']]] = None,
+            exclude_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            include_map: pulumi.Input[Optional[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_update_token: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remediation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_tag_logical_operator: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_service_policy_data: pulumi.Input[Optional[Union['PolicySecurityServicePolicyDataArgs', 'PolicySecurityServicePolicyDataArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

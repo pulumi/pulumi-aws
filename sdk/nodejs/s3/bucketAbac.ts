@@ -139,21 +139,21 @@ export interface BucketAbacState {
      *
      * The following arguments are optional:
      */
-    abacStatus?: pulumi.Input<inputs.s3.BucketAbacAbacStatus>;
+    abacStatus?: pulumi.Input<inputs.s3.BucketAbacAbacStatus | undefined>;
     /**
      * General purpose bucket that you want to create the metadata configuration for.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the expected bucket owner.
      *
      * @deprecated This attribute will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,9 +175,9 @@ export interface BucketAbacArgs {
      *
      * @deprecated This attribute will be removed in a future verion of the provider.
      */
-    expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

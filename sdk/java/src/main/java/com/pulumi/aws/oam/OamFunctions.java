@@ -40,8 +40,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -82,8 +82,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -124,8 +124,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -166,8 +166,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -208,8 +208,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -250,8 +250,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -291,8 +291,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -332,8 +332,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -373,8 +373,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -414,8 +414,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -455,8 +455,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -496,8 +496,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetLinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -537,8 +537,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -579,8 +579,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -621,8 +621,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -663,8 +663,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -705,8 +705,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -747,8 +747,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -788,8 +788,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -829,8 +829,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -870,8 +870,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -911,8 +911,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -952,8 +952,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -993,8 +993,8 @@ public final class OamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.oam.OamFunctions;
      * import com.pulumi.aws.oam.inputs.GetSinksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

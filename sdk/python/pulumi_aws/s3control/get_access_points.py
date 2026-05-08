@@ -169,11 +169,11 @@ def get_access_points(account_id: Optional[_builtins.str] = None,
         data_source_type=pulumi.get(__ret__, 'data_source_type'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_access_points_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             bucket: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             data_source_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             data_source_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_access_points_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             bucket: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             data_source_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             data_source_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointsResult]:
     """
     Provides details about an AWS S3 Control Access Points.

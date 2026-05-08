@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const example = new aws.quicksight.TemplateAlias("example", {
  *     aliasName: "example-alias",
  *     templateId: test.templateId,
- *     templateVersionNumber: test.versionNumber,
+ *     templateVersionNumber: Number(test.versionNumber),
  * });
  * ```
  *
@@ -134,29 +134,29 @@ export interface TemplateAliasState {
     /**
      * Display name of the template alias.
      */
-    aliasName?: pulumi.Input<string>;
+    aliasName?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the template alias.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the template.
      */
-    templateId?: pulumi.Input<string>;
+    templateId?: pulumi.Input<string | undefined>;
     /**
      * Version number of the template.
      *
      * The following arguments are optional:
      */
-    templateVersionNumber?: pulumi.Input<number>;
+    templateVersionNumber?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -170,11 +170,11 @@ export interface TemplateAliasArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the template.
      */

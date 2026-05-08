@@ -23,10 +23,10 @@ class VoiceConnectorStreamingArgs:
     def __init__(__self__, *,
                  data_retention: pulumi.Input[_builtins.int],
                  voice_connector_id: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 media_insights_configuration: pulumi.Input[Optional['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_notification_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnectorStreaming resource.
 
@@ -74,62 +74,62 @@ class VoiceConnectorStreamingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaInsightsConfiguration")
-    def media_insights_configuration(self) -> Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]:
+    def media_insights_configuration(self) -> pulumi.Input[Optional['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]:
         """
         The media insights configuration. See `media_insights_configuration`.
         """
         return pulumi.get(self, "media_insights_configuration")
 
     @media_insights_configuration.setter
-    def media_insights_configuration(self, value: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]):
+    def media_insights_configuration(self, value: pulumi.Input[Optional['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]):
         pulumi.set(self, "media_insights_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="streamingNotificationTargets")
-    def streaming_notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def streaming_notification_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         """
         return pulumi.get(self, "streaming_notification_targets")
 
     @streaming_notification_targets.setter
-    def streaming_notification_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def streaming_notification_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "streaming_notification_targets", value)
 
 
 @pulumi.input_type
 class _VoiceConnectorStreamingState:
     def __init__(__self__, *,
-                 data_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 media_insights_configuration: pulumi.Input[Optional['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_notification_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorStreaming resources.
 
@@ -155,74 +155,74 @@ class _VoiceConnectorStreamingState:
 
     @_builtins.property
     @pulumi.getter(name="dataRetention")
-    def data_retention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_retention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The retention period, in hours, for the Amazon Kinesis data.
         """
         return pulumi.get(self, "data_retention")
 
     @data_retention.setter
-    def data_retention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_retention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_retention", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaInsightsConfiguration")
-    def media_insights_configuration(self) -> Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]:
+    def media_insights_configuration(self) -> pulumi.Input[Optional['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]:
         """
         The media insights configuration. See `media_insights_configuration`.
         """
         return pulumi.get(self, "media_insights_configuration")
 
     @media_insights_configuration.setter
-    def media_insights_configuration(self, value: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]):
+    def media_insights_configuration(self, value: pulumi.Input[Optional['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]):
         pulumi.set(self, "media_insights_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="streamingNotificationTargets")
-    def streaming_notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def streaming_notification_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         """
         return pulumi.get(self, "streaming_notification_targets")
 
     @streaming_notification_targets.setter
-    def streaming_notification_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def streaming_notification_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "streaming_notification_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceConnectorId")
-    def voice_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def voice_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Chime Voice Connector ID.
         """
         return pulumi.get(self, "voice_connector_id")
 
     @voice_connector_id.setter
-    def voice_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def voice_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "voice_connector_id", value)
 
 
@@ -232,12 +232,12 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 media_insights_configuration: pulumi.Input[Optional[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_notification_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
@@ -429,12 +429,12 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 media_insights_configuration: pulumi.Input[Optional[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 streaming_notification_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,12 +464,12 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_retention: Optional[pulumi.Input[_builtins.int]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            media_insights_configuration: Optional[pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VoiceConnectorStreaming':
+            data_retention: pulumi.Input[Optional[_builtins.int]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            media_insights_configuration: pulumi.Input[Optional[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            streaming_notification_targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VoiceConnectorStreaming':
         """
         Get an existing VoiceConnectorStreaming resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

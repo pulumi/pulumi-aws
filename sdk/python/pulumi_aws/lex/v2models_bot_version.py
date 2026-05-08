@@ -23,10 +23,10 @@ class V2modelsBotVersionArgs:
     def __init__(__self__, *,
                  bot_id: pulumi.Input[_builtins.str],
                  locale_specification: pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]],
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsBotVersion resource.
 
@@ -74,19 +74,19 @@ class V2modelsBotVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
-    def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version number assigned to the version.
         """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
-    def bot_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the version. Use the description to help identify the version in lists.
         * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
@@ -94,40 +94,40 @@ class V2modelsBotVersionArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsBotVersionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsBotVersionTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _V2modelsBotVersionState:
     def __init__(__self__, *,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']] = None):
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale_specification: pulumi.Input[Optional[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsBotVersionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsBotVersion resources.
 
@@ -153,31 +153,31 @@ class _V2modelsBotVersionState:
 
     @_builtins.property
     @pulumi.getter(name="botId")
-    def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Idientifier of the bot to create the version for.
         """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
-    def bot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
-    def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version number assigned to the version.
         """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
-    def bot_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the version. Use the description to help identify the version in lists.
         * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
@@ -185,40 +185,40 @@ class _V2modelsBotVersionState:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="localeSpecification")
-    def locale_specification(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]]:
+    def locale_specification(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]]:
         """
         Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
         """
         return pulumi.get(self, "locale_specification")
 
     @locale_specification.setter
-    def locale_specification(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]]):
+    def locale_specification(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['V2modelsBotVersionLocaleSpecificationArgs']]]]):
         pulumi.set(self, "locale_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsBotVersionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsBotVersionTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsBotVersionTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -228,12 +228,12 @@ class V2modelsBotVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale_specification: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Bot Version.
@@ -323,12 +323,12 @@ class V2modelsBotVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale_specification: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,12 +358,12 @@ class V2modelsBotVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None) -> 'V2modelsBotVersion':
+            bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            locale_specification: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None) -> 'V2modelsBotVersion':
         """
         Get an existing V2modelsBotVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

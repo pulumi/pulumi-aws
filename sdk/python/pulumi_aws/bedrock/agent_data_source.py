@@ -23,13 +23,13 @@ class AgentDataSourceArgs:
     def __init__(__self__, *,
                  data_source_configuration: pulumi.Input['AgentDataSourceDataSourceConfigurationArgs'],
                  knowledge_base_id: pulumi.Input[_builtins.str],
-                 data_deletion_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']] = None,
-                 timeouts: Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
+                 data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']] = None,
+                 timeouts: pulumi.Input[Optional['AgentDataSourceTimeoutsArgs']] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AgentDataSource resource.
 
@@ -87,31 +87,31 @@ class AgentDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataDeletionPolicy")
-    def data_deletion_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_deletion_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         """
         return pulumi.get(self, "data_deletion_policy")
 
     @data_deletion_policy.setter
-    def data_deletion_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_deletion_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_deletion_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the data source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the data source.
 
@@ -120,68 +120,68 @@ class AgentDataSourceArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
         """
         Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
-    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]):
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentDataSourceTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentDataSourceTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorIngestionConfiguration")
-    def vector_ingestion_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']]:
+    def vector_ingestion_configuration(self) -> pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']]:
         """
         Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 
     @vector_ingestion_configuration.setter
-    def vector_ingestion_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']]):
+    def vector_ingestion_configuration(self, value: pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']]):
         pulumi.set(self, "vector_ingestion_configuration", value)
 
 
 @pulumi.input_type
 class _AgentDataSourceState:
     def __init__(__self__, *,
-                 data_deletion_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']] = None,
-                 data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']] = None,
-                 timeouts: Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
+                 data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationArgs']] = None,
+                 data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']] = None,
+                 timeouts: pulumi.Input[Optional['AgentDataSourceTimeoutsArgs']] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering AgentDataSource resources.
 
@@ -220,67 +220,67 @@ class _AgentDataSourceState:
 
     @_builtins.property
     @pulumi.getter(name="dataDeletionPolicy")
-    def data_deletion_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_deletion_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         """
         return pulumi.get(self, "data_deletion_policy")
 
     @data_deletion_policy.setter
-    def data_deletion_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_deletion_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_deletion_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceConfiguration")
-    def data_source_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']]:
+    def data_source_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationArgs']]:
         """
         Details about how the data source is stored. See `data_source_configuration` block for details.
         """
         return pulumi.get(self, "data_source_configuration")
 
     @data_source_configuration.setter
-    def data_source_configuration(self, value: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']]):
+    def data_source_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationArgs']]):
         pulumi.set(self, "data_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the data source.
         """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
-    def data_source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the data source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
-    def knowledge_base_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def knowledge_base_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier of the knowledge base to which the data source belongs.
         """
         return pulumi.get(self, "knowledge_base_id")
 
     @knowledge_base_id.setter
-    def knowledge_base_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def knowledge_base_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "knowledge_base_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the data source.
 
@@ -289,52 +289,52 @@ class _AgentDataSourceState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
         """
         Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
-    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]):
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['AgentDataSourceServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentDataSourceTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentDataSourceTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorIngestionConfiguration")
-    def vector_ingestion_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']]:
+    def vector_ingestion_configuration(self) -> pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']]:
         """
         Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 
     @vector_ingestion_configuration.setter
-    def vector_ingestion_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']]):
+    def vector_ingestion_configuration(self, value: pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationArgs']]):
         pulumi.set(self, "vector_ingestion_configuration", value)
 
 
@@ -344,15 +344,15 @@ class AgentDataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_deletion_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
+                 data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Data Source.
@@ -532,15 +532,15 @@ class AgentDataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_deletion_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
+                 data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -574,16 +574,16 @@ class AgentDataSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_deletion_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            data_source_configuration: Optional[pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
-            data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
-            vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None) -> 'AgentDataSource':
+            data_deletion_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            data_source_configuration: pulumi.Input[Optional[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
+            data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption_configuration: pulumi.Input[Optional[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
+            vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None) -> 'AgentDataSource':
         """
         Get an existing AgentDataSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

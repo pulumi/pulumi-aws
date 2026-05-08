@@ -130,27 +130,27 @@ export interface WorkspaceApiKeyState {
     /**
      * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API key. Key names must be unique to the workspace.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      */
-    keyRole?: pulumi.Input<string>;
+    keyRole?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      */
-    secondsToLive?: pulumi.Input<number>;
+    secondsToLive?: pulumi.Input<number | undefined>;
     /**
      * The ID of the workspace that the API key is valid for.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,7 +168,7 @@ export interface WorkspaceApiKeyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      */

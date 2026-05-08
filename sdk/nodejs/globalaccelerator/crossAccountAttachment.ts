@@ -158,37 +158,37 @@ export interface CrossAccountAttachmentState {
     /**
      * ARN of the Cross Account Attachment.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Creation Time when the Cross Account Attachment.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * Last modified time of the Cross Account Attachment.
      */
-    lastModifiedTime?: pulumi.Input<string>;
+    lastModifiedTime?: pulumi.Input<string | undefined>;
     /**
      * Name of the Cross Account Attachment.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of AWS account IDs that are allowed to associate resources with the accelerator.
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of resources to be associated with the accelerator.
      */
-    resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResource>[]>;
+    resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResource>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -200,17 +200,17 @@ export interface CrossAccountAttachmentArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of AWS account IDs that are allowed to associate resources with the accelerator.
      */
-    principals?: pulumi.Input<pulumi.Input<string>[]>;
+    principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of resources to be associated with the accelerator.
      */
-    resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResource>[]>;
+    resources?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CrossAccountAttachmentResource>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

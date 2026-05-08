@@ -236,76 +236,76 @@ export interface FileCacheState {
     /**
      * The Amazon Resource Name (ARN) for the resource.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
      */
-    copyTagsToDataRepositoryAssociations?: pulumi.Input<boolean>;
+    copyTagsToDataRepositoryAssociations?: pulumi.Input<boolean | undefined>;
     /**
      * A list of IDs of data repository associations that are associated with this cache.
      */
-    dataRepositoryAssociationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    dataRepositoryAssociationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * See the `dataRepositoryAssociation` configuration block. Max of 8.
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      */
-    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociation>[]>;
+    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociation>[] | undefined>;
     /**
      * The Domain Name System (DNS) name for the cache.
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * The system-generated, unique ID of the cache.
      */
-    fileCacheId?: pulumi.Input<string>;
+    fileCacheId?: pulumi.Input<string | undefined>;
     /**
      * The type of cache that you're creating. The only supported value is `LUSTRE`.
      */
-    fileCacheType?: pulumi.Input<string>;
+    fileCacheType?: pulumi.Input<string | undefined>;
     /**
      * The version for the type of cache that you're creating. The only supported value is `2.12`.
      */
-    fileCacheTypeVersion?: pulumi.Input<string>;
+    fileCacheTypeVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
      */
-    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfiguration>[]>;
+    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfiguration>[] | undefined>;
     /**
      * A list of network interface IDs.
      */
-    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    ownerId?: pulumi.Input<string>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      */
-    storageCapacity?: pulumi.Input<number>;
+    storageCapacity?: pulumi.Input<number | undefined>;
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      *
      * The following arguments are optional:
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of your virtual private cloud (VPC).
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -315,12 +315,12 @@ export interface FileCacheArgs {
     /**
      * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
      */
-    copyTagsToDataRepositoryAssociations?: pulumi.Input<boolean>;
+    copyTagsToDataRepositoryAssociations?: pulumi.Input<boolean | undefined>;
     /**
      * See the `dataRepositoryAssociation` configuration block. Max of 8.
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      */
-    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociation>[]>;
+    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociation>[] | undefined>;
     /**
      * The type of cache that you're creating. The only supported value is `LUSTRE`.
      */
@@ -332,19 +332,19 @@ export interface FileCacheArgs {
     /**
      * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
      */
-    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfiguration>[]>;
+    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfiguration>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      */
@@ -358,5 +358,5 @@ export interface FileCacheArgs {
     /**
      * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

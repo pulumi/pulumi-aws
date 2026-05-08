@@ -189,8 +189,8 @@ def get_cache_policy(id: Optional[_builtins.str] = None,
         min_ttl=pulumi.get(__ret__, 'min_ttl'),
         name=pulumi.get(__ret__, 'name'),
         parameters_in_cache_key_and_forwarded_to_origins=pulumi.get(__ret__, 'parameters_in_cache_key_and_forwarded_to_origins'))
-def get_cache_policy_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cache_policy_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
     Use this data source to retrieve information about a CloudFront cache policy.

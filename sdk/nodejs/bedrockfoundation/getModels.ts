@@ -132,21 +132,21 @@ export interface GetModelsOutputArgs {
     /**
      * Customization type to filter on. Valid values are `FINE_TUNING`.
      */
-    byCustomizationType?: pulumi.Input<string>;
+    byCustomizationType?: pulumi.Input<string | undefined>;
     /**
      * Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
      */
-    byInferenceType?: pulumi.Input<string>;
+    byInferenceType?: pulumi.Input<string | undefined>;
     /**
      * Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
      */
-    byOutputModality?: pulumi.Input<string>;
+    byOutputModality?: pulumi.Input<string | undefined>;
     /**
      * Model provider to filter on.
      */
-    byProvider?: pulumi.Input<string>;
+    byProvider?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

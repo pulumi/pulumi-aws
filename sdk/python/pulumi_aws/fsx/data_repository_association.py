@@ -24,12 +24,12 @@ class DataRepositoryAssociationArgs:
                  data_repository_path: pulumi.Input[_builtins.str],
                  file_system_id: pulumi.Input[_builtins.str],
                  file_system_path: pulumi.Input[_builtins.str],
-                 batch_import_meta_data_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_data_in_filesystem: Optional[pulumi.Input[_builtins.bool]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 batch_import_meta_data_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_data_in_filesystem: pulumi.Input[Optional[_builtins.bool]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3: pulumi.Input[Optional['DataRepositoryAssociationS3Args']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataRepositoryAssociation resource.
 
@@ -98,55 +98,55 @@ class DataRepositoryAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="batchImportMetaDataOnCreate")
-    def batch_import_meta_data_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_import_meta_data_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         """
         return pulumi.get(self, "batch_import_meta_data_on_create")
 
     @batch_import_meta_data_on_create.setter
-    def batch_import_meta_data_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_import_meta_data_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_import_meta_data_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteDataInFilesystem")
-    def delete_data_in_filesystem(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_data_in_filesystem(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
         """
         return pulumi.get(self, "delete_data_in_filesystem")
 
     @delete_data_in_filesystem.setter
-    def delete_data_in_filesystem(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_data_in_filesystem(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_data_in_filesystem", value)
 
     @_builtins.property
     @pulumi.getter(name="importedFileChunkSize")
-    def imported_file_chunk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def imported_file_chunk_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @imported_file_chunk_size.setter
-    def imported_file_chunk_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def imported_file_chunk_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "imported_file_chunk_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['DataRepositoryAssociationS3Args']]:
+    def s3(self) -> pulumi.Input[Optional['DataRepositoryAssociationS3Args']]:
         """
         See the `s3` configuration block. Max of 1.
         The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
@@ -154,37 +154,37 @@ class DataRepositoryAssociationArgs:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['DataRepositoryAssociationS3Args']]):
+    def s3(self, value: pulumi.Input[Optional['DataRepositoryAssociationS3Args']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DataRepositoryAssociationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 batch_import_meta_data_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_repository_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_data_in_filesystem: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 batch_import_meta_data_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_repository_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_data_in_filesystem: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3: pulumi.Input[Optional['DataRepositoryAssociationS3Args']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataRepositoryAssociation resources.
 
@@ -228,112 +228,112 @@ class _DataRepositoryAssociationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name of the file system.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "association_id")
 
     @association_id.setter
-    def association_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "association_id", value)
 
     @_builtins.property
     @pulumi.getter(name="batchImportMetaDataOnCreate")
-    def batch_import_meta_data_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def batch_import_meta_data_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         """
         return pulumi.get(self, "batch_import_meta_data_on_create")
 
     @batch_import_meta_data_on_create.setter
-    def batch_import_meta_data_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def batch_import_meta_data_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "batch_import_meta_data_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRepositoryPath")
-    def data_repository_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_repository_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
         """
         return pulumi.get(self, "data_repository_path")
 
     @data_repository_path.setter
-    def data_repository_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_repository_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_repository_path", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteDataInFilesystem")
-    def delete_data_in_filesystem(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_data_in_filesystem(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
         """
         return pulumi.get(self, "delete_data_in_filesystem")
 
     @delete_data_in_filesystem.setter
-    def delete_data_in_filesystem(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_data_in_filesystem(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_data_in_filesystem", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon FSx file system to on which to create a data repository association.
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemPath")
-    def file_system_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
         """
         return pulumi.get(self, "file_system_path")
 
     @file_system_path.setter
-    def file_system_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_path", value)
 
     @_builtins.property
     @pulumi.getter(name="importedFileChunkSize")
-    def imported_file_chunk_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def imported_file_chunk_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @imported_file_chunk_size.setter
-    def imported_file_chunk_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def imported_file_chunk_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "imported_file_chunk_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['DataRepositoryAssociationS3Args']]:
+    def s3(self) -> pulumi.Input[Optional['DataRepositoryAssociationS3Args']]:
         """
         See the `s3` configuration block. Max of 1.
         The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
@@ -341,31 +341,31 @@ class _DataRepositoryAssociationState:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['DataRepositoryAssociationS3Args']]):
+    def s3(self, value: pulumi.Input[Optional['DataRepositoryAssociationS3Args']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -375,15 +375,15 @@ class DataRepositoryAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_import_meta_data_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_repository_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_data_in_filesystem: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3: Optional[pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 batch_import_meta_data_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_repository_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_data_in_filesystem: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages a FSx for Lustre Data Repository Association. See [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html) for more information.
@@ -521,15 +521,15 @@ class DataRepositoryAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_import_meta_data_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_repository_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_data_in_filesystem: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3: Optional[pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 batch_import_meta_data_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_repository_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_data_in_filesystem: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -567,18 +567,18 @@ class DataRepositoryAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            association_id: Optional[pulumi.Input[_builtins.str]] = None,
-            batch_import_meta_data_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_repository_path: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_data_in_filesystem: Optional[pulumi.Input[_builtins.bool]] = None,
-            file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-            file_system_path: Optional[pulumi.Input[_builtins.str]] = None,
-            imported_file_chunk_size: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3: Optional[pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DataRepositoryAssociation':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            batch_import_meta_data_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_repository_path: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_data_in_filesystem: pulumi.Input[Optional[_builtins.bool]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
+            imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DataRepositoryAssociation':
         """
         Get an existing DataRepositoryAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

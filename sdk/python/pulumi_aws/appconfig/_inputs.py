@@ -34,7 +34,7 @@ class ConfigurationProfileValidatorArgsDict(TypedDict):
     """
     Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Either the JSON Schema content or the ARN of an AWS Lambda function.
     """
@@ -43,7 +43,7 @@ class ConfigurationProfileValidatorArgsDict(TypedDict):
 class ConfigurationProfileValidatorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 content: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
         :param pulumi.Input[_builtins.str] content: Either the JSON Schema content or the ARN of an AWS Lambda function.
@@ -66,14 +66,14 @@ class ConfigurationProfileValidatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either the JSON Schema content or the ARN of an AWS Lambda function.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
 
@@ -82,7 +82,7 @@ class EnvironmentMonitorArgsDict(TypedDict):
     """
     ARN of the Amazon CloudWatch alarm.
     """
-    alarm_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    alarm_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
     """
@@ -91,7 +91,7 @@ class EnvironmentMonitorArgsDict(TypedDict):
 class EnvironmentMonitorArgs:
     def __init__(__self__, *,
                  alarm_arn: pulumi.Input[_builtins.str],
-                 alarm_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 alarm_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] alarm_arn: ARN of the Amazon CloudWatch alarm.
         :param pulumi.Input[_builtins.str] alarm_role_arn: ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
@@ -114,14 +114,14 @@ class EnvironmentMonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="alarmRoleArn")
-    def alarm_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alarm_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
         """
         return pulumi.get(self, "alarm_role_arn")
 
     @alarm_role_arn.setter
-    def alarm_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alarm_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_role_arn", value)
 
 
@@ -209,11 +209,11 @@ class ExtensionActionPointActionArgsDict(TypedDict):
     """
     The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Information about the action.
     """
-    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
     """
@@ -223,8 +223,8 @@ class ExtensionActionPointActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  uri: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The action name.
         :param pulumi.Input[_builtins.str] uri: The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
@@ -264,26 +264,26 @@ class ExtensionActionPointActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information about the action.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -292,11 +292,11 @@ class ExtensionParameterArgsDict(TypedDict):
     """
     The parameter name.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Information about the parameter.
     """
-    required: NotRequired[pulumi.Input[_builtins.bool]]
+    required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines if a parameter value must be specified in the extension association.
     """
@@ -305,8 +305,8 @@ class ExtensionParameterArgsDict(TypedDict):
 class ExtensionParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The parameter name.
         :param pulumi.Input[_builtins.str] description: Information about the parameter.
@@ -332,26 +332,26 @@ class ExtensionParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information about the parameter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a parameter value must be specified in the extension association.
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
 

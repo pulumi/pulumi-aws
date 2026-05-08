@@ -98,7 +98,7 @@ def get_repositories(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_repositories_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_repositories_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.

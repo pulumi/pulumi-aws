@@ -291,10 +291,10 @@ def get_instance(instance_alias: Optional[_builtins.str] = None,
         service_role=pulumi.get(__ret__, 'service_role'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        instance_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_instance_output(instance_alias: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        instance_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Provides details about a specific Amazon Connect Instance.

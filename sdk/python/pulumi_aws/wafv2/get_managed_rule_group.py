@@ -219,11 +219,11 @@ def get_managed_rule_group(name: Optional[_builtins.str] = None,
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
         vendor_name=pulumi.get(__ret__, 'vendor_name'),
         version_name=pulumi.get(__ret__, 'version_name'))
-def get_managed_rule_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  scope: Optional[pulumi.Input[_builtins.str]] = None,
-                                  vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  version_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_managed_rule_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  scope: pulumi.Input[Optional[_builtins.str]] = None,
+                                  vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  version_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedRuleGroupResult]:
     """
     High-level information for a managed rule group.

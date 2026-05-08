@@ -144,37 +144,37 @@ export interface SourceApiAssociationState {
     /**
      * ARN of the Source API Association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Source API Association.
      */
-    associationId?: pulumi.Input<string>;
+    associationId?: pulumi.Input<string | undefined>;
     /**
      * Description of the source API being merged.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      */
-    mergedApiArn?: pulumi.Input<string>;
+    mergedApiArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      */
-    mergedApiId?: pulumi.Input<string>;
+    mergedApiId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
-    sourceApiArn?: pulumi.Input<string>;
-    sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[]>;
+    sourceApiArn?: pulumi.Input<string | undefined>;
+    sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[] | undefined>;
     /**
      * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
-    sourceApiId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.appsync.SourceApiAssociationTimeouts>;
+    sourceApiId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.appsync.SourceApiAssociationTimeouts | undefined>;
 }
 
 /**
@@ -184,27 +184,27 @@ export interface SourceApiAssociationArgs {
     /**
      * Description of the source API being merged.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      */
-    mergedApiArn?: pulumi.Input<string>;
+    mergedApiArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the merged API. One of `mergedApiArn` or `mergedApiId` must be specified.
      */
-    mergedApiId?: pulumi.Input<string>;
+    mergedApiId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
-    sourceApiArn?: pulumi.Input<string>;
-    sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[]>;
+    sourceApiArn?: pulumi.Input<string | undefined>;
+    sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[] | undefined>;
     /**
      * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
-    sourceApiId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.appsync.SourceApiAssociationTimeouts>;
+    sourceApiId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.appsync.SourceApiAssociationTimeouts | undefined>;
 }

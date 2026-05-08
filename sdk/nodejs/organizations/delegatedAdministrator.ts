@@ -155,39 +155,39 @@ export interface DelegatedAdministratorState {
     /**
      * The account ID number of the member account in the organization to register as a delegated administrator.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator's account.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The date when the account was made a delegated administrator.
      */
-    delegationEnabledDate?: pulumi.Input<string>;
+    delegationEnabledDate?: pulumi.Input<string | undefined>;
     /**
      * The email address that is associated with the delegated administrator's AWS account.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * The method by which the delegated administrator's account joined the organization.
      */
-    joinedMethod?: pulumi.Input<string>;
+    joinedMethod?: pulumi.Input<string | undefined>;
     /**
      * The date when the delegated administrator's account became a part of the organization.
      */
-    joinedTimestamp?: pulumi.Input<string>;
+    joinedTimestamp?: pulumi.Input<string | undefined>;
     /**
      * The friendly name of the delegated administrator's account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      */
-    servicePrincipal?: pulumi.Input<string>;
+    servicePrincipal?: pulumi.Input<string | undefined>;
     /**
      * The status of the delegated administrator's account in the organization.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**

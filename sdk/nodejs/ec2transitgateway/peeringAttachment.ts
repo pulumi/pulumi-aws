@@ -166,40 +166,40 @@ export interface PeeringAttachmentState {
     /**
      * ARN of the attachment.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      */
-    options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions>;
+    options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions | undefined>;
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
-    peerAccountId?: pulumi.Input<string>;
+    peerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region of EC2 Transit Gateway to peer with.
      */
-    peerRegion?: pulumi.Input<string>;
+    peerRegion?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      */
-    peerTransitGatewayId?: pulumi.Input<string>;
+    peerTransitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,11 +209,11 @@ export interface PeeringAttachmentArgs {
     /**
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      */
-    options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions>;
+    options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions | undefined>;
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
-    peerAccountId?: pulumi.Input<string>;
+    peerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region of EC2 Transit Gateway to peer with.
      */
@@ -225,11 +225,11 @@ export interface PeeringAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

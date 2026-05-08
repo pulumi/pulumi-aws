@@ -267,54 +267,54 @@ export interface HyperParameterTuningJobState {
     /**
      * ARN of the Hyper Parameter Tuning Job.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Autotune settings. See `autotune`.
      */
-    autotune?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobAutotune>;
+    autotune?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobAutotune | undefined>;
     /**
      * Tuning job settings. See `config`.
      */
-    config?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobConfig>;
+    config?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobConfig | undefined>;
     /**
      * Reason returned by SageMaker AI when a job fails.
      */
-    failureReason?: pulumi.Input<string>;
+    failureReason?: pulumi.Input<string | undefined>;
     /**
      * Name of the tuning job.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Current tuning job status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to this resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTimeouts | undefined>;
     /**
      * Single training job definition for tuning. See `trainingJobDefinition`.
      */
-    trainingJobDefinition?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition>;
+    trainingJobDefinition?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition | undefined>;
     /**
      * Multiple training job definitions for tuning. See `trainingJobDefinition`.
      */
-    trainingJobDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition>[]>;
+    trainingJobDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition>[] | undefined>;
     /**
      * Warm start settings. See `warmStartConfig`.
      */
-    warmStartConfig?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobWarmStartConfig>;
+    warmStartConfig?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobWarmStartConfig | undefined>;
 }
 
 /**
@@ -324,7 +324,7 @@ export interface HyperParameterTuningJobArgs {
     /**
      * Autotune settings. See `autotune`.
      */
-    autotune?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobAutotune>;
+    autotune?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobAutotune | undefined>;
     /**
      * Tuning job settings. See `config`.
      */
@@ -334,26 +334,26 @@ export interface HyperParameterTuningJobArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to this resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTimeouts | undefined>;
     /**
      * Single training job definition for tuning. See `trainingJobDefinition`.
      */
-    trainingJobDefinition?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition>;
+    trainingJobDefinition?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition | undefined>;
     /**
      * Multiple training job definitions for tuning. See `trainingJobDefinition`.
      */
-    trainingJobDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition>[]>;
+    trainingJobDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.HyperParameterTuningJobTrainingJobDefinition>[] | undefined>;
     /**
      * Warm start settings. See `warmStartConfig`.
      */
-    warmStartConfig?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobWarmStartConfig>;
+    warmStartConfig?: pulumi.Input<inputs.sagemaker.HyperParameterTuningJobWarmStartConfig | undefined>;
 }

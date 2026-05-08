@@ -218,81 +218,81 @@ export interface ReservedInstanceState {
     /**
      * ARN for the reserved DB instance.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Currency code for the reserved DB instance.
      */
-    currencyCode?: pulumi.Input<string>;
+    currencyCode?: pulumi.Input<string | undefined>;
     /**
      * DB instance class for the reserved DB instance.
      */
-    dbInstanceClass?: pulumi.Input<string>;
+    dbInstanceClass?: pulumi.Input<string | undefined>;
     /**
      * Duration of the reservation in seconds.
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * Fixed price charged for this reserved DB instance.
      */
-    fixedPrice?: pulumi.Input<number>;
+    fixedPrice?: pulumi.Input<number | undefined>;
     /**
      * Number of instances to reserve. Default value is `1`.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
      */
-    leaseId?: pulumi.Input<string>;
+    leaseId?: pulumi.Input<string | undefined>;
     /**
      * Whether the reservation applies to Multi-AZ deployments.
      */
-    multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
      *
      * The following arguments are optional:
      */
-    offeringId?: pulumi.Input<string>;
+    offeringId?: pulumi.Input<string | undefined>;
     /**
      * Offering type of this reserved DB instance.
      */
-    offeringType?: pulumi.Input<string>;
+    offeringType?: pulumi.Input<string | undefined>;
     /**
      * Description of the reserved DB instance.
      */
-    productDescription?: pulumi.Input<string>;
+    productDescription?: pulumi.Input<string | undefined>;
     /**
      * Recurring price charged to run this reserved DB instance.
      */
-    recurringCharges?: pulumi.Input<pulumi.Input<inputs.rds.ReservedInstanceRecurringCharge>[]>;
+    recurringCharges?: pulumi.Input<pulumi.Input<inputs.rds.ReservedInstanceRecurringCharge>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Customer-specified identifier to track this reservation.
      */
-    reservationId?: pulumi.Input<string>;
+    reservationId?: pulumi.Input<string | undefined>;
     /**
      * Time the reservation started.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * State of the reserved DB instance.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Hourly price charged for this reserved DB instance.
      */
-    usagePrice?: pulumi.Input<number>;
+    usagePrice?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -302,7 +302,7 @@ export interface ReservedInstanceArgs {
     /**
      * Number of instances to reserve. Default value is `1`.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
      *
@@ -312,13 +312,13 @@ export interface ReservedInstanceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Customer-specified identifier to track this reservation.
      */
-    reservationId?: pulumi.Input<string>;
+    reservationId?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -19,17 +19,17 @@ __all__ = ['EipArgs', 'Eip']
 @pulumi.input_type
 class EipArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_with_private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_with_private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Eip resource.
 
@@ -77,103 +77,103 @@ class EipArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="associateWithPrivateIp")
-    def associate_with_private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associate_with_private_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         """
         return pulumi.get(self, "associate_with_private_ip")
 
     @associate_with_private_ip.setter
-    def associate_with_private_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associate_with_private_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associate_with_private_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_owned_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
-    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_owned_ipv4_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates if this EIP is for use in VPC (`vpc`).
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 instance ID.
         """
         return pulumi.get(self, "instance")
 
     @instance.setter
-    def instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
-    def ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
-    def ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkBorderGroup")
-    def network_border_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_border_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         """
         return pulumi.get(self, "network_border_group")
 
     @network_border_group.setter
-    def network_border_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_border_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_border_group", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network interface ID to associate with.
         """
         return pulumi.get(self, "network_interface")
 
     @network_interface.setter
-    def network_interface(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpv4Pool")
-    def public_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 IPv4 address pool identifier or `amazon`.
         This option is only available for VPC EIPs.
@@ -181,24 +181,24 @@ class EipArgs:
         return pulumi.get(self, "public_ipv4_pool")
 
     @public_ipv4_pool.setter
-    def public_ipv4_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ipv4_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ipv4_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -211,35 +211,35 @@ class EipArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _EipState:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_with_private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 carrier_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_owned_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_dns: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ptr_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_dns: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_with_private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 carrier_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_owned_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ptr_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_dns: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Eip resources.
 
@@ -319,220 +319,220 @@ class _EipState:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
         """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
-    def allocation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="associateWithPrivateIp")
-    def associate_with_private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associate_with_private_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         """
         return pulumi.get(self, "associate_with_private_ip")
 
     @associate_with_private_ip.setter
-    def associate_with_private_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associate_with_private_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associate_with_private_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="associationId")
-    def association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID representing the association of the address with an instance in a VPC.
         """
         return pulumi.get(self, "association_id")
 
     @association_id.setter
-    def association_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "association_id", value)
 
     @_builtins.property
     @pulumi.getter(name="carrierIp")
-    def carrier_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def carrier_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Carrier IP address.
         """
         return pulumi.get(self, "carrier_ip")
 
     @carrier_ip.setter
-    def carrier_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def carrier_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "carrier_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIp")
-    def customer_owned_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_owned_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer owned IP.
         """
         return pulumi.get(self, "customer_owned_ip")
 
     @customer_owned_ip.setter
-    def customer_owned_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_owned_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_owned_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_owned_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
-    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_owned_ipv4_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates if this EIP is for use in VPC (`vpc`).
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def instance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 instance ID.
         """
         return pulumi.get(self, "instance")
 
     @instance.setter
-    def instance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance", value)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
-    def ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
-    def ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipam_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkBorderGroup")
-    def network_border_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_border_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         """
         return pulumi.get(self, "network_border_group")
 
     @network_border_group.setter
-    def network_border_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_border_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_border_group", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterface")
-    def network_interface(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network interface ID to associate with.
         """
         return pulumi.get(self, "network_interface")
 
     @network_interface.setter
-    def network_interface(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDns")
-    def private_dns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_dns(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Private DNS associated with the Elastic IP address (if in VPC).
         """
         return pulumi.get(self, "private_dns")
 
     @private_dns.setter
-    def private_dns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_dns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIp")
-    def private_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains the private IP address (if in VPC).
         """
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
-    def private_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="ptrRecord")
-    def ptr_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ptr_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS pointer (PTR) record for the IP address.
         """
         return pulumi.get(self, "ptr_record")
 
     @ptr_record.setter
-    def ptr_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ptr_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ptr_record", value)
 
     @_builtins.property
     @pulumi.getter(name="publicDns")
-    def public_dns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_dns(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Public DNS associated with the Elastic IP address.
         """
         return pulumi.get(self, "public_dns")
 
     @public_dns.setter
-    def public_dns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_dns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_dns", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIp")
-    def public_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contains the public IP address.
         """
         return pulumi.get(self, "public_ip")
 
     @public_ip.setter
-    def public_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpv4Pool")
-    def public_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         EC2 IPv4 address pool identifier or `amazon`.
         This option is only available for VPC EIPs.
@@ -540,24 +540,24 @@ class _EipState:
         return pulumi.get(self, "public_ipv4_pool")
 
     @public_ipv4_pool.setter
-    def public_ipv4_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ipv4_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ipv4_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -570,19 +570,19 @@ class _EipState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -592,17 +592,17 @@ class Eip(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_with_private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_with_private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an Elastic IP resource.
@@ -868,17 +868,17 @@ class Eip(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_with_private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_with_private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -920,28 +920,28 @@ class Eip(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address: Optional[pulumi.Input[_builtins.str]] = None,
-            allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            associate_with_private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            association_id: Optional[pulumi.Input[_builtins.str]] = None,
-            carrier_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_owned_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            instance: Optional[pulumi.Input[_builtins.str]] = None,
-            ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            network_border_group: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface: Optional[pulumi.Input[_builtins.str]] = None,
-            private_dns: Optional[pulumi.Input[_builtins.str]] = None,
-            private_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            ptr_record: Optional[pulumi.Input[_builtins.str]] = None,
-            public_dns: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            public_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Eip':
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associate_with_private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            carrier_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_owned_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            instance: pulumi.Input[Optional[_builtins.str]] = None,
+            ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_border_group: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns: pulumi.Input[Optional[_builtins.str]] = None,
+            private_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            ptr_record: pulumi.Input[Optional[_builtins.str]] = None,
+            public_dns: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            public_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Eip':
         """
         Get an existing Eip resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

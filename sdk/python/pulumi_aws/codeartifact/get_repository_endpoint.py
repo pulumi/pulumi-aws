@@ -150,11 +150,11 @@ def get_repository_endpoint(domain: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         repository=pulumi.get(__ret__, 'repository'),
         repository_endpoint=pulumi.get(__ret__, 'repository_endpoint'))
-def get_repository_endpoint_output(domain: Optional[pulumi.Input[_builtins.str]] = None,
-                                   domain_owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   format: Optional[pulumi.Input[_builtins.str]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   repository: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_endpoint_output(domain: pulumi.Input[Optional[_builtins.str]] = None,
+                                   domain_owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   format: pulumi.Input[Optional[_builtins.str]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   repository: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEndpointResult]:
     """
     The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.

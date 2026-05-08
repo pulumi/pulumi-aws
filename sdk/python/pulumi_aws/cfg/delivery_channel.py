@@ -22,12 +22,12 @@ __all__ = ['DeliveryChannelArgs', 'DeliveryChannel']
 class DeliveryChannelArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_delivery_properties: pulumi.Input[Optional['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DeliveryChannel resource.
 
@@ -67,87 +67,87 @@ class DeliveryChannelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix for the specified S3 bucket.
         """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
-    def s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KmsKeyArn")
-    def s3_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         """
         return pulumi.get(self, "s3_kms_key_arn")
 
     @s3_kms_key_arn.setter
-    def s3_kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotDeliveryProperties")
-    def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
+    def snapshot_delivery_properties(self) -> pulumi.Input[Optional['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
         """
         Options for how AWS Config delivers configuration snapshots. See below
         """
         return pulumi.get(self, "snapshot_delivery_properties")
 
     @snapshot_delivery_properties.setter
-    def snapshot_delivery_properties(self, value: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]):
+    def snapshot_delivery_properties(self, value: pulumi.Input[Optional['DeliveryChannelSnapshotDeliveryPropertiesArgs']]):
         pulumi.set(self, "snapshot_delivery_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS topic that AWS Config delivers notifications to.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
 
 @pulumi.input_type
 class _DeliveryChannelState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_delivery_properties: pulumi.Input[Optional['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DeliveryChannel resources.
 
@@ -176,86 +176,86 @@ class _DeliveryChannelState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket used to store the configuration history.
         """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
-    def s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix for the specified S3 bucket.
         """
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
-    def s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KmsKeyArn")
-    def s3_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         """
         return pulumi.get(self, "s3_kms_key_arn")
 
     @s3_kms_key_arn.setter
-    def s3_kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotDeliveryProperties")
-    def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
+    def snapshot_delivery_properties(self) -> pulumi.Input[Optional['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
         """
         Options for how AWS Config delivers configuration snapshots. See below
         """
         return pulumi.get(self, "snapshot_delivery_properties")
 
     @snapshot_delivery_properties.setter
-    def snapshot_delivery_properties(self, value: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]):
+    def snapshot_delivery_properties(self, value: pulumi.Input[Optional['DeliveryChannelSnapshotDeliveryPropertiesArgs']]):
         pulumi.set(self, "snapshot_delivery_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the SNS topic that AWS Config delivers notifications to.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
 
@@ -265,13 +265,13 @@ class DeliveryChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input[Union['DeliveryChannelSnapshotDeliveryPropertiesArgs', 'DeliveryChannelSnapshotDeliveryPropertiesArgsDict']]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelSnapshotDeliveryPropertiesArgs', 'DeliveryChannelSnapshotDeliveryPropertiesArgsDict']]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Config Delivery Channel.
@@ -436,13 +436,13 @@ class DeliveryChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input[Union['DeliveryChannelSnapshotDeliveryPropertiesArgs', 'DeliveryChannelSnapshotDeliveryPropertiesArgsDict']]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelSnapshotDeliveryPropertiesArgs', 'DeliveryChannelSnapshotDeliveryPropertiesArgsDict']]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -471,13 +471,13 @@ class DeliveryChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            snapshot_delivery_properties: Optional[pulumi.Input[Union['DeliveryChannelSnapshotDeliveryPropertiesArgs', 'DeliveryChannelSnapshotDeliveryPropertiesArgsDict']]] = None,
-            sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'DeliveryChannel':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelSnapshotDeliveryPropertiesArgs', 'DeliveryChannelSnapshotDeliveryPropertiesArgsDict']]] = None,
+            sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'DeliveryChannel':
         """
         Get an existing DeliveryChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

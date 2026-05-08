@@ -464,57 +464,57 @@ export interface ConnectionState {
     /**
      * ARN of the Glue Connection.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs used as connection properties specific to the Athena compute environment.
      */
-    athenaProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    athenaProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for authentication options. See `authenticationConfiguration` below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.glue.ConnectionAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.glue.ConnectionAuthenticationConfiguration | undefined>;
     /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
      */
-    connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      */
-    connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string | undefined>;
     /**
      * Description of the connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of criteria that can be used in selecting this connection.
      */
-    matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
+    matchCriterias?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the connection.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
      */
-    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -524,47 +524,47 @@ export interface ConnectionArgs {
     /**
      * Map of key-value pairs used as connection properties specific to the Athena compute environment.
      */
-    athenaProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    athenaProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for authentication options. See `authenticationConfiguration` below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.glue.ConnectionAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.glue.ConnectionAuthenticationConfiguration | undefined>;
     /**
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
      */
-    connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `DYNAMODB`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`. Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      */
-    connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string | undefined>;
     /**
      * Description of the connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of criteria that can be used in selecting this connection.
      */
-    matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
+    matchCriterias?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the connection.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` below.
      */
-    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

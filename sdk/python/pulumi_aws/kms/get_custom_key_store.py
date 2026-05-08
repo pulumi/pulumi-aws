@@ -160,9 +160,9 @@ def get_custom_key_store(custom_key_store_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         trust_anchor_certificate=pulumi.get(__ret__, 'trust_anchor_certificate'))
-def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                custom_key_store_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_custom_key_store_output(custom_key_store_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                custom_key_store_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomKeyStoreResult]:
     """
     Use this data source to get the metadata KMS custom key store.

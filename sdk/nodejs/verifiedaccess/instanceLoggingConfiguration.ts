@@ -206,15 +206,15 @@ export interface InstanceLoggingConfigurationState {
     /**
      * A block that specifies the configuration options for Verified Access instances. Detailed below.
      */
-    accessLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
+    accessLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Verified Access instance.
      */
-    verifiedaccessInstanceId?: pulumi.Input<string>;
+    verifiedaccessInstanceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface InstanceLoggingConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Verified Access instance.
      */

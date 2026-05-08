@@ -198,9 +198,9 @@ def get_intent(name: Optional[_builtins.str] = None,
         parent_intent_signature=pulumi.get(__ret__, 'parent_intent_signature'),
         region=pulumi.get(__ret__, 'region'),
         version=pulumi.get(__ret__, 'version'))
-def get_intent_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_intent_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntentResult]:
     """
     Provides details about a specific Amazon Lex Intent.

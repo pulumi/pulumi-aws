@@ -24,18 +24,18 @@ class UserArgs:
                  display_name: pulumi.Input[_builtins.str],
                  identity_store_id: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 addresses: Optional[pulumi.Input['UserAddressesArgs']] = None,
-                 emails: Optional[pulumi.Input['UserEmailsArgs']] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input['UserNameArgs']] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 addresses: pulumi.Input[Optional['UserAddressesArgs']] = None,
+                 emails: pulumi.Input[Optional['UserEmailsArgs']] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional['UserNameArgs']] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_numbers: pulumi.Input[Optional['UserPhoneNumbersArgs']] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -127,139 +127,139 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def addresses(self) -> Optional[pulumi.Input['UserAddressesArgs']]:
+    def addresses(self) -> pulumi.Input[Optional['UserAddressesArgs']]:
         """
         Details about the user's address. At most 1 address is allowed. Detailed below.
         """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
-    def addresses(self, value: Optional[pulumi.Input['UserAddressesArgs']]):
+    def addresses(self, value: pulumi.Input[Optional['UserAddressesArgs']]):
         pulumi.set(self, "addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input['UserEmailsArgs']]:
+    def emails(self) -> pulumi.Input[Optional['UserEmailsArgs']]:
         """
         Details about the user's email. At most 1 email is allowed. Detailed below.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input['UserEmailsArgs']]):
+    def emails(self, value: pulumi.Input[Optional['UserEmailsArgs']]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's geographical region or location.
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['UserNameArgs']]:
+    def name(self) -> pulumi.Input[Optional['UserNameArgs']]:
         """
         Details about the user's full name. Detailed below.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input['UserNameArgs']]):
+    def name(self, value: pulumi.Input[Optional['UserNameArgs']]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def nickname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alternate name for the user.
         """
         return pulumi.get(self, "nickname")
 
     @nickname.setter
-    def nickname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nickname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nickname", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumbers")
-    def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArgs']]:
+    def phone_numbers(self) -> pulumi.Input[Optional['UserPhoneNumbersArgs']]:
         """
         Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
-    def phone_numbers(self, value: Optional[pulumi.Input['UserPhoneNumbersArgs']]):
+    def phone_numbers(self, value: pulumi.Input[Optional['UserPhoneNumbersArgs']]):
         pulumi.set(self, "phone_numbers", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredLanguage")
-    def preferred_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred language of the user.
         """
         return pulumi.get(self, "preferred_language")
 
     @preferred_language.setter
-    def preferred_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_language", value)
 
     @_builtins.property
     @pulumi.getter(name="profileUrl")
-    def profile_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An URL that may be associated with the user.
         """
         return pulumi.get(self, "profile_url")
 
     @profile_url.setter
-    def profile_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's time zone.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's title.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user type.
 
@@ -268,31 +268,31 @@ class UserArgs:
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type", value)
 
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 addresses: Optional[pulumi.Input['UserAddressesArgs']] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 emails: Optional[pulumi.Input['UserEmailsArgs']] = None,
-                 external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]] = None,
-                 identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input['UserNameArgs']] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 addresses: pulumi.Input[Optional['UserAddressesArgs']] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 emails: pulumi.Input[Optional['UserEmailsArgs']] = None,
+                 external_ids: pulumi.Input[Optional[Sequence[pulumi.Input['UserExternalIdArgs']]]] = None,
+                 identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional['UserNameArgs']] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_numbers: pulumi.Input[Optional['UserPhoneNumbersArgs']] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -358,187 +358,187 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter
-    def addresses(self) -> Optional[pulumi.Input['UserAddressesArgs']]:
+    def addresses(self) -> pulumi.Input[Optional['UserAddressesArgs']]:
         """
         Details about the user's address. At most 1 address is allowed. Detailed below.
         """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
-    def addresses(self, value: Optional[pulumi.Input['UserAddressesArgs']]):
+    def addresses(self, value: pulumi.Input[Optional['UserAddressesArgs']]):
         pulumi.set(self, "addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that is typically displayed when the user is referenced.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input['UserEmailsArgs']]:
+    def emails(self) -> pulumi.Input[Optional['UserEmailsArgs']]:
         """
         Details about the user's email. At most 1 email is allowed. Detailed below.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input['UserEmailsArgs']]):
+    def emails(self, value: pulumi.Input[Optional['UserEmailsArgs']]):
         pulumi.set(self, "emails", value)
 
     @_builtins.property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]]:
+    def external_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserExternalIdArgs']]]]:
         """
         A list of identifiers issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "external_ids")
 
     @external_ids.setter
-    def external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]]):
+    def external_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserExternalIdArgs']]]]):
         pulumi.set(self, "external_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
-    def identity_store_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The globally unique identifier for the identity store that this user is in.
         """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
-    def identity_store_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_store_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_store_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's geographical region or location.
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['UserNameArgs']]:
+    def name(self) -> pulumi.Input[Optional['UserNameArgs']]:
         """
         Details about the user's full name. Detailed below.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input['UserNameArgs']]):
+    def name(self, value: pulumi.Input[Optional['UserNameArgs']]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def nickname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nickname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alternate name for the user.
         """
         return pulumi.get(self, "nickname")
 
     @nickname.setter
-    def nickname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nickname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nickname", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumbers")
-    def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArgs']]:
+    def phone_numbers(self) -> pulumi.Input[Optional['UserPhoneNumbersArgs']]:
         """
         Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
-    def phone_numbers(self, value: Optional[pulumi.Input['UserPhoneNumbersArgs']]):
+    def phone_numbers(self, value: pulumi.Input[Optional['UserPhoneNumbersArgs']]):
         pulumi.set(self, "phone_numbers", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredLanguage")
-    def preferred_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred language of the user.
         """
         return pulumi.get(self, "preferred_language")
 
     @preferred_language.setter
-    def preferred_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_language", value)
 
     @_builtins.property
     @pulumi.getter(name="profileUrl")
-    def profile_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An URL that may be associated with the user.
         """
         return pulumi.get(self, "profile_url")
 
     @profile_url.setter
-    def profile_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's time zone.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's title.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for this user in the identity store.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
 
@@ -547,24 +547,24 @@ class _UserState:
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userStatus")
-    def user_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the user account.
         """
         return pulumi.get(self, "user_status")
 
     @user_status.setter
-    def user_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user type.
 
@@ -573,7 +573,7 @@ class _UserState:
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type", value)
 
 
@@ -583,21 +583,21 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 emails: Optional[pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
-                 identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 addresses: pulumi.Input[Optional[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 emails: pulumi.Input[Optional[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
+                 identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_numbers: pulumi.Input[Optional[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource manages a User resource within an Identity Store.
@@ -718,21 +718,21 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 emails: Optional[pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
-                 identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
-                 nickname: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 addresses: pulumi.Input[Optional[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 emails: pulumi.Input[Optional[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
+                 identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
+                 nickname: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_numbers: pulumi.Input[Optional[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -776,24 +776,24 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            addresses: Optional[pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            emails: Optional[pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
-            external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserExternalIdArgs', 'UserExternalIdArgsDict']]]]] = None,
-            identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-            locale: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
-            nickname: Optional[pulumi.Input[_builtins.str]] = None,
-            phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
-            preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timezone: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name: Optional[pulumi.Input[_builtins.str]] = None,
-            user_status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
+            addresses: pulumi.Input[Optional[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            emails: pulumi.Input[Optional[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
+            external_ids: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserExternalIdArgs', 'UserExternalIdArgsDict']]]]] = None,
+            identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
+            nickname: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_numbers: pulumi.Input[Optional[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
+            preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

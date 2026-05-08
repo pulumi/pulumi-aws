@@ -21,25 +21,25 @@ __all__ = ['AmiArgs', 'Ami']
 @pulumi.input_type
 class AmiArgs:
     def __init__(__self__, *,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]] = None,
-                 ena_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]] = None,
-                 image_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 imds_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ramdisk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sriov_net_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 uefi_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtualization_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]] = None,
+                 ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]] = None,
+                 image_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 imds_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ramdisk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sriov_net_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 uefi_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtualization_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ami resource.
 
@@ -104,55 +104,55 @@ class AmiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Machine architecture for created instances. Defaults to `x86_64`.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter(name="bootMode")
-    def boot_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def boot_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "boot_mode")
 
     @boot_mode.setter
-    def boot_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def boot_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "boot_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="deprecationTime")
-    def deprecation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deprecation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         return pulumi.get(self, "deprecation_time")
 
     @deprecation_time.setter
-    def deprecation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deprecation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deprecation_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Longer, human-readable description for the AMI.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]:
+    def ebs_block_devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]:
         """
         Nested block describing an EBS block device that should be
         attached to created instances. The structure of this block is described below.
@@ -160,24 +160,24 @@ class AmiArgs:
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
-    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]):
+    def ebs_block_devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]):
         pulumi.set(self, "ebs_block_devices", value)
 
     @_builtins.property
     @pulumi.getter(name="enaSupport")
-    def ena_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ena_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether enhanced networking with ENA is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ena_support")
 
     @ena_support.setter
-    def ena_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ena_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ena_support", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]:
+    def ephemeral_block_devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]:
         """
         Nested block describing an ephemeral block device that
         should be attached to created instances. The structure of this block is described below.
@@ -185,132 +185,132 @@ class AmiArgs:
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
-    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]):
+    def ephemeral_block_devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]):
         pulumi.set(self, "ephemeral_block_devices", value)
 
     @_builtins.property
     @pulumi.getter(name="imageLocation")
-    def image_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "image_location")
 
     @image_location.setter
-    def image_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_location", value)
 
     @_builtins.property
     @pulumi.getter(name="imdsSupport")
-    def imds_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def imds_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         """
         return pulumi.get(self, "imds_support")
 
     @imds_support.setter
-    def imds_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def imds_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "imds_support", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kernel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
-    def kernel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kernel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kernel_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region-unique name for the AMI.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ramdiskId")
-    def ramdisk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ramdisk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ramdisk_id")
 
     @ramdisk_id.setter
-    def ramdisk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ramdisk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ramdisk_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rootDeviceName")
-    def root_device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         """
         return pulumi.get(self, "root_device_name")
 
     @root_device_name.setter
-    def root_device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sriovNetSupport")
-    def sriov_net_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sriov_net_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "sriov_net_support")
 
     @sriov_net_support.setter
-    def sriov_net_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sriov_net_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sriov_net_support", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tpmSupport")
-    def tpm_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpm_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "tpm_support")
 
     @tpm_support.setter
-    def tpm_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpm_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpm_support", value)
 
     @_builtins.property
     @pulumi.getter(name="uefiData")
-    def uefi_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uefi_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 representation of the non-volatile UEFI variable store.
         """
         return pulumi.get(self, "uefi_data")
 
     @uefi_data.setter
-    def uefi_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uefi_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uefi_data", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualizationType")
-    def virtualization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtualization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Keyword to choose what virtualization mode created instances
         will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -319,45 +319,45 @@ class AmiArgs:
         return pulumi.get(self, "virtualization_type")
 
     @virtualization_type.setter
-    def virtualization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtualization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtualization_type", value)
 
 
 @pulumi.input_type
 class _AmiState:
     def __init__(__self__, *,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]] = None,
-                 ena_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]] = None,
-                 hypervisor: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_owner_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 imds_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_launched_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 manage_ebs_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 public: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ramdisk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sriov_net_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 uefi_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage_operation: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtualization_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]] = None,
+                 ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]] = None,
+                 hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_owner_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 imds_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_launched_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 manage_ebs_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 public: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ramdisk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sriov_net_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 uefi_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage_operation: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtualization_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ami resources.
 
@@ -460,67 +460,67 @@ class _AmiState:
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Machine architecture for created instances. Defaults to `x86_64`.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the AMI.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bootMode")
-    def boot_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def boot_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "boot_mode")
 
     @boot_mode.setter
-    def boot_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def boot_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "boot_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="deprecationTime")
-    def deprecation_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deprecation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         return pulumi.get(self, "deprecation_time")
 
     @deprecation_time.setter
-    def deprecation_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deprecation_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deprecation_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Longer, human-readable description for the AMI.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]:
+    def ebs_block_devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]:
         """
         Nested block describing an EBS block device that should be
         attached to created instances. The structure of this block is described below.
@@ -528,24 +528,24 @@ class _AmiState:
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
-    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]):
+    def ebs_block_devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEbsBlockDeviceArgs']]]]):
         pulumi.set(self, "ebs_block_devices", value)
 
     @_builtins.property
     @pulumi.getter(name="enaSupport")
-    def ena_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ena_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether enhanced networking with ENA is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "ena_support")
 
     @ena_support.setter
-    def ena_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ena_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ena_support", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]:
+    def ephemeral_block_devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]:
         """
         Nested block describing an ephemeral block device that
         should be attached to created instances. The structure of this block is described below.
@@ -553,273 +553,273 @@ class _AmiState:
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
-    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]):
+    def ephemeral_block_devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AmiEphemeralBlockDeviceArgs']]]]):
         pulumi.set(self, "ephemeral_block_devices", value)
 
     @_builtins.property
     @pulumi.getter
-    def hypervisor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hypervisor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hypervisor type of the image.
         """
         return pulumi.get(self, "hypervisor")
 
     @hypervisor.setter
-    def hypervisor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hypervisor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hypervisor", value)
 
     @_builtins.property
     @pulumi.getter(name="imageLocation")
-    def image_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "image_location")
 
     @image_location.setter
-    def image_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_location", value)
 
     @_builtins.property
     @pulumi.getter(name="imageOwnerAlias")
-    def image_owner_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_owner_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         """
         return pulumi.get(self, "image_owner_alias")
 
     @image_owner_alias.setter
-    def image_owner_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_owner_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_owner_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="imageType")
-    def image_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of image.
         """
         return pulumi.get(self, "image_type")
 
     @image_type.setter
-    def image_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_type", value)
 
     @_builtins.property
     @pulumi.getter(name="imdsSupport")
-    def imds_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def imds_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         """
         return pulumi.get(self, "imds_support")
 
     @imds_support.setter
-    def imds_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def imds_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "imds_support", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kernel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
-    def kernel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kernel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kernel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastLaunchedTime")
-    def last_launched_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_launched_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
         """
         return pulumi.get(self, "last_launched_time")
 
     @last_launched_time.setter
-    def last_launched_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_launched_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_launched_time", value)
 
     @_builtins.property
     @pulumi.getter(name="manageEbsSnapshots")
-    def manage_ebs_snapshots(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def manage_ebs_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "manage_ebs_snapshots")
 
     @manage_ebs_snapshots.setter
-    def manage_ebs_snapshots(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def manage_ebs_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "manage_ebs_snapshots", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region-unique name for the AMI.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the image owner.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This value is set to windows for Windows AMIs; otherwise, it is blank.
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform", value)
 
     @_builtins.property
     @pulumi.getter(name="platformDetails")
-    def platform_details(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_details(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Platform details associated with the billing code of the AMI.
         """
         return pulumi.get(self, "platform_details")
 
     @platform_details.setter
-    def platform_details(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_details(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def public(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def public(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the image has public launch permissions.
         """
         return pulumi.get(self, "public")
 
     @public.setter
-    def public(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def public(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "public", value)
 
     @_builtins.property
     @pulumi.getter(name="ramdiskId")
-    def ramdisk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ramdisk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ramdisk_id")
 
     @ramdisk_id.setter
-    def ramdisk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ramdisk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ramdisk_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rootDeviceName")
-    def root_device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         """
         return pulumi.get(self, "root_device_name")
 
     @root_device_name.setter
-    def root_device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rootSnapshotId")
-    def root_snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Snapshot ID for the root volume (for EBS-backed AMIs)
         """
         return pulumi.get(self, "root_snapshot_id")
 
     @root_snapshot_id.setter
-    def root_snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sriovNetSupport")
-    def sriov_net_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sriov_net_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "sriov_net_support")
 
     @sriov_net_support.setter
-    def sriov_net_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sriov_net_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sriov_net_support", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tpmSupport")
-    def tpm_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpm_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "tpm_support")
 
     @tpm_support.setter
-    def tpm_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpm_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpm_support", value)
 
     @_builtins.property
     @pulumi.getter(name="uefiData")
-    def uefi_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uefi_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 representation of the non-volatile UEFI variable store.
         """
         return pulumi.get(self, "uefi_data")
 
     @uefi_data.setter
-    def uefi_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uefi_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uefi_data", value)
 
     @_builtins.property
     @pulumi.getter(name="usageOperation")
-    def usage_operation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage_operation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         """
         return pulumi.get(self, "usage_operation")
 
     @usage_operation.setter
-    def usage_operation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage_operation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage_operation", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualizationType")
-    def virtualization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtualization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Keyword to choose what virtualization mode created instances
         will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -828,7 +828,7 @@ class _AmiState:
         return pulumi.get(self, "virtualization_type")
 
     @virtualization_type.setter
-    def virtualization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtualization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtualization_type", value)
 
 
@@ -838,25 +838,25 @@ class Ami(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
-                 ena_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
-                 image_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 imds_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ramdisk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sriov_net_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 uefi_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtualization_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
+                 ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
+                 image_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 imds_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ramdisk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sriov_net_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 uefi_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtualization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AMI resource allows the creation and management of a completely-custom
@@ -981,25 +981,25 @@ class Ami(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 boot_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecation_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
-                 ena_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
-                 image_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 imds_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ramdisk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sriov_net_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tpm_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 uefi_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtualization_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
+                 ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
+                 image_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 imds_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ramdisk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sriov_net_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tpm_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 uefi_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtualization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1051,38 +1051,38 @@ class Ami(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            architecture: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            boot_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            deprecation_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
-            ena_support: Optional[pulumi.Input[_builtins.bool]] = None,
-            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
-            hypervisor: Optional[pulumi.Input[_builtins.str]] = None,
-            image_location: Optional[pulumi.Input[_builtins.str]] = None,
-            image_owner_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            image_type: Optional[pulumi.Input[_builtins.str]] = None,
-            imds_support: Optional[pulumi.Input[_builtins.str]] = None,
-            kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-            last_launched_time: Optional[pulumi.Input[_builtins.str]] = None,
-            manage_ebs_snapshots: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            platform: Optional[pulumi.Input[_builtins.str]] = None,
-            platform_details: Optional[pulumi.Input[_builtins.str]] = None,
-            public: Optional[pulumi.Input[_builtins.bool]] = None,
-            ramdisk_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            root_device_name: Optional[pulumi.Input[_builtins.str]] = None,
-            root_snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            sriov_net_support: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tpm_support: Optional[pulumi.Input[_builtins.str]] = None,
-            uefi_data: Optional[pulumi.Input[_builtins.str]] = None,
-            usage_operation: Optional[pulumi.Input[_builtins.str]] = None,
-            virtualization_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Ami':
+            architecture: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            boot_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            deprecation_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEbsBlockDeviceArgs', 'AmiEbsBlockDeviceArgsDict']]]]] = None,
+            ena_support: pulumi.Input[Optional[_builtins.bool]] = None,
+            ephemeral_block_devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AmiEphemeralBlockDeviceArgs', 'AmiEphemeralBlockDeviceArgsDict']]]]] = None,
+            hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+            image_location: pulumi.Input[Optional[_builtins.str]] = None,
+            image_owner_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            image_type: pulumi.Input[Optional[_builtins.str]] = None,
+            imds_support: pulumi.Input[Optional[_builtins.str]] = None,
+            kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_launched_time: pulumi.Input[Optional[_builtins.str]] = None,
+            manage_ebs_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            platform_details: pulumi.Input[Optional[_builtins.str]] = None,
+            public: pulumi.Input[Optional[_builtins.bool]] = None,
+            ramdisk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            root_device_name: pulumi.Input[Optional[_builtins.str]] = None,
+            root_snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sriov_net_support: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tpm_support: pulumi.Input[Optional[_builtins.str]] = None,
+            uefi_data: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_operation: pulumi.Input[Optional[_builtins.str]] = None,
+            virtualization_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Ami':
         """
         Get an existing Ami resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

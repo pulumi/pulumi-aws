@@ -23,16 +23,16 @@ class FunctionArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
                  data_source: pulumi.Input[_builtins.str],
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input['FunctionRuntimeArgs']] = None,
-                 sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional['FunctionRuntimeArgs']] = None,
+                 sync_config: pulumi.Input[Optional['FunctionSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
 
@@ -98,142 +98,142 @@ class FunctionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
-    def function_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_version", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSize")
-    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
-    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMappingTemplate")
-    def request_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         """
         return pulumi.get(self, "request_mapping_template")
 
     @request_mapping_template.setter
-    def request_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responseMappingTemplate")
-    def response_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
 
     @response_mapping_template.setter
-    def response_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def runtime(self) -> Optional[pulumi.Input['FunctionRuntimeArgs']]:
+    def runtime(self) -> pulumi.Input[Optional['FunctionRuntimeArgs']]:
         """
         Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: Optional[pulumi.Input['FunctionRuntimeArgs']]):
+    def runtime(self, value: pulumi.Input[Optional['FunctionRuntimeArgs']]):
         pulumi.set(self, "runtime", value)
 
     @_builtins.property
     @pulumi.getter(name="syncConfig")
-    def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
+    def sync_config(self) -> pulumi.Input[Optional['FunctionSyncConfigArgs']]:
         """
         Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         return pulumi.get(self, "sync_config")
 
     @sync_config.setter
-    def sync_config(self, value: Optional[pulumi.Input['FunctionSyncConfigArgs']]):
+    def sync_config(self, value: pulumi.Input[Optional['FunctionSyncConfigArgs']]):
         pulumi.set(self, "sync_config", value)
 
 
 @pulumi.input_type
 class _FunctionState:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input['FunctionRuntimeArgs']] = None,
-                 sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional['FunctionRuntimeArgs']] = None,
+                 sync_config: pulumi.Input[Optional['FunctionSyncConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
 
@@ -283,170 +283,170 @@ class _FunctionState:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the associated AppSync API.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Function object.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function data source name.
         """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="functionId")
-    def function_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique ID representing the Function object.
         """
         return pulumi.get(self, "function_id")
 
     @function_id.setter
-    def function_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_id", value)
 
     @_builtins.property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         """
         return pulumi.get(self, "function_version")
 
     @function_version.setter
-    def function_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_version", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchSize")
-    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         """
         return pulumi.get(self, "max_batch_size")
 
     @max_batch_size.setter
-    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestMappingTemplate")
-    def request_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         """
         return pulumi.get(self, "request_mapping_template")
 
     @request_mapping_template.setter
-    def request_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responseMappingTemplate")
-    def response_mapping_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_mapping_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Function response mapping template.
         """
         return pulumi.get(self, "response_mapping_template")
 
     @response_mapping_template.setter
-    def response_mapping_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_mapping_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_mapping_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def runtime(self) -> Optional[pulumi.Input['FunctionRuntimeArgs']]:
+    def runtime(self) -> pulumi.Input[Optional['FunctionRuntimeArgs']]:
         """
         Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: Optional[pulumi.Input['FunctionRuntimeArgs']]):
+    def runtime(self, value: pulumi.Input[Optional['FunctionRuntimeArgs']]):
         pulumi.set(self, "runtime", value)
 
     @_builtins.property
     @pulumi.getter(name="syncConfig")
-    def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
+    def sync_config(self) -> pulumi.Input[Optional['FunctionSyncConfigArgs']]:
         """
         Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         return pulumi.get(self, "sync_config")
 
     @sync_config.setter
-    def sync_config(self, value: Optional[pulumi.Input['FunctionSyncConfigArgs']]):
+    def sync_config(self, value: pulumi.Input[Optional['FunctionSyncConfigArgs']]):
         pulumi.set(self, "sync_config", value)
 
 
@@ -456,18 +456,18 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
-                 sync_config: Optional[pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides an AppSync Function.
@@ -675,18 +675,18 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime: Optional[pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
-                 sync_config: Optional[pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -724,20 +724,20 @@ class Function(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            code: Optional[pulumi.Input[_builtins.str]] = None,
-            data_source: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            function_id: Optional[pulumi.Input[_builtins.str]] = None,
-            function_version: Optional[pulumi.Input[_builtins.str]] = None,
-            max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            request_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-            response_mapping_template: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime: Optional[pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
-            sync_config: Optional[pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None) -> 'Function':
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code: pulumi.Input[Optional[_builtins.str]] = None,
+            data_source: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            function_id: pulumi.Input[Optional[_builtins.str]] = None,
+            function_version: pulumi.Input[Optional[_builtins.str]] = None,
+            max_batch_size: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+            response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime: pulumi.Input[Optional[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']]] = None,
+            sync_config: pulumi.Input[Optional[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']]] = None) -> 'Function':
         """
         Get an existing Function resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -162,9 +162,9 @@ def get_cluster(cluster_id: Optional[_builtins.str] = None,
         security_group_id=pulumi.get(__ret__, 'security_group_id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_cluster_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       cluster_state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cluster_output(cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                       cluster_state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Use this data source to get information about a CloudHSM v2 cluster

@@ -175,10 +175,10 @@ def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierA
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict']]]] = None,
-                     group_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_group_output(alternate_identifier: pulumi.Input[Optional[Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict']]]] = None,
+                     group_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to get an Identity Store Group.

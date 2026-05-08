@@ -312,16 +312,16 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[_builtins.st
         resource_owner_account_id=pulumi.get(__ret__, 'resource_owner_account_id'),
         resource_policy_json=pulumi.get(__ret__, 'resource_policy_json'),
         results=pulumi.get(__ret__, 'results'))
-def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[Sequence[_builtins.str]]] = None,
-                                           additional_policies_jsons: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                           caller_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           contexts: Optional[pulumi.Input[Optional[Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']]]]] = None,
-                                           permissions_boundary_policies_jsons: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                           policy_source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                           resource_arns: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                           resource_handling_option: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           resource_owner_account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           resource_policy_json: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_principal_policy_simulation_output(action_names: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
+                                           additional_policies_jsons: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                           caller_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           contexts: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalPolicySimulationContextArgs', 'GetPrincipalPolicySimulationContextArgsDict']]]]] = None,
+                                           permissions_boundary_policies_jsons: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                           policy_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                           resource_arns: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                           resource_handling_option: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           resource_owner_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           resource_policy_json: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalPolicySimulationResult]:
     """
     Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.

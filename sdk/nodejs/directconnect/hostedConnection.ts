@@ -189,69 +189,69 @@ export interface HostedConnectionState {
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      */
-    awsDevice?: pulumi.Input<string>;
+    awsDevice?: pulumi.Input<string | undefined>;
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      */
-    bandwidth?: pulumi.Input<string>;
+    bandwidth?: pulumi.Input<string | undefined>;
     /**
      * The ID of the interconnect or LAG.
      */
-    connectionId?: pulumi.Input<string>;
+    connectionId?: pulumi.Input<string | undefined>;
     /**
      * The AWS Region where the connection is located.
      */
-    connectionRegion?: pulumi.Input<string>;
+    connectionRegion?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
-    hasLogicalRedundancy?: pulumi.Input<string>;
+    hasLogicalRedundancy?: pulumi.Input<string | undefined>;
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      */
-    jumboFrameCapable?: pulumi.Input<boolean>;
+    jumboFrameCapable?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the LAG.
      */
-    lagId?: pulumi.Input<string>;
+    lagId?: pulumi.Input<string | undefined>;
     /**
      * The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
      */
-    loaIssueTime?: pulumi.Input<string>;
+    loaIssueTime?: pulumi.Input<string | undefined>;
     /**
      * The location of the connection.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account of the customer for the connection.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      */
-    partnerName?: pulumi.Input<string>;
+    partnerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the service provider associated with the connection.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
      *
      * @deprecated region is deprecated. Use connectionRegion instead.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The dedicated VLAN provisioned to the hosted connection.
      */
-    vlan?: pulumi.Input<number>;
+    vlan?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -269,7 +269,7 @@ export interface HostedConnectionArgs {
     /**
      * The name of the connection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account of the customer for the connection.
      */

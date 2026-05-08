@@ -111,8 +111,8 @@ export interface OtelEnrichmentState {
     /**
      * AWS region where this resource is managed.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.cloudwatch.OtelEnrichmentTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudwatch.OtelEnrichmentTimeouts | undefined>;
 }
 
 /**
@@ -122,6 +122,6 @@ export interface OtelEnrichmentArgs {
     /**
      * AWS region where this resource is managed.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.cloudwatch.OtelEnrichmentTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudwatch.OtelEnrichmentTimeouts | undefined>;
 }

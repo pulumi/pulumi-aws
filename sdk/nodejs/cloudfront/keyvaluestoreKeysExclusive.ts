@@ -145,20 +145,20 @@ export interface KeyvaluestoreKeysExclusiveState {
      *
      * The following arguments are optional:
      */
-    keyValueStoreArn?: pulumi.Input<string>;
+    keyValueStoreArn?: pulumi.Input<string | undefined>;
     /**
      * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
      */
-    maxBatchSize?: pulumi.Input<number>;
+    maxBatchSize?: pulumi.Input<number | undefined>;
     /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resourceKeyValuePair` below.
      */
-    resourceKeyValuePairs?: pulumi.Input<pulumi.Input<inputs.cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePair>[]>;
+    resourceKeyValuePairs?: pulumi.Input<pulumi.Input<inputs.cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePair>[] | undefined>;
     /**
      * Total size of the Key Value Store in bytes.
      */
-    totalSizeInBytes?: pulumi.Input<number>;
+    totalSizeInBytes?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -174,10 +174,10 @@ export interface KeyvaluestoreKeysExclusiveArgs {
     /**
      * Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
      */
-    maxBatchSize?: pulumi.Input<number>;
+    maxBatchSize?: pulumi.Input<number | undefined>;
     /**
      * A list of all resource key value pairs associated with the KeyValueStore.
      * See `resourceKeyValuePair` below.
      */
-    resourceKeyValuePairs?: pulumi.Input<pulumi.Input<inputs.cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePair>[]>;
+    resourceKeyValuePairs?: pulumi.Input<pulumi.Input<inputs.cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePair>[] | undefined>;
 }

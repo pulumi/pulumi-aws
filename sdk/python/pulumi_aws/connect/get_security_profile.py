@@ -205,11 +205,11 @@ def get_security_profile(instance_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         security_profile_id=pulumi.get(__ret__, 'security_profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_security_profile_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                security_profile_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_security_profile_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                security_profile_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
     Provides details about a specific Amazon Connect Security Profile.

@@ -138,19 +138,19 @@ export interface PermissionSetInlinePolicyState {
     /**
      * The IAM inline policy to attach to a Permission Set.
      */
-    inlinePolicy?: pulumi.Input<string>;
+    inlinePolicy?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,5 +172,5 @@ export interface PermissionSetInlinePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

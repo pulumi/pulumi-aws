@@ -282,115 +282,115 @@ export interface NetworkInterfaceState {
     /**
      * ARN of the network interface.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
-    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[] | undefined>;
     /**
      * Description for the network interface.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
      */
-    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceEnaSrdSpecification>;
+    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceEnaSrdSpecification | undefined>;
     /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
      */
-    enablePrimaryIpv6?: pulumi.Input<boolean>;
+    enablePrimaryIpv6?: pulumi.Input<boolean | undefined>;
     /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
-    interfaceType?: pulumi.Input<string>;
+    interfaceType?: pulumi.Input<string | undefined>;
     /**
      * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      */
-    ipv4PrefixCount?: pulumi.Input<number>;
+    ipv4PrefixCount?: pulumi.Input<number | undefined>;
     /**
      * One or more IPv4 prefixes assigned to the network interface.
      */
-    ipv4Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv4Prefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
-    ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressCount?: pulumi.Input<number | undefined>;
     /**
      * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
      */
-    ipv6AddressListEnabled?: pulumi.Input<boolean>;
+    ipv6AddressListEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of private IPs to assign to the ENI in sequential order.
      */
-    ipv6AddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6AddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6AddressCount`.
      */
-    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      */
-    ipv6PrefixCount?: pulumi.Input<number>;
+    ipv6PrefixCount?: pulumi.Input<number | undefined>;
     /**
      * One or more IPv6 prefixes assigned to the network interface.
      */
-    ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * MAC address of the network interface.
      */
-    macAddress?: pulumi.Input<string>;
-    outpostArn?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID of the owner of the network interface.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Private DNS name of the network interface (IPv4).
      */
-    privateDnsName?: pulumi.Input<string>;
-    privateIp?: pulumi.Input<string>;
+    privateDnsName?: pulumi.Input<string | undefined>;
+    privateIp?: pulumi.Input<string | undefined>;
     /**
      * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
      */
-    privateIpListEnabled?: pulumi.Input<boolean>;
+    privateIpListEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      */
-    privateIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of private IPs to assign to the ENI without regard to order.
      */
-    privateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      */
-    privateIpsCount?: pulumi.Input<number>;
+    privateIpsCount?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    sourceDestCheck?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Subnet ID to create the ENI in.
      *
      * The following arguments are optional:
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -400,84 +400,84 @@ export interface NetworkInterfaceArgs {
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
-    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[] | undefined>;
     /**
      * Description for the network interface.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
      */
-    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceEnaSrdSpecification>;
+    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceEnaSrdSpecification | undefined>;
     /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
      */
-    enablePrimaryIpv6?: pulumi.Input<boolean>;
+    enablePrimaryIpv6?: pulumi.Input<boolean | undefined>;
     /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
-    interfaceType?: pulumi.Input<string>;
+    interfaceType?: pulumi.Input<string | undefined>;
     /**
      * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      */
-    ipv4PrefixCount?: pulumi.Input<number>;
+    ipv4PrefixCount?: pulumi.Input<number | undefined>;
     /**
      * One or more IPv4 prefixes assigned to the network interface.
      */
-    ipv4Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv4Prefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
-    ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressCount?: pulumi.Input<number | undefined>;
     /**
      * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
      */
-    ipv6AddressListEnabled?: pulumi.Input<boolean>;
+    ipv6AddressListEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of private IPs to assign to the ENI in sequential order.
      */
-    ipv6AddressLists?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6AddressLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6AddressCount`.
      */
-    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      */
-    ipv6PrefixCount?: pulumi.Input<number>;
+    ipv6PrefixCount?: pulumi.Input<number | undefined>;
     /**
      * One or more IPv6 prefixes assigned to the network interface.
      */
-    ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
-    privateIp?: pulumi.Input<string>;
+    ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    privateIp?: pulumi.Input<string | undefined>;
     /**
      * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
      */
-    privateIpListEnabled?: pulumi.Input<boolean>;
+    privateIpListEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      */
-    privateIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of private IPs to assign to the ENI without regard to order.
      */
-    privateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
      */
-    privateIpsCount?: pulumi.Input<number>;
+    privateIpsCount?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    sourceDestCheck?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Subnet ID to create the ENI in.
      *
@@ -487,5 +487,5 @@ export interface NetworkInterfaceArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

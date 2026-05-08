@@ -22,13 +22,13 @@ __all__ = ['BucketWebsiteConfigurationV2Args', 'BucketWebsiteConfigurationV2']
 class BucketWebsiteConfigurationV2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 error_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']] = None,
-                 redirect_all_requests_to: Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rule_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None):
+                 error_document: pulumi.Input[Optional['BucketWebsiteConfigurationV2ErrorDocumentArgs']] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional['BucketWebsiteConfigurationV2IndexDocumentArgs']] = None,
+                 redirect_all_requests_to: pulumi.Input[Optional['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rule_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None):
         """
         The set of arguments for constructing a BucketWebsiteConfigurationV2 resource.
 
@@ -75,68 +75,68 @@ class BucketWebsiteConfigurationV2Args:
 
     @_builtins.property
     @pulumi.getter(name="errorDocument")
-    def error_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']]:
+    def error_document(self) -> pulumi.Input[Optional['BucketWebsiteConfigurationV2ErrorDocumentArgs']]:
         """
         Name of the error document for the website. See below.
         """
         return pulumi.get(self, "error_document")
 
     @error_document.setter
-    def error_document(self, value: Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']]):
+    def error_document(self, value: pulumi.Input[Optional['BucketWebsiteConfigurationV2ErrorDocumentArgs']]):
         pulumi.set(self, "error_document", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="indexDocument")
-    def index_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']]:
+    def index_document(self) -> pulumi.Input[Optional['BucketWebsiteConfigurationV2IndexDocumentArgs']]:
         """
         Name of the index document for the website. See below.
         """
         return pulumi.get(self, "index_document")
 
     @index_document.setter
-    def index_document(self, value: Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']]):
+    def index_document(self, value: pulumi.Input[Optional['BucketWebsiteConfigurationV2IndexDocumentArgs']]):
         pulumi.set(self, "index_document", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectAllRequestsTo")
-    def redirect_all_requests_to(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]:
+    def redirect_all_requests_to(self) -> pulumi.Input[Optional['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]:
         """
         Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
         """
         return pulumi.get(self, "redirect_all_requests_to")
 
     @redirect_all_requests_to.setter
-    def redirect_all_requests_to(self, value: Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]):
+    def redirect_all_requests_to(self, value: pulumi.Input[Optional['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]):
         pulumi.set(self, "redirect_all_requests_to", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRuleDetails")
-    def routing_rule_details(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_rule_details(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
@@ -144,35 +144,35 @@ class BucketWebsiteConfigurationV2Args:
         return pulumi.get(self, "routing_rule_details")
 
     @routing_rule_details.setter
-    def routing_rule_details(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_rule_details(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_rule_details", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]:
+    def routing_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]:
         """
         List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
         return pulumi.get(self, "routing_rules")
 
     @routing_rules.setter
-    def routing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]):
+    def routing_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]):
         pulumi.set(self, "routing_rules", value)
 
 
 @pulumi.input_type
 class _BucketWebsiteConfigurationV2State:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']] = None,
-                 redirect_all_requests_to: Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rule_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None,
-                 website_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 website_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_document: pulumi.Input[Optional['BucketWebsiteConfigurationV2ErrorDocumentArgs']] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional['BucketWebsiteConfigurationV2IndexDocumentArgs']] = None,
+                 redirect_all_requests_to: pulumi.Input[Optional['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rule_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None,
+                 website_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 website_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketWebsiteConfigurationV2 resources.
 
@@ -214,80 +214,80 @@ class _BucketWebsiteConfigurationV2State:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="errorDocument")
-    def error_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']]:
+    def error_document(self) -> pulumi.Input[Optional['BucketWebsiteConfigurationV2ErrorDocumentArgs']]:
         """
         Name of the error document for the website. See below.
         """
         return pulumi.get(self, "error_document")
 
     @error_document.setter
-    def error_document(self, value: Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']]):
+    def error_document(self, value: pulumi.Input[Optional['BucketWebsiteConfigurationV2ErrorDocumentArgs']]):
         pulumi.set(self, "error_document", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="indexDocument")
-    def index_document(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']]:
+    def index_document(self) -> pulumi.Input[Optional['BucketWebsiteConfigurationV2IndexDocumentArgs']]:
         """
         Name of the index document for the website. See below.
         """
         return pulumi.get(self, "index_document")
 
     @index_document.setter
-    def index_document(self, value: Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']]):
+    def index_document(self, value: pulumi.Input[Optional['BucketWebsiteConfigurationV2IndexDocumentArgs']]):
         pulumi.set(self, "index_document", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectAllRequestsTo")
-    def redirect_all_requests_to(self) -> Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]:
+    def redirect_all_requests_to(self) -> pulumi.Input[Optional['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]:
         """
         Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
         """
         return pulumi.get(self, "redirect_all_requests_to")
 
     @redirect_all_requests_to.setter
-    def redirect_all_requests_to(self, value: Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]):
+    def redirect_all_requests_to(self, value: pulumi.Input[Optional['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']]):
         pulumi.set(self, "redirect_all_requests_to", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRuleDetails")
-    def routing_rule_details(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_rule_details(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
@@ -295,43 +295,43 @@ class _BucketWebsiteConfigurationV2State:
         return pulumi.get(self, "routing_rule_details")
 
     @routing_rule_details.setter
-    def routing_rule_details(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_rule_details(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_rule_details", value)
 
     @_builtins.property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]:
+    def routing_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]:
         """
         List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
         return pulumi.get(self, "routing_rules")
 
     @routing_rules.setter
-    def routing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]):
+    def routing_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]]):
         pulumi.set(self, "routing_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="websiteDomain")
-    def website_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain of the website endpoint. This is used to create Route 53 alias records.
         """
         return pulumi.get(self, "website_domain")
 
     @website_domain.setter
-    def website_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="websiteEndpoint")
-    def website_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Website endpoint.
         """
         return pulumi.get(self, "website_endpoint")
 
     @website_endpoint.setter
-    def website_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website_endpoint", value)
 
 
@@ -346,14 +346,14 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_document: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2ErrorDocumentArgs', 'BucketWebsiteConfigurationV2ErrorDocumentArgsDict']]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2IndexDocumentArgs', 'BucketWebsiteConfigurationV2IndexDocumentArgsDict']]] = None,
-                 redirect_all_requests_to: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs', 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rule_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketWebsiteConfigurationV2RoutingRuleArgs', 'BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2ErrorDocumentArgs', 'BucketWebsiteConfigurationV2ErrorDocumentArgsDict']]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2IndexDocumentArgs', 'BucketWebsiteConfigurationV2IndexDocumentArgsDict']]] = None,
+                 redirect_all_requests_to: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs', 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rule_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketWebsiteConfigurationV2RoutingRuleArgs', 'BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
@@ -560,14 +560,14 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_document: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2ErrorDocumentArgs', 'BucketWebsiteConfigurationV2ErrorDocumentArgsDict']]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_document: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2IndexDocumentArgs', 'BucketWebsiteConfigurationV2IndexDocumentArgsDict']]] = None,
-                 redirect_all_requests_to: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs', 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rule_details: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketWebsiteConfigurationV2RoutingRuleArgs', 'BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2ErrorDocumentArgs', 'BucketWebsiteConfigurationV2ErrorDocumentArgsDict']]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2IndexDocumentArgs', 'BucketWebsiteConfigurationV2IndexDocumentArgsDict']]] = None,
+                 redirect_all_requests_to: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs', 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rule_details: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketWebsiteConfigurationV2RoutingRuleArgs', 'BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""BucketWebsiteConfigurationV2 is deprecated: aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -602,16 +602,16 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            error_document: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2ErrorDocumentArgs', 'BucketWebsiteConfigurationV2ErrorDocumentArgsDict']]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            index_document: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2IndexDocumentArgs', 'BucketWebsiteConfigurationV2IndexDocumentArgsDict']]] = None,
-            redirect_all_requests_to: Optional[pulumi.Input[Union['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs', 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_rule_details: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketWebsiteConfigurationV2RoutingRuleArgs', 'BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]] = None,
-            website_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            website_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'BucketWebsiteConfigurationV2':
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            error_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2ErrorDocumentArgs', 'BucketWebsiteConfigurationV2ErrorDocumentArgsDict']]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            index_document: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2IndexDocumentArgs', 'BucketWebsiteConfigurationV2IndexDocumentArgsDict']]] = None,
+            redirect_all_requests_to: pulumi.Input[Optional[Union['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs', 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rule_details: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketWebsiteConfigurationV2RoutingRuleArgs', 'BucketWebsiteConfigurationV2RoutingRuleArgsDict']]]]] = None,
+            website_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            website_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketWebsiteConfigurationV2':
         """
         Get an existing BucketWebsiteConfigurationV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -471,8 +471,8 @@ def get_group(name: Optional[_builtins.str] = None,
         vpc_zone_identifier=pulumi.get(__ret__, 'vpc_zone_identifier'),
         warm_pool_size=pulumi.get(__ret__, 'warm_pool_size'),
         warm_pools=pulumi.get(__ret__, 'warm_pools'))
-def get_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to get information on an existing autoscaling group.

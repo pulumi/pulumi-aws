@@ -23,22 +23,22 @@ class GatewayArgs:
     def __init__(__self__, *,
                  gateway_name: pulumi.Input[_builtins.str],
                  gateway_timezone: pulumi.Input[_builtins.str],
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_vpc_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
-                 medium_changer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
-                 smb_file_share_visibility: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_guest_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_security_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tape_drive_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 average_download_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 average_upload_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_start_time: pulumi.Input[Optional['GatewayMaintenanceStartTimeArgs']] = None,
+                 medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_active_directory_settings: pulumi.Input[Optional['GatewaySmbActiveDirectorySettingsArgs']] = None,
+                 smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tape_drive_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
@@ -124,175 +124,175 @@ class GatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def activation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
         return pulumi.get(self, "activation_key")
 
     @activation_key.setter
-    def activation_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def activation_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "activation_key", value)
 
     @_builtins.property
     @pulumi.getter(name="averageDownloadRateLimitInBitsPerSec")
-    def average_download_rate_limit_in_bits_per_sec(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def average_download_rate_limit_in_bits_per_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         """
         return pulumi.get(self, "average_download_rate_limit_in_bits_per_sec")
 
     @average_download_rate_limit_in_bits_per_sec.setter
-    def average_download_rate_limit_in_bits_per_sec(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def average_download_rate_limit_in_bits_per_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "average_download_rate_limit_in_bits_per_sec", value)
 
     @_builtins.property
     @pulumi.getter(name="averageUploadRateLimitInBitsPerSec")
-    def average_upload_rate_limit_in_bits_per_sec(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def average_upload_rate_limit_in_bits_per_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         """
         return pulumi.get(self, "average_upload_rate_limit_in_bits_per_sec")
 
     @average_upload_rate_limit_in_bits_per_sec.setter
-    def average_upload_rate_limit_in_bits_per_sec(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def average_upload_rate_limit_in_bits_per_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "average_upload_rate_limit_in_bits_per_sec", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @cloudwatch_log_group_arn.setter
-    def cloudwatch_log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_log_group_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayIpAddress")
-    def gateway_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
         return pulumi.get(self, "gateway_ip_address")
 
     @gateway_ip_address.setter
-    def gateway_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayType")
-    def gateway_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         """
         return pulumi.get(self, "gateway_type")
 
     @gateway_type.setter
-    def gateway_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_type", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayVpcEndpoint")
-    def gateway_vpc_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_vpc_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         """
         return pulumi.get(self, "gateway_vpc_endpoint")
 
     @gateway_vpc_endpoint.setter
-    def gateway_vpc_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_vpc_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_vpc_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceStartTime")
-    def maintenance_start_time(self) -> Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]:
+    def maintenance_start_time(self) -> pulumi.Input[Optional['GatewayMaintenanceStartTimeArgs']]:
         """
         The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         """
         return pulumi.get(self, "maintenance_start_time")
 
     @maintenance_start_time.setter
-    def maintenance_start_time(self, value: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]):
+    def maintenance_start_time(self, value: pulumi.Input[Optional['GatewayMaintenanceStartTimeArgs']]):
         pulumi.set(self, "maintenance_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="mediumChangerType")
-    def medium_changer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def medium_changer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         """
         return pulumi.get(self, "medium_changer_type")
 
     @medium_changer_type.setter
-    def medium_changer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def medium_changer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "medium_changer_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="smbActiveDirectorySettings")
-    def smb_active_directory_settings(self) -> Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']]:
+    def smb_active_directory_settings(self) -> pulumi.Input[Optional['GatewaySmbActiveDirectorySettingsArgs']]:
         """
         Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         """
         return pulumi.get(self, "smb_active_directory_settings")
 
     @smb_active_directory_settings.setter
-    def smb_active_directory_settings(self, value: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']]):
+    def smb_active_directory_settings(self, value: pulumi.Input[Optional['GatewaySmbActiveDirectorySettingsArgs']]):
         pulumi.set(self, "smb_active_directory_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="smbFileShareVisibility")
-    def smb_file_share_visibility(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_file_share_visibility(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the shares on this gateway appear when listing shares.
         """
         return pulumi.get(self, "smb_file_share_visibility")
 
     @smb_file_share_visibility.setter
-    def smb_file_share_visibility(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_file_share_visibility(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_file_share_visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="smbGuestPassword")
-    def smb_guest_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smb_guest_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         """
         return pulumi.get(self, "smb_guest_password")
 
     @smb_guest_password.setter
-    def smb_guest_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smb_guest_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smb_guest_password", value)
 
     @_builtins.property
     @pulumi.getter(name="smbSecurityStrategy")
-    def smb_security_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smb_security_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         """
         return pulumi.get(self, "smb_security_strategy")
 
     @smb_security_strategy.setter
-    def smb_security_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smb_security_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smb_security_strategy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -301,50 +301,50 @@ class GatewayArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tapeDriveType")
-    def tape_drive_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tape_drive_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
         return pulumi.get(self, "tape_drive_type")
 
     @tape_drive_type.setter
-    def tape_drive_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tape_drive_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tape_drive_type", value)
 
 
 @pulumi.input_type
 class _GatewayState:
     def __init__(__self__, *,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ec2_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayNetworkInterfaceArgs']]]] = None,
-                 gateway_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_vpc_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
-                 medium_changer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
-                 smb_file_share_visibility: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_guest_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_security_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tape_drive_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 average_download_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 average_upload_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayGatewayNetworkInterfaceArgs']]]] = None,
+                 gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_start_time: pulumi.Input[Optional['GatewayMaintenanceStartTimeArgs']] = None,
+                 medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_active_directory_settings: pulumi.Input[Optional['GatewaySmbActiveDirectorySettingsArgs']] = None,
+                 smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tape_drive_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
 
@@ -429,271 +429,271 @@ class _GatewayState:
 
     @_builtins.property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def activation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
         return pulumi.get(self, "activation_key")
 
     @activation_key.setter
-    def activation_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def activation_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "activation_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="averageDownloadRateLimitInBitsPerSec")
-    def average_download_rate_limit_in_bits_per_sec(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def average_download_rate_limit_in_bits_per_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         """
         return pulumi.get(self, "average_download_rate_limit_in_bits_per_sec")
 
     @average_download_rate_limit_in_bits_per_sec.setter
-    def average_download_rate_limit_in_bits_per_sec(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def average_download_rate_limit_in_bits_per_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "average_download_rate_limit_in_bits_per_sec", value)
 
     @_builtins.property
     @pulumi.getter(name="averageUploadRateLimitInBitsPerSec")
-    def average_upload_rate_limit_in_bits_per_sec(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def average_upload_rate_limit_in_bits_per_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         """
         return pulumi.get(self, "average_upload_rate_limit_in_bits_per_sec")
 
     @average_upload_rate_limit_in_bits_per_sec.setter
-    def average_upload_rate_limit_in_bits_per_sec(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def average_upload_rate_limit_in_bits_per_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "average_upload_rate_limit_in_bits_per_sec", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @cloudwatch_log_group_arn.setter
-    def cloudwatch_log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_log_group_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2InstanceId")
-    def ec2_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ec2_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon EC2 instance that was used to launch the gateway.
         """
         return pulumi.get(self, "ec2_instance_id")
 
     @ec2_instance_id.setter
-    def ec2_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ec2_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ec2_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of endpoint for your gateway.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the gateway.
         """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
-    def gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayIpAddress")
-    def gateway_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         """
         return pulumi.get(self, "gateway_ip_address")
 
     @gateway_ip_address.setter
-    def gateway_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the gateway.
         """
         return pulumi.get(self, "gateway_name")
 
     @gateway_name.setter
-    def gateway_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayNetworkInterfaces")
-    def gateway_network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayNetworkInterfaceArgs']]]]:
+    def gateway_network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GatewayGatewayNetworkInterfaceArgs']]]]:
         """
         An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
         """
         return pulumi.get(self, "gateway_network_interfaces")
 
     @gateway_network_interfaces.setter
-    def gateway_network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayNetworkInterfaceArgs']]]]):
+    def gateway_network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GatewayGatewayNetworkInterfaceArgs']]]]):
         pulumi.set(self, "gateway_network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayTimezone")
-    def gateway_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         """
         return pulumi.get(self, "gateway_timezone")
 
     @gateway_timezone.setter
-    def gateway_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayType")
-    def gateway_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         """
         return pulumi.get(self, "gateway_type")
 
     @gateway_type.setter
-    def gateway_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_type", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayVpcEndpoint")
-    def gateway_vpc_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_vpc_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         """
         return pulumi.get(self, "gateway_vpc_endpoint")
 
     @gateway_vpc_endpoint.setter
-    def gateway_vpc_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_vpc_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_vpc_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="hostEnvironment")
-    def host_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host_environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of hypervisor environment used by the host.
         """
         return pulumi.get(self, "host_environment")
 
     @host_environment.setter
-    def host_environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host_environment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceStartTime")
-    def maintenance_start_time(self) -> Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]:
+    def maintenance_start_time(self) -> pulumi.Input[Optional['GatewayMaintenanceStartTimeArgs']]:
         """
         The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         """
         return pulumi.get(self, "maintenance_start_time")
 
     @maintenance_start_time.setter
-    def maintenance_start_time(self, value: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]):
+    def maintenance_start_time(self, value: pulumi.Input[Optional['GatewayMaintenanceStartTimeArgs']]):
         pulumi.set(self, "maintenance_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="mediumChangerType")
-    def medium_changer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def medium_changer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         """
         return pulumi.get(self, "medium_changer_type")
 
     @medium_changer_type.setter
-    def medium_changer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def medium_changer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "medium_changer_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="smbActiveDirectorySettings")
-    def smb_active_directory_settings(self) -> Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']]:
+    def smb_active_directory_settings(self) -> pulumi.Input[Optional['GatewaySmbActiveDirectorySettingsArgs']]:
         """
         Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         """
         return pulumi.get(self, "smb_active_directory_settings")
 
     @smb_active_directory_settings.setter
-    def smb_active_directory_settings(self, value: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']]):
+    def smb_active_directory_settings(self, value: pulumi.Input[Optional['GatewaySmbActiveDirectorySettingsArgs']]):
         pulumi.set(self, "smb_active_directory_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="smbFileShareVisibility")
-    def smb_file_share_visibility(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def smb_file_share_visibility(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the shares on this gateway appear when listing shares.
         """
         return pulumi.get(self, "smb_file_share_visibility")
 
     @smb_file_share_visibility.setter
-    def smb_file_share_visibility(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def smb_file_share_visibility(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "smb_file_share_visibility", value)
 
     @_builtins.property
     @pulumi.getter(name="smbGuestPassword")
-    def smb_guest_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smb_guest_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         """
         return pulumi.get(self, "smb_guest_password")
 
     @smb_guest_password.setter
-    def smb_guest_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smb_guest_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smb_guest_password", value)
 
     @_builtins.property
     @pulumi.getter(name="smbSecurityStrategy")
-    def smb_security_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def smb_security_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         """
         return pulumi.get(self, "smb_security_strategy")
 
     @smb_security_strategy.setter
-    def smb_security_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def smb_security_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "smb_security_strategy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -702,31 +702,31 @@ class _GatewayState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tapeDriveType")
-    def tape_drive_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tape_drive_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
         return pulumi.get(self, "tape_drive_type")
 
     @tape_drive_type.setter
-    def tape_drive_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tape_drive_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tape_drive_type", value)
 
 
@@ -736,24 +736,24 @@ class Gateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_vpc_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_start_time: Optional[pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
-                 medium_changer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_active_directory_settings: Optional[pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
-                 smb_file_share_visibility: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_guest_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_security_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tape_drive_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 average_download_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 average_upload_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
+                 medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
+                 smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tape_drive_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
@@ -1027,24 +1027,24 @@ class Gateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_vpc_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 maintenance_start_time: Optional[pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
-                 medium_changer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_active_directory_settings: Optional[pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
-                 smb_file_share_visibility: Optional[pulumi.Input[_builtins.bool]] = None,
-                 smb_guest_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 smb_security_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tape_drive_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 average_download_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 average_upload_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
+                 medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
+                 smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
+                 smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tape_drive_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1095,31 +1095,31 @@ class Gateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-            average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[_builtins.int]] = None,
-            cloudwatch_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            ec2_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayGatewayNetworkInterfaceArgs', 'GatewayGatewayNetworkInterfaceArgsDict']]]]] = None,
-            gateway_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_type: Optional[pulumi.Input[_builtins.str]] = None,
-            gateway_vpc_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            host_environment: Optional[pulumi.Input[_builtins.str]] = None,
-            maintenance_start_time: Optional[pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
-            medium_changer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            smb_active_directory_settings: Optional[pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
-            smb_file_share_visibility: Optional[pulumi.Input[_builtins.bool]] = None,
-            smb_guest_password: Optional[pulumi.Input[_builtins.str]] = None,
-            smb_security_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tape_drive_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Gateway':
+            activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            average_download_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+            average_upload_rate_limit_in_bits_per_sec: pulumi.Input[Optional[_builtins.int]] = None,
+            cloudwatch_log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            ec2_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayGatewayNetworkInterfaceArgs', 'GatewayGatewayNetworkInterfaceArgsDict']]]]] = None,
+            gateway_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+            gateway_vpc_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            host_environment: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_start_time: pulumi.Input[Optional[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
+            medium_changer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            smb_active_directory_settings: pulumi.Input[Optional[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
+            smb_file_share_visibility: pulumi.Input[Optional[_builtins.bool]] = None,
+            smb_guest_password: pulumi.Input[Optional[_builtins.str]] = None,
+            smb_security_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tape_drive_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Gateway':
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

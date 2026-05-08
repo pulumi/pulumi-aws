@@ -154,33 +154,33 @@ export interface EnvironmentBlueprintConfigurationState {
     /**
      * ID of the Domain.
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
     /**
      * Regions in which the blueprint is enabled
      *
      * The following arguments are optional:
      */
-    enabledRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Environment Blueprint
      */
-    environmentBlueprintId?: pulumi.Input<string>;
+    environmentBlueprintId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the manage access role with which this blueprint is created.
      */
-    manageAccessRoleArn?: pulumi.Input<string>;
+    manageAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the provisioning role with which this blueprint is created.
      */
-    provisioningRoleArn?: pulumi.Input<string>;
+    provisioningRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Parameters for each region in which the blueprint is enabled
      */
-    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>} | undefined>;
 }
 
 /**
@@ -204,17 +204,17 @@ export interface EnvironmentBlueprintConfigurationArgs {
     /**
      * ARN of the manage access role with which this blueprint is created.
      */
-    manageAccessRoleArn?: pulumi.Input<string>;
+    manageAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the provisioning role with which this blueprint is created.
      */
-    provisioningRoleArn?: pulumi.Input<string>;
+    provisioningRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Parameters for each region in which the blueprint is enabled
      */
-    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>} | undefined>;
 }

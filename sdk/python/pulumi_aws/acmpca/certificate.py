@@ -25,9 +25,9 @@ class CertificateArgs:
                  certificate_signing_request: pulumi.Input[_builtins.str],
                  signing_algorithm: pulumi.Input[_builtins.str],
                  validity: pulumi.Input['CertificateValidityArgs'],
-                 api_passthrough: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_passthrough: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -101,31 +101,31 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiPassthrough")
-    def api_passthrough(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_passthrough(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         """
         return pulumi.get(self, "api_passthrough")
 
     @api_passthrough.setter
-    def api_passthrough(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_passthrough(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_passthrough", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="templateArn")
-    def template_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template to use when issuing a certificate.
         See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
@@ -133,23 +133,23 @@ class CertificateArgs:
         return pulumi.get(self, "template_arn")
 
     @template_arn.setter
-    def template_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_arn", value)
 
 
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
-                 api_passthrough: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity: Optional[pulumi.Input['CertificateValidityArgs']] = None):
+                 api_passthrough: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validity: pulumi.Input[Optional['CertificateValidityArgs']] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
 
@@ -188,103 +188,103 @@ class _CertificateState:
 
     @_builtins.property
     @pulumi.getter(name="apiPassthrough")
-    def api_passthrough(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_passthrough(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         """
         return pulumi.get(self, "api_passthrough")
 
     @api_passthrough.setter
-    def api_passthrough(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_passthrough(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_passthrough", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the certificate.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM-encoded certificate value.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
-    def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the certificate authority.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
-    def certificate_authority_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_authority_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_authority_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
-    def certificate_chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_chain", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSigningRequest")
-    def certificate_signing_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_signing_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate Signing Request in PEM format.
         """
         return pulumi.get(self, "certificate_signing_request")
 
     @certificate_signing_request.setter
-    def certificate_signing_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_signing_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_signing_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="signingAlgorithm")
-    def signing_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         """
         return pulumi.get(self, "signing_algorithm")
 
     @signing_algorithm.setter
-    def signing_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="templateArn")
-    def template_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template to use when issuing a certificate.
         See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
@@ -292,19 +292,19 @@ class _CertificateState:
         return pulumi.get(self, "template_arn")
 
     @template_arn.setter
-    def template_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def validity(self) -> Optional[pulumi.Input['CertificateValidityArgs']]:
+    def validity(self) -> pulumi.Input[Optional['CertificateValidityArgs']]:
         """
         Configures end of the validity period for the certificate. See validity block below.
         """
         return pulumi.get(self, "validity")
 
     @validity.setter
-    def validity(self, value: Optional[pulumi.Input['CertificateValidityArgs']]):
+    def validity(self, value: pulumi.Input[Optional['CertificateValidityArgs']]):
         pulumi.set(self, "validity", value)
 
 
@@ -314,13 +314,13 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_passthrough: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity: Optional[pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
+                 api_passthrough: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
@@ -468,13 +468,13 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_passthrough: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 validity: Optional[pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
+                 api_passthrough: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,16 +512,16 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_passthrough: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_signing_request: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            template_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            validity: Optional[pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None) -> 'Certificate':
+            api_passthrough: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

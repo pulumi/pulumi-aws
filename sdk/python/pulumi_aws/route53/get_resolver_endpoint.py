@@ -252,9 +252,9 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
         status=pulumi.get(__ret__, 'status'),
         target_name_server_metrics_enabled=pulumi.get(__ret__, 'target_name_server_metrics_enabled'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 resolver_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resolver_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resolver_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverEndpointResult]:
     """
     `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.

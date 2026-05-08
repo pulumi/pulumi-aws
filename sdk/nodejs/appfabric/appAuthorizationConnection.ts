@@ -126,28 +126,28 @@ export interface AppAuthorizationConnectionState {
     /**
      * The name of the application.
      */
-    app?: pulumi.Input<string>;
+    app?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      */
-    appAuthorizationArn?: pulumi.Input<string>;
+    appAuthorizationArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
-    appBundleArn?: pulumi.Input<string>;
+    appBundleArn?: pulumi.Input<string | undefined>;
     /**
      * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
      */
-    authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest>;
+    authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      */
-    tenants?: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTenant>[]>;
-    timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts>;
+    tenants?: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTenant>[] | undefined>;
+    timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts | undefined>;
 }
 
 /**
@@ -165,10 +165,10 @@ export interface AppAuthorizationConnectionArgs {
     /**
      * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
      */
-    authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest>;
+    authRequest?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionAuthRequest | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts | undefined>;
 }

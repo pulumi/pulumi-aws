@@ -197,48 +197,48 @@ export interface CapabilityState {
     /**
      * ARN of the capability.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the capability. Must be unique within the cluster.
      */
-    capabilityName?: pulumi.Input<string>;
+    capabilityName?: pulumi.Input<string | undefined>;
     /**
      * Name of the EKS cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the capability. See `configuration` below.
      */
-    configuration?: pulumi.Input<inputs.eks.CapabilityConfiguration>;
+    configuration?: pulumi.Input<inputs.eks.CapabilityConfiguration | undefined>;
     /**
      * Delete propagation policy for the capability. Valid values: `RETAIN`.
      */
-    deletePropagationPolicy?: pulumi.Input<string>;
+    deletePropagationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role to associate with the capability.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.eks.CapabilityTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.eks.CapabilityTimeouts | undefined>;
     /**
      * Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Version of the capability.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -256,7 +256,7 @@ export interface CapabilityArgs {
     /**
      * Configuration for the capability. See `configuration` below.
      */
-    configuration?: pulumi.Input<inputs.eks.CapabilityConfiguration>;
+    configuration?: pulumi.Input<inputs.eks.CapabilityConfiguration | undefined>;
     /**
      * Delete propagation policy for the capability. Valid values: `RETAIN`.
      */
@@ -264,7 +264,7 @@ export interface CapabilityArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role to associate with the capability.
      */
@@ -272,8 +272,8 @@ export interface CapabilityArgs {
     /**
      * Key-value map of resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.eks.CapabilityTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.eks.CapabilityTimeouts | undefined>;
     /**
      * Type of the capability. Valid values: `ACK`, `KRO`, `ARGOCD`.
      */

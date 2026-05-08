@@ -178,9 +178,9 @@ def get_public_ipv4_pool(pool_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         total_address_count=pulumi.get(__ret__, 'total_address_count'),
         total_available_address_count=pulumi.get(__ret__, 'total_available_address_count'))
-def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_public_ipv4_pool_output(pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolResult]:
     """
     Provides details about a specific AWS EC2 Public IPv4 Pool.

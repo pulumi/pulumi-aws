@@ -24,10 +24,10 @@ class MonitorArgs:
                  local_resources: pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]],
                  monitor_name: pulumi.Input[_builtins.str],
                  scope_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_resources: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['MonitorTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['MonitorTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -92,62 +92,62 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteResources")
-    def remote_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]:
+    def remote_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]:
         """
         The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
         """
         return pulumi.get(self, "remote_resources")
 
     @remote_resources.setter
-    def remote_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]):
+    def remote_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]):
         pulumi.set(self, "remote_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['MonitorTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['MonitorTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['MonitorTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['MonitorTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 local_resources: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]] = None,
-                 monitor_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_resources: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]] = None,
-                 scope_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['MonitorTimeoutsArgs']] = None):
+                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]] = None,
+                 monitor_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]] = None,
+                 scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['MonitorTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
 
@@ -183,67 +183,67 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter(name="localResources")
-    def local_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]:
+    def local_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]:
         """
         The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
         """
         return pulumi.get(self, "local_resources")
 
     @local_resources.setter
-    def local_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]):
+    def local_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorLocalResourceArgs']]]]):
         pulumi.set(self, "local_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorArn")
-    def monitor_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the monitor.
         """
         return pulumi.get(self, "monitor_arn")
 
     @monitor_arn.setter
-    def monitor_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
-    def monitor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the monitor. Cannot be changed after creation.
         """
         return pulumi.get(self, "monitor_name")
 
     @monitor_name.setter
-    def monitor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteResources")
-    def remote_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]:
+    def remote_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]:
         """
         The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
         """
         return pulumi.get(self, "remote_resources")
 
     @remote_resources.setter
-    def remote_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]):
+    def remote_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorRemoteResourceArgs']]]]):
         pulumi.set(self, "remote_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeArn")
-    def scope_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
 
@@ -252,40 +252,40 @@ class _MonitorState:
         return pulumi.get(self, "scope_arn")
 
     @scope_arn.setter
-    def scope_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['MonitorTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['MonitorTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['MonitorTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['MonitorTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -295,13 +295,13 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
-                 scope_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None,
+                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+                 scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Network Flow Monitor Monitor.
@@ -417,13 +417,13 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
-                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
-                 scope_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None,
+                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+                 scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -458,15 +458,15 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            local_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
-            monitor_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
-            scope_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None) -> 'Monitor':
+            local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+            monitor_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+            scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MonitorTimeoutsArgs', 'MonitorTimeoutsArgsDict']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

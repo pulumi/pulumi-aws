@@ -23,8 +23,8 @@ class TableBucketReplicationArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[_builtins.str],
                  table_bucket_arn: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input['TableBucketReplicationRuleArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional['TableBucketReplicationRuleArgs']] = None):
         """
         The set of arguments for constructing a TableBucketReplication resource.
 
@@ -66,37 +66,37 @@ class TableBucketReplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['TableBucketReplicationRuleArgs']]:
+    def rule(self) -> pulumi.Input[Optional['TableBucketReplicationRuleArgs']]:
         """
         Replication rules. See Rule below for more details.
         """
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['TableBucketReplicationRuleArgs']]):
+    def rule(self, value: pulumi.Input[Optional['TableBucketReplicationRuleArgs']]):
         pulumi.set(self, "rule", value)
 
 
 @pulumi.input_type
 class _TableBucketReplicationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input['TableBucketReplicationRuleArgs']] = None,
-                 table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional['TableBucketReplicationRuleArgs']] = None,
+                 table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableBucketReplication resources.
 
@@ -118,59 +118,59 @@ class _TableBucketReplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
     @_builtins.property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['TableBucketReplicationRuleArgs']]:
+    def rule(self) -> pulumi.Input[Optional['TableBucketReplicationRuleArgs']]:
         """
         Replication rules. See Rule below for more details.
         """
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['TableBucketReplicationRuleArgs']]):
+    def rule(self, value: pulumi.Input[Optional['TableBucketReplicationRuleArgs']]):
         pulumi.set(self, "rule", value)
 
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")
-    def table_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN referencing the Table Bucket that owns this replication configuration.
         """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
-    def table_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_bucket_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="versionToken")
-    def version_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "version_token")
 
     @version_token.setter
-    def version_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_token", value)
 
 
@@ -180,10 +180,10 @@ class TableBucketReplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
-                 table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
+                 table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Amazon S3 Tables Table Bucket Replication configuration.
@@ -273,10 +273,10 @@ class TableBucketReplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
-                 table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
+                 table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -305,11 +305,11 @@ class TableBucketReplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role: Optional[pulumi.Input[_builtins.str]] = None,
-            rule: Optional[pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
-            table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            version_token: Optional[pulumi.Input[_builtins.str]] = None) -> 'TableBucketReplication':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']]] = None,
+            table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            version_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableBucketReplication':
         """
         Get an existing TableBucketReplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

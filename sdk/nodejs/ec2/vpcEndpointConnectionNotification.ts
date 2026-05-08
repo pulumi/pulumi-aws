@@ -160,31 +160,31 @@ export interface VpcEndpointConnectionNotificationState {
      *
      * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
-    connectionEvents?: pulumi.Input<pulumi.Input<string>[]>;
+    connectionEvents?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN of the SNS topic for the notifications.
      */
-    connectionNotificationArn?: pulumi.Input<string>;
+    connectionNotificationArn?: pulumi.Input<string | undefined>;
     /**
      * The type of notification.
      */
-    notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The state of the notification.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    vpcEndpointServiceId?: pulumi.Input<string>;
+    vpcEndpointServiceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -204,13 +204,13 @@ export interface VpcEndpointConnectionNotificationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    vpcEndpointServiceId?: pulumi.Input<string>;
+    vpcEndpointServiceId?: pulumi.Input<string | undefined>;
 }

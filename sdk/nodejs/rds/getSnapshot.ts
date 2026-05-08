@@ -244,42 +244,42 @@ export interface GetSnapshotOutputArgs {
     /**
      * Returns the list of snapshots created by the specific db_instance
      */
-    dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Returns information on a specific snapshot_id.
      */
-    dbSnapshotIdentifier?: pulumi.Input<string>;
+    dbSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      */
-    includePublic?: pulumi.Input<boolean>;
+    includePublic?: pulumi.Input<boolean | undefined>;
     /**
      * Set this value to true to include shared manual DB snapshots from other
      * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
      * The default is `false`.
      */
-    includeShared?: pulumi.Input<boolean>;
+    includeShared?: pulumi.Input<boolean | undefined>;
     /**
      * If more than one result is returned, use the most
      * recent Snapshot.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
-    snapshotType?: pulumi.Input<string>;
+    snapshotType?: pulumi.Input<string | undefined>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
      *
      * > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

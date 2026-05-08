@@ -32,7 +32,7 @@ __all__ = [
 ]
 
 class CanaryArtifactConfigArgsDict(TypedDict):
-    s3_encryption: NotRequired[pulumi.Input['CanaryArtifactConfigS3EncryptionArgsDict']]
+    s3_encryption: NotRequired[pulumi.Input[Optional['CanaryArtifactConfigS3EncryptionArgs']]]
     """
     Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
     """
@@ -40,7 +40,7 @@ class CanaryArtifactConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryArtifactConfigArgs:
     def __init__(__self__, *,
-                 s3_encryption: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']] = None):
+                 s3_encryption: pulumi.Input[Optional['CanaryArtifactConfigS3EncryptionArgs']] = None):
         """
         :param pulumi.Input['CanaryArtifactConfigS3EncryptionArgs'] s3_encryption: Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
         """
@@ -49,23 +49,23 @@ class CanaryArtifactConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Encryption")
-    def s3_encryption(self) -> Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']]:
+    def s3_encryption(self) -> pulumi.Input[Optional['CanaryArtifactConfigS3EncryptionArgs']]:
         """
         Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
         """
         return pulumi.get(self, "s3_encryption")
 
     @s3_encryption.setter
-    def s3_encryption(self, value: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']]):
+    def s3_encryption(self, value: pulumi.Input[Optional['CanaryArtifactConfigS3EncryptionArgs']]):
         pulumi.set(self, "s3_encryption", value)
 
 
 class CanaryArtifactConfigS3EncryptionArgsDict(TypedDict):
-    encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
     """
@@ -73,8 +73,8 @@ class CanaryArtifactConfigS3EncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryArtifactConfigS3EncryptionArgs:
     def __init__(__self__, *,
-                 encryption_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_mode: The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
@@ -86,47 +86,47 @@ class CanaryArtifactConfigS3EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionMode")
-    def encryption_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
         """
         return pulumi.get(self, "encryption_mode")
 
     @encryption_mode.setter
-    def encryption_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
 class CanaryRunConfigArgsDict(TypedDict):
-    active_tracing: NotRequired[pulumi.Input[_builtins.bool]]
+    active_tracing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
     """
-    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
     """
-    ephemeral_storage: NotRequired[pulumi.Input[_builtins.int]]
+    ephemeral_storage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
     """
-    memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    memory_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
     """
-    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
     """
@@ -134,11 +134,11 @@ class CanaryRunConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryRunConfigArgs:
     def __init__(__self__, *,
-                 active_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[_builtins.int]] = None,
-                 memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 active_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] active_tracing: Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
@@ -159,62 +159,62 @@ class CanaryRunConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeTracing")
-    def active_tracing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def active_tracing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
         """
         return pulumi.get(self, "active_tracing")
 
     @active_tracing.setter
-    def active_tracing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def active_tracing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "active_tracing", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralStorage")
-    def ephemeral_storage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ephemeral_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
         """
         return pulumi.get(self, "ephemeral_storage")
 
     @ephemeral_storage.setter
-    def ephemeral_storage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ephemeral_storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ephemeral_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryInMb")
-    def memory_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_in_mb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         """
         return pulumi.get(self, "memory_in_mb")
 
     @memory_in_mb.setter
-    def memory_in_mb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_in_mb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_in_mb", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
 
@@ -223,11 +223,11 @@ class CanaryScheduleArgsDict(TypedDict):
     """
     Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
     """
-    duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
     """
-    retry_config: NotRequired[pulumi.Input['CanaryScheduleRetryConfigArgsDict']]
+    retry_config: NotRequired[pulumi.Input[Optional['CanaryScheduleRetryConfigArgs']]]
     """
     Configuration block for canary retries. Detailed below.
     """
@@ -236,8 +236,8 @@ class CanaryScheduleArgsDict(TypedDict):
 class CanaryScheduleArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[_builtins.str],
-                 duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_config: Optional[pulumi.Input['CanaryScheduleRetryConfigArgs']] = None):
+                 duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_config: pulumi.Input[Optional['CanaryScheduleRetryConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] expression: Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
         :param pulumi.Input[_builtins.int] duration_in_seconds: Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
@@ -263,26 +263,26 @@ class CanaryScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="durationInSeconds")
-    def duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
         """
         return pulumi.get(self, "duration_in_seconds")
 
     @duration_in_seconds.setter
-    def duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="retryConfig")
-    def retry_config(self) -> Optional[pulumi.Input['CanaryScheduleRetryConfigArgs']]:
+    def retry_config(self) -> pulumi.Input[Optional['CanaryScheduleRetryConfigArgs']]:
         """
         Configuration block for canary retries. Detailed below.
         """
         return pulumi.get(self, "retry_config")
 
     @retry_config.setter
-    def retry_config(self, value: Optional[pulumi.Input['CanaryScheduleRetryConfigArgs']]):
+    def retry_config(self, value: pulumi.Input[Optional['CanaryScheduleRetryConfigArgs']]):
         pulumi.set(self, "retry_config", value)
 
 
@@ -315,19 +315,19 @@ class CanaryScheduleRetryConfigArgs:
 
 
 class CanaryTimelineArgsDict(TypedDict):
-    created: NotRequired[pulumi.Input[_builtins.str]]
+    created: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date and time the canary was created.
     """
-    last_modified: NotRequired[pulumi.Input[_builtins.str]]
+    last_modified: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date and time the canary was most recently modified.
     """
-    last_started: NotRequired[pulumi.Input[_builtins.str]]
+    last_started: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date and time that the canary's most recent run started.
     """
-    last_stopped: NotRequired[pulumi.Input[_builtins.str]]
+    last_stopped: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Date and time that the canary's most recent run ended.
     """
@@ -335,10 +335,10 @@ class CanaryTimelineArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryTimelineArgs:
     def __init__(__self__, *,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_started: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_stopped: Optional[pulumi.Input[_builtins.str]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_started: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_stopped: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created: Date and time the canary was created.
         :param pulumi.Input[_builtins.str] last_modified: Date and time the canary was most recently modified.
@@ -356,67 +356,67 @@ class CanaryTimelineArgs:
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time the canary was created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModified")
-    def last_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time the canary was most recently modified.
         """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
-    def last_modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified", value)
 
     @_builtins.property
     @pulumi.getter(name="lastStarted")
-    def last_started(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_started(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time that the canary's most recent run started.
         """
         return pulumi.get(self, "last_started")
 
     @last_started.setter
-    def last_started(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_started(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_started", value)
 
     @_builtins.property
     @pulumi.getter(name="lastStopped")
-    def last_stopped(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_stopped(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time that the canary's most recent run ended.
         """
         return pulumi.get(self, "last_stopped")
 
     @last_stopped.setter
-    def last_stopped(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_stopped(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_stopped", value)
 
 
 class CanaryVpcConfigArgsDict(TypedDict):
-    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
+    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     IDs of the security groups for this canary.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     IDs of the subnets where this canary is to run.
     """
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the VPC where this canary is to run.
     """
@@ -424,10 +424,10 @@ class CanaryVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CanaryVpcConfigArgs:
     def __init__(__self__, *,
-                 ipv6_allowed_for_dual_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 ipv6_allowed_for_dual_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] ipv6_allowed_for_dual_stack: If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups for this canary.
@@ -445,50 +445,50 @@ class CanaryVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv6AllowedForDualStack")
-    def ipv6_allowed_for_dual_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_allowed_for_dual_stack(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
         """
         return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @ipv6_allowed_for_dual_stack.setter
-    def ipv6_allowed_for_dual_stack(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_allowed_for_dual_stack(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_allowed_for_dual_stack", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         IDs of the security groups for this canary.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         IDs of the subnets where this canary is to run.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the VPC where this canary is to run.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 

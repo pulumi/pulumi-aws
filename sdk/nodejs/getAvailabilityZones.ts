@@ -222,28 +222,28 @@ export interface GetAvailabilityZonesOutputArgs {
     /**
      * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
      */
-    allAvailabilityZones?: pulumi.Input<boolean>;
+    allAvailabilityZones?: pulumi.Input<boolean | undefined>;
     /**
      * List of Availability Zone names to exclude.
      */
-    excludeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    excludeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Availability Zone IDs to exclude.
      */
-    excludeZoneIds?: pulumi.Input<pulumi.Input<string>[]>;
+    excludeZoneIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.GetAvailabilityZonesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetAvailabilityZonesFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `"available"`, `"information"`, `"impaired"` or
      * `"unavailable"`. By default the list includes a complete set of Availability Zones
      * to which the underlying AWS account has access, regardless of their state.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }

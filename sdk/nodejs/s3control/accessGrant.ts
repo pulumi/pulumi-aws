@@ -184,51 +184,51 @@ export interface AccessGrantState {
     /**
      * Amazon Resource Name (ARN) of the S3 Access Grant.
      */
-    accessGrantArn?: pulumi.Input<string>;
+    accessGrantArn?: pulumi.Input<string | undefined>;
     /**
      * Unique ID of the S3 Access Grant.
      */
-    accessGrantId?: pulumi.Input<string>;
+    accessGrantId?: pulumi.Input<string | undefined>;
     /**
      * See Location Configuration below for more details.
      */
-    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration>;
+    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration | undefined>;
     /**
      * The ID of the S3 Access Grants location to with the access grant is giving access.
      */
-    accessGrantsLocationId?: pulumi.Input<string>;
+    accessGrantsLocationId?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The access grant's scope.
      */
-    grantScope?: pulumi.Input<string>;
+    grantScope?: pulumi.Input<string | undefined>;
     /**
      * See Grantee below for more details.
      */
-    grantee?: pulumi.Input<inputs.s3control.AccessGrantGrantee>;
+    grantee?: pulumi.Input<inputs.s3control.AccessGrantGrantee | undefined>;
     /**
      * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
-    permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      */
-    s3PrefixType?: pulumi.Input<string>;
+    s3PrefixType?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -238,7 +238,7 @@ export interface AccessGrantArgs {
     /**
      * See Location Configuration below for more details.
      */
-    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration>;
+    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration | undefined>;
     /**
      * The ID of the S3 Access Grants location to with the access grant is giving access.
      */
@@ -246,7 +246,7 @@ export interface AccessGrantArgs {
     /**
      * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * See Grantee below for more details.
      */
@@ -258,13 +258,13 @@ export interface AccessGrantArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      */
-    s3PrefixType?: pulumi.Input<string>;
+    s3PrefixType?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

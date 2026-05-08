@@ -127,9 +127,9 @@ def get_service_link_virtual_interfaces(filters: Optional[Sequence[Union['GetSer
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_link_virtual_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict']]]]] = None,
-                                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_service_link_virtual_interfaces_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetServiceLinkVirtualInterfacesFilterArgs', 'GetServiceLinkVirtualInterfacesFilterArgsDict']]]]] = None,
+                                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLinkVirtualInterfacesResult]:
     """
     Provides a list of EC2 Service Link Virtual Interface IDs matching the provided filters. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).

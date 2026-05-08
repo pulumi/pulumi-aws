@@ -204,55 +204,55 @@ export interface DataQualityJobDefinitionState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
      */
-    dataQualityAppSpecification?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification>;
+    dataQualityAppSpecification?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification | undefined>;
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      */
-    dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig>;
+    dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      */
-    dataQualityJobInput?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
+    dataQualityJobInput?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput | undefined>;
     /**
      * The output configuration for monitoring jobs. Fields are documented below.
      */
-    dataQualityJobOutputConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig>;
+    dataQualityJobOutputConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig | undefined>;
     /**
      * Identifies the resources to deploy for a monitoring job. Fields are documented below.
      */
-    jobResources?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionJobResources>;
+    jobResources?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionJobResources | undefined>;
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
-    networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
+    networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      */
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -266,7 +266,7 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      */
-    dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig>;
+    dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      */
@@ -282,15 +282,15 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
-    networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
+    networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
@@ -298,9 +298,9 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      */
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

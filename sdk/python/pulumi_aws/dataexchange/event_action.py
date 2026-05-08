@@ -23,7 +23,7 @@ class EventActionArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['EventActionActionArgs'],
                  event: pulumi.Input['EventActionEventArgs'],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventAction resource.
 
@@ -66,26 +66,26 @@ class EventActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _EventActionState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['EventActionActionArgs']] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 event: Optional[pulumi.Input['EventActionEventArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional['EventActionActionArgs']] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 event: pulumi.Input[Optional['EventActionEventArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventAction resources.
 
@@ -113,7 +113,7 @@ class _EventActionState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['EventActionActionArgs']]:
+    def action(self) -> pulumi.Input[Optional['EventActionActionArgs']]:
         """
         Describes the action to take.
         Described in `action` Configuration Block below.
@@ -121,36 +121,36 @@ class _EventActionState:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['EventActionActionArgs']]):
+    def action(self, value: pulumi.Input[Optional['EventActionActionArgs']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the event action.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the resource was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def event(self) -> Optional[pulumi.Input['EventActionEventArgs']]:
+    def event(self) -> pulumi.Input[Optional['EventActionEventArgs']]:
         """
         Describes the event that triggers the `action`.
         Described in `event` Configuration Block below.
@@ -158,31 +158,31 @@ class _EventActionState:
         return pulumi.get(self, "event")
 
     @event.setter
-    def event(self, value: Optional[pulumi.Input['EventActionEventArgs']]):
+    def event(self, value: pulumi.Input[Optional['EventActionEventArgs']]):
         pulumi.set(self, "event", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data and time when the resource was last updated.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
 
@@ -192,9 +192,9 @@ class EventAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
-                 event: Optional[pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
+                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Data Exchange Event Action.
@@ -301,9 +301,9 @@ class EventAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
-                 event: Optional[pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
+                 event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,12 +333,12 @@ class EventAction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            event: Optional[pulumi.Input[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventAction':
+            action: pulumi.Input[Optional[Union['EventActionActionArgs', 'EventActionActionArgsDict']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            event: pulumi.Input[Optional[Union['EventActionEventArgs', 'EventActionEventArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventAction':
         """
         Get an existing EventAction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

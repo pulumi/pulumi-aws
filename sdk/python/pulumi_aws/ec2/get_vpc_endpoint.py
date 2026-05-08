@@ -365,15 +365,15 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_type=pulumi.get(__ret__, 'vpc_endpoint_type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']]]]] = None,
-                            id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            service_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            service_region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                            vpc_endpoint_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_vpc_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']]]]] = None,
+                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            service_region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                            vpc_endpoint_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
     The VPC Endpoint data source provides details about

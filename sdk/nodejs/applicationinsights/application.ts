@@ -164,49 +164,49 @@ export interface ApplicationState {
     /**
      * ARN of the Application.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      */
-    autoConfigEnabled?: pulumi.Input<boolean>;
+    autoConfigEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configures all of the resources in the resource group by applying the recommended configurations.
      */
-    autoCreate?: pulumi.Input<boolean>;
+    autoCreate?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      */
-    cweMonitorEnabled?: pulumi.Input<boolean>;
+    cweMonitorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
      */
-    groupingType?: pulumi.Input<string>;
+    groupingType?: pulumi.Input<string | undefined>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
      */
-    opsCenterEnabled?: pulumi.Input<boolean>;
+    opsCenterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
-    opsItemSnsTopicArn?: pulumi.Input<string>;
+    opsItemSnsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group.
      *
      * The following arguments are optional:
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -216,31 +216,31 @@ export interface ApplicationArgs {
     /**
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      */
-    autoConfigEnabled?: pulumi.Input<boolean>;
+    autoConfigEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Configures all of the resources in the resource group by applying the recommended configurations.
      */
-    autoCreate?: pulumi.Input<boolean>;
+    autoCreate?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      */
-    cweMonitorEnabled?: pulumi.Input<boolean>;
+    cweMonitorEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
      */
-    groupingType?: pulumi.Input<string>;
+    groupingType?: pulumi.Input<string | undefined>;
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
      */
-    opsCenterEnabled?: pulumi.Input<boolean>;
+    opsCenterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
-    opsItemSnsTopicArn?: pulumi.Input<string>;
+    opsItemSnsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group.
      *
@@ -250,5 +250,5 @@ export interface ApplicationArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -228,8 +228,8 @@ def get_files_mount_target(id: Optional[_builtins.str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_files_mount_target_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_files_mount_target_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilesMountTargetResult]:
     """
     Provides details about an S3 Files Mount Target.

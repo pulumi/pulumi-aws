@@ -38,8 +38,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -120,8 +120,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -202,8 +202,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -243,8 +243,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -284,8 +284,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -325,8 +325,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -366,8 +366,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -407,8 +407,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -448,8 +448,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetIntentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -489,8 +489,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetIntentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -530,8 +530,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetIntentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -571,8 +571,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetIntentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -612,8 +612,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetIntentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -653,8 +653,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -694,8 +694,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -735,8 +735,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -776,8 +776,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -817,8 +817,8 @@ public final class LexFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lex.LexFunctions;
      * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

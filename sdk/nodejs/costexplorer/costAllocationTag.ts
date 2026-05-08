@@ -126,15 +126,15 @@ export interface CostAllocationTagState {
     /**
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The key for the cost allocation tag.
      */
-    tagKey?: pulumi.Input<string>;
+    tagKey?: pulumi.Input<string | undefined>;
     /**
      * The type of cost allocation tag.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**

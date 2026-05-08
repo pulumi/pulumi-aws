@@ -130,5 +130,5 @@ export interface GetRoleOutputArgs {
     /**
      * Tags attached to the role.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

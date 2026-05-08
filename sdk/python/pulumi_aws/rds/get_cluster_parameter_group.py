@@ -135,8 +135,8 @@ def get_cluster_parameter_group(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'))
-def get_cluster_parameter_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cluster_parameter_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
     Information about an RDS cluster parameter group.

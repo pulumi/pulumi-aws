@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * // Grant permission to specific AWS account
  * const exampleLayerVersionPermission = new aws.lambda.LayerVersionPermission("example", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: example.version.apply(x =>Number(x)),
  *     principal: "123456789012",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "dev-account-access",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lambda.LayerVersionPermission("example", {
  *     layerName: exampleAwsLambdaLayerVersion.layerName,
- *     versionNumber: exampleAwsLambdaLayerVersion.version,
+ *     versionNumber: Number(exampleAwsLambdaLayerVersion.version),
  *     principal: "*",
  *     organizationId: "o-1234567890",
  *     action: "lambda:GetLayerVersion",
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.lambda.LayerVersionPermission("example", {
  *     layerName: exampleAwsLambdaLayerVersion.layerName,
- *     versionNumber: exampleAwsLambdaLayerVersion.version,
+ *     versionNumber: Number(exampleAwsLambdaLayerVersion.version),
  *     principal: "*",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "public-access",
@@ -79,21 +79,21 @@ import * as utilities from "../utilities";
  * // Share with multiple specific accounts
  * const devAccount = new aws.lambda.LayerVersionPermission("dev_account", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: Number(example.version),
  *     principal: "111111111111",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "dev-account",
  * });
  * const stagingAccount = new aws.lambda.LayerVersionPermission("staging_account", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: Number(example.version),
  *     principal: "222222222222",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "staging-account",
  * });
  * const prodAccount = new aws.lambda.LayerVersionPermission("prod_account", {
  *     layerName: example.layerName,
- *     versionNumber: example.version,
+ *     versionNumber: Number(example.version),
  *     principal: "333333333333",
  *     action: "lambda:GetLayerVersion",
  *     statementId: "prod-account",
@@ -242,45 +242,45 @@ export interface LayerVersionPermissionState {
     /**
      * Action that will be allowed. `lambda:GetLayerVersion` is the standard value for layer access.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * Name or ARN of the Lambda Layer.
      */
-    layerName?: pulumi.Input<string>;
+    layerName?: pulumi.Input<string | undefined>;
     /**
      * AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * Full Lambda Layer Permission policy.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the current revision of the policy.
      */
-    revisionId?: pulumi.Input<string>;
+    revisionId?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the permission when the resource is destroyed. Default is `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Unique identifier for the permission statement.
      */
-    statementId?: pulumi.Input<string>;
+    statementId?: pulumi.Input<string | undefined>;
     /**
      * Version of Lambda Layer to grant access to. Note: permissions only apply to a single version of a layer.
      *
      * The following arguments are optional:
      */
-    versionNumber?: pulumi.Input<number>;
+    versionNumber?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -298,7 +298,7 @@ export interface LayerVersionPermissionArgs {
     /**
      * AWS Organization ID that should be able to use your Lambda Layer. `principal` should be set to `*` when `organizationId` is provided.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID that should be able to use your Lambda Layer. Use `*` to share with all AWS accounts.
      */
@@ -306,11 +306,11 @@ export interface LayerVersionPermissionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the permission when the resource is destroyed. Default is `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Unique identifier for the permission statement.
      */

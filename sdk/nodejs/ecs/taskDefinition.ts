@@ -464,97 +464,97 @@ export interface TaskDefinitionState {
     /**
      * Full ARN of the Task Definition (including both `family` and `revision`).
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      */
-    arnWithoutRevision?: pulumi.Input<string>;
+    arnWithoutRevision?: pulumi.Input<string | undefined>;
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
-    containerDefinitions?: pulumi.Input<string>;
+    containerDefinitions?: pulumi.Input<string | undefined>;
     /**
      * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    cpu?: pulumi.Input<string>;
+    cpu?: pulumi.Input<string | undefined>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
      */
-    enableFaultInjection?: pulumi.Input<boolean>;
+    enableFaultInjection?: pulumi.Input<boolean | undefined>;
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
-    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A unique name for your task definition.
      *
      * The following arguments are optional:
      */
-    family?: pulumi.Input<string>;
+    family?: pulumi.Input<string | undefined>;
     /**
      * IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      */
-    ipcMode?: pulumi.Input<string>;
+    ipcMode?: pulumi.Input<string | undefined>;
     /**
      * Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    memory?: pulumi.Input<string>;
+    memory?: pulumi.Input<string | undefined>;
     /**
      * Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      */
-    networkMode?: pulumi.Input<string>;
+    networkMode?: pulumi.Input<string | undefined>;
     /**
      * Process namespace to use for the containers in the task. Valid values: host`, `task`.
      */
-    pidMode?: pulumi.Input<string>;
+    pidMode?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[] | undefined>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      */
-    requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Revision of the task in a particular family.
      */
-    revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for runtimePlatform that containers in your task may use.
      */
-    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
-    taskRoleArn?: pulumi.Input<string>;
+    taskRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      */
-    trackLatest?: pulumi.Input<boolean>;
+    trackLatest?: pulumi.Input<boolean | undefined>;
     /**
      * Repeatable configuration block for volumes that containers in your task may use. Detailed below.
      *
@@ -562,7 +562,7 @@ export interface TaskDefinitionState {
      *
      * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[] | undefined>;
 }
 
 /**
@@ -576,19 +576,19 @@ export interface TaskDefinitionArgs {
     /**
      * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    cpu?: pulumi.Input<string>;
+    cpu?: pulumi.Input<string | undefined>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
      */
-    enableFaultInjection?: pulumi.Input<boolean>;
+    enableFaultInjection?: pulumi.Input<boolean | undefined>;
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
-    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A unique name for your task definition.
      *
@@ -598,55 +598,55 @@ export interface TaskDefinitionArgs {
     /**
      * IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
      */
-    ipcMode?: pulumi.Input<string>;
+    ipcMode?: pulumi.Input<string | undefined>;
     /**
      * Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    memory?: pulumi.Input<string>;
+    memory?: pulumi.Input<string | undefined>;
     /**
      * Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
      */
-    networkMode?: pulumi.Input<string>;
+    networkMode?: pulumi.Input<string | undefined>;
     /**
      * Process namespace to use for the containers in the task. Valid values: host`, `task`.
      */
-    pidMode?: pulumi.Input<string>;
+    pidMode?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[] | undefined>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
      */
-    requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for runtimePlatform that containers in your task may use.
      */
-    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
-    taskRoleArn?: pulumi.Input<string>;
+    taskRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      */
-    trackLatest?: pulumi.Input<boolean>;
+    trackLatest?: pulumi.Input<boolean | undefined>;
     /**
      * Repeatable configuration block for volumes that containers in your task may use. Detailed below.
      *
@@ -654,5 +654,5 @@ export interface TaskDefinitionArgs {
      *
      * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[] | undefined>;
 }

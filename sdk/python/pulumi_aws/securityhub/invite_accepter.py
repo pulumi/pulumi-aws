@@ -20,7 +20,7 @@ __all__ = ['InviteAccepterArgs', 'InviteAccepter']
 class InviteAccepterArgs:
     def __init__(__self__, *,
                  master_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InviteAccepter resource.
 
@@ -45,23 +45,23 @@ class InviteAccepterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _InviteAccepterState:
     def __init__(__self__, *,
-                 invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InviteAccepter resources.
 
@@ -78,38 +78,38 @@ class _InviteAccepterState:
 
     @_builtins.property
     @pulumi.getter(name="invitationId")
-    def invitation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the invitation.
         """
         return pulumi.get(self, "invitation_id")
 
     @invitation_id.setter
-    def invitation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invitation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invitation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="masterId")
-    def master_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account ID of the master Security Hub account whose invitation you're accepting.
         """
         return pulumi.get(self, "master_id")
 
     @master_id.setter
-    def master_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -119,8 +119,8 @@ class InviteAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 master_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 master_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
@@ -208,8 +208,8 @@ class InviteAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 master_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 master_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,9 +234,9 @@ class InviteAccepter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            invitation_id: Optional[pulumi.Input[_builtins.str]] = None,
-            master_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'InviteAccepter':
+            invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            master_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'InviteAccepter':
         """
         Get an existing InviteAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

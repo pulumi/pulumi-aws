@@ -277,71 +277,71 @@ export interface MLTransformState {
     /**
      * Amazon Resource Name (ARN) of Glue ML Transform.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the ML Transform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string | undefined>;
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
-    inputRecordTables?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[]>;
+    inputRecordTables?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[] | undefined>;
     /**
      * The number of labels available for this transform.
      */
-    labelCount?: pulumi.Input<number>;
+    labelCount?: pulumi.Input<number | undefined>;
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      */
-    maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      */
-    numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
-    parameters?: pulumi.Input<inputs.glue.MLTransformParameters>;
+    parameters?: pulumi.Input<inputs.glue.MLTransformParameters | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The object that represents the schema that this transform accepts. see Schema.
      */
-    schemas?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformSchema>[]>;
+    schemas?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformSchema>[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      */
-    workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -351,11 +351,11 @@ export interface MLTransformArgs {
     /**
      * Description of the ML Transform.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string | undefined>;
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
@@ -363,19 +363,19 @@ export interface MLTransformArgs {
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      */
-    maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      */
-    numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
@@ -383,7 +383,7 @@ export interface MLTransformArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */
@@ -391,13 +391,13 @@ export interface MLTransformArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      */
-    workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string | undefined>;
 }

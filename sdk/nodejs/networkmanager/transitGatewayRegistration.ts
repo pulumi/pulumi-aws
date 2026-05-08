@@ -104,11 +104,11 @@ export interface TransitGatewayRegistrationState {
     /**
      * ID of the Global Network to register to.
      */
-    globalNetworkId?: pulumi.Input<string>;
+    globalNetworkId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Transit Gateway to register.
      */
-    transitGatewayArn?: pulumi.Input<string>;
+    transitGatewayArn?: pulumi.Input<string | undefined>;
 }
 
 /**

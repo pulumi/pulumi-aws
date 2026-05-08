@@ -92,7 +92,7 @@ export interface AccountAliasState {
     /**
      * The account alias
      */
-    accountAlias?: pulumi.Input<string>;
+    accountAlias?: pulumi.Input<string | undefined>;
 }
 
 /**

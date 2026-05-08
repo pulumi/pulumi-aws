@@ -22,10 +22,10 @@ class VoiceConnectorTerminationArgs:
                  calling_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  cidr_allow_lists: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  voice_connector_id: pulumi.Input[_builtins.str],
-                 cps_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 cps_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VoiceConnectorTermination resource.
 
@@ -87,63 +87,63 @@ class VoiceConnectorTerminationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpsLimit")
-    def cps_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cps_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The limit on calls per second. Max value based on account service quota. Default value of `1`.
         """
         return pulumi.get(self, "cps_limit")
 
     @cps_limit.setter
-    def cps_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cps_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cps_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPhoneNumber")
-    def default_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default caller ID phone number.
         """
         return pulumi.get(self, "default_phone_number")
 
     @default_phone_number.setter
-    def default_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_phone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When termination settings are disabled, outbound calls can not be made.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VoiceConnectorTerminationState:
     def __init__(__self__, *,
-                 calling_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cidr_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cps_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 calling_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cidr_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cps_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorTermination resources.
 
@@ -172,86 +172,86 @@ class _VoiceConnectorTerminationState:
 
     @_builtins.property
     @pulumi.getter(name="callingRegions")
-    def calling_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def calling_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
         """
         return pulumi.get(self, "calling_regions")
 
     @calling_regions.setter
-    def calling_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def calling_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "calling_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrAllowLists")
-    def cidr_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cidr_allow_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IP addresses allowed to make calls, in CIDR format.
         """
         return pulumi.get(self, "cidr_allow_lists")
 
     @cidr_allow_lists.setter
-    def cidr_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cidr_allow_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cidr_allow_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="cpsLimit")
-    def cps_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cps_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The limit on calls per second. Max value based on account service quota. Default value of `1`.
         """
         return pulumi.get(self, "cps_limit")
 
     @cps_limit.setter
-    def cps_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cps_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cps_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPhoneNumber")
-    def default_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default caller ID phone number.
         """
         return pulumi.get(self, "default_phone_number")
 
     @default_phone_number.setter
-    def default_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_phone_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When termination settings are disabled, outbound calls can not be made.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceConnectorId")
-    def voice_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def voice_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Chime Voice Connector ID.
         """
         return pulumi.get(self, "voice_connector_id")
 
     @voice_connector_id.setter
-    def voice_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def voice_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "voice_connector_id", value)
 
 
@@ -261,13 +261,13 @@ class VoiceConnectorTermination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 calling_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cidr_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cps_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 calling_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cidr_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cps_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enable Termination settings to control outbound calling from your SIP infrastructure.
@@ -364,13 +364,13 @@ class VoiceConnectorTermination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 calling_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cidr_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cps_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 calling_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cidr_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cps_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,13 +403,13 @@ class VoiceConnectorTermination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            calling_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cidr_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cps_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            default_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VoiceConnectorTermination':
+            calling_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cidr_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cps_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            default_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VoiceConnectorTermination':
         """
         Get an existing VoiceConnectorTermination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

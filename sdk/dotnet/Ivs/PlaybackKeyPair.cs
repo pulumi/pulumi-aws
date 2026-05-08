@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ivs
     /// {
     ///     var example = new Aws.Ivs.PlaybackKeyPair("example", new()
     ///     {
-    ///         PublicKey = Std.Index.File.Invoke(new()
+    ///         PublicKey = Std.File.Invoke(new()
     ///         {
     ///             Input = "./public-key.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

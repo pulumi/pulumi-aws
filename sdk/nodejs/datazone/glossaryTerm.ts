@@ -219,46 +219,46 @@ export interface GlossaryTermState {
     /**
      * Time of glossary term creation.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Creator of glossary term.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Identifier of domain.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Identifier of glossary.
      */
-    glossaryIdentifier?: pulumi.Input<string>;
+    glossaryIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Long description of entry.
      */
-    longDescription?: pulumi.Input<string>;
+    longDescription?: pulumi.Input<string | undefined>;
     /**
      * Name of glossary term.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Short description of entry.
      */
-    shortDescription?: pulumi.Input<string>;
+    shortDescription?: pulumi.Input<string | undefined>;
     /**
      * If glossary term is ENABLED or DISABLED.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Object classifying the term relations through the following attributes:
      */
-    termRelations?: pulumi.Input<inputs.datazone.GlossaryTermTermRelations>;
-    timeouts?: pulumi.Input<inputs.datazone.GlossaryTermTimeouts>;
+    termRelations?: pulumi.Input<inputs.datazone.GlossaryTermTermRelations | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.GlossaryTermTimeouts | undefined>;
 }
 
 /**
@@ -268,7 +268,7 @@ export interface GlossaryTermArgs {
     /**
      * Identifier of domain.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Identifier of glossary.
      */
@@ -276,28 +276,28 @@ export interface GlossaryTermArgs {
     /**
      * Long description of entry.
      */
-    longDescription?: pulumi.Input<string>;
+    longDescription?: pulumi.Input<string | undefined>;
     /**
      * Name of glossary term.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Short description of entry.
      */
-    shortDescription?: pulumi.Input<string>;
+    shortDescription?: pulumi.Input<string | undefined>;
     /**
      * If glossary term is ENABLED or DISABLED.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Object classifying the term relations through the following attributes:
      */
-    termRelations?: pulumi.Input<inputs.datazone.GlossaryTermTermRelations>;
-    timeouts?: pulumi.Input<inputs.datazone.GlossaryTermTimeouts>;
+    termRelations?: pulumi.Input<inputs.datazone.GlossaryTermTermRelations | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.GlossaryTermTimeouts | undefined>;
 }

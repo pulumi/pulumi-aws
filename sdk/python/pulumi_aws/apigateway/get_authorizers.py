@@ -109,8 +109,8 @@ def get_authorizers(region: Optional[_builtins.str] = None,
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
-def get_authorizers_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorizers_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizersResult]:
     """
     Provides details about multiple API Gateway Authorizers.

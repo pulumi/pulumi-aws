@@ -290,11 +290,11 @@ def get_cloud_formation_type(arn: Optional[_builtins.str] = None,
         type_name=pulumi.get(__ret__, 'type_name'),
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    type_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    version_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cloud_formation_type_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    type_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    version_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationTypeResult]:
     """
     Provides details about a CloudFormation Type.

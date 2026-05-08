@@ -215,37 +215,37 @@ export interface ZonalAutoshiftConfigurationState {
     /**
      * List of time windows during which practice runs are allowed, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:09:00-Mon:17:00`). Cannot be used together with `blockedWindows`.
      */
-    allowedWindows?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedWindows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of dates when practice runs should not be started, in the format `YYYY-MM-DD`.
      */
-    blockedDates?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedDates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of time windows during which practice runs should not be started, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:00:00-Mon:08:00`). Cannot be used together with `allowedWindows`.
      */
-    blockedWindows?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedWindows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of CloudWatch alarms that can block practice runs when in alarm state. See `blockingAlarms` below.
      */
-    blockingAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationBlockingAlarm>[]>;
+    blockingAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationBlockingAlarm>[] | undefined>;
     /**
      * List of CloudWatch alarms monitored during practice runs. See `outcomeAlarms` below.
      */
-    outcomeAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarm>[]>;
+    outcomeAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarm>[] | undefined>;
     /**
      * AWS region where the resource is deployed.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the managed resource to configure zonal autoshift for (e.g., an Application Load Balancer). Changing this creates a new resource.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * The status of zonal autoshift. Valid values: `ENABLED`, `DISABLED`.
      *
      * The following arguments are optional:
      */
-    zonalAutoshiftStatus?: pulumi.Input<string>;
+    zonalAutoshiftStatus?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,27 +255,27 @@ export interface ZonalAutoshiftConfigurationArgs {
     /**
      * List of time windows during which practice runs are allowed, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:09:00-Mon:17:00`). Cannot be used together with `blockedWindows`.
      */
-    allowedWindows?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedWindows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of dates when practice runs should not be started, in the format `YYYY-MM-DD`.
      */
-    blockedDates?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedDates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of time windows during which practice runs should not be started, in the format `Day:HH:MM-Day:HH:MM` (e.g., `Mon:00:00-Mon:08:00`). Cannot be used together with `allowedWindows`.
      */
-    blockedWindows?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedWindows?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of CloudWatch alarms that can block practice runs when in alarm state. See `blockingAlarms` below.
      */
-    blockingAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationBlockingAlarm>[]>;
+    blockingAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationBlockingAlarm>[] | undefined>;
     /**
      * List of CloudWatch alarms monitored during practice runs. See `outcomeAlarms` below.
      */
-    outcomeAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarm>[]>;
+    outcomeAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationOutcomeAlarm>[] | undefined>;
     /**
      * AWS region where the resource is deployed.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the managed resource to configure zonal autoshift for (e.g., an Application Load Balancer). Changing this creates a new resource.
      */

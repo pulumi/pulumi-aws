@@ -23,14 +23,14 @@ class MlflowAppArgs:
     def __init__(__self__, *,
                  artifact_store_uri: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 account_default_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_domain_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 model_registration_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['MlflowAppTimeoutsArgs']] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_default_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_domain_id_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 model_registration_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['MlflowAppTimeoutsArgs']] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MlflowApp resource.
 
@@ -89,113 +89,113 @@ class MlflowAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountDefaultStatus")
-    def account_default_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_default_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "account_default_status")
 
     @account_default_status.setter
-    def account_default_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_default_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_default_status", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDomainIdLists")
-    def default_domain_id_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def default_domain_id_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of SageMaker domain IDs for which this MLflow App is used as the default.
         """
         return pulumi.get(self, "default_domain_id_lists")
 
     @default_domain_id_lists.setter
-    def default_domain_id_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def default_domain_id_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_domain_id_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="modelRegistrationMode")
-    def model_registration_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_registration_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Valid values are `AutoModelRegistrationEnabled` and `AutoModelRegistrationDisabled`. Defaults to `AutoModelRegistrationDisabled`.
         """
         return pulumi.get(self, "model_registration_mode")
 
     @model_registration_mode.setter
-    def model_registration_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_registration_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_registration_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MLflow app name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['MlflowAppTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['MlflowAppTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['MlflowAppTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['MlflowAppTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_window_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: `SUN:03:00`.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
-    def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_window_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
 
 @pulumi.input_type
 class _MlflowAppState:
     def __init__(__self__, *,
-                 account_default_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_domain_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 model_registration_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['MlflowAppTimeoutsArgs']] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_default_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_domain_id_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 model_registration_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['MlflowAppTimeoutsArgs']] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MlflowApp resources.
 
@@ -238,143 +238,143 @@ class _MlflowAppState:
 
     @_builtins.property
     @pulumi.getter(name="accountDefaultStatus")
-    def account_default_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_default_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "account_default_status")
 
     @account_default_status.setter
-    def account_default_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_default_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_default_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the MLflow App.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="artifactStoreUri")
-    def artifact_store_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def artifact_store_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI for a general purpose bucket to use as the MLflow App artifact store.
         """
         return pulumi.get(self, "artifact_store_uri")
 
     @artifact_store_uri.setter
-    def artifact_store_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def artifact_store_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "artifact_store_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDomainIdLists")
-    def default_domain_id_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def default_domain_id_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of SageMaker domain IDs for which this MLflow App is used as the default.
         """
         return pulumi.get(self, "default_domain_id_lists")
 
     @default_domain_id_lists.setter
-    def default_domain_id_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def default_domain_id_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "default_domain_id_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="modelRegistrationMode")
-    def model_registration_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_registration_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Valid values are `AutoModelRegistrationEnabled` and `AutoModelRegistrationDisabled`. Defaults to `AutoModelRegistrationDisabled`.
         """
         return pulumi.get(self, "model_registration_mode")
 
     @model_registration_mode.setter
-    def model_registration_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_registration_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_registration_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MLflow app name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['MlflowAppTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['MlflowAppTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['MlflowAppTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['MlflowAppTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_window_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: `SUN:03:00`.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
-    def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_window_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
 
@@ -384,16 +384,16 @@ class MlflowApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_default_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_domain_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 model_registration_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_default_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_domain_id_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 model_registration_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI MLflow App resource.
@@ -492,16 +492,16 @@ class MlflowApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_default_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_domain_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 model_registration_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_default_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_domain_id_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 model_registration_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,18 +537,18 @@ class MlflowApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_default_status: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            default_domain_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            model_registration_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
-            weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None) -> 'MlflowApp':
+            account_default_status: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            default_domain_id_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            model_registration_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['MlflowAppTimeoutsArgs', 'MlflowAppTimeoutsArgsDict']]] = None,
+            weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None) -> 'MlflowApp':
         """
         Get an existing MlflowApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

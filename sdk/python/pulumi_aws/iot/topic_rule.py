@@ -24,30 +24,30 @@ class TopicRuleArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  sql: pulumi.Input[_builtins.str],
                  sql_version: pulumi.Input[_builtins.str],
-                 cloudwatch_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]] = None,
-                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
-                 cloudwatch_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
-                 dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
-                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
-                 error_action: Optional[pulumi.Input['TopicRuleErrorActionArgs']] = None,
-                 firehoses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]] = None,
-                 iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
-                 iot_events: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
-                 kafkas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
-                 lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-                 s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
-                 step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
+                 cloudwatch_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]] = None,
+                 cloudwatch_logs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
+                 cloudwatch_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamodbs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
+                 dynamodbv2s: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
+                 elasticsearch: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
+                 error_action: pulumi.Input[Optional['TopicRuleErrorActionArgs']] = None,
+                 firehoses: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpArgs']]]] = None,
+                 iot_analytics: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
+                 iot_events: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
+                 kafkas: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
+                 kineses: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
+                 lambdas: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 republishes: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
+                 s3: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
+                 sns: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
+                 sqs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
+                 step_functions: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timestreams: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
         """
         The set of arguments for constructing a TopicRule resource.
 
@@ -150,268 +150,268 @@ class TopicRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarms")
-    def cloudwatch_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]:
+    def cloudwatch_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]:
         return pulumi.get(self, "cloudwatch_alarms")
 
     @cloudwatch_alarms.setter
-    def cloudwatch_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]):
+    def cloudwatch_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]):
         pulumi.set(self, "cloudwatch_alarms", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]:
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchMetrics")
-    def cloudwatch_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]:
+    def cloudwatch_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]:
         return pulumi.get(self, "cloudwatch_metrics")
 
     @cloudwatch_metrics.setter
-    def cloudwatch_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]):
+    def cloudwatch_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]):
         pulumi.set(self, "cloudwatch_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamodbs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]:
+    def dynamodbs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]:
         return pulumi.get(self, "dynamodbs")
 
     @dynamodbs.setter
-    def dynamodbs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]):
+    def dynamodbs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]):
         pulumi.set(self, "dynamodbs", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamodbv2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]:
+    def dynamodbv2s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]:
         return pulumi.get(self, "dynamodbv2s")
 
     @dynamodbv2s.setter
-    def dynamodbv2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]):
+    def dynamodbv2s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]):
         pulumi.set(self, "dynamodbv2s", value)
 
     @_builtins.property
     @pulumi.getter
-    def elasticsearch(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
+    def elasticsearch(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
         return pulumi.get(self, "elasticsearch")
 
     @elasticsearch.setter
-    def elasticsearch(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
+    def elasticsearch(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
         pulumi.set(self, "elasticsearch", value)
 
     @_builtins.property
     @pulumi.getter(name="errorAction")
-    def error_action(self) -> Optional[pulumi.Input['TopicRuleErrorActionArgs']]:
+    def error_action(self) -> pulumi.Input[Optional['TopicRuleErrorActionArgs']]:
         """
         Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         """
         return pulumi.get(self, "error_action")
 
     @error_action.setter
-    def error_action(self, value: Optional[pulumi.Input['TopicRuleErrorActionArgs']]):
+    def error_action(self, value: pulumi.Input[Optional['TopicRuleErrorActionArgs']]):
         pulumi.set(self, "error_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehoses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]:
+    def firehoses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]:
         return pulumi.get(self, "firehoses")
 
     @firehoses.setter
-    def firehoses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]):
+    def firehoses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]):
         pulumi.set(self, "firehoses", value)
 
     @_builtins.property
     @pulumi.getter
-    def https(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]:
+    def https(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]:
         return pulumi.get(self, "https")
 
     @https.setter
-    def https(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]):
+    def https(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]):
         pulumi.set(self, "https", value)
 
     @_builtins.property
     @pulumi.getter(name="iotAnalytics")
-    def iot_analytics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]:
+    def iot_analytics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]:
         return pulumi.get(self, "iot_analytics")
 
     @iot_analytics.setter
-    def iot_analytics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]):
+    def iot_analytics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]):
         pulumi.set(self, "iot_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="iotEvents")
-    def iot_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]:
+    def iot_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]:
         return pulumi.get(self, "iot_events")
 
     @iot_events.setter
-    def iot_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]):
+    def iot_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]):
         pulumi.set(self, "iot_events", value)
 
     @_builtins.property
     @pulumi.getter
-    def kafkas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]:
+    def kafkas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]:
         return pulumi.get(self, "kafkas")
 
     @kafkas.setter
-    def kafkas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]):
+    def kafkas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]):
         pulumi.set(self, "kafkas", value)
 
     @_builtins.property
     @pulumi.getter
-    def kineses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]:
+    def kineses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]:
         return pulumi.get(self, "kineses")
 
     @kineses.setter
-    def kineses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]):
+    def kineses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]):
         pulumi.set(self, "kineses", value)
 
     @_builtins.property
     @pulumi.getter
-    def lambdas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]:
+    def lambdas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]:
         return pulumi.get(self, "lambdas")
 
     @lambdas.setter
-    def lambdas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]):
+    def lambdas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]):
         pulumi.set(self, "lambdas", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def republishes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]:
+    def republishes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]:
         return pulumi.get(self, "republishes")
 
     @republishes.setter
-    def republishes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]):
+    def republishes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]):
         pulumi.set(self, "republishes", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
+    def s3(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
+    def s3(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]:
+    def sns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]:
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]):
+    def sns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]):
         pulumi.set(self, "sns", value)
 
     @_builtins.property
     @pulumi.getter
-    def sqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]:
+    def sqs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]:
         return pulumi.get(self, "sqs")
 
     @sqs.setter
-    def sqs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]):
+    def sqs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]):
         pulumi.set(self, "sqs", value)
 
     @_builtins.property
     @pulumi.getter(name="stepFunctions")
-    def step_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]:
+    def step_functions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]:
         return pulumi.get(self, "step_functions")
 
     @step_functions.setter
-    def step_functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]):
+    def step_functions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]):
         pulumi.set(self, "step_functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timestreams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]:
+    def timestreams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]:
         return pulumi.get(self, "timestreams")
 
     @timestreams.setter
-    def timestreams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]):
+    def timestreams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]):
         pulumi.set(self, "timestreams", value)
 
 
 @pulumi.input_type
 class _TopicRuleState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]] = None,
-                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
-                 cloudwatch_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
-                 dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
-                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 error_action: Optional[pulumi.Input['TopicRuleErrorActionArgs']] = None,
-                 firehoses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]] = None,
-                 iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
-                 iot_events: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
-                 kafkas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
-                 lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-                 s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
-                 sql: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
-                 step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_alarms: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]] = None,
+                 cloudwatch_logs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
+                 cloudwatch_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamodbs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
+                 dynamodbv2s: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
+                 elasticsearch: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 error_action: pulumi.Input[Optional['TopicRuleErrorActionArgs']] = None,
+                 firehoses: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpArgs']]]] = None,
+                 iot_analytics: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
+                 iot_events: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
+                 kafkas: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
+                 kineses: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
+                 lambdas: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 republishes: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
+                 s3: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
+                 sns: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
+                 sql: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
+                 step_functions: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timestreams: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
         """
         Input properties used for looking up and filtering TopicRule resources.
 
@@ -487,293 +487,293 @@ class _TopicRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the topic rule
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarms")
-    def cloudwatch_alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]:
+    def cloudwatch_alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]:
         return pulumi.get(self, "cloudwatch_alarms")
 
     @cloudwatch_alarms.setter
-    def cloudwatch_alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]):
+    def cloudwatch_alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]]):
         pulumi.set(self, "cloudwatch_alarms", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]:
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchMetrics")
-    def cloudwatch_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]:
+    def cloudwatch_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]:
         return pulumi.get(self, "cloudwatch_metrics")
 
     @cloudwatch_metrics.setter
-    def cloudwatch_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]):
+    def cloudwatch_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]]):
         pulumi.set(self, "cloudwatch_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamodbs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]:
+    def dynamodbs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]:
         return pulumi.get(self, "dynamodbs")
 
     @dynamodbs.setter
-    def dynamodbs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]):
+    def dynamodbs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]]):
         pulumi.set(self, "dynamodbs", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynamodbv2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]:
+    def dynamodbv2s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]:
         return pulumi.get(self, "dynamodbv2s")
 
     @dynamodbv2s.setter
-    def dynamodbv2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]):
+    def dynamodbv2s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]]):
         pulumi.set(self, "dynamodbv2s", value)
 
     @_builtins.property
     @pulumi.getter
-    def elasticsearch(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
+    def elasticsearch(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
         return pulumi.get(self, "elasticsearch")
 
     @elasticsearch.setter
-    def elasticsearch(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
+    def elasticsearch(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
         pulumi.set(self, "elasticsearch", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the rule is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="errorAction")
-    def error_action(self) -> Optional[pulumi.Input['TopicRuleErrorActionArgs']]:
+    def error_action(self) -> pulumi.Input[Optional['TopicRuleErrorActionArgs']]:
         """
         Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         """
         return pulumi.get(self, "error_action")
 
     @error_action.setter
-    def error_action(self, value: Optional[pulumi.Input['TopicRuleErrorActionArgs']]):
+    def error_action(self, value: pulumi.Input[Optional['TopicRuleErrorActionArgs']]):
         pulumi.set(self, "error_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehoses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]:
+    def firehoses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]:
         return pulumi.get(self, "firehoses")
 
     @firehoses.setter
-    def firehoses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]):
+    def firehoses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]]):
         pulumi.set(self, "firehoses", value)
 
     @_builtins.property
     @pulumi.getter
-    def https(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]:
+    def https(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]:
         return pulumi.get(self, "https")
 
     @https.setter
-    def https(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]):
+    def https(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpArgs']]]]):
         pulumi.set(self, "https", value)
 
     @_builtins.property
     @pulumi.getter(name="iotAnalytics")
-    def iot_analytics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]:
+    def iot_analytics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]:
         return pulumi.get(self, "iot_analytics")
 
     @iot_analytics.setter
-    def iot_analytics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]):
+    def iot_analytics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]]):
         pulumi.set(self, "iot_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="iotEvents")
-    def iot_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]:
+    def iot_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]:
         return pulumi.get(self, "iot_events")
 
     @iot_events.setter
-    def iot_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]):
+    def iot_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]]):
         pulumi.set(self, "iot_events", value)
 
     @_builtins.property
     @pulumi.getter
-    def kafkas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]:
+    def kafkas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]:
         return pulumi.get(self, "kafkas")
 
     @kafkas.setter
-    def kafkas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]):
+    def kafkas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]]):
         pulumi.set(self, "kafkas", value)
 
     @_builtins.property
     @pulumi.getter
-    def kineses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]:
+    def kineses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]:
         return pulumi.get(self, "kineses")
 
     @kineses.setter
-    def kineses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]):
+    def kineses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]):
         pulumi.set(self, "kineses", value)
 
     @_builtins.property
     @pulumi.getter
-    def lambdas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]:
+    def lambdas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]:
         return pulumi.get(self, "lambdas")
 
     @lambdas.setter
-    def lambdas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]):
+    def lambdas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]]):
         pulumi.set(self, "lambdas", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def republishes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]:
+    def republishes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]:
         return pulumi.get(self, "republishes")
 
     @republishes.setter
-    def republishes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]):
+    def republishes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]]):
         pulumi.set(self, "republishes", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
+    def s3(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
+    def s3(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]:
+    def sns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]:
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]):
+    def sns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]):
         pulumi.set(self, "sns", value)
 
     @_builtins.property
     @pulumi.getter
-    def sql(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         """
         return pulumi.get(self, "sql")
 
     @sql.setter
-    def sql(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlVersion")
-    def sql_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the SQL rules engine to use when evaluating the rule.
         """
         return pulumi.get(self, "sql_version")
 
     @sql_version.setter
-    def sql_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def sqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]:
+    def sqs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]:
         return pulumi.get(self, "sqs")
 
     @sqs.setter
-    def sqs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]):
+    def sqs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]):
         pulumi.set(self, "sqs", value)
 
     @_builtins.property
     @pulumi.getter(name="stepFunctions")
-    def step_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]:
+    def step_functions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]:
         return pulumi.get(self, "step_functions")
 
     @step_functions.setter
-    def step_functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]):
+    def step_functions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]]):
         pulumi.set(self, "step_functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timestreams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]:
+    def timestreams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]:
         return pulumi.get(self, "timestreams")
 
     @timestreams.setter
-    def timestreams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]):
+    def timestreams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]]):
         pulumi.set(self, "timestreams", value)
 
 
@@ -783,33 +783,33 @@ class TopicRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchAlarmArgs', 'TopicRuleCloudwatchAlarmArgsDict']]]]] = None,
-                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchLogArgs', 'TopicRuleCloudwatchLogArgsDict']]]]] = None,
-                 cloudwatch_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchMetricArgs', 'TopicRuleCloudwatchMetricArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleDynamodbArgs', 'TopicRuleDynamodbArgsDict']]]]] = None,
-                 dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleDynamodbv2Args', 'TopicRuleDynamodbv2ArgsDict']]]]] = None,
-                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleElasticsearchArgs', 'TopicRuleElasticsearchArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 error_action: Optional[pulumi.Input[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']]] = None,
-                 firehoses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleFirehoseArgs', 'TopicRuleFirehoseArgsDict']]]]] = None,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleHttpArgs', 'TopicRuleHttpArgsDict']]]]] = None,
-                 iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleIotAnalyticArgs', 'TopicRuleIotAnalyticArgsDict']]]]] = None,
-                 iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleIotEventArgs', 'TopicRuleIotEventArgsDict']]]]] = None,
-                 kafkas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKafkaArgs', 'TopicRuleKafkaArgsDict']]]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
-                 lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 republishes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
-                 s3: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
-                 sql: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
-                 step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None,
+                 cloudwatch_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchAlarmArgs', 'TopicRuleCloudwatchAlarmArgsDict']]]]] = None,
+                 cloudwatch_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchLogArgs', 'TopicRuleCloudwatchLogArgsDict']]]]] = None,
+                 cloudwatch_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchMetricArgs', 'TopicRuleCloudwatchMetricArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamodbs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleDynamodbArgs', 'TopicRuleDynamodbArgsDict']]]]] = None,
+                 dynamodbv2s: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleDynamodbv2Args', 'TopicRuleDynamodbv2ArgsDict']]]]] = None,
+                 elasticsearch: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleElasticsearchArgs', 'TopicRuleElasticsearchArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 error_action: pulumi.Input[Optional[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']]] = None,
+                 firehoses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleFirehoseArgs', 'TopicRuleFirehoseArgsDict']]]]] = None,
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleHttpArgs', 'TopicRuleHttpArgsDict']]]]] = None,
+                 iot_analytics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleIotAnalyticArgs', 'TopicRuleIotAnalyticArgsDict']]]]] = None,
+                 iot_events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleIotEventArgs', 'TopicRuleIotEventArgsDict']]]]] = None,
+                 kafkas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleKafkaArgs', 'TopicRuleKafkaArgsDict']]]]] = None,
+                 kineses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
+                 lambdas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 republishes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
+                 s3: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
+                 sns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
+                 sql: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
+                 step_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timestreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates and manages an AWS IoT topic rule.
@@ -963,33 +963,33 @@ class TopicRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchAlarmArgs', 'TopicRuleCloudwatchAlarmArgsDict']]]]] = None,
-                 cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchLogArgs', 'TopicRuleCloudwatchLogArgsDict']]]]] = None,
-                 cloudwatch_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchMetricArgs', 'TopicRuleCloudwatchMetricArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleDynamodbArgs', 'TopicRuleDynamodbArgsDict']]]]] = None,
-                 dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleDynamodbv2Args', 'TopicRuleDynamodbv2ArgsDict']]]]] = None,
-                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleElasticsearchArgs', 'TopicRuleElasticsearchArgsDict']]]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 error_action: Optional[pulumi.Input[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']]] = None,
-                 firehoses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleFirehoseArgs', 'TopicRuleFirehoseArgsDict']]]]] = None,
-                 https: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleHttpArgs', 'TopicRuleHttpArgsDict']]]]] = None,
-                 iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleIotAnalyticArgs', 'TopicRuleIotAnalyticArgsDict']]]]] = None,
-                 iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleIotEventArgs', 'TopicRuleIotEventArgsDict']]]]] = None,
-                 kafkas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKafkaArgs', 'TopicRuleKafkaArgsDict']]]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
-                 lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 republishes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
-                 s3: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
-                 sql: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
-                 step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None,
+                 cloudwatch_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchAlarmArgs', 'TopicRuleCloudwatchAlarmArgsDict']]]]] = None,
+                 cloudwatch_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchLogArgs', 'TopicRuleCloudwatchLogArgsDict']]]]] = None,
+                 cloudwatch_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchMetricArgs', 'TopicRuleCloudwatchMetricArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamodbs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleDynamodbArgs', 'TopicRuleDynamodbArgsDict']]]]] = None,
+                 dynamodbv2s: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleDynamodbv2Args', 'TopicRuleDynamodbv2ArgsDict']]]]] = None,
+                 elasticsearch: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleElasticsearchArgs', 'TopicRuleElasticsearchArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 error_action: pulumi.Input[Optional[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']]] = None,
+                 firehoses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleFirehoseArgs', 'TopicRuleFirehoseArgsDict']]]]] = None,
+                 https: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleHttpArgs', 'TopicRuleHttpArgsDict']]]]] = None,
+                 iot_analytics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleIotAnalyticArgs', 'TopicRuleIotAnalyticArgsDict']]]]] = None,
+                 iot_events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleIotEventArgs', 'TopicRuleIotEventArgsDict']]]]] = None,
+                 kafkas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleKafkaArgs', 'TopicRuleKafkaArgsDict']]]]] = None,
+                 kineses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
+                 lambdas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 republishes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
+                 s3: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
+                 sns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
+                 sql: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
+                 step_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timestreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1044,35 +1044,35 @@ class TopicRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cloudwatch_alarms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchAlarmArgs', 'TopicRuleCloudwatchAlarmArgsDict']]]]] = None,
-            cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchLogArgs', 'TopicRuleCloudwatchLogArgsDict']]]]] = None,
-            cloudwatch_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleCloudwatchMetricArgs', 'TopicRuleCloudwatchMetricArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleDynamodbArgs', 'TopicRuleDynamodbArgsDict']]]]] = None,
-            dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleDynamodbv2Args', 'TopicRuleDynamodbv2ArgsDict']]]]] = None,
-            elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleElasticsearchArgs', 'TopicRuleElasticsearchArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            error_action: Optional[pulumi.Input[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']]] = None,
-            firehoses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleFirehoseArgs', 'TopicRuleFirehoseArgsDict']]]]] = None,
-            https: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleHttpArgs', 'TopicRuleHttpArgsDict']]]]] = None,
-            iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleIotAnalyticArgs', 'TopicRuleIotAnalyticArgsDict']]]]] = None,
-            iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleIotEventArgs', 'TopicRuleIotEventArgsDict']]]]] = None,
-            kafkas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKafkaArgs', 'TopicRuleKafkaArgsDict']]]]] = None,
-            kineses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
-            lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            republishes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
-            s3: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
-            sns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
-            sql: Optional[pulumi.Input[_builtins.str]] = None,
-            sql_version: Optional[pulumi.Input[_builtins.str]] = None,
-            sqs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
-            step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None) -> 'TopicRule':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_alarms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchAlarmArgs', 'TopicRuleCloudwatchAlarmArgsDict']]]]] = None,
+            cloudwatch_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchLogArgs', 'TopicRuleCloudwatchLogArgsDict']]]]] = None,
+            cloudwatch_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleCloudwatchMetricArgs', 'TopicRuleCloudwatchMetricArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamodbs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleDynamodbArgs', 'TopicRuleDynamodbArgsDict']]]]] = None,
+            dynamodbv2s: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleDynamodbv2Args', 'TopicRuleDynamodbv2ArgsDict']]]]] = None,
+            elasticsearch: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleElasticsearchArgs', 'TopicRuleElasticsearchArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            error_action: pulumi.Input[Optional[Union['TopicRuleErrorActionArgs', 'TopicRuleErrorActionArgsDict']]] = None,
+            firehoses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleFirehoseArgs', 'TopicRuleFirehoseArgsDict']]]]] = None,
+            https: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleHttpArgs', 'TopicRuleHttpArgsDict']]]]] = None,
+            iot_analytics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleIotAnalyticArgs', 'TopicRuleIotAnalyticArgsDict']]]]] = None,
+            iot_events: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleIotEventArgs', 'TopicRuleIotEventArgsDict']]]]] = None,
+            kafkas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleKafkaArgs', 'TopicRuleKafkaArgsDict']]]]] = None,
+            kineses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleKinesisArgs', 'TopicRuleKinesisArgsDict']]]]] = None,
+            lambdas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleLambdaArgs', 'TopicRuleLambdaArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            republishes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleRepublishArgs', 'TopicRuleRepublishArgsDict']]]]] = None,
+            s3: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleS3Args', 'TopicRuleS3ArgsDict']]]]] = None,
+            sns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleSnsArgs', 'TopicRuleSnsArgsDict']]]]] = None,
+            sql: pulumi.Input[Optional[_builtins.str]] = None,
+            sql_version: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleSqsArgs', 'TopicRuleSqsArgsDict']]]]] = None,
+            step_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleStepFunctionArgs', 'TopicRuleStepFunctionArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timestreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicRuleTimestreamArgs', 'TopicRuleTimestreamArgsDict']]]]] = None) -> 'TopicRule':
         """
         Get an existing TopicRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -190,47 +190,47 @@ export interface WorkteamState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description of the work team.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      */
-    memberDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinition>[]>;
+    memberDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinition>[] | undefined>;
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      */
-    notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
+    notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The subdomain for your OIDC Identity Provider.
      */
-    subdomain?: pulumi.Input<string>;
+    subdomain?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
      */
-    workerAccessConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamWorkerAccessConfiguration>;
+    workerAccessConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamWorkerAccessConfiguration | undefined>;
     /**
      * The name of the workforce.
      */
-    workforceName?: pulumi.Input<string>;
+    workforceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Workteam (must be unique).
      */
-    workteamName?: pulumi.Input<string>;
+    workteamName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -248,23 +248,23 @@ export interface WorkteamArgs {
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      */
-    notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
+    notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
      */
-    workerAccessConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamWorkerAccessConfiguration>;
+    workerAccessConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamWorkerAccessConfiguration | undefined>;
     /**
      * The name of the workforce.
      */
-    workforceName?: pulumi.Input<string>;
+    workforceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Workteam (must be unique).
      */

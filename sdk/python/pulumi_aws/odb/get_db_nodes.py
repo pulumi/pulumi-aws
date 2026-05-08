@@ -116,8 +116,8 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[_builtins.str] = None,
         db_nodes=pulumi.get(__ret__, 'db_nodes'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_db_nodes_output(cloud_vm_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_db_nodes_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbNodesResult]:
     """
     Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.

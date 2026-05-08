@@ -185,43 +185,43 @@ export interface RecommendationPreferencesState {
     /**
      * The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
      */
-    enhancedInfrastructureMetrics?: pulumi.Input<string>;
+    enhancedInfrastructureMetrics?: pulumi.Input<string | undefined>;
     /**
      * The provider of the external metrics recommendation preference. See External Metrics Preference below.
      */
-    externalMetricsPreference?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesExternalMetricsPreference>;
+    externalMetricsPreference?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesExternalMetricsPreference | undefined>;
     /**
      * The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
      */
-    inferredWorkloadTypes?: pulumi.Input<string>;
+    inferredWorkloadTypes?: pulumi.Input<string | undefined>;
     /**
      * The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
      */
-    lookBackPeriod?: pulumi.Input<string>;
+    lookBackPeriod?: pulumi.Input<string | undefined>;
     /**
      * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
      */
-    preferredResources?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesPreferredResource>[]>;
+    preferredResources?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesPreferredResource>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
      */
-    savingsEstimationMode?: pulumi.Input<string>;
+    savingsEstimationMode?: pulumi.Input<string | undefined>;
     /**
      * The scope of the recommendation preferences. See Scope below.
      */
-    scope?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesScope>;
+    scope?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesScope | undefined>;
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
      */
-    utilizationPreferences?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesUtilizationPreference>[]>;
+    utilizationPreferences?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesUtilizationPreference>[] | undefined>;
 }
 
 /**
@@ -231,27 +231,27 @@ export interface RecommendationPreferencesArgs {
     /**
      * The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
      */
-    enhancedInfrastructureMetrics?: pulumi.Input<string>;
+    enhancedInfrastructureMetrics?: pulumi.Input<string | undefined>;
     /**
      * The provider of the external metrics recommendation preference. See External Metrics Preference below.
      */
-    externalMetricsPreference?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesExternalMetricsPreference>;
+    externalMetricsPreference?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesExternalMetricsPreference | undefined>;
     /**
      * The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
      */
-    inferredWorkloadTypes?: pulumi.Input<string>;
+    inferredWorkloadTypes?: pulumi.Input<string | undefined>;
     /**
      * The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
      */
-    lookBackPeriod?: pulumi.Input<string>;
+    lookBackPeriod?: pulumi.Input<string | undefined>;
     /**
      * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
      */
-    preferredResources?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesPreferredResource>[]>;
+    preferredResources?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesPreferredResource>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
      */
@@ -259,7 +259,7 @@ export interface RecommendationPreferencesArgs {
     /**
      * The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
      */
-    savingsEstimationMode?: pulumi.Input<string>;
+    savingsEstimationMode?: pulumi.Input<string | undefined>;
     /**
      * The scope of the recommendation preferences. See Scope below.
      */
@@ -267,5 +267,5 @@ export interface RecommendationPreferencesArgs {
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
      */
-    utilizationPreferences?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesUtilizationPreference>[]>;
+    utilizationPreferences?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesUtilizationPreference>[] | undefined>;
 }

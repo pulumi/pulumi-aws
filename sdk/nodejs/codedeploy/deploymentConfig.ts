@@ -197,35 +197,35 @@ export interface DeploymentConfigState {
     /**
      * The ARN of the deployment config.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
-    computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string | undefined>;
     /**
      * The AWS Assigned deployment config id
      */
-    deploymentConfigId?: pulumi.Input<string>;
+    deploymentConfigId?: pulumi.Input<string | undefined>;
     /**
      * The name of the deployment config.
      */
-    deploymentConfigName?: pulumi.Input<string>;
+    deploymentConfigName?: pulumi.Input<string | undefined>;
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
     /**
      * A zonalConfig block. Zonal Config is documented below.
      */
-    zonalConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfig>;
+    zonalConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
 }
 
 /**
@@ -235,25 +235,25 @@ export interface DeploymentConfigArgs {
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
-    computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string | undefined>;
     /**
      * The name of the deployment config.
      */
-    deploymentConfigName?: pulumi.Input<string>;
+    deploymentConfigName?: pulumi.Input<string | undefined>;
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
     /**
      * A zonalConfig block. Zonal Config is documented below.
      */
-    zonalConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfig>;
+    zonalConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
 }

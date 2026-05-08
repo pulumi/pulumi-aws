@@ -23,17 +23,17 @@ class RouteArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
                  route_key: pulumi.Input[_builtins.str],
-                 api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]] = None,
-                 route_response_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RouteRequestParameterArgs']]]] = None,
+                 route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
 
@@ -105,31 +105,31 @@ class RouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKeyRequired")
-    def api_key_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def api_key_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "api_key_required")
 
     @api_key_required.setter
-    def api_key_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def api_key_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "api_key_required", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationScopes")
-    def authorization_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorization_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
         """
         return pulumi.get(self, "authorization_scopes")
 
     @authorization_scopes.setter
-    def authorization_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorization_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorization type for the route.
         For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
@@ -139,122 +139,122 @@ class RouteArgs:
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_type", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerId")
-    def authorizer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
         """
         return pulumi.get(self, "authorizer_id")
 
     @authorizer_id.setter
-    def authorizer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
-    def model_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
-    def model_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="operationName")
-    def operation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operation name for the route. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "operation_name")
 
     @operation_name.setter
-    def operation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestModels")
-    def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Request models for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "request_models")
 
     @request_models.setter
-    def request_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_models(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_models", value)
 
     @_builtins.property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]:
+    def request_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]:
         """
         Request parameters for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]):
+    def request_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]):
         pulumi.set(self, "request_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="routeResponseSelectionExpression")
-    def route_response_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_response_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "route_response_selection_expression")
 
     @route_response_selection_expression.setter
-    def route_response_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_response_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_response_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
 @pulumi.input_type
 class _RouteState:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]] = None,
-                 route_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RouteRequestParameterArgs']]]] = None,
+                 route_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
 
@@ -304,43 +304,43 @@ class _RouteState:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API identifier.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKeyRequired")
-    def api_key_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def api_key_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "api_key_required")
 
     @api_key_required.setter
-    def api_key_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def api_key_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "api_key_required", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationScopes")
-    def authorization_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorization_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
         """
         return pulumi.get(self, "authorization_scopes")
 
     @authorization_scopes.setter
-    def authorization_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorization_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorization_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorization type for the route.
         For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
@@ -350,115 +350,115 @@ class _RouteState:
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_type", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizerId")
-    def authorizer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorizer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
         """
         return pulumi.get(self, "authorizer_id")
 
     @authorizer_id.setter
-    def authorizer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorizer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorizer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
-    def model_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
-    def model_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="operationName")
-    def operation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Operation name for the route. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "operation_name")
 
     @operation_name.setter
-    def operation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operation_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="requestModels")
-    def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def request_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Request models for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "request_models")
 
     @request_models.setter
-    def request_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def request_models(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "request_models", value)
 
     @_builtins.property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]:
+    def request_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]:
         """
         Request parameters for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "request_parameters")
 
     @request_parameters.setter
-    def request_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]):
+    def request_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RouteRequestParameterArgs']]]]):
         pulumi.set(self, "request_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="routeKey")
-    def route_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         """
         return pulumi.get(self, "route_key")
 
     @route_key.setter
-    def route_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_key", value)
 
     @_builtins.property
     @pulumi.getter(name="routeResponseSelectionExpression")
-    def route_response_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_response_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "route_response_selection_expression")
 
     @route_response_selection_expression.setter
-    def route_response_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_response_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_response_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
@@ -468,19 +468,19 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
-                 route_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
+                 route_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 route.
@@ -650,19 +650,19 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
-                 route_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
+                 route_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -699,19 +699,19 @@ class Route(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            api_key_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            authorization_type: Optional[pulumi.Input[_builtins.str]] = None,
-            authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            operation_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
-            route_key: Optional[pulumi.Input[_builtins.str]] = None,
-            route_response_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            target: Optional[pulumi.Input[_builtins.str]] = None) -> 'Route':
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            authorization_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
+            authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
+            route_key: pulumi.Input[Optional[_builtins.str]] = None,
+            route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[_builtins.str]] = None) -> 'Route':
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

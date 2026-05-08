@@ -23,21 +23,21 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  release_label: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
-                 auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
-                 image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
-                 initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
-                 interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
-                 job_level_cost_allocation_configuration: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']] = None,
-                 maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
-                 monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]] = None,
-                 scheduler_configuration: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_start_configuration: pulumi.Input[Optional['ApplicationAutoStartConfigurationArgs']] = None,
+                 auto_stop_configuration: pulumi.Input[Optional['ApplicationAutoStopConfigurationArgs']] = None,
+                 image_configuration: pulumi.Input[Optional['ApplicationImageConfigurationArgs']] = None,
+                 initial_capacities: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
+                 interactive_configuration: pulumi.Input[Optional['ApplicationInteractiveConfigurationArgs']] = None,
+                 job_level_cost_allocation_configuration: pulumi.Input[Optional['ApplicationJobLevelCostAllocationConfigurationArgs']] = None,
+                 maximum_capacity: pulumi.Input[Optional['ApplicationMaximumCapacityArgs']] = None,
+                 monitoring_configuration: pulumi.Input[Optional['ApplicationMonitoringConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional['ApplicationNetworkConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]] = None,
+                 scheduler_configuration: pulumi.Input[Optional['ApplicationSchedulerConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -117,204 +117,204 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter(name="autoStartConfiguration")
-    def auto_start_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']]:
+    def auto_start_configuration(self) -> pulumi.Input[Optional['ApplicationAutoStartConfigurationArgs']]:
         """
         The configuration for an application to automatically start on job submission.
         """
         return pulumi.get(self, "auto_start_configuration")
 
     @auto_start_configuration.setter
-    def auto_start_configuration(self, value: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']]):
+    def auto_start_configuration(self, value: pulumi.Input[Optional['ApplicationAutoStartConfigurationArgs']]):
         pulumi.set(self, "auto_start_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="autoStopConfiguration")
-    def auto_stop_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]:
+    def auto_stop_configuration(self) -> pulumi.Input[Optional['ApplicationAutoStopConfigurationArgs']]:
         """
         The configuration for an application to automatically stop after a certain amount of time being idle.
         """
         return pulumi.get(self, "auto_stop_configuration")
 
     @auto_stop_configuration.setter
-    def auto_stop_configuration(self, value: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]):
+    def auto_stop_configuration(self, value: pulumi.Input[Optional['ApplicationAutoStopConfigurationArgs']]):
         pulumi.set(self, "auto_stop_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageConfiguration")
-    def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationArgs']]:
+    def image_configuration(self) -> pulumi.Input[Optional['ApplicationImageConfigurationArgs']]:
         """
         The image configuration applied to all worker types.
         """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter
-    def image_configuration(self, value: Optional[pulumi.Input['ApplicationImageConfigurationArgs']]):
+    def image_configuration(self, value: pulumi.Input[Optional['ApplicationImageConfigurationArgs']]):
         pulumi.set(self, "image_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="initialCapacities")
-    def initial_capacities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]:
+    def initial_capacities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]:
         """
         The capacity to initialize when the application is created.
         """
         return pulumi.get(self, "initial_capacities")
 
     @initial_capacities.setter
-    def initial_capacities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]):
+    def initial_capacities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]):
         pulumi.set(self, "initial_capacities", value)
 
     @_builtins.property
     @pulumi.getter(name="interactiveConfiguration")
-    def interactive_configuration(self) -> Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]:
+    def interactive_configuration(self) -> pulumi.Input[Optional['ApplicationInteractiveConfigurationArgs']]:
         """
         Enables the interactive use cases to use when running an application.
         """
         return pulumi.get(self, "interactive_configuration")
 
     @interactive_configuration.setter
-    def interactive_configuration(self, value: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]):
+    def interactive_configuration(self, value: pulumi.Input[Optional['ApplicationInteractiveConfigurationArgs']]):
         pulumi.set(self, "interactive_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="jobLevelCostAllocationConfiguration")
-    def job_level_cost_allocation_configuration(self) -> Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]:
+    def job_level_cost_allocation_configuration(self) -> pulumi.Input[Optional['ApplicationJobLevelCostAllocationConfigurationArgs']]:
         return pulumi.get(self, "job_level_cost_allocation_configuration")
 
     @job_level_cost_allocation_configuration.setter
-    def job_level_cost_allocation_configuration(self, value: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]):
+    def job_level_cost_allocation_configuration(self, value: pulumi.Input[Optional['ApplicationJobLevelCostAllocationConfigurationArgs']]):
         pulumi.set(self, "job_level_cost_allocation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumCapacity")
-    def maximum_capacity(self) -> Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]:
+    def maximum_capacity(self) -> pulumi.Input[Optional['ApplicationMaximumCapacityArgs']]:
         """
         The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         """
         return pulumi.get(self, "maximum_capacity")
 
     @maximum_capacity.setter
-    def maximum_capacity(self, value: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]):
+    def maximum_capacity(self, value: pulumi.Input[Optional['ApplicationMaximumCapacityArgs']]):
         pulumi.set(self, "maximum_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringConfiguration")
-    def monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]:
+    def monitoring_configuration(self) -> pulumi.Input[Optional['ApplicationMonitoringConfigurationArgs']]:
         """
         The configuration setting for monitoring.
         """
         return pulumi.get(self, "monitoring_configuration")
 
     @monitoring_configuration.setter
-    def monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]):
+    def monitoring_configuration(self, value: pulumi.Input[Optional['ApplicationMonitoringConfigurationArgs']]):
         pulumi.set(self, "monitoring_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['ApplicationNetworkConfigurationArgs']]:
         """
         The network configuration for customer VPC connectivity.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['ApplicationNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeConfigurations")
-    def runtime_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]:
+    def runtime_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]:
         """
         A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         """
         return pulumi.get(self, "runtime_configurations")
 
     @runtime_configurations.setter
-    def runtime_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]):
+    def runtime_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]):
         pulumi.set(self, "runtime_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulerConfiguration")
-    def scheduler_configuration(self) -> Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]:
+    def scheduler_configuration(self) -> pulumi.Input[Optional['ApplicationSchedulerConfigurationArgs']]:
         """
         Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
         """
         return pulumi.get(self, "scheduler_configuration")
 
     @scheduler_configuration.setter
-    def scheduler_configuration(self, value: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]):
+    def scheduler_configuration(self, value: pulumi.Input[Optional['ApplicationSchedulerConfigurationArgs']]):
         pulumi.set(self, "scheduler_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
-                 auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
-                 image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
-                 initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
-                 interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
-                 job_level_cost_allocation_configuration: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']] = None,
-                 maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
-                 monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]] = None,
-                 scheduler_configuration: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_start_configuration: pulumi.Input[Optional['ApplicationAutoStartConfigurationArgs']] = None,
+                 auto_stop_configuration: pulumi.Input[Optional['ApplicationAutoStopConfigurationArgs']] = None,
+                 image_configuration: pulumi.Input[Optional['ApplicationImageConfigurationArgs']] = None,
+                 initial_capacities: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
+                 interactive_configuration: pulumi.Input[Optional['ApplicationInteractiveConfigurationArgs']] = None,
+                 job_level_cost_allocation_configuration: pulumi.Input[Optional['ApplicationJobLevelCostAllocationConfigurationArgs']] = None,
+                 maximum_capacity: pulumi.Input[Optional['ApplicationMaximumCapacityArgs']] = None,
+                 monitoring_configuration: pulumi.Input[Optional['ApplicationMonitoringConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional['ApplicationNetworkConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]] = None,
+                 scheduler_configuration: pulumi.Input[Optional['ApplicationSchedulerConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -378,227 +378,227 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def architecture(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "architecture", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the cluster.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="autoStartConfiguration")
-    def auto_start_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']]:
+    def auto_start_configuration(self) -> pulumi.Input[Optional['ApplicationAutoStartConfigurationArgs']]:
         """
         The configuration for an application to automatically start on job submission.
         """
         return pulumi.get(self, "auto_start_configuration")
 
     @auto_start_configuration.setter
-    def auto_start_configuration(self, value: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']]):
+    def auto_start_configuration(self, value: pulumi.Input[Optional['ApplicationAutoStartConfigurationArgs']]):
         pulumi.set(self, "auto_start_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="autoStopConfiguration")
-    def auto_stop_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]:
+    def auto_stop_configuration(self) -> pulumi.Input[Optional['ApplicationAutoStopConfigurationArgs']]:
         """
         The configuration for an application to automatically stop after a certain amount of time being idle.
         """
         return pulumi.get(self, "auto_stop_configuration")
 
     @auto_stop_configuration.setter
-    def auto_stop_configuration(self, value: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]):
+    def auto_stop_configuration(self, value: pulumi.Input[Optional['ApplicationAutoStopConfigurationArgs']]):
         pulumi.set(self, "auto_stop_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageConfiguration")
-    def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationArgs']]:
+    def image_configuration(self) -> pulumi.Input[Optional['ApplicationImageConfigurationArgs']]:
         """
         The image configuration applied to all worker types.
         """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter
-    def image_configuration(self, value: Optional[pulumi.Input['ApplicationImageConfigurationArgs']]):
+    def image_configuration(self, value: pulumi.Input[Optional['ApplicationImageConfigurationArgs']]):
         pulumi.set(self, "image_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="initialCapacities")
-    def initial_capacities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]:
+    def initial_capacities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]:
         """
         The capacity to initialize when the application is created.
         """
         return pulumi.get(self, "initial_capacities")
 
     @initial_capacities.setter
-    def initial_capacities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]):
+    def initial_capacities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]):
         pulumi.set(self, "initial_capacities", value)
 
     @_builtins.property
     @pulumi.getter(name="interactiveConfiguration")
-    def interactive_configuration(self) -> Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]:
+    def interactive_configuration(self) -> pulumi.Input[Optional['ApplicationInteractiveConfigurationArgs']]:
         """
         Enables the interactive use cases to use when running an application.
         """
         return pulumi.get(self, "interactive_configuration")
 
     @interactive_configuration.setter
-    def interactive_configuration(self, value: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]):
+    def interactive_configuration(self, value: pulumi.Input[Optional['ApplicationInteractiveConfigurationArgs']]):
         pulumi.set(self, "interactive_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="jobLevelCostAllocationConfiguration")
-    def job_level_cost_allocation_configuration(self) -> Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]:
+    def job_level_cost_allocation_configuration(self) -> pulumi.Input[Optional['ApplicationJobLevelCostAllocationConfigurationArgs']]:
         return pulumi.get(self, "job_level_cost_allocation_configuration")
 
     @job_level_cost_allocation_configuration.setter
-    def job_level_cost_allocation_configuration(self, value: Optional[pulumi.Input['ApplicationJobLevelCostAllocationConfigurationArgs']]):
+    def job_level_cost_allocation_configuration(self, value: pulumi.Input[Optional['ApplicationJobLevelCostAllocationConfigurationArgs']]):
         pulumi.set(self, "job_level_cost_allocation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumCapacity")
-    def maximum_capacity(self) -> Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]:
+    def maximum_capacity(self) -> pulumi.Input[Optional['ApplicationMaximumCapacityArgs']]:
         """
         The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         """
         return pulumi.get(self, "maximum_capacity")
 
     @maximum_capacity.setter
-    def maximum_capacity(self, value: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]):
+    def maximum_capacity(self, value: pulumi.Input[Optional['ApplicationMaximumCapacityArgs']]):
         pulumi.set(self, "maximum_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringConfiguration")
-    def monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]:
+    def monitoring_configuration(self) -> pulumi.Input[Optional['ApplicationMonitoringConfigurationArgs']]:
         """
         The configuration setting for monitoring.
         """
         return pulumi.get(self, "monitoring_configuration")
 
     @monitoring_configuration.setter
-    def monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]):
+    def monitoring_configuration(self, value: pulumi.Input[Optional['ApplicationMonitoringConfigurationArgs']]):
         pulumi.set(self, "monitoring_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['ApplicationNetworkConfigurationArgs']]:
         """
         The network configuration for customer VPC connectivity.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['ApplicationNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="releaseLabel")
-    def release_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def release_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EMR release version associated with the application.
         """
         return pulumi.get(self, "release_label")
 
     @release_label.setter
-    def release_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def release_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "release_label", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeConfigurations")
-    def runtime_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]:
+    def runtime_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]:
         """
         A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         """
         return pulumi.get(self, "runtime_configurations")
 
     @runtime_configurations.setter
-    def runtime_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]):
+    def runtime_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationRuntimeConfigurationArgs']]]]):
         pulumi.set(self, "runtime_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulerConfiguration")
-    def scheduler_configuration(self) -> Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]:
+    def scheduler_configuration(self) -> pulumi.Input[Optional['ApplicationSchedulerConfigurationArgs']]:
         """
         Scheduler configuration for batch and streaming jobs running on this application. Supported with release labels `emr-7.0.0` and above. See scheduler_configuration Arguments below.
         """
         return pulumi.get(self, "scheduler_configuration")
 
     @scheduler_configuration.setter
-    def scheduler_configuration(self, value: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]):
+    def scheduler_configuration(self, value: pulumi.Input[Optional['ApplicationSchedulerConfigurationArgs']]):
         pulumi.set(self, "scheduler_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of application you want to start, such as `spark` or `hive`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -608,23 +608,23 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_start_configuration: Optional[pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
-                 auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
-                 image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
-                 initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
-                 interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
-                 job_level_cost_allocation_configuration: Optional[pulumi.Input[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
-                 maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
-                 monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuntimeConfigurationArgs', 'ApplicationRuntimeConfigurationArgsDict']]]]] = None,
-                 scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_start_configuration: pulumi.Input[Optional[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
+                 auto_stop_configuration: pulumi.Input[Optional[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
+                 image_configuration: pulumi.Input[Optional[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
+                 initial_capacities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
+                 interactive_configuration: pulumi.Input[Optional[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
+                 job_level_cost_allocation_configuration: pulumi.Input[Optional[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
+                 maximum_capacity: pulumi.Input[Optional[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
+                 monitoring_configuration: pulumi.Input[Optional[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationRuntimeConfigurationArgs', 'ApplicationRuntimeConfigurationArgsDict']]]]] = None,
+                 scheduler_configuration: pulumi.Input[Optional[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an EMR Serverless Application.
@@ -928,23 +928,23 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_start_configuration: Optional[pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
-                 auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
-                 image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
-                 initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
-                 interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
-                 job_level_cost_allocation_configuration: Optional[pulumi.Input[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
-                 maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
-                 monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 release_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuntimeConfigurationArgs', 'ApplicationRuntimeConfigurationArgsDict']]]]] = None,
-                 scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 architecture: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_start_configuration: pulumi.Input[Optional[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
+                 auto_stop_configuration: pulumi.Input[Optional[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
+                 image_configuration: pulumi.Input[Optional[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
+                 initial_capacities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
+                 interactive_configuration: pulumi.Input[Optional[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
+                 job_level_cost_allocation_configuration: pulumi.Input[Optional[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
+                 maximum_capacity: pulumi.Input[Optional[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
+                 monitoring_configuration: pulumi.Input[Optional[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationRuntimeConfigurationArgs', 'ApplicationRuntimeConfigurationArgsDict']]]]] = None,
+                 scheduler_configuration: pulumi.Input[Optional[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -987,25 +987,25 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            architecture: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_start_configuration: Optional[pulumi.Input[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
-            auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
-            image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
-            initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
-            interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
-            job_level_cost_allocation_configuration: Optional[pulumi.Input[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
-            maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
-            monitoring_configuration: Optional[pulumi.Input[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            release_label: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationRuntimeConfigurationArgs', 'ApplicationRuntimeConfigurationArgsDict']]]]] = None,
-            scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Application':
+            architecture: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_start_configuration: pulumi.Input[Optional[Union['ApplicationAutoStartConfigurationArgs', 'ApplicationAutoStartConfigurationArgsDict']]] = None,
+            auto_stop_configuration: pulumi.Input[Optional[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
+            image_configuration: pulumi.Input[Optional[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
+            initial_capacities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
+            interactive_configuration: pulumi.Input[Optional[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
+            job_level_cost_allocation_configuration: pulumi.Input[Optional[Union['ApplicationJobLevelCostAllocationConfigurationArgs', 'ApplicationJobLevelCostAllocationConfigurationArgsDict']]] = None,
+            maximum_capacity: pulumi.Input[Optional[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
+            monitoring_configuration: pulumi.Input[Optional[Union['ApplicationMonitoringConfigurationArgs', 'ApplicationMonitoringConfigurationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_configuration: pulumi.Input[Optional[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            release_label: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationRuntimeConfigurationArgs', 'ApplicationRuntimeConfigurationArgsDict']]]]] = None,
+            scheduler_configuration: pulumi.Input[Optional[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

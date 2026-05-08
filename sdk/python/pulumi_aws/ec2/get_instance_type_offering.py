@@ -160,10 +160,10 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
         location_type=pulumi.get(__ret__, 'location_type'),
         preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'),
         region=pulumi.get(__ret__, 'region'))
-def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]]]] = None,
-                                      location_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                      preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_instance_type_offering_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]]]] = None,
+                                      location_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      preferred_instance_types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
     """
     Information about single EC2 Instance Type Offering.

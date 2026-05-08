@@ -179,15 +179,15 @@ export interface PlanState {
     /**
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      */
-    contactId?: pulumi.Input<string>;
+    contactId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[] | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface PlanArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */

@@ -181,53 +181,53 @@ export interface VectorsIndexState {
     /**
      * Date and time when the vector index was created.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * Data type of the vectors to be inserted into the vector index. Valid values: `float32`.
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * Dimensions of the vectors to be inserted into the vector index.
      */
-    dimension?: pulumi.Input<number>;
+    dimension?: pulumi.Input<number | undefined>;
     /**
      * Distance metric to be used for similarity search. Valid values: `cosine`, `euclidean`.
      */
-    distanceMetric?: pulumi.Input<string>;
+    distanceMetric?: pulumi.Input<string | undefined>;
     /**
      * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[] | undefined>;
     /**
      * ARN of the vector index.
      */
-    indexArn?: pulumi.Input<string>;
+    indexArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the vector index.
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
      */
-    metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration>;
+    metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the vector bucket for the vector index.
      *
      * The following arguments are optional:
      */
-    vectorBucketName?: pulumi.Input<string>;
+    vectorBucketName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -249,7 +249,7 @@ export interface VectorsIndexArgs {
     /**
      * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[] | undefined>;
     /**
      * Name of the vector index.
      */
@@ -257,15 +257,15 @@ export interface VectorsIndexArgs {
     /**
      * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
      */
-    metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration>;
+    metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Name of the vector bucket for the vector index.
      *

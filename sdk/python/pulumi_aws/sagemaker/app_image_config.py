@@ -22,11 +22,11 @@ __all__ = ['AppImageConfigArgs', 'AppImageConfig']
 class AppImageConfigArgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[_builtins.str],
-                 code_editor_app_image_config: Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']] = None,
-                 jupyter_lab_image_config: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 code_editor_app_image_config: pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigArgs']] = None,
+                 jupyter_lab_image_config: pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigArgs']] = None,
+                 kernel_gateway_image_config: pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
 
@@ -65,55 +65,55 @@ class AppImageConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="codeEditorAppImageConfig")
-    def code_editor_app_image_config(self) -> Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]:
+    def code_editor_app_image_config(self) -> pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigArgs']]:
         """
         The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         """
         return pulumi.get(self, "code_editor_app_image_config")
 
     @code_editor_app_image_config.setter
-    def code_editor_app_image_config(self, value: Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]):
+    def code_editor_app_image_config(self, value: pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigArgs']]):
         pulumi.set(self, "code_editor_app_image_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jupyterLabImageConfig")
-    def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
+    def jupyter_lab_image_config(self) -> pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigArgs']]:
         """
         The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         """
         return pulumi.get(self, "jupyter_lab_image_config")
 
     @jupyter_lab_image_config.setter
-    def jupyter_lab_image_config(self, value: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]):
+    def jupyter_lab_image_config(self, value: pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigArgs']]):
         pulumi.set(self, "jupyter_lab_image_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelGatewayImageConfig")
-    def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
+    def kernel_gateway_image_config(self) -> pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigArgs']]:
         """
         The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @kernel_gateway_image_config.setter
-    def kernel_gateway_image_config(self, value: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]):
+    def kernel_gateway_image_config(self, value: pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigArgs']]):
         pulumi.set(self, "kernel_gateway_image_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -122,21 +122,21 @@ class AppImageConfigArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AppImageConfigState:
     def __init__(__self__, *,
-                 app_image_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_editor_app_image_config: Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']] = None,
-                 jupyter_lab_image_config: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_editor_app_image_config: pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigArgs']] = None,
+                 jupyter_lab_image_config: pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigArgs']] = None,
+                 kernel_gateway_image_config: pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppImageConfig resources.
 
@@ -170,79 +170,79 @@ class _AppImageConfigState:
 
     @_builtins.property
     @pulumi.getter(name="appImageConfigName")
-    def app_image_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_image_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the App Image Config.
         """
         return pulumi.get(self, "app_image_config_name")
 
     @app_image_config_name.setter
-    def app_image_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_image_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_image_config_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="codeEditorAppImageConfig")
-    def code_editor_app_image_config(self) -> Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]:
+    def code_editor_app_image_config(self) -> pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigArgs']]:
         """
         The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         """
         return pulumi.get(self, "code_editor_app_image_config")
 
     @code_editor_app_image_config.setter
-    def code_editor_app_image_config(self, value: Optional[pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs']]):
+    def code_editor_app_image_config(self, value: pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigArgs']]):
         pulumi.set(self, "code_editor_app_image_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jupyterLabImageConfig")
-    def jupyter_lab_image_config(self) -> Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]:
+    def jupyter_lab_image_config(self) -> pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigArgs']]:
         """
         The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         """
         return pulumi.get(self, "jupyter_lab_image_config")
 
     @jupyter_lab_image_config.setter
-    def jupyter_lab_image_config(self, value: Optional[pulumi.Input['AppImageConfigJupyterLabImageConfigArgs']]):
+    def jupyter_lab_image_config(self, value: pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigArgs']]):
         pulumi.set(self, "jupyter_lab_image_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelGatewayImageConfig")
-    def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
+    def kernel_gateway_image_config(self) -> pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigArgs']]:
         """
         The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @kernel_gateway_image_config.setter
-    def kernel_gateway_image_config(self, value: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]):
+    def kernel_gateway_image_config(self, value: pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigArgs']]):
         pulumi.set(self, "kernel_gateway_image_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
@@ -251,19 +251,19 @@ class _AppImageConfigState:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -273,12 +273,12 @@ class AppImageConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_image_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
-                 jupyter_lab_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
+                 jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
+                 kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI App Image Config resource.
@@ -424,12 +424,12 @@ class AppImageConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_image_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
-                 jupyter_lab_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
+                 jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
+                 kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,14 +459,14 @@ class AppImageConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_image_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
-            jupyter_lab_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
-            kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AppImageConfig':
+            app_image_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            code_editor_app_image_config: pulumi.Input[Optional[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
+            jupyter_lab_image_config: pulumi.Input[Optional[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
+            kernel_gateway_image_config: pulumi.Input[Optional[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AppImageConfig':
         """
         Get an existing AppImageConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

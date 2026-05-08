@@ -22,22 +22,22 @@ __all__ = ['CatalogTableArgs', 'CatalogTable']
 class CatalogTableArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
-                 table_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
-                 view_definition: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']] = None,
-                 view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_original_text: Optional[pulumi.Input[_builtins.str]] = None):
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_table_format_input: pulumi.Input[Optional['CatalogTableOpenTableFormatInputArgs']] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_descriptor: pulumi.Input[Optional['CatalogTableStorageDescriptorArgs']] = None,
+                 table_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_table: pulumi.Input[Optional['CatalogTableTargetTableArgs']] = None,
+                 view_definition: pulumi.Input[Optional['CatalogTableViewDefinitionArgs']] = None,
+                 view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_original_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CatalogTable resource.
 
@@ -111,218 +111,218 @@ class CatalogTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the table.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="openTableFormatInput")
-    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]:
+    def open_table_format_input(self) -> pulumi.Input[Optional['CatalogTableOpenTableFormatInputArgs']]:
         """
         Configuration block for open table formats. See `open_table_format_input` below.
         """
         return pulumi.get(self, "open_table_format_input")
 
     @open_table_format_input.setter
-    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]):
+    def open_table_format_input(self, value: pulumi.Input[Optional['CatalogTableOpenTableFormatInputArgs']]):
         pulumi.set(self, "open_table_format_input", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the table.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Properties associated with this table, as a list of key-value pairs.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionIndices")
-    def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
+    def partition_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
         """
         Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
         return pulumi.get(self, "partition_indices")
 
     @partition_indices.setter
-    def partition_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]):
+    def partition_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]):
         pulumi.set(self, "partition_indices", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
+    def partition_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
         """
         Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]):
+    def partition_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]):
         pulumi.set(self, "partition_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def retention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention time for this table.
         """
         return pulumi.get(self, "retention")
 
     @retention.setter
-    def retention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention", value)
 
     @_builtins.property
     @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]:
+    def storage_descriptor(self) -> pulumi.Input[Optional['CatalogTableStorageDescriptorArgs']]:
         """
         Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
         return pulumi.get(self, "storage_descriptor")
 
     @storage_descriptor.setter
-    def storage_descriptor(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]):
+    def storage_descriptor(self, value: pulumi.Input[Optional['CatalogTableStorageDescriptorArgs']]):
         pulumi.set(self, "storage_descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="tableType")
-    def table_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         """
         return pulumi.get(self, "table_type")
 
     @table_type.setter
-    def table_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetTable")
-    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArgs']]:
+    def target_table(self) -> pulumi.Input[Optional['CatalogTableTargetTableArgs']]:
         """
         Configuration block of a target table for resource linking. See `target_table` below.
         """
         return pulumi.get(self, "target_table")
 
     @target_table.setter
-    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArgs']]):
+    def target_table(self, value: pulumi.Input[Optional['CatalogTableTargetTableArgs']]):
         pulumi.set(self, "target_table", value)
 
     @_builtins.property
     @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]:
+    def view_definition(self) -> pulumi.Input[Optional['CatalogTableViewDefinitionArgs']]:
         """
         A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         """
         return pulumi.get(self, "view_definition")
 
     @view_definition.setter
-    def view_definition(self, value: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]):
+    def view_definition(self, value: pulumi.Input[Optional['CatalogTableViewDefinitionArgs']]):
         pulumi.set(self, "view_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="viewExpandedText")
-    def view_expanded_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_expanded_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the table is a view, the expanded text of the view; otherwise null.
         """
         return pulumi.get(self, "view_expanded_text")
 
     @view_expanded_text.setter
-    def view_expanded_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_expanded_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_expanded_text", value)
 
     @_builtins.property
     @pulumi.getter(name="viewOriginalText")
-    def view_original_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_original_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the table is a view, the original text of the view; otherwise null.
         """
         return pulumi.get(self, "view_original_text")
 
     @view_original_text.setter
-    def view_original_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_original_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_original_text", value)
 
 
 @pulumi.input_type
 class _CatalogTableState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
-                 table_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
-                 view_definition: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']] = None,
-                 view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_original_text: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_table_format_input: pulumi.Input[Optional['CatalogTableOpenTableFormatInputArgs']] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_descriptor: pulumi.Input[Optional['CatalogTableStorageDescriptorArgs']] = None,
+                 table_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_table: pulumi.Input[Optional['CatalogTableTargetTableArgs']] = None,
+                 view_definition: pulumi.Input[Optional['CatalogTableViewDefinitionArgs']] = None,
+                 view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_original_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CatalogTable resources.
 
@@ -386,31 +386,31 @@ class _CatalogTableState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Glue Table.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 
@@ -419,187 +419,187 @@ class _CatalogTableState:
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the table.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="openTableFormatInput")
-    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]:
+    def open_table_format_input(self) -> pulumi.Input[Optional['CatalogTableOpenTableFormatInputArgs']]:
         """
         Configuration block for open table formats. See `open_table_format_input` below.
         """
         return pulumi.get(self, "open_table_format_input")
 
     @open_table_format_input.setter
-    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]):
+    def open_table_format_input(self, value: pulumi.Input[Optional['CatalogTableOpenTableFormatInputArgs']]):
         pulumi.set(self, "open_table_format_input", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner of the table.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Properties associated with this table, as a list of key-value pairs.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionIndices")
-    def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
+    def partition_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
         """
         Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
         return pulumi.get(self, "partition_indices")
 
     @partition_indices.setter
-    def partition_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]):
+    def partition_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]):
         pulumi.set(self, "partition_indices", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
+    def partition_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
         """
         Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]):
+    def partition_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]):
         pulumi.set(self, "partition_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def retention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retention time for this table.
         """
         return pulumi.get(self, "retention")
 
     @retention.setter
-    def retention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention", value)
 
     @_builtins.property
     @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]:
+    def storage_descriptor(self) -> pulumi.Input[Optional['CatalogTableStorageDescriptorArgs']]:
         """
         Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
         return pulumi.get(self, "storage_descriptor")
 
     @storage_descriptor.setter
-    def storage_descriptor(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]):
+    def storage_descriptor(self, value: pulumi.Input[Optional['CatalogTableStorageDescriptorArgs']]):
         pulumi.set(self, "storage_descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="tableType")
-    def table_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         """
         return pulumi.get(self, "table_type")
 
     @table_type.setter
-    def table_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetTable")
-    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArgs']]:
+    def target_table(self) -> pulumi.Input[Optional['CatalogTableTargetTableArgs']]:
         """
         Configuration block of a target table for resource linking. See `target_table` below.
         """
         return pulumi.get(self, "target_table")
 
     @target_table.setter
-    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArgs']]):
+    def target_table(self, value: pulumi.Input[Optional['CatalogTableTargetTableArgs']]):
         pulumi.set(self, "target_table", value)
 
     @_builtins.property
     @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]:
+    def view_definition(self) -> pulumi.Input[Optional['CatalogTableViewDefinitionArgs']]:
         """
         A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         """
         return pulumi.get(self, "view_definition")
 
     @view_definition.setter
-    def view_definition(self, value: Optional[pulumi.Input['CatalogTableViewDefinitionArgs']]):
+    def view_definition(self, value: pulumi.Input[Optional['CatalogTableViewDefinitionArgs']]):
         pulumi.set(self, "view_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="viewExpandedText")
-    def view_expanded_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_expanded_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the table is a view, the expanded text of the view; otherwise null.
         """
         return pulumi.get(self, "view_expanded_text")
 
     @view_expanded_text.setter
-    def view_expanded_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_expanded_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_expanded_text", value)
 
     @_builtins.property
     @pulumi.getter(name="viewOriginalText")
-    def view_original_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_original_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the table is a view, the original text of the view; otherwise null.
         """
         return pulumi.get(self, "view_original_text")
 
     @view_original_text.setter
-    def view_original_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_original_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_original_text", value)
 
 
@@ -609,23 +609,23 @@ class CatalogTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_table_format_input: Optional[pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
-                 table_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_table: Optional[pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
-                 view_definition: Optional[pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
-                 view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_original_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
+                 table_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
+                 view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
+                 view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_original_text: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
@@ -990,23 +990,23 @@ class CatalogTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_table_format_input: Optional[pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
-                 table_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_table: Optional[pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
-                 view_definition: Optional[pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
-                 view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_original_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
+                 table_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
+                 view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
+                 view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_original_text: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1046,24 +1046,24 @@ class CatalogTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            open_table_format_input: Optional[pulumi.Input[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
-            partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retention: Optional[pulumi.Input[_builtins.int]] = None,
-            storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
-            table_type: Optional[pulumi.Input[_builtins.str]] = None,
-            target_table: Optional[pulumi.Input[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
-            view_definition: Optional[pulumi.Input[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
-            view_expanded_text: Optional[pulumi.Input[_builtins.str]] = None,
-            view_original_text: Optional[pulumi.Input[_builtins.str]] = None) -> 'CatalogTable':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            open_table_format_input: pulumi.Input[Optional[Union['CatalogTableOpenTableFormatInputArgs', 'CatalogTableOpenTableFormatInputArgsDict']]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            partition_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
+            partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retention: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_descriptor: pulumi.Input[Optional[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
+            table_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_table: pulumi.Input[Optional[Union['CatalogTableTargetTableArgs', 'CatalogTableTargetTableArgsDict']]] = None,
+            view_definition: pulumi.Input[Optional[Union['CatalogTableViewDefinitionArgs', 'CatalogTableViewDefinitionArgsDict']]] = None,
+            view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
+            view_original_text: pulumi.Input[Optional[_builtins.str]] = None) -> 'CatalogTable':
         """
         Get an existing CatalogTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

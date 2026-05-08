@@ -154,19 +154,19 @@ export interface TopicPolicyState {
     /**
      * The ARN of the SNS topic
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The AWS Account ID of the SNS topic owner
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The fully-formed AWS policy as JSON.
      */
-    policy?: pulumi.Input<string | inputs.sns.PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.sns.PolicyDocument | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,5 +184,5 @@ export interface TopicPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

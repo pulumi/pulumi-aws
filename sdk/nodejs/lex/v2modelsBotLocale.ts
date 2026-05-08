@@ -174,38 +174,38 @@ export interface V2modelsBotLocaleState {
     /**
      * Identifier of the bot to create the locale for.
      */
-    botId?: pulumi.Input<string>;
+    botId?: pulumi.Input<string | undefined>;
     /**
      * Version of the bot to create the locale for. This can only be the draft version of the bot.
      */
-    botVersion?: pulumi.Input<string>;
+    botVersion?: pulumi.Input<string | undefined>;
     /**
      * Description of the bot locale. Use this to help identify the bot locale in lists.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
      */
-    localeId?: pulumi.Input<string>;
+    localeId?: pulumi.Input<string | undefined>;
     /**
      * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
      *
      * The following arguments are optional:
      */
-    nLuIntentConfidenceThreshold?: pulumi.Input<number>;
+    nLuIntentConfidenceThreshold?: pulumi.Input<number | undefined>;
     /**
      * Specified locale name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts | undefined>;
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
-    voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings>;
+    voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings | undefined>;
 }
 
 /**
@@ -223,7 +223,7 @@ export interface V2modelsBotLocaleArgs {
     /**
      * Description of the bot locale. Use this to help identify the bot locale in lists.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
      */
@@ -237,14 +237,14 @@ export interface V2modelsBotLocaleArgs {
     /**
      * Specified locale name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts | undefined>;
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
      */
-    voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings>;
+    voiceSettings?: pulumi.Input<inputs.lex.V2modelsBotLocaleVoiceSettings | undefined>;
 }

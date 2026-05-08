@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Ecs
     ///         Name = "/ecs/example/service-connect",
     ///     });
     /// 
-    ///     var current = Aws.Index.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
     ///     var example = new Aws.Ecs.Service("example", new()
     ///     {

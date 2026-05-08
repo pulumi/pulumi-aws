@@ -21,8 +21,8 @@ class KeySigningKeyArgs:
     def __init__(__self__, *,
                  hosted_zone_id: pulumi.Input[_builtins.str],
                  key_management_service_arn: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KeySigningKey resource.
 
@@ -66,7 +66,7 @@ class KeySigningKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
 
@@ -75,39 +75,39 @@ class KeySigningKeyArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _KeySigningKeyState:
     def __init__(__self__, *,
-                 digest_algorithm_mnemonic: Optional[pulumi.Input[_builtins.str]] = None,
-                 digest_algorithm_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 digest_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 dnskey_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 ds_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 flag: Optional[pulumi.Input[_builtins.int]] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_management_service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_tag: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_algorithm_mnemonic: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_algorithm_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 digest_algorithm_mnemonic: pulumi.Input[Optional[_builtins.str]] = None,
+                 digest_algorithm_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 digest_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 dnskey_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 ds_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 flag: pulumi.Input[Optional[_builtins.int]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_management_service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_tag: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_algorithm_mnemonic: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_algorithm_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeySigningKey resources.
 
@@ -159,115 +159,115 @@ class _KeySigningKeyState:
 
     @_builtins.property
     @pulumi.getter(name="digestAlgorithmMnemonic")
-    def digest_algorithm_mnemonic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def digest_algorithm_mnemonic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         """
         return pulumi.get(self, "digest_algorithm_mnemonic")
 
     @digest_algorithm_mnemonic.setter
-    def digest_algorithm_mnemonic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def digest_algorithm_mnemonic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "digest_algorithm_mnemonic", value)
 
     @_builtins.property
     @pulumi.getter(name="digestAlgorithmType")
-    def digest_algorithm_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def digest_algorithm_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         """
         return pulumi.get(self, "digest_algorithm_type")
 
     @digest_algorithm_type.setter
-    def digest_algorithm_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def digest_algorithm_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "digest_algorithm_type", value)
 
     @_builtins.property
     @pulumi.getter(name="digestValue")
-    def digest_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def digest_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
         """
         return pulumi.get(self, "digest_value")
 
     @digest_value.setter
-    def digest_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def digest_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "digest_value", value)
 
     @_builtins.property
     @pulumi.getter(name="dnskeyRecord")
-    def dnskey_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dnskey_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that represents a DNSKEY record.
         """
         return pulumi.get(self, "dnskey_record")
 
     @dnskey_record.setter
-    def dnskey_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dnskey_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dnskey_record", value)
 
     @_builtins.property
     @pulumi.getter(name="dsRecord")
-    def ds_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ds_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that represents a delegation signer (DS) record.
         """
         return pulumi.get(self, "ds_record")
 
     @ds_record.setter
-    def ds_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ds_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ds_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def flag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def flag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
         """
         return pulumi.get(self, "flag")
 
     @flag.setter
-    def flag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def flag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "flag", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Route 53 Hosted Zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
-    def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosted_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyManagementServiceArn")
-    def key_management_service_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_management_service_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         """
         return pulumi.get(self, "key_management_service_arn")
 
     @key_management_service_arn.setter
-    def key_management_service_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_management_service_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_management_service_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="keyTag")
-    def key_tag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_tag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
         """
         return pulumi.get(self, "key_tag")
 
     @key_tag.setter
-    def key_tag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_tag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the key-signing key (KSK). Must be unique for each key-signing key in the same hosted zone.
 
@@ -276,55 +276,55 @@ class _KeySigningKeyState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="signingAlgorithmMnemonic")
-    def signing_algorithm_mnemonic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_algorithm_mnemonic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         """
         return pulumi.get(self, "signing_algorithm_mnemonic")
 
     @signing_algorithm_mnemonic.setter
-    def signing_algorithm_mnemonic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_algorithm_mnemonic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_algorithm_mnemonic", value)
 
     @_builtins.property
     @pulumi.getter(name="signingAlgorithmType")
-    def signing_algorithm_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def signing_algorithm_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         """
         return pulumi.get(self, "signing_algorithm_type")
 
     @signing_algorithm_type.setter
-    def signing_algorithm_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def signing_algorithm_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "signing_algorithm_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -334,10 +334,10 @@ class KeySigningKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_management_service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_management_service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
@@ -533,10 +533,10 @@ class KeySigningKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_management_service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_management_service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -574,20 +574,20 @@ class KeySigningKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            digest_algorithm_mnemonic: Optional[pulumi.Input[_builtins.str]] = None,
-            digest_algorithm_type: Optional[pulumi.Input[_builtins.int]] = None,
-            digest_value: Optional[pulumi.Input[_builtins.str]] = None,
-            dnskey_record: Optional[pulumi.Input[_builtins.str]] = None,
-            ds_record: Optional[pulumi.Input[_builtins.str]] = None,
-            flag: Optional[pulumi.Input[_builtins.int]] = None,
-            hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_management_service_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            key_tag: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_algorithm_mnemonic: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_algorithm_type: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'KeySigningKey':
+            digest_algorithm_mnemonic: pulumi.Input[Optional[_builtins.str]] = None,
+            digest_algorithm_type: pulumi.Input[Optional[_builtins.int]] = None,
+            digest_value: pulumi.Input[Optional[_builtins.str]] = None,
+            dnskey_record: pulumi.Input[Optional[_builtins.str]] = None,
+            ds_record: pulumi.Input[Optional[_builtins.str]] = None,
+            flag: pulumi.Input[Optional[_builtins.int]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_management_service_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            key_tag: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_algorithm_mnemonic: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_algorithm_type: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'KeySigningKey':
         """
         Get an existing KeySigningKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

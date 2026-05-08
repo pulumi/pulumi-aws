@@ -177,51 +177,51 @@ export interface CompositeAlarmState {
     /**
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
-    actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      */
-    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor>;
+    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description for the composite alarm.
      */
-    alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string | undefined>;
     /**
      * The name for the composite alarm. This name must be unique within the region.
      */
-    alarmName?: pulumi.Input<string>;
+    alarmName?: pulumi.Input<string | undefined>;
     /**
      * An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
      */
-    alarmRule?: pulumi.Input<string>;
+    alarmRule?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the composite alarm.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    okActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -231,19 +231,19 @@ export interface CompositeAlarmArgs {
     /**
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
-    actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      */
-    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor>;
+    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description for the composite alarm.
      */
-    alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string | undefined>;
     /**
      * The name for the composite alarm. This name must be unique within the region.
      */
@@ -255,17 +255,17 @@ export interface CompositeAlarmArgs {
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    okActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

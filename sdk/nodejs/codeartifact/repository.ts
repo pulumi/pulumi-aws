@@ -208,47 +208,47 @@ export interface RepositoryState {
     /**
      * The account number of the AWS account that manages the repository.
      */
-    administratorAccount?: pulumi.Input<string>;
+    administratorAccount?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the repository.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The description of the repository.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The domain that contains the created repository.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string | undefined>;
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
+    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository to create.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
+    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[] | undefined>;
 }
 
 /**
@@ -258,7 +258,7 @@ export interface RepositoryArgs {
     /**
      * The description of the repository.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The domain that contains the created repository.
      */
@@ -266,15 +266,15 @@ export interface RepositoryArgs {
     /**
      * The account number of the AWS account that owns the domain.
      */
-    domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string | undefined>;
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
+    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the repository to create.
      */
@@ -282,9 +282,9 @@ export interface RepositoryArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
+    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[] | undefined>;
 }

@@ -244,8 +244,8 @@ def get_global_cluster(identifier: Optional[_builtins.str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'),
         storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_global_cluster_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_global_cluster_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalClusterResult]:
     """
     Data source for managing an AWS RDS (Relational Database) Global Cluster.

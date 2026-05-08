@@ -138,32 +138,32 @@ export interface ProfileState {
     /**
      * The ARN of the profile.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      */
-    as2Id?: pulumi.Input<string>;
+    as2Id?: pulumi.Input<string | undefined>;
     /**
      * The list of certificate Ids from the imported certificate operation.
      */
-    certificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+    certificateIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The unique identifier for the AS2 profile.
      */
-    profileId?: pulumi.Input<string>;
+    profileId?: pulumi.Input<string | undefined>;
     /**
      * The profile type should be LOCAL or PARTNER.
      */
-    profileType?: pulumi.Input<string>;
+    profileType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface ProfileArgs {
     /**
      * The list of certificate Ids from the imported certificate operation.
      */
-    certificateIds?: pulumi.Input<pulumi.Input<string>[]>;
+    certificateIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The profile type should be LOCAL or PARTNER.
      */
@@ -185,9 +185,9 @@ export interface ProfileArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

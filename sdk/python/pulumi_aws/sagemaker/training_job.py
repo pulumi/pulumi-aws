@@ -23,36 +23,36 @@ class TrainingJobArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  training_job_name: pulumi.Input[_builtins.str],
-                 algorithm_specification: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationArgs']] = None,
-                 checkpoint_config: Optional[pulumi.Input['TrainingJobCheckpointConfigArgs']] = None,
-                 debug_hook_config: Optional[pulumi.Input['TrainingJobDebugHookConfigArgs']] = None,
-                 debug_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]] = None,
-                 delete_model_packages_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_vpc_enis_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_inter_container_traffic_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_managed_spot_training: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_network_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 experiment_config: Optional[pulumi.Input['TrainingJobExperimentConfigArgs']] = None,
-                 hyper_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 infra_check_config: Optional[pulumi.Input['TrainingJobInfraCheckConfigArgs']] = None,
-                 input_data_configs: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]] = None,
-                 mlflow_config: Optional[pulumi.Input['TrainingJobMlflowConfigArgs']] = None,
-                 model_package_config: Optional[pulumi.Input['TrainingJobModelPackageConfigArgs']] = None,
-                 output_data_config: Optional[pulumi.Input['TrainingJobOutputDataConfigArgs']] = None,
-                 profiler_config: Optional[pulumi.Input['TrainingJobProfilerConfigArgs']] = None,
-                 profiler_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debug_config: Optional[pulumi.Input['TrainingJobRemoteDebugConfigArgs']] = None,
-                 resource_config: Optional[pulumi.Input['TrainingJobResourceConfigArgs']] = None,
-                 retry_strategy: Optional[pulumi.Input['TrainingJobRetryStrategyArgs']] = None,
-                 serverless_job_config: Optional[pulumi.Input['TrainingJobServerlessJobConfigArgs']] = None,
-                 session_chaining_config: Optional[pulumi.Input['TrainingJobSessionChainingConfigArgs']] = None,
-                 stopping_condition: Optional[pulumi.Input['TrainingJobStoppingConditionArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tensor_board_output_config: Optional[pulumi.Input['TrainingJobTensorBoardOutputConfigArgs']] = None,
-                 timeouts: Optional[pulumi.Input['TrainingJobTimeoutsArgs']] = None,
-                 vpc_config: Optional[pulumi.Input['TrainingJobVpcConfigArgs']] = None):
+                 algorithm_specification: pulumi.Input[Optional['TrainingJobAlgorithmSpecificationArgs']] = None,
+                 checkpoint_config: pulumi.Input[Optional['TrainingJobCheckpointConfigArgs']] = None,
+                 debug_hook_config: pulumi.Input[Optional['TrainingJobDebugHookConfigArgs']] = None,
+                 debug_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]] = None,
+                 delete_model_packages_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_vpc_enis_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_inter_container_traffic_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_managed_spot_training: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 experiment_config: pulumi.Input[Optional['TrainingJobExperimentConfigArgs']] = None,
+                 hyper_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 infra_check_config: pulumi.Input[Optional['TrainingJobInfraCheckConfigArgs']] = None,
+                 input_data_configs: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]] = None,
+                 mlflow_config: pulumi.Input[Optional['TrainingJobMlflowConfigArgs']] = None,
+                 model_package_config: pulumi.Input[Optional['TrainingJobModelPackageConfigArgs']] = None,
+                 output_data_config: pulumi.Input[Optional['TrainingJobOutputDataConfigArgs']] = None,
+                 profiler_config: pulumi.Input[Optional['TrainingJobProfilerConfigArgs']] = None,
+                 profiler_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debug_config: pulumi.Input[Optional['TrainingJobRemoteDebugConfigArgs']] = None,
+                 resource_config: pulumi.Input[Optional['TrainingJobResourceConfigArgs']] = None,
+                 retry_strategy: pulumi.Input[Optional['TrainingJobRetryStrategyArgs']] = None,
+                 serverless_job_config: pulumi.Input[Optional['TrainingJobServerlessJobConfigArgs']] = None,
+                 session_chaining_config: pulumi.Input[Optional['TrainingJobSessionChainingConfigArgs']] = None,
+                 stopping_condition: pulumi.Input[Optional['TrainingJobStoppingConditionArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tensor_board_output_config: pulumi.Input[Optional['TrainingJobTensorBoardOutputConfigArgs']] = None,
+                 timeouts: pulumi.Input[Optional['TrainingJobTimeoutsArgs']] = None,
+                 vpc_config: pulumi.Input[Optional['TrainingJobVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a TrainingJob resource.
 
@@ -178,199 +178,199 @@ class TrainingJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="algorithmSpecification")
-    def algorithm_specification(self) -> Optional[pulumi.Input['TrainingJobAlgorithmSpecificationArgs']]:
+    def algorithm_specification(self) -> pulumi.Input[Optional['TrainingJobAlgorithmSpecificationArgs']]:
         """
         Algorithm-related parameters of the training job. See `algorithm_specification` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "algorithm_specification")
 
     @algorithm_specification.setter
-    def algorithm_specification(self, value: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationArgs']]):
+    def algorithm_specification(self, value: pulumi.Input[Optional['TrainingJobAlgorithmSpecificationArgs']]):
         pulumi.set(self, "algorithm_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="checkpointConfig")
-    def checkpoint_config(self) -> Optional[pulumi.Input['TrainingJobCheckpointConfigArgs']]:
+    def checkpoint_config(self) -> pulumi.Input[Optional['TrainingJobCheckpointConfigArgs']]:
         """
         Location of checkpoints during training. See `checkpoint_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "checkpoint_config")
 
     @checkpoint_config.setter
-    def checkpoint_config(self, value: Optional[pulumi.Input['TrainingJobCheckpointConfigArgs']]):
+    def checkpoint_config(self, value: pulumi.Input[Optional['TrainingJobCheckpointConfigArgs']]):
         pulumi.set(self, "checkpoint_config", value)
 
     @_builtins.property
     @pulumi.getter(name="debugHookConfig")
-    def debug_hook_config(self) -> Optional[pulumi.Input['TrainingJobDebugHookConfigArgs']]:
+    def debug_hook_config(self) -> pulumi.Input[Optional['TrainingJobDebugHookConfigArgs']]:
         """
         Configuration for debugging rules. See `debug_hook_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "debug_hook_config")
 
     @debug_hook_config.setter
-    def debug_hook_config(self, value: Optional[pulumi.Input['TrainingJobDebugHookConfigArgs']]):
+    def debug_hook_config(self, value: pulumi.Input[Optional['TrainingJobDebugHookConfigArgs']]):
         pulumi.set(self, "debug_hook_config", value)
 
     @_builtins.property
     @pulumi.getter(name="debugRuleConfigurations")
-    def debug_rule_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]:
+    def debug_rule_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]:
         """
         List of debug rule configurations. Maximum of 20. See `debug_rule_configurations` below.
         """
         return pulumi.get(self, "debug_rule_configurations")
 
     @debug_rule_configurations.setter
-    def debug_rule_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]):
+    def debug_rule_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]):
         pulumi.set(self, "debug_rule_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteModelPackagesOnDestroy")
-    def delete_model_packages_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_model_packages_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete model packages in the configured model package group when the training job is destroyed. Default is `false`.
         """
         return pulumi.get(self, "delete_model_packages_on_destroy")
 
     @delete_model_packages_on_destroy.setter
-    def delete_model_packages_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_model_packages_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_model_packages_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteVpcEnisOnDestroy")
-    def delete_vpc_enis_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_vpc_enis_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete detached VPC ENIs SageMaker may leave behind when the training job is destroyed. Default is `false`.
         """
         return pulumi.get(self, "delete_vpc_enis_on_destroy")
 
     @delete_vpc_enis_on_destroy.setter
-    def delete_vpc_enis_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_vpc_enis_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_vpc_enis_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
-    def enable_inter_container_traffic_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_inter_container_traffic_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to encrypt inter-container traffic. When enabled, communications between containers are encrypted.
         """
         return pulumi.get(self, "enable_inter_container_traffic_encryption")
 
     @enable_inter_container_traffic_encryption.setter
-    def enable_inter_container_traffic_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_inter_container_traffic_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_inter_container_traffic_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="enableManagedSpotTraining")
-    def enable_managed_spot_training(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_managed_spot_training(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use managed spot training. Optimizes the cost of training by using Amazon EC2 Spot Instances. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "enable_managed_spot_training")
 
     @enable_managed_spot_training.setter
-    def enable_managed_spot_training(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_managed_spot_training(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_managed_spot_training", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNetworkIsolation")
-    def enable_network_isolation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_network_isolation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to isolate the training container from the network. No inbound or outbound network calls can be made.
         """
         return pulumi.get(self, "enable_network_isolation")
 
     @enable_network_isolation.setter
-    def enable_network_isolation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_network_isolation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_network_isolation", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of environment variables to set in the training container. Maximum of 100 entries.  Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="experimentConfig")
-    def experiment_config(self) -> Optional[pulumi.Input['TrainingJobExperimentConfigArgs']]:
+    def experiment_config(self) -> pulumi.Input[Optional['TrainingJobExperimentConfigArgs']]:
         """
         Associates a SageMaker AI Experiment or Trial to the training job. See `experiment_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "experiment_config")
 
     @experiment_config.setter
-    def experiment_config(self, value: Optional[pulumi.Input['TrainingJobExperimentConfigArgs']]):
+    def experiment_config(self, value: pulumi.Input[Optional['TrainingJobExperimentConfigArgs']]):
         pulumi.set(self, "experiment_config", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperParameters")
-    def hyper_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def hyper_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of hyperparameters for the training algorithm. Maximum of 100 entries.
         """
         return pulumi.get(self, "hyper_parameters")
 
     @hyper_parameters.setter
-    def hyper_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def hyper_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hyper_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="infraCheckConfig")
-    def infra_check_config(self) -> Optional[pulumi.Input['TrainingJobInfraCheckConfigArgs']]:
+    def infra_check_config(self) -> pulumi.Input[Optional['TrainingJobInfraCheckConfigArgs']]:
         """
         Infrastructure health check configuration. See `infra_check_config` below.
         """
         return pulumi.get(self, "infra_check_config")
 
     @infra_check_config.setter
-    def infra_check_config(self, value: Optional[pulumi.Input['TrainingJobInfraCheckConfigArgs']]):
+    def infra_check_config(self, value: pulumi.Input[Optional['TrainingJobInfraCheckConfigArgs']]):
         pulumi.set(self, "infra_check_config", value)
 
     @_builtins.property
     @pulumi.getter(name="inputDataConfigs")
-    def input_data_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]:
+    def input_data_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]:
         """
         List of input data channel configurations for the training job. Maximum of 20. See `input_data_config` below.
         """
         return pulumi.get(self, "input_data_configs")
 
     @input_data_configs.setter
-    def input_data_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]):
+    def input_data_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]):
         pulumi.set(self, "input_data_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="mlflowConfig")
-    def mlflow_config(self) -> Optional[pulumi.Input['TrainingJobMlflowConfigArgs']]:
+    def mlflow_config(self) -> pulumi.Input[Optional['TrainingJobMlflowConfigArgs']]:
         """
         MLflow integration configuration. See `mlflow_config` below.
         """
         return pulumi.get(self, "mlflow_config")
 
     @mlflow_config.setter
-    def mlflow_config(self, value: Optional[pulumi.Input['TrainingJobMlflowConfigArgs']]):
+    def mlflow_config(self, value: pulumi.Input[Optional['TrainingJobMlflowConfigArgs']]):
         pulumi.set(self, "mlflow_config", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPackageConfig")
-    def model_package_config(self) -> Optional[pulumi.Input['TrainingJobModelPackageConfigArgs']]:
+    def model_package_config(self) -> pulumi.Input[Optional['TrainingJobModelPackageConfigArgs']]:
         """
         Model package configuration. Requires `serverless_job_config`. See `model_package_config` below.
         """
         return pulumi.get(self, "model_package_config")
 
     @model_package_config.setter
-    def model_package_config(self, value: Optional[pulumi.Input['TrainingJobModelPackageConfigArgs']]):
+    def model_package_config(self, value: pulumi.Input[Optional['TrainingJobModelPackageConfigArgs']]):
         pulumi.set(self, "model_package_config", value)
 
     @_builtins.property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> Optional[pulumi.Input['TrainingJobOutputDataConfigArgs']]:
+    def output_data_config(self) -> pulumi.Input[Optional['TrainingJobOutputDataConfigArgs']]:
         """
         Location of the output data from the training job. See `output_data_config` below.
 
@@ -379,197 +379,197 @@ class TrainingJobArgs:
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
-    def output_data_config(self, value: Optional[pulumi.Input['TrainingJobOutputDataConfigArgs']]):
+    def output_data_config(self, value: pulumi.Input[Optional['TrainingJobOutputDataConfigArgs']]):
         pulumi.set(self, "output_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="profilerConfig")
-    def profiler_config(self) -> Optional[pulumi.Input['TrainingJobProfilerConfigArgs']]:
+    def profiler_config(self) -> pulumi.Input[Optional['TrainingJobProfilerConfigArgs']]:
         """
         Configuration for the profiler. See `profiler_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "profiler_config")
 
     @profiler_config.setter
-    def profiler_config(self, value: Optional[pulumi.Input['TrainingJobProfilerConfigArgs']]):
+    def profiler_config(self, value: pulumi.Input[Optional['TrainingJobProfilerConfigArgs']]):
         pulumi.set(self, "profiler_config", value)
 
     @_builtins.property
     @pulumi.getter(name="profilerRuleConfigurations")
-    def profiler_rule_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]:
+    def profiler_rule_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]:
         """
         List of profiler rule configurations. Maximum of 20. See `profiler_rule_configurations` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "profiler_rule_configurations")
 
     @profiler_rule_configurations.setter
-    def profiler_rule_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]):
+    def profiler_rule_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]):
         pulumi.set(self, "profiler_rule_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDebugConfig")
-    def remote_debug_config(self) -> Optional[pulumi.Input['TrainingJobRemoteDebugConfigArgs']]:
+    def remote_debug_config(self) -> pulumi.Input[Optional['TrainingJobRemoteDebugConfigArgs']]:
         """
         Configuration for remote debugging. See `remote_debug_config` below.
         """
         return pulumi.get(self, "remote_debug_config")
 
     @remote_debug_config.setter
-    def remote_debug_config(self, value: Optional[pulumi.Input['TrainingJobRemoteDebugConfigArgs']]):
+    def remote_debug_config(self, value: pulumi.Input[Optional['TrainingJobRemoteDebugConfigArgs']]):
         pulumi.set(self, "remote_debug_config", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfig")
-    def resource_config(self) -> Optional[pulumi.Input['TrainingJobResourceConfigArgs']]:
+    def resource_config(self) -> pulumi.Input[Optional['TrainingJobResourceConfigArgs']]:
         """
         Resources for the training job, including compute instances and storage volumes. See `resource_config` below.
         """
         return pulumi.get(self, "resource_config")
 
     @resource_config.setter
-    def resource_config(self, value: Optional[pulumi.Input['TrainingJobResourceConfigArgs']]):
+    def resource_config(self, value: pulumi.Input[Optional['TrainingJobResourceConfigArgs']]):
         pulumi.set(self, "resource_config", value)
 
     @_builtins.property
     @pulumi.getter(name="retryStrategy")
-    def retry_strategy(self) -> Optional[pulumi.Input['TrainingJobRetryStrategyArgs']]:
+    def retry_strategy(self) -> pulumi.Input[Optional['TrainingJobRetryStrategyArgs']]:
         """
         Number of times to retry the job if it fails. See `retry_strategy` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "retry_strategy")
 
     @retry_strategy.setter
-    def retry_strategy(self, value: Optional[pulumi.Input['TrainingJobRetryStrategyArgs']]):
+    def retry_strategy(self, value: pulumi.Input[Optional['TrainingJobRetryStrategyArgs']]):
         pulumi.set(self, "retry_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessJobConfig")
-    def serverless_job_config(self) -> Optional[pulumi.Input['TrainingJobServerlessJobConfigArgs']]:
+    def serverless_job_config(self) -> pulumi.Input[Optional['TrainingJobServerlessJobConfigArgs']]:
         """
         Configuration for serverless training jobs using foundation models. Conflicts with `algorithm_specification`, `enable_managed_spot_training`, `environment`, `retry_strategy`, `checkpoint_config`, `debug_hook_config`, `experiment_config`, `profiler_config`, `profiler_rule_configurations`, and `tensor_board_output_config`. See `serverless_job_config` below.
         """
         return pulumi.get(self, "serverless_job_config")
 
     @serverless_job_config.setter
-    def serverless_job_config(self, value: Optional[pulumi.Input['TrainingJobServerlessJobConfigArgs']]):
+    def serverless_job_config(self, value: pulumi.Input[Optional['TrainingJobServerlessJobConfigArgs']]):
         pulumi.set(self, "serverless_job_config", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionChainingConfig")
-    def session_chaining_config(self) -> Optional[pulumi.Input['TrainingJobSessionChainingConfigArgs']]:
+    def session_chaining_config(self) -> pulumi.Input[Optional['TrainingJobSessionChainingConfigArgs']]:
         """
         Configuration for session tag chaining. See `session_chaining_config` below.
         """
         return pulumi.get(self, "session_chaining_config")
 
     @session_chaining_config.setter
-    def session_chaining_config(self, value: Optional[pulumi.Input['TrainingJobSessionChainingConfigArgs']]):
+    def session_chaining_config(self, value: pulumi.Input[Optional['TrainingJobSessionChainingConfigArgs']]):
         pulumi.set(self, "session_chaining_config", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppingCondition")
-    def stopping_condition(self) -> Optional[pulumi.Input['TrainingJobStoppingConditionArgs']]:
+    def stopping_condition(self) -> pulumi.Input[Optional['TrainingJobStoppingConditionArgs']]:
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
-    def stopping_condition(self, value: Optional[pulumi.Input['TrainingJobStoppingConditionArgs']]):
+    def stopping_condition(self, value: pulumi.Input[Optional['TrainingJobStoppingConditionArgs']]):
         pulumi.set(self, "stopping_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tensorBoardOutputConfig")
-    def tensor_board_output_config(self) -> Optional[pulumi.Input['TrainingJobTensorBoardOutputConfigArgs']]:
+    def tensor_board_output_config(self) -> pulumi.Input[Optional['TrainingJobTensorBoardOutputConfigArgs']]:
         """
         Configuration for TensorBoard output. See `tensor_board_output_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "tensor_board_output_config")
 
     @tensor_board_output_config.setter
-    def tensor_board_output_config(self, value: Optional[pulumi.Input['TrainingJobTensorBoardOutputConfigArgs']]):
+    def tensor_board_output_config(self, value: pulumi.Input[Optional['TrainingJobTensorBoardOutputConfigArgs']]):
         pulumi.set(self, "tensor_board_output_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['TrainingJobTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['TrainingJobTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['TrainingJobTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['TrainingJobTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['TrainingJobVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['TrainingJobVpcConfigArgs']]:
         """
         VPC configuration for the training job. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['TrainingJobVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['TrainingJobVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
 class _TrainingJobState:
     def __init__(__self__, *,
-                 algorithm_specification: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationArgs']] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 checkpoint_config: Optional[pulumi.Input['TrainingJobCheckpointConfigArgs']] = None,
-                 debug_hook_config: Optional[pulumi.Input['TrainingJobDebugHookConfigArgs']] = None,
-                 debug_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]] = None,
-                 delete_model_packages_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_vpc_enis_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_inter_container_traffic_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_managed_spot_training: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_network_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 experiment_config: Optional[pulumi.Input['TrainingJobExperimentConfigArgs']] = None,
-                 hyper_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 infra_check_config: Optional[pulumi.Input['TrainingJobInfraCheckConfigArgs']] = None,
-                 input_data_configs: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]] = None,
-                 mlflow_config: Optional[pulumi.Input['TrainingJobMlflowConfigArgs']] = None,
-                 model_package_config: Optional[pulumi.Input['TrainingJobModelPackageConfigArgs']] = None,
-                 output_data_config: Optional[pulumi.Input['TrainingJobOutputDataConfigArgs']] = None,
-                 profiler_config: Optional[pulumi.Input['TrainingJobProfilerConfigArgs']] = None,
-                 profiler_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debug_config: Optional[pulumi.Input['TrainingJobRemoteDebugConfigArgs']] = None,
-                 resource_config: Optional[pulumi.Input['TrainingJobResourceConfigArgs']] = None,
-                 retry_strategy: Optional[pulumi.Input['TrainingJobRetryStrategyArgs']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_job_config: Optional[pulumi.Input['TrainingJobServerlessJobConfigArgs']] = None,
-                 session_chaining_config: Optional[pulumi.Input['TrainingJobSessionChainingConfigArgs']] = None,
-                 stopping_condition: Optional[pulumi.Input['TrainingJobStoppingConditionArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tensor_board_output_config: Optional[pulumi.Input['TrainingJobTensorBoardOutputConfigArgs']] = None,
-                 timeouts: Optional[pulumi.Input['TrainingJobTimeoutsArgs']] = None,
-                 training_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input['TrainingJobVpcConfigArgs']] = None):
+                 algorithm_specification: pulumi.Input[Optional['TrainingJobAlgorithmSpecificationArgs']] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 checkpoint_config: pulumi.Input[Optional['TrainingJobCheckpointConfigArgs']] = None,
+                 debug_hook_config: pulumi.Input[Optional['TrainingJobDebugHookConfigArgs']] = None,
+                 debug_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]] = None,
+                 delete_model_packages_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_vpc_enis_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_inter_container_traffic_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_managed_spot_training: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 experiment_config: pulumi.Input[Optional['TrainingJobExperimentConfigArgs']] = None,
+                 hyper_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 infra_check_config: pulumi.Input[Optional['TrainingJobInfraCheckConfigArgs']] = None,
+                 input_data_configs: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]] = None,
+                 mlflow_config: pulumi.Input[Optional['TrainingJobMlflowConfigArgs']] = None,
+                 model_package_config: pulumi.Input[Optional['TrainingJobModelPackageConfigArgs']] = None,
+                 output_data_config: pulumi.Input[Optional['TrainingJobOutputDataConfigArgs']] = None,
+                 profiler_config: pulumi.Input[Optional['TrainingJobProfilerConfigArgs']] = None,
+                 profiler_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debug_config: pulumi.Input[Optional['TrainingJobRemoteDebugConfigArgs']] = None,
+                 resource_config: pulumi.Input[Optional['TrainingJobResourceConfigArgs']] = None,
+                 retry_strategy: pulumi.Input[Optional['TrainingJobRetryStrategyArgs']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_job_config: pulumi.Input[Optional['TrainingJobServerlessJobConfigArgs']] = None,
+                 session_chaining_config: pulumi.Input[Optional['TrainingJobSessionChainingConfigArgs']] = None,
+                 stopping_condition: pulumi.Input[Optional['TrainingJobStoppingConditionArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tensor_board_output_config: pulumi.Input[Optional['TrainingJobTensorBoardOutputConfigArgs']] = None,
+                 timeouts: pulumi.Input[Optional['TrainingJobTimeoutsArgs']] = None,
+                 training_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional['TrainingJobVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering TrainingJob resources.
 
@@ -679,211 +679,211 @@ class _TrainingJobState:
 
     @_builtins.property
     @pulumi.getter(name="algorithmSpecification")
-    def algorithm_specification(self) -> Optional[pulumi.Input['TrainingJobAlgorithmSpecificationArgs']]:
+    def algorithm_specification(self) -> pulumi.Input[Optional['TrainingJobAlgorithmSpecificationArgs']]:
         """
         Algorithm-related parameters of the training job. See `algorithm_specification` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "algorithm_specification")
 
     @algorithm_specification.setter
-    def algorithm_specification(self, value: Optional[pulumi.Input['TrainingJobAlgorithmSpecificationArgs']]):
+    def algorithm_specification(self, value: pulumi.Input[Optional['TrainingJobAlgorithmSpecificationArgs']]):
         pulumi.set(self, "algorithm_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Training Job.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="checkpointConfig")
-    def checkpoint_config(self) -> Optional[pulumi.Input['TrainingJobCheckpointConfigArgs']]:
+    def checkpoint_config(self) -> pulumi.Input[Optional['TrainingJobCheckpointConfigArgs']]:
         """
         Location of checkpoints during training. See `checkpoint_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "checkpoint_config")
 
     @checkpoint_config.setter
-    def checkpoint_config(self, value: Optional[pulumi.Input['TrainingJobCheckpointConfigArgs']]):
+    def checkpoint_config(self, value: pulumi.Input[Optional['TrainingJobCheckpointConfigArgs']]):
         pulumi.set(self, "checkpoint_config", value)
 
     @_builtins.property
     @pulumi.getter(name="debugHookConfig")
-    def debug_hook_config(self) -> Optional[pulumi.Input['TrainingJobDebugHookConfigArgs']]:
+    def debug_hook_config(self) -> pulumi.Input[Optional['TrainingJobDebugHookConfigArgs']]:
         """
         Configuration for debugging rules. See `debug_hook_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "debug_hook_config")
 
     @debug_hook_config.setter
-    def debug_hook_config(self, value: Optional[pulumi.Input['TrainingJobDebugHookConfigArgs']]):
+    def debug_hook_config(self, value: pulumi.Input[Optional['TrainingJobDebugHookConfigArgs']]):
         pulumi.set(self, "debug_hook_config", value)
 
     @_builtins.property
     @pulumi.getter(name="debugRuleConfigurations")
-    def debug_rule_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]:
+    def debug_rule_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]:
         """
         List of debug rule configurations. Maximum of 20. See `debug_rule_configurations` below.
         """
         return pulumi.get(self, "debug_rule_configurations")
 
     @debug_rule_configurations.setter
-    def debug_rule_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]):
+    def debug_rule_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugRuleConfigurationArgs']]]]):
         pulumi.set(self, "debug_rule_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteModelPackagesOnDestroy")
-    def delete_model_packages_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_model_packages_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete model packages in the configured model package group when the training job is destroyed. Default is `false`.
         """
         return pulumi.get(self, "delete_model_packages_on_destroy")
 
     @delete_model_packages_on_destroy.setter
-    def delete_model_packages_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_model_packages_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_model_packages_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteVpcEnisOnDestroy")
-    def delete_vpc_enis_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_vpc_enis_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete detached VPC ENIs SageMaker may leave behind when the training job is destroyed. Default is `false`.
         """
         return pulumi.get(self, "delete_vpc_enis_on_destroy")
 
     @delete_vpc_enis_on_destroy.setter
-    def delete_vpc_enis_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_vpc_enis_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_vpc_enis_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
-    def enable_inter_container_traffic_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_inter_container_traffic_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to encrypt inter-container traffic. When enabled, communications between containers are encrypted.
         """
         return pulumi.get(self, "enable_inter_container_traffic_encryption")
 
     @enable_inter_container_traffic_encryption.setter
-    def enable_inter_container_traffic_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_inter_container_traffic_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_inter_container_traffic_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="enableManagedSpotTraining")
-    def enable_managed_spot_training(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_managed_spot_training(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use managed spot training. Optimizes the cost of training by using Amazon EC2 Spot Instances. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "enable_managed_spot_training")
 
     @enable_managed_spot_training.setter
-    def enable_managed_spot_training(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_managed_spot_training(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_managed_spot_training", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNetworkIsolation")
-    def enable_network_isolation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_network_isolation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to isolate the training container from the network. No inbound or outbound network calls can be made.
         """
         return pulumi.get(self, "enable_network_isolation")
 
     @enable_network_isolation.setter
-    def enable_network_isolation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_network_isolation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_network_isolation", value)
 
     @_builtins.property
     @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of environment variables to set in the training container. Maximum of 100 entries.  Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "environment")
 
     @environment.setter
-    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment", value)
 
     @_builtins.property
     @pulumi.getter(name="experimentConfig")
-    def experiment_config(self) -> Optional[pulumi.Input['TrainingJobExperimentConfigArgs']]:
+    def experiment_config(self) -> pulumi.Input[Optional['TrainingJobExperimentConfigArgs']]:
         """
         Associates a SageMaker AI Experiment or Trial to the training job. See `experiment_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "experiment_config")
 
     @experiment_config.setter
-    def experiment_config(self, value: Optional[pulumi.Input['TrainingJobExperimentConfigArgs']]):
+    def experiment_config(self, value: pulumi.Input[Optional['TrainingJobExperimentConfigArgs']]):
         pulumi.set(self, "experiment_config", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperParameters")
-    def hyper_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def hyper_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of hyperparameters for the training algorithm. Maximum of 100 entries.
         """
         return pulumi.get(self, "hyper_parameters")
 
     @hyper_parameters.setter
-    def hyper_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def hyper_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hyper_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="infraCheckConfig")
-    def infra_check_config(self) -> Optional[pulumi.Input['TrainingJobInfraCheckConfigArgs']]:
+    def infra_check_config(self) -> pulumi.Input[Optional['TrainingJobInfraCheckConfigArgs']]:
         """
         Infrastructure health check configuration. See `infra_check_config` below.
         """
         return pulumi.get(self, "infra_check_config")
 
     @infra_check_config.setter
-    def infra_check_config(self, value: Optional[pulumi.Input['TrainingJobInfraCheckConfigArgs']]):
+    def infra_check_config(self, value: pulumi.Input[Optional['TrainingJobInfraCheckConfigArgs']]):
         pulumi.set(self, "infra_check_config", value)
 
     @_builtins.property
     @pulumi.getter(name="inputDataConfigs")
-    def input_data_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]:
+    def input_data_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]:
         """
         List of input data channel configurations for the training job. Maximum of 20. See `input_data_config` below.
         """
         return pulumi.get(self, "input_data_configs")
 
     @input_data_configs.setter
-    def input_data_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]):
+    def input_data_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobInputDataConfigArgs']]]]):
         pulumi.set(self, "input_data_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="mlflowConfig")
-    def mlflow_config(self) -> Optional[pulumi.Input['TrainingJobMlflowConfigArgs']]:
+    def mlflow_config(self) -> pulumi.Input[Optional['TrainingJobMlflowConfigArgs']]:
         """
         MLflow integration configuration. See `mlflow_config` below.
         """
         return pulumi.get(self, "mlflow_config")
 
     @mlflow_config.setter
-    def mlflow_config(self, value: Optional[pulumi.Input['TrainingJobMlflowConfigArgs']]):
+    def mlflow_config(self, value: pulumi.Input[Optional['TrainingJobMlflowConfigArgs']]):
         pulumi.set(self, "mlflow_config", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPackageConfig")
-    def model_package_config(self) -> Optional[pulumi.Input['TrainingJobModelPackageConfigArgs']]:
+    def model_package_config(self) -> pulumi.Input[Optional['TrainingJobModelPackageConfigArgs']]:
         """
         Model package configuration. Requires `serverless_job_config`. See `model_package_config` below.
         """
         return pulumi.get(self, "model_package_config")
 
     @model_package_config.setter
-    def model_package_config(self, value: Optional[pulumi.Input['TrainingJobModelPackageConfigArgs']]):
+    def model_package_config(self, value: pulumi.Input[Optional['TrainingJobModelPackageConfigArgs']]):
         pulumi.set(self, "model_package_config", value)
 
     @_builtins.property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> Optional[pulumi.Input['TrainingJobOutputDataConfigArgs']]:
+    def output_data_config(self) -> pulumi.Input[Optional['TrainingJobOutputDataConfigArgs']]:
         """
         Location of the output data from the training job. See `output_data_config` below.
 
@@ -892,193 +892,193 @@ class _TrainingJobState:
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
-    def output_data_config(self, value: Optional[pulumi.Input['TrainingJobOutputDataConfigArgs']]):
+    def output_data_config(self, value: pulumi.Input[Optional['TrainingJobOutputDataConfigArgs']]):
         pulumi.set(self, "output_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="profilerConfig")
-    def profiler_config(self) -> Optional[pulumi.Input['TrainingJobProfilerConfigArgs']]:
+    def profiler_config(self) -> pulumi.Input[Optional['TrainingJobProfilerConfigArgs']]:
         """
         Configuration for the profiler. See `profiler_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "profiler_config")
 
     @profiler_config.setter
-    def profiler_config(self, value: Optional[pulumi.Input['TrainingJobProfilerConfigArgs']]):
+    def profiler_config(self, value: pulumi.Input[Optional['TrainingJobProfilerConfigArgs']]):
         pulumi.set(self, "profiler_config", value)
 
     @_builtins.property
     @pulumi.getter(name="profilerRuleConfigurations")
-    def profiler_rule_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]:
+    def profiler_rule_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]:
         """
         List of profiler rule configurations. Maximum of 20. See `profiler_rule_configurations` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "profiler_rule_configurations")
 
     @profiler_rule_configurations.setter
-    def profiler_rule_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]):
+    def profiler_rule_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobProfilerRuleConfigurationArgs']]]]):
         pulumi.set(self, "profiler_rule_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDebugConfig")
-    def remote_debug_config(self) -> Optional[pulumi.Input['TrainingJobRemoteDebugConfigArgs']]:
+    def remote_debug_config(self) -> pulumi.Input[Optional['TrainingJobRemoteDebugConfigArgs']]:
         """
         Configuration for remote debugging. See `remote_debug_config` below.
         """
         return pulumi.get(self, "remote_debug_config")
 
     @remote_debug_config.setter
-    def remote_debug_config(self, value: Optional[pulumi.Input['TrainingJobRemoteDebugConfigArgs']]):
+    def remote_debug_config(self, value: pulumi.Input[Optional['TrainingJobRemoteDebugConfigArgs']]):
         pulumi.set(self, "remote_debug_config", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfig")
-    def resource_config(self) -> Optional[pulumi.Input['TrainingJobResourceConfigArgs']]:
+    def resource_config(self) -> pulumi.Input[Optional['TrainingJobResourceConfigArgs']]:
         """
         Resources for the training job, including compute instances and storage volumes. See `resource_config` below.
         """
         return pulumi.get(self, "resource_config")
 
     @resource_config.setter
-    def resource_config(self, value: Optional[pulumi.Input['TrainingJobResourceConfigArgs']]):
+    def resource_config(self, value: pulumi.Input[Optional['TrainingJobResourceConfigArgs']]):
         pulumi.set(self, "resource_config", value)
 
     @_builtins.property
     @pulumi.getter(name="retryStrategy")
-    def retry_strategy(self) -> Optional[pulumi.Input['TrainingJobRetryStrategyArgs']]:
+    def retry_strategy(self) -> pulumi.Input[Optional['TrainingJobRetryStrategyArgs']]:
         """
         Number of times to retry the job if it fails. See `retry_strategy` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "retry_strategy")
 
     @retry_strategy.setter
-    def retry_strategy(self, value: Optional[pulumi.Input['TrainingJobRetryStrategyArgs']]):
+    def retry_strategy(self, value: pulumi.Input[Optional['TrainingJobRetryStrategyArgs']]):
         pulumi.set(self, "retry_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that SageMaker AI assumes to perform tasks on your behalf during training.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessJobConfig")
-    def serverless_job_config(self) -> Optional[pulumi.Input['TrainingJobServerlessJobConfigArgs']]:
+    def serverless_job_config(self) -> pulumi.Input[Optional['TrainingJobServerlessJobConfigArgs']]:
         """
         Configuration for serverless training jobs using foundation models. Conflicts with `algorithm_specification`, `enable_managed_spot_training`, `environment`, `retry_strategy`, `checkpoint_config`, `debug_hook_config`, `experiment_config`, `profiler_config`, `profiler_rule_configurations`, and `tensor_board_output_config`. See `serverless_job_config` below.
         """
         return pulumi.get(self, "serverless_job_config")
 
     @serverless_job_config.setter
-    def serverless_job_config(self, value: Optional[pulumi.Input['TrainingJobServerlessJobConfigArgs']]):
+    def serverless_job_config(self, value: pulumi.Input[Optional['TrainingJobServerlessJobConfigArgs']]):
         pulumi.set(self, "serverless_job_config", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionChainingConfig")
-    def session_chaining_config(self) -> Optional[pulumi.Input['TrainingJobSessionChainingConfigArgs']]:
+    def session_chaining_config(self) -> pulumi.Input[Optional['TrainingJobSessionChainingConfigArgs']]:
         """
         Configuration for session tag chaining. See `session_chaining_config` below.
         """
         return pulumi.get(self, "session_chaining_config")
 
     @session_chaining_config.setter
-    def session_chaining_config(self, value: Optional[pulumi.Input['TrainingJobSessionChainingConfigArgs']]):
+    def session_chaining_config(self, value: pulumi.Input[Optional['TrainingJobSessionChainingConfigArgs']]):
         pulumi.set(self, "session_chaining_config", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppingCondition")
-    def stopping_condition(self) -> Optional[pulumi.Input['TrainingJobStoppingConditionArgs']]:
+    def stopping_condition(self) -> pulumi.Input[Optional['TrainingJobStoppingConditionArgs']]:
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
-    def stopping_condition(self, value: Optional[pulumi.Input['TrainingJobStoppingConditionArgs']]):
+    def stopping_condition(self, value: pulumi.Input[Optional['TrainingJobStoppingConditionArgs']]):
         pulumi.set(self, "stopping_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tensorBoardOutputConfig")
-    def tensor_board_output_config(self) -> Optional[pulumi.Input['TrainingJobTensorBoardOutputConfigArgs']]:
+    def tensor_board_output_config(self) -> pulumi.Input[Optional['TrainingJobTensorBoardOutputConfigArgs']]:
         """
         Configuration for TensorBoard output. See `tensor_board_output_config` below. Conflicts with `serverless_job_config`.
         """
         return pulumi.get(self, "tensor_board_output_config")
 
     @tensor_board_output_config.setter
-    def tensor_board_output_config(self, value: Optional[pulumi.Input['TrainingJobTensorBoardOutputConfigArgs']]):
+    def tensor_board_output_config(self, value: pulumi.Input[Optional['TrainingJobTensorBoardOutputConfigArgs']]):
         pulumi.set(self, "tensor_board_output_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['TrainingJobTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['TrainingJobTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['TrainingJobTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['TrainingJobTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="trainingJobName")
-    def training_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def training_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the training job. Must be between 1 and 63 characters, start with a letter or number, and contain only letters, numbers, and hyphens.
         """
         return pulumi.get(self, "training_job_name")
 
     @training_job_name.setter
-    def training_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def training_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "training_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['TrainingJobVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['TrainingJobVpcConfigArgs']]:
         """
         VPC configuration for the training job. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['TrainingJobVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['TrainingJobVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -1088,38 +1088,38 @@ class TrainingJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm_specification: Optional[pulumi.Input[Union['TrainingJobAlgorithmSpecificationArgs', 'TrainingJobAlgorithmSpecificationArgsDict']]] = None,
-                 checkpoint_config: Optional[pulumi.Input[Union['TrainingJobCheckpointConfigArgs', 'TrainingJobCheckpointConfigArgsDict']]] = None,
-                 debug_hook_config: Optional[pulumi.Input[Union['TrainingJobDebugHookConfigArgs', 'TrainingJobDebugHookConfigArgsDict']]] = None,
-                 debug_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobDebugRuleConfigurationArgs', 'TrainingJobDebugRuleConfigurationArgsDict']]]]] = None,
-                 delete_model_packages_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_vpc_enis_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_inter_container_traffic_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_managed_spot_training: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_network_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 experiment_config: Optional[pulumi.Input[Union['TrainingJobExperimentConfigArgs', 'TrainingJobExperimentConfigArgsDict']]] = None,
-                 hyper_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 infra_check_config: Optional[pulumi.Input[Union['TrainingJobInfraCheckConfigArgs', 'TrainingJobInfraCheckConfigArgsDict']]] = None,
-                 input_data_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobInputDataConfigArgs', 'TrainingJobInputDataConfigArgsDict']]]]] = None,
-                 mlflow_config: Optional[pulumi.Input[Union['TrainingJobMlflowConfigArgs', 'TrainingJobMlflowConfigArgsDict']]] = None,
-                 model_package_config: Optional[pulumi.Input[Union['TrainingJobModelPackageConfigArgs', 'TrainingJobModelPackageConfigArgsDict']]] = None,
-                 output_data_config: Optional[pulumi.Input[Union['TrainingJobOutputDataConfigArgs', 'TrainingJobOutputDataConfigArgsDict']]] = None,
-                 profiler_config: Optional[pulumi.Input[Union['TrainingJobProfilerConfigArgs', 'TrainingJobProfilerConfigArgsDict']]] = None,
-                 profiler_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobProfilerRuleConfigurationArgs', 'TrainingJobProfilerRuleConfigurationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debug_config: Optional[pulumi.Input[Union['TrainingJobRemoteDebugConfigArgs', 'TrainingJobRemoteDebugConfigArgsDict']]] = None,
-                 resource_config: Optional[pulumi.Input[Union['TrainingJobResourceConfigArgs', 'TrainingJobResourceConfigArgsDict']]] = None,
-                 retry_strategy: Optional[pulumi.Input[Union['TrainingJobRetryStrategyArgs', 'TrainingJobRetryStrategyArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_job_config: Optional[pulumi.Input[Union['TrainingJobServerlessJobConfigArgs', 'TrainingJobServerlessJobConfigArgsDict']]] = None,
-                 session_chaining_config: Optional[pulumi.Input[Union['TrainingJobSessionChainingConfigArgs', 'TrainingJobSessionChainingConfigArgsDict']]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['TrainingJobStoppingConditionArgs', 'TrainingJobStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tensor_board_output_config: Optional[pulumi.Input[Union['TrainingJobTensorBoardOutputConfigArgs', 'TrainingJobTensorBoardOutputConfigArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['TrainingJobTimeoutsArgs', 'TrainingJobTimeoutsArgsDict']]] = None,
-                 training_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['TrainingJobVpcConfigArgs', 'TrainingJobVpcConfigArgsDict']]] = None,
+                 algorithm_specification: pulumi.Input[Optional[Union['TrainingJobAlgorithmSpecificationArgs', 'TrainingJobAlgorithmSpecificationArgsDict']]] = None,
+                 checkpoint_config: pulumi.Input[Optional[Union['TrainingJobCheckpointConfigArgs', 'TrainingJobCheckpointConfigArgsDict']]] = None,
+                 debug_hook_config: pulumi.Input[Optional[Union['TrainingJobDebugHookConfigArgs', 'TrainingJobDebugHookConfigArgsDict']]] = None,
+                 debug_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobDebugRuleConfigurationArgs', 'TrainingJobDebugRuleConfigurationArgsDict']]]]] = None,
+                 delete_model_packages_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_vpc_enis_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_inter_container_traffic_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_managed_spot_training: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 experiment_config: pulumi.Input[Optional[Union['TrainingJobExperimentConfigArgs', 'TrainingJobExperimentConfigArgsDict']]] = None,
+                 hyper_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 infra_check_config: pulumi.Input[Optional[Union['TrainingJobInfraCheckConfigArgs', 'TrainingJobInfraCheckConfigArgsDict']]] = None,
+                 input_data_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobInputDataConfigArgs', 'TrainingJobInputDataConfigArgsDict']]]]] = None,
+                 mlflow_config: pulumi.Input[Optional[Union['TrainingJobMlflowConfigArgs', 'TrainingJobMlflowConfigArgsDict']]] = None,
+                 model_package_config: pulumi.Input[Optional[Union['TrainingJobModelPackageConfigArgs', 'TrainingJobModelPackageConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['TrainingJobOutputDataConfigArgs', 'TrainingJobOutputDataConfigArgsDict']]] = None,
+                 profiler_config: pulumi.Input[Optional[Union['TrainingJobProfilerConfigArgs', 'TrainingJobProfilerConfigArgsDict']]] = None,
+                 profiler_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobProfilerRuleConfigurationArgs', 'TrainingJobProfilerRuleConfigurationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debug_config: pulumi.Input[Optional[Union['TrainingJobRemoteDebugConfigArgs', 'TrainingJobRemoteDebugConfigArgsDict']]] = None,
+                 resource_config: pulumi.Input[Optional[Union['TrainingJobResourceConfigArgs', 'TrainingJobResourceConfigArgsDict']]] = None,
+                 retry_strategy: pulumi.Input[Optional[Union['TrainingJobRetryStrategyArgs', 'TrainingJobRetryStrategyArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_job_config: pulumi.Input[Optional[Union['TrainingJobServerlessJobConfigArgs', 'TrainingJobServerlessJobConfigArgsDict']]] = None,
+                 session_chaining_config: pulumi.Input[Optional[Union['TrainingJobSessionChainingConfigArgs', 'TrainingJobSessionChainingConfigArgsDict']]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['TrainingJobStoppingConditionArgs', 'TrainingJobStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tensor_board_output_config: pulumi.Input[Optional[Union['TrainingJobTensorBoardOutputConfigArgs', 'TrainingJobTensorBoardOutputConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TrainingJobTimeoutsArgs', 'TrainingJobTimeoutsArgsDict']]] = None,
+                 training_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['TrainingJobVpcConfigArgs', 'TrainingJobVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS SageMaker AI Training Job.
@@ -1741,38 +1741,38 @@ class TrainingJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm_specification: Optional[pulumi.Input[Union['TrainingJobAlgorithmSpecificationArgs', 'TrainingJobAlgorithmSpecificationArgsDict']]] = None,
-                 checkpoint_config: Optional[pulumi.Input[Union['TrainingJobCheckpointConfigArgs', 'TrainingJobCheckpointConfigArgsDict']]] = None,
-                 debug_hook_config: Optional[pulumi.Input[Union['TrainingJobDebugHookConfigArgs', 'TrainingJobDebugHookConfigArgsDict']]] = None,
-                 debug_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobDebugRuleConfigurationArgs', 'TrainingJobDebugRuleConfigurationArgsDict']]]]] = None,
-                 delete_model_packages_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_vpc_enis_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_inter_container_traffic_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_managed_spot_training: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_network_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 experiment_config: Optional[pulumi.Input[Union['TrainingJobExperimentConfigArgs', 'TrainingJobExperimentConfigArgsDict']]] = None,
-                 hyper_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 infra_check_config: Optional[pulumi.Input[Union['TrainingJobInfraCheckConfigArgs', 'TrainingJobInfraCheckConfigArgsDict']]] = None,
-                 input_data_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobInputDataConfigArgs', 'TrainingJobInputDataConfigArgsDict']]]]] = None,
-                 mlflow_config: Optional[pulumi.Input[Union['TrainingJobMlflowConfigArgs', 'TrainingJobMlflowConfigArgsDict']]] = None,
-                 model_package_config: Optional[pulumi.Input[Union['TrainingJobModelPackageConfigArgs', 'TrainingJobModelPackageConfigArgsDict']]] = None,
-                 output_data_config: Optional[pulumi.Input[Union['TrainingJobOutputDataConfigArgs', 'TrainingJobOutputDataConfigArgsDict']]] = None,
-                 profiler_config: Optional[pulumi.Input[Union['TrainingJobProfilerConfigArgs', 'TrainingJobProfilerConfigArgsDict']]] = None,
-                 profiler_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobProfilerRuleConfigurationArgs', 'TrainingJobProfilerRuleConfigurationArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_debug_config: Optional[pulumi.Input[Union['TrainingJobRemoteDebugConfigArgs', 'TrainingJobRemoteDebugConfigArgsDict']]] = None,
-                 resource_config: Optional[pulumi.Input[Union['TrainingJobResourceConfigArgs', 'TrainingJobResourceConfigArgsDict']]] = None,
-                 retry_strategy: Optional[pulumi.Input[Union['TrainingJobRetryStrategyArgs', 'TrainingJobRetryStrategyArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_job_config: Optional[pulumi.Input[Union['TrainingJobServerlessJobConfigArgs', 'TrainingJobServerlessJobConfigArgsDict']]] = None,
-                 session_chaining_config: Optional[pulumi.Input[Union['TrainingJobSessionChainingConfigArgs', 'TrainingJobSessionChainingConfigArgsDict']]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['TrainingJobStoppingConditionArgs', 'TrainingJobStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tensor_board_output_config: Optional[pulumi.Input[Union['TrainingJobTensorBoardOutputConfigArgs', 'TrainingJobTensorBoardOutputConfigArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['TrainingJobTimeoutsArgs', 'TrainingJobTimeoutsArgsDict']]] = None,
-                 training_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['TrainingJobVpcConfigArgs', 'TrainingJobVpcConfigArgsDict']]] = None,
+                 algorithm_specification: pulumi.Input[Optional[Union['TrainingJobAlgorithmSpecificationArgs', 'TrainingJobAlgorithmSpecificationArgsDict']]] = None,
+                 checkpoint_config: pulumi.Input[Optional[Union['TrainingJobCheckpointConfigArgs', 'TrainingJobCheckpointConfigArgsDict']]] = None,
+                 debug_hook_config: pulumi.Input[Optional[Union['TrainingJobDebugHookConfigArgs', 'TrainingJobDebugHookConfigArgsDict']]] = None,
+                 debug_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobDebugRuleConfigurationArgs', 'TrainingJobDebugRuleConfigurationArgsDict']]]]] = None,
+                 delete_model_packages_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_vpc_enis_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_inter_container_traffic_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_managed_spot_training: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 experiment_config: pulumi.Input[Optional[Union['TrainingJobExperimentConfigArgs', 'TrainingJobExperimentConfigArgsDict']]] = None,
+                 hyper_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 infra_check_config: pulumi.Input[Optional[Union['TrainingJobInfraCheckConfigArgs', 'TrainingJobInfraCheckConfigArgsDict']]] = None,
+                 input_data_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobInputDataConfigArgs', 'TrainingJobInputDataConfigArgsDict']]]]] = None,
+                 mlflow_config: pulumi.Input[Optional[Union['TrainingJobMlflowConfigArgs', 'TrainingJobMlflowConfigArgsDict']]] = None,
+                 model_package_config: pulumi.Input[Optional[Union['TrainingJobModelPackageConfigArgs', 'TrainingJobModelPackageConfigArgsDict']]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['TrainingJobOutputDataConfigArgs', 'TrainingJobOutputDataConfigArgsDict']]] = None,
+                 profiler_config: pulumi.Input[Optional[Union['TrainingJobProfilerConfigArgs', 'TrainingJobProfilerConfigArgsDict']]] = None,
+                 profiler_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobProfilerRuleConfigurationArgs', 'TrainingJobProfilerRuleConfigurationArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_debug_config: pulumi.Input[Optional[Union['TrainingJobRemoteDebugConfigArgs', 'TrainingJobRemoteDebugConfigArgsDict']]] = None,
+                 resource_config: pulumi.Input[Optional[Union['TrainingJobResourceConfigArgs', 'TrainingJobResourceConfigArgsDict']]] = None,
+                 retry_strategy: pulumi.Input[Optional[Union['TrainingJobRetryStrategyArgs', 'TrainingJobRetryStrategyArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 serverless_job_config: pulumi.Input[Optional[Union['TrainingJobServerlessJobConfigArgs', 'TrainingJobServerlessJobConfigArgsDict']]] = None,
+                 session_chaining_config: pulumi.Input[Optional[Union['TrainingJobSessionChainingConfigArgs', 'TrainingJobSessionChainingConfigArgsDict']]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['TrainingJobStoppingConditionArgs', 'TrainingJobStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tensor_board_output_config: pulumi.Input[Optional[Union['TrainingJobTensorBoardOutputConfigArgs', 'TrainingJobTensorBoardOutputConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TrainingJobTimeoutsArgs', 'TrainingJobTimeoutsArgsDict']]] = None,
+                 training_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['TrainingJobVpcConfigArgs', 'TrainingJobVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1830,40 +1830,40 @@ class TrainingJob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            algorithm_specification: Optional[pulumi.Input[Union['TrainingJobAlgorithmSpecificationArgs', 'TrainingJobAlgorithmSpecificationArgsDict']]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            checkpoint_config: Optional[pulumi.Input[Union['TrainingJobCheckpointConfigArgs', 'TrainingJobCheckpointConfigArgsDict']]] = None,
-            debug_hook_config: Optional[pulumi.Input[Union['TrainingJobDebugHookConfigArgs', 'TrainingJobDebugHookConfigArgsDict']]] = None,
-            debug_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobDebugRuleConfigurationArgs', 'TrainingJobDebugRuleConfigurationArgsDict']]]]] = None,
-            delete_model_packages_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            delete_vpc_enis_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_inter_container_traffic_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_managed_spot_training: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_network_isolation: Optional[pulumi.Input[_builtins.bool]] = None,
-            environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            experiment_config: Optional[pulumi.Input[Union['TrainingJobExperimentConfigArgs', 'TrainingJobExperimentConfigArgsDict']]] = None,
-            hyper_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            infra_check_config: Optional[pulumi.Input[Union['TrainingJobInfraCheckConfigArgs', 'TrainingJobInfraCheckConfigArgsDict']]] = None,
-            input_data_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobInputDataConfigArgs', 'TrainingJobInputDataConfigArgsDict']]]]] = None,
-            mlflow_config: Optional[pulumi.Input[Union['TrainingJobMlflowConfigArgs', 'TrainingJobMlflowConfigArgsDict']]] = None,
-            model_package_config: Optional[pulumi.Input[Union['TrainingJobModelPackageConfigArgs', 'TrainingJobModelPackageConfigArgsDict']]] = None,
-            output_data_config: Optional[pulumi.Input[Union['TrainingJobOutputDataConfigArgs', 'TrainingJobOutputDataConfigArgsDict']]] = None,
-            profiler_config: Optional[pulumi.Input[Union['TrainingJobProfilerConfigArgs', 'TrainingJobProfilerConfigArgsDict']]] = None,
-            profiler_rule_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrainingJobProfilerRuleConfigurationArgs', 'TrainingJobProfilerRuleConfigurationArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_debug_config: Optional[pulumi.Input[Union['TrainingJobRemoteDebugConfigArgs', 'TrainingJobRemoteDebugConfigArgsDict']]] = None,
-            resource_config: Optional[pulumi.Input[Union['TrainingJobResourceConfigArgs', 'TrainingJobResourceConfigArgsDict']]] = None,
-            retry_strategy: Optional[pulumi.Input[Union['TrainingJobRetryStrategyArgs', 'TrainingJobRetryStrategyArgsDict']]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            serverless_job_config: Optional[pulumi.Input[Union['TrainingJobServerlessJobConfigArgs', 'TrainingJobServerlessJobConfigArgsDict']]] = None,
-            session_chaining_config: Optional[pulumi.Input[Union['TrainingJobSessionChainingConfigArgs', 'TrainingJobSessionChainingConfigArgsDict']]] = None,
-            stopping_condition: Optional[pulumi.Input[Union['TrainingJobStoppingConditionArgs', 'TrainingJobStoppingConditionArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tensor_board_output_config: Optional[pulumi.Input[Union['TrainingJobTensorBoardOutputConfigArgs', 'TrainingJobTensorBoardOutputConfigArgsDict']]] = None,
-            timeouts: Optional[pulumi.Input[Union['TrainingJobTimeoutsArgs', 'TrainingJobTimeoutsArgsDict']]] = None,
-            training_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_config: Optional[pulumi.Input[Union['TrainingJobVpcConfigArgs', 'TrainingJobVpcConfigArgsDict']]] = None) -> 'TrainingJob':
+            algorithm_specification: pulumi.Input[Optional[Union['TrainingJobAlgorithmSpecificationArgs', 'TrainingJobAlgorithmSpecificationArgsDict']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            checkpoint_config: pulumi.Input[Optional[Union['TrainingJobCheckpointConfigArgs', 'TrainingJobCheckpointConfigArgsDict']]] = None,
+            debug_hook_config: pulumi.Input[Optional[Union['TrainingJobDebugHookConfigArgs', 'TrainingJobDebugHookConfigArgsDict']]] = None,
+            debug_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobDebugRuleConfigurationArgs', 'TrainingJobDebugRuleConfigurationArgsDict']]]]] = None,
+            delete_model_packages_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_vpc_enis_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_inter_container_traffic_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_managed_spot_training: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
+            environment: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            experiment_config: pulumi.Input[Optional[Union['TrainingJobExperimentConfigArgs', 'TrainingJobExperimentConfigArgsDict']]] = None,
+            hyper_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            infra_check_config: pulumi.Input[Optional[Union['TrainingJobInfraCheckConfigArgs', 'TrainingJobInfraCheckConfigArgsDict']]] = None,
+            input_data_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobInputDataConfigArgs', 'TrainingJobInputDataConfigArgsDict']]]]] = None,
+            mlflow_config: pulumi.Input[Optional[Union['TrainingJobMlflowConfigArgs', 'TrainingJobMlflowConfigArgsDict']]] = None,
+            model_package_config: pulumi.Input[Optional[Union['TrainingJobModelPackageConfigArgs', 'TrainingJobModelPackageConfigArgsDict']]] = None,
+            output_data_config: pulumi.Input[Optional[Union['TrainingJobOutputDataConfigArgs', 'TrainingJobOutputDataConfigArgsDict']]] = None,
+            profiler_config: pulumi.Input[Optional[Union['TrainingJobProfilerConfigArgs', 'TrainingJobProfilerConfigArgsDict']]] = None,
+            profiler_rule_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrainingJobProfilerRuleConfigurationArgs', 'TrainingJobProfilerRuleConfigurationArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_debug_config: pulumi.Input[Optional[Union['TrainingJobRemoteDebugConfigArgs', 'TrainingJobRemoteDebugConfigArgsDict']]] = None,
+            resource_config: pulumi.Input[Optional[Union['TrainingJobResourceConfigArgs', 'TrainingJobResourceConfigArgsDict']]] = None,
+            retry_strategy: pulumi.Input[Optional[Union['TrainingJobRetryStrategyArgs', 'TrainingJobRetryStrategyArgsDict']]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            serverless_job_config: pulumi.Input[Optional[Union['TrainingJobServerlessJobConfigArgs', 'TrainingJobServerlessJobConfigArgsDict']]] = None,
+            session_chaining_config: pulumi.Input[Optional[Union['TrainingJobSessionChainingConfigArgs', 'TrainingJobSessionChainingConfigArgsDict']]] = None,
+            stopping_condition: pulumi.Input[Optional[Union['TrainingJobStoppingConditionArgs', 'TrainingJobStoppingConditionArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tensor_board_output_config: pulumi.Input[Optional[Union['TrainingJobTensorBoardOutputConfigArgs', 'TrainingJobTensorBoardOutputConfigArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['TrainingJobTimeoutsArgs', 'TrainingJobTimeoutsArgsDict']]] = None,
+            training_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_config: pulumi.Input[Optional[Union['TrainingJobVpcConfigArgs', 'TrainingJobVpcConfigArgsDict']]] = None) -> 'TrainingJob':
         """
         Get an existing TrainingJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

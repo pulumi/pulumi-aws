@@ -58,15 +58,15 @@ class DelegatedAdministratorArgs:
 @pulumi.input_type
 class _DelegatedAdministratorState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegation_enabled_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 joined_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 joined_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegation_enabled_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 joined_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 joined_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DelegatedAdministrator resources.
 
@@ -101,110 +101,110 @@ class _DelegatedAdministratorState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account ID number of the member account in the organization to register as a delegated administrator.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the delegated administrator's account.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="delegationEnabledDate")
-    def delegation_enabled_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegation_enabled_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the account was made a delegated administrator.
         """
         return pulumi.get(self, "delegation_enabled_date")
 
     @delegation_enabled_date.setter
-    def delegation_enabled_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegation_enabled_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegation_enabled_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address that is associated with the delegated administrator's AWS account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
-    def joined_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def joined_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method by which the delegated administrator's account joined the organization.
         """
         return pulumi.get(self, "joined_method")
 
     @joined_method.setter
-    def joined_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def joined_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "joined_method", value)
 
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
-    def joined_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def joined_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the delegated administrator's account became a part of the organization.
         """
         return pulumi.get(self, "joined_timestamp")
 
     @joined_timestamp.setter
-    def joined_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def joined_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "joined_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the delegated administrator's account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal of the AWS service for which you want to make the member account a delegated administrator.
         """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the delegated administrator's account in the organization.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -214,8 +214,8 @@ class DelegatedAdministrator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
@@ -311,8 +311,8 @@ class DelegatedAdministrator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -345,15 +345,15 @@ class DelegatedAdministrator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            delegation_enabled_date: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            joined_method: Optional[pulumi.Input[_builtins.str]] = None,
-            joined_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_principal: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'DelegatedAdministrator':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            delegation_enabled_date: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            joined_method: pulumi.Input[Optional[_builtins.str]] = None,
+            joined_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'DelegatedAdministrator':
         """
         Get an existing DelegatedAdministrator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

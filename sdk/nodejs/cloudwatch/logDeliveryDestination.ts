@@ -151,35 +151,35 @@ export interface LogDeliveryDestinationState {
     /**
      * The Amazon Resource Name (ARN) of the delivery destination.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      */
-    deliveryDestinationConfiguration?: pulumi.Input<inputs.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration>;
+    deliveryDestinationConfiguration?: pulumi.Input<inputs.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration | undefined>;
     /**
      * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      */
-    deliveryDestinationType?: pulumi.Input<string>;
+    deliveryDestinationType?: pulumi.Input<string | undefined>;
     /**
      * The name for this delivery destination.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
      */
-    outputFormat?: pulumi.Input<string>;
+    outputFormat?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -189,25 +189,25 @@ export interface LogDeliveryDestinationArgs {
     /**
      * The AWS resource that will receive the logs. Required for CloudWatch Logs, Amazon S3, and Firehose destinations. Not required for X-Ray trace delivery destinations.
      */
-    deliveryDestinationConfiguration?: pulumi.Input<inputs.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration>;
+    deliveryDestinationConfiguration?: pulumi.Input<inputs.cloudwatch.LogDeliveryDestinationDeliveryDestinationConfiguration | undefined>;
     /**
      * The type of delivery destination. Valid values: `S3`, `CWL`, `FH`, `XRAY`. Required for X-Ray trace delivery destinations. For other destination types, this is computed from the `destinationResourceArn`.
      */
-    deliveryDestinationType?: pulumi.Input<string>;
+    deliveryDestinationType?: pulumi.Input<string | undefined>;
     /**
      * The name for this delivery destination.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
      */
-    outputFormat?: pulumi.Input<string>;
+    outputFormat?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

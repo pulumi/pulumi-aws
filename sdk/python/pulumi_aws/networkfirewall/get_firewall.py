@@ -350,10 +350,10 @@ def get_firewall(arn: Optional[_builtins.str] = None,
         transit_gateway_owner_account_id=pulumi.get(__ret__, 'transit_gateway_owner_account_id'),
         update_token=pulumi.get(__ret__, 'update_token'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_firewall_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_firewall_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Retrieve information about a firewall.

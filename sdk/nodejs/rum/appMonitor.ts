@@ -159,51 +159,51 @@ export interface AppMonitorState {
     /**
      * configuration data for the app monitor. See appMonitorConfiguration below.
      */
-    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
+    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration | undefined>;
     /**
      * The unique ID of the app monitor. Useful for JS templates.
      */
-    appMonitorId?: pulumi.Input<string>;
+    appMonitorId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) specifying the app monitor.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      */
-    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEvents>;
+    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEvents | undefined>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
-    cwLogEnabled?: pulumi.Input<boolean>;
+    cwLogEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the log group where the copies are stored.
      */
-    cwLogGroup?: pulumi.Input<string>;
+    cwLogGroup?: pulumi.Input<string | undefined>;
     /**
      * The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
      */
-    domainLists?: pulumi.Input<pulumi.Input<string>[]>;
+    domainLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the log stream.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -213,33 +213,33 @@ export interface AppMonitorArgs {
     /**
      * configuration data for the app monitor. See appMonitorConfiguration below.
      */
-    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
+    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration | undefined>;
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      */
-    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEvents>;
+    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEvents | undefined>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
-    cwLogEnabled?: pulumi.Input<boolean>;
+    cwLogEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The top-level internet domain name for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * A list of internet domain names for which your application has administrative authority. Exactly one of `domain` or `domainList` must be specified.
      */
-    domainLists?: pulumi.Input<pulumi.Input<string>[]>;
+    domainLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the log stream.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -153,31 +153,31 @@ export interface RouteState {
     /**
      * The ID of the Client VPN endpoint.
      */
-    clientVpnEndpointId?: pulumi.Input<string>;
+    clientVpnEndpointId?: pulumi.Input<string | undefined>;
     /**
      * A brief description of the route.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      */
-    targetVpcSubnetId?: pulumi.Input<string>;
+    targetVpcSubnetId?: pulumi.Input<string | undefined>;
     /**
      * The type of the route.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface RouteArgs {
     /**
      * A brief description of the route.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 or IPv6 address range, in CIDR notation, of the route destination.
      */
@@ -199,7 +199,7 @@ export interface RouteArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      */

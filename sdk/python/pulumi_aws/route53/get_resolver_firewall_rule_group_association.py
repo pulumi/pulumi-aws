@@ -256,8 +256,8 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_resolver_firewall_rule_group_association_output(firewall_rule_group_association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resolver_firewall_rule_group_association_output(firewall_rule_group_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRuleGroupAssociationResult]:
     """
     `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.

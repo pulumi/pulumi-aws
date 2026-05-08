@@ -217,8 +217,8 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[_builtin
         region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
-def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resolver_firewall_domain_list_output(firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallDomainListResult]:
     """
     `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.

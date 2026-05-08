@@ -160,35 +160,35 @@ export interface RateBasedRuleState {
     /**
      * Amazon Resource Name (ARN)
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string | undefined>;
     /**
      * The name or description of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The objects to include in a rule (documented below).
      */
-    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[] | undefined>;
     /**
      * Valid value is IP.
      */
-    rateKey?: pulumi.Input<string>;
+    rateKey?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
-    rateLimit?: pulumi.Input<number>;
+    rateLimit?: pulumi.Input<number | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -202,11 +202,11 @@ export interface RateBasedRuleArgs {
     /**
      * The name or description of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The objects to include in a rule (documented below).
      */
-    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[] | undefined>;
     /**
      * Valid value is IP.
      */
@@ -218,5 +218,5 @@ export interface RateBasedRuleArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

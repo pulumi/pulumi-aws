@@ -451,9 +451,9 @@ def get_cluster(name: Optional[_builtins.str] = None,
         subnet_group_name=pulumi.get(__ret__, 'subnet_group_name'),
         tags=pulumi.get(__ret__, 'tags'),
         tls_enabled=pulumi.get(__ret__, 'tls_enabled'))
-def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Provides information about a MemoryDB Cluster.

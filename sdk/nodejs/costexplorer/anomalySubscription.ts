@@ -305,39 +305,39 @@ export interface AnomalySubscriptionState {
     /**
      * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the anomaly subscription.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * A list of cost anomaly monitors.
      */
-    monitorArnLists?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorArnLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name for the subscription.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
-    subscribers?: pulumi.Input<pulumi.Input<inputs.costexplorer.AnomalySubscriptionSubscriber>[]>;
+    subscribers?: pulumi.Input<pulumi.Input<inputs.costexplorer.AnomalySubscriptionSubscriber>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      */
-    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
+    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression | undefined>;
 }
 
 /**
@@ -347,7 +347,7 @@ export interface AnomalySubscriptionArgs {
     /**
      * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
      */
@@ -359,7 +359,7 @@ export interface AnomalySubscriptionArgs {
     /**
      * The name for the subscription.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
@@ -367,9 +367,9 @@ export interface AnomalySubscriptionArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      */
-    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
+    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression | undefined>;
 }

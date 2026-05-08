@@ -203,71 +203,71 @@ export interface CapacityReservationState {
     /**
      * The ARN of the Capacity Reservation.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      */
-    endDateType?: pulumi.Input<string>;
+    endDateType?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      */
-    ephemeralStorage?: pulumi.Input<boolean>;
+    ephemeralStorage?: pulumi.Input<boolean | undefined>;
     /**
      * The number of instances for which to reserve capacity.
      */
-    instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number | undefined>;
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      */
-    instanceMatchCriteria?: pulumi.Input<string>;
+    instanceMatchCriteria?: pulumi.Input<string | undefined>;
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    instancePlatform?: pulumi.Input<string | enums.ec2.InstancePlatform>;
+    instancePlatform?: pulumi.Input<string | enums.ec2.InstancePlatform | undefined>;
     /**
      * The instance type for which to reserve capacity.
      */
-    instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
+    instanceType?: pulumi.Input<string | enums.ec2.InstanceType | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
-    outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the Capacity Reservation.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
      */
-    placementGroupArn?: pulumi.Input<string>;
+    placementGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
+    tenancy?: pulumi.Input<string | enums.ec2.Tenancy | undefined>;
 }
 
 /**
@@ -281,19 +281,19 @@ export interface CapacityReservationArgs {
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string | undefined>;
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      */
-    endDateType?: pulumi.Input<string>;
+    endDateType?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      */
-    ephemeralStorage?: pulumi.Input<boolean>;
+    ephemeralStorage?: pulumi.Input<boolean | undefined>;
     /**
      * The number of instances for which to reserve capacity.
      */
@@ -301,7 +301,7 @@ export interface CapacityReservationArgs {
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      */
-    instanceMatchCriteria?: pulumi.Input<string>;
+    instanceMatchCriteria?: pulumi.Input<string | undefined>;
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
@@ -313,21 +313,21 @@ export interface CapacityReservationArgs {
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
-    outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
      */
-    placementGroupArn?: pulumi.Input<string>;
+    placementGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
+    tenancy?: pulumi.Input<string | enums.ec2.Tenancy | undefined>;
 }

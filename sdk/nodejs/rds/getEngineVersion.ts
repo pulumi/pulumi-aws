@@ -292,7 +292,7 @@ export interface GetEngineVersionOutputArgs {
     /**
      * Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `defaultOnly` may help avoid `multiple RDS engine versions` errors. See also `latest`.
      */
-    defaultOnly?: pulumi.Input<boolean>;
+    defaultOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
      *
@@ -302,45 +302,45 @@ export interface GetEngineVersionOutputArgs {
     /**
      * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[] | undefined>;
     /**
      * Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
      */
-    hasMajorTarget?: pulumi.Input<boolean>;
+    hasMajorTarget?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the engine version must have one or more minor upgrade targets. Not including `hasMinorTarget` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
      */
-    hasMinorTarget?: pulumi.Input<boolean>;
+    hasMinorTarget?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
      */
-    includeAll?: pulumi.Input<boolean>;
+    includeAll?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the engine version is the most recent version matching the other criteria. This is different from `defaultOnly` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `defaultOnly` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `defaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
      */
-    latest?: pulumi.Input<boolean>;
+    latest?: pulumi.Input<boolean | undefined>;
     /**
      * Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
      */
-    parameterGroupFamily?: pulumi.Input<string>;
+    parameterGroupFamily?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredMajorTargets`.
      */
-    preferredMajorTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredMajorTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredUpgradeTargets`.
      */
-    preferredUpgradeTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredUpgradeTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
      */
-    preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Engine version. For example, `5.7.22`, `10.1.34`, or `12.3`. `version` can be a partial version identifier which can result in `multiple RDS engine versions` errors unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `version`. **NOTE:** In a future Terraform AWS provider version, `version` will only contain the version information you configure and not the complete version information that the data source gets from AWS. Instead, that version information will be available in the `versionActual` attribute.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

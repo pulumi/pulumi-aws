@@ -150,37 +150,37 @@ export interface AssessmentDelegationState {
     /**
      * Identifier for the assessment.
      */
-    assessmentId?: pulumi.Input<string>;
+    assessmentId?: pulumi.Input<string | undefined>;
     /**
      * Comment describing the delegation request.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
      */
-    controlSetId?: pulumi.Input<string>;
+    controlSetId?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the delegation.
      */
-    delegationId?: pulumi.Input<string>;
+    delegationId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
      *
      * The following arguments are optional:
      */
-    roleType?: pulumi.Input<string>;
+    roleType?: pulumi.Input<string | undefined>;
     /**
      * Status of the delegation.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface AssessmentDelegationArgs {
     /**
      * Comment describing the delegation request.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
      */
@@ -202,7 +202,7 @@ export interface AssessmentDelegationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      */

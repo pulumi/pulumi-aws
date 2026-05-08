@@ -101,7 +101,7 @@ def get_cloud_vm_clusters(region: Optional[_builtins.str] = None,
         cloud_vm_clusters=pulumi.get(__ret__, 'cloud_vm_clusters'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_cloud_vm_clusters_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cloud_vm_clusters_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudVmClustersResult]:
     """
     Data source for retrieving all cloud vm clusters AWS for Oracle Database@AWS.

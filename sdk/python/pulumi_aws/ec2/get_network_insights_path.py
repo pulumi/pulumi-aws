@@ -274,10 +274,10 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
         source_arn=pulumi.get(__ret__, 'source_arn'),
         source_ip=pulumi.get(__ret__, 'source_ip'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]]]] = None,
-                                     network_insights_path_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_network_insights_path_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]]]] = None,
+                                     network_insights_path_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
     `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.

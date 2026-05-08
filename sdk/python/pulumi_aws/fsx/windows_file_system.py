@@ -23,26 +23,26 @@ class WindowsFileSystemArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  throughput_capacity: pulumi.Input[_builtins.int],
-                 active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 self_managed_active_directory: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 audit_log_configuration: pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 self_managed_active_directory: pulumi.Input[Optional['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WindowsFileSystem resource.
 
@@ -142,278 +142,278 @@ class WindowsFileSystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryId")
-    def active_directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         """
         return pulumi.get(self, "active_directory_id")
 
     @active_directory_id.setter
-    def active_directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="auditLogConfiguration")
-    def audit_log_configuration(self) -> Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]:
+    def audit_log_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']]:
         """
         The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         """
         return pulumi.get(self, "audit_log_configuration")
 
     @audit_log_configuration.setter
-    def audit_log_configuration(self, value: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]):
+    def audit_log_configuration(self, value: pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']]):
         pulumi.set(self, "audit_log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
-    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def automatic_backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source backup to create the filesystem from.
         """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
-    def backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")
-    def copy_tags_to_backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
-    def copy_tags_to_backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_backups", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
-    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_automatic_backup_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']]:
+    def disk_iops_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']]:
         """
         The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
     @disk_iops_configuration.setter
-    def disk_iops_configuration(self, value: Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']]):
+    def disk_iops_configuration(self, value: pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']]):
         pulumi.set(self, "disk_iops_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBackupTags")
-    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to apply to the file system's final backup.
         """
         return pulumi.get(self, "final_backup_tags")
 
     @final_backup_tags.setter
-    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def final_backup_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "final_backup_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredSubnetId")
-    def preferred_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
     @preferred_subnet_id.setter
-    def preferred_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="selfManagedActiveDirectory")
-    def self_managed_active_directory(self) -> Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']]:
+    def self_managed_active_directory(self) -> pulumi.Input[Optional['WindowsFileSystemSelfManagedActiveDirectoryArgs']]:
         """
         Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         """
         return pulumi.get(self, "self_managed_active_directory")
 
     @self_managed_active_directory.setter
-    def self_managed_active_directory(self, value: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']]):
+    def self_managed_active_directory(self, value: pulumi.Input[Optional['WindowsFileSystemSelfManagedActiveDirectoryArgs']]):
         pulumi.set(self, "self_managed_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalBackup")
-    def skip_final_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         """
         return pulumi.get(self, "skip_final_backup")
 
     @skip_final_backup.setter
-    def skip_final_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
-    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
 @pulumi.input_type
 class _WindowsFileSystemState:
     def __init__(__self__, *,
-                 active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']] = None,
-                 dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_file_server_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_administration_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 self_managed_active_directory: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 audit_log_configuration: pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']] = None,
+                 dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_file_server_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_administration_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 self_managed_active_directory: pulumi.Input[Optional['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsFileSystem resources.
 
@@ -513,331 +513,331 @@ class _WindowsFileSystemState:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryId")
-    def active_directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         """
         return pulumi.get(self, "active_directory_id")
 
     @active_directory_id.setter
-    def active_directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name of the file system.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="auditLogConfiguration")
-    def audit_log_configuration(self) -> Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]:
+    def audit_log_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']]:
         """
         The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         """
         return pulumi.get(self, "audit_log_configuration")
 
     @audit_log_configuration.setter
-    def audit_log_configuration(self, value: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]):
+    def audit_log_configuration(self, value: pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']]):
         pulumi.set(self, "audit_log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticBackupRetentionDays")
-    def automatic_backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
     @automatic_backup_retention_days.setter
-    def automatic_backup_retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def automatic_backup_retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
 
     @_builtins.property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source backup to create the filesystem from.
         """
         return pulumi.get(self, "backup_id")
 
     @backup_id.setter
-    def backup_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")
-    def copy_tags_to_backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
-    def copy_tags_to_backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_backups", value)
 
     @_builtins.property
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
-    def daily_automatic_backup_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
     @daily_automatic_backup_start_time.setter
-    def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def daily_automatic_backup_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']]:
+    def disk_iops_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']]:
         """
         The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
     @disk_iops_configuration.setter
-    def disk_iops_configuration(self, value: Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']]):
+    def disk_iops_configuration(self, value: pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']]):
         pulumi.set(self, "disk_iops_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
-    def dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBackupTags")
-    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to apply to the file system's final backup.
         """
         return pulumi.get(self, "final_backup_tags")
 
     @final_backup_tags.setter
-    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def final_backup_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "final_backup_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Elastic Network Interface identifiers from which the file system is accessible.
         """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
-    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account identifier that created the file system.
         """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
-    def owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredFileServerIp")
-    def preferred_file_server_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_file_server_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of the primary, or preferred, file server.
         """
         return pulumi.get(self, "preferred_file_server_ip")
 
     @preferred_file_server_ip.setter
-    def preferred_file_server_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_file_server_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_file_server_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredSubnetId")
-    def preferred_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
     @preferred_subnet_id.setter
-    def preferred_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAdministrationEndpoint")
-    def remote_administration_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_administration_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
         """
         return pulumi.get(self, "remote_administration_endpoint")
 
     @remote_administration_endpoint.setter
-    def remote_administration_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_administration_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_administration_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="selfManagedActiveDirectory")
-    def self_managed_active_directory(self) -> Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']]:
+    def self_managed_active_directory(self) -> pulumi.Input[Optional['WindowsFileSystemSelfManagedActiveDirectoryArgs']]:
         """
         Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         """
         return pulumi.get(self, "self_managed_active_directory")
 
     @self_managed_active_directory.setter
-    def self_managed_active_directory(self, value: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']]):
+    def self_managed_active_directory(self, value: pulumi.Input[Optional['WindowsFileSystemSelfManagedActiveDirectoryArgs']]):
         pulumi.set(self, "self_managed_active_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalBackup")
-    def skip_final_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         """
         return pulumi.get(self, "skip_final_backup")
 
     @skip_final_backup.setter
-    def skip_final_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def storage_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def storage_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "storage_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputCapacity")
-    def throughput_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
 
@@ -846,31 +846,31 @@ class _WindowsFileSystemState:
         return pulumi.get(self, "throughput_capacity")
 
     @throughput_capacity.setter
-    def throughput_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Virtual Private Cloud for the file system.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
-    def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
     @weekly_maintenance_start_time.setter
-    def weekly_maintenance_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
@@ -880,28 +880,28 @@ class WindowsFileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 audit_log_configuration: Optional[pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']]] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 self_managed_active_directory: Optional[pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 audit_log_configuration: pulumi.Input[Optional[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 self_managed_active_directory: pulumi.Input[Optional[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a FSx Windows File System. See the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) for more information.
@@ -1123,28 +1123,28 @@ class WindowsFileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 audit_log_configuration: Optional[pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']]] = None,
-                 automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 self_managed_active_directory: Optional[pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                 active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 audit_log_configuration: pulumi.Input[Optional[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']]] = None,
+                 automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_configuration: pulumi.Input[Optional[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 self_managed_active_directory: pulumi.Input[Optional[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1198,36 +1198,36 @@ class WindowsFileSystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            audit_log_configuration: Optional[pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']]] = None,
-            automatic_backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-            backup_id: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-            daily_automatic_backup_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_iops_configuration: Optional[pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
-            dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_file_server_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_administration_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            self_managed_active_directory: Optional[pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
-            skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            storage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            throughput_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-            weekly_maintenance_start_time: Optional[pulumi.Input[_builtins.str]] = None) -> 'WindowsFileSystem':
+            active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            audit_log_configuration: pulumi.Input[Optional[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']]] = None,
+            automatic_backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_automatic_backup_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_iops_configuration: pulumi.Input[Optional[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']]] = None,
+            dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+            final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_file_server_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_administration_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            self_managed_active_directory: pulumi.Input[Optional[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
+            skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            storage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            throughput_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None) -> 'WindowsFileSystem':
         """
         Get an existing WindowsFileSystem resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

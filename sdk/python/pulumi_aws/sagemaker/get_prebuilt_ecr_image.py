@@ -153,10 +153,10 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[_builtins.str] = None,
         registry_id=pulumi.get(__ret__, 'registry_id'),
         registry_path=pulumi.get(__ret__, 'registry_path'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  image_tag: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prebuilt_ecr_image_output(dns_suffix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  image_tag: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrebuiltEcrImageResult]:
     """
     Get information about prebuilt Amazon SageMaker AI  Docker images.

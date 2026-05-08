@@ -323,74 +323,74 @@ export interface AgentcoreAgentRuntimeState {
     /**
      * ARN of the Agent Runtime.
      */
-    agentRuntimeArn?: pulumi.Input<string>;
+    agentRuntimeArn?: pulumi.Input<string | undefined>;
     /**
      * Container artifact configuration. See `agentRuntimeArtifact` below.
      */
-    agentRuntimeArtifact?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact>;
+    agentRuntimeArtifact?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifact | undefined>;
     /**
      * Unique identifier of the Agent Runtime.
      */
-    agentRuntimeId?: pulumi.Input<string>;
+    agentRuntimeId?: pulumi.Input<string | undefined>;
     /**
      * Name of the agent runtime.
      */
-    agentRuntimeName?: pulumi.Input<string>;
+    agentRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Version of the Agent Runtime.
      */
-    agentRuntimeVersion?: pulumi.Input<string>;
+    agentRuntimeVersion?: pulumi.Input<string | undefined>;
     /**
      * Authorization configuration for authenticating incoming requests. See `authorizerConfiguration` below.
      */
-    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAuthorizerConfiguration>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAuthorizerConfiguration | undefined>;
     /**
      * Description of the agent runtime.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Map of environment variables to pass to the container.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
      */
-    lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration>[]>;
+    lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration>[] | undefined>;
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
      *
      * The following arguments are optional:
      */
-    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration | undefined>;
     /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      */
-    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeProtocolConfiguration>;
+    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeProtocolConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for HTTP request headers that will be passed through to the runtime. See `requestHeaderConfiguration` below.
      */
-    requestHeaderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeRequestHeaderConfiguration>;
+    requestHeaderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeRequestHeaderConfiguration | undefined>;
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeTimeouts | undefined>;
     /**
      * Workload identity details for the agent runtime. See `workloadIdentityDetails` below.
      */
-    workloadIdentityDetails?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeWorkloadIdentityDetail>[]>;
+    workloadIdentityDetails?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeWorkloadIdentityDetail>[] | undefined>;
 }
 
 /**
@@ -408,19 +408,19 @@ export interface AgentcoreAgentRuntimeArgs {
     /**
      * Authorization configuration for authenticating incoming requests. See `authorizerConfiguration` below.
      */
-    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAuthorizerConfiguration>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeAuthorizerConfiguration | undefined>;
     /**
      * Description of the agent runtime.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Map of environment variables to pass to the container.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
      */
-    lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration>[]>;
+    lifecycleConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration>[] | undefined>;
     /**
      * Network configuration for the agent runtime. See `networkConfiguration` below.
      *
@@ -430,15 +430,15 @@ export interface AgentcoreAgentRuntimeArgs {
     /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      */
-    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeProtocolConfiguration>;
+    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeProtocolConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for HTTP request headers that will be passed through to the runtime. See `requestHeaderConfiguration` below.
      */
-    requestHeaderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeRequestHeaderConfiguration>;
+    requestHeaderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeRequestHeaderConfiguration | undefined>;
     /**
      * ARN of the IAM role that the agent runtime assumes to access AWS services.
      */
@@ -446,6 +446,6 @@ export interface AgentcoreAgentRuntimeArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeTimeouts | undefined>;
 }

@@ -23,7 +23,7 @@ class LogTransformerArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str],
                  transformer_configs: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogTransformer resource.
 
@@ -62,23 +62,23 @@ class LogTransformerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LogTransformerState:
     def __init__(__self__, *,
-                 log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transformer_configs: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]]] = None):
+                 log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]]] = None):
         """
         Input properties used for looking up and filtering LogTransformer resources.
 
@@ -95,38 +95,38 @@ class _LogTransformerState:
 
     @_builtins.property
     @pulumi.getter(name="logGroupArn")
-    def log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Log group ARN to set the transformer for.
         """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter
-    def log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="transformerConfigs")
-    def transformer_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]]]:
+    def transformer_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]]]:
         """
         Specifies the configuration of the transformer. You must include at least one configuration, and 20 at most. See `transformer_config` below for details.
         """
         return pulumi.get(self, "transformer_configs")
 
     @transformer_configs.setter
-    def transformer_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]]]):
+    def transformer_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigArgs']]]]):
         pulumi.set(self, "transformer_configs", value)
 
 
@@ -136,9 +136,9 @@ class LogTransformer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transformer_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None,
+                 log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudWatch Logs Transformer.
@@ -223,9 +223,9 @@ class LogTransformer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transformer_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None,
+                 log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,9 +252,9 @@ class LogTransformer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            transformer_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None) -> 'LogTransformer':
+            log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transformer_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogTransformerTransformerConfigArgs', 'LogTransformerTransformerConfigArgsDict']]]]] = None) -> 'LogTransformer':
         """
         Get an existing LogTransformer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

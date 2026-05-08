@@ -156,31 +156,31 @@ export interface OriginRequestPolicyState {
     /**
      * The origin request policy ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Comment to describe the origin request policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      */
-    cookiesConfig?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyCookiesConfig>;
+    cookiesConfig?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyCookiesConfig | undefined>;
     /**
      * The current version of the origin request policy.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      */
-    headersConfig?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyHeadersConfig>;
+    headersConfig?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyHeadersConfig | undefined>;
     /**
      * Unique name to identify the origin request policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */
-    queryStringsConfig?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyQueryStringsConfig>;
+    queryStringsConfig?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyQueryStringsConfig | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface OriginRequestPolicyArgs {
     /**
      * Comment to describe the origin request policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      */
@@ -202,7 +202,7 @@ export interface OriginRequestPolicyArgs {
     /**
      * Unique name to identify the origin request policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */

@@ -30,15 +30,15 @@ __all__ = [
 ]
 
 class AppCampaignHookArgsDict(TypedDict):
-    lambda_function_name: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_function_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
     """
-    mode: NotRequired[pulumi.Input[_builtins.str]]
+    mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
     """
-    web_url: NotRequired[pulumi.Input[_builtins.str]]
+    web_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
     """
@@ -46,9 +46,9 @@ class AppCampaignHookArgsDict(TypedDict):
 @pulumi.input_type
 class AppCampaignHookArgs:
     def __init__(__self__, *,
-                 lambda_function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 lambda_function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] lambda_function_name: Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
         :param pulumi.Input[_builtins.str] mode: What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
@@ -63,55 +63,55 @@ class AppCampaignHookArgs:
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionName")
-    def lambda_function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
         """
         return pulumi.get(self, "lambda_function_name")
 
     @lambda_function_name.setter
-    def lambda_function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_function_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="webUrl")
-    def web_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
         """
         return pulumi.get(self, "web_url")
 
     @web_url.setter
-    def web_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_url", value)
 
 
 class AppLimitsArgsDict(TypedDict):
-    daily: NotRequired[pulumi.Input[_builtins.int]]
+    daily: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of messages that the campaign can send daily.
     """
-    maximum_duration: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
     """
-    messages_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    messages_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
     """
-    total: NotRequired[pulumi.Input[_builtins.int]]
+    total: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum total number of messages that the campaign can send.
     """
@@ -119,10 +119,10 @@ class AppLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class AppLimitsArgs:
     def __init__(__self__, *,
-                 daily: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 messages_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 total: Optional[pulumi.Input[_builtins.int]] = None):
+                 daily: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 total: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] daily: The maximum number of messages that the campaign can send daily.
         :param pulumi.Input[_builtins.int] maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
@@ -140,59 +140,59 @@ class AppLimitsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def daily(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def daily(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of messages that the campaign can send daily.
         """
         return pulumi.get(self, "daily")
 
     @daily.setter
-    def daily(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def daily(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "daily", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumDuration")
-    def maximum_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
         """
         return pulumi.get(self, "maximum_duration")
 
     @maximum_duration.setter
-    def maximum_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="messagesPerSecond")
-    def messages_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def messages_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
         """
         return pulumi.get(self, "messages_per_second")
 
     @messages_per_second.setter
-    def messages_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def messages_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "messages_per_second", value)
 
     @_builtins.property
     @pulumi.getter
-    def total(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum total number of messages that the campaign can send.
         """
         return pulumi.get(self, "total")
 
     @total.setter
-    def total(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total", value)
 
 
 class AppQuietTimeArgsDict(TypedDict):
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default end time for quiet time in ISO 8601 format. Required if `start` is set
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The default start time for quiet time in ISO 8601 format. Required if `end` is set
     """
@@ -200,8 +200,8 @@ class AppQuietTimeArgsDict(TypedDict):
 @pulumi.input_type
 class AppQuietTimeArgs:
     def __init__(__self__, *,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] end: The default end time for quiet time in ISO 8601 format. Required if `start` is set
         :param pulumi.Input[_builtins.str] start: The default start time for quiet time in ISO 8601 format. Required if `end` is set
@@ -213,49 +213,49 @@ class AppQuietTimeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default end time for quiet time in ISO 8601 format. Required if `start` is set
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default start time for quiet time in ISO 8601 format. Required if `end` is set
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
 class EmailTemplateEmailTemplateArgsDict(TypedDict):
-    default_substitutions: NotRequired[pulumi.Input[_builtins.str]]
+    default_substitutions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgsDict']]]]
-    html_part: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]]
+    html_part: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
     """
-    recommender_id: NotRequired[pulumi.Input[_builtins.str]]
+    recommender_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
     """
-    subject: NotRequired[pulumi.Input[_builtins.str]]
+    subject: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subject line, or title, to use in email messages that are based on the message template.
     """
-    text_part: NotRequired[pulumi.Input[_builtins.str]]
+    text_part: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
     """
@@ -263,13 +263,13 @@ class EmailTemplateEmailTemplateArgsDict(TypedDict):
 @pulumi.input_type
 class EmailTemplateEmailTemplateArgs:
     def __init__(__self__, *,
-                 default_substitutions: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]] = None,
-                 html_part: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommender_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject: Optional[pulumi.Input[_builtins.str]] = None,
-                 text_part: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_substitutions: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]] = None,
+                 html_part: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommender_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject: pulumi.Input[Optional[_builtins.str]] = None,
+                 text_part: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] default_substitutions: JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
         :param pulumi.Input[_builtins.str] html_part: The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
@@ -294,89 +294,89 @@ class EmailTemplateEmailTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultSubstitutions")
-    def default_substitutions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_substitutions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
         """
         return pulumi.get(self, "default_substitutions")
 
     @default_substitutions.setter
-    def default_substitutions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_substitutions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_substitutions", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]:
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="htmlPart")
-    def html_part(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def html_part(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         """
         return pulumi.get(self, "html_part")
 
     @html_part.setter
-    def html_part(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def html_part(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "html_part", value)
 
     @_builtins.property
     @pulumi.getter(name="recommenderId")
-    def recommender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recommender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
         """
         return pulumi.get(self, "recommender_id")
 
     @recommender_id.setter
-    def recommender_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recommender_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recommender_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subject line, or title, to use in email messages that are based on the message template.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject", value)
 
     @_builtins.property
     @pulumi.getter(name="textPart")
-    def text_part(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def text_part(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
         """
         return pulumi.get(self, "text_part")
 
     @text_part.setter
-    def text_part(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def text_part(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "text_part", value)
 
 
 class EmailTemplateEmailTemplateHeaderArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the message header. The header name can contain up to 126 characters.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
     """
@@ -384,8 +384,8 @@ class EmailTemplateEmailTemplateHeaderArgsDict(TypedDict):
 @pulumi.input_type
 class EmailTemplateEmailTemplateHeaderArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the message header. The header name can contain up to 126 characters.
         :param pulumi.Input[_builtins.str] value: Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
@@ -397,39 +397,39 @@ class EmailTemplateEmailTemplateHeaderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the message header. The header name can contain up to 126 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class Smsvoicev2PhoneNumberTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -437,9 +437,9 @@ class Smsvoicev2PhoneNumberTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class Smsvoicev2PhoneNumberTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -454,38 +454,38 @@ class Smsvoicev2PhoneNumberTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

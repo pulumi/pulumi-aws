@@ -93,5 +93,5 @@ export interface GetHostedZoneIdOutputArgs {
     /**
      * Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

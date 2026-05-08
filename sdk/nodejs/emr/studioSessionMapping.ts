@@ -131,27 +131,27 @@ export interface StudioSessionMappingState {
     /**
      * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    identityId?: pulumi.Input<string>;
+    identityId?: pulumi.Input<string | undefined>;
     /**
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    identityName?: pulumi.Input<string>;
+    identityName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      */
-    identityType?: pulumi.Input<string>;
+    identityType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      */
-    sessionPolicyArn?: pulumi.Input<string>;
+    sessionPolicyArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      */
-    studioId?: pulumi.Input<string>;
+    studioId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,11 +161,11 @@ export interface StudioSessionMappingArgs {
     /**
      * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    identityId?: pulumi.Input<string>;
+    identityId?: pulumi.Input<string | undefined>;
     /**
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      */
-    identityName?: pulumi.Input<string>;
+    identityName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      */
@@ -173,7 +173,7 @@ export interface StudioSessionMappingArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      */

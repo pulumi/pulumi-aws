@@ -129,8 +129,8 @@ def get_endpoint(endpoint_type: Optional[_builtins.str] = None,
         endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_endpoint_output(endpoint_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Returns a unique endpoint specific to the AWS account making the call.

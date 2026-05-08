@@ -180,40 +180,40 @@ export interface MeteringPolicyEntryState {
     /**
      * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
-    destinationPortRange?: pulumi.Input<string>;
-    destinationTransitGatewayAttachmentId?: pulumi.Input<string>;
-    destinationTransitGatewayAttachmentType?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
+    destinationPortRange?: pulumi.Input<string | undefined>;
+    destinationTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    destinationTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     /**
      * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
      */
-    meteredAccount?: pulumi.Input<string>;
+    meteredAccount?: pulumi.Input<string | undefined>;
     /**
      * Rule number for this entry. Lower numbers have higher priority. Valid values are between `1` and `32766`.
      */
-    policyRuleNumber?: pulumi.Input<number>;
+    policyRuleNumber?: pulumi.Input<number | undefined>;
     /**
      * Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
      */
-    sourceCidrBlock?: pulumi.Input<string>;
-    sourcePortRange?: pulumi.Input<string>;
-    sourceTransitGatewayAttachmentId?: pulumi.Input<string>;
-    sourceTransitGatewayAttachmentType?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts>;
+    sourceCidrBlock?: pulumi.Input<string | undefined>;
+    sourcePortRange?: pulumi.Input<string | undefined>;
+    sourceTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    sourceTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;
     /**
      * EC2 Transit Gateway Metering Policy identifier.
      *
      * The following arguments are optional:
      */
-    transitGatewayMeteringPolicyId?: pulumi.Input<string>;
+    transitGatewayMeteringPolicyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -223,10 +223,10 @@ export interface MeteringPolicyEntryArgs {
     /**
      * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
      */
-    destinationCidrBlock?: pulumi.Input<string>;
-    destinationPortRange?: pulumi.Input<string>;
-    destinationTransitGatewayAttachmentId?: pulumi.Input<string>;
-    destinationTransitGatewayAttachmentType?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string | undefined>;
+    destinationPortRange?: pulumi.Input<string | undefined>;
+    destinationTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    destinationTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     /**
      * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
      */
@@ -238,19 +238,19 @@ export interface MeteringPolicyEntryArgs {
     /**
      * Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
      */
-    sourceCidrBlock?: pulumi.Input<string>;
-    sourcePortRange?: pulumi.Input<string>;
-    sourceTransitGatewayAttachmentId?: pulumi.Input<string>;
-    sourceTransitGatewayAttachmentType?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts>;
+    sourceCidrBlock?: pulumi.Input<string | undefined>;
+    sourcePortRange?: pulumi.Input<string | undefined>;
+    sourceTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    sourceTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;
     /**
      * EC2 Transit Gateway Metering Policy identifier.
      *

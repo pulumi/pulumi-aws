@@ -192,51 +192,51 @@ export class V2modelsBot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering V2modelsBot resources.
  */
 export interface V2modelsBotState {
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
-    dataPrivacies?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotDataPrivacy>[]>;
+    dataPrivacies?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotDataPrivacy>[] | undefined>;
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      */
-    idleSessionTtlInSeconds?: pulumi.Input<number>;
+    idleSessionTtlInSeconds?: pulumi.Input<number | undefined>;
     /**
      * List of bot members in a network to be created. See `botMembers`.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotMember>[] | undefined>;
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of an IAM role that has permission to access the bot.
      *
      * The following arguments are optional:
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * List of tags to add to the bot. You can only add tags when you create a bot.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
-    testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts | undefined>;
     /**
      * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -250,7 +250,7 @@ export interface V2modelsBotArgs {
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      */
@@ -258,15 +258,15 @@ export interface V2modelsBotArgs {
     /**
      * List of bot members in a network to be created. See `botMembers`.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotMember>[] | undefined>;
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of an IAM role that has permission to access the bot.
      *
@@ -276,14 +276,14 @@ export interface V2modelsBotArgs {
     /**
      * List of tags to add to the bot. You can only add tags when you create a bot.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
-    testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts | undefined>;
     /**
      * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

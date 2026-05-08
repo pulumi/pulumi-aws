@@ -188,8 +188,8 @@ def get_cost_category(cost_category_arn: Optional[_builtins.str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_cost_category_output(cost_category_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
     Provides details about a specific CostExplorer Cost Category.

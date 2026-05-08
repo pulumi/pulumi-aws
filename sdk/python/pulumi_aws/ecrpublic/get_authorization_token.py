@@ -137,7 +137,7 @@ def get_authorization_token(region: Optional[_builtins.str] = None,
         password=pulumi.get(__ret__, 'password'),
         region=pulumi.get(__ret__, 'region'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_authorization_token_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_authorization_token_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.

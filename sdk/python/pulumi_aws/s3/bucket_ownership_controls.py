@@ -23,7 +23,7 @@ class BucketOwnershipControlsArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  rule: pulumi.Input['BucketOwnershipControlsRuleArgs'],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketOwnershipControls resource.
 
@@ -62,23 +62,23 @@ class BucketOwnershipControlsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _BucketOwnershipControlsState:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional['BucketOwnershipControlsRuleArgs']] = None):
         """
         Input properties used for looking up and filtering BucketOwnershipControls resources.
 
@@ -95,38 +95,38 @@ class _BucketOwnershipControlsState:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bucket that you want to associate this access point with.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']]:
+    def rule(self) -> pulumi.Input[Optional['BucketOwnershipControlsRuleArgs']]:
         """
         Configuration block(s) with Ownership Controls rules. Detailed below.
         """
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['BucketOwnershipControlsRuleArgs']]):
+    def rule(self, value: pulumi.Input[Optional['BucketOwnershipControlsRuleArgs']]):
         pulumi.set(self, "rule", value)
 
 
@@ -136,9 +136,9 @@ class BucketOwnershipControls(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
@@ -223,9 +223,9 @@ class BucketOwnershipControls(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,9 +252,9 @@ class BucketOwnershipControls(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule: Optional[pulumi.Input[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None) -> 'BucketOwnershipControls':
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['BucketOwnershipControlsRuleArgs', 'BucketOwnershipControlsRuleArgsDict']]] = None) -> 'BucketOwnershipControls':
         """
         Get an existing BucketOwnershipControls resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

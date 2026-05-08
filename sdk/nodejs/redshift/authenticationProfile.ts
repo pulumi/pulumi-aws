@@ -112,15 +112,15 @@ export interface AuthenticationProfileState {
     /**
      * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
      */
-    authenticationProfileContent?: pulumi.Input<string>;
+    authenticationProfileContent?: pulumi.Input<string | undefined>;
     /**
      * The name of the authentication profile.
      */
-    authenticationProfileName?: pulumi.Input<string>;
+    authenticationProfileName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,5 +138,5 @@ export interface AuthenticationProfileArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -97,11 +97,11 @@ export interface GetTemplatesOutputArgs {
     /**
      * AWS Region to which the quota increases apply.
      */
-    awsRegion?: pulumi.Input<string>;
+    awsRegion?: pulumi.Input<string | undefined>;
     /**
      * AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
      *
      * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

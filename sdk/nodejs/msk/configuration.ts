@@ -132,31 +132,31 @@ export interface ConfigurationState {
     /**
      * Amazon Resource Name (ARN) of the configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of Apache Kafka versions which can use this configuration.
      */
-    kafkaVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    kafkaVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Latest revision of the configuration.
      */
-    latestRevision?: pulumi.Input<number>;
+    latestRevision?: pulumi.Input<number | undefined>;
     /**
      * Name of the configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */
-    serverProperties?: pulumi.Input<string>;
+    serverProperties?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,19 +166,19 @@ export interface ConfigurationArgs {
     /**
      * Description of the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of Apache Kafka versions which can use this configuration.
      */
-    kafkaVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    kafkaVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */

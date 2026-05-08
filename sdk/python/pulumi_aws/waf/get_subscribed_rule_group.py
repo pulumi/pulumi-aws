@@ -111,8 +111,8 @@ def get_subscribed_rule_group(metric_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         metric_name=pulumi.get(__ret__, 'metric_name'),
         name=pulumi.get(__ret__, 'name'))
-def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_subscribed_rule_group_output(metric_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscribedRuleGroupResult]:
     """
     `waf_get_subscribed_rule_group` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).

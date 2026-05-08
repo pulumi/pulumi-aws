@@ -283,10 +283,10 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         warning_message=pulumi.get(__ret__, 'warning_message'))
-def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']]]]] = None,
-                                         network_insights_analysis_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_network_insights_analysis_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']]]]] = None,
+                                         network_insights_analysis_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
     `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.

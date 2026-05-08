@@ -184,48 +184,48 @@ export interface LocationSmbState {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the Windows domain the SMB server belongs to.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions | undefined>;
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      */
-    serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string | undefined>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    uri?: pulumi.Input<string | undefined>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -239,11 +239,11 @@ export interface LocationSmbArgs {
     /**
      * The name of the Windows domain the SMB server belongs to.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions | undefined>;
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
@@ -251,7 +251,7 @@ export interface LocationSmbArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      */
@@ -263,7 +263,7 @@ export interface LocationSmbArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */

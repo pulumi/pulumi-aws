@@ -115,15 +115,15 @@ export interface TrafficSourceAttachmentState {
     /**
      * The name of the Auto Scaling group.
      */
-    autoscalingGroupName?: pulumi.Input<string>;
+    autoscalingGroupName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique identifiers of a traffic sources.
      */
-    trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource>;
+    trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource | undefined>;
 }
 
 /**
@@ -137,9 +137,9 @@ export interface TrafficSourceAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique identifiers of a traffic sources.
      */
-    trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource>;
+    trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource | undefined>;
 }

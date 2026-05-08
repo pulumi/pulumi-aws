@@ -176,39 +176,39 @@ export interface EmailChannelState {
     /**
      * The application ID.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      */
-    configurationSet?: pulumi.Input<string>;
+    configurationSet?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      */
-    fromAddress?: pulumi.Input<string>;
+    fromAddress?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an identity verified with SES.
      */
-    identity?: pulumi.Input<string>;
+    identity?: pulumi.Input<string | undefined>;
     /**
      * Messages per second that can be sent.
      */
-    messagesPerSecond?: pulumi.Input<number>;
+    messagesPerSecond?: pulumi.Input<number | undefined>;
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
      */
-    orchestrationSendingRoleArn?: pulumi.Input<string>;
+    orchestrationSendingRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,11 +222,11 @@ export interface EmailChannelArgs {
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      */
-    configurationSet?: pulumi.Input<string>;
+    configurationSet?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      */
@@ -238,13 +238,13 @@ export interface EmailChannelArgs {
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
      */
-    orchestrationSendingRoleArn?: pulumi.Input<string>;
+    orchestrationSendingRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }

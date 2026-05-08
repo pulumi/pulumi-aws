@@ -258,10 +258,10 @@ def get_listener(listener_identifier: Optional[_builtins.str] = None,
         service_id=pulumi.get(__ret__, 'service_id'),
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_listener_output(listener_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        service_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_listener_output(listener_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        service_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
     """
     Data source for managing an AWS VPC Lattice Listener.

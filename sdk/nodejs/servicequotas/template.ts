@@ -155,41 +155,41 @@ export interface TemplateState {
     /**
      * AWS Region to which the template applies.
      */
-    awsRegion?: pulumi.Input<string>;
+    awsRegion?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the quota is global.
      */
-    globalQuota?: pulumi.Input<boolean>;
+    globalQuota?: pulumi.Input<boolean | undefined>;
     /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
      */
-    quotaCode?: pulumi.Input<string>;
+    quotaCode?: pulumi.Input<string | undefined>;
     /**
      * Quota name.
      */
-    quotaName?: pulumi.Input<string>;
+    quotaName?: pulumi.Input<string | undefined>;
     /**
      * AWS Region to which the template applies. Use `aws.getRegion` instead.
      *
      * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
      */
-    serviceCode?: pulumi.Input<string>;
+    serviceCode?: pulumi.Input<string | undefined>;
     /**
      * Service name.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Unit of measurement.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
     /**
      * The new, increased value for the quota.
      */
-    value?: pulumi.Input<number>;
+    value?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -199,7 +199,7 @@ export interface TemplateArgs {
     /**
      * AWS Region to which the template applies.
      */
-    awsRegion?: pulumi.Input<string>;
+    awsRegion?: pulumi.Input<string | undefined>;
     /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
      */
@@ -209,7 +209,7 @@ export interface TemplateArgs {
      *
      * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
      */

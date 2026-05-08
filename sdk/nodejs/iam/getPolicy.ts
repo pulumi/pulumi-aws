@@ -155,20 +155,20 @@ export interface GetPolicyOutputArgs {
      * ARN of the IAM policy.
      * Conflicts with `name` and `pathPrefix`.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the IAM policy.
      * Conflicts with `arn`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Prefix of the path to the IAM policy.
      * Defaults to a slash (`/`).
      * Conflicts with `arn`.
      */
-    pathPrefix?: pulumi.Input<string>;
+    pathPrefix?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of tags for the IAM Policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

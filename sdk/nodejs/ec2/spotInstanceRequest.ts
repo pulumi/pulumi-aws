@@ -519,278 +519,278 @@ export interface SpotInstanceRequestState {
     /**
      * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      */
-    ami?: pulumi.Input<string>;
-    arn?: pulumi.Input<string>;
+    ami?: pulumi.Input<string | undefined>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      */
-    associatePublicIpAddress?: pulumi.Input<boolean>;
+    associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
      * AZ to start the instance in.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      */
-    capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
+    capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification | undefined>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
+    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions | undefined>;
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
-    creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
+    creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification | undefined>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      */
-    disableApiStop?: pulumi.Input<boolean>;
+    disableApiStop?: pulumi.Input<boolean | undefined>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
-    disableApiTermination?: pulumi.Input<boolean>;
+    disableApiTermination?: pulumi.Input<boolean | undefined>;
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[] | undefined>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enablePrimaryIpv6` after it has been enabled forces recreation of the instance.
      */
-    enablePrimaryIpv6?: pulumi.Input<boolean>;
+    enablePrimaryIpv6?: pulumi.Input<boolean | undefined>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
+    enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions | undefined>;
     /**
      * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[] | undefined>;
     /**
      * Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    getPasswordData?: pulumi.Input<boolean>;
+    getPasswordData?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the launched EC2 instance will support hibernation.
      */
-    hibernation?: pulumi.Input<boolean>;
+    hibernation?: pulumi.Input<boolean | undefined>;
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
-    hostId?: pulumi.Input<string>;
+    hostId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      */
-    hostResourceGroupArn?: pulumi.Input<string>;
+    hostResourceGroupArn?: pulumi.Input<string | undefined>;
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      */
-    iamInstanceProfile?: pulumi.Input<string>;
+    iamInstanceProfile?: pulumi.Input<string | undefined>;
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
-    instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    instanceInitiatedShutdownBehavior?: pulumi.Input<string | undefined>;
     /**
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
-    instanceInterruptionBehavior?: pulumi.Input<string>;
-    instanceState?: pulumi.Input<string>;
+    instanceInterruptionBehavior?: pulumi.Input<string | undefined>;
+    instanceState?: pulumi.Input<string | undefined>;
     /**
      * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressCount?: pulumi.Input<number | undefined>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      */
-    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * A launch group is a group of spot instances that launch together and terminate together.
      * If left empty instances are launched and terminated individually.
      */
-    launchGroup?: pulumi.Input<string>;
+    launchGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
-    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate | undefined>;
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
-    maintenanceOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMaintenanceOptions>;
+    maintenanceOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMaintenanceOptions | undefined>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions | undefined>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
-    monitoring?: pulumi.Input<boolean>;
+    monitoring?: pulumi.Input<boolean | undefined>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      *
      * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
-    outpostArn?: pulumi.Input<string>;
-    passwordData?: pulumi.Input<string>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[] | undefined>;
+    outpostArn?: pulumi.Input<string | undefined>;
+    passwordData?: pulumi.Input<string | undefined>;
     /**
      * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
-    placementGroup?: pulumi.Input<string>;
+    placementGroup?: pulumi.Input<string | undefined>;
     /**
      * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
      */
-    placementGroupId?: pulumi.Input<string>;
+    placementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
-    placementPartitionNumber?: pulumi.Input<number>;
-    primaryNetworkInterfaceId?: pulumi.Input<string>;
+    placementPartitionNumber?: pulumi.Input<number | undefined>;
+    primaryNetworkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The primary network interface. See Primary Network Interface below.
      */
-    primaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestPrimaryNetworkInterface>[]>;
+    primaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestPrimaryNetworkInterface>[] | undefined>;
     /**
      * The private DNS name assigned to the instance. Can only be
      * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
      * for your VPC
      */
-    privateDns?: pulumi.Input<string>;
+    privateDns?: pulumi.Input<string | undefined>;
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    privateDnsNameOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestPrivateDnsNameOptions>;
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestPrivateDnsNameOptions | undefined>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */
-    privateIp?: pulumi.Input<string>;
+    privateIp?: pulumi.Input<string | undefined>;
     /**
      * The public DNS name assigned to the instance. For EC2-VPC, this
      * is only available if you've enabled DNS hostnames for your VPC
      */
-    publicDns?: pulumi.Input<string>;
+    publicDns?: pulumi.Input<string | undefined>;
     /**
      * The public IP address assigned to the instance, if applicable.
      */
-    publicIp?: pulumi.Input<string>;
+    publicIp?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice | undefined>;
     /**
      * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
      */
-    secondaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestSecondaryNetworkInterface>[]>;
+    secondaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestSecondaryNetworkInterface>[] | undefined>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
-    secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of security group names to associate with.
      *
      * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      */
-    sourceDestCheck?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean | undefined>;
     /**
      * The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
      * of the Spot Instance Request.
      */
-    spotBidStatus?: pulumi.Input<string>;
+    spotBidStatus?: pulumi.Input<string | undefined>;
     /**
      * The Instance ID (if any) that is currently fulfilling
      * the Spot Instance request.
      */
-    spotInstanceId?: pulumi.Input<string>;
+    spotInstanceId?: pulumi.Input<string | undefined>;
     /**
      * The maximum price to request on the spot market.
      */
-    spotPrice?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string | undefined>;
     /**
      * The current [request
      * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
      * of the Spot Instance Request.
      */
-    spotRequestState?: pulumi.Input<string>;
+    spotRequestState?: pulumi.Input<string | undefined>;
     /**
      * If set to `one-time`, after
      * the instance is terminated, the spot request will be closed.
      */
-    spotType?: pulumi.Input<string>;
+    spotType?: pulumi.Input<string | undefined>;
     /**
      * VPC Subnet ID to launch in.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
-    tenancy?: pulumi.Input<string>;
+    tenancy?: pulumi.Input<string | undefined>;
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
-    userDataBase64?: pulumi.Input<string>;
+    userDataBase64?: pulumi.Input<string | undefined>;
     /**
      * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      */
-    userDataReplaceOnChange?: pulumi.Input<boolean>;
+    userDataReplaceOnChange?: pulumi.Input<boolean | undefined>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    validFrom?: pulumi.Input<string>;
+    validFrom?: pulumi.Input<string | undefined>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      */
-    validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      *
      * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
-    volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of security group IDs to associate with.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If set, this provider will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    waitForFulfillment?: pulumi.Input<boolean>;
+    waitForFulfillment?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -800,231 +800,231 @@ export interface SpotInstanceRequestArgs {
     /**
      * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      */
-    ami?: pulumi.Input<string>;
+    ami?: pulumi.Input<string | undefined>;
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      */
-    associatePublicIpAddress?: pulumi.Input<boolean>;
+    associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
      * AZ to start the instance in.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      */
-    capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
+    capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification | undefined>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
+    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions | undefined>;
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
-    creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
+    creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification | undefined>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      */
-    disableApiStop?: pulumi.Input<boolean>;
+    disableApiStop?: pulumi.Input<boolean | undefined>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
-    disableApiTermination?: pulumi.Input<boolean>;
+    disableApiTermination?: pulumi.Input<boolean | undefined>;
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[] | undefined>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
-    ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enablePrimaryIpv6` after it has been enabled forces recreation of the instance.
      */
-    enablePrimaryIpv6?: pulumi.Input<boolean>;
+    enablePrimaryIpv6?: pulumi.Input<boolean | undefined>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
+    enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions | undefined>;
     /**
      * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[] | undefined>;
     /**
      * Destroys instance even if `disableApiTermination` or `disableApiStop` is set to `true`. Defaults to `false`. Once this parameter is set to `true`, a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the instance or destroying the instance, this flag will not work. Additionally when importing an instance, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
-    getPasswordData?: pulumi.Input<boolean>;
+    getPasswordData?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the launched EC2 instance will support hibernation.
      */
-    hibernation?: pulumi.Input<boolean>;
+    hibernation?: pulumi.Input<boolean | undefined>;
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      */
-    hostId?: pulumi.Input<string>;
+    hostId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      */
-    hostResourceGroupArn?: pulumi.Input<string>;
+    hostResourceGroupArn?: pulumi.Input<string | undefined>;
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      */
-    iamInstanceProfile?: pulumi.Input<string>;
+    iamInstanceProfile?: pulumi.Input<string | undefined>;
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
-    instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    instanceInitiatedShutdownBehavior?: pulumi.Input<string | undefined>;
     /**
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
-    instanceInterruptionBehavior?: pulumi.Input<string>;
+    instanceInterruptionBehavior?: pulumi.Input<string | undefined>;
     /**
      * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
-    ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressCount?: pulumi.Input<number | undefined>;
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      */
-    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * A launch group is a group of spot instances that launch together and terminate together.
      * If left empty instances are launched and terminated individually.
      */
-    launchGroup?: pulumi.Input<string>;
+    launchGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
-    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate | undefined>;
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
-    maintenanceOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMaintenanceOptions>;
+    maintenanceOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMaintenanceOptions | undefined>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions | undefined>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
-    monitoring?: pulumi.Input<boolean>;
+    monitoring?: pulumi.Input<boolean | undefined>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      *
      * @deprecated network_interface is deprecated. To specify the primary network interface, use primaryNetworkInterface instead. To attach additional network interfaces, use the aws.ec2.NetworkInterfaceAttachment resource.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[] | undefined>;
     /**
      * Placement Group to start the instance in. Conflicts with `placementGroupId`.
      */
-    placementGroup?: pulumi.Input<string>;
+    placementGroup?: pulumi.Input<string | undefined>;
     /**
      * Placement Group ID to start the instance in. Conflicts with `placementGroup`.
      */
-    placementGroupId?: pulumi.Input<string>;
+    placementGroupId?: pulumi.Input<string | undefined>;
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
-    placementPartitionNumber?: pulumi.Input<number>;
+    placementPartitionNumber?: pulumi.Input<number | undefined>;
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    privateDnsNameOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestPrivateDnsNameOptions>;
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestPrivateDnsNameOptions | undefined>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */
-    privateIp?: pulumi.Input<string>;
+    privateIp?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice | undefined>;
     /**
      * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
      */
-    secondaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestSecondaryNetworkInterface>[]>;
+    secondaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestSecondaryNetworkInterface>[] | undefined>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
-    secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of security group names to associate with.
      *
      * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      */
-    sourceDestCheck?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean | undefined>;
     /**
      * The maximum price to request on the spot market.
      */
-    spotPrice?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string | undefined>;
     /**
      * If set to `one-time`, after
      * the instance is terminated, the spot request will be closed.
      */
-    spotType?: pulumi.Input<string>;
+    spotType?: pulumi.Input<string | undefined>;
     /**
      * VPC Subnet ID to launch in.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
-    tenancy?: pulumi.Input<string>;
+    tenancy?: pulumi.Input<string | undefined>;
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
-    userDataBase64?: pulumi.Input<string>;
+    userDataBase64?: pulumi.Input<string | undefined>;
     /**
      * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      */
-    userDataReplaceOnChange?: pulumi.Input<boolean>;
+    userDataReplaceOnChange?: pulumi.Input<boolean | undefined>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
-    validFrom?: pulumi.Input<string>;
+    validFrom?: pulumi.Input<string | undefined>;
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      */
-    validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      *
      * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
-    volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of security group IDs to associate with.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If set, this provider will
      * wait for the Spot Request to be fulfilled, and will throw an error if the
      * timeout of 10m is reached.
      */
-    waitForFulfillment?: pulumi.Input<boolean>;
+    waitForFulfillment?: pulumi.Input<boolean | undefined>;
 }

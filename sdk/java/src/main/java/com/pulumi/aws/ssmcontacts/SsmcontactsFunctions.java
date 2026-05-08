@@ -37,8 +37,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -163,8 +163,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -247,8 +247,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -289,8 +289,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -373,8 +373,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -415,8 +415,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetContactChannelArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -457,8 +457,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -499,8 +499,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -541,8 +541,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -583,8 +583,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -625,8 +625,8 @@ public final class SsmcontactsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmcontacts.SsmcontactsFunctions;
      * import com.pulumi.aws.ssmcontacts.inputs.GetPlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

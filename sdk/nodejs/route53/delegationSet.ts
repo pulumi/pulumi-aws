@@ -109,17 +109,17 @@ export interface DelegationSetState {
     /**
      * The Amazon Resource Name (ARN) of the Delegation Set.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
-    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -130,5 +130,5 @@ export interface DelegationSetArgs {
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
 }

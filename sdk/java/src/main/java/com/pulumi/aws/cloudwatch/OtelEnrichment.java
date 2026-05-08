@@ -35,8 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.OtelEnrichment;
  * import com.pulumi.aws.cloudwatch.OtelEnrichmentArgs;
  * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         var example = new TelemetryEnrichment("example");
  * 
  *         var exampleOtelEnrichment = new OtelEnrichment("exampleOtelEnrichment", OtelEnrichmentArgs.Empty, CustomResourceOptions.builder()
- *             .dependsOn(List.of(example))
+ *             .dependsOn(Arrays.asList(example))
  *             .build());
  * 
  *     }

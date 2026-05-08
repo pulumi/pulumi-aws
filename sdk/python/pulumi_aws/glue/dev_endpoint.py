@@ -20,21 +20,21 @@ __all__ = ['DevEndpointArgs', 'DevEndpoint']
 class DevEndpointArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extra_jars_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_python_libs_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extra_jars_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_python_libs_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DevEndpoint resource.
 
@@ -101,214 +101,214 @@ class DevEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of arguments used to configure the endpoint.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter(name="extraJarsS3Path")
-    def extra_jars_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extra_jars_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         """
         return pulumi.get(self, "extra_jars_s3_path")
 
     @extra_jars_s3_path.setter
-    def extra_jars_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extra_jars_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extra_jars_s3_path", value)
 
     @_builtins.property
     @pulumi.getter(name="extraPythonLibsS3Path")
-    def extra_python_libs_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extra_python_libs_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         """
         return pulumi.get(self, "extra_python_libs_s3_path")
 
     @extra_python_libs_s3_path.setter
-    def extra_python_libs_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extra_python_libs_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extra_python_libs_s3_path", value)
 
     @_builtins.property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glue_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
-    def glue_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glue_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this endpoint. It must be unique in your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public key to be used by this endpoint for authentication.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of public keys to be used by this endpoint for authentication.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Configuration structure to be used with this endpoint.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Security group IDs for the security groups to be used by this endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet ID for the new endpoint to use.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workerType")
-    def worker_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
-    def worker_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_type", value)
 
 
 @pulumi.input_type
 class _DevEndpointState:
     def __init__(__self__, *,
-                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_jars_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_python_libs_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 yarn_endpoint_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_jars_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_python_libs_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 yarn_endpoint_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 zeppelin_remote_spark_interpreter_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering DevEndpoint resources.
 
@@ -394,314 +394,314 @@ class _DevEndpointState:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def arguments(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of arguments used to configure the endpoint.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def arguments(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the endpoint.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS availability zone where this endpoint is located.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="extraJarsS3Path")
-    def extra_jars_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extra_jars_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         """
         return pulumi.get(self, "extra_jars_s3_path")
 
     @extra_jars_s3_path.setter
-    def extra_jars_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extra_jars_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extra_jars_s3_path", value)
 
     @_builtins.property
     @pulumi.getter(name="extraPythonLibsS3Path")
-    def extra_python_libs_s3_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extra_python_libs_s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         """
         return pulumi.get(self, "extra_python_libs_s3_path")
 
     @extra_python_libs_s3_path.setter
-    def extra_python_libs_s3_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extra_python_libs_s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extra_python_libs_s3_path", value)
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for a current failure in this endpoint.
         """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="glueVersion")
-    def glue_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glue_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         """
         return pulumi.get(self, "glue_version")
 
     @glue_version.setter
-    def glue_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glue_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this endpoint. It must be unique in your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_workers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         """
         return pulumi.get(self, "number_of_workers")
 
     @number_of_workers.setter
-    def number_of_workers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_workers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_workers", value)
 
     @_builtins.property
     @pulumi.getter(name="privateAddress")
-    def private_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
         """
         return pulumi.get(self, "private_address")
 
     @private_address.setter
-    def private_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicAddress")
-    def public_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         """
         return pulumi.get(self, "public_address")
 
     @public_address.setter
-    def public_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public key to be used by this endpoint for authentication.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def public_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of public keys to be used by this endpoint for authentication.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def public_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "public_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM role for this endpoint.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfiguration")
-    def security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Configuration structure to be used with this endpoint.
         """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
-    def security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Security group IDs for the security groups to be used by this endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of this endpoint.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet ID for the new endpoint to use.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         he ID of the VPC used by this endpoint.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workerType")
-    def worker_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def worker_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
         return pulumi.get(self, "worker_type")
 
     @worker_type.setter
-    def worker_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def worker_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "worker_type", value)
 
     @_builtins.property
     @pulumi.getter(name="yarnEndpointAddress")
-    def yarn_endpoint_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def yarn_endpoint_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The YARN endpoint address used by this endpoint.
         """
         return pulumi.get(self, "yarn_endpoint_address")
 
     @yarn_endpoint_address.setter
-    def yarn_endpoint_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def yarn_endpoint_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "yarn_endpoint_address", value)
 
     @_builtins.property
     @pulumi.getter(name="zeppelinRemoteSparkInterpreterPort")
-    def zeppelin_remote_spark_interpreter_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def zeppelin_remote_spark_interpreter_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Apache Zeppelin port for the remote Apache Spark interpreter.
         """
         return pulumi.get(self, "zeppelin_remote_spark_interpreter_port")
 
     @zeppelin_remote_spark_interpreter_port.setter
-    def zeppelin_remote_spark_interpreter_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def zeppelin_remote_spark_interpreter_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "zeppelin_remote_spark_interpreter_port", value)
 
 
@@ -711,22 +711,22 @@ class DevEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extra_jars_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_python_libs_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extra_jars_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_python_libs_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Glue Development Endpoint resource.
@@ -844,22 +844,22 @@ class DevEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extra_jars_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_python_libs_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 worker_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extra_jars_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_python_libs_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 worker_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -907,32 +907,32 @@ class DevEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-            extra_jars_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-            extra_python_libs_s3_path: Optional[pulumi.Input[_builtins.str]] = None,
-            failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            glue_version: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-            number_of_workers: Optional[pulumi.Input[_builtins.int]] = None,
-            private_address: Optional[pulumi.Input[_builtins.str]] = None,
-            public_address: Optional[pulumi.Input[_builtins.str]] = None,
-            public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-            security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-            worker_type: Optional[pulumi.Input[_builtins.str]] = None,
-            yarn_endpoint_address: Optional[pulumi.Input[_builtins.str]] = None,
-            zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[_builtins.int]] = None) -> 'DevEndpoint':
+            arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+            extra_jars_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            extra_python_libs_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            glue_version: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
+            private_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_address: pulumi.Input[Optional[_builtins.str]] = None,
+            public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            worker_type: pulumi.Input[Optional[_builtins.str]] = None,
+            yarn_endpoint_address: pulumi.Input[Optional[_builtins.str]] = None,
+            zeppelin_remote_spark_interpreter_port: pulumi.Input[Optional[_builtins.int]] = None) -> 'DevEndpoint':
         """
         Get an existing DevEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

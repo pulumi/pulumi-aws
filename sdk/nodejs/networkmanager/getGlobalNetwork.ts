@@ -95,5 +95,5 @@ export interface GetGlobalNetworkOutputArgs {
     /**
      * Map of resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

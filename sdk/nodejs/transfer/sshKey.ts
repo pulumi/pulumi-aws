@@ -170,20 +170,20 @@ export interface SshKeyState {
     /**
      * The public key portion of an SSH key pair.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
-    serverId?: pulumi.Input<string>;
-    sshKeyId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
+    sshKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,7 +197,7 @@ export interface SshKeyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */

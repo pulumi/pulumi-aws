@@ -130,29 +130,29 @@ export interface SnapshotCopyState {
     /**
      * Identifier of the source cluster.
      */
-    clusterIdentifier?: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * AWS Region to copy snapshots to.
      *
      * The following arguments are optional:
      */
-    destinationRegion?: pulumi.Input<string>;
+    destinationRegion?: pulumi.Input<string | undefined>;
     /**
      * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
      */
-    manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    manualSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      */
-    retentionPeriod?: pulumi.Input<number>;
+    retentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      */
-    snapshotCopyGrantName?: pulumi.Input<string>;
+    snapshotCopyGrantName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,17 +172,17 @@ export interface SnapshotCopyArgs {
     /**
      * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
      */
-    manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    manualSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      */
-    retentionPeriod?: pulumi.Input<number>;
+    retentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      */
-    snapshotCopyGrantName?: pulumi.Input<string>;
+    snapshotCopyGrantName?: pulumi.Input<string | undefined>;
 }

@@ -113,8 +113,8 @@ def get_organizational_unit(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         parent_id=pulumi.get(__ret__, 'parent_id'))
-def get_organizational_unit_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   parent_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organizational_unit_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   parent_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitResult]:
     """
     Data source for getting an AWS Organizations Organizational Unit.

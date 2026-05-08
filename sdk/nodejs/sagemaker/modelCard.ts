@@ -161,36 +161,36 @@ export interface ModelCardState {
     /**
      * Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the model card.
      */
-    modelCardArn?: pulumi.Input<string>;
+    modelCardArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the model card.
      */
-    modelCardName?: pulumi.Input<string>;
+    modelCardName?: pulumi.Input<string | undefined>;
     /**
      * Approval status of the model card. Valid values: `Draft`, `PendingReview`, `Approved`, `Archived`.
      */
-    modelCardStatus?: pulumi.Input<string>;
+    modelCardStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
      */
-    securityConfig?: pulumi.Input<inputs.sagemaker.ModelCardSecurityConfig>;
+    securityConfig?: pulumi.Input<inputs.sagemaker.ModelCardSecurityConfig | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardTimeouts | undefined>;
 }
 
 /**
@@ -212,14 +212,14 @@ export interface ModelCardArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * KMS key to encrypt, decrypt, and re-encrypt model card content. Fields are documented below.
      */
-    securityConfig?: pulumi.Input<inputs.sagemaker.ModelCardSecurityConfig>;
+    securityConfig?: pulumi.Input<inputs.sagemaker.ModelCardSecurityConfig | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.sagemaker.ModelCardTimeouts | undefined>;
 }

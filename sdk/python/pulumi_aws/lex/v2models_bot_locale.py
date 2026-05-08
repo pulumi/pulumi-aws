@@ -25,11 +25,11 @@ class V2modelsBotLocaleArgs:
                  bot_version: pulumi.Input[_builtins.str],
                  locale_id: pulumi.Input[_builtins.str],
                  n_lu_intent_confidence_threshold: pulumi.Input[_builtins.float],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']] = None,
-                 voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsBotLocaleTimeoutsArgs']] = None,
+                 voice_settings: pulumi.Input[Optional['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsBotLocale resource.
 
@@ -111,74 +111,74 @@ class V2modelsBotLocaleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the bot locale. Use this to help identify the bot locale in lists.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified locale name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsBotLocaleTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsBotLocaleTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceSettings")
-    def voice_settings(self) -> Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]:
+    def voice_settings(self) -> pulumi.Input[Optional['V2modelsBotLocaleVoiceSettingsArgs']]:
         """
         Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         return pulumi.get(self, "voice_settings")
 
     @voice_settings.setter
-    def voice_settings(self, value: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]):
+    def voice_settings(self, value: pulumi.Input[Optional['V2modelsBotLocaleVoiceSettingsArgs']]):
         pulumi.set(self, "voice_settings", value)
 
 
 @pulumi.input_type
 class _V2modelsBotLocaleState:
     def __init__(__self__, *,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 n_lu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']] = None,
-                 voice_settings: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']] = None):
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 n_lu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsBotLocaleTimeoutsArgs']] = None,
+                 voice_settings: pulumi.Input[Optional['V2modelsBotLocaleVoiceSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsBotLocale resources.
 
@@ -214,55 +214,55 @@ class _V2modelsBotLocaleState:
 
     @_builtins.property
     @pulumi.getter(name="botId")
-    def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the bot to create the locale for.
         """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
-    def bot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
-    def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the bot to create the locale for. This can only be the draft version of the bot.
         """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
-    def bot_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the bot locale. Use this to help identify the bot locale in lists.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="localeId")
-    def locale_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
         """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
-    def locale_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nLuIntentConfidenceThreshold")
-    def n_lu_intent_confidence_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def n_lu_intent_confidence_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
 
@@ -271,52 +271,52 @@ class _V2modelsBotLocaleState:
         return pulumi.get(self, "n_lu_intent_confidence_threshold")
 
     @n_lu_intent_confidence_threshold.setter
-    def n_lu_intent_confidence_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def n_lu_intent_confidence_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "n_lu_intent_confidence_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specified locale name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsBotLocaleTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsBotLocaleTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsBotLocaleTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceSettings")
-    def voice_settings(self) -> Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]:
+    def voice_settings(self) -> pulumi.Input[Optional['V2modelsBotLocaleVoiceSettingsArgs']]:
         """
         Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         return pulumi.get(self, "voice_settings")
 
     @voice_settings.setter
-    def voice_settings(self, value: Optional[pulumi.Input['V2modelsBotLocaleVoiceSettingsArgs']]):
+    def voice_settings(self, value: pulumi.Input[Optional['V2modelsBotLocaleVoiceSettingsArgs']]):
         pulumi.set(self, "voice_settings", value)
 
 
@@ -326,15 +326,15 @@ class V2modelsBotLocale(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 n_lu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
-                 voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 n_lu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
+                 voice_settings: pulumi.Input[Optional[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Bot Locale.
@@ -458,15 +458,15 @@ class V2modelsBotLocale(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 n_lu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
-                 voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 n_lu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
+                 voice_settings: pulumi.Input[Optional[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -503,15 +503,15 @@ class V2modelsBotLocale(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-            n_lu_intent_confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
-            voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None) -> 'V2modelsBotLocale':
+            bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+            n_lu_intent_confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
+            voice_settings: pulumi.Input[Optional[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None) -> 'V2modelsBotLocale':
         """
         Get an existing V2modelsBotLocale resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -176,10 +176,10 @@ def get_parameters_by_path(path: Optional[_builtins.str] = None,
         types=pulumi.get(__ret__, 'types'),
         values=pulumi.get(__ret__, 'values'),
         with_decryption=pulumi.get(__ret__, 'with_decryption'))
-def get_parameters_by_path_output(path: Optional[pulumi.Input[_builtins.str]] = None,
-                                  recursive: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  with_decryption: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_parameters_by_path_output(path: pulumi.Input[Optional[_builtins.str]] = None,
+                                  recursive: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  with_decryption: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
     Use this data source to get information about one or more System Manager parameters in a specific hierarchy.

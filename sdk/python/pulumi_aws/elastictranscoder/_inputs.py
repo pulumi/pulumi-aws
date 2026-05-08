@@ -38,11 +38,11 @@ __all__ = [
 ]
 
 class PipelineContentConfigArgsDict(TypedDict):
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
     """
-    storage_class: NotRequired[pulumi.Input[_builtins.str]]
+    storage_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
     """
@@ -50,8 +50,8 @@ class PipelineContentConfigArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineContentConfigArgs:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_class: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
         :param pulumi.Input[_builtins.str] storage_class: The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
@@ -63,39 +63,39 @@ class PipelineContentConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
         """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
-    def storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_class", value)
 
 
 class PipelineContentConfigPermissionArgsDict(TypedDict):
-    accesses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    accesses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
     """
-    grantee: NotRequired[pulumi.Input[_builtins.str]]
+    grantee: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS user or group that you want to have access to transcoded files and playlists.
     """
-    grantee_type: NotRequired[pulumi.Input[_builtins.str]]
+    grantee_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
     """
@@ -103,9 +103,9 @@ class PipelineContentConfigPermissionArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineContentConfigPermissionArgs:
     def __init__(__self__, *,
-                 accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grantee: Optional[pulumi.Input[_builtins.str]] = None,
-                 grantee_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grantee: pulumi.Input[Optional[_builtins.str]] = None,
+                 grantee_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accesses: The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         :param pulumi.Input[_builtins.str] grantee: The AWS user or group that you want to have access to transcoded files and playlists.
@@ -120,55 +120,55 @@ class PipelineContentConfigPermissionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accesses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         """
         return pulumi.get(self, "accesses")
 
     @accesses.setter
-    def accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accesses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accesses", value)
 
     @_builtins.property
     @pulumi.getter
-    def grantee(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grantee(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS user or group that you want to have access to transcoded files and playlists.
         """
         return pulumi.get(self, "grantee")
 
     @grantee.setter
-    def grantee(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grantee(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grantee", value)
 
     @_builtins.property
     @pulumi.getter(name="granteeType")
-    def grantee_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grantee_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         """
         return pulumi.get(self, "grantee_type")
 
     @grantee_type.setter
-    def grantee_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grantee_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grantee_type", value)
 
 
 class PipelineNotificationsArgsDict(TypedDict):
-    completed: NotRequired[pulumi.Input[_builtins.str]]
+    completed: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
     """
-    error: NotRequired[pulumi.Input[_builtins.str]]
+    error: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
     """
-    progressing: NotRequired[pulumi.Input[_builtins.str]]
+    progressing: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
     """
-    warning: NotRequired[pulumi.Input[_builtins.str]]
+    warning: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
 
@@ -186,10 +186,10 @@ class PipelineNotificationsArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineNotificationsArgs:
     def __init__(__self__, *,
-                 completed: Optional[pulumi.Input[_builtins.str]] = None,
-                 error: Optional[pulumi.Input[_builtins.str]] = None,
-                 progressing: Optional[pulumi.Input[_builtins.str]] = None,
-                 warning: Optional[pulumi.Input[_builtins.str]] = None):
+                 completed: pulumi.Input[Optional[_builtins.str]] = None,
+                 error: pulumi.Input[Optional[_builtins.str]] = None,
+                 progressing: pulumi.Input[Optional[_builtins.str]] = None,
+                 warning: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] completed: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
         :param pulumi.Input[_builtins.str] error: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
@@ -217,43 +217,43 @@ class PipelineNotificationsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def completed(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def completed(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
         """
         return pulumi.get(self, "completed")
 
     @completed.setter
-    def completed(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def completed(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "completed", value)
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
         """
         return pulumi.get(self, "error")
 
     @error.setter
-    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter
-    def progressing(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def progressing(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
         """
         return pulumi.get(self, "progressing")
 
     @progressing.setter
-    def progressing(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def progressing(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "progressing", value)
 
     @_builtins.property
     @pulumi.getter
-    def warning(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warning(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
 
@@ -270,16 +270,16 @@ class PipelineNotificationsArgs:
         return pulumi.get(self, "warning")
 
     @warning.setter
-    def warning(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warning(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warning", value)
 
 
 class PipelineThumbnailConfigArgsDict(TypedDict):
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
     """
-    storage_class: NotRequired[pulumi.Input[_builtins.str]]
+    storage_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
     """
@@ -287,8 +287,8 @@ class PipelineThumbnailConfigArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineThumbnailConfigArgs:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_class: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
         :param pulumi.Input[_builtins.str] storage_class: The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
@@ -300,39 +300,39 @@ class PipelineThumbnailConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClass")
-    def storage_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
         """
         return pulumi.get(self, "storage_class")
 
     @storage_class.setter
-    def storage_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_class", value)
 
 
 class PipelineThumbnailConfigPermissionArgsDict(TypedDict):
-    accesses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    accesses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
     """
-    grantee: NotRequired[pulumi.Input[_builtins.str]]
+    grantee: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS user or group that you want to have access to thumbnail files.
     """
-    grantee_type: NotRequired[pulumi.Input[_builtins.str]]
+    grantee_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
     """
@@ -340,9 +340,9 @@ class PipelineThumbnailConfigPermissionArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineThumbnailConfigPermissionArgs:
     def __init__(__self__, *,
-                 accesses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grantee: Optional[pulumi.Input[_builtins.str]] = None,
-                 grantee_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 accesses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grantee: pulumi.Input[Optional[_builtins.str]] = None,
+                 grantee_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accesses: The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         :param pulumi.Input[_builtins.str] grantee: The AWS user or group that you want to have access to thumbnail files.
@@ -357,59 +357,59 @@ class PipelineThumbnailConfigPermissionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accesses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         """
         return pulumi.get(self, "accesses")
 
     @accesses.setter
-    def accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accesses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accesses", value)
 
     @_builtins.property
     @pulumi.getter
-    def grantee(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grantee(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS user or group that you want to have access to thumbnail files.
         """
         return pulumi.get(self, "grantee")
 
     @grantee.setter
-    def grantee(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grantee(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grantee", value)
 
     @_builtins.property
     @pulumi.getter(name="granteeType")
-    def grantee_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grantee_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         """
         return pulumi.get(self, "grantee_type")
 
     @grantee_type.setter
-    def grantee_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grantee_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grantee_type", value)
 
 
 class PresetAudioArgsDict(TypedDict):
-    audio_packing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    audio_packing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
     """
-    bit_rate: NotRequired[pulumi.Input[_builtins.str]]
+    bit_rate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
     """
-    channels: NotRequired[pulumi.Input[_builtins.str]]
+    channels: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The number of audio channels in the output file
     """
-    codec: NotRequired[pulumi.Input[_builtins.str]]
+    codec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
     """
-    sample_rate: NotRequired[pulumi.Input[_builtins.str]]
+    sample_rate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
     """
@@ -417,11 +417,11 @@ class PresetAudioArgsDict(TypedDict):
 @pulumi.input_type
 class PresetAudioArgs:
     def __init__(__self__, *,
-                 audio_packing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 bit_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 channels: Optional[pulumi.Input[_builtins.str]] = None,
-                 codec: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_rate: Optional[pulumi.Input[_builtins.str]] = None):
+                 audio_packing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 bit_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 channels: pulumi.Input[Optional[_builtins.str]] = None,
+                 codec: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_rate: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] audio_packing_mode: The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
         :param pulumi.Input[_builtins.str] bit_rate: The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
@@ -442,79 +442,79 @@ class PresetAudioArgs:
 
     @_builtins.property
     @pulumi.getter(name="audioPackingMode")
-    def audio_packing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audio_packing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
         """
         return pulumi.get(self, "audio_packing_mode")
 
     @audio_packing_mode.setter
-    def audio_packing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audio_packing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audio_packing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="bitRate")
-    def bit_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bit_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
         """
         return pulumi.get(self, "bit_rate")
 
     @bit_rate.setter
-    def bit_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bit_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bit_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def channels(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channels(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of audio channels in the output file
         """
         return pulumi.get(self, "channels")
 
     @channels.setter
-    def channels(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channels(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channels", value)
 
     @_builtins.property
     @pulumi.getter
-    def codec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def codec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
         """
         return pulumi.get(self, "codec")
 
     @codec.setter
-    def codec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def codec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "codec", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleRate")
-    def sample_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sample_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
         """
         return pulumi.get(self, "sample_rate")
 
     @sample_rate.setter
-    def sample_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sample_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sample_rate", value)
 
 
 class PresetAudioCodecOptionsArgsDict(TypedDict):
-    bit_depth: NotRequired[pulumi.Input[_builtins.str]]
+    bit_depth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
     """
-    bit_order: NotRequired[pulumi.Input[_builtins.str]]
+    bit_order: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
     """
-    profile: NotRequired[pulumi.Input[_builtins.str]]
+    profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
     """
-    signed: NotRequired[pulumi.Input[_builtins.str]]
+    signed: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
     """
@@ -522,10 +522,10 @@ class PresetAudioCodecOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class PresetAudioCodecOptionsArgs:
     def __init__(__self__, *,
-                 bit_depth: Optional[pulumi.Input[_builtins.str]] = None,
-                 bit_order: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 signed: Optional[pulumi.Input[_builtins.str]] = None):
+                 bit_depth: pulumi.Input[Optional[_builtins.str]] = None,
+                 bit_order: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 signed: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bit_depth: The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
         :param pulumi.Input[_builtins.str] bit_order: The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
@@ -543,83 +543,83 @@ class PresetAudioCodecOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="bitDepth")
-    def bit_depth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bit_depth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
         """
         return pulumi.get(self, "bit_depth")
 
     @bit_depth.setter
-    def bit_depth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bit_depth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bit_depth", value)
 
     @_builtins.property
     @pulumi.getter(name="bitOrder")
-    def bit_order(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bit_order(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
         """
         return pulumi.get(self, "bit_order")
 
     @bit_order.setter
-    def bit_order(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bit_order(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bit_order", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def signed(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signed(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
         """
         return pulumi.get(self, "signed")
 
     @signed.setter
-    def signed(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signed(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signed", value)
 
 
 class PresetThumbnailsArgsDict(TypedDict):
-    aspect_ratio: NotRequired[pulumi.Input[_builtins.str]]
+    aspect_ratio: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
     """
-    format: NotRequired[pulumi.Input[_builtins.str]]
+    format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The format of thumbnails, if any. Valid formats are jpg and png.
     """
-    interval: NotRequired[pulumi.Input[_builtins.str]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
     """
-    max_height: NotRequired[pulumi.Input[_builtins.str]]
+    max_height: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
     """
-    max_width: NotRequired[pulumi.Input[_builtins.str]]
+    max_width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
     """
-    padding_policy: NotRequired[pulumi.Input[_builtins.str]]
+    padding_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
     """
-    resolution: NotRequired[pulumi.Input[_builtins.str]]
+    resolution: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
     """
-    sizing_policy: NotRequired[pulumi.Input[_builtins.str]]
+    sizing_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
     """
@@ -627,14 +627,14 @@ class PresetThumbnailsArgsDict(TypedDict):
 @pulumi.input_type
 class PresetThumbnailsArgs:
     def __init__(__self__, *,
-                 aspect_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_height: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_width: Optional[pulumi.Input[_builtins.str]] = None,
-                 padding_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolution: Optional[pulumi.Input[_builtins.str]] = None,
-                 sizing_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 aspect_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_height: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_width: pulumi.Input[Optional[_builtins.str]] = None,
+                 padding_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolution: pulumi.Input[Optional[_builtins.str]] = None,
+                 sizing_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] aspect_ratio: The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
         :param pulumi.Input[_builtins.str] format: The format of thumbnails, if any. Valid formats are jpg and png.
@@ -664,151 +664,151 @@ class PresetThumbnailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="aspectRatio")
-    def aspect_ratio(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aspect_ratio(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
         """
         return pulumi.get(self, "aspect_ratio")
 
     @aspect_ratio.setter
-    def aspect_ratio(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aspect_ratio(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aspect_ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of thumbnails, if any. Valid formats are jpg and png.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="maxHeight")
-    def max_height(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_height(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
         """
         return pulumi.get(self, "max_height")
 
     @max_height.setter
-    def max_height(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_height(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_height", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWidth")
-    def max_width(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_width(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
         """
         return pulumi.get(self, "max_width")
 
     @max_width.setter
-    def max_width(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_width(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_width", value)
 
     @_builtins.property
     @pulumi.getter(name="paddingPolicy")
-    def padding_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def padding_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
         """
         return pulumi.get(self, "padding_policy")
 
     @padding_policy.setter
-    def padding_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def padding_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "padding_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def resolution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
         """
         return pulumi.get(self, "resolution")
 
     @resolution.setter
-    def resolution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="sizingPolicy")
-    def sizing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sizing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
         """
         return pulumi.get(self, "sizing_policy")
 
     @sizing_policy.setter
-    def sizing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sizing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sizing_policy", value)
 
 
 class PresetVideoArgsDict(TypedDict):
-    aspect_ratio: NotRequired[pulumi.Input[_builtins.str]]
+    aspect_ratio: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
     """
-    bit_rate: NotRequired[pulumi.Input[_builtins.str]]
+    bit_rate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
     """
-    codec: NotRequired[pulumi.Input[_builtins.str]]
+    codec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
     """
-    display_aspect_ratio: NotRequired[pulumi.Input[_builtins.str]]
+    display_aspect_ratio: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
     """
-    fixed_gop: NotRequired[pulumi.Input[_builtins.str]]
+    fixed_gop: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
     """
-    frame_rate: NotRequired[pulumi.Input[_builtins.str]]
+    frame_rate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
     """
-    keyframes_max_dist: NotRequired[pulumi.Input[_builtins.str]]
+    keyframes_max_dist: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum number of frames between key frames. Not applicable for containers of type gif.
     """
-    max_frame_rate: NotRequired[pulumi.Input[_builtins.str]]
+    max_frame_rate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
     """
-    max_height: NotRequired[pulumi.Input[_builtins.str]]
+    max_height: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
     """
-    max_width: NotRequired[pulumi.Input[_builtins.str]]
+    max_width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
     """
-    padding_policy: NotRequired[pulumi.Input[_builtins.str]]
+    padding_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
     """
-    resolution: NotRequired[pulumi.Input[_builtins.str]]
+    resolution: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
     """
-    sizing_policy: NotRequired[pulumi.Input[_builtins.str]]
+    sizing_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
     """
@@ -816,19 +816,19 @@ class PresetVideoArgsDict(TypedDict):
 @pulumi.input_type
 class PresetVideoArgs:
     def __init__(__self__, *,
-                 aspect_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-                 bit_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 codec: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_aspect_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-                 fixed_gop: Optional[pulumi.Input[_builtins.str]] = None,
-                 frame_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 keyframes_max_dist: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_frame_rate: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_height: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_width: Optional[pulumi.Input[_builtins.str]] = None,
-                 padding_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolution: Optional[pulumi.Input[_builtins.str]] = None,
-                 sizing_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 aspect_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+                 bit_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 codec: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_aspect_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+                 fixed_gop: pulumi.Input[Optional[_builtins.str]] = None,
+                 frame_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 keyframes_max_dist: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_frame_rate: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_height: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_width: pulumi.Input[Optional[_builtins.str]] = None,
+                 padding_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolution: pulumi.Input[Optional[_builtins.str]] = None,
+                 sizing_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] aspect_ratio: The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
         :param pulumi.Input[_builtins.str] bit_rate: The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
@@ -873,199 +873,199 @@ class PresetVideoArgs:
 
     @_builtins.property
     @pulumi.getter(name="aspectRatio")
-    def aspect_ratio(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aspect_ratio(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
         """
         return pulumi.get(self, "aspect_ratio")
 
     @aspect_ratio.setter
-    def aspect_ratio(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aspect_ratio(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aspect_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="bitRate")
-    def bit_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bit_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
         """
         return pulumi.get(self, "bit_rate")
 
     @bit_rate.setter
-    def bit_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bit_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bit_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def codec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def codec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
         """
         return pulumi.get(self, "codec")
 
     @codec.setter
-    def codec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def codec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "codec", value)
 
     @_builtins.property
     @pulumi.getter(name="displayAspectRatio")
-    def display_aspect_ratio(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_aspect_ratio(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
         """
         return pulumi.get(self, "display_aspect_ratio")
 
     @display_aspect_ratio.setter
-    def display_aspect_ratio(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_aspect_ratio(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_aspect_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="fixedGop")
-    def fixed_gop(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fixed_gop(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
         """
         return pulumi.get(self, "fixed_gop")
 
     @fixed_gop.setter
-    def fixed_gop(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fixed_gop(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fixed_gop", value)
 
     @_builtins.property
     @pulumi.getter(name="frameRate")
-    def frame_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frame_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
         """
         return pulumi.get(self, "frame_rate")
 
     @frame_rate.setter
-    def frame_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frame_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frame_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="keyframesMaxDist")
-    def keyframes_max_dist(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keyframes_max_dist(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of frames between key frames. Not applicable for containers of type gif.
         """
         return pulumi.get(self, "keyframes_max_dist")
 
     @keyframes_max_dist.setter
-    def keyframes_max_dist(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keyframes_max_dist(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keyframes_max_dist", value)
 
     @_builtins.property
     @pulumi.getter(name="maxFrameRate")
-    def max_frame_rate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_frame_rate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
         """
         return pulumi.get(self, "max_frame_rate")
 
     @max_frame_rate.setter
-    def max_frame_rate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_frame_rate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_frame_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="maxHeight")
-    def max_height(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_height(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
         """
         return pulumi.get(self, "max_height")
 
     @max_height.setter
-    def max_height(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_height(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_height", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWidth")
-    def max_width(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_width(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
         """
         return pulumi.get(self, "max_width")
 
     @max_width.setter
-    def max_width(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_width(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_width", value)
 
     @_builtins.property
     @pulumi.getter(name="paddingPolicy")
-    def padding_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def padding_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
         """
         return pulumi.get(self, "padding_policy")
 
     @padding_policy.setter
-    def padding_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def padding_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "padding_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def resolution(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
         """
         return pulumi.get(self, "resolution")
 
     @resolution.setter
-    def resolution(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolution(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="sizingPolicy")
-    def sizing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sizing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
         """
         return pulumi.get(self, "sizing_policy")
 
     @sizing_policy.setter
-    def sizing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sizing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sizing_policy", value)
 
 
 class PresetVideoWatermarkArgsDict(TypedDict):
-    horizontal_align: NotRequired[pulumi.Input[_builtins.str]]
+    horizontal_align: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
     """
-    horizontal_offset: NotRequired[pulumi.Input[_builtins.str]]
+    horizontal_offset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
     """
-    max_height: NotRequired[pulumi.Input[_builtins.str]]
+    max_height: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum height of the watermark.
     """
-    max_width: NotRequired[pulumi.Input[_builtins.str]]
+    max_width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum width of the watermark.
     """
-    opacity: NotRequired[pulumi.Input[_builtins.str]]
+    opacity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
     """
-    sizing_policy: NotRequired[pulumi.Input[_builtins.str]]
+    sizing_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
     """
-    vertical_align: NotRequired[pulumi.Input[_builtins.str]]
+    vertical_align: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
     """
-    vertical_offset: NotRequired[pulumi.Input[_builtins.str]]
+    vertical_offset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
     """
@@ -1073,16 +1073,16 @@ class PresetVideoWatermarkArgsDict(TypedDict):
 @pulumi.input_type
 class PresetVideoWatermarkArgs:
     def __init__(__self__, *,
-                 horizontal_align: Optional[pulumi.Input[_builtins.str]] = None,
-                 horizontal_offset: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_height: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_width: Optional[pulumi.Input[_builtins.str]] = None,
-                 opacity: Optional[pulumi.Input[_builtins.str]] = None,
-                 sizing_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 vertical_align: Optional[pulumi.Input[_builtins.str]] = None,
-                 vertical_offset: Optional[pulumi.Input[_builtins.str]] = None):
+                 horizontal_align: pulumi.Input[Optional[_builtins.str]] = None,
+                 horizontal_offset: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_height: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_width: pulumi.Input[Optional[_builtins.str]] = None,
+                 opacity: pulumi.Input[Optional[_builtins.str]] = None,
+                 sizing_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 vertical_align: pulumi.Input[Optional[_builtins.str]] = None,
+                 vertical_offset: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] horizontal_align: The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
         :param pulumi.Input[_builtins.str] horizontal_offset: The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
@@ -1118,122 +1118,122 @@ class PresetVideoWatermarkArgs:
 
     @_builtins.property
     @pulumi.getter(name="horizontalAlign")
-    def horizontal_align(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def horizontal_align(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
         """
         return pulumi.get(self, "horizontal_align")
 
     @horizontal_align.setter
-    def horizontal_align(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def horizontal_align(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "horizontal_align", value)
 
     @_builtins.property
     @pulumi.getter(name="horizontalOffset")
-    def horizontal_offset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def horizontal_offset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
         """
         return pulumi.get(self, "horizontal_offset")
 
     @horizontal_offset.setter
-    def horizontal_offset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def horizontal_offset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "horizontal_offset", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="maxHeight")
-    def max_height(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_height(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum height of the watermark.
         """
         return pulumi.get(self, "max_height")
 
     @max_height.setter
-    def max_height(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_height(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_height", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWidth")
-    def max_width(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_width(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum width of the watermark.
         """
         return pulumi.get(self, "max_width")
 
     @max_width.setter
-    def max_width(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_width(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_width", value)
 
     @_builtins.property
     @pulumi.getter
-    def opacity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def opacity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
         """
         return pulumi.get(self, "opacity")
 
     @opacity.setter
-    def opacity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def opacity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "opacity", value)
 
     @_builtins.property
     @pulumi.getter(name="sizingPolicy")
-    def sizing_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sizing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
         """
         return pulumi.get(self, "sizing_policy")
 
     @sizing_policy.setter
-    def sizing_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sizing_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sizing_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="verticalAlign")
-    def vertical_align(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vertical_align(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
         """
         return pulumi.get(self, "vertical_align")
 
     @vertical_align.setter
-    def vertical_align(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vertical_align(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vertical_align", value)
 
     @_builtins.property
     @pulumi.getter(name="verticalOffset")
-    def vertical_offset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vertical_offset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
         """
         return pulumi.get(self, "vertical_offset")
 
     @vertical_offset.setter
-    def vertical_offset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vertical_offset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vertical_offset", value)
 
 

@@ -25,9 +25,9 @@ class DeploymentArgs:
                  application_version: pulumi.Input[_builtins.int],
                  environment_id: pulumi.Input[_builtins.str],
                  start: pulumi.Input[_builtins.bool],
-                 force_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
+                 force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['DeploymentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
@@ -98,46 +98,46 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="forceStop")
-    def force_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "force_stop")
 
     @force_stop.setter
-    def force_stop(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_stop(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_stop", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DeploymentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DeploymentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DeploymentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DeploymentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.bool]] = None,
-                 timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.bool]] = None,
+                 timeouts: pulumi.Input[Optional['DeploymentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
 
@@ -166,89 +166,89 @@ class _DeploymentState:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application to deploy.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationVersion")
-    def application_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def application_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version to application to deploy
         """
         return pulumi.get(self, "application_version")
 
     @application_version.setter
-    def application_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def application_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "application_version", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
-    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Environment to deploy application to.
         """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
-    def environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="forceStop")
-    def force_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "force_stop")
 
     @force_stop.setter
-    def force_stop(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_stop(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_stop", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Start the application once deployed.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DeploymentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DeploymentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DeploymentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DeploymentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -258,13 +258,13 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.bool]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.bool]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
@@ -349,13 +349,13 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.bool]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.bool]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -391,14 +391,14 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            application_version: Optional[pulumi.Input[_builtins.int]] = None,
-            deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            force_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            start: Optional[pulumi.Input[_builtins.bool]] = None,
-            timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None) -> 'Deployment':
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            application_version: pulumi.Input[Optional[_builtins.int]] = None,
+            deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            start: pulumi.Input[Optional[_builtins.bool]] = None,
+            timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

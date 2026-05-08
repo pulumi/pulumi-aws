@@ -190,31 +190,31 @@ export interface ResourceLfTagsState {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a database resource. See below.
      */
-    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
+    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase | undefined>;
     /**
      * Set of LF-tags to attach to the resource. See below.
      *
      * Exactly one of the following is required:
      */
-    lfTags?: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
+    lfTags?: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a table resource. See below.
      */
-    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
+    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable | undefined>;
     /**
      * Configuration block for a table with columns resource. See below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns | undefined>;
 }
 
 /**
@@ -224,11 +224,11 @@ export interface ResourceLfTagsArgs {
     /**
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a database resource. See below.
      */
-    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
+    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase | undefined>;
     /**
      * Set of LF-tags to attach to the resource. See below.
      *
@@ -238,15 +238,15 @@ export interface ResourceLfTagsArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for a table resource. See below.
      */
-    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
+    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable | undefined>;
     /**
      * Configuration block for a table with columns resource. See below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns | undefined>;
 }

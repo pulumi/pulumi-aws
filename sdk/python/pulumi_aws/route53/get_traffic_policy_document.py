@@ -268,12 +268,12 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
         start_endpoint=pulumi.get(__ret__, 'start_endpoint'),
         start_rule=pulumi.get(__ret__, 'start_rule'),
         version=pulumi.get(__ret__, 'version'))
-def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']]]]] = None,
-                                       record_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       rules: Optional[pulumi.Input[Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']]]]] = None,
-                                       start_endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       start_rule: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_traffic_policy_document_output(endpoints: pulumi.Input[Optional[Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']]]]] = None,
+                                       record_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']]]]] = None,
+                                       start_endpoint: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       start_rule: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficPolicyDocumentResult]:
     """
     Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.

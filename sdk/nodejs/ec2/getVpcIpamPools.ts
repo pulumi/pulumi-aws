@@ -119,9 +119,9 @@ export interface GetVpcIpamPoolsOutputArgs {
      *
      * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolsFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -357,12 +357,12 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_policy_supported=pulumi.get(__ret__, 'vpc_endpoint_policy_supported'))
-def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']]]]] = None,
-                                    service: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    service_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    service_regions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                    service_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_vpc_endpoint_service_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']]]]] = None,
+                                    service: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    service_regions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                    service_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
     The VPC Endpoint Service data source details about a specific service that

@@ -180,9 +180,9 @@ def get_virtual_cluster(region: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_cluster_id=pulumi.get(__ret__, 'virtual_cluster_id'))
-def get_virtual_cluster_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                               virtual_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_cluster_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                               virtual_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
     Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.

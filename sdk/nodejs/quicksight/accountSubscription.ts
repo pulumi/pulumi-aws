@@ -228,89 +228,89 @@ export interface AccountSubscriptionState {
     /**
      * Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * Status of the Amazon QuickSight account's subscription.
      */
-    accountSubscriptionStatus?: pulumi.Input<string>;
+    accountSubscriptionStatus?: pulumi.Input<string | undefined>;
     /**
      * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      */
-    activeDirectoryName?: pulumi.Input<string>;
+    activeDirectoryName?: pulumi.Input<string | undefined>;
     /**
      * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      */
-    adminGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    adminGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Admin PRO group associated with your Active Directory or IAM Identity Center account.
      */
-    adminProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    adminProGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      */
-    authenticationMethod?: pulumi.Input<string>;
+    authenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
-    authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    authorGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Author PRO group associated with your Active Directory or IAM Identity Center account.
      */
-    authorProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    authorProGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    contactNumber?: pulumi.Input<string>;
+    contactNumber?: pulumi.Input<string | undefined>;
     /**
      * Active Directory ID that is associated with your Amazon QuickSight account.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    emailAddress?: pulumi.Input<string>;
+    emailAddress?: pulumi.Input<string | undefined>;
     /**
      * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
      */
-    iamIdentityCenterInstanceArn?: pulumi.Input<string>;
+    iamIdentityCenterInstanceArn?: pulumi.Input<string | undefined>;
     /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
      *
      * The following arguments are optional:
      */
-    notificationEmail?: pulumi.Input<string>;
+    notificationEmail?: pulumi.Input<string | undefined>;
     /**
      * Reader group associated with your Active Directory or IAM Identity Center account.
      */
-    readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readerGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Reader PRO group associated with your Active Directory or IAM Identity Center account.
      */
-    readerProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readerProGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
-    realm?: pulumi.Input<string>;
+    realm?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -324,15 +324,15 @@ export interface AccountSubscriptionArgs {
     /**
      * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      */
-    activeDirectoryName?: pulumi.Input<string>;
+    activeDirectoryName?: pulumi.Input<string | undefined>;
     /**
      * Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
      */
-    adminGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    adminGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Admin PRO group associated with your Active Directory or IAM Identity Center account.
      */
-    adminProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    adminProGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      */
@@ -340,23 +340,23 @@ export interface AccountSubscriptionArgs {
     /**
      * Author group associated with your Active Directory or IAM Identity Center account.
      */
-    authorGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    authorGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Author PRO group associated with your Active Directory or IAM Identity Center account.
      */
-    authorProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    authorProGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Pulumi AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    contactNumber?: pulumi.Input<string>;
+    contactNumber?: pulumi.Input<string | undefined>;
     /**
      * Active Directory ID that is associated with your Amazon QuickSight account.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
      */
@@ -364,19 +364,19 @@ export interface AccountSubscriptionArgs {
     /**
      * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    emailAddress?: pulumi.Input<string>;
+    emailAddress?: pulumi.Input<string | undefined>;
     /**
      * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
      */
-    iamIdentityCenterInstanceArn?: pulumi.Input<string>;
+    iamIdentityCenterInstanceArn?: pulumi.Input<string | undefined>;
     /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
      *
@@ -386,17 +386,17 @@ export interface AccountSubscriptionArgs {
     /**
      * Reader group associated with your Active Directory or IAM Identity Center account.
      */
-    readerGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readerGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Reader PRO group associated with your Active Directory or IAM Identity Center account.
      */
-    readerProGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    readerProGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
-    realm?: pulumi.Input<string>;
+    realm?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -318,21 +318,21 @@ export interface GetPrincipalPolicySimulationOutputArgs {
     /**
      * A set of additional principal policy documents to include in the simulation. The simulator will behave as if each of these policies were associated with the object specified in `policySourceArn`, allowing you to test the effect of hypothetical policies not yet created.
      */
-    additionalPoliciesJsons?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalPoliciesJsons?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN of an user that will appear as the "caller" of the simulated requests. If you do not specify `callerArn` then the simulation will use the `policySourceArn` instead, if it contains a user ARN.
      */
-    callerArn?: pulumi.Input<string>;
+    callerArn?: pulumi.Input<string | undefined>;
     /**
      * Each `context` block defines an entry in the table of additional context keys in the simulated request.
      *
      * IAM uses context keys for both custom conditions and for interpolating dynamic request-specific values into policy values. If you use policies that include those features then you will need to provide suitable example values for those keys to achieve a realistic simulation.
      */
-    contexts?: pulumi.Input<pulumi.Input<inputs.iam.GetPrincipalPolicySimulationContextArgs>[]>;
+    contexts?: pulumi.Input<pulumi.Input<inputs.iam.GetPrincipalPolicySimulationContextArgs>[] | undefined>;
     /**
      * A set of [permissions boundary policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to include in the simulation.
      */
-    permissionsBoundaryPoliciesJsons?: pulumi.Input<pulumi.Input<string>[]>;
+    permissionsBoundaryPoliciesJsons?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the IAM user, group, or role whose policies will be included in the simulation.
      *
@@ -346,21 +346,21 @@ export interface GetPrincipalPolicySimulationOutputArgs {
      *
      * The policy simulator only automatically loads policies associated with the `policySourceArn`, so if your given resources have their own resource-level policy then you'll also need to provide that explicitly using the `resourcePolicyJson` argument to achieve a realistic simulation.
      */
-    resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a special simulation type to run. Some EC2 actions require special simulation behaviors and a particular set of resource ARNs to achieve a realistic result.
      *
      * For more details, see the `ResourceHandlingOption` request parameter for [the underlying `iam:SimulatePrincipalPolicy` action](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html).
      */
-    resourceHandlingOption?: pulumi.Input<string>;
+    resourceHandlingOption?: pulumi.Input<string | undefined>;
     /**
      * An AWS account ID to use for any resource ARN in `resourceArns` that doesn't include its own AWS account ID. If unspecified, the simulator will use the account ID from the `callerArn` argument as a placeholder.
      */
-    resourceOwnerAccountId?: pulumi.Input<string>;
+    resourceOwnerAccountId?: pulumi.Input<string | undefined>;
     /**
      * An IAM policy document representing the resource-level policy of all of the resources specified in `resourceArns`.
      *
      * The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resourceArns` above.
      */
-    resourcePolicyJson?: pulumi.Input<string>;
+    resourcePolicyJson?: pulumi.Input<string | undefined>;
 }

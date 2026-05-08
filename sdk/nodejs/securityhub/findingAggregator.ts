@@ -175,19 +175,19 @@ export interface FindingAggregatorState {
     /**
      * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      */
-    linkingMode?: pulumi.Input<string>;
+    linkingMode?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      */
-    specifiedRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    specifiedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -201,9 +201,9 @@ export interface FindingAggregatorArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      */
-    specifiedRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    specifiedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

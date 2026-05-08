@@ -47,8 +47,8 @@ import (
 //						FromPort:       pulumi.Int(443),
 //						ToPort:         pulumi.Int(443),
 //						Protocol:       pulumi.String("tcp"),
-//						CidrBlocks:     interface{}(europeanEc2.CidrBlocks),
-//						Ipv6CidrBlocks: interface{}(europeanEc2.Ipv6CidrBlocks),
+//						CidrBlocks:     toPulumiStringArray(europeanEc2.CidrBlocks),
+//						Ipv6CidrBlocks: toPulumiStringArray(europeanEc2.Ipv6CidrBlocks),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -61,6 +61,14 @@ import (
 //			}
 //			return nil
 //		})
+//	}
+//
+//	func toPulumiStringArray(arr []string) pulumi.StringArray {
+//		var pulumiArr pulumi.StringArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.String(v))
+//		}
+//		return pulumiArr
 //	}
 //
 // ```

@@ -138,10 +138,10 @@ def get_instance_storage_config(association_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         storage_configs=pulumi.get(__ret__, 'storage_configs'))
-def get_instance_storage_config_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_storage_config_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceStorageConfigResult]:
     """
     Provides details about a specific Amazon Connect Instance Storage Config.

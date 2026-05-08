@@ -23,14 +23,14 @@ class RecommendationPreferencesArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[_builtins.str],
                  scope: pulumi.Input['RecommendationPreferencesScopeArgs'],
-                 enhanced_infrastructure_metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_metrics_preference: Optional[pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs']] = None,
-                 inferred_workload_types: Optional[pulumi.Input[_builtins.str]] = None,
-                 look_back_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
+                 enhanced_infrastructure_metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_metrics_preference: pulumi.Input[Optional['RecommendationPreferencesExternalMetricsPreferenceArgs']] = None,
+                 inferred_workload_types: pulumi.Input[Optional[_builtins.str]] = None,
+                 look_back_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_resources: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 savings_estimation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 utilization_preferences: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
         """
         The set of arguments for constructing a RecommendationPreferences resource.
 
@@ -90,114 +90,114 @@ class RecommendationPreferencesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enhancedInfrastructureMetrics")
-    def enhanced_infrastructure_metrics(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enhanced_infrastructure_metrics(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         """
         return pulumi.get(self, "enhanced_infrastructure_metrics")
 
     @enhanced_infrastructure_metrics.setter
-    def enhanced_infrastructure_metrics(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enhanced_infrastructure_metrics(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enhanced_infrastructure_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="externalMetricsPreference")
-    def external_metrics_preference(self) -> Optional[pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs']]:
+    def external_metrics_preference(self) -> pulumi.Input[Optional['RecommendationPreferencesExternalMetricsPreferenceArgs']]:
         """
         The provider of the external metrics recommendation preference. See External Metrics Preference below.
         """
         return pulumi.get(self, "external_metrics_preference")
 
     @external_metrics_preference.setter
-    def external_metrics_preference(self, value: Optional[pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs']]):
+    def external_metrics_preference(self, value: pulumi.Input[Optional['RecommendationPreferencesExternalMetricsPreferenceArgs']]):
         pulumi.set(self, "external_metrics_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="inferredWorkloadTypes")
-    def inferred_workload_types(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inferred_workload_types(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         """
         return pulumi.get(self, "inferred_workload_types")
 
     @inferred_workload_types.setter
-    def inferred_workload_types(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inferred_workload_types(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inferred_workload_types", value)
 
     @_builtins.property
     @pulumi.getter(name="lookBackPeriod")
-    def look_back_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def look_back_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         """
         return pulumi.get(self, "look_back_period")
 
     @look_back_period.setter
-    def look_back_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def look_back_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "look_back_period", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredResources")
-    def preferred_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]:
+    def preferred_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]:
         """
         The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         """
         return pulumi.get(self, "preferred_resources")
 
     @preferred_resources.setter
-    def preferred_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]):
+    def preferred_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]):
         pulumi.set(self, "preferred_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="savingsEstimationMode")
-    def savings_estimation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def savings_estimation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         """
         return pulumi.get(self, "savings_estimation_mode")
 
     @savings_estimation_mode.setter
-    def savings_estimation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def savings_estimation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "savings_estimation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="utilizationPreferences")
-    def utilization_preferences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]:
+    def utilization_preferences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]:
         """
         The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
         """
         return pulumi.get(self, "utilization_preferences")
 
     @utilization_preferences.setter
-    def utilization_preferences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]):
+    def utilization_preferences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]):
         pulumi.set(self, "utilization_preferences", value)
 
 
 @pulumi.input_type
 class _RecommendationPreferencesState:
     def __init__(__self__, *,
-                 enhanced_infrastructure_metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_metrics_preference: Optional[pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs']] = None,
-                 inferred_workload_types: Optional[pulumi.Input[_builtins.str]] = None,
-                 look_back_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['RecommendationPreferencesScopeArgs']] = None,
-                 utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
+                 enhanced_infrastructure_metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_metrics_preference: pulumi.Input[Optional['RecommendationPreferencesExternalMetricsPreferenceArgs']] = None,
+                 inferred_workload_types: pulumi.Input[Optional[_builtins.str]] = None,
+                 look_back_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_resources: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 savings_estimation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['RecommendationPreferencesScopeArgs']] = None,
+                 utilization_preferences: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
         """
         Input properties used for looking up and filtering RecommendationPreferences resources.
 
@@ -235,122 +235,122 @@ class _RecommendationPreferencesState:
 
     @_builtins.property
     @pulumi.getter(name="enhancedInfrastructureMetrics")
-    def enhanced_infrastructure_metrics(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enhanced_infrastructure_metrics(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         """
         return pulumi.get(self, "enhanced_infrastructure_metrics")
 
     @enhanced_infrastructure_metrics.setter
-    def enhanced_infrastructure_metrics(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enhanced_infrastructure_metrics(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enhanced_infrastructure_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="externalMetricsPreference")
-    def external_metrics_preference(self) -> Optional[pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs']]:
+    def external_metrics_preference(self) -> pulumi.Input[Optional['RecommendationPreferencesExternalMetricsPreferenceArgs']]:
         """
         The provider of the external metrics recommendation preference. See External Metrics Preference below.
         """
         return pulumi.get(self, "external_metrics_preference")
 
     @external_metrics_preference.setter
-    def external_metrics_preference(self, value: Optional[pulumi.Input['RecommendationPreferencesExternalMetricsPreferenceArgs']]):
+    def external_metrics_preference(self, value: pulumi.Input[Optional['RecommendationPreferencesExternalMetricsPreferenceArgs']]):
         pulumi.set(self, "external_metrics_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="inferredWorkloadTypes")
-    def inferred_workload_types(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inferred_workload_types(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         """
         return pulumi.get(self, "inferred_workload_types")
 
     @inferred_workload_types.setter
-    def inferred_workload_types(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inferred_workload_types(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inferred_workload_types", value)
 
     @_builtins.property
     @pulumi.getter(name="lookBackPeriod")
-    def look_back_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def look_back_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         """
         return pulumi.get(self, "look_back_period")
 
     @look_back_period.setter
-    def look_back_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def look_back_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "look_back_period", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredResources")
-    def preferred_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]:
+    def preferred_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]:
         """
         The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         """
         return pulumi.get(self, "preferred_resources")
 
     @preferred_resources.setter
-    def preferred_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]):
+    def preferred_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]]):
         pulumi.set(self, "preferred_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`, `AuroraDBClusterStorage`.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
     @_builtins.property
     @pulumi.getter(name="savingsEstimationMode")
-    def savings_estimation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def savings_estimation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         """
         return pulumi.get(self, "savings_estimation_mode")
 
     @savings_estimation_mode.setter
-    def savings_estimation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def savings_estimation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "savings_estimation_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['RecommendationPreferencesScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['RecommendationPreferencesScopeArgs']]:
         """
         The scope of the recommendation preferences. See Scope below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['RecommendationPreferencesScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['RecommendationPreferencesScopeArgs']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="utilizationPreferences")
-    def utilization_preferences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]:
+    def utilization_preferences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]:
         """
         The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
         """
         return pulumi.get(self, "utilization_preferences")
 
     @utilization_preferences.setter
-    def utilization_preferences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]):
+    def utilization_preferences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]]):
         pulumi.set(self, "utilization_preferences", value)
 
 
@@ -360,16 +360,16 @@ class RecommendationPreferences(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enhanced_infrastructure_metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_metrics_preference: Optional[pulumi.Input[Union['RecommendationPreferencesExternalMetricsPreferenceArgs', 'RecommendationPreferencesExternalMetricsPreferenceArgsDict']]] = None,
-                 inferred_workload_types: Optional[pulumi.Input[_builtins.str]] = None,
-                 look_back_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
-                 utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]]] = None,
+                 enhanced_infrastructure_metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_metrics_preference: pulumi.Input[Optional[Union['RecommendationPreferencesExternalMetricsPreferenceArgs', 'RecommendationPreferencesExternalMetricsPreferenceArgsDict']]] = None,
+                 inferred_workload_types: pulumi.Input[Optional[_builtins.str]] = None,
+                 look_back_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 savings_estimation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
+                 utilization_preferences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages AWS Compute Optimizer recommendation preferences.
@@ -513,16 +513,16 @@ class RecommendationPreferences(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enhanced_infrastructure_metrics: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_metrics_preference: Optional[pulumi.Input[Union['RecommendationPreferencesExternalMetricsPreferenceArgs', 'RecommendationPreferencesExternalMetricsPreferenceArgsDict']]] = None,
-                 inferred_workload_types: Optional[pulumi.Input[_builtins.str]] = None,
-                 look_back_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
-                 utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]]] = None,
+                 enhanced_infrastructure_metrics: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_metrics_preference: pulumi.Input[Optional[Union['RecommendationPreferencesExternalMetricsPreferenceArgs', 'RecommendationPreferencesExternalMetricsPreferenceArgsDict']]] = None,
+                 inferred_workload_types: pulumi.Input[Optional[_builtins.str]] = None,
+                 look_back_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 savings_estimation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
+                 utilization_preferences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -556,16 +556,16 @@ class RecommendationPreferences(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enhanced_infrastructure_metrics: Optional[pulumi.Input[_builtins.str]] = None,
-            external_metrics_preference: Optional[pulumi.Input[Union['RecommendationPreferencesExternalMetricsPreferenceArgs', 'RecommendationPreferencesExternalMetricsPreferenceArgsDict']]] = None,
-            inferred_workload_types: Optional[pulumi.Input[_builtins.str]] = None,
-            look_back_period: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_type: Optional[pulumi.Input[_builtins.str]] = None,
-            savings_estimation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            scope: Optional[pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
-            utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]]] = None) -> 'RecommendationPreferences':
+            enhanced_infrastructure_metrics: pulumi.Input[Optional[_builtins.str]] = None,
+            external_metrics_preference: pulumi.Input[Optional[Union['RecommendationPreferencesExternalMetricsPreferenceArgs', 'RecommendationPreferencesExternalMetricsPreferenceArgsDict']]] = None,
+            inferred_workload_types: pulumi.Input[Optional[_builtins.str]] = None,
+            look_back_period: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            savings_estimation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
+            utilization_preferences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RecommendationPreferencesUtilizationPreferenceArgs', 'RecommendationPreferencesUtilizationPreferenceArgsDict']]]]] = None) -> 'RecommendationPreferences':
         """
         Get an existing RecommendationPreferences resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

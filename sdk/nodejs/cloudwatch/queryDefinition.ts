@@ -124,23 +124,23 @@ export interface QueryDefinitionState {
     /**
      * Specific log groups to use with the query.
      */
-    logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    logGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the query.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query definition ID.
      */
-    queryDefinitionId?: pulumi.Input<string>;
+    queryDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
-    queryString?: pulumi.Input<string>;
+    queryString?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,11 +150,11 @@ export interface QueryDefinitionArgs {
     /**
      * Specific log groups to use with the query.
      */
-    logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    logGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the query.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
@@ -162,5 +162,5 @@ export interface QueryDefinitionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

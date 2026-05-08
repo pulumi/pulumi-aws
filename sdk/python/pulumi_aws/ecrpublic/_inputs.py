@@ -22,27 +22,27 @@ __all__ = [
 ]
 
 class RepositoryCatalogDataArgsDict(TypedDict):
-    about_text: NotRequired[pulumi.Input[_builtins.str]]
+    about_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
     """
-    architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    architectures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
     """
-    logo_image_blob: NotRequired[pulumi.Input[_builtins.str]]
+    logo_image_blob: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
     """
-    operating_systems: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    operating_systems: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
     """
-    usage_text: NotRequired[pulumi.Input[_builtins.str]]
+    usage_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
     """
@@ -50,12 +50,12 @@ class RepositoryCatalogDataArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryCatalogDataArgs:
     def __init__(__self__, *,
-                 about_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_image_blob: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_systems: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 usage_text: Optional[pulumi.Input[_builtins.str]] = None):
+                 about_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_image_blob: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_systems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 usage_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] about_text: A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] architectures: The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
@@ -79,74 +79,74 @@ class RepositoryCatalogDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="aboutText")
-    def about_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def about_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
         """
         return pulumi.get(self, "about_text")
 
     @about_text.setter
-    def about_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def about_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "about_text", value)
 
     @_builtins.property
     @pulumi.getter
-    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def architectures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
         """
         return pulumi.get(self, "architectures")
 
     @architectures.setter
-    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def architectures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "architectures", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="logoImageBlob")
-    def logo_image_blob(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_image_blob(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
         """
         return pulumi.get(self, "logo_image_blob")
 
     @logo_image_blob.setter
-    def logo_image_blob(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_image_blob(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_image_blob", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingSystems")
-    def operating_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def operating_systems(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
         """
         return pulumi.get(self, "operating_systems")
 
     @operating_systems.setter
-    def operating_systems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def operating_systems(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "operating_systems", value)
 
     @_builtins.property
     @pulumi.getter(name="usageText")
-    def usage_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
         """
         return pulumi.get(self, "usage_text")
 
     @usage_text.setter
-    def usage_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage_text", value)
 
 

@@ -241,57 +241,57 @@ export interface AlarmMuteRuleState {
     /**
      * ARN of the Alarm Mute Rule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the alarm mute rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule expires. Seconds must be set to `00` (e.g., `2026-12-31T23:59:00Z`). Must not be set when using `at()` expressions.
      */
-    expireDate?: pulumi.Input<string>;
+    expireDate?: pulumi.Input<string | undefined>;
     /**
      * Timestamp of when the mute rule was last updated.
      */
-    lastUpdatedTimestamp?: pulumi.Input<string>;
+    lastUpdatedTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Alarms to mute. See `muteTargets` block below for details.
      */
-    muteTargets?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleMuteTargets>;
+    muteTargets?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleMuteTargets | undefined>;
     /**
      * Indicates whether the mute rule is one-time or recurring. Valid values are `ONE_TIME` or `RECURRING`. See [Alarm mute rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-mute-rules.html) for details.
      */
-    muteType?: pulumi.Input<string>;
+    muteType?: pulumi.Input<string | undefined>;
     /**
      * Name of the alarm mute rule. Changing this forces a new resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Rule definition for the mute rule. See `rule` block below for details.
      *
      * The following arguments are optional:
      */
-    rule?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleRule>;
+    rule?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleRule | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule becomes active. Seconds must be set to `00` (e.g., `2026-01-01T00:00:00Z`). Must not be set when using `at()` expressions.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * Current status of the mute rule. Valid values are `SCHEDULED`, `ACTIVE`, or `EXPIRED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -301,35 +301,35 @@ export interface AlarmMuteRuleArgs {
     /**
      * Description of the alarm mute rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule expires. Seconds must be set to `00` (e.g., `2026-12-31T23:59:00Z`). Must not be set when using `at()` expressions.
      */
-    expireDate?: pulumi.Input<string>;
+    expireDate?: pulumi.Input<string | undefined>;
     /**
      * Alarms to mute. See `muteTargets` block below for details.
      */
-    muteTargets?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleMuteTargets>;
+    muteTargets?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleMuteTargets | undefined>;
     /**
      * Name of the alarm mute rule. Changing this forces a new resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Rule definition for the mute rule. See `rule` block below for details.
      *
      * The following arguments are optional:
      */
-    rule?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleRule>;
+    rule?: pulumi.Input<inputs.cloudwatch.AlarmMuteRuleRule | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the mute rule becomes active. Seconds must be set to `00` (e.g., `2026-01-01T00:00:00Z`). Must not be set when using `at()` expressions.
      */
-    startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

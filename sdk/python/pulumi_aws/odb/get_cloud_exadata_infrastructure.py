@@ -581,8 +581,8 @@ def get_cloud_exadata_infrastructure(id: Optional[_builtins.str] = None,
         storage_server_version=pulumi.get(__ret__, 'storage_server_version'),
         tags=pulumi.get(__ret__, 'tags'),
         total_storage_size_in_gbs=pulumi.get(__ret__, 'total_storage_size_in_gbs'))
-def get_cloud_exadata_infrastructure_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cloud_exadata_infrastructure_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudExadataInfrastructureResult]:
     """
     Data source for exadata infrastructure resource in AWS for Oracle Database@AWS.

@@ -23,9 +23,9 @@ class CentralizationRuleForOrganizationArgs:
     def __init__(__self__, *,
                  rule: pulumi.Input['CentralizationRuleForOrganizationRuleArgs'],
                  rule_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CentralizationRuleForOrganization resource.
 
@@ -73,48 +73,48 @@ class CentralizationRuleForOrganizationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _CentralizationRuleForOrganizationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']] = None,
-                 rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleArgs']] = None,
+                 rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering CentralizationRuleForOrganization resources.
 
@@ -144,19 +144,19 @@ class _CentralizationRuleForOrganizationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']]:
+    def rule(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleArgs']]:
         """
         Configuration block for the centralization rule. See `rule` below.
 
@@ -165,64 +165,64 @@ class _CentralizationRuleForOrganizationState:
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationRuleArgs']]):
+    def rule(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleArgs']]):
         pulumi.set(self, "rule", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleArn")
-    def rule_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the centralization rule.
         """
         return pulumi.get(self, "rule_arn")
 
     @rule_arn.setter
-    def rule_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the centralization rule. Must be unique within the organization.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CentralizationRuleForOrganizationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -232,11 +232,11 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Centralization Rule For Organization.
@@ -520,11 +520,11 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -555,13 +555,13 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            rule: Optional[pulumi.Input[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
-            rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None) -> 'CentralizationRuleForOrganization':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
+            rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None) -> 'CentralizationRuleForOrganization':
         """
         Get an existing CentralizationRuleForOrganization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -123,21 +123,21 @@ export interface GetDirectConnectGatewayAttachmentOutputArgs {
     /**
      * Identifier of the Direct Connect Gateway.
      */
-    dxGatewayId?: pulumi.Input<string>;
+    dxGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier of the EC2 Transit Gateway.
      */
-    transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string | undefined>;
 }

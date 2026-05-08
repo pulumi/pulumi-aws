@@ -52,15 +52,15 @@ __all__ = [
 ]
 
 class ClusterClusterNodeArgsDict(TypedDict):
-    node_role: NotRequired[pulumi.Input[_builtins.str]]
+    node_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether the node is a leader node or a compute node
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The private IP address of a node within a cluster
     """
-    public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    public_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The public IP address of a node within a cluster
     """
@@ -68,9 +68,9 @@ class ClusterClusterNodeArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterClusterNodeArgs:
     def __init__(__self__, *,
-                 node_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 node_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] node_role: Whether the node is a leader node or a compute node
         :param pulumi.Input[_builtins.str] private_ip_address: The private IP address of a node within a cluster
@@ -85,51 +85,51 @@ class ClusterClusterNodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="nodeRole")
-    def node_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the node is a leader node or a compute node
         """
         return pulumi.get(self, "node_role")
 
     @node_role.setter
-    def node_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_role", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private IP address of a node within a cluster
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The public IP address of a node within a cluster
         """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
-    def public_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_address", value)
 
 
 class EndpointAccessVpcEndpointArgsDict(TypedDict):
-    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]]
     """
     One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
     """
-    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
     """
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The VPC identifier that the endpoint is associated.
     """
@@ -137,9 +137,9 @@ class EndpointAccessVpcEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointAccessVpcEndpointArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
@@ -154,55 +154,55 @@ class EndpointAccessVpcEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]:
         """
         One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC identifier that the endpoint is associated.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
 class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone.
     """
-    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The network interface identifier.
     """
-    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    private_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv4 address of the network interface within the subnet.
     """
-    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subnet identifier.
     """
@@ -210,10 +210,10 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointAccessVpcEndpointNetworkInterfaceArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface identifier.
@@ -231,59 +231,59 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The network interface identifier.
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address of the network interface within the subnet.
         """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subnet identifier.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
 
 
 class IdcApplicationAuthorizedTokenIssuerArgsDict(TypedDict):
-    authorized_audiences_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    authorized_audiences_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
     """
-    trusted_token_issuer_arn: NotRequired[pulumi.Input[_builtins.str]]
+    trusted_token_issuer_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
     """
@@ -291,8 +291,8 @@ class IdcApplicationAuthorizedTokenIssuerArgsDict(TypedDict):
 @pulumi.input_type
 class IdcApplicationAuthorizedTokenIssuerArgs:
     def __init__(__self__, *,
-                 authorized_audiences_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trusted_token_issuer_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 authorized_audiences_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trusted_token_issuer_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_audiences_lists: List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
         :param pulumi.Input[_builtins.str] trusted_token_issuer_arn: ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
@@ -304,39 +304,39 @@ class IdcApplicationAuthorizedTokenIssuerArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizedAudiencesLists")
-    def authorized_audiences_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authorized_audiences_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
         """
         return pulumi.get(self, "authorized_audiences_lists")
 
     @authorized_audiences_lists.setter
-    def authorized_audiences_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authorized_audiences_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorized_audiences_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedTokenIssuerArn")
-    def trusted_token_issuer_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_token_issuer_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
         """
         return pulumi.get(self, "trusted_token_issuer_arn")
 
     @trusted_token_issuer_arn.setter
-    def trusted_token_issuer_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_token_issuer_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_token_issuer_arn", value)
 
 
 class IdcApplicationServiceIntegrationArgsDict(TypedDict):
-    lake_formation: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgsDict']]
+    lake_formation: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationArgs']]]
     """
     List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
     """
-    redshift: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgsDict']]
+    redshift: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftArgs']]]
     """
     List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
     """
-    s3_access_grants: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgsDict']]
+    s3_access_grants: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsArgs']]]
     """
     List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
     """
@@ -344,9 +344,9 @@ class IdcApplicationServiceIntegrationArgsDict(TypedDict):
 @pulumi.input_type
 class IdcApplicationServiceIntegrationArgs:
     def __init__(__self__, *,
-                 lake_formation: Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgs']] = None,
-                 redshift: Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgs']] = None,
-                 s3_access_grants: Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgs']] = None):
+                 lake_formation: pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationArgs']] = None,
+                 redshift: pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftArgs']] = None,
+                 s3_access_grants: pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsArgs']] = None):
         """
         :param pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgs'] lake_formation: List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
         :param pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgs'] redshift: List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
@@ -361,43 +361,43 @@ class IdcApplicationServiceIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="lakeFormation")
-    def lake_formation(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgs']]:
+    def lake_formation(self) -> pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationArgs']]:
         """
         List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
         """
         return pulumi.get(self, "lake_formation")
 
     @lake_formation.setter
-    def lake_formation(self, value: Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgs']]):
+    def lake_formation(self, value: pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationArgs']]):
         pulumi.set(self, "lake_formation", value)
 
     @_builtins.property
     @pulumi.getter
-    def redshift(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgs']]:
+    def redshift(self) -> pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftArgs']]:
         """
         List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
         """
         return pulumi.get(self, "redshift")
 
     @redshift.setter
-    def redshift(self, value: Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgs']]):
+    def redshift(self, value: pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftArgs']]):
         pulumi.set(self, "redshift", value)
 
     @_builtins.property
     @pulumi.getter(name="s3AccessGrants")
-    def s3_access_grants(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgs']]:
+    def s3_access_grants(self) -> pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsArgs']]:
         """
         List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
         """
         return pulumi.get(self, "s3_access_grants")
 
     @s3_access_grants.setter
-    def s3_access_grants(self, value: Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgs']]):
+    def s3_access_grants(self, value: pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsArgs']]):
         pulumi.set(self, "s3_access_grants", value)
 
 
 class IdcApplicationServiceIntegrationLakeFormationArgsDict(TypedDict):
-    lake_formation_query: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict']]
+    lake_formation_query: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']]]
     """
     Lake formation scope.
     """
@@ -405,7 +405,7 @@ class IdcApplicationServiceIntegrationLakeFormationArgsDict(TypedDict):
 @pulumi.input_type
 class IdcApplicationServiceIntegrationLakeFormationArgs:
     def __init__(__self__, *,
-                 lake_formation_query: Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']] = None):
+                 lake_formation_query: pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']] = None):
         """
         :param pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs'] lake_formation_query: Lake formation scope.
         """
@@ -414,14 +414,14 @@ class IdcApplicationServiceIntegrationLakeFormationArgs:
 
     @_builtins.property
     @pulumi.getter(name="lakeFormationQuery")
-    def lake_formation_query(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']]:
+    def lake_formation_query(self) -> pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']]:
         """
         Lake formation scope.
         """
         return pulumi.get(self, "lake_formation_query")
 
     @lake_formation_query.setter
-    def lake_formation_query(self, value: Optional[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']]):
+    def lake_formation_query(self, value: pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']]):
         pulumi.set(self, "lake_formation_query", value)
 
 
@@ -454,7 +454,7 @@ class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs:
 
 
 class IdcApplicationServiceIntegrationRedshiftArgsDict(TypedDict):
-    connect: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgsDict']]
+    connect: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftConnectArgs']]]
     """
     Amazon Redshift connect service integration scope.
     """
@@ -462,7 +462,7 @@ class IdcApplicationServiceIntegrationRedshiftArgsDict(TypedDict):
 @pulumi.input_type
 class IdcApplicationServiceIntegrationRedshiftArgs:
     def __init__(__self__, *,
-                 connect: Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgs']] = None):
+                 connect: pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftConnectArgs']] = None):
         """
         :param pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgs'] connect: Amazon Redshift connect service integration scope.
         """
@@ -471,14 +471,14 @@ class IdcApplicationServiceIntegrationRedshiftArgs:
 
     @_builtins.property
     @pulumi.getter
-    def connect(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgs']]:
+    def connect(self) -> pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftConnectArgs']]:
         """
         Amazon Redshift connect service integration scope.
         """
         return pulumi.get(self, "connect")
 
     @connect.setter
-    def connect(self, value: Optional[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgs']]):
+    def connect(self, value: pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftConnectArgs']]):
         pulumi.set(self, "connect", value)
 
 
@@ -511,7 +511,7 @@ class IdcApplicationServiceIntegrationRedshiftConnectArgs:
 
 
 class IdcApplicationServiceIntegrationS3AccessGrantsArgsDict(TypedDict):
-    read_write_access: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict']]
+    read_write_access: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']]]
     """
     S3 Access grants integration scope.
     """
@@ -519,7 +519,7 @@ class IdcApplicationServiceIntegrationS3AccessGrantsArgsDict(TypedDict):
 @pulumi.input_type
 class IdcApplicationServiceIntegrationS3AccessGrantsArgs:
     def __init__(__self__, *,
-                 read_write_access: Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']] = None):
+                 read_write_access: pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']] = None):
         """
         :param pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs'] read_write_access: S3 Access grants integration scope.
         """
@@ -528,14 +528,14 @@ class IdcApplicationServiceIntegrationS3AccessGrantsArgs:
 
     @_builtins.property
     @pulumi.getter(name="readWriteAccess")
-    def read_write_access(self) -> Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']]:
+    def read_write_access(self) -> pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']]:
         """
         S3 Access grants integration scope.
         """
         return pulumi.get(self, "read_write_access")
 
     @read_write_access.setter
-    def read_write_access(self, value: Optional[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']]):
+    def read_write_access(self, value: pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']]):
         pulumi.set(self, "read_write_access", value)
 
 
@@ -568,15 +568,15 @@ class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs:
 
 
 class IntegrationTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -584,9 +584,9 @@ class IntegrationTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -601,38 +601,38 @@ class IntegrationTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -684,15 +684,15 @@ class ParameterGroupParameterArgs:
 
 
 class ScheduledActionTargetActionArgsDict(TypedDict):
-    pause_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionPauseClusterArgsDict']]
+    pause_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionPauseClusterArgs']]]
     """
     An action that runs a `PauseCluster` API operation. Documented below.
     """
-    resize_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResizeClusterArgsDict']]
+    resize_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionResizeClusterArgs']]]
     """
     An action that runs a `ResizeCluster` API operation. Documented below.
     """
-    resume_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResumeClusterArgsDict']]
+    resume_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionResumeClusterArgs']]]
     """
     An action that runs a `ResumeCluster` API operation. Documented below.
     """
@@ -700,9 +700,9 @@ class ScheduledActionTargetActionArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduledActionTargetActionArgs:
     def __init__(__self__, *,
-                 pause_cluster: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']] = None,
-                 resize_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']] = None,
-                 resume_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']] = None):
+                 pause_cluster: pulumi.Input[Optional['ScheduledActionTargetActionPauseClusterArgs']] = None,
+                 resize_cluster: pulumi.Input[Optional['ScheduledActionTargetActionResizeClusterArgs']] = None,
+                 resume_cluster: pulumi.Input[Optional['ScheduledActionTargetActionResumeClusterArgs']] = None):
         """
         :param pulumi.Input['ScheduledActionTargetActionPauseClusterArgs'] pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
         :param pulumi.Input['ScheduledActionTargetActionResizeClusterArgs'] resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
@@ -717,38 +717,38 @@ class ScheduledActionTargetActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="pauseCluster")
-    def pause_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]:
+    def pause_cluster(self) -> pulumi.Input[Optional['ScheduledActionTargetActionPauseClusterArgs']]:
         """
         An action that runs a `PauseCluster` API operation. Documented below.
         """
         return pulumi.get(self, "pause_cluster")
 
     @pause_cluster.setter
-    def pause_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]):
+    def pause_cluster(self, value: pulumi.Input[Optional['ScheduledActionTargetActionPauseClusterArgs']]):
         pulumi.set(self, "pause_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="resizeCluster")
-    def resize_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]:
+    def resize_cluster(self) -> pulumi.Input[Optional['ScheduledActionTargetActionResizeClusterArgs']]:
         """
         An action that runs a `ResizeCluster` API operation. Documented below.
         """
         return pulumi.get(self, "resize_cluster")
 
     @resize_cluster.setter
-    def resize_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]):
+    def resize_cluster(self, value: pulumi.Input[Optional['ScheduledActionTargetActionResizeClusterArgs']]):
         pulumi.set(self, "resize_cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="resumeCluster")
-    def resume_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]:
+    def resume_cluster(self) -> pulumi.Input[Optional['ScheduledActionTargetActionResumeClusterArgs']]:
         """
         An action that runs a `ResumeCluster` API operation. Documented below.
         """
         return pulumi.get(self, "resume_cluster")
 
     @resume_cluster.setter
-    def resume_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]):
+    def resume_cluster(self, value: pulumi.Input[Optional['ScheduledActionTargetActionResumeClusterArgs']]):
         pulumi.set(self, "resume_cluster", value)
 
 
@@ -785,19 +785,19 @@ class ScheduledActionTargetActionResizeClusterArgsDict(TypedDict):
     """
     The unique identifier for the cluster to resize.
     """
-    classic: NotRequired[pulumi.Input[_builtins.bool]]
+    classic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
     """
-    cluster_type: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The new cluster type for the specified cluster.
     """
-    node_type: NotRequired[pulumi.Input[_builtins.str]]
+    node_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The new node type for the nodes you are adding.
     """
-    number_of_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    number_of_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The new number of nodes for the cluster.
     """
@@ -806,10 +806,10 @@ class ScheduledActionTargetActionResizeClusterArgsDict(TypedDict):
 class ScheduledActionTargetActionResizeClusterArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[_builtins.str],
-                 classic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[_builtins.int]] = None):
+                 classic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_identifier: The unique identifier for the cluster to resize.
         :param pulumi.Input[_builtins.bool] classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
@@ -841,50 +841,50 @@ class ScheduledActionTargetActionResizeClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def classic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def classic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
         """
         return pulumi.get(self, "classic")
 
     @classic.setter
-    def classic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def classic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "classic", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The new cluster type for the specified cluster.
         """
         return pulumi.get(self, "cluster_type")
 
     @cluster_type.setter
-    def cluster_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_type", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeType")
-    def node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The new node type for the nodes you are adding.
         """
         return pulumi.get(self, "node_type")
 
     @node_type.setter
-    def node_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_type", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The new number of nodes for the cluster.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_nodes", value)
 
 

@@ -112,9 +112,9 @@ def get_tracker_association(consumer_arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         tracker_name=pulumi.get(__ret__, 'tracker_name'))
-def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   tracker_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tracker_association_output(consumer_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   tracker_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackerAssociationResult]:
     """
     Retrieve information about a Location Service Tracker Association.

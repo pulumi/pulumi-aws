@@ -366,14 +366,14 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[_builtins.str] = None,
         storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                db_cluster_snapshot_identifier: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                include_public: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                include_shared: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                snapshot_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_cluster_snapshot_output(db_cluster_identifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                db_cluster_snapshot_identifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                include_public: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                include_shared: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                snapshot_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterSnapshotResult]:
     """
     Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.

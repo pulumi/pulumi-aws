@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *     clusterId: config?.cache?.clusterId,
  *     engine: config?.cache?.engine,
  *     nodeType: config?.cache?.nodeType,
- *     numCacheNodes: config?.cache?.nodes,
+ *     numCacheNodes: Number(config?.cache?.nodes),
  *     parameterGroupName: config?.cache?.parameterGroup,
  *     tags: config?.tags,
  * });
@@ -177,7 +177,7 @@ export interface GetInvocationResult {
  *     clusterId: config?.cache?.clusterId,
  *     engine: config?.cache?.engine,
  *     nodeType: config?.cache?.nodeType,
- *     numCacheNodes: config?.cache?.nodes,
+ *     numCacheNodes: Number(config?.cache?.nodes),
  *     parameterGroupName: config?.cache?.parameterGroup,
  *     tags: config?.tags,
  * });
@@ -211,13 +211,13 @@ export interface GetInvocationOutputArgs {
     /**
      * Qualifier (a.k.a version) of the Lambda function. Defaults to `$LATEST`.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tenant Id to serve invocations from specified tenant.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

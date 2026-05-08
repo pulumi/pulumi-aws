@@ -309,63 +309,63 @@ export interface MaintenanceWindowTaskState {
     /**
      * The ARN of the maintenance window task.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
      */
-    cutoffBehavior?: pulumi.Input<string>;
+    cutoffBehavior?: pulumi.Input<string | undefined>;
     /**
      * The description of the maintenance window task.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string | undefined>;
     /**
      * The name of the maintenance window task.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
-    serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[] | undefined>;
     /**
      * The ARN of the task to execute.
      */
-    taskArn?: pulumi.Input<string>;
+    taskArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with parameters for task execution.
      */
-    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
+    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
-    taskType?: pulumi.Input<string>;
+    taskType?: pulumi.Input<string | undefined>;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    windowId?: pulumi.Input<string>;
+    windowId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the maintenance window task.
      */
-    windowTaskId?: pulumi.Input<string>;
+    windowTaskId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -375,39 +375,39 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
      */
-    cutoffBehavior?: pulumi.Input<string>;
+    cutoffBehavior?: pulumi.Input<string | undefined>;
     /**
      * The description of the maintenance window task.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string | undefined>;
     /**
      * The name of the maintenance window task.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
-    serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[] | undefined>;
     /**
      * The ARN of the task to execute.
      */
@@ -415,7 +415,7 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * Configuration block with parameters for task execution.
      */
-    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
+    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */

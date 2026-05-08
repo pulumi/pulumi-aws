@@ -201,9 +201,9 @@ def get_service_network(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         service_network_identifier=pulumi.get(__ret__, 'service_network_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_network_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_service_network_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               service_network_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResult]:
     """
     Data source for managing an AWS VPC Lattice Service Network.

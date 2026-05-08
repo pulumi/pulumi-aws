@@ -331,64 +331,64 @@ export interface PlanState {
     /**
      * ARN of the plan.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
      */
-    associatedAlarms?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarm>[]>;
+    associatedAlarms?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarm>[] | undefined>;
     /**
      * Description of the plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that ARC Region Switch will assume to execute the plan.
      */
-    executionRole?: pulumi.Input<string>;
+    executionRole?: pulumi.Input<string | undefined>;
     /**
      * Name of the plan. Must be unique within the account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Primary region for the plan.
      */
-    primaryRegion?: pulumi.Input<string>;
+    primaryRegion?: pulumi.Input<string | undefined>;
     /**
      * Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
      */
-    recoveryApproach?: pulumi.Input<string>;
+    recoveryApproach?: pulumi.Input<string | undefined>;
     /**
      * Recovery time objective in minutes.
      */
-    recoveryTimeObjectiveMinutes?: pulumi.Input<number>;
+    recoveryTimeObjectiveMinutes?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      *
      * @deprecated This attribute will be removed in a future version of the provider.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS regions involved in the plan.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts | undefined>;
     /**
      * Set of triggers that can initiate the plan execution. See Triggers below.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[] | undefined>;
     /**
      * List of workflows that define the steps to execute. See Workflow below.
      *
      * The following arguments are optional:
      */
-    workflows?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflow>[]>;
+    workflows?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflow>[] | undefined>;
 }
 
 /**
@@ -398,11 +398,11 @@ export interface PlanArgs {
     /**
      * Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
      */
-    associatedAlarms?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarm>[]>;
+    associatedAlarms?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarm>[] | undefined>;
     /**
      * Description of the plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that ARC Region Switch will assume to execute the plan.
      */
@@ -410,11 +410,11 @@ export interface PlanArgs {
     /**
      * Name of the plan. Must be unique within the account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Primary region for the plan.
      */
-    primaryRegion?: pulumi.Input<string>;
+    primaryRegion?: pulumi.Input<string | undefined>;
     /**
      * Recovery approach for the plan. Valid values: `activeActive`, `activePassive`.
      */
@@ -422,13 +422,13 @@ export interface PlanArgs {
     /**
      * Recovery time objective in minutes.
      */
-    recoveryTimeObjectiveMinutes?: pulumi.Input<number>;
+    recoveryTimeObjectiveMinutes?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      *
      * @deprecated This attribute will be removed in a future version of the provider.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS regions involved in the plan.
      */
@@ -436,16 +436,16 @@ export interface PlanArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts | undefined>;
     /**
      * Set of triggers that can initiate the plan execution. See Triggers below.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[] | undefined>;
     /**
      * List of workflows that define the steps to execute. See Workflow below.
      *
      * The following arguments are optional:
      */
-    workflows?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflow>[]>;
+    workflows?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflow>[] | undefined>;
 }

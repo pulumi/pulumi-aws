@@ -239,30 +239,30 @@ export interface CentralizationRuleForOrganizationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the centralization rule. See `rule` below.
      *
      * The following arguments are optional:
      */
-    rule?: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationRule>;
+    rule?: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationRule | undefined>;
     /**
      * ARN of the centralization rule.
      */
-    ruleArn?: pulumi.Input<string>;
+    ruleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the centralization rule. Must be unique within the organization.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationTimeouts | undefined>;
 }
 
 /**
@@ -272,7 +272,7 @@ export interface CentralizationRuleForOrganizationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the centralization rule. See `rule` below.
      *
@@ -286,6 +286,6 @@ export interface CentralizationRuleForOrganizationArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationTimeouts | undefined>;
 }

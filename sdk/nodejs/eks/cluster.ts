@@ -543,125 +543,125 @@ export interface ClusterState {
     /**
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      */
-    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
+    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig | undefined>;
     /**
      * ARN of the cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
      */
-    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean | undefined>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
+    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority | undefined>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
-    computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig>;
+    computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig | undefined>;
     /**
      * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
      */
-    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfig>;
+    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfig | undefined>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      */
-    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
+    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
-    enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block with encryption configuration for the cluster. Detailed below.
      */
-    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig | undefined>;
     /**
      * Endpoint for your Kubernetes API server.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
      */
-    forceUpdateVersion?: pulumi.Input<boolean>;
+    forceUpdateVersion?: pulumi.Input<boolean | undefined>;
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
-    identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[]>;
+    identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[] | undefined>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      */
-    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
+    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig | undefined>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
-    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
+    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig | undefined>;
     /**
      * Platform version for the cluster.
      */
-    platformVersion?: pulumi.Input<string>;
+    platformVersion?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */
-    remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfig>;
+    remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfig | undefined>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
      */
-    storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfig>;
+    storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfig | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
      */
-    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy>;
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy | undefined>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
      *
      * The following arguments are optional:
      */
-    vpcConfig?: pulumi.Input<inputs.eks.ClusterVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.eks.ClusterVpcConfig | undefined>;
     /**
      * Configuration block with zonal shift configuration for the cluster. Detailed below.
      */
-    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfig>;
+    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfig | undefined>;
 }
 
 /**
@@ -671,59 +671,59 @@ export interface ClusterArgs {
     /**
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      */
-    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
+    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig | undefined>;
     /**
      * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
      */
-    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
-    computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig>;
+    computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig | undefined>;
     /**
      * Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
      */
-    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfig>;
+    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfig | undefined>;
     /**
      * @deprecated Configure bootstrapSelfManagedAddons instead. This attribute will be removed in the next major version of the provider
      */
-    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
+    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
-    enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block with encryption configuration for the cluster. Detailed below.
      */
-    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig | undefined>;
     /**
      * Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
      */
-    forceUpdateVersion?: pulumi.Input<boolean>;
+    forceUpdateVersion?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      */
-    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
+    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig | undefined>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
-    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
+    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */
-    remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfig>;
+    remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfig | undefined>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
@@ -731,19 +731,19 @@ export interface ClusterArgs {
     /**
      * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
      */
-    storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfig>;
+    storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfig | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
      */
-    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy>;
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy | undefined>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
      *
@@ -753,5 +753,5 @@ export interface ClusterArgs {
     /**
      * Configuration block with zonal shift configuration for the cluster. Detailed below.
      */
-    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfig>;
+    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfig | undefined>;
 }

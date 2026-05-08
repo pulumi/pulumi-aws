@@ -149,25 +149,25 @@ export interface GetOpenZfsSnapshotOutputArgs {
      * One or more name/value pairs to filter off of. The
      * supported names are file-system-id or volume-id.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOpenZfsSnapshotFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOpenZfsSnapshotFilterArgs>[] | undefined>;
     /**
      * If more than one result is returned, use the most recent snapshot.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the snapshot.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Returns information on a specific snapshot_id.
      */
-    snapshotIds?: pulumi.Input<pulumi.Input<string>[]>;
+    snapshotIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Tag values, with a maximum of 50 elements.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

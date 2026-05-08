@@ -183,41 +183,41 @@ export interface InstanceFleetState {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for instance fleet
      */
-    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
+    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[] | undefined>;
     /**
      * Configuration block for launch specification
      */
-    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
+    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications | undefined>;
     /**
      * Friendly name given to the instance fleet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of On-Demand units that have been provisioned for the instance
      * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
      */
-    provisionedOnDemandCapacity?: pulumi.Input<number>;
+    provisionedOnDemandCapacity?: pulumi.Input<number | undefined>;
     /**
      * The number of Spot units that have been provisioned for this instance fleet
      * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
      */
-    provisionedSpotCapacity?: pulumi.Input<number>;
+    provisionedSpotCapacity?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */
-    targetOnDemandCapacity?: pulumi.Input<number>;
+    targetOnDemandCapacity?: pulumi.Input<number | undefined>;
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      */
-    targetSpotCapacity?: pulumi.Input<number>;
+    targetSpotCapacity?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -231,25 +231,25 @@ export interface InstanceFleetArgs {
     /**
      * Configuration block for instance fleet
      */
-    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
+    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[] | undefined>;
     /**
      * Configuration block for launch specification
      */
-    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
+    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications | undefined>;
     /**
      * Friendly name given to the instance fleet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */
-    targetOnDemandCapacity?: pulumi.Input<number>;
+    targetOnDemandCapacity?: pulumi.Input<number | undefined>;
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      */
-    targetSpotCapacity?: pulumi.Input<number>;
+    targetSpotCapacity?: pulumi.Input<number | undefined>;
 }

@@ -23,14 +23,14 @@ class GlobalReplicationGroupArgs:
     def __init__(__self__, *,
                  global_replication_group_id_suffix: pulumi.Input[_builtins.str],
                  primary_replication_group_id: pulumi.Input[_builtins.str],
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
 
@@ -108,7 +108,7 @@ class GlobalReplicationGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_failover_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
@@ -116,12 +116,12 @@ class GlobalReplicationGroupArgs:
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
-    def automatic_failover_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_failover_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_failover_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeType")
-    def cache_node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instance class used.
         See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
@@ -131,12 +131,12 @@ class GlobalReplicationGroupArgs:
         return pulumi.get(self, "cache_node_type")
 
     @cache_node_type.setter
-    def cache_node_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_node_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cache engine to be used for the clusters in this global replication group.
         When creating, by default the Global Replication Group inherits the engine of the primary replication group.
@@ -147,12 +147,12 @@ class GlobalReplicationGroupArgs:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Engine version to use for the Global Replication Group.
         When creating, by default the Global Replication Group inherits the version of the primary replication group.
@@ -166,36 +166,36 @@ class GlobalReplicationGroupArgs:
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupDescription")
-    def global_replication_group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_replication_group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-created description for the global replication group.
         """
         return pulumi.get(self, "global_replication_group_description")
 
     @global_replication_group_description.setter
-    def global_replication_group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_replication_group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_replication_group_description", value)
 
     @_builtins.property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_node_groups(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of node groups (shards) on the global replication group.
         """
         return pulumi.get(self, "num_node_groups")
 
     @num_node_groups.setter
-    def num_node_groups(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_node_groups(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_node_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ElastiCache Parameter Group to use for the Global Replication Group.
         Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
@@ -205,43 +205,43 @@ class GlobalReplicationGroupArgs:
         return pulumi.get(self, "parameter_group_name")
 
     @parameter_group_name.setter
-    def parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _GlobalReplicationGroupState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 at_rest_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_token_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version_actual: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]] = None,
-                 global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_token_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_node_groups: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]] = None,
+                 global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalReplicationGroup resources.
 
@@ -322,43 +322,43 @@ class _GlobalReplicationGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the ElastiCache Global Replication Group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def at_rest_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that indicate whether the encryption at rest is enabled.
         """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
     @at_rest_encryption_enabled.setter
-    def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def at_rest_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "at_rest_encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="authTokenEnabled")
-    def auth_token_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auth_token_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that indicate whether AuthToken (password) is enabled.
         """
         return pulumi.get(self, "auth_token_enabled")
 
     @auth_token_enabled.setter
-    def auth_token_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auth_token_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auth_token_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_failover_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
@@ -366,12 +366,12 @@ class _GlobalReplicationGroupState:
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
-    def automatic_failover_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_failover_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_failover_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeType")
-    def cache_node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instance class used.
         See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
@@ -381,24 +381,24 @@ class _GlobalReplicationGroupState:
         return pulumi.get(self, "cache_node_type")
 
     @cache_node_type.setter
-    def cache_node_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_node_type", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterEnabled")
-    def cluster_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cluster_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Global Datastore is cluster enabled.
         """
         return pulumi.get(self, "cluster_enabled")
 
     @cluster_enabled.setter
-    def cluster_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cluster_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cluster_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cache engine to be used for the clusters in this global replication group.
         When creating, by default the Global Replication Group inherits the engine of the primary replication group.
@@ -409,12 +409,12 @@ class _GlobalReplicationGroupState:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Engine version to use for the Global Replication Group.
         When creating, by default the Global Replication Group inherits the version of the primary replication group.
@@ -428,24 +428,24 @@ class _GlobalReplicationGroupState:
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersionActual")
-    def engine_version_actual(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version_actual(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full version number of the cache engine running on the members of this global replication group.
         """
         return pulumi.get(self, "engine_version_actual")
 
     @engine_version_actual.setter
-    def engine_version_actual(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version_actual(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version_actual", value)
 
     @_builtins.property
     @pulumi.getter(name="globalNodeGroups")
-    def global_node_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]:
+    def global_node_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]:
         """
         Set of node groups (shards) on the global replication group.
         Has the values:
@@ -453,60 +453,60 @@ class _GlobalReplicationGroupState:
         return pulumi.get(self, "global_node_groups")
 
     @global_node_groups.setter
-    def global_node_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]):
+    def global_node_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]):
         pulumi.set(self, "global_node_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupDescription")
-    def global_replication_group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_replication_group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-created description for the global replication group.
         """
         return pulumi.get(self, "global_replication_group_description")
 
     @global_replication_group_description.setter
-    def global_replication_group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_replication_group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_replication_group_description", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupId")
-    def global_replication_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_replication_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full ID of the global replication group.
         """
         return pulumi.get(self, "global_replication_group_id")
 
     @global_replication_group_id.setter
-    def global_replication_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_replication_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_replication_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
-    def global_replication_group_id_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_replication_group_id_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         """
         return pulumi.get(self, "global_replication_group_id_suffix")
 
     @global_replication_group_id_suffix.setter
-    def global_replication_group_id_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_replication_group_id_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_replication_group_id_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="numNodeGroups")
-    def num_node_groups(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def num_node_groups(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of node groups (shards) on the global replication group.
         """
         return pulumi.get(self, "num_node_groups")
 
     @num_node_groups.setter
-    def num_node_groups(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def num_node_groups(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "num_node_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterGroupName")
-    def parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ElastiCache Parameter Group to use for the Global Replication Group.
         Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
@@ -516,43 +516,43 @@ class _GlobalReplicationGroupState:
         return pulumi.get(self, "parameter_group_name")
 
     @parameter_group_name.setter
-    def parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryReplicationGroupId")
-    def primary_replication_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_replication_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         """
         return pulumi.get(self, "primary_replication_group_id")
 
     @primary_replication_group_id.setter
-    def primary_replication_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_replication_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_replication_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def transit_encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag that indicates whether the encryption in transit is enabled.
         """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @transit_encryption_enabled.setter
-    def transit_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def transit_encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "transit_encryption_enabled", value)
 
 
@@ -562,16 +562,16 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
@@ -773,16 +773,16 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+                 parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -824,24 +824,24 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            at_rest_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            auth_token_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            engine: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_version_actual: Optional[pulumi.Input[_builtins.str]] = None,
-            global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict']]]]] = None,
-            global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-            global_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            global_replication_group_id_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            num_node_groups: Optional[pulumi.Input[_builtins.int]] = None,
-            parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'GlobalReplicationGroup':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            at_rest_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_token_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            engine: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_version_actual: pulumi.Input[Optional[_builtins.str]] = None,
+            global_node_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict']]]]] = None,
+            global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+            global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
+            parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GlobalReplicationGroup':
         """
         Get an existing GlobalReplicationGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.Index.GetAvailabilityZones.Invoke(new()
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
     ///         State = "available",
     ///     });

@@ -191,9 +191,9 @@ def get_report_plan(name: Optional[_builtins.str] = None,
         report_delivery_channels=pulumi.get(__ret__, 'report_delivery_channels'),
         report_settings=pulumi.get(__ret__, 'report_settings'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_report_plan_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_report_plan_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportPlanResult]:
     """
     Use this data source to get information on an existing backup report plan.

@@ -140,9 +140,9 @@ def get_bucket_object_lock_configuration(bucket: Optional[_builtins.str] = None,
         object_lock_enabled=pulumi.get(__ret__, 'object_lock_enabled'),
         region=pulumi.get(__ret__, 'region'),
         rules=pulumi.get(__ret__, 'rules'))
-def get_bucket_object_lock_configuration_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                                                expected_bucket_owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_bucket_object_lock_configuration_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                                                expected_bucket_owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketObjectLockConfigurationResult]:
     """
     Provides details about an AWS S3 (Simple Storage) Bucket Object Lock Configuration.

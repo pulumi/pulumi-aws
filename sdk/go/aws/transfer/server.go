@@ -219,7 +219,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			transfer, err := cloudwatch.NewLogGroup(ctx, "transfer", &cloudwatch.LogGroupArgs{
+//			transfer2, err := cloudwatch.NewLogGroup(ctx, "transfer", &cloudwatch.LogGroupArgs{
 //				NamePrefix: pulumi.String("transfer_test_"),
 //			})
 //			if err != nil {
@@ -263,7 +263,7 @@ import (
 //					pulumi.String("SFTP"),
 //				},
 //				StructuredLogDestinations: pulumi.StringArray{
-//					transfer.Arn.ApplyT(func(arn string) (string, error) {
+//					transfer2.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v:*", arn), nil
 //					}).(pulumi.StringOutput),
 //				},

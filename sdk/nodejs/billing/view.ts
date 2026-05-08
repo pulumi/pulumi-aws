@@ -185,66 +185,66 @@ export interface ViewState {
     /**
      * ARN of the View.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
      */
-    billingViewType?: pulumi.Input<string>;
+    billingViewType?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the billing view was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
      */
-    dataFilterExpression?: pulumi.Input<inputs.billing.ViewDataFilterExpression>;
+    dataFilterExpression?: pulumi.Input<inputs.billing.ViewDataFilterExpression | undefined>;
     /**
      * Number of billing views that use this billing view as a source.
      */
-    derivedViewCount?: pulumi.Input<number>;
+    derivedViewCount?: pulumi.Input<number | undefined>;
     /**
      * Description of the custom billing view.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the custom billing view to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Account owner of the billing view.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID that owns the source billing view, if this is a derived billing view.
      */
-    sourceAccountId?: pulumi.Input<string>;
+    sourceAccountId?: pulumi.Input<string | undefined>;
     /**
      * Number of source views associated with this billing view.
      */
-    sourceViewCount?: pulumi.Input<number>;
+    sourceViewCount?: pulumi.Input<number | undefined>;
     /**
      * List of ARNs of the source data views for the custom billing view.
      *
      * The following arguments are optional:
      */
-    sourceViews?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceViews?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of key value map specifying tags associated to the billing view being created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * List of key value map specifying tags associated to the billing view.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.billing.ViewTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.billing.ViewTimeouts | undefined>;
     /**
      * Time when the billing view was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
     /**
      * Timestamp of when the billing view definition was last updated.
      */
-    viewDefinitionLastUpdatedAt?: pulumi.Input<string>;
+    viewDefinitionLastUpdatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -254,24 +254,24 @@ export interface ViewArgs {
     /**
      * Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
      */
-    dataFilterExpression?: pulumi.Input<inputs.billing.ViewDataFilterExpression>;
+    dataFilterExpression?: pulumi.Input<inputs.billing.ViewDataFilterExpression | undefined>;
     /**
      * Description of the custom billing view.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the custom billing view to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of ARNs of the source data views for the custom billing view.
      *
      * The following arguments are optional:
      */
-    sourceViews?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceViews?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of key value map specifying tags associated to the billing view being created.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.billing.ViewTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.billing.ViewTimeouts | undefined>;
 }

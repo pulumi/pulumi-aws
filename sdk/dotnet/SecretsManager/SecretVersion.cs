@@ -75,7 +75,7 @@ namespace Pulumi.Aws.SecretsManager
     /// {
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
-    ///         ["example"] = Std.Index.Jsondecode.Invoke(new()
+    ///         ["example"] = Std.Jsondecode.Invoke(new()
     ///         {
     ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
     ///         }).Apply(invoke =&gt; invoke.Result?.Key1),

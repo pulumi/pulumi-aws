@@ -22,14 +22,14 @@ __all__ = ['GlossaryTermArgs', 'GlossaryTerm']
 class GlossaryTermArgs:
     def __init__(__self__, *,
                  glossary_identifier: pulumi.Input[_builtins.str],
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_relations: Optional[pulumi.Input['GlossaryTermTermRelationsArgs']] = None,
-                 timeouts: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']] = None):
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_relations: pulumi.Input[Optional['GlossaryTermTermRelationsArgs']] = None,
+                 timeouts: pulumi.Input[Optional['GlossaryTermTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a GlossaryTerm resource.
 
@@ -76,31 +76,31 @@ class GlossaryTermArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
-    def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of domain.
         """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
-    def domain_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="longDescription")
-    def long_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def long_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Long description of entry.
         """
         return pulumi.get(self, "long_description")
 
     @long_description.setter
-    def long_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def long_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "long_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of glossary term.
 
@@ -109,81 +109,81 @@ class GlossaryTermArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="shortDescription")
-    def short_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def short_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short description of entry.
         """
         return pulumi.get(self, "short_description")
 
     @short_description.setter
-    def short_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def short_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "short_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If glossary term is ENABLED or DISABLED.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="termRelations")
-    def term_relations(self) -> Optional[pulumi.Input['GlossaryTermTermRelationsArgs']]:
+    def term_relations(self) -> pulumi.Input[Optional['GlossaryTermTermRelationsArgs']]:
         """
         Object classifying the term relations through the following attributes:
         """
         return pulumi.get(self, "term_relations")
 
     @term_relations.setter
-    def term_relations(self, value: Optional[pulumi.Input['GlossaryTermTermRelationsArgs']]):
+    def term_relations(self, value: pulumi.Input[Optional['GlossaryTermTermRelationsArgs']]):
         pulumi.set(self, "term_relations", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['GlossaryTermTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['GlossaryTermTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['GlossaryTermTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _GlossaryTermState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 glossary_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_relations: Optional[pulumi.Input['GlossaryTermTermRelationsArgs']] = None,
-                 timeouts: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 glossary_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_relations: pulumi.Input[Optional['GlossaryTermTermRelationsArgs']] = None,
+                 timeouts: pulumi.Input[Optional['GlossaryTermTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering GlossaryTerm resources.
 
@@ -225,67 +225,67 @@ class _GlossaryTermState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time of glossary term creation.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creator of glossary term.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
-    def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of domain.
         """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
-    def domain_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="glossaryIdentifier")
-    def glossary_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def glossary_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of glossary.
         """
         return pulumi.get(self, "glossary_identifier")
 
     @glossary_identifier.setter
-    def glossary_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def glossary_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glossary_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="longDescription")
-    def long_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def long_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Long description of entry.
         """
         return pulumi.get(self, "long_description")
 
     @long_description.setter
-    def long_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def long_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "long_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of glossary term.
 
@@ -294,64 +294,64 @@ class _GlossaryTermState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="shortDescription")
-    def short_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def short_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Short description of entry.
         """
         return pulumi.get(self, "short_description")
 
     @short_description.setter
-    def short_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def short_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "short_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If glossary term is ENABLED or DISABLED.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="termRelations")
-    def term_relations(self) -> Optional[pulumi.Input['GlossaryTermTermRelationsArgs']]:
+    def term_relations(self) -> pulumi.Input[Optional['GlossaryTermTermRelationsArgs']]:
         """
         Object classifying the term relations through the following attributes:
         """
         return pulumi.get(self, "term_relations")
 
     @term_relations.setter
-    def term_relations(self, value: Optional[pulumi.Input['GlossaryTermTermRelationsArgs']]):
+    def term_relations(self, value: pulumi.Input[Optional['GlossaryTermTermRelationsArgs']]):
         pulumi.set(self, "term_relations", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['GlossaryTermTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['GlossaryTermTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['GlossaryTermTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['GlossaryTermTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -361,15 +361,15 @@ class GlossaryTerm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 glossary_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_relations: Optional[pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 glossary_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Glossary Term.
@@ -573,15 +573,15 @@ class GlossaryTerm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 glossary_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 long_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 short_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 term_relations: Optional[pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 glossary_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 long_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 short_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -614,17 +614,17 @@ class GlossaryTerm(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            glossary_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            long_description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            short_description: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            term_relations: Optional[pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
-            timeouts: Optional[pulumi.Input[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None) -> 'GlossaryTerm':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            glossary_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            long_description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            short_description: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            term_relations: pulumi.Input[Optional[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['GlossaryTermTimeoutsArgs', 'GlossaryTermTimeoutsArgsDict']]] = None) -> 'GlossaryTerm':
         """
         Get an existing GlossaryTerm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

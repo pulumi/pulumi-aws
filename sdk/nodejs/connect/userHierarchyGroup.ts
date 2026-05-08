@@ -182,44 +182,44 @@ export interface UserHierarchyGroupState {
     /**
      * The Amazon Resource Name (ARN) of the hierarchy group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the hierarchy group.
      */
-    hierarchyGroupId?: pulumi.Input<string>;
+    hierarchyGroupId?: pulumi.Input<string | undefined>;
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      */
-    hierarchyPaths?: pulumi.Input<pulumi.Input<inputs.connect.UserHierarchyGroupHierarchyPath>[]>;
+    hierarchyPaths?: pulumi.Input<pulumi.Input<inputs.connect.UserHierarchyGroupHierarchyPath>[] | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the level in the hierarchy group.
      */
-    levelId?: pulumi.Input<string>;
+    levelId?: pulumi.Input<string | undefined>;
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      */
-    parentGroupId?: pulumi.Input<string>;
+    parentGroupId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -233,18 +233,18 @@ export interface UserHierarchyGroupArgs {
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      */
-    parentGroupId?: pulumi.Input<string>;
+    parentGroupId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the hierarchy group. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

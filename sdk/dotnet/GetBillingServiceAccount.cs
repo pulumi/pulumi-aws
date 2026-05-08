@@ -24,7 +24,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = Aws.Index.GetBillingServiceAccount.Invoke();
+        ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
         ///     var billingLogs = new Aws.S3.Bucket("billing_logs", new()
         ///     {
@@ -116,7 +116,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = Aws.Index.GetBillingServiceAccount.Invoke();
+        ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
         ///     var billingLogs = new Aws.S3.Bucket("billing_logs", new()
         ///     {
@@ -208,7 +208,7 @@ namespace Pulumi.Aws
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var main = Aws.Index.GetBillingServiceAccount.Invoke();
+        ///     var main = Aws.GetBillingServiceAccount.Invoke();
         /// 
         ///     var billingLogs = new Aws.S3.Bucket("billing_logs", new()
         ///     {

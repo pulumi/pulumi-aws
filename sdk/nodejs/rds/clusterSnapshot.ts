@@ -198,73 +198,73 @@ export interface ClusterSnapshotState {
     /**
      * Allocated storage size in gigabytes (GB).
      */
-    allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number | undefined>;
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The DB Cluster Identifier from which to take the snapshot.
      */
-    dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      */
-    dbClusterSnapshotArn?: pulumi.Input<string>;
+    dbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The Identifier for the snapshot.
      */
-    dbClusterSnapshotIdentifier?: pulumi.Input<string>;
+    dbClusterSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the database engine.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Version of the database engine for this DB cluster snapshot.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * License model information for the restored DB cluster.
      */
-    licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string | undefined>;
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    snapshotType?: pulumi.Input<string>;
-    sourceDbClusterSnapshotArn?: pulumi.Input<string>;
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    snapshotType?: pulumi.Input<string | undefined>;
+    sourceDbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The status of this DB Cluster Snapshot.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Whether the DB cluster snapshot is encrypted.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -282,13 +282,13 @@ export interface ClusterSnapshotArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -115,5 +115,5 @@ export interface GetSiteOutputArgs {
     /**
      * Key-value tags for the Site.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

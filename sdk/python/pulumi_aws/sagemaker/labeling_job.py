@@ -27,11 +27,11 @@ class LabelingJobArgs:
                  labeling_job_name: pulumi.Input[_builtins.str],
                  output_config: pulumi.Input['LabelingJobOutputConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 label_category_config_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 labeling_job_algorithms_config: Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 labeling_job_algorithms_config: pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LabelingJob resource.
 
@@ -138,85 +138,85 @@ class LabelingJobArgs:
 
     @_builtins.property
     @pulumi.getter(name="labelCategoryConfigS3Uri")
-    def label_category_config_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_category_config_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI of the file that defines the categories used to label the data objects.
         """
         return pulumi.get(self, "label_category_config_s3_uri")
 
     @label_category_config_s3_uri.setter
-    def label_category_config_s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_category_config_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_category_config_s3_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="labelingJobAlgorithmsConfig")
-    def labeling_job_algorithms_config(self) -> Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']]:
+    def labeling_job_algorithms_config(self) -> pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigArgs']]:
         """
         Information required to perform automated data labeling.. Fields are documented below.
         """
         return pulumi.get(self, "labeling_job_algorithms_config")
 
     @labeling_job_algorithms_config.setter
-    def labeling_job_algorithms_config(self, value: Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']]):
+    def labeling_job_algorithms_config(self, value: pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigArgs']]):
         pulumi.set(self, "labeling_job_algorithms_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppingConditions")
-    def stopping_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]:
+    def stopping_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]:
         """
         Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
         """
         return pulumi.get(self, "stopping_conditions")
 
     @stopping_conditions.setter
-    def stopping_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]):
+    def stopping_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]):
         pulumi.set(self, "stopping_conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _LabelingJobState:
     def __init__(__self__, *,
-                 failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 human_task_config: Optional[pulumi.Input['LabelingJobHumanTaskConfigArgs']] = None,
-                 input_config: Optional[pulumi.Input['LabelingJobInputConfigArgs']] = None,
-                 job_reference_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_attribute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_category_config_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_counters: Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobLabelCounterArgs']]]] = None,
-                 labeling_job_algorithms_config: Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']] = None,
-                 labeling_job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 labeling_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 labeling_job_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_config: Optional[pulumi.Input['LabelingJobOutputConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 human_task_config: pulumi.Input[Optional['LabelingJobHumanTaskConfigArgs']] = None,
+                 input_config: pulumi.Input[Optional['LabelingJobInputConfigArgs']] = None,
+                 job_reference_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_counters: pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobLabelCounterArgs']]]] = None,
+                 labeling_job_algorithms_config: pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigArgs']] = None,
+                 labeling_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 labeling_job_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional['LabelingJobOutputConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LabelingJob resources.
 
@@ -275,206 +275,206 @@ class _LabelingJobState:
 
     @_builtins.property
     @pulumi.getter(name="failureReason")
-    def failure_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the job failed, the reason that it failed.
         """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
-    def failure_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="humanTaskConfig")
-    def human_task_config(self) -> Optional[pulumi.Input['LabelingJobHumanTaskConfigArgs']]:
+    def human_task_config(self) -> pulumi.Input[Optional['LabelingJobHumanTaskConfigArgs']]:
         """
         Configuration information required for human workers to complete a labeling task. Fields are documented below.
         """
         return pulumi.get(self, "human_task_config")
 
     @human_task_config.setter
-    def human_task_config(self, value: Optional[pulumi.Input['LabelingJobHumanTaskConfigArgs']]):
+    def human_task_config(self, value: pulumi.Input[Optional['LabelingJobHumanTaskConfigArgs']]):
         pulumi.set(self, "human_task_config", value)
 
     @_builtins.property
     @pulumi.getter(name="inputConfig")
-    def input_config(self) -> Optional[pulumi.Input['LabelingJobInputConfigArgs']]:
+    def input_config(self) -> pulumi.Input[Optional['LabelingJobInputConfigArgs']]:
         """
         Input data for the labeling job. Fields are documented below.
         """
         return pulumi.get(self, "input_config")
 
     @input_config.setter
-    def input_config(self, value: Optional[pulumi.Input['LabelingJobInputConfigArgs']]):
+    def input_config(self, value: pulumi.Input[Optional['LabelingJobInputConfigArgs']]):
         pulumi.set(self, "input_config", value)
 
     @_builtins.property
     @pulumi.getter(name="jobReferenceCode")
-    def job_reference_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_reference_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for work done as part of a labeling job.
         """
         return pulumi.get(self, "job_reference_code")
 
     @job_reference_code.setter
-    def job_reference_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_reference_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_reference_code", value)
 
     @_builtins.property
     @pulumi.getter(name="labelAttributeName")
-    def label_attribute_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_attribute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Attribute name to use for the label in the output manifest file.
         """
         return pulumi.get(self, "label_attribute_name")
 
     @label_attribute_name.setter
-    def label_attribute_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_attribute_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labelCategoryConfigS3Uri")
-    def label_category_config_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label_category_config_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI of the file that defines the categories used to label the data objects.
         """
         return pulumi.get(self, "label_category_config_s3_uri")
 
     @label_category_config_s3_uri.setter
-    def label_category_config_s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label_category_config_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label_category_config_s3_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="labelCounters")
-    def label_counters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobLabelCounterArgs']]]]:
+    def label_counters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobLabelCounterArgs']]]]:
         """
         A breakdown of the number of objects labeled.
         """
         return pulumi.get(self, "label_counters")
 
     @label_counters.setter
-    def label_counters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobLabelCounterArgs']]]]):
+    def label_counters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobLabelCounterArgs']]]]):
         pulumi.set(self, "label_counters", value)
 
     @_builtins.property
     @pulumi.getter(name="labelingJobAlgorithmsConfig")
-    def labeling_job_algorithms_config(self) -> Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']]:
+    def labeling_job_algorithms_config(self) -> pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigArgs']]:
         """
         Information required to perform automated data labeling.. Fields are documented below.
         """
         return pulumi.get(self, "labeling_job_algorithms_config")
 
     @labeling_job_algorithms_config.setter
-    def labeling_job_algorithms_config(self, value: Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']]):
+    def labeling_job_algorithms_config(self, value: pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigArgs']]):
         pulumi.set(self, "labeling_job_algorithms_config", value)
 
     @_builtins.property
     @pulumi.getter(name="labelingJobArn")
-    def labeling_job_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def labeling_job_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the labeling job.
         """
         return pulumi.get(self, "labeling_job_arn")
 
     @labeling_job_arn.setter
-    def labeling_job_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def labeling_job_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "labeling_job_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="labelingJobName")
-    def labeling_job_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def labeling_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the labeling job.
         """
         return pulumi.get(self, "labeling_job_name")
 
     @labeling_job_name.setter
-    def labeling_job_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def labeling_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "labeling_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labelingJobStatus")
-    def labeling_job_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def labeling_job_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Processing status of the labeling job.
         """
         return pulumi.get(self, "labeling_job_status")
 
     @labeling_job_status.setter
-    def labeling_job_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def labeling_job_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "labeling_job_status", value)
 
     @_builtins.property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> Optional[pulumi.Input['LabelingJobOutputConfigArgs']]:
+    def output_config(self) -> pulumi.Input[Optional['LabelingJobOutputConfigArgs']]:
         """
         Location of the output data. Fields are documented below.
         """
         return pulumi.get(self, "output_config")
 
     @output_config.setter
-    def output_config(self, value: Optional[pulumi.Input['LabelingJobOutputConfigArgs']]):
+    def output_config(self, value: pulumi.Input[Optional['LabelingJobOutputConfigArgs']]):
         pulumi.set(self, "output_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppingConditions")
-    def stopping_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]:
+    def stopping_conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]:
         """
         Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
         """
         return pulumi.get(self, "stopping_conditions")
 
     @stopping_conditions.setter
-    def stopping_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]):
+    def stopping_conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]]):
         pulumi.set(self, "stopping_conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -484,17 +484,17 @@ class LabelingJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 human_task_config: Optional[pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
-                 input_config: Optional[pulumi.Input[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
-                 label_attribute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_category_config_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 labeling_job_algorithms_config: Optional[pulumi.Input[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
-                 labeling_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_config: Optional[pulumi.Input[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
+                 input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
+                 label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
+                 labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manage an Amazon SageMaker labeling job.
@@ -635,17 +635,17 @@ class LabelingJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 human_task_config: Optional[pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
-                 input_config: Optional[pulumi.Input[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
-                 label_attribute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 label_category_config_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 labeling_job_algorithms_config: Optional[pulumi.Input[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
-                 labeling_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_config: Optional[pulumi.Input[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
+                 input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
+                 label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
+                 labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -694,23 +694,23 @@ class LabelingJob(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            failure_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            human_task_config: Optional[pulumi.Input[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
-            input_config: Optional[pulumi.Input[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
-            job_reference_code: Optional[pulumi.Input[_builtins.str]] = None,
-            label_attribute_name: Optional[pulumi.Input[_builtins.str]] = None,
-            label_category_config_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            label_counters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobLabelCounterArgs', 'LabelingJobLabelCounterArgsDict']]]]] = None,
-            labeling_job_algorithms_config: Optional[pulumi.Input[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
-            labeling_job_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            labeling_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-            labeling_job_status: Optional[pulumi.Input[_builtins.str]] = None,
-            output_config: Optional[pulumi.Input[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            stopping_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LabelingJob':
+            failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            human_task_config: pulumi.Input[Optional[Union['LabelingJobHumanTaskConfigArgs', 'LabelingJobHumanTaskConfigArgsDict']]] = None,
+            input_config: pulumi.Input[Optional[Union['LabelingJobInputConfigArgs', 'LabelingJobInputConfigArgsDict']]] = None,
+            job_reference_code: pulumi.Input[Optional[_builtins.str]] = None,
+            label_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
+            label_category_config_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            label_counters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobLabelCounterArgs', 'LabelingJobLabelCounterArgsDict']]]]] = None,
+            labeling_job_algorithms_config: pulumi.Input[Optional[Union['LabelingJobLabelingJobAlgorithmsConfigArgs', 'LabelingJobLabelingJobAlgorithmsConfigArgsDict']]] = None,
+            labeling_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            labeling_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+            labeling_job_status: pulumi.Input[Optional[_builtins.str]] = None,
+            output_config: pulumi.Input[Optional[Union['LabelingJobOutputConfigArgs', 'LabelingJobOutputConfigArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            stopping_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelingJobStoppingConditionArgs', 'LabelingJobStoppingConditionArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LabelingJob':
         """
         Get an existing LabelingJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -150,9 +150,9 @@ def get_user_ssh_key(encoding: Optional[_builtins.str] = None,
         ssh_public_key_id=pulumi.get(__ret__, 'ssh_public_key_id'),
         status=pulumi.get(__ret__, 'status'),
         username=pulumi.get(__ret__, 'username'))
-def get_user_ssh_key_output(encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                            ssh_public_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            username: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_ssh_key_output(encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                            ssh_public_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            username: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSshKeyResult]:
     """
     Use this data source to get information about a SSH public key associated with the specified IAM user.

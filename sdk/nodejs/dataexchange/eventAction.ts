@@ -147,28 +147,28 @@ export interface EventActionState {
      * Describes the action to take.
      * Described in `action` Configuration Block below.
      */
-    action?: pulumi.Input<inputs.dataexchange.EventActionAction>;
+    action?: pulumi.Input<inputs.dataexchange.EventActionAction | undefined>;
     /**
      * Amazon Resource Name (ARN) of the event action.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the resource was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Describes the event that triggers the `action`.
      * Described in `event` Configuration Block below.
      */
-    event?: pulumi.Input<inputs.dataexchange.EventActionEvent>;
+    event?: pulumi.Input<inputs.dataexchange.EventActionEvent | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Data and time when the resource was last updated.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,5 +188,5 @@ export interface EventActionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

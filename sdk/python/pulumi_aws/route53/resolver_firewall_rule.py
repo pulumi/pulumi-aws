@@ -22,17 +22,17 @@ class ResolverFirewallRuleArgs:
                  action: pulumi.Input[_builtins.str],
                  firewall_rule_group_id: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
-                 block_override_dns_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidence_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_threat_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_redirection_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 q_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_override_dns_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidence_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_threat_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_redirection_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 q_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverFirewallRule resource.
 
@@ -115,155 +115,155 @@ class ResolverFirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDnsType")
-    def block_override_dns_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_override_dns_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
         """
         return pulumi.get(self, "block_override_dns_type")
 
     @block_override_dns_type.setter
-    def block_override_dns_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_override_dns_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_override_dns_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDomain")
-    def block_override_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_override_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom DNS record to send back in response to the query.
         """
         return pulumi.get(self, "block_override_domain")
 
     @block_override_domain.setter
-    def block_override_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_override_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_override_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideTtl")
-    def block_override_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_override_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         """
         return pulumi.get(self, "block_override_ttl")
 
     @block_override_ttl.setter
-    def block_override_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_override_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_override_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="blockResponse")
-    def block_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         """
         return pulumi.get(self, "block_response")
 
     @block_response.setter
-    def block_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_response", value)
 
     @_builtins.property
     @pulumi.getter(name="confidenceThreshold")
-    def confidence_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confidence_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewall_domain_list_id`.
         """
         return pulumi.get(self, "confidence_threshold")
 
     @confidence_threshold.setter
-    def confidence_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confidence_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confidence_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsThreatProtection")
-    def dns_threat_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_threat_protection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewall_domain_list_id`.
         """
         return pulumi.get(self, "dns_threat_protection")
 
     @dns_threat_protection.setter
-    def dns_threat_protection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_threat_protection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_threat_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainListId")
-    def firewall_domain_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_domain_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dns_threat_protection` and `confidence_threshold`.
         """
         return pulumi.get(self, "firewall_domain_list_id")
 
     @firewall_domain_list_id.setter
-    def firewall_domain_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_domain_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_domain_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainRedirectionAction")
-    def firewall_domain_redirection_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_domain_redirection_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         """
         return pulumi.get(self, "firewall_domain_redirection_action")
 
     @firewall_domain_redirection_action.setter
-    def firewall_domain_redirection_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_domain_redirection_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_domain_redirection_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name that lets you identify the rule, to manage and use it.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="qType")
-    def q_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def q_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         """
         return pulumi.get(self, "q_type")
 
     @q_type.setter
-    def q_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def q_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "q_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ResolverFirewallRuleState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_dns_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidence_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_threat_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_redirection_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_rule_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_threat_protection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 q_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_dns_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidence_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_threat_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_redirection_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_threat_protection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 q_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallRule resources.
 
@@ -316,182 +316,182 @@ class _ResolverFirewallRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule. Valid values: `ALLOW`, `BLOCK`, `ALERT`. Note: `ALLOW` is not valid for DNS Firewall Advanced rules.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDnsType")
-    def block_override_dns_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_override_dns_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
         """
         return pulumi.get(self, "block_override_dns_type")
 
     @block_override_dns_type.setter
-    def block_override_dns_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_override_dns_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_override_dns_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDomain")
-    def block_override_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_override_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom DNS record to send back in response to the query.
         """
         return pulumi.get(self, "block_override_domain")
 
     @block_override_domain.setter
-    def block_override_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_override_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_override_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideTtl")
-    def block_override_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_override_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         """
         return pulumi.get(self, "block_override_ttl")
 
     @block_override_ttl.setter
-    def block_override_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_override_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_override_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="blockResponse")
-    def block_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         """
         return pulumi.get(self, "block_response")
 
     @block_response.setter
-    def block_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_response", value)
 
     @_builtins.property
     @pulumi.getter(name="confidenceThreshold")
-    def confidence_threshold(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def confidence_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The confidence threshold for DNS Firewall Advanced rules. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `LOW`, `MEDIUM`, `HIGH`. Conflicts with `firewall_domain_list_id`.
         """
         return pulumi.get(self, "confidence_threshold")
 
     @confidence_threshold.setter
-    def confidence_threshold(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def confidence_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "confidence_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsThreatProtection")
-    def dns_threat_protection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_threat_protection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of DNS Firewall Advanced rule. You must provide this value when creating a DNS Firewall Advanced rule. Valid values: `DGA`, `DICTIONARY_DGA`, `DNS_TUNNELING`. Conflicts with `firewall_domain_list_id`.
         """
         return pulumi.get(self, "dns_threat_protection")
 
     @dns_threat_protection.setter
-    def dns_threat_protection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_threat_protection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_threat_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainListId")
-    def firewall_domain_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_domain_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the domain list that you want to use in the rule. Required for standard rules. Conflicts with `dns_threat_protection` and `confidence_threshold`.
         """
         return pulumi.get(self, "firewall_domain_list_id")
 
     @firewall_domain_list_id.setter
-    def firewall_domain_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_domain_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_domain_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainRedirectionAction")
-    def firewall_domain_redirection_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_domain_redirection_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         """
         return pulumi.get(self, "firewall_domain_redirection_action")
 
     @firewall_domain_redirection_action.setter
-    def firewall_domain_redirection_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_domain_redirection_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_domain_redirection_action", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleGroupId")
-    def firewall_rule_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_rule_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the firewall rule group where you want to create the rule.
         """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @firewall_rule_group_id.setter
-    def firewall_rule_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_rule_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_rule_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallThreatProtectionId")
-    def firewall_threat_protection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_threat_protection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the DNS Firewall Advanced rule. Only set for DNS Firewall Advanced rules.
         """
         return pulumi.get(self, "firewall_threat_protection_id")
 
     @firewall_threat_protection_id.setter
-    def firewall_threat_protection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_threat_protection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_threat_protection_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name that lets you identify the rule, to manage and use it.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="qType")
-    def q_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def q_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         """
         return pulumi.get(self, "q_type")
 
     @q_type.setter
-    def q_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def q_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "q_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -501,20 +501,20 @@ class ResolverFirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_dns_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidence_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_threat_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_redirection_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_rule_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 q_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_dns_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidence_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_threat_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_redirection_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 q_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Route 53 Resolver DNS Firewall rule resource.
@@ -674,20 +674,20 @@ class ResolverFirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_dns_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidence_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_threat_protection: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_redirection_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_rule_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 q_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_dns_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidence_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_threat_protection: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_redirection_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 q_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -728,21 +728,21 @@ class ResolverFirewallRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            block_override_dns_type: Optional[pulumi.Input[_builtins.str]] = None,
-            block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            block_response: Optional[pulumi.Input[_builtins.str]] = None,
-            confidence_threshold: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_threat_protection: Optional[pulumi.Input[_builtins.str]] = None,
-            firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-            firewall_domain_redirection_action: Optional[pulumi.Input[_builtins.str]] = None,
-            firewall_rule_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            firewall_threat_protection_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            q_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'ResolverFirewallRule':
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            block_override_dns_type: pulumi.Input[Optional[_builtins.str]] = None,
+            block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            block_response: pulumi.Input[Optional[_builtins.str]] = None,
+            confidence_threshold: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_threat_protection: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_domain_redirection_action: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_threat_protection_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            q_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResolverFirewallRule':
         """
         Get an existing ResolverFirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

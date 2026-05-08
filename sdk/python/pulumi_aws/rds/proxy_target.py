@@ -21,9 +21,9 @@ class ProxyTargetArgs:
     def __init__(__self__, *,
                  db_proxy_name: pulumi.Input[_builtins.str],
                  target_group_name: pulumi.Input[_builtins.str],
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProxyTarget resource.
 
@@ -70,7 +70,7 @@ class ProxyTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
-    def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB cluster identifier.
 
@@ -79,48 +79,48 @@ class ProxyTargetArgs:
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
-    def db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceIdentifier")
-    def db_instance_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_instance_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB instance identifier.
         """
         return pulumi.get(self, "db_instance_identifier")
 
     @db_instance_identifier.setter
-    def db_instance_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_instance_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_instance_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ProxyTargetState:
     def __init__(__self__, *,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 rds_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracked_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 rds_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracked_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProxyTarget resources.
 
@@ -163,7 +163,7 @@ class _ProxyTargetState:
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifier")
-    def db_cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB cluster identifier.
 
@@ -172,127 +172,127 @@ class _ProxyTargetState:
         return pulumi.get(self, "db_cluster_identifier")
 
     @db_cluster_identifier.setter
-    def db_cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceIdentifier")
-    def db_instance_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_instance_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB instance identifier.
         """
         return pulumi.get(self, "db_instance_identifier")
 
     @db_instance_identifier.setter
-    def db_instance_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_instance_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_instance_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dbProxyName")
-    def db_proxy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_proxy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DB proxy.
         """
         return pulumi.get(self, "db_proxy_name")
 
     @db_proxy_name.setter
-    def db_proxy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_proxy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_proxy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port for the target RDS DB Instance or Aurora DB Cluster.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="rdsResourceId")
-    def rds_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rds_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier representing the DB Instance or DB Cluster target.
         """
         return pulumi.get(self, "rds_resource_id")
 
     @rds_resource_id.setter
-    def rds_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rds_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rds_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
-    def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the target group.
         """
         return pulumi.get(self, "target_group_name")
 
     @target_group_name.setter
-    def target_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="trackedClusterId")
-    def tracked_cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracked_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         """
         return pulumi.get(self, "tracked_cluster_id")
 
     @tracked_cluster_id.setter
-    def tracked_cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracked_cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracked_cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -302,11 +302,11 @@ class ProxyTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an RDS DB proxy target resource.
@@ -387,11 +387,11 @@ class ProxyTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -426,17 +426,17 @@ class ProxyTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            db_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            db_instance_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            rds_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tracked_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProxyTarget':
+            db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_instance_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            rds_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tracked_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProxyTarget':
         """
         Get an existing ProxyTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

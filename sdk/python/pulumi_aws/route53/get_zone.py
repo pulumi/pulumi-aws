@@ -296,12 +296,12 @@ def get_zone(enable_accelerated_recovery: Optional[_builtins.bool] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-def get_zone_output(enable_accelerated_recovery: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    private_zone: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                    vpc_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    zone_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_zone_output(enable_accelerated_recovery: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    private_zone: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                    vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    zone_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
     """
     `route53.Zone` provides details about a specific Route 53 Hosted Zone.

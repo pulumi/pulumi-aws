@@ -146,10 +146,10 @@ def get_portfolio_constraints(accept_language: Optional[_builtins.str] = None,
         portfolio_id=pulumi.get(__ret__, 'portfolio_id'),
         product_id=pulumi.get(__ret__, 'product_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     product_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_portfolio_constraints_output(accept_language: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     product_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioConstraintsResult]:
     """
     Provides information on Service Catalog Portfolio Constraints.

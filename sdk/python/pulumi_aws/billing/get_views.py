@@ -109,7 +109,7 @@ def get_views(billing_view_types: Optional[Sequence[_builtins.str]] = None,
         billing_view_types=pulumi.get(__ret__, 'billing_view_types'),
         billing_views=pulumi.get(__ret__, 'billing_views'),
         id=pulumi.get(__ret__, 'id'))
-def get_views_output(billing_view_types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_views_output(billing_view_types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewsResult]:
     """
     Provides details about an AWS Billing Views.

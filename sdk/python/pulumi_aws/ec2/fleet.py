@@ -23,22 +23,22 @@ class FleetArgs:
     def __init__(__self__, *,
                  launch_template_configs: pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]],
                  target_capacity_specification: pulumi.Input['FleetTargetCapacitySpecificationArgs'],
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_instance_sets: Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]] = None,
-                 fleet_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 fulfilled_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 fulfilled_on_demand_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 on_demand_options: Optional[pulumi.Input['FleetOnDemandOptionsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spot_options: Optional[pulumi.Input['FleetSpotOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 terminate_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 terminate_instances_with_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None):
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]] = None,
+                 fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 on_demand_options: pulumi.Input[Optional['FleetOnDemandOptionsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spot_options: pulumi.Input[Optional['FleetSpotOptionsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Fleet resource.
 
@@ -122,220 +122,220 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reserved.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excess_capacity_termination_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
         """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
-    def excess_capacity_termination_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excess_capacity_termination_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excess_capacity_termination_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetInstanceSets")
-    def fleet_instance_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]:
+    def fleet_instance_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]:
         """
         Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
         """
         return pulumi.get(self, "fleet_instance_sets")
 
     @fleet_instance_sets.setter
-    def fleet_instance_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]):
+    def fleet_instance_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]):
         pulumi.set(self, "fleet_instance_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetState")
-    def fleet_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the EC2 Fleet.
         """
         return pulumi.get(self, "fleet_state")
 
     @fleet_state.setter
-    def fleet_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_state", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfilledCapacity")
-    def fulfilled_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fulfilled_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of units fulfilled by this request compared to the set target capacity.
         """
         return pulumi.get(self, "fulfilled_capacity")
 
     @fulfilled_capacity.setter
-    def fulfilled_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fulfilled_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fulfilled_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfilledOnDemandCapacity")
-    def fulfilled_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fulfilled_on_demand_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of units fulfilled by this request compared to the set target On-Demand capacity.
         """
         return pulumi.get(self, "fulfilled_on_demand_capacity")
 
     @fulfilled_on_demand_capacity.setter
-    def fulfilled_on_demand_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fulfilled_on_demand_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fulfilled_on_demand_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandOptions")
-    def on_demand_options(self) -> Optional[pulumi.Input['FleetOnDemandOptionsArgs']]:
+    def on_demand_options(self) -> pulumi.Input[Optional['FleetOnDemandOptionsArgs']]:
         """
         Nested argument containing On-Demand configurations. Defined below.
         """
         return pulumi.get(self, "on_demand_options")
 
     @on_demand_options.setter
-    def on_demand_options(self, value: Optional[pulumi.Input['FleetOnDemandOptionsArgs']]):
+    def on_demand_options(self, value: pulumi.Input[Optional['FleetOnDemandOptionsArgs']]):
         pulumi.set(self, "on_demand_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
-    def replace_unhealthy_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_unhealthy_instances(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @replace_unhealthy_instances.setter
-    def replace_unhealthy_instances(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_unhealthy_instances(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_unhealthy_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional[pulumi.Input['FleetSpotOptionsArgs']]:
+    def spot_options(self) -> pulumi.Input[Optional['FleetSpotOptionsArgs']]:
         """
         Nested argument containing Spot configurations. Defined below.
         """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
-    def spot_options(self, value: Optional[pulumi.Input['FleetSpotOptionsArgs']]):
+    def spot_options(self, value: pulumi.Input[Optional['FleetSpotOptionsArgs']]):
         pulumi.set(self, "spot_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateInstances")
-    def terminate_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def terminate_instances(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         """
         return pulumi.get(self, "terminate_instances")
 
     @terminate_instances.setter
-    def terminate_instances(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def terminate_instances(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "terminate_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
-    def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def terminate_instances_with_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @terminate_instances_with_expiration.setter
-    def terminate_instances_with_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def terminate_instances_with_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "terminate_instances_with_expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
-    def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
-    def valid_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_from", value)
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_until(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
-    def valid_until(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_until(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_until", value)
 
 
 @pulumi.input_type
 class _FleetState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_instance_sets: Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]] = None,
-                 fleet_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 fulfilled_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 fulfilled_on_demand_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]] = None,
-                 on_demand_options: Optional[pulumi.Input['FleetOnDemandOptionsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spot_options: Optional[pulumi.Input['FleetSpotOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_capacity_specification: Optional[pulumi.Input['FleetTargetCapacitySpecificationArgs']] = None,
-                 terminate_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 terminate_instances_with_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]] = None,
+                 fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]] = None,
+                 on_demand_options: pulumi.Input[Optional['FleetOnDemandOptionsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spot_options: pulumi.Input[Optional['FleetSpotOptionsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_capacity_specification: pulumi.Input[Optional['FleetTargetCapacitySpecificationArgs']] = None,
+                 terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
 
@@ -403,242 +403,242 @@ class _FleetState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the fleet
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reserved.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
 
     @_builtins.property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def excess_capacity_termination_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
         """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
-    def excess_capacity_termination_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def excess_capacity_termination_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "excess_capacity_termination_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetInstanceSets")
-    def fleet_instance_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]:
+    def fleet_instance_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]:
         """
         Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
         """
         return pulumi.get(self, "fleet_instance_sets")
 
     @fleet_instance_sets.setter
-    def fleet_instance_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]):
+    def fleet_instance_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetFleetInstanceSetArgs']]]]):
         pulumi.set(self, "fleet_instance_sets", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetState")
-    def fleet_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the EC2 Fleet.
         """
         return pulumi.get(self, "fleet_state")
 
     @fleet_state.setter
-    def fleet_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_state", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfilledCapacity")
-    def fulfilled_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fulfilled_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of units fulfilled by this request compared to the set target capacity.
         """
         return pulumi.get(self, "fulfilled_capacity")
 
     @fulfilled_capacity.setter
-    def fulfilled_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fulfilled_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fulfilled_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfilledOnDemandCapacity")
-    def fulfilled_on_demand_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fulfilled_on_demand_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of units fulfilled by this request compared to the set target On-Demand capacity.
         """
         return pulumi.get(self, "fulfilled_on_demand_capacity")
 
     @fulfilled_on_demand_capacity.setter
-    def fulfilled_on_demand_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fulfilled_on_demand_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fulfilled_on_demand_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="launchTemplateConfigs")
-    def launch_template_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]]:
+    def launch_template_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]]:
         """
         Nested argument containing EC2 Launch Template configurations. Defined below.
         """
         return pulumi.get(self, "launch_template_configs")
 
     @launch_template_configs.setter
-    def launch_template_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]]):
+    def launch_template_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]]):
         pulumi.set(self, "launch_template_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandOptions")
-    def on_demand_options(self) -> Optional[pulumi.Input['FleetOnDemandOptionsArgs']]:
+    def on_demand_options(self) -> pulumi.Input[Optional['FleetOnDemandOptionsArgs']]:
         """
         Nested argument containing On-Demand configurations. Defined below.
         """
         return pulumi.get(self, "on_demand_options")
 
     @on_demand_options.setter
-    def on_demand_options(self, value: Optional[pulumi.Input['FleetOnDemandOptionsArgs']]):
+    def on_demand_options(self, value: pulumi.Input[Optional['FleetOnDemandOptionsArgs']]):
         pulumi.set(self, "on_demand_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceUnhealthyInstances")
-    def replace_unhealthy_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_unhealthy_instances(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @replace_unhealthy_instances.setter
-    def replace_unhealthy_instances(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_unhealthy_instances(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_unhealthy_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional[pulumi.Input['FleetSpotOptionsArgs']]:
+    def spot_options(self) -> pulumi.Input[Optional['FleetSpotOptionsArgs']]:
         """
         Nested argument containing Spot configurations. Defined below.
         """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
-    def spot_options(self, value: Optional[pulumi.Input['FleetSpotOptionsArgs']]):
+    def spot_options(self, value: pulumi.Input[Optional['FleetSpotOptionsArgs']]):
         pulumi.set(self, "spot_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetCapacitySpecification")
-    def target_capacity_specification(self) -> Optional[pulumi.Input['FleetTargetCapacitySpecificationArgs']]:
+    def target_capacity_specification(self) -> pulumi.Input[Optional['FleetTargetCapacitySpecificationArgs']]:
         """
         Nested argument containing target capacity configurations. Defined below.
         """
         return pulumi.get(self, "target_capacity_specification")
 
     @target_capacity_specification.setter
-    def target_capacity_specification(self, value: Optional[pulumi.Input['FleetTargetCapacitySpecificationArgs']]):
+    def target_capacity_specification(self, value: pulumi.Input[Optional['FleetTargetCapacitySpecificationArgs']]):
         pulumi.set(self, "target_capacity_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateInstances")
-    def terminate_instances(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def terminate_instances(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         """
         return pulumi.get(self, "terminate_instances")
 
     @terminate_instances.setter
-    def terminate_instances(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def terminate_instances(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "terminate_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateInstancesWithExpiration")
-    def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def terminate_instances_with_expiration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @terminate_instances_with_expiration.setter
-    def terminate_instances_with_expiration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def terminate_instances_with_expiration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "terminate_instances_with_expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="validFrom")
-    def valid_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
-    def valid_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_from", value)
 
     @_builtins.property
     @pulumi.getter(name="validUntil")
-    def valid_until(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_until(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
-    def valid_until(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_until(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_until", value)
 
 
@@ -648,24 +648,24 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_instance_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
-                 fleet_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 fulfilled_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 fulfilled_on_demand_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
-                 on_demand_options: Optional[pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_capacity_specification: Optional[pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
-                 terminate_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 terminate_instances_with_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
+                 fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
+                 on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
+                 terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage EC2 Fleets.
@@ -771,24 +771,24 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 context: Optional[pulumi.Input[_builtins.str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_instance_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
-                 fleet_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 fulfilled_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 fulfilled_on_demand_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
-                 on_demand_options: Optional[pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_capacity_specification: Optional[pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
-                 terminate_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-                 terminate_instances_with_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 valid_until: Optional[pulumi.Input[_builtins.str]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None,
+                 excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
+                 fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
+                 on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
+                 terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+                 terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_until: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -832,26 +832,26 @@ class Fleet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            context: Optional[pulumi.Input[_builtins.str]] = None,
-            excess_capacity_termination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            fleet_instance_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
-            fleet_state: Optional[pulumi.Input[_builtins.str]] = None,
-            fulfilled_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-            fulfilled_on_demand_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-            launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
-            on_demand_options: Optional[pulumi.Input[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replace_unhealthy_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-            spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_capacity_specification: Optional[pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
-            terminate_instances: Optional[pulumi.Input[_builtins.bool]] = None,
-            terminate_instances_with_expiration: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            valid_from: Optional[pulumi.Input[_builtins.str]] = None,
-            valid_until: Optional[pulumi.Input[_builtins.str]] = None) -> 'Fleet':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            context: pulumi.Input[Optional[_builtins.str]] = None,
+            excess_capacity_termination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            fleet_instance_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetFleetInstanceSetArgs', 'FleetFleetInstanceSetArgsDict']]]]] = None,
+            fleet_state: pulumi.Input[Optional[_builtins.str]] = None,
+            fulfilled_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+            fulfilled_on_demand_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+            launch_template_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetLaunchTemplateConfigArgs', 'FleetLaunchTemplateConfigArgsDict']]]]] = None,
+            on_demand_options: pulumi.Input[Optional[Union['FleetOnDemandOptionsArgs', 'FleetOnDemandOptionsArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_unhealthy_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+            spot_options: pulumi.Input[Optional[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_capacity_specification: pulumi.Input[Optional[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
+            terminate_instances: pulumi.Input[Optional[_builtins.bool]] = None,
+            terminate_instances_with_expiration: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_from: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_until: pulumi.Input[Optional[_builtins.str]] = None) -> 'Fleet':
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

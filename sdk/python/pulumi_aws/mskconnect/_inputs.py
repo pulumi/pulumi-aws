@@ -58,11 +58,11 @@ __all__ = [
 ]
 
 class ConnectorCapacityArgsDict(TypedDict):
-    autoscaling: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingArgsDict']]
+    autoscaling: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingArgs']]]
     """
     Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
     """
-    provisioned_capacity: NotRequired[pulumi.Input['ConnectorCapacityProvisionedCapacityArgsDict']]
+    provisioned_capacity: NotRequired[pulumi.Input[Optional['ConnectorCapacityProvisionedCapacityArgs']]]
     """
     Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
     """
@@ -70,8 +70,8 @@ class ConnectorCapacityArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorCapacityArgs:
     def __init__(__self__, *,
-                 autoscaling: Optional[pulumi.Input['ConnectorCapacityAutoscalingArgs']] = None,
-                 provisioned_capacity: Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArgs']] = None):
+                 autoscaling: pulumi.Input[Optional['ConnectorCapacityAutoscalingArgs']] = None,
+                 provisioned_capacity: pulumi.Input[Optional['ConnectorCapacityProvisionedCapacityArgs']] = None):
         """
         :param pulumi.Input['ConnectorCapacityAutoscalingArgs'] autoscaling: Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
         :param pulumi.Input['ConnectorCapacityProvisionedCapacityArgs'] provisioned_capacity: Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
@@ -83,26 +83,26 @@ class ConnectorCapacityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def autoscaling(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingArgs']]:
+    def autoscaling(self) -> pulumi.Input[Optional['ConnectorCapacityAutoscalingArgs']]:
         """
         Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
         """
         return pulumi.get(self, "autoscaling")
 
     @autoscaling.setter
-    def autoscaling(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingArgs']]):
+    def autoscaling(self, value: pulumi.Input[Optional['ConnectorCapacityAutoscalingArgs']]):
         pulumi.set(self, "autoscaling", value)
 
     @_builtins.property
     @pulumi.getter(name="provisionedCapacity")
-    def provisioned_capacity(self) -> Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArgs']]:
+    def provisioned_capacity(self) -> pulumi.Input[Optional['ConnectorCapacityProvisionedCapacityArgs']]:
         """
         Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
         """
         return pulumi.get(self, "provisioned_capacity")
 
     @provisioned_capacity.setter
-    def provisioned_capacity(self, value: Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArgs']]):
+    def provisioned_capacity(self, value: pulumi.Input[Optional['ConnectorCapacityProvisionedCapacityArgs']]):
         pulumi.set(self, "provisioned_capacity", value)
 
 
@@ -115,15 +115,15 @@ class ConnectorCapacityAutoscalingArgsDict(TypedDict):
     """
     The minimum number of workers allocated to the connector.
     """
-    mcu_count: NotRequired[pulumi.Input[_builtins.int]]
+    mcu_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
     """
-    scale_in_policy: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgsDict']]
+    scale_in_policy: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleInPolicyArgs']]]
     """
     The scale-in policy for the connector. See `scale_in_policy` Block for details.
     """
-    scale_out_policy: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgsDict']]
+    scale_out_policy: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]]
     """
     The scale-out policy for the connector. See `scale_out_policy` Block for details.
     """
@@ -133,9 +133,9 @@ class ConnectorCapacityAutoscalingArgs:
     def __init__(__self__, *,
                  max_worker_count: pulumi.Input[_builtins.int],
                  min_worker_count: pulumi.Input[_builtins.int],
-                 mcu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale_in_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs']] = None,
-                 scale_out_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs']] = None):
+                 mcu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale_in_policy: pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleInPolicyArgs']] = None,
+                 scale_out_policy: pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleOutPolicyArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] max_worker_count: The maximum number of workers allocated to the connector.
         :param pulumi.Input[_builtins.int] min_worker_count: The minimum number of workers allocated to the connector.
@@ -178,43 +178,43 @@ class ConnectorCapacityAutoscalingArgs:
 
     @_builtins.property
     @pulumi.getter(name="mcuCount")
-    def mcu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mcu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         """
         return pulumi.get(self, "mcu_count")
 
     @mcu_count.setter
-    def mcu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mcu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mcu_count", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleInPolicy")
-    def scale_in_policy(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs']]:
+    def scale_in_policy(self) -> pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleInPolicyArgs']]:
         """
         The scale-in policy for the connector. See `scale_in_policy` Block for details.
         """
         return pulumi.get(self, "scale_in_policy")
 
     @scale_in_policy.setter
-    def scale_in_policy(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs']]):
+    def scale_in_policy(self, value: pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleInPolicyArgs']]):
         pulumi.set(self, "scale_in_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleOutPolicy")
-    def scale_out_policy(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]:
+    def scale_out_policy(self) -> pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]:
         """
         The scale-out policy for the connector. See `scale_out_policy` Block for details.
         """
         return pulumi.get(self, "scale_out_policy")
 
     @scale_out_policy.setter
-    def scale_out_policy(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]):
+    def scale_out_policy(self, value: pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]):
         pulumi.set(self, "scale_out_policy", value)
 
 
 class ConnectorCapacityAutoscalingScaleInPolicyArgsDict(TypedDict):
-    cpu_utilization_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    cpu_utilization_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
     """
@@ -222,7 +222,7 @@ class ConnectorCapacityAutoscalingScaleInPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorCapacityAutoscalingScaleInPolicyArgs:
     def __init__(__self__, *,
-                 cpu_utilization_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 cpu_utilization_percentage: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
         """
@@ -231,19 +231,19 @@ class ConnectorCapacityAutoscalingScaleInPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpuUtilizationPercentage")
-    def cpu_utilization_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_utilization_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
         """
         return pulumi.get(self, "cpu_utilization_percentage")
 
     @cpu_utilization_percentage.setter
-    def cpu_utilization_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_utilization_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_utilization_percentage", value)
 
 
 class ConnectorCapacityAutoscalingScaleOutPolicyArgsDict(TypedDict):
-    cpu_utilization_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    cpu_utilization_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The CPU utilization percentage threshold at which you want connector scale out to be triggered.
     """
@@ -251,7 +251,7 @@ class ConnectorCapacityAutoscalingScaleOutPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorCapacityAutoscalingScaleOutPolicyArgs:
     def __init__(__self__, *,
-                 cpu_utilization_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 cpu_utilization_percentage: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] cpu_utilization_percentage: The CPU utilization percentage threshold at which you want connector scale out to be triggered.
         """
@@ -260,14 +260,14 @@ class ConnectorCapacityAutoscalingScaleOutPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpuUtilizationPercentage")
-    def cpu_utilization_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_utilization_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The CPU utilization percentage threshold at which you want connector scale out to be triggered.
         """
         return pulumi.get(self, "cpu_utilization_percentage")
 
     @cpu_utilization_percentage.setter
-    def cpu_utilization_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_utilization_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_utilization_percentage", value)
 
 
@@ -276,7 +276,7 @@ class ConnectorCapacityProvisionedCapacityArgsDict(TypedDict):
     """
     The number of workers that are allocated to the connector.
     """
-    mcu_count: NotRequired[pulumi.Input[_builtins.int]]
+    mcu_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
     """
@@ -285,7 +285,7 @@ class ConnectorCapacityProvisionedCapacityArgsDict(TypedDict):
 class ConnectorCapacityProvisionedCapacityArgs:
     def __init__(__self__, *,
                  worker_count: pulumi.Input[_builtins.int],
-                 mcu_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 mcu_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] worker_count: The number of workers that are allocated to the connector.
         :param pulumi.Input[_builtins.int] mcu_count: The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
@@ -308,14 +308,14 @@ class ConnectorCapacityProvisionedCapacityArgs:
 
     @_builtins.property
     @pulumi.getter(name="mcuCount")
-    def mcu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mcu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         """
         return pulumi.get(self, "mcu_count")
 
     @mcu_count.setter
-    def mcu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mcu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mcu_count", value)
 
 
@@ -442,7 +442,7 @@ class ConnectorKafkaClusterApacheKafkaClusterVpcArgs:
 
 
 class ConnectorKafkaClusterClientAuthenticationArgsDict(TypedDict):
-    authentication_type: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
     """
@@ -450,7 +450,7 @@ class ConnectorKafkaClusterClientAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorKafkaClusterClientAuthenticationArgs:
     def __init__(__self__, *,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] authentication_type: The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
         """
@@ -459,19 +459,19 @@ class ConnectorKafkaClusterClientAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
 
 class ConnectorKafkaClusterEncryptionInTransitArgsDict(TypedDict):
-    encryption_type: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
     """
@@ -479,7 +479,7 @@ class ConnectorKafkaClusterEncryptionInTransitArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorKafkaClusterEncryptionInTransitArgs:
     def __init__(__self__, *,
-                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_type: The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
         """
@@ -488,14 +488,14 @@ class ConnectorKafkaClusterEncryptionInTransitArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
         """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_type", value)
 
 
@@ -528,15 +528,15 @@ class ConnectorLogDeliveryArgs:
 
 
 class ConnectorLogDeliveryWorkerLogDeliveryArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict']]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]]
     """
     Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
     """
-    firehose: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict']]
+    firehose: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]]
     """
     Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
     """
-    s3: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]]
     """
     Details about delivering logs to Amazon S3. See `s3` Block for deetails.
     """
@@ -544,9 +544,9 @@ class ConnectorLogDeliveryWorkerLogDeliveryArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorLogDeliveryWorkerLogDeliveryArgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']] = None,
-                 firehose: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']] = None,
-                 s3: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args']] = None):
+                 cloudwatch_logs: pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']] = None,
+                 firehose: pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']] = None,
+                 s3: pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryS3Args']] = None):
         """
         :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs'] cloudwatch_logs: Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
         :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs'] firehose: Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
@@ -561,38 +561,38 @@ class ConnectorLogDeliveryWorkerLogDeliveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]:
         """
         Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]:
+    def firehose(self) -> pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]:
         """
         Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
         """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]):
+    def firehose(self, value: pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]):
         pulumi.set(self, "firehose", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]:
+    def s3(self) -> pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]:
         """
         Details about delivering logs to Amazon S3. See `s3` Block for deetails.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]):
+    def s3(self, value: pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]):
         pulumi.set(self, "s3", value)
 
 
@@ -601,7 +601,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict(TypedDict):
     """
     Whether log delivery to Amazon CloudWatch Logs is enabled.
     """
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the CloudWatch log group that is the destination for log delivery.
     """
@@ -610,7 +610,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict(TypedDict):
 class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether log delivery to Amazon CloudWatch Logs is enabled.
         :param pulumi.Input[_builtins.str] log_group: The name of the CloudWatch log group that is the destination for log delivery.
@@ -633,14 +633,14 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudWatch log group that is the destination for log delivery.
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
 
@@ -649,7 +649,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict(TypedDict):
     """
     Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
     """
-    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
     """
@@ -658,7 +658,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict(TypedDict):
 class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 delivery_stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
         :param pulumi.Input[_builtins.str] delivery_stream: The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
@@ -681,14 +681,14 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryStream")
-    def delivery_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
         return pulumi.get(self, "delivery_stream")
 
     @delivery_stream.setter
-    def delivery_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_stream", value)
 
 
@@ -697,11 +697,11 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict(TypedDict):
     """
     Specifies whether connector logs get sent to the specified Amazon S3 destination.
     """
-    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the S3 bucket that is the destination for log delivery.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 prefix that is the destination for log delivery.
     """
@@ -710,8 +710,8 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict(TypedDict):
 class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether connector logs get sent to the specified Amazon S3 destination.
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket that is the destination for log delivery.
@@ -737,26 +737,26 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 bucket that is the destination for log delivery.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 prefix that is the destination for log delivery.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -919,7 +919,7 @@ class CustomPluginLocationS3ArgsDict(TypedDict):
     """
     The file key for an object in an S3 bucket.
     """
-    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of an object in an S3 bucket.
     """
@@ -929,7 +929,7 @@ class CustomPluginLocationS3Args:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[_builtins.str],
                  file_key: pulumi.Input[_builtins.str],
-                 object_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_arn: The Amazon Resource Name (ARN) of an S3 bucket.
         :param pulumi.Input[_builtins.str] file_key: The file key for an object in an S3 bucket.
@@ -966,14 +966,14 @@ class CustomPluginLocationS3Args:
 
     @_builtins.property
     @pulumi.getter(name="objectVersion")
-    def object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of an object in an S3 bucket.
         """
         return pulumi.get(self, "object_version")
 
     @object_version.setter
-    def object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_version", value)
 
 

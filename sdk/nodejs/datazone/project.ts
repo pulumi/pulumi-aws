@@ -176,50 +176,50 @@ export interface ProjectState {
     /**
      * Timestamp of when the project was made.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Creator of the project.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Description of project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * List of error messages if operation cannot be completed.
      */
-    failureReasons?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectFailureReason>[]>;
+    failureReasons?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectFailureReason>[] | undefined>;
     /**
      * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      */
-    glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
+    glossaryTerms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Timestamp of when the project was last updated.
      */
-    lastUpdatedAt?: pulumi.Input<string>;
+    lastUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      */
-    projectStatus?: pulumi.Input<string>;
+    projectStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Optional flag to delete all child entities within the project.
      */
-    skipDeletionCheck?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.datazone.ProjectTimeouts>;
+    skipDeletionCheck?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.ProjectTimeouts | undefined>;
 }
 
 /**
@@ -229,7 +229,7 @@ export interface ProjectArgs {
     /**
      * Description of project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      */
@@ -237,20 +237,20 @@ export interface ProjectArgs {
     /**
      * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      */
-    glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
+    glossaryTerms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Optional flag to delete all child entities within the project.
      */
-    skipDeletionCheck?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.datazone.ProjectTimeouts>;
+    skipDeletionCheck?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.ProjectTimeouts | undefined>;
 }

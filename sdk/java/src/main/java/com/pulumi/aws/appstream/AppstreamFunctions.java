@@ -29,8 +29,8 @@ public final class AppstreamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appstream.AppstreamFunctions;
      * import com.pulumi.aws.appstream.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -71,8 +71,8 @@ public final class AppstreamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appstream.AppstreamFunctions;
      * import com.pulumi.aws.appstream.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -113,8 +113,8 @@ public final class AppstreamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appstream.AppstreamFunctions;
      * import com.pulumi.aws.appstream.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -155,8 +155,8 @@ public final class AppstreamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appstream.AppstreamFunctions;
      * import com.pulumi.aws.appstream.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -197,8 +197,8 @@ public final class AppstreamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appstream.AppstreamFunctions;
      * import com.pulumi.aws.appstream.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -239,8 +239,8 @@ public final class AppstreamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appstream.AppstreamFunctions;
      * import com.pulumi.aws.appstream.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class AppstreamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appstream.AppstreamFunctions;
      * import com.pulumi.aws.appstream.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

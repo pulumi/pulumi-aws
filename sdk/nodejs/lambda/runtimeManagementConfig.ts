@@ -146,29 +146,29 @@ export interface RuntimeManagementConfigState {
     /**
      * ARN of the function.
      */
-    functionArn?: pulumi.Input<string>;
+    functionArn?: pulumi.Input<string | undefined>;
     /**
      * Name or ARN of the Lambda function.
      *
      * The following arguments are optional:
      */
-    functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string | undefined>;
     /**
      * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */
-    runtimeVersionArn?: pulumi.Input<string>;
+    runtimeVersionArn?: pulumi.Input<string | undefined>;
     /**
      * Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
      */
-    updateRuntimeOn?: pulumi.Input<string>;
+    updateRuntimeOn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,17 +184,17 @@ export interface RuntimeManagementConfigArgs {
     /**
      * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */
-    runtimeVersionArn?: pulumi.Input<string>;
+    runtimeVersionArn?: pulumi.Input<string | undefined>;
     /**
      * Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
      */
-    updateRuntimeOn?: pulumi.Input<string>;
+    updateRuntimeOn?: pulumi.Input<string | undefined>;
 }

@@ -211,15 +211,15 @@ export interface EventBusPolicyState {
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      */
-    eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string | undefined>;
     /**
      * The text of the policy.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -230,7 +230,7 @@ export interface EventBusPolicyArgs {
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      */
-    eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string | undefined>;
     /**
      * The text of the policy.
      */
@@ -238,5 +238,5 @@ export interface EventBusPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

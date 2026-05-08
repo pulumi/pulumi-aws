@@ -149,23 +149,23 @@ export interface MultiRegionAccessPointPolicyState {
     /**
      * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    details?: pulumi.Input<inputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    details?: pulumi.Input<inputs.s3control.MultiRegionAccessPointPolicyDetails | undefined>;
     /**
      * The last established policy for the Multi-Region Access Point.
      */
-    established?: pulumi.Input<string>;
+    established?: pulumi.Input<string | undefined>;
     /**
      * The proposed policy for the Multi-Region Access Point.
      */
-    proposed?: pulumi.Input<string>;
+    proposed?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface MultiRegionAccessPointPolicyArgs {
     /**
      * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
@@ -183,5 +183,5 @@ export interface MultiRegionAccessPointPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -269,113 +269,113 @@ export interface ProvisionedProductState {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * ARN of the provisioned product.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Set of CloudWatch dashboards that were created when provisioning the product.
      */
-    cloudwatchDashboardNames?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudwatchDashboardNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Time when the provisioned product was created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
      */
-    ignoreErrors?: pulumi.Input<boolean>;
+    ignoreErrors?: pulumi.Input<boolean | undefined>;
     /**
      * Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      */
-    lastProvisioningRecordId?: pulumi.Input<string>;
+    lastProvisioningRecordId?: pulumi.Input<string | undefined>;
     /**
      * Record identifier of the last request performed on this provisioned product.
      */
-    lastRecordId?: pulumi.Input<string>;
+    lastRecordId?: pulumi.Input<string | undefined>;
     /**
      * Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
      */
-    lastSuccessfulProvisioningRecordId?: pulumi.Input<string>;
+    lastSuccessfulProvisioningRecordId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the launch role associated with the provisioned product.
      */
-    launchRoleArn?: pulumi.Input<string>;
+    launchRoleArn?: pulumi.Input<string | undefined>;
     /**
      * User-friendly name of the provisioned product.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
      */
-    notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The set of outputs for the product created.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductOutput>[] | undefined>;
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */
-    pathId?: pulumi.Input<string>;
+    pathId?: pulumi.Input<string | undefined>;
     /**
      * Name of the path. You must provide `pathId` or `pathName`, but not both.
      */
-    pathName?: pulumi.Input<string>;
+    pathName?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * Name of the product. You must provide `productId` or `productName`, but not both.
      */
-    productName?: pulumi.Input<string>;
+    productName?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
-    provisioningArtifactId?: pulumi.Input<string>;
+    provisioningArtifactId?: pulumi.Input<string | undefined>;
     /**
      * Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
-    provisioningArtifactName?: pulumi.Input<string>;
+    provisioningArtifactName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      */
-    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
+    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
-    retainPhysicalResources?: pulumi.Input<boolean>;
+    retainPhysicalResources?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      */
-    stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences>;
+    stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences | undefined>;
     /**
      * Current status of the provisioned product. See meanings below.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Current status message of the provisioned product.
      */
-    statusMessage?: pulumi.Input<string>;
+    statusMessage?: pulumi.Input<string | undefined>;
     /**
      * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -385,63 +385,63 @@ export interface ProvisionedProductArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
      */
-    ignoreErrors?: pulumi.Input<boolean>;
+    ignoreErrors?: pulumi.Input<boolean | undefined>;
     /**
      * User-friendly name of the provisioned product.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
      */
-    notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */
-    pathId?: pulumi.Input<string>;
+    pathId?: pulumi.Input<string | undefined>;
     /**
      * Name of the path. You must provide `pathId` or `pathName`, but not both.
      */
-    pathName?: pulumi.Input<string>;
+    pathName?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `productId` or `productName`, but not both.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * Name of the product. You must provide `productId` or `productName`, but not both.
      */
-    productName?: pulumi.Input<string>;
+    productName?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
-    provisioningArtifactId?: pulumi.Input<string>;
+    provisioningArtifactId?: pulumi.Input<string | undefined>;
     /**
      * Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
      */
-    provisioningArtifactName?: pulumi.Input<string>;
+    provisioningArtifactName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      */
-    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
+    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
-    retainPhysicalResources?: pulumi.Input<boolean>;
+    retainPhysicalResources?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      */
-    stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences>;
+    stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences | undefined>;
     /**
      * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

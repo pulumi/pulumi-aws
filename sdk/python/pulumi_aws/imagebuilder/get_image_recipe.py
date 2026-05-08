@@ -269,9 +269,9 @@ def get_image_recipe(arn: Optional[_builtins.str] = None,
         user_data_base64=pulumi.get(__ret__, 'user_data_base64'),
         version=pulumi.get(__ret__, 'version'),
         working_directory=pulumi.get(__ret__, 'working_directory'))
-def get_image_recipe_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_image_recipe_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRecipeResult]:
     """
     Provides details about an Image Builder Image Recipe.

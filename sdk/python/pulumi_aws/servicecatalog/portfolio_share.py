@@ -22,11 +22,11 @@ class PortfolioShareArgs:
                  portfolio_id: pulumi.Input[_builtins.str],
                  principal_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_principals: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None,
-                 wait_for_acceptance: Optional[pulumi.Input[_builtins.bool]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_principals: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
+                 wait_for_acceptance: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PortfolioShare resource.
 
@@ -95,77 +95,77 @@ class PortfolioShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sharePrincipals")
-    def share_principals(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_principals(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         """
         return pulumi.get(self, "share_principals")
 
     @share_principals.setter
-    def share_principals(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_principals(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="shareTagOptions")
-    def share_tag_options(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_tag_options(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         """
         return pulumi.get(self, "share_tag_options")
 
     @share_tag_options.setter
-    def share_tag_options(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_tag_options(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_tag_options", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForAcceptance")
-    def wait_for_acceptance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_acceptance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         """
         return pulumi.get(self, "wait_for_acceptance")
 
     @wait_for_acceptance.setter
-    def wait_for_acceptance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_acceptance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_acceptance", value)
 
 
 @pulumi.input_type
 class _PortfolioShareState:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 accepted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_principals: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_acceptance: Optional[pulumi.Input[_builtins.bool]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 accepted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_principals: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_acceptance: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering PortfolioShare resources.
 
@@ -202,91 +202,91 @@ class _PortfolioShareState:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def accepted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accepted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         """
         return pulumi.get(self, "accepted")
 
     @accepted.setter
-    def accepted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accepted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accepted", value)
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
-    def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Portfolio identifier.
         """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
-    def portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portfolio_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sharePrincipals")
-    def share_principals(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_principals(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         """
         return pulumi.get(self, "share_principals")
 
     @share_principals.setter
-    def share_principals(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_principals(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_principals", value)
 
     @_builtins.property
     @pulumi.getter(name="shareTagOptions")
-    def share_tag_options(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_tag_options(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         """
         return pulumi.get(self, "share_tag_options")
 
     @share_tag_options.setter
-    def share_tag_options(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_tag_options(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_tag_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
 
@@ -295,19 +295,19 @@ class _PortfolioShareState:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForAcceptance")
-    def wait_for_acceptance(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_acceptance(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         """
         return pulumi.get(self, "wait_for_acceptance")
 
     @wait_for_acceptance.setter
-    def wait_for_acceptance(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_acceptance(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_acceptance", value)
 
 
@@ -317,14 +317,14 @@ class PortfolioShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_principals: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_acceptance: Optional[pulumi.Input[_builtins.bool]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_principals: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_acceptance: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Service Catalog Portfolio Share. Shares the specified portfolio with the specified account or organization node. You can share portfolios to an organization, an organizational unit, or a specific account.
@@ -428,14 +428,14 @@ class PortfolioShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_principals: Optional[pulumi.Input[_builtins.bool]] = None,
-                 share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_for_acceptance: Optional[pulumi.Input[_builtins.bool]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_principals: pulumi.Input[Optional[_builtins.bool]] = None,
+                 share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_for_acceptance: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -470,15 +470,15 @@ class PortfolioShare(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-            accepted: Optional[pulumi.Input[_builtins.bool]] = None,
-            portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            share_principals: Optional[pulumi.Input[_builtins.bool]] = None,
-            share_tag_options: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            wait_for_acceptance: Optional[pulumi.Input[_builtins.bool]] = None) -> 'PortfolioShare':
+            accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+            accepted: pulumi.Input[Optional[_builtins.bool]] = None,
+            portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            share_principals: pulumi.Input[Optional[_builtins.bool]] = None,
+            share_tag_options: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            wait_for_acceptance: pulumi.Input[Optional[_builtins.bool]] = None) -> 'PortfolioShare':
         """
         Get an existing PortfolioShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -112,19 +112,19 @@ export interface LogStreamState {
     /**
      * The Amazon Resource Name (ARN) specifying the log stream.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    logGroupName?: pulumi.Input<string>;
+    logGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,9 +138,9 @@ export interface LogStreamArgs {
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

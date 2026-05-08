@@ -158,36 +158,36 @@ export interface NfsLocationState {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions>;
+    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions | undefined>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    onPremConfig?: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
+    onPremConfig?: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
-    serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string | undefined>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -197,7 +197,7 @@ export interface NfsLocationArgs {
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions>;
+    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions | undefined>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
@@ -205,7 +205,7 @@ export interface NfsLocationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
@@ -217,5 +217,5 @@ export interface NfsLocationArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

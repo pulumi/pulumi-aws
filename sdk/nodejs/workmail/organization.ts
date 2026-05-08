@@ -203,70 +203,70 @@ export interface OrganizationState {
     /**
      * ARN of the Organization.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date and time (RFC3339) at which the organization became active.
      */
-    completedDate?: pulumi.Input<string>;
+    completedDate?: pulumi.Input<string | undefined>;
     /**
      * Default mail domain for the organization.
      */
-    defaultMailDomain?: pulumi.Input<string>;
+    defaultMailDomain?: pulumi.Input<string | undefined>;
     /**
      * Whether to delete the AWS Directory Service directory associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
      */
-    deleteDirectory?: pulumi.Input<boolean>;
+    deleteDirectory?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to delete the IAM Identity Center application associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
      */
-    deleteIdentityCenterApplication?: pulumi.Input<boolean>;
+    deleteIdentityCenterApplication?: pulumi.Input<boolean | undefined>;
     /**
      * ID of an existing directory to associate with the organization. Changing this creates a new resource.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Type of the associated directory.
      */
-    directoryType?: pulumi.Input<string>;
+    directoryType?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable interoperability between WorkMail and Microsoft Exchange. Changing this creates a new resource.
      */
-    interoperabilityEnabled?: pulumi.Input<boolean>;
+    interoperabilityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of a customer-managed KMS key to encrypt the organization's data. If omitted, AWS managed keys are used. Changing this creates a new resource.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * User ID of the migration admin if migration is enabled.
      */
-    migrationAdmin?: pulumi.Input<string>;
+    migrationAdmin?: pulumi.Input<string | undefined>;
     /**
      * Alias for the organization. Must be unique globally. Changing this creates a new resource.
      *
      * The following arguments are optional:
      */
-    organizationAlias?: pulumi.Input<string>;
+    organizationAlias?: pulumi.Input<string | undefined>;
     /**
      * ID of the WorkMail Organization.
      */
-    organizationId?: pulumi.Input<string>;
+    organizationId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the organization.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.workmail.OrganizationTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.workmail.OrganizationTimeouts | undefined>;
 }
 
 /**
@@ -276,23 +276,23 @@ export interface OrganizationArgs {
     /**
      * Whether to delete the AWS Directory Service directory associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
      */
-    deleteDirectory?: pulumi.Input<boolean>;
+    deleteDirectory?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to delete the IAM Identity Center application associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
      */
-    deleteIdentityCenterApplication?: pulumi.Input<boolean>;
+    deleteIdentityCenterApplication?: pulumi.Input<boolean | undefined>;
     /**
      * ID of an existing directory to associate with the organization. Changing this creates a new resource.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable interoperability between WorkMail and Microsoft Exchange. Changing this creates a new resource.
      */
-    interoperabilityEnabled?: pulumi.Input<boolean>;
+    interoperabilityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of a customer-managed KMS key to encrypt the organization's data. If omitted, AWS managed keys are used. Changing this creates a new resource.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Alias for the organization. Must be unique globally. Changing this creates a new resource.
      *
@@ -302,10 +302,10 @@ export interface OrganizationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.workmail.OrganizationTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.workmail.OrganizationTimeouts | undefined>;
 }

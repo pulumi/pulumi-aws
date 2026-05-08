@@ -131,13 +131,13 @@ export interface GetFilesAccessPointOutputArgs {
     /**
      * POSIX user configuration. See `posixUser` below.
      */
-    posixUsers?: pulumi.Input<pulumi.Input<inputs.s3.GetFilesAccessPointPosixUserArgs>[]>;
+    posixUsers?: pulumi.Input<pulumi.Input<inputs.s3.GetFilesAccessPointPosixUserArgs>[] | undefined>;
     /**
      * Region where this resource is [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Root directory configuration. See `rootDirectory` below.
      */
-    rootDirectories?: pulumi.Input<pulumi.Input<inputs.s3.GetFilesAccessPointRootDirectoryArgs>[]>;
+    rootDirectories?: pulumi.Input<pulumi.Input<inputs.s3.GetFilesAccessPointRootDirectoryArgs>[] | undefined>;
 }

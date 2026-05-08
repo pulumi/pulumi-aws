@@ -106,11 +106,11 @@ export interface EnrollmentStatusState {
     /**
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
-    includeMemberAccounts?: pulumi.Input<boolean>;
+    includeMemberAccounts?: pulumi.Input<boolean | undefined>;
     /**
      * Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -120,5 +120,5 @@ export interface EnrollmentStatusArgs {
     /**
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
-    includeMemberAccounts?: pulumi.Input<boolean>;
+    includeMemberAccounts?: pulumi.Input<boolean | undefined>;
 }

@@ -109,25 +109,25 @@ export interface WebAppCustomizationState {
     /**
      * Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
      */
-    faviconFile?: pulumi.Input<string>;
+    faviconFile?: pulumi.Input<string | undefined>;
     /**
      * Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
      */
-    logoFile?: pulumi.Input<string>;
+    logoFile?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the web app to be customized.
      *
      * The following arguments are optional:
      */
-    webAppId?: pulumi.Input<string>;
+    webAppId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,19 +137,19 @@ export interface WebAppCustomizationArgs {
     /**
      * Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
      */
-    faviconFile?: pulumi.Input<string>;
+    faviconFile?: pulumi.Input<string | undefined>;
     /**
      * Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
      */
-    logoFile?: pulumi.Input<string>;
+    logoFile?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the web app to be customized.
      *

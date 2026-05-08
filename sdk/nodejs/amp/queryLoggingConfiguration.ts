@@ -117,18 +117,18 @@ export interface QueryLoggingConfigurationState {
     /**
      * Configuration block for the logging destinations. See `destinations`.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
     /**
      * The ID of the AMP workspace for which to configure query logging.
      *
      * The following arguments are optional:
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,8 +142,8 @@ export interface QueryLoggingConfigurationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.amp.QueryLoggingConfigurationTimeouts | undefined>;
     /**
      * The ID of the AMP workspace for which to configure query logging.
      *

@@ -74,8 +74,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -114,8 +114,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -154,8 +154,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -194,8 +194,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -234,8 +234,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -274,8 +274,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -314,8 +314,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -354,8 +354,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -394,8 +394,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -434,8 +434,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -474,8 +474,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -514,8 +514,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -554,8 +554,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -594,8 +594,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -634,8 +634,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -674,8 +674,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -714,8 +714,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClusterParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -761,8 +761,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -823,8 +823,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -885,8 +885,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -947,8 +947,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1009,8 +1009,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1071,8 +1071,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1133,8 +1133,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1190,8 +1190,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1235,8 +1235,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1280,8 +1280,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1325,8 +1325,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1370,8 +1370,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1415,8 +1415,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1460,8 +1460,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1505,8 +1505,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1541,8 +1541,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1589,8 +1589,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1625,8 +1625,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1673,8 +1673,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1709,8 +1709,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1757,8 +1757,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1793,8 +1793,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1841,8 +1841,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1877,8 +1877,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1923,8 +1923,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1956,8 +1956,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1997,8 +1997,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2030,8 +2030,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2071,8 +2071,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2104,8 +2104,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2145,8 +2145,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2178,8 +2178,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2219,8 +2219,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2252,8 +2252,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2293,8 +2293,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2326,8 +2326,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2367,8 +2367,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2400,8 +2400,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2443,8 +2443,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2485,8 +2485,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2527,8 +2527,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2569,8 +2569,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2611,8 +2611,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2651,8 +2651,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2691,8 +2691,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2731,8 +2731,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2771,8 +2771,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2811,8 +2811,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2851,8 +2851,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2891,8 +2891,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2933,8 +2933,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2969,8 +2969,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3011,8 +3011,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3047,8 +3047,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3089,8 +3089,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3125,8 +3125,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3167,8 +3167,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3203,8 +3203,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3245,8 +3245,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3281,8 +3281,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3323,8 +3323,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3359,8 +3359,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3401,8 +3401,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3437,8 +3437,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3477,8 +3477,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3517,8 +3517,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3566,8 +3566,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3606,8 +3606,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3655,8 +3655,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3695,8 +3695,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3744,8 +3744,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3784,8 +3784,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3833,8 +3833,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3873,8 +3873,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3922,8 +3922,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3962,8 +3962,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4002,8 +4002,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4042,8 +4042,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4082,8 +4082,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetParameterGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4122,8 +4122,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetProxyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4162,8 +4162,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetProxyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4202,8 +4202,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetProxyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4242,8 +4242,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetProxyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4282,8 +4282,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetProxyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4322,8 +4322,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4366,8 +4366,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4410,8 +4410,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4454,8 +4454,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4498,8 +4498,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4547,8 +4547,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4612,8 +4612,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4677,8 +4677,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4742,8 +4742,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4807,8 +4807,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4872,8 +4872,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4937,8 +4937,8 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4997,8 +4997,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5037,8 +5037,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5077,8 +5077,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5117,8 +5117,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5157,8 +5157,8 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

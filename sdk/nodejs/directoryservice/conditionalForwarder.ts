@@ -123,19 +123,19 @@ export interface ConditionalForwarderState {
     /**
      * ID of directory.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * A list of forwarder IP addresses.
      */
-    dnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
-    remoteDomainName?: pulumi.Input<string>;
+    remoteDomainName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,7 +153,7 @@ export interface ConditionalForwarderArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */

@@ -127,20 +127,20 @@ export interface TableBucketReplicationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * Replication rules. See Rule below for more details.
      */
-    rule?: pulumi.Input<inputs.s3tables.TableBucketReplicationRule>;
+    rule?: pulumi.Input<inputs.s3tables.TableBucketReplicationRule | undefined>;
     /**
      * ARN referencing the Table Bucket that owns this replication configuration.
      */
-    tableBucketArn?: pulumi.Input<string>;
-    versionToken?: pulumi.Input<string>;
+    tableBucketArn?: pulumi.Input<string | undefined>;
+    versionToken?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,7 +150,7 @@ export interface TableBucketReplicationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
      */
@@ -158,7 +158,7 @@ export interface TableBucketReplicationArgs {
     /**
      * Replication rules. See Rule below for more details.
      */
-    rule?: pulumi.Input<inputs.s3tables.TableBucketReplicationRule>;
+    rule?: pulumi.Input<inputs.s3tables.TableBucketReplicationRule | undefined>;
     /**
      * ARN referencing the Table Bucket that owns this replication configuration.
      */

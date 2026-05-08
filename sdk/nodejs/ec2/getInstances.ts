@@ -166,18 +166,18 @@ export interface GetInstancesOutputArgs {
      * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
      * See `filter` Block below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstancesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstancesFilterArgs>[] | undefined>;
     /**
      * List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      */
-    instanceStateNames?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceStateNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags, each pair of which must
      * exactly match a pair on desired instances.
      */
-    instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

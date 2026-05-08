@@ -236,47 +236,47 @@ export interface ResponsePlanState {
     /**
      * The actions that the response plan starts at the beginning of an incident.
      */
-    action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction>;
+    action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction | undefined>;
     /**
      * The ARN of the response plan.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Chatbot chat channel used for collaboration during an incident.
      */
-    chatChannels?: pulumi.Input<pulumi.Input<string>[]>;
+    chatChannels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The long format of the response plan name. This field can contain spaces.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
      */
-    engagements?: pulumi.Input<pulumi.Input<string>[]>;
+    engagements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The `incidentTemplate` configuration block is required and supports the following arguments:
      */
-    incidentTemplate?: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplate>;
+    incidentTemplate?: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplate | undefined>;
     /**
      * Information about third-party services integrated into the response plan. The following values are supported:
      */
-    integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration>;
+    integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration | undefined>;
     /**
      * The name of the response plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The tags applied to the response plan.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -286,19 +286,19 @@ export interface ResponsePlanArgs {
     /**
      * The actions that the response plan starts at the beginning of an incident.
      */
-    action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction>;
+    action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction | undefined>;
     /**
      * The Chatbot chat channel used for collaboration during an incident.
      */
-    chatChannels?: pulumi.Input<pulumi.Input<string>[]>;
+    chatChannels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The long format of the response plan name. This field can contain spaces.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
      */
-    engagements?: pulumi.Input<pulumi.Input<string>[]>;
+    engagements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The `incidentTemplate` configuration block is required and supports the following arguments:
      */
@@ -306,17 +306,17 @@ export interface ResponsePlanArgs {
     /**
      * Information about third-party services integrated into the response plan. The following values are supported:
      */
-    integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration>;
+    integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration | undefined>;
     /**
      * The name of the response plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The tags applied to the response plan.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

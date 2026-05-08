@@ -139,29 +139,29 @@ export interface ResourceSetState {
      * ARN of the resource set
      * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Unique name describing the resource set.
      */
-    resourceSetName?: pulumi.Input<string>;
+    resourceSetName?: pulumi.Input<string | undefined>;
     /**
      * Type of the resources in the resource set.
      */
-    resourceSetType?: pulumi.Input<string>;
+    resourceSetType?: pulumi.Input<string | undefined>;
     /**
      * List of resources to add to this resource set. See below.
      *
      * The following arguments are optional:
      */
-    resources?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResource>[]>;
+    resources?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResource>[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -185,5 +185,5 @@ export interface ResourceSetArgs {
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

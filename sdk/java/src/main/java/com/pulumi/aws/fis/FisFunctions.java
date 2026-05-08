@@ -31,8 +31,8 @@ public final class FisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fis.FisFunctions;
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -66,8 +66,8 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -122,8 +122,8 @@ public final class FisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fis.FisFunctions;
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -157,8 +157,8 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -213,8 +213,8 @@ public final class FisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fis.FisFunctions;
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -248,8 +248,8 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -304,8 +304,8 @@ public final class FisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fis.FisFunctions;
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -339,8 +339,8 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -395,8 +395,8 @@ public final class FisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fis.FisFunctions;
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -430,8 +430,8 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -486,8 +486,8 @@ public final class FisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fis.FisFunctions;
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -521,8 +521,8 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -577,8 +577,8 @@ public final class FisFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fis.FisFunctions;
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -612,8 +612,8 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

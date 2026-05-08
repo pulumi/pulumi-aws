@@ -145,11 +145,11 @@ export interface RolePolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the IAM role to which the policy should be applied
      */
-    role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string | Role | undefined>;
 }
 
 /**

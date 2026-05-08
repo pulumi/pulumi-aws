@@ -184,8 +184,8 @@ export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtect
  * A collection of arguments for invoking getLogDataProtectionPolicyDocument.
  */
 export interface GetLogDataProtectionPolicyDocumentOutputArgs {
-    configuration?: pulumi.Input<inputs.cloudwatch.GetLogDataProtectionPolicyDocumentConfigurationArgs>;
-    description?: pulumi.Input<string>;
+    configuration?: pulumi.Input<inputs.cloudwatch.GetLogDataProtectionPolicyDocumentConfigurationArgs | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the data protection policy document.
      */
@@ -198,5 +198,5 @@ export interface GetLogDataProtectionPolicyDocumentOutputArgs {
      * The following arguments are optional:
      */
     statements: pulumi.Input<pulumi.Input<inputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs>[]>;
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

@@ -23,8 +23,8 @@ class CustomRoutingEndpointGroupArgs:
     def __init__(__self__, *,
                  destination_configurations: pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]],
                  listener_arn: pulumi.Input[_builtins.str],
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]] = None,
-                 endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]] = None,
+                 endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomRoutingEndpointGroup resource.
 
@@ -66,37 +66,37 @@ class CustomRoutingEndpointGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]:
+    def endpoint_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]:
         """
         The list of endpoint objects. Fields documented below.
         """
         return pulumi.get(self, "endpoint_configurations")
 
     @endpoint_configurations.setter
-    def endpoint_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]):
+    def endpoint_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]):
         pulumi.set(self, "endpoint_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointGroupRegion")
-    def endpoint_group_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_group_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS Region where the custom routing endpoint group is located.
         """
         return pulumi.get(self, "endpoint_group_region")
 
     @endpoint_group_region.setter
-    def endpoint_group_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_group_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_group_region", value)
 
 
 @pulumi.input_type
 class _CustomRoutingEndpointGroupState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]] = None,
-                 endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 listener_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]] = None,
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]] = None,
+                 endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 listener_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomRoutingEndpointGroup resources.
 
@@ -119,62 +119,62 @@ class _CustomRoutingEndpointGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the custom routing endpoint group.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationConfigurations")
-    def destination_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]]:
+    def destination_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]]:
         """
         The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
         """
         return pulumi.get(self, "destination_configurations")
 
     @destination_configurations.setter
-    def destination_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]]):
+    def destination_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]]):
         pulumi.set(self, "destination_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]:
+    def endpoint_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]:
         """
         The list of endpoint objects. Fields documented below.
         """
         return pulumi.get(self, "endpoint_configurations")
 
     @endpoint_configurations.setter
-    def endpoint_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]):
+    def endpoint_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]]):
         pulumi.set(self, "endpoint_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointGroupRegion")
-    def endpoint_group_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_group_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AWS Region where the custom routing endpoint group is located.
         """
         return pulumi.get(self, "endpoint_group_region")
 
     @endpoint_group_region.setter
-    def endpoint_group_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_group_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_group_region", value)
 
     @_builtins.property
     @pulumi.getter(name="listenerArn")
-    def listener_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def listener_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the custom routing listener.
         """
         return pulumi.get(self, "listener_arn")
 
     @listener_arn.setter
-    def listener_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def listener_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "listener_arn", value)
 
 
@@ -184,10 +184,10 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]]] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]]] = None,
-                 endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]]] = None,
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]]] = None,
+                 endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Global Accelerator custom routing endpoint group.
@@ -289,10 +289,10 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]]] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]]] = None,
-                 endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]]] = None,
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]]] = None,
+                 endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,11 +321,11 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]]] = None,
-            endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]]] = None,
-            endpoint_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-            listener_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomRoutingEndpointGroup':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupDestinationConfigurationArgs', 'CustomRoutingEndpointGroupDestinationConfigurationArgsDict']]]]] = None,
+            endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomRoutingEndpointGroupEndpointConfigurationArgs', 'CustomRoutingEndpointGroupEndpointConfigurationArgsDict']]]]] = None,
+            endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+            listener_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomRoutingEndpointGroup':
         """
         Get an existing CustomRoutingEndpointGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

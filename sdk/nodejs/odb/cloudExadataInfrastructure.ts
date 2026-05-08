@@ -331,163 +331,163 @@ export interface CloudExadataInfrastructureState {
     /**
      * The number of storage servers requested for the Exadata infrastructure.
      */
-    activatedStorageCount?: pulumi.Input<number>;
+    activatedStorageCount?: pulumi.Input<number | undefined>;
     /**
      * The number of storage servers requested for the Exadata infrastructure.
      */
-    additionalStorageCount?: pulumi.Input<number>;
+    additionalStorageCount?: pulumi.Input<number | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Exadata infrastructure.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      *
      * The following arguments are optional:
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
      */
-    availableStorageSizeInGbs?: pulumi.Input<number>;
+    availableStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      */
-    computeCount?: pulumi.Input<number>;
+    computeCount?: pulumi.Input<number | undefined>;
     /**
      * The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
      */
-    computeModel?: pulumi.Input<string>;
+    computeModel?: pulumi.Input<string | undefined>;
     /**
      * The total number of CPU cores that are allocated to the Exadata infrastructure.
      */
-    cpuCount?: pulumi.Input<number>;
+    cpuCount?: pulumi.Input<number | undefined>;
     /**
      * The time when the Exadata infrastructure was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
      */
-    customerContactsToSendToOcis?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactsToSendToOci>[]>;
+    customerContactsToSendToOcis?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactsToSendToOci>[] | undefined>;
     /**
      * The size of the Exadata infrastructure's data disk group, in terabytes (TB).
      */
-    dataStorageSizeInTbs?: pulumi.Input<number>;
+    dataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      */
-    databaseServerType?: pulumi.Input<string>;
+    databaseServerType?: pulumi.Input<string | undefined>;
     /**
      * The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
      */
-    dbNodeStorageSizeInGbs?: pulumi.Input<number>;
+    dbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The software version of the database servers (dom0) in the Exadata infrastructure.
      */
-    dbServerVersion?: pulumi.Input<string>;
+    dbServerVersion?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
      */
-    lastMaintenanceRunId?: pulumi.Input<string>;
+    lastMaintenanceRunId?: pulumi.Input<string | undefined>;
     /**
      * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
      */
-    maintenanceWindow?: pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindow>;
+    maintenanceWindow?: pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindow | undefined>;
     /**
      * The total number of CPU cores available on the Exadata infrastructure.
      */
-    maxCpuCount?: pulumi.Input<number>;
+    maxCpuCount?: pulumi.Input<number | undefined>;
     /**
      * The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
      */
-    maxDataStorageInTbs?: pulumi.Input<number>;
+    maxDataStorageInTbs?: pulumi.Input<number | undefined>;
     /**
      * The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
      */
-    maxDbNodeStorageSizeInGbs?: pulumi.Input<number>;
+    maxDbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
      */
-    maxMemoryInGbs?: pulumi.Input<number>;
+    maxMemoryInGbs?: pulumi.Input<number | undefined>;
     /**
      * The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure
      */
-    memorySizeInGbs?: pulumi.Input<number>;
+    memorySizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The monthly software version of the database servers in the Exadata infrastructure.
      */
-    monthlyDbServerVersion?: pulumi.Input<string>;
+    monthlyDbServerVersion?: pulumi.Input<string | undefined>;
     /**
      * The monthly software version of the storage servers installed on the Exadata infrastructure.
      */
-    monthlyStorageServerVersion?: pulumi.Input<string>;
+    monthlyStorageServerVersion?: pulumi.Input<string | undefined>;
     /**
      * The OCID of the next maintenance run for the Exadata infrastructure.
      */
-    nextMaintenanceRunId?: pulumi.Input<string>;
+    nextMaintenanceRunId?: pulumi.Input<string | undefined>;
     /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
      */
-    ociResourceAnchorName?: pulumi.Input<string>;
+    ociResourceAnchorName?: pulumi.Input<string | undefined>;
     /**
      * The HTTPS link to the Exadata infrastructure in OCI
      */
-    ociUrl?: pulumi.Input<string>;
+    ociUrl?: pulumi.Input<string | undefined>;
     /**
      * The OCID of the Exadata infrastructure.
      */
-    ocid?: pulumi.Input<string>;
+    ocid?: pulumi.Input<string | undefined>;
     /**
      * The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
      */
-    percentProgress?: pulumi.Input<number>;
+    percentProgress?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
      */
-    shape?: pulumi.Input<string>;
+    shape?: pulumi.Input<string | undefined>;
     /**
      * The current status of the Exadata infrastructure.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Additional information about the status of the Exadata infrastructure.
      */
-    statusReason?: pulumi.Input<string>;
+    statusReason?: pulumi.Input<string | undefined>;
     /**
      * The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
      */
-    storageCount?: pulumi.Input<number>;
+    storageCount?: pulumi.Input<number | undefined>;
     /**
      * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      */
-    storageServerType?: pulumi.Input<string>;
+    storageServerType?: pulumi.Input<string | undefined>;
     /**
      * The software version of the storage servers on the Exadata infrastructure.
      */
-    storageServerVersion?: pulumi.Input<string>;
+    storageServerVersion?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.odb.CloudExadataInfrastructureTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.odb.CloudExadataInfrastructureTimeouts | undefined>;
     /**
      * The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
      */
-    totalStorageSizeInGbs?: pulumi.Input<number>;
+    totalStorageSizeInGbs?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -497,7 +497,7 @@ export interface CloudExadataInfrastructureArgs {
     /**
      * The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      *
@@ -507,15 +507,15 @@ export interface CloudExadataInfrastructureArgs {
     /**
      * The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      */
-    computeCount?: pulumi.Input<number>;
+    computeCount?: pulumi.Input<number | undefined>;
     /**
      * The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
      */
-    customerContactsToSendToOcis?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactsToSendToOci>[]>;
+    customerContactsToSendToOcis?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureCustomerContactsToSendToOci>[] | undefined>;
     /**
      * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      */
-    databaseServerType?: pulumi.Input<string>;
+    databaseServerType?: pulumi.Input<string | undefined>;
     /**
      * The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
      */
@@ -527,7 +527,7 @@ export interface CloudExadataInfrastructureArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
      */
@@ -535,14 +535,14 @@ export interface CloudExadataInfrastructureArgs {
     /**
      * The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
      */
-    storageCount?: pulumi.Input<number>;
+    storageCount?: pulumi.Input<number | undefined>;
     /**
      * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      */
-    storageServerType?: pulumi.Input<string>;
+    storageServerType?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.odb.CloudExadataInfrastructureTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.odb.CloudExadataInfrastructureTimeouts | undefined>;
 }

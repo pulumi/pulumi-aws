@@ -343,135 +343,135 @@ export interface TopicState {
     /**
      * IAM role for failure feedback
      */
-    applicationFailureFeedbackRoleArn?: pulumi.Input<string>;
+    applicationFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    applicationSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    applicationSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    applicationSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    applicationSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
      */
-    archivePolicy?: pulumi.Input<string>;
+    archivePolicy?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The oldest timestamp at which a FIFO topic subscriber can start a replay.
      */
-    beginningArchiveTime?: pulumi.Input<string>;
+    beginningArchiveTime?: pulumi.Input<string | undefined>;
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      */
-    contentBasedDeduplication?: pulumi.Input<boolean>;
+    contentBasedDeduplication?: pulumi.Input<boolean | undefined>;
     /**
      * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      */
-    deliveryPolicy?: pulumi.Input<string>;
+    deliveryPolicy?: pulumi.Input<string | undefined>;
     /**
      * The display name for the topic
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
      */
-    fifoThroughputScope?: pulumi.Input<string>;
+    fifoThroughputScope?: pulumi.Input<string | undefined>;
     /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
-    fifoTopic?: pulumi.Input<boolean>;
+    fifoTopic?: pulumi.Input<boolean | undefined>;
     /**
      * IAM role for failure feedback
      */
-    firehoseFailureFeedbackRoleArn?: pulumi.Input<string>;
+    firehoseFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    firehoseSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    firehoseSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    firehoseSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    firehoseSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * IAM role for failure feedback
      */
-    httpFailureFeedbackRoleArn?: pulumi.Input<string>;
+    httpFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    httpSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    httpSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    httpSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    httpSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
      */
-    kmsMasterKeyId?: pulumi.Input<string>;
+    kmsMasterKeyId?: pulumi.Input<string | undefined>;
     /**
      * IAM role for failure feedback
      */
-    lambdaFailureFeedbackRoleArn?: pulumi.Input<string>;
+    lambdaFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    lambdaSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    lambdaSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    lambdaSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    lambdaSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The AWS Account ID of the SNS topic owner
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The fully-formed AWS policy as JSON.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      */
-    signatureVersion?: pulumi.Input<number>;
+    signatureVersion?: pulumi.Input<number | undefined>;
     /**
      * IAM role for failure feedback
      */
-    sqsFailureFeedbackRoleArn?: pulumi.Input<string>;
+    sqsFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    sqsSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    sqsSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    sqsSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
      */
-    tracingConfig?: pulumi.Input<string>;
+    tracingConfig?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -481,117 +481,117 @@ export interface TopicArgs {
     /**
      * IAM role for failure feedback
      */
-    applicationFailureFeedbackRoleArn?: pulumi.Input<string>;
+    applicationFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    applicationSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    applicationSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    applicationSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    applicationSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
      */
-    archivePolicy?: pulumi.Input<string>;
+    archivePolicy?: pulumi.Input<string | undefined>;
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      */
-    contentBasedDeduplication?: pulumi.Input<boolean>;
+    contentBasedDeduplication?: pulumi.Input<boolean | undefined>;
     /**
      * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      */
-    deliveryPolicy?: pulumi.Input<string>;
+    deliveryPolicy?: pulumi.Input<string | undefined>;
     /**
      * The display name for the topic
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
      */
-    fifoThroughputScope?: pulumi.Input<string>;
+    fifoThroughputScope?: pulumi.Input<string | undefined>;
     /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
-    fifoTopic?: pulumi.Input<boolean>;
+    fifoTopic?: pulumi.Input<boolean | undefined>;
     /**
      * IAM role for failure feedback
      */
-    firehoseFailureFeedbackRoleArn?: pulumi.Input<string>;
+    firehoseFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    firehoseSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    firehoseSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    firehoseSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    firehoseSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * IAM role for failure feedback
      */
-    httpFailureFeedbackRoleArn?: pulumi.Input<string>;
+    httpFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    httpSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    httpSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    httpSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    httpSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
      */
-    kmsMasterKeyId?: pulumi.Input<string>;
+    kmsMasterKeyId?: pulumi.Input<string | undefined>;
     /**
      * IAM role for failure feedback
      */
-    lambdaFailureFeedbackRoleArn?: pulumi.Input<string>;
+    lambdaFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    lambdaSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    lambdaSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    lambdaSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    lambdaSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The fully-formed AWS policy as JSON.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      */
-    signatureVersion?: pulumi.Input<number>;
+    signatureVersion?: pulumi.Input<number | undefined>;
     /**
      * IAM role for failure feedback
      */
-    sqsFailureFeedbackRoleArn?: pulumi.Input<string>;
+    sqsFailureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
      */
-    sqsSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    sqsSuccessFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Percentage of success to sample
      */
-    sqsSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    sqsSuccessFeedbackSampleRate?: pulumi.Input<number | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
      */
-    tracingConfig?: pulumi.Input<string>;
+    tracingConfig?: pulumi.Input<string | undefined>;
 }

@@ -113,7 +113,7 @@ export interface GetRepositoryEndpointOutputArgs {
     /**
      * Account number of the AWS account that owns the domain.
      */
-    domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string | undefined>;
     /**
      * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
      */
@@ -121,7 +121,7 @@ export interface GetRepositoryEndpointOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository.
      */

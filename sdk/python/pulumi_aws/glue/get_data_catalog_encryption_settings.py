@@ -103,8 +103,8 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[_builtins.str] = N
         data_catalog_encryption_settings=pulumi.get(__ret__, 'data_catalog_encryption_settings'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_data_catalog_encryption_settings_output(catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCatalogEncryptionSettingsResult]:
     """
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.

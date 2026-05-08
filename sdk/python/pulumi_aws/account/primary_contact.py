@@ -25,13 +25,13 @@ class PrimaryContactArgs:
                  full_name: pulumi.Input[_builtins.str],
                  phone_number: pulumi.Input[_builtins.str],
                  postal_code: pulumi.Input[_builtins.str],
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 district_or_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_or_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 website_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 district_or_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 website_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrimaryContact resource.
 
@@ -144,105 +144,105 @@ class PrimaryContactArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The second line of the primary contact address, if any.
         """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
-    def address_line2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line2", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The third line of the primary contact address, if any.
         """
         return pulumi.get(self, "address_line3")
 
     @address_line3.setter
-    def address_line3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line3", value)
 
     @_builtins.property
     @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the company associated with the primary contact information, if any.
         """
         return pulumi.get(self, "company_name")
 
     @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company_name", value)
 
     @_builtins.property
     @pulumi.getter(name="districtOrCounty")
-    def district_or_county(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def district_or_county(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The district or county of the primary contact address, if any.
         """
         return pulumi.get(self, "district_or_county")
 
     @district_or_county.setter
-    def district_or_county(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def district_or_county(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "district_or_county", value)
 
     @_builtins.property
     @pulumi.getter(name="stateOrRegion")
-    def state_or_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_or_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state or region of the primary contact address. This field is required in selected countries.
         """
         return pulumi.get(self, "state_or_region")
 
     @state_or_region.setter
-    def state_or_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_or_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_or_region", value)
 
     @_builtins.property
     @pulumi.getter(name="websiteUrl")
-    def website_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the website associated with the primary contact information, if any.
         """
         return pulumi.get(self, "website_url")
 
     @website_url.setter
-    def website_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website_url", value)
 
 
 @pulumi.input_type
 class _PrimaryContactState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 district_or_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_or_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 website_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 district_or_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 website_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrimaryContact resources.
 
@@ -289,158 +289,158 @@ class _PrimaryContactState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine1")
-    def address_line1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The first line of the primary contact address.
         """
         return pulumi.get(self, "address_line1")
 
     @address_line1.setter
-    def address_line1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line1", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The second line of the primary contact address, if any.
         """
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
-    def address_line2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line2", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The third line of the primary contact address, if any.
         """
         return pulumi.get(self, "address_line3")
 
     @address_line3.setter
-    def address_line3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line3", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The city of the primary contact address.
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the company associated with the primary contact information, if any.
         """
         return pulumi.get(self, "company_name")
 
     @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company_name", value)
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ISO-3166 two-letter country code for the primary contact address.
         """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
     @pulumi.getter(name="districtOrCounty")
-    def district_or_county(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def district_or_county(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The district or county of the primary contact address, if any.
         """
         return pulumi.get(self, "district_or_county")
 
     @district_or_county.setter
-    def district_or_county(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def district_or_county(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "district_or_county", value)
 
     @_builtins.property
     @pulumi.getter(name="fullName")
-    def full_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full name of the primary contact address.
         """
         return pulumi.get(self, "full_name")
 
     @full_name.setter
-    def full_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_name", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The postal code of the primary contact address.
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter(name="stateOrRegion")
-    def state_or_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_or_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state or region of the primary contact address. This field is required in selected countries.
         """
         return pulumi.get(self, "state_or_region")
 
     @state_or_region.setter
-    def state_or_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_or_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_or_region", value)
 
     @_builtins.property
     @pulumi.getter(name="websiteUrl")
-    def website_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL of the website associated with the primary contact information, if any.
         """
         return pulumi.get(self, "website_url")
 
     @website_url.setter
-    def website_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website_url", value)
 
 
@@ -450,19 +450,19 @@ class PrimaryContact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 district_or_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_or_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 website_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 district_or_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 website_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the specified primary contact information associated with an AWS Account.
@@ -563,19 +563,19 @@ class PrimaryContact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 district_or_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_or_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 website_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 district_or_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 website_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -620,19 +620,19 @@ class PrimaryContact(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            address_line1: Optional[pulumi.Input[_builtins.str]] = None,
-            address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-            address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-            city: Optional[pulumi.Input[_builtins.str]] = None,
-            company_name: Optional[pulumi.Input[_builtins.str]] = None,
-            country_code: Optional[pulumi.Input[_builtins.str]] = None,
-            district_or_county: Optional[pulumi.Input[_builtins.str]] = None,
-            full_name: Optional[pulumi.Input[_builtins.str]] = None,
-            phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-            state_or_region: Optional[pulumi.Input[_builtins.str]] = None,
-            website_url: Optional[pulumi.Input[_builtins.str]] = None) -> 'PrimaryContact':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            address_line1: pulumi.Input[Optional[_builtins.str]] = None,
+            address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+            address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+            city: pulumi.Input[Optional[_builtins.str]] = None,
+            company_name: pulumi.Input[Optional[_builtins.str]] = None,
+            country_code: pulumi.Input[Optional[_builtins.str]] = None,
+            district_or_county: pulumi.Input[Optional[_builtins.str]] = None,
+            full_name: pulumi.Input[Optional[_builtins.str]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+            state_or_region: pulumi.Input[Optional[_builtins.str]] = None,
+            website_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'PrimaryContact':
         """
         Get an existing PrimaryContact resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

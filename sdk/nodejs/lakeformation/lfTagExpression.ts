@@ -131,25 +131,25 @@ export interface LfTagExpressionState {
     /**
      * ID of the Data Catalog. Defaults to the account ID if not specified.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Description of the LF-Tag Expression.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of LF-Tag conditions (key-value pairs). See expression for more details.
      *
      * The following arguments are optional:
      */
-    expressions?: pulumi.Input<pulumi.Input<inputs.lakeformation.LfTagExpressionExpression>[]>;
+    expressions?: pulumi.Input<pulumi.Input<inputs.lakeformation.LfTagExpressionExpression>[] | undefined>;
     /**
      * Name of the LF-Tag Expression.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -159,11 +159,11 @@ export interface LfTagExpressionArgs {
     /**
      * ID of the Data Catalog. Defaults to the account ID if not specified.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Description of the LF-Tag Expression.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of LF-Tag conditions (key-value pairs). See expression for more details.
      *
@@ -173,9 +173,9 @@ export interface LfTagExpressionArgs {
     /**
      * Name of the LF-Tag Expression.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

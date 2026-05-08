@@ -175,49 +175,49 @@ export interface AccessEntryState {
     /**
      * Amazon Resource Name (ARN) of the Access Entry.
      */
-    accessEntryArn?: pulumi.Input<string>;
+    accessEntryArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the EKS Cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      */
-    kubernetesGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    kubernetesGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
-    modifiedAt?: pulumi.Input<string>;
+    modifiedAt?: pulumi.Input<string | undefined>;
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      *
      * The following arguments are optional:
      */
-    principalArn?: pulumi.Input<string>;
+    principalArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -231,7 +231,7 @@ export interface AccessEntryArgs {
     /**
      * List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      */
-    kubernetesGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    kubernetesGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      *
@@ -241,17 +241,17 @@ export interface AccessEntryArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

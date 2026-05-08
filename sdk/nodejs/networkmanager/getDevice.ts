@@ -139,5 +139,5 @@ export interface GetDeviceOutputArgs {
     /**
      * Key-value tags for the device.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -125,9 +125,9 @@ def get_connections(device_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connections_output(device_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_connections_output(device_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionsResult]:
     """
     Provides details about existing Network Manager connections.

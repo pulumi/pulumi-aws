@@ -184,42 +184,42 @@ export interface AgentcoreCodeInterpreterState {
     /**
      * ARN of the Code Interpreter.
      */
-    codeInterpreterArn?: pulumi.Input<string>;
+    codeInterpreterArn?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the Code Interpreter.
      */
-    codeInterpreterId?: pulumi.Input<string>;
+    codeInterpreterId?: pulumi.Input<string | undefined>;
     /**
      * Description of the code interpreter.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the code interpreter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network configuration for the code interpreter. See `networkConfiguration` below.
      *
      * The following arguments are optional:
      */
-    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterNetworkConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterTimeouts | undefined>;
 }
 
 /**
@@ -229,15 +229,15 @@ export interface AgentcoreCodeInterpreterArgs {
     /**
      * Description of the code interpreter.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the code interpreter.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network configuration for the code interpreter. See `networkConfiguration` below.
      *
@@ -247,10 +247,10 @@ export interface AgentcoreCodeInterpreterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterTimeouts | undefined>;
 }

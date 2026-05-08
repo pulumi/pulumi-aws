@@ -146,23 +146,23 @@ export interface ObjectLambdaAccessPointPolicyState {
     /**
      * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
-    hasPublicAccessPolicy?: pulumi.Input<boolean>;
+    hasPublicAccessPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Object Lambda Access Point.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Object Lambda Access Point resource policy document.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,11 +172,11 @@ export interface ObjectLambdaAccessPointPolicyArgs {
     /**
      * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Object Lambda Access Point.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Object Lambda Access Point resource policy document.
      */
@@ -184,5 +184,5 @@ export interface ObjectLambdaAccessPointPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

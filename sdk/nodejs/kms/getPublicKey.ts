@@ -137,7 +137,7 @@ export interface GetPublicKeyOutputArgs {
     /**
      * List of grant tokens
      */
-    grantTokens?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTokens?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key identifier which can be one of the following format:
      * * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
@@ -149,5 +149,5 @@ export interface GetPublicKeyOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -121,22 +121,22 @@ export interface TagOptionState {
     /**
      * Whether tag option is active. Default is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Tag option key.
      */
-    key?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tag option value.
      *
      * The following arguments are optional:
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -146,7 +146,7 @@ export interface TagOptionArgs {
     /**
      * Whether tag option is active. Default is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Tag option key.
      */
@@ -154,7 +154,7 @@ export interface TagOptionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tag option value.
      *

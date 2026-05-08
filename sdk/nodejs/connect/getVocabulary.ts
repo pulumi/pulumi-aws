@@ -167,19 +167,19 @@ export interface GetVocabularyOutputArgs {
     /**
      * Returns information on a specific Vocabulary by name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the Vocabulary.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Returns information on a specific Vocabulary by Vocabulary id
      *
      * > **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
      */
-    vocabularyId?: pulumi.Input<string>;
+    vocabularyId?: pulumi.Input<string | undefined>;
 }

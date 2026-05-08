@@ -142,37 +142,37 @@ export interface HsmState {
     /**
      * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * The id of the ENI interface allocated for HSM module.
      */
-    hsmEniId?: pulumi.Input<string>;
+    hsmEniId?: pulumi.Input<string | undefined>;
     /**
      * The id of the HSM module.
      */
-    hsmId?: pulumi.Input<string>;
+    hsmId?: pulumi.Input<string | undefined>;
     /**
      * The state of the HSM module.
      */
-    hsmState?: pulumi.Input<string>;
+    hsmState?: pulumi.Input<string | undefined>;
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      *
      * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,7 +182,7 @@ export interface HsmArgs {
     /**
      * The IDs of AZ in which HSM module will be located. Conflicts with `subnetId`.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      */
@@ -192,13 +192,13 @@ export interface HsmArgs {
      *
      * > **NOTE:** Either `subnetId` or `availabilityZone` must be specified.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
 }

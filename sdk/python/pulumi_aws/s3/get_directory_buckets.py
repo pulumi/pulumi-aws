@@ -106,7 +106,7 @@ def get_directory_buckets(region: Optional[_builtins.str] = None,
         buckets=pulumi.get(__ret__, 'buckets'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_directory_buckets_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_directory_buckets_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketsResult]:
     """
     Lists Amazon S3 Express directory buckets.

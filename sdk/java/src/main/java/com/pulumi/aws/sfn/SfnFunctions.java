@@ -38,8 +38,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -78,8 +78,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -118,8 +118,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -198,8 +198,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -278,8 +278,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -320,8 +320,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -363,8 +363,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -406,8 +406,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -449,8 +449,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -492,8 +492,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -535,8 +535,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -577,8 +577,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -619,8 +619,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -661,8 +661,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -703,8 +703,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -745,8 +745,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -787,8 +787,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -829,8 +829,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -871,8 +871,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -913,8 +913,8 @@ public final class SfnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.sfn.SfnFunctions;
      * import com.pulumi.aws.sfn.inputs.GetStateMachineVersionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

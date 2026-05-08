@@ -114,15 +114,15 @@ export interface IpSetState {
     /**
      * The ARN of the WAF IPSet.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IpSetIpSetDescriptor>[]>;
+    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IpSetIpSetDescriptor>[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,9 +132,9 @@ export interface IpSetArgs {
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      */
-    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IpSetIpSetDescriptor>[]>;
+    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IpSetIpSetDescriptor>[] | undefined>;
     /**
      * The name or description of the IPSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

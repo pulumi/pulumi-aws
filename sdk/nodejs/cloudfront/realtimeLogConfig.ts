@@ -176,23 +176,23 @@ export interface RealtimeLogConfigState {
     /**
      * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Kinesis data streams where real-time log data is sent.
      */
-    endpoint?: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint>;
+    endpoint?: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint | undefined>;
     /**
      * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      */
-    fields?: pulumi.Input<pulumi.Input<string>[]>;
+    fields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The unique name to identify this real-time log configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      */
-    samplingRate?: pulumi.Input<number>;
+    samplingRate?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -210,7 +210,7 @@ export interface RealtimeLogConfigArgs {
     /**
      * The unique name to identify this real-time log configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      */

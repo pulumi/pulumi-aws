@@ -146,29 +146,29 @@ export interface GetResolverRuleOutputArgs {
     /**
      * Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
      */
-    resolverEndpointId?: pulumi.Input<string>;
+    resolverEndpointId?: pulumi.Input<string | undefined>;
     /**
      * ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
      */
-    resolverRuleId?: pulumi.Input<string>;
+    resolverRuleId?: pulumi.Input<string | undefined>;
     /**
      * Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
      */
-    ruleType?: pulumi.Input<string>;
+    ruleType?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resolver rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

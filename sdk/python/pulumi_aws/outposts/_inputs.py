@@ -99,11 +99,11 @@ class CapacityTaskInstancesToExcludeArgs:
 
 
 class CapacityTaskTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     > **Long-running capacity tasks.** The default `create` timeout of `60m` is sufficient for most re-balancing operations on small to medium instance types. However, capacity tasks that change the configuration of bare-metal instance types (`*.metal`) or very large instance types (`24xlarge`, `48xlarge`, etc.) in the current or target state can take **8 to 12 hours** to complete, because AWS must stop, reconfigure, and re-start the underlying hardware. If your `instance_pool` configuration or the current state of the Outpost involves one of these instance types, override the `create` timeout accordingly — for example:
     """
@@ -111,8 +111,8 @@ class CapacityTaskTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class CapacityTaskTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: > **Long-running capacity tasks.** The default `create` timeout of `60m` is sufficient for most re-balancing operations on small to medium instance types. However, capacity tasks that change the configuration of bare-metal instance types (`*.metal`) or very large instance types (`24xlarge`, `48xlarge`, etc.) in the current or target state can take **8 to 12 hours** to complete, because AWS must stop, reconfigure, and re-start the underlying hardware. If your `instance_pool` configuration or the current state of the Outpost involves one of these instance types, override the `create` timeout accordingly — for example:
@@ -124,26 +124,26 @@ class CapacityTaskTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         > **Long-running capacity tasks.** The default `create` timeout of `60m` is sufficient for most re-balancing operations on small to medium instance types. However, capacity tasks that change the configuration of bare-metal instance types (`*.metal`) or very large instance types (`24xlarge`, `48xlarge`, etc.) in the current or target state can take **8 to 12 hours** to complete, because AWS must stop, reconfigure, and re-start the underlying hardware. If your `instance_pool` configuration or the current state of the Outpost involves one of these instance types, override the `create` timeout accordingly — for example:
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
 

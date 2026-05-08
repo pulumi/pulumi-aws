@@ -195,39 +195,39 @@ export interface InventoryState {
     /**
      * Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Contains information about where to publish the inventory results (documented below).
      */
-    destination?: pulumi.Input<inputs.s3.InventoryDestination>;
+    destination?: pulumi.Input<inputs.s3.InventoryDestination | undefined>;
     /**
      * Specifies whether the inventory is enabled or disabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.InventoryFilter>;
+    filter?: pulumi.Input<inputs.s3.InventoryFilter | undefined>;
     /**
      * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      */
-    includedObjectVersions?: pulumi.Input<string>;
+    includedObjectVersions?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the inventory configuration for the bucket.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
      */
-    optionalFields?: pulumi.Input<pulumi.Input<string>[]>;
+    optionalFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the schedule for generating inventory results (documented below).
      */
-    schedule?: pulumi.Input<inputs.s3.InventorySchedule>;
+    schedule?: pulumi.Input<inputs.s3.InventorySchedule | undefined>;
 }
 
 /**
@@ -245,11 +245,11 @@ export interface InventoryArgs {
     /**
      * Specifies whether the inventory is enabled or disabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.InventoryFilter>;
+    filter?: pulumi.Input<inputs.s3.InventoryFilter | undefined>;
     /**
      * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      */
@@ -257,15 +257,15 @@ export interface InventoryArgs {
     /**
      * Unique identifier of the inventory configuration for the bucket.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
      */
-    optionalFields?: pulumi.Input<pulumi.Input<string>[]>;
+    optionalFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the schedule for generating inventory results (documented below).
      */

@@ -95,7 +95,7 @@ def get_configuration_profiles(application_id: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+    example_get_configuration_profile = {str(__key): aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
         application_id=example_aws_appconfig_application["id"]) for __key, __value in enumerate(example.configuration_profile_ids)}
     ```
 
@@ -114,8 +114,8 @@ def get_configuration_profiles(application_id: Optional[_builtins.str] = None,
         configuration_profile_ids=pulumi.get(__ret__, 'configuration_profile_ids'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_configuration_profiles_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_configuration_profiles_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilesResult]:
     """
     Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
@@ -130,7 +130,7 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[_bui
     import pulumi_aws as aws
 
     example = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
-    example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+    example_get_configuration_profile = {str(__key): aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
         application_id=example_aws_appconfig_application["id"]) for __key, __value in enumerate(example.configuration_profile_ids)}
     ```
 

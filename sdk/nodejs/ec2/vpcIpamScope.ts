@@ -147,37 +147,37 @@ export interface VpcIpamScopeState {
     /**
      * The Amazon Resource Name (ARN) of the scope.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description for the scope you're creating.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IPAM for which you're creating this scope.
      */
-    ipamArn?: pulumi.Input<string>;
+    ipamArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IPAM for which you're creating this scope.
      */
-    ipamId?: pulumi.Input<string>;
-    ipamScopeType?: pulumi.Input<string>;
+    ipamId?: pulumi.Input<string | undefined>;
+    ipamScopeType?: pulumi.Input<string | undefined>;
     /**
      * Defines if the scope is the default scope or not.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The number of pools in the scope.
      */
-    poolCount?: pulumi.Input<number>;
+    poolCount?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -187,7 +187,7 @@ export interface VpcIpamScopeArgs {
     /**
      * A description for the scope you're creating.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the IPAM for which you're creating this scope.
      */
@@ -195,9 +195,9 @@ export interface VpcIpamScopeArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

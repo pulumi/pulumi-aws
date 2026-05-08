@@ -320,14 +320,14 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   default: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                   dhcp_options_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']]]]] = None,
-                   id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_vpc_output(cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   default: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                   dhcp_options_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']]]]] = None,
+                   id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcResult]:
     """
     `ec2.Vpc` provides details about a specific VPC.

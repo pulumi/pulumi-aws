@@ -172,7 +172,7 @@ export interface GetSecretVersionOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
@@ -180,9 +180,9 @@ export interface GetSecretVersionOutputArgs {
     /**
      * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
      */
-    versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
      */
-    versionStage?: pulumi.Input<string>;
+    versionStage?: pulumi.Input<string | undefined>;
 }

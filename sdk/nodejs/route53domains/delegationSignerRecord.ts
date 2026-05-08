@@ -181,16 +181,16 @@ export interface DelegationSignerRecordState {
     /**
      * An ID assigned to the created DS record.
      */
-    dnssecKeyId?: pulumi.Input<string>;
+    dnssecKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    signingAttributes?: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes>;
-    timeouts?: pulumi.Input<inputs.route53domains.DelegationSignerRecordTimeouts>;
+    signingAttributes?: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes | undefined>;
+    timeouts?: pulumi.Input<inputs.route53domains.DelegationSignerRecordTimeouts | undefined>;
 }
 
 /**
@@ -204,6 +204,6 @@ export interface DelegationSignerRecordArgs {
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    signingAttributes?: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes>;
-    timeouts?: pulumi.Input<inputs.route53domains.DelegationSignerRecordTimeouts>;
+    signingAttributes?: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes | undefined>;
+    timeouts?: pulumi.Input<inputs.route53domains.DelegationSignerRecordTimeouts | undefined>;
 }

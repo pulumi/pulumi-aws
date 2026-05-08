@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var example = new Aws.Bedrock.InferenceProfile("example", new()
     ///     {

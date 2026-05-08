@@ -106,20 +106,20 @@ export interface DeploymentState {
     /**
      * The unique ID of the operation associated with deployment.
      */
-    operationId?: pulumi.Input<string>;
+    operationId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
-    serviceArn?: pulumi.Input<string>;
+    serviceArn?: pulumi.Input<string | undefined>;
     /**
      * The current status of the App Runner service deployment.
      */
-    status?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts>;
+    status?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts | undefined>;
 }
 
 /**
@@ -129,10 +129,10 @@ export interface DeploymentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
     serviceArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts>;
+    timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts | undefined>;
 }

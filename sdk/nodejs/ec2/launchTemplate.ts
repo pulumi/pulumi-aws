@@ -330,173 +330,173 @@ export interface LaunchTemplateState {
     /**
      * Amazon Resource Name (ARN) of the launch template.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateBlockDeviceMapping>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateBlockDeviceMapping>[] | undefined>;
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification>;
+    capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification | undefined>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptions>;
+    cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptions | undefined>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification>;
+    creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification | undefined>;
     /**
      * Default Version of the launch template.
      */
-    defaultVersion?: pulumi.Input<number>;
+    defaultVersion?: pulumi.Input<number | undefined>;
     /**
      * Description of the launch template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      */
-    disableApiStop?: pulumi.Input<boolean>;
+    disableApiStop?: pulumi.Input<boolean | undefined>;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      */
-    disableApiTermination?: pulumi.Input<boolean>;
+    disableApiTermination?: pulumi.Input<boolean | undefined>;
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    ebsOptimized?: pulumi.Input<string>;
+    ebsOptimized?: pulumi.Input<string | undefined>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    enclaveOptions?: pulumi.Input<inputs.ec2.LaunchTemplateEnclaveOptions>;
+    enclaveOptions?: pulumi.Input<inputs.ec2.LaunchTemplateEnclaveOptions | undefined>;
     /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      */
-    hibernationOptions?: pulumi.Input<inputs.ec2.LaunchTemplateHibernationOptions>;
+    hibernationOptions?: pulumi.Input<inputs.ec2.LaunchTemplateHibernationOptions | undefined>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile>;
+    iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile | undefined>;
     /**
      * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      */
-    imageId?: pulumi.Input<string>;
+    imageId?: pulumi.Input<string | undefined>;
     /**
      * Shutdown behavior for the instance. Can be `stop` or `terminate`.
      * (Default: `stop`).
      */
-    instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    instanceInitiatedShutdownBehavior?: pulumi.Input<string | undefined>;
     /**
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions>;
+    instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions | undefined>;
     /**
      * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
      */
-    instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirements>;
+    instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirements | undefined>;
     /**
      * The type of the instance. If present then `instanceRequirements` cannot be present.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * The kernel ID.
      */
-    kernelId?: pulumi.Input<string>;
+    kernelId?: pulumi.Input<string | undefined>;
     /**
      * The key name to use for the instance.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * The latest version of the launch template.
      */
-    latestVersion?: pulumi.Input<number>;
+    latestVersion?: pulumi.Input<number | undefined>;
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[] | undefined>;
     /**
      * The maintenance options for the instance. See Maintenance Options below for more details.
      */
-    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions>;
+    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions | undefined>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptions | undefined>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
+    monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring | undefined>;
     /**
      * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[]>;
-    networkPerformanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkPerformanceOptions>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[] | undefined>;
+    networkPerformanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkPerformanceOptions | undefined>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement>;
+    placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement | undefined>;
     /**
      * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptions>;
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptions | undefined>;
     /**
      * The ID of the RAM disk.
      */
-    ramDiskId?: pulumi.Input<string>;
+    ramDiskId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Secondary interfaces to associate with instances launched from the template. See Secondary
      * Interfaces below for more details.
      */
-    secondaryInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateSecondaryInterface>[]>;
+    secondaryInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateSecondaryInterface>[] | undefined>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
      */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      */
-    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
+    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[] | undefined>;
     /**
      * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      */
-    updateDefaultVersion?: pulumi.Input<boolean>;
+    updateDefaultVersion?: pulumi.Input<boolean | undefined>;
     /**
      * The base64-encoded user data to provide when launching the instance.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -507,158 +507,158 @@ export interface LaunchTemplateArgs {
      * Specify volumes to attach to the instance besides the volumes specified by the AMI.
      * See Block Devices below for details.
      */
-    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateBlockDeviceMapping>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateBlockDeviceMapping>[] | undefined>;
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      */
-    capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification>;
+    capacityReservationSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCapacityReservationSpecification | undefined>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptions>;
+    cpuOptions?: pulumi.Input<inputs.ec2.LaunchTemplateCpuOptions | undefined>;
     /**
      * Customize the credit specification of the instance. See Credit
      * Specification below for more details.
      */
-    creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification>;
+    creditSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateCreditSpecification | undefined>;
     /**
      * Default Version of the launch template.
      */
-    defaultVersion?: pulumi.Input<number>;
+    defaultVersion?: pulumi.Input<number | undefined>;
     /**
      * Description of the launch template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      */
-    disableApiStop?: pulumi.Input<boolean>;
+    disableApiStop?: pulumi.Input<boolean | undefined>;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      */
-    disableApiTermination?: pulumi.Input<boolean>;
+    disableApiTermination?: pulumi.Input<boolean | undefined>;
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      */
-    ebsOptimized?: pulumi.Input<string>;
+    ebsOptimized?: pulumi.Input<string | undefined>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    enclaveOptions?: pulumi.Input<inputs.ec2.LaunchTemplateEnclaveOptions>;
+    enclaveOptions?: pulumi.Input<inputs.ec2.LaunchTemplateEnclaveOptions | undefined>;
     /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      */
-    hibernationOptions?: pulumi.Input<inputs.ec2.LaunchTemplateHibernationOptions>;
+    hibernationOptions?: pulumi.Input<inputs.ec2.LaunchTemplateHibernationOptions | undefined>;
     /**
      * The IAM Instance Profile to launch the instance with. See Instance Profile
      * below for more details.
      */
-    iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile>;
+    iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile | undefined>;
     /**
      * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      */
-    imageId?: pulumi.Input<string>;
+    imageId?: pulumi.Input<string | undefined>;
     /**
      * Shutdown behavior for the instance. Can be `stop` or `terminate`.
      * (Default: `stop`).
      */
-    instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    instanceInitiatedShutdownBehavior?: pulumi.Input<string | undefined>;
     /**
      * The market (purchasing) option for the instance. See Market Options
      * below for details.
      */
-    instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions>;
+    instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions | undefined>;
     /**
      * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
      */
-    instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirements>;
+    instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirements | undefined>;
     /**
      * The type of the instance. If present then `instanceRequirements` cannot be present.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * The kernel ID.
      */
-    kernelId?: pulumi.Input<string>;
+    kernelId?: pulumi.Input<string | undefined>;
     /**
      * The key name to use for the instance.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      */
-    licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[] | undefined>;
     /**
      * The maintenance options for the instance. See Maintenance Options below for more details.
      */
-    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions>;
+    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions | undefined>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMetadataOptions | undefined>;
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      */
-    monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring>;
+    monitoring?: pulumi.Input<inputs.ec2.LaunchTemplateMonitoring | undefined>;
     /**
      * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network
      * Interfaces below for more details.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[]>;
-    networkPerformanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkPerformanceOptions>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[] | undefined>;
+    networkPerformanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkPerformanceOptions | undefined>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
-    placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement>;
+    placement?: pulumi.Input<inputs.ec2.LaunchTemplatePlacement | undefined>;
     /**
      * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptions>;
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.LaunchTemplatePrivateDnsNameOptions | undefined>;
     /**
      * The ID of the RAM disk.
      */
-    ramDiskId?: pulumi.Input<string>;
+    ramDiskId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Secondary interfaces to associate with instances launched from the template. See Secondary
      * Interfaces below for more details.
      */
-    secondaryInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateSecondaryInterface>[]>;
+    secondaryInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateSecondaryInterface>[] | undefined>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
      */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      */
-    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
+    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[] | undefined>;
     /**
      * A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether to update Default Version each update. Conflicts with `defaultVersion`.
      */
-    updateDefaultVersion?: pulumi.Input<boolean>;
+    updateDefaultVersion?: pulumi.Input<boolean | undefined>;
     /**
      * The base64-encoded user data to provide when launching the instance.
      */
-    userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string | undefined>;
     /**
      * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

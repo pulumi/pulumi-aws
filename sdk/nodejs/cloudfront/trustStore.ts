@@ -164,34 +164,34 @@ export interface TrustStoreState {
     /**
      * ARN of the trust store.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
      *
      * The following arguments are optional:
      */
-    caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSource>;
+    caCertificatesBundleSource?: pulumi.Input<inputs.cloudfront.TrustStoreCaCertificatesBundleSource | undefined>;
     /**
      * ETag of the trust store.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Name of the trust store. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Number of CA certificates in the trust store.
      */
-    numberOfCaCertificates?: pulumi.Input<number>;
+    numberOfCaCertificates?: pulumi.Input<number | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.TrustStoreTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.TrustStoreTimeouts | undefined>;
 }
 
 /**
@@ -207,10 +207,10 @@ export interface TrustStoreArgs {
     /**
      * Name of the trust store. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.TrustStoreTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.TrustStoreTimeouts | undefined>;
 }

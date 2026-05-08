@@ -165,17 +165,17 @@ export interface GetFileSystemOutputArgs {
     /**
      * Restricts the list to the file system with this creation token.
      */
-    creationToken?: pulumi.Input<string>;
+    creationToken?: pulumi.Input<string | undefined>;
     /**
      * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
-    fileSystemId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Restricts the list to the file system with these tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -87,8 +87,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -120,8 +120,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -154,8 +154,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -197,8 +197,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -230,8 +230,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -264,8 +264,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -307,8 +307,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -340,8 +340,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -374,8 +374,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -450,8 +450,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -484,8 +484,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -527,8 +527,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -560,8 +560,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -594,8 +594,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -635,8 +635,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -675,8 +675,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -715,8 +715,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -755,8 +755,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -795,8 +795,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -835,8 +835,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -875,8 +875,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -917,8 +917,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.Ec2Instance;
      * import com.pulumi.aws.Ec2InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -966,8 +966,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.Ec2Instance;
      * import com.pulumi.aws.Ec2InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1015,8 +1015,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.Ec2Instance;
      * import com.pulumi.aws.Ec2InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1064,8 +1064,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.Ec2Instance;
      * import com.pulumi.aws.Ec2InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1113,8 +1113,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
      * import com.pulumi.aws.Ec2Instance;
      * import com.pulumi.aws.Ec2InstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1160,8 +1160,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1200,8 +1200,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1240,8 +1240,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1280,8 +1280,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1320,8 +1320,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1360,8 +1360,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1400,8 +1400,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1440,8 +1440,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1480,8 +1480,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1520,8 +1520,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1560,8 +1560,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1600,8 +1600,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1640,8 +1640,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1680,8 +1680,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1720,8 +1720,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1760,8 +1760,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1800,8 +1800,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1840,8 +1840,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1880,8 +1880,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSiteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1920,8 +1920,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1959,8 +1959,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1998,8 +1998,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2037,8 +2037,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2076,8 +2076,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2115,8 +2115,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2154,8 +2154,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetSitesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

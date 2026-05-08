@@ -153,38 +153,38 @@ export interface VocabularyFilterState {
     /**
      * ARN of the VocabularyFilter.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Generated download URI.
      */
-    downloadUri?: pulumi.Input<string>;
+    downloadUri?: pulumi.Input<string | undefined>;
     /**
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
-    languageCode?: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      */
-    vocabularyFilterFileUri?: pulumi.Input<string>;
+    vocabularyFilterFileUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the VocabularyFilter.
      *
      * The following arguments are optional:
      */
-    vocabularyFilterName?: pulumi.Input<string>;
+    vocabularyFilterName?: pulumi.Input<string | undefined>;
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      */
-    words?: pulumi.Input<pulumi.Input<string>[]>;
+    words?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -198,15 +198,15 @@ export interface VocabularyFilterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      */
-    vocabularyFilterFileUri?: pulumi.Input<string>;
+    vocabularyFilterFileUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the VocabularyFilter.
      *
@@ -216,5 +216,5 @@ export interface VocabularyFilterArgs {
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      */
-    words?: pulumi.Input<pulumi.Input<string>[]>;
+    words?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

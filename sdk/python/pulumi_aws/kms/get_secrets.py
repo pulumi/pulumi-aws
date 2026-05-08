@@ -110,8 +110,8 @@ def get_secrets(region: Optional[_builtins.str] = None,
         plaintext=pulumi.get(__ret__, 'plaintext'),
         region=pulumi.get(__ret__, 'region'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_secrets_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       secrets: Optional[pulumi.Input[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]]] = None,
+def get_secrets_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       secrets: pulumi.Input[Optional[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.

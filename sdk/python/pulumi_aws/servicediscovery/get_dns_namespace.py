@@ -165,10 +165,10 @@ def get_dns_namespace(name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_dns_namespace_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                             type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dns_namespace_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                             type: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsNamespaceResult]:
     """
     Retrieves information about a Service Discovery private or public DNS namespace.

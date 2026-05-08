@@ -163,37 +163,37 @@ export interface InstanceState {
     /**
      * The custom subdomain for the CIDR endpoints.
      */
-    cidrEndpointsCustomSubdomain?: pulumi.Input<string>;
+    cidrEndpointsCustomSubdomain?: pulumi.Input<string | undefined>;
     /**
      * The time that the Verified Access Instance was created.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * A description for the AWS Verified Access Instance.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      */
-    fipsEnabled?: pulumi.Input<boolean>;
+    fipsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The time that the Verified Access Instance was last updated.
      */
-    lastUpdatedTime?: pulumi.Input<string>;
-    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
      */
-    verifiedAccessTrustProviders?: pulumi.Input<pulumi.Input<inputs.verifiedaccess.InstanceVerifiedAccessTrustProvider>[]>;
+    verifiedAccessTrustProviders?: pulumi.Input<pulumi.Input<inputs.verifiedaccess.InstanceVerifiedAccessTrustProvider>[] | undefined>;
 }
 
 /**
@@ -203,21 +203,21 @@ export interface InstanceArgs {
     /**
      * The custom subdomain for the CIDR endpoints.
      */
-    cidrEndpointsCustomSubdomain?: pulumi.Input<string>;
+    cidrEndpointsCustomSubdomain?: pulumi.Input<string | undefined>;
     /**
      * A description for the AWS Verified Access Instance.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      */
-    fipsEnabled?: pulumi.Input<boolean>;
+    fipsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

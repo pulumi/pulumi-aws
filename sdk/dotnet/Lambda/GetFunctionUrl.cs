@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Lambda
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
-        ///             Std.Index.Replace.Invoke(new()
+        ///             Std.Replace.Invoke(new()
         ///             {
         ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
         ///                 Search = "https://",
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Lambda
         ///         FunctionName = "api_function",
         ///     });
         /// 
-        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length(), example).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
         ///         var example = values.Item2;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Lambda
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
-        ///             Std.Index.Replace.Invoke(new()
+        ///             Std.Replace.Invoke(new()
         ///             {
         ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
         ///                 Search = "https://",
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Lambda
         ///         FunctionName = "api_function",
         ///     });
         /// 
-        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length(), example).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
         ///         var example = values.Item2;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Lambda
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
-        ///             Std.Index.Replace.Invoke(new()
+        ///             Std.Replace.Invoke(new()
         ///             {
         ///                 Text = example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.FunctionUrl),
         ///                 Search = "https://",
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.Lambda
         ///         FunctionName = "api_function",
         ///     });
         /// 
-        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length, example).Apply(values =&gt;
+        ///     var corsConfig = Output.Tuple(example.Apply(getFunctionUrlResult =&gt; getFunctionUrlResult.Cors).Length(), example).Apply(values =&gt;
         ///     {
         ///         var length = values.Item1;
         ///         var example = values.Item2;

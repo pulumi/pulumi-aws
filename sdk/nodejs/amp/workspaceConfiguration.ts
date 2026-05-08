@@ -162,22 +162,22 @@ export interface WorkspaceConfigurationState {
     /**
      * Configuration block for setting limits on metrics with specific label sets. Detailed below.
      */
-    limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[]>;
+    limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Number of days to retain metric data in the workspace.
      */
-    retentionPeriodInDays?: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.amp.WorkspaceConfigurationTimeouts>;
+    retentionPeriodInDays?: pulumi.Input<number | undefined>;
+    timeouts?: pulumi.Input<inputs.amp.WorkspaceConfigurationTimeouts | undefined>;
     /**
      * ID of the workspace to configure.
      *
      * The following arguments are optional:
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -187,16 +187,16 @@ export interface WorkspaceConfigurationArgs {
     /**
      * Configuration block for setting limits on metrics with specific label sets. Detailed below.
      */
-    limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[]>;
+    limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Number of days to retain metric data in the workspace.
      */
-    retentionPeriodInDays?: pulumi.Input<number>;
-    timeouts?: pulumi.Input<inputs.amp.WorkspaceConfigurationTimeouts>;
+    retentionPeriodInDays?: pulumi.Input<number | undefined>;
+    timeouts?: pulumi.Input<inputs.amp.WorkspaceConfigurationTimeouts | undefined>;
     /**
      * ID of the workspace to configure.
      *

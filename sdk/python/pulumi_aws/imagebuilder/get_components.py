@@ -141,9 +141,9 @@ def get_components(filters: Optional[Sequence[Union['GetComponentsFilterArgs', '
         names=pulumi.get(__ret__, 'names'),
         owner=pulumi.get(__ret__, 'owner'),
         region=pulumi.get(__ret__, 'region'))
-def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']]]]] = None,
-                          owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_components_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']]]]] = None,
+                          owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.

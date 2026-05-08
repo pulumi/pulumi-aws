@@ -26,10 +26,10 @@ class CustomActionTypeArgs:
                  output_artifact_details: pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs'],
                  provider_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['CustomActionTypeSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
 
@@ -101,62 +101,62 @@ class CustomActionTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
+    def configuration_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
         """
         The configuration properties for the custom action. Max 10 items.
         """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]):
+    def configuration_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['CustomActionTypeSettingsArgs']]:
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['CustomActionTypeSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['CustomActionTypeSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _CustomActionTypeState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
-                 input_artifact_details: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']] = None,
-                 output_artifact_details: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
+                 input_artifact_details: pulumi.Input[Optional['CustomActionTypeInputArtifactDetailsArgs']] = None,
+                 output_artifact_details: pulumi.Input[Optional['CustomActionTypeOutputArtifactDetailsArgs']] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['CustomActionTypeSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomActionType resources.
 
@@ -194,128 +194,128 @@ class _CustomActionTypeState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
+    def configuration_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
         """
         The configuration properties for the custom action. Max 10 items.
         """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]):
+    def configuration_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="inputArtifactDetails")
-    def input_artifact_details(self) -> Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']]:
+    def input_artifact_details(self) -> pulumi.Input[Optional['CustomActionTypeInputArtifactDetailsArgs']]:
         return pulumi.get(self, "input_artifact_details")
 
     @input_artifact_details.setter
-    def input_artifact_details(self, value: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']]):
+    def input_artifact_details(self, value: pulumi.Input[Optional['CustomActionTypeInputArtifactDetailsArgs']]):
         pulumi.set(self, "input_artifact_details", value)
 
     @_builtins.property
     @pulumi.getter(name="outputArtifactDetails")
-    def output_artifact_details(self) -> Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']]:
+    def output_artifact_details(self) -> pulumi.Input[Optional['CustomActionTypeOutputArtifactDetailsArgs']]:
         return pulumi.get(self, "output_artifact_details")
 
     @output_artifact_details.setter
-    def output_artifact_details(self, value: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']]):
+    def output_artifact_details(self, value: pulumi.Input[Optional['CustomActionTypeOutputArtifactDetailsArgs']]):
         pulumi.set(self, "output_artifact_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The creator of the action being called.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['CustomActionTypeSettingsArgs']]:
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['CustomActionTypeSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['CustomActionTypeSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -325,15 +325,15 @@ class CustomActionType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
+                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a CodeDeploy CustomActionType
@@ -426,15 +426,15 @@ class CustomActionType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
-                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
+                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
+                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -476,18 +476,18 @@ class CustomActionType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            category: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
-            input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
-            output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'CustomActionType':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
+            input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
+            output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomActionType':
         """
         Get an existing CustomActionType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

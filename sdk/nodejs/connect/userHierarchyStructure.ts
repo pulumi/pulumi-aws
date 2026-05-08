@@ -146,15 +146,15 @@ export interface UserHierarchyStructureState {
     /**
      * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
-    hierarchyStructure?: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure>;
+    hierarchyStructure?: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,5 +172,5 @@ export interface UserHierarchyStructureArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

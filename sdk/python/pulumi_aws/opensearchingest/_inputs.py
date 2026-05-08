@@ -86,11 +86,11 @@ class PipelineEncryptionAtRestOptionsArgs:
 
 
 class PipelineLogPublishingOptionsArgsDict(TypedDict):
-    cloudwatch_log_destination: NotRequired[pulumi.Input['PipelineLogPublishingOptionsCloudwatchLogDestinationArgsDict']]
+    cloudwatch_log_destination: NotRequired[pulumi.Input[Optional['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']]]
     """
     The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
     """
-    is_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    is_logging_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether logs should be published.
     """
@@ -98,8 +98,8 @@ class PipelineLogPublishingOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineLogPublishingOptionsArgs:
     def __init__(__self__, *,
-                 cloudwatch_log_destination: Optional[pulumi.Input['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']] = None,
-                 is_logging_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cloudwatch_log_destination: pulumi.Input[Optional['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']] = None,
+                 is_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs'] cloudwatch_log_destination: The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
         :param pulumi.Input[_builtins.bool] is_logging_enabled: Whether logs should be published.
@@ -111,26 +111,26 @@ class PipelineLogPublishingOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogDestination")
-    def cloudwatch_log_destination(self) -> Optional[pulumi.Input['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']]:
+    def cloudwatch_log_destination(self) -> pulumi.Input[Optional['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']]:
         """
         The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
         """
         return pulumi.get(self, "cloudwatch_log_destination")
 
     @cloudwatch_log_destination.setter
-    def cloudwatch_log_destination(self, value: Optional[pulumi.Input['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']]):
+    def cloudwatch_log_destination(self, value: pulumi.Input[Optional['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']]):
         pulumi.set(self, "cloudwatch_log_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="isLoggingEnabled")
-    def is_logging_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_logging_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether logs should be published.
         """
         return pulumi.get(self, "is_logging_enabled")
 
     @is_logging_enabled.setter
-    def is_logging_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_logging_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_logging_enabled", value)
 
 
@@ -163,15 +163,15 @@ class PipelineLogPublishingOptionsCloudwatchLogDestinationArgs:
 
 
 class PipelineTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -179,9 +179,9 @@ class PipelineTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class PipelineTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -196,38 +196,38 @@ class PipelineTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -236,11 +236,11 @@ class PipelineVpcOptionsArgsDict(TypedDict):
     """
     A list of subnet IDs associated with the VPC endpoint.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of security groups associated with the VPC endpoint.
     """
-    vpc_endpoint_management: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_endpoint_management: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
     """
@@ -249,8 +249,8 @@ class PipelineVpcOptionsArgsDict(TypedDict):
 class PipelineVpcOptionsArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_endpoint_management: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_endpoint_management: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security groups associated with the VPC endpoint.
@@ -276,26 +276,26 @@ class PipelineVpcOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security groups associated with the VPC endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointManagement")
-    def vpc_endpoint_management(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_management(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
         """
         return pulumi.get(self, "vpc_endpoint_management")
 
     @vpc_endpoint_management.setter
-    def vpc_endpoint_management(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_management(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_management", value)
 
 

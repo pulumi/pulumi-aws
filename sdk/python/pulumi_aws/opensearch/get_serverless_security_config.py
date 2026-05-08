@@ -168,9 +168,9 @@ def get_serverless_security_config(id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         saml_options=pulumi.get(__ret__, 'saml_options'),
         type=pulumi.get(__ret__, 'type'))
-def get_serverless_security_config_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                          saml_options: Optional[pulumi.Input[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]]]] = None,
+def get_serverless_security_config_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          saml_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.

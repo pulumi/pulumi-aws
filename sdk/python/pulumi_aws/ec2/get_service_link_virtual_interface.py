@@ -243,9 +243,9 @@ def get_service_link_virtual_interface(filters: Optional[Sequence[Union['GetServ
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vlan=pulumi.get(__ret__, 'vlan'))
-def get_service_link_virtual_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict']]]]] = None,
-                                              id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_link_virtual_interface_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetServiceLinkVirtualInterfaceFilterArgs', 'GetServiceLinkVirtualInterfaceFilterArgsDict']]]]] = None,
+                                              id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLinkVirtualInterfaceResult]:
     """
     Provides details about an EC2 Service Link Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/how-outposts-works.html#how-service-link).

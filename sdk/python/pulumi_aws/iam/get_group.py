@@ -138,7 +138,7 @@ def get_group(group_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         path=pulumi.get(__ret__, 'path'),
         users=pulumi.get(__ret__, 'users'))
-def get_group_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     This data source can be used to fetch information about a specific

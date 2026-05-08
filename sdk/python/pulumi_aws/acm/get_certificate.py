@@ -228,13 +228,13 @@ def get_certificate(domain: Optional[_builtins.str] = None,
         statuses=pulumi.get(__ret__, 'statuses'),
         tags=pulumi.get(__ret__, 'tags'),
         types=pulumi.get(__ret__, 'types'))
-def get_certificate_output(domain: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           key_types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                           most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           statuses: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                           types: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def get_certificate_output(domain: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           key_types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                           most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           statuses: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                           types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).

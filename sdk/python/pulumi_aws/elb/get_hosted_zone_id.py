@@ -93,7 +93,7 @@ def get_hosted_zone_id(region: Optional[_builtins.str] = None,
     return AwaitableGetHostedZoneIdResult(
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_hosted_zone_id_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedZoneIdResult]:
     """
     Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId

@@ -130,29 +130,29 @@ export interface PolicyTemplateState {
     /**
      * The date the Policy Store was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * Provides a description for the policy template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Policy Store.
      */
-    policyStoreId?: pulumi.Input<string>;
+    policyStoreId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Policy Store.
      */
-    policyTemplateId?: pulumi.Input<string>;
+    policyTemplateId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Defines the content of the statement, written in Cedar policy language.
      *
      * The following arguments are optional:
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface PolicyTemplateArgs {
     /**
      * Provides a description for the policy template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Policy Store.
      */
@@ -170,7 +170,7 @@ export interface PolicyTemplateArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Defines the content of the statement, written in Cedar policy language.
      *

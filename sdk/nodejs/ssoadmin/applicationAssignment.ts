@@ -133,19 +133,19 @@ export interface ApplicationAssignmentState {
     /**
      * ARN of the application.
      */
-    applicationArn?: pulumi.Input<string>;
+    applicationArn?: pulumi.Input<string | undefined>;
     /**
      * An identifier for an object in IAM Identity Center, such as a user or group.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,5 +167,5 @@ export interface ApplicationAssignmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

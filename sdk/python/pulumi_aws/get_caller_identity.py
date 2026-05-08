@@ -116,7 +116,7 @@ def get_caller_identity(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_caller_identity_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_caller_identity_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCallerIdentityResult]:
     """
     Use this data source to get the access to the effective Account ID, User ID, and ARN in

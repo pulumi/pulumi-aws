@@ -58,8 +58,8 @@ class ProtectionHealthCheckAssociationArgs:
 @pulumi.input_type
 class _ProtectionHealthCheckAssociationState:
     def __init__(__self__, *,
-                 health_check_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 shield_protection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 health_check_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 shield_protection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProtectionHealthCheckAssociation resources.
 
@@ -73,26 +73,26 @@ class _ProtectionHealthCheckAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="healthCheckArn")
-    def health_check_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         """
         return pulumi.get(self, "health_check_arn")
 
     @health_check_arn.setter
-    def health_check_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="shieldProtectionId")
-    def shield_protection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shield_protection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the protected resource.
         """
         return pulumi.get(self, "shield_protection_id")
 
     @shield_protection_id.setter
-    def shield_protection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shield_protection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shield_protection_id", value)
 
 
@@ -102,8 +102,8 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 shield_protection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 shield_protection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an association between a Route53 Health Check and a Shield Advanced protected resource.
@@ -229,8 +229,8 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 shield_protection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 shield_protection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,8 +256,8 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            health_check_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            shield_protection_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProtectionHealthCheckAssociation':
+            health_check_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            shield_protection_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProtectionHealthCheckAssociation':
         """
         Get an existing ProtectionHealthCheckAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

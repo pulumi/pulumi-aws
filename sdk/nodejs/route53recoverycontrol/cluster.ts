@@ -128,33 +128,33 @@ export interface ClusterState {
     /**
      * ARN of the cluster
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      */
-    clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.ClusterClusterEndpoint>[]>;
+    clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.ClusterClusterEndpoint>[] | undefined>;
     /**
      * Unique name describing the cluster.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
      *
      * The following arguments are optional:
      */
-    networkType?: pulumi.Input<string>;
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -164,15 +164,15 @@ export interface ClusterArgs {
     /**
      * Unique name describing the cluster.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network type of cluster. Valid values are `IPV4` and `DUALSTACK`. Defaults to `IPV4`.
      *
      * The following arguments are optional:
      */
-    networkType?: pulumi.Input<string>;
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -190,15 +190,15 @@ export interface GetPatchBaselineOutputArgs {
     /**
      * Filters the results against the baselines defaultBaseline field.
      */
-    defaultBaseline?: pulumi.Input<boolean>;
+    defaultBaseline?: pulumi.Input<boolean | undefined>;
     /**
      * Filter results by the baseline name prefix.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
      */
-    operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string | undefined>;
     /**
      * Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      *
@@ -208,5 +208,5 @@ export interface GetPatchBaselineOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

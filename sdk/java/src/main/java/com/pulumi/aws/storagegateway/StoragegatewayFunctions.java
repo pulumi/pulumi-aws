@@ -29,8 +29,8 @@ public final class StoragegatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
      * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -70,8 +70,8 @@ public final class StoragegatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
      * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -111,8 +111,8 @@ public final class StoragegatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
      * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -152,8 +152,8 @@ public final class StoragegatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
      * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -193,8 +193,8 @@ public final class StoragegatewayFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
      * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

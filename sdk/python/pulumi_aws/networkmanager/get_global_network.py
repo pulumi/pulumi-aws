@@ -125,8 +125,8 @@ def get_global_network(global_network_id: Optional[_builtins.str] = None,
         global_network_id=pulumi.get(__ret__, 'global_network_id'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_global_network_output(global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_global_network_output(global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalNetworkResult]:
     """
     Provides details about an existing Network Manager global network.

@@ -48,15 +48,15 @@ class EndpointElasticsearchSettingsArgsDict(TypedDict):
     """
     ARN of the IAM Role with permissions to write to the OpenSearch cluster.
     """
-    error_retry_duration: NotRequired[pulumi.Input[_builtins.int]]
+    error_retry_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
     """
-    full_load_error_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    full_load_error_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
     """
-    use_new_mapping_type: NotRequired[pulumi.Input[_builtins.bool]]
+    use_new_mapping_type: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
     """
@@ -66,9 +66,9 @@ class EndpointElasticsearchSettingsArgs:
     def __init__(__self__, *,
                  endpoint_uri: pulumi.Input[_builtins.str],
                  service_access_role_arn: pulumi.Input[_builtins.str],
-                 error_retry_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 full_load_error_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_new_mapping_type: Optional[pulumi.Input[_builtins.bool]] = None):
+                 error_retry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 full_load_error_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_new_mapping_type: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint_uri: Endpoint for the OpenSearch cluster.
         :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
@@ -111,38 +111,38 @@ class EndpointElasticsearchSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorRetryDuration")
-    def error_retry_duration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def error_retry_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
         """
         return pulumi.get(self, "error_retry_duration")
 
     @error_retry_duration.setter
-    def error_retry_duration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def error_retry_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "error_retry_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="fullLoadErrorPercentage")
-    def full_load_error_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def full_load_error_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
         """
         return pulumi.get(self, "full_load_error_percentage")
 
     @full_load_error_percentage.setter
-    def full_load_error_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def full_load_error_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "full_load_error_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="useNewMappingType")
-    def use_new_mapping_type(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_new_mapping_type(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
         """
         return pulumi.get(self, "use_new_mapping_type")
 
     @use_new_mapping_type.setter
-    def use_new_mapping_type(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_new_mapping_type(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_new_mapping_type", value)
 
 
@@ -151,75 +151,75 @@ class EndpointKafkaSettingsArgsDict(TypedDict):
     """
     Kafka broker location. Specify in the form broker-hostname-or-ip:port.
     """
-    include_control_details: NotRequired[pulumi.Input[_builtins.bool]]
+    include_control_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
     """
-    include_null_and_empty: NotRequired[pulumi.Input[_builtins.bool]]
+    include_null_and_empty: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
     """
-    include_partition_value: NotRequired[pulumi.Input[_builtins.bool]]
+    include_partition_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
     """
-    include_table_alter_operations: NotRequired[pulumi.Input[_builtins.bool]]
+    include_table_alter_operations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
     """
-    include_transaction_details: NotRequired[pulumi.Input[_builtins.bool]]
+    include_transaction_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
     """
-    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    message_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
     """
-    message_max_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    message_max_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
     """
-    no_hex_prefix: NotRequired[pulumi.Input[_builtins.bool]]
+    no_hex_prefix: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
     """
-    partition_include_schema_table: NotRequired[pulumi.Input[_builtins.bool]]
+    partition_include_schema_table: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
     """
-    sasl_mechanism: NotRequired[pulumi.Input[_builtins.str]]
+    sasl_mechanism: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
     """
-    sasl_password: NotRequired[pulumi.Input[_builtins.str]]
+    sasl_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
     """
-    sasl_username: NotRequired[pulumi.Input[_builtins.str]]
+    sasl_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
     """
-    security_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    security_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
     """
-    ssl_ca_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_ca_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
     """
-    ssl_client_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_client_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the client certificate used to securely connect to a Kafka target endpoint.
     """
-    ssl_client_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_client_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN for the client private key used to securely connect to a Kafka target endpoint.
     """
-    ssl_client_key_password: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_client_key_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Password for the client private key used to securely connect to a Kafka target endpoint.
     """
-    topic: NotRequired[pulumi.Input[_builtins.str]]
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Kafka topic for migration. Default is `kafka-default-topic`.
     """
@@ -228,24 +228,24 @@ class EndpointKafkaSettingsArgsDict(TypedDict):
 class EndpointKafkaSettingsArgs:
     def __init__(__self__, *,
                  broker: pulumi.Input[_builtins.str],
-                 include_control_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_null_and_empty: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_partition_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_table_alter_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_transaction_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_max_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_hex_prefix: Optional[pulumi.Input[_builtins.bool]] = None,
-                 partition_include_schema_table: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sasl_mechanism: Optional[pulumi.Input[_builtins.str]] = None,
-                 sasl_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 sasl_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_ca_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_client_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_client_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_client_key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic: Optional[pulumi.Input[_builtins.str]] = None):
+                 include_control_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_null_and_empty: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_partition_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_table_alter_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_transaction_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_max_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_hex_prefix: pulumi.Input[Optional[_builtins.bool]] = None,
+                 partition_include_schema_table: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sasl_mechanism: pulumi.Input[Optional[_builtins.str]] = None,
+                 sasl_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 sasl_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_ca_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_client_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_client_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_client_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] broker: Kafka broker location. Specify in the form broker-hostname-or-ip:port.
         :param pulumi.Input[_builtins.bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
@@ -319,259 +319,259 @@ class EndpointKafkaSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeControlDetails")
-    def include_control_details(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_control_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
         """
         return pulumi.get(self, "include_control_details")
 
     @include_control_details.setter
-    def include_control_details(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_control_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_control_details", value)
 
     @_builtins.property
     @pulumi.getter(name="includeNullAndEmpty")
-    def include_null_and_empty(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_null_and_empty(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
         """
         return pulumi.get(self, "include_null_and_empty")
 
     @include_null_and_empty.setter
-    def include_null_and_empty(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_null_and_empty(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_null_and_empty", value)
 
     @_builtins.property
     @pulumi.getter(name="includePartitionValue")
-    def include_partition_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_partition_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
         """
         return pulumi.get(self, "include_partition_value")
 
     @include_partition_value.setter
-    def include_partition_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_partition_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_partition_value", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTableAlterOperations")
-    def include_table_alter_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_table_alter_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
         """
         return pulumi.get(self, "include_table_alter_operations")
 
     @include_table_alter_operations.setter
-    def include_table_alter_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_table_alter_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_table_alter_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTransactionDetails")
-    def include_transaction_details(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_transaction_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
         """
         return pulumi.get(self, "include_transaction_details")
 
     @include_transaction_details.setter
-    def include_transaction_details(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_transaction_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_transaction_details", value)
 
     @_builtins.property
     @pulumi.getter(name="messageFormat")
-    def message_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
 
     @message_format.setter
-    def message_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_format", value)
 
     @_builtins.property
     @pulumi.getter(name="messageMaxBytes")
-    def message_max_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_max_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         """
         return pulumi.get(self, "message_max_bytes")
 
     @message_max_bytes.setter
-    def message_max_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_max_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_max_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="noHexPrefix")
-    def no_hex_prefix(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_hex_prefix(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
         """
         return pulumi.get(self, "no_hex_prefix")
 
     @no_hex_prefix.setter
-    def no_hex_prefix(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_hex_prefix(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_hex_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionIncludeSchemaTable")
-    def partition_include_schema_table(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def partition_include_schema_table(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
         """
         return pulumi.get(self, "partition_include_schema_table")
 
     @partition_include_schema_table.setter
-    def partition_include_schema_table(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def partition_include_schema_table(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "partition_include_schema_table", value)
 
     @_builtins.property
     @pulumi.getter(name="saslMechanism")
-    def sasl_mechanism(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sasl_mechanism(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
         """
         return pulumi.get(self, "sasl_mechanism")
 
     @sasl_mechanism.setter
-    def sasl_mechanism(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sasl_mechanism(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sasl_mechanism", value)
 
     @_builtins.property
     @pulumi.getter(name="saslPassword")
-    def sasl_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sasl_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         """
         return pulumi.get(self, "sasl_password")
 
     @sasl_password.setter
-    def sasl_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sasl_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sasl_password", value)
 
     @_builtins.property
     @pulumi.getter(name="saslUsername")
-    def sasl_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sasl_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         """
         return pulumi.get(self, "sasl_username")
 
     @sasl_username.setter
-    def sasl_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sasl_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sasl_username", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProtocol")
-    def security_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
         """
         return pulumi.get(self, "security_protocol")
 
     @security_protocol.setter
-    def security_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCaCertificateArn")
-    def ssl_ca_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_ca_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
     @ssl_ca_certificate_arn.setter
-    def ssl_ca_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_ca_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_ca_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sslClientCertificateArn")
-    def ssl_client_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_client_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the client certificate used to securely connect to a Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_client_certificate_arn")
 
     @ssl_client_certificate_arn.setter
-    def ssl_client_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_client_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_client_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sslClientKeyArn")
-    def ssl_client_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_client_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the client private key used to securely connect to a Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_client_key_arn")
 
     @ssl_client_key_arn.setter
-    def ssl_client_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_client_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_client_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sslClientKeyPassword")
-    def ssl_client_key_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_client_key_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the client private key used to securely connect to a Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_client_key_password")
 
     @ssl_client_key_password.setter
-    def ssl_client_key_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_client_key_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_client_key_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Kafka topic for migration. Default is `kafka-default-topic`.
         """
         return pulumi.get(self, "topic")
 
     @topic.setter
-    def topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic", value)
 
 
 class EndpointKinesisSettingsArgsDict(TypedDict):
-    include_control_details: NotRequired[pulumi.Input[_builtins.bool]]
+    include_control_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
     """
-    include_null_and_empty: NotRequired[pulumi.Input[_builtins.bool]]
+    include_null_and_empty: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Include NULL and empty columns in the target. Default is `false`.
     """
-    include_partition_value: NotRequired[pulumi.Input[_builtins.bool]]
+    include_partition_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
     """
-    include_table_alter_operations: NotRequired[pulumi.Input[_builtins.bool]]
+    include_table_alter_operations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
     """
-    include_transaction_details: NotRequired[pulumi.Input[_builtins.bool]]
+    include_transaction_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Provides detailed transaction information from the source database. Default is `false`.
     """
-    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    message_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
     """
-    partition_include_schema_table: NotRequired[pulumi.Input[_builtins.bool]]
+    partition_include_schema_table: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
     """
-    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the IAM Role with permissions to write to the Kinesis data stream.
     """
-    stream_arn: NotRequired[pulumi.Input[_builtins.str]]
+    stream_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the Kinesis data stream.
     """
-    use_large_integer_value: NotRequired[pulumi.Input[_builtins.bool]]
+    use_large_integer_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
     """
@@ -579,16 +579,16 @@ class EndpointKinesisSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointKinesisSettingsArgs:
     def __init__(__self__, *,
-                 include_control_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_null_and_empty: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_partition_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_table_alter_operations: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_transaction_details: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_include_schema_table: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_large_integer_value: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_control_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_null_and_empty: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_partition_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_table_alter_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_transaction_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_include_schema_table: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_large_integer_value: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         :param pulumi.Input[_builtins.bool] include_null_and_empty: Include NULL and empty columns in the target. Default is `false`.
@@ -624,151 +624,151 @@ class EndpointKinesisSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeControlDetails")
-    def include_control_details(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_control_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         """
         return pulumi.get(self, "include_control_details")
 
     @include_control_details.setter
-    def include_control_details(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_control_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_control_details", value)
 
     @_builtins.property
     @pulumi.getter(name="includeNullAndEmpty")
-    def include_null_and_empty(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_null_and_empty(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Include NULL and empty columns in the target. Default is `false`.
         """
         return pulumi.get(self, "include_null_and_empty")
 
     @include_null_and_empty.setter
-    def include_null_and_empty(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_null_and_empty(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_null_and_empty", value)
 
     @_builtins.property
     @pulumi.getter(name="includePartitionValue")
-    def include_partition_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_partition_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         """
         return pulumi.get(self, "include_partition_value")
 
     @include_partition_value.setter
-    def include_partition_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_partition_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_partition_value", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTableAlterOperations")
-    def include_table_alter_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_table_alter_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         """
         return pulumi.get(self, "include_table_alter_operations")
 
     @include_table_alter_operations.setter
-    def include_table_alter_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_table_alter_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_table_alter_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTransactionDetails")
-    def include_transaction_details(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_transaction_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Provides detailed transaction information from the source database. Default is `false`.
         """
         return pulumi.get(self, "include_transaction_details")
 
     @include_transaction_details.setter
-    def include_transaction_details(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_transaction_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_transaction_details", value)
 
     @_builtins.property
     @pulumi.getter(name="messageFormat")
-    def message_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
 
     @message_format.setter
-    def message_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_format", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionIncludeSchemaTable")
-    def partition_include_schema_table(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def partition_include_schema_table(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         """
         return pulumi.get(self, "partition_include_schema_table")
 
     @partition_include_schema_table.setter
-    def partition_include_schema_table(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def partition_include_schema_table(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "partition_include_schema_table", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
-    def service_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM Role with permissions to write to the Kinesis data stream.
         """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
-    def service_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
-    def stream_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Kinesis data stream.
         """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
-    def stream_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="useLargeIntegerValue")
-    def use_large_integer_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_large_integer_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
         """
         return pulumi.get(self, "use_large_integer_value")
 
     @use_large_integer_value.setter
-    def use_large_integer_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_large_integer_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_large_integer_value", value)
 
 
 class EndpointMongodbSettingsArgsDict(TypedDict):
-    auth_mechanism: NotRequired[pulumi.Input[_builtins.str]]
+    auth_mechanism: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
     """
-    auth_source: NotRequired[pulumi.Input[_builtins.str]]
+    auth_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
     """
-    auth_type: NotRequired[pulumi.Input[_builtins.str]]
+    auth_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Authentication type to access the MongoDB source endpoint. Default is `password`.
     """
-    docs_to_investigate: NotRequired[pulumi.Input[_builtins.str]]
+    docs_to_investigate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
     """
-    extract_doc_id: NotRequired[pulumi.Input[_builtins.str]]
+    extract_doc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
     """
-    nesting_level: NotRequired[pulumi.Input[_builtins.str]]
+    nesting_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
     """
-    use_update_lookup: NotRequired[pulumi.Input[_builtins.bool]]
+    use_update_lookup: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
     """
@@ -776,13 +776,13 @@ class EndpointMongodbSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointMongodbSettingsArgs:
     def __init__(__self__, *,
-                 auth_mechanism: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 docs_to_investigate: Optional[pulumi.Input[_builtins.str]] = None,
-                 extract_doc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nesting_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_update_lookup: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auth_mechanism: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 docs_to_investigate: pulumi.Input[Optional[_builtins.str]] = None,
+                 extract_doc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nesting_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_update_lookup: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_mechanism: Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         :param pulumi.Input[_builtins.str] auth_source: Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
@@ -809,127 +809,127 @@ class EndpointMongodbSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="authMechanism")
-    def auth_mechanism(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_mechanism(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         """
         return pulumi.get(self, "auth_mechanism")
 
     @auth_mechanism.setter
-    def auth_mechanism(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_mechanism(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_mechanism", value)
 
     @_builtins.property
     @pulumi.getter(name="authSource")
-    def auth_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
         """
         return pulumi.get(self, "auth_source")
 
     @auth_source.setter
-    def auth_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_source", value)
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication type to access the MongoDB source endpoint. Default is `password`.
         """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="docsToInvestigate")
-    def docs_to_investigate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def docs_to_investigate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
         """
         return pulumi.get(self, "docs_to_investigate")
 
     @docs_to_investigate.setter
-    def docs_to_investigate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def docs_to_investigate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "docs_to_investigate", value)
 
     @_builtins.property
     @pulumi.getter(name="extractDocId")
-    def extract_doc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extract_doc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         """
         return pulumi.get(self, "extract_doc_id")
 
     @extract_doc_id.setter
-    def extract_doc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extract_doc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extract_doc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="nestingLevel")
-    def nesting_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nesting_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
         """
         return pulumi.get(self, "nesting_level")
 
     @nesting_level.setter
-    def nesting_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nesting_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nesting_level", value)
 
     @_builtins.property
     @pulumi.getter(name="useUpdateLookup")
-    def use_update_lookup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_update_lookup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
         """
         return pulumi.get(self, "use_update_lookup")
 
     @use_update_lookup.setter
-    def use_update_lookup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_update_lookup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_update_lookup", value)
 
 
 class EndpointMysqlSettingsArgsDict(TypedDict):
-    after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
+    after_connect_script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Script to run immediately after AWS DMS connects to the endpoint.
     """
-    authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Authentication method to use. Valid values: `password`, `iam`.
     """
-    clean_source_metadata_on_mismatch: NotRequired[pulumi.Input[_builtins.bool]]
+    clean_source_metadata_on_mismatch: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
     """
-    events_poll_interval: NotRequired[pulumi.Input[_builtins.int]]
+    events_poll_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
     """
-    execute_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    execute_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Client statement timeout (in seconds) for a MySQL source endpoint.
     """
-    max_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
     """
-    parallel_load_threads: NotRequired[pulumi.Input[_builtins.int]]
+    parallel_load_threads: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of threads to use to load the data into the MySQL-compatible target database.
     """
-    server_timezone: NotRequired[pulumi.Input[_builtins.str]]
+    server_timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time zone for the source MySQL database.
     """
-    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the IAM role to authenticate when connecting to the endpoint.
     """
-    target_db_type: NotRequired[pulumi.Input[_builtins.str]]
+    target_db_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
     """
@@ -937,16 +937,16 @@ class EndpointMysqlSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointMysqlSettingsArgs:
     def __init__(__self__, *,
-                 after_connect_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 clean_source_metadata_on_mismatch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 events_poll_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 execute_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_file_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 parallel_load_threads: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_db_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 after_connect_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 clean_source_metadata_on_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 events_poll_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 execute_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 parallel_load_threads: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_db_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] after_connect_script: Script to run immediately after AWS DMS connects to the endpoint.
         :param pulumi.Input[_builtins.str] authentication_method: Authentication method to use. Valid values: `password`, `iam`.
@@ -982,271 +982,271 @@ class EndpointMysqlSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="afterConnectScript")
-    def after_connect_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def after_connect_script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Script to run immediately after AWS DMS connects to the endpoint.
         """
         return pulumi.get(self, "after_connect_script")
 
     @after_connect_script.setter
-    def after_connect_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def after_connect_script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "after_connect_script", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
-    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication method to use. Valid values: `password`, `iam`.
         """
         return pulumi.get(self, "authentication_method")
 
     @authentication_method.setter
-    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_method", value)
 
     @_builtins.property
     @pulumi.getter(name="cleanSourceMetadataOnMismatch")
-    def clean_source_metadata_on_mismatch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def clean_source_metadata_on_mismatch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
         """
         return pulumi.get(self, "clean_source_metadata_on_mismatch")
 
     @clean_source_metadata_on_mismatch.setter
-    def clean_source_metadata_on_mismatch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def clean_source_metadata_on_mismatch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "clean_source_metadata_on_mismatch", value)
 
     @_builtins.property
     @pulumi.getter(name="eventsPollInterval")
-    def events_poll_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def events_poll_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
         """
         return pulumi.get(self, "events_poll_interval")
 
     @events_poll_interval.setter
-    def events_poll_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def events_poll_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "events_poll_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="executeTimeout")
-    def execute_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def execute_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Client statement timeout (in seconds) for a MySQL source endpoint.
         """
         return pulumi.get(self, "execute_timeout")
 
     @execute_timeout.setter
-    def execute_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def execute_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "execute_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
-    def max_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
         """
         return pulumi.get(self, "max_file_size")
 
     @max_file_size.setter
-    def max_file_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_file_size", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelLoadThreads")
-    def parallel_load_threads(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parallel_load_threads(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of threads to use to load the data into the MySQL-compatible target database.
         """
         return pulumi.get(self, "parallel_load_threads")
 
     @parallel_load_threads.setter
-    def parallel_load_threads(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parallel_load_threads(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parallel_load_threads", value)
 
     @_builtins.property
     @pulumi.getter(name="serverTimezone")
-    def server_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time zone for the source MySQL database.
         """
         return pulumi.get(self, "server_timezone")
 
     @server_timezone.setter
-    def server_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
-    def service_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role to authenticate when connecting to the endpoint.
         """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
-    def service_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDbType")
-    def target_db_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_db_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
         """
         return pulumi.get(self, "target_db_type")
 
     @target_db_type.setter
-    def target_db_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_db_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_db_type", value)
 
 
 class EndpointOracleSettingsArgsDict(TypedDict):
-    access_alternate_directly: NotRequired[pulumi.Input[_builtins.bool]]
+    access_alternate_directly: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
     """
-    add_supplemental_logging: NotRequired[pulumi.Input[_builtins.bool]]
+    add_supplemental_logging: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
     """
-    additional_archived_log_dest_id: NotRequired[pulumi.Input[_builtins.int]]
+    additional_archived_log_dest_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set this attribute with `archived_log_dest_id` in a primary/standby setup. This attribute is useful in the case of a switchover.
     """
-    allow_selected_nested_tables: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_selected_nested_tables: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
     """
-    archived_log_dest_id: NotRequired[pulumi.Input[_builtins.int]]
+    archived_log_dest_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the dest_id column of the v$archived_log view.
     """
-    archived_logs_only: NotRequired[pulumi.Input[_builtins.bool]]
+    archived_logs_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When this field is set to `true`, AWS DMS only accesses the archived redo logs.
     """
-    asm_password: NotRequired[pulumi.Input[_builtins.str]]
+    asm_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
     """
-    asm_server: NotRequired[pulumi.Input[_builtins.str]]
+    asm_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For an Oracle source endpoint, your ASM server address.
     """
-    asm_user: NotRequired[pulumi.Input[_builtins.str]]
+    asm_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For an Oracle source endpoint, your ASM user name.
     """
-    authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
     """
-    char_length_semantics: NotRequired[pulumi.Input[_builtins.str]]
+    char_length_semantics: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
     """
-    convert_timestamp_with_zone_to_utc: NotRequired[pulumi.Input[_builtins.bool]]
+    convert_timestamp_with_zone_to_utc: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When `true`, converts timestamps with the timezone datatype to their UTC value.
     """
-    direct_path_no_log: NotRequired[pulumi.Input[_builtins.bool]]
+    direct_path_no_log: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
     """
-    direct_path_parallel_load: NotRequired[pulumi.Input[_builtins.bool]]
+    direct_path_parallel_load: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When set to `true`, this attribute specifies a parallel load when use_direct_path_full_load is set to true.
     """
-    enable_homogenous_tablespace: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_homogenous_tablespace: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
     """
-    extra_archived_log_dest_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    extra_archived_log_dest_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
     Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the dest_id column in the v$archived_log view.
     """
-    fail_task_on_lob_truncation: NotRequired[pulumi.Input[_builtins.bool]]
+    fail_task_on_lob_truncation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
     """
-    number_datatype_scale: NotRequired[pulumi.Input[_builtins.int]]
+    number_datatype_scale: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number scale.
     """
-    open_transaction_window: NotRequired[pulumi.Input[_builtins.int]]
+    open_transaction_window: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
     """
-    oracle_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    oracle_path_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
     """
-    parallel_asm_read_threads: NotRequired[pulumi.Input[_builtins.int]]
+    parallel_asm_read_threads: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
     """
-    read_ahead_blocks: NotRequired[pulumi.Input[_builtins.int]]
+    read_ahead_blocks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
     """
-    read_table_space_name: NotRequired[pulumi.Input[_builtins.bool]]
+    read_table_space_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When set to `true`, this attribute supports tablespace replication.
     """
-    replace_path_prefix: NotRequired[pulumi.Input[_builtins.bool]]
+    replace_path_prefix: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `use_path_prefix` setting to access the redo logs.
     """
-    retry_interval: NotRequired[pulumi.Input[_builtins.int]]
+    retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of seconds that the system waits before resending a query.
     """
-    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secrets_manager_oracle_asm_secret_id`.
     """
-    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[_builtins.str]]
+    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
     """
-    security_db_encryption: NotRequired[pulumi.Input[_builtins.str]]
+    security_db_encryption: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
     """
-    security_db_encryption_name: NotRequired[pulumi.Input[_builtins.str]]
+    security_db_encryption_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
     """
-    spatial_data_option_to_geo_json_function_name: NotRequired[pulumi.Input[_builtins.str]]
+    spatial_data_option_to_geo_json_function_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
     """
-    standby_delay_time: NotRequired[pulumi.Input[_builtins.int]]
+    standby_delay_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
     """
-    trim_space_in_char: NotRequired[pulumi.Input[_builtins.bool]]
+    trim_space_in_char: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
     """
-    use_alternate_folder_for_online: NotRequired[pulumi.Input[_builtins.bool]]
+    use_alternate_folder_for_online: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
     """
-    use_bfile: NotRequired[pulumi.Input[_builtins.bool]]
+    use_bfile: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to `true` to capture change data using the Binary Reader utility. Set `use_logminer_reader` to `false` to set this attribute to `true`.
     """
-    use_direct_path_full_load: NotRequired[pulumi.Input[_builtins.bool]]
+    use_direct_path_full_load: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
     """
-    use_logminer_reader: NotRequired[pulumi.Input[_builtins.bool]]
+    use_logminer_reader: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
     """
-    use_path_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    use_path_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
     """
@@ -1254,43 +1254,43 @@ class EndpointOracleSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointOracleSettingsArgs:
     def __init__(__self__, *,
-                 access_alternate_directly: Optional[pulumi.Input[_builtins.bool]] = None,
-                 add_supplemental_logging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 additional_archived_log_dest_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 allow_selected_nested_tables: Optional[pulumi.Input[_builtins.bool]] = None,
-                 archived_log_dest_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 archived_logs_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 asm_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 asm_server: Optional[pulumi.Input[_builtins.str]] = None,
-                 asm_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 char_length_semantics: Optional[pulumi.Input[_builtins.str]] = None,
-                 convert_timestamp_with_zone_to_utc: Optional[pulumi.Input[_builtins.bool]] = None,
-                 direct_path_no_log: Optional[pulumi.Input[_builtins.bool]] = None,
-                 direct_path_parallel_load: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_homogenous_tablespace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extra_archived_log_dest_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 fail_task_on_lob_truncation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 number_datatype_scale: Optional[pulumi.Input[_builtins.int]] = None,
-                 open_transaction_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 oracle_path_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallel_asm_read_threads: Optional[pulumi.Input[_builtins.int]] = None,
-                 read_ahead_blocks: Optional[pulumi.Input[_builtins.int]] = None,
-                 read_table_space_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replace_path_prefix: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retry_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 secrets_manager_oracle_asm_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_oracle_asm_secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_db_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_db_encryption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spatial_data_option_to_geo_json_function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 standby_delay_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 trim_space_in_char: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_alternate_folder_for_online: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_bfile: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_direct_path_full_load: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_logminer_reader: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_path_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_alternate_directly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 add_supplemental_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_archived_log_dest_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 allow_selected_nested_tables: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archived_log_dest_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 archived_logs_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 asm_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 asm_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 asm_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 char_length_semantics: pulumi.Input[Optional[_builtins.str]] = None,
+                 convert_timestamp_with_zone_to_utc: pulumi.Input[Optional[_builtins.bool]] = None,
+                 direct_path_no_log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 direct_path_parallel_load: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_homogenous_tablespace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extra_archived_log_dest_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 fail_task_on_lob_truncation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number_datatype_scale: pulumi.Input[Optional[_builtins.int]] = None,
+                 open_transaction_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 oracle_path_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_asm_read_threads: pulumi.Input[Optional[_builtins.int]] = None,
+                 read_ahead_blocks: pulumi.Input[Optional[_builtins.int]] = None,
+                 read_table_space_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace_path_prefix: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 secrets_manager_oracle_asm_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_db_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_db_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spatial_data_option_to_geo_json_function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_delay_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 trim_space_in_char: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_alternate_folder_for_online: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_bfile: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_direct_path_full_load: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_logminer_reader: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_path_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] access_alternate_directly: Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
         :param pulumi.Input[_builtins.bool] add_supplemental_logging: Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
@@ -1407,519 +1407,519 @@ class EndpointOracleSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessAlternateDirectly")
-    def access_alternate_directly(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def access_alternate_directly(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
         """
         return pulumi.get(self, "access_alternate_directly")
 
     @access_alternate_directly.setter
-    def access_alternate_directly(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def access_alternate_directly(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "access_alternate_directly", value)
 
     @_builtins.property
     @pulumi.getter(name="addSupplementalLogging")
-    def add_supplemental_logging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def add_supplemental_logging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
         """
         return pulumi.get(self, "add_supplemental_logging")
 
     @add_supplemental_logging.setter
-    def add_supplemental_logging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def add_supplemental_logging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "add_supplemental_logging", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalArchivedLogDestId")
-    def additional_archived_log_dest_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def additional_archived_log_dest_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set this attribute with `archived_log_dest_id` in a primary/standby setup. This attribute is useful in the case of a switchover.
         """
         return pulumi.get(self, "additional_archived_log_dest_id")
 
     @additional_archived_log_dest_id.setter
-    def additional_archived_log_dest_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def additional_archived_log_dest_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "additional_archived_log_dest_id", value)
 
     @_builtins.property
     @pulumi.getter(name="allowSelectedNestedTables")
-    def allow_selected_nested_tables(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_selected_nested_tables(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
         """
         return pulumi.get(self, "allow_selected_nested_tables")
 
     @allow_selected_nested_tables.setter
-    def allow_selected_nested_tables(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_selected_nested_tables(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_selected_nested_tables", value)
 
     @_builtins.property
     @pulumi.getter(name="archivedLogDestId")
-    def archived_log_dest_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def archived_log_dest_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the dest_id column of the v$archived_log view.
         """
         return pulumi.get(self, "archived_log_dest_id")
 
     @archived_log_dest_id.setter
-    def archived_log_dest_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def archived_log_dest_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "archived_log_dest_id", value)
 
     @_builtins.property
     @pulumi.getter(name="archivedLogsOnly")
-    def archived_logs_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def archived_logs_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this field is set to `true`, AWS DMS only accesses the archived redo logs.
         """
         return pulumi.get(self, "archived_logs_only")
 
     @archived_logs_only.setter
-    def archived_logs_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def archived_logs_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "archived_logs_only", value)
 
     @_builtins.property
     @pulumi.getter(name="asmPassword")
-    def asm_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asm_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
         """
         return pulumi.get(self, "asm_password")
 
     @asm_password.setter
-    def asm_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asm_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asm_password", value)
 
     @_builtins.property
     @pulumi.getter(name="asmServer")
-    def asm_server(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asm_server(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For an Oracle source endpoint, your ASM server address.
         """
         return pulumi.get(self, "asm_server")
 
     @asm_server.setter
-    def asm_server(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asm_server(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asm_server", value)
 
     @_builtins.property
     @pulumi.getter(name="asmUser")
-    def asm_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asm_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For an Oracle source endpoint, your ASM user name.
         """
         return pulumi.get(self, "asm_user")
 
     @asm_user.setter
-    def asm_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asm_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asm_user", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
-    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
         """
         return pulumi.get(self, "authentication_method")
 
     @authentication_method.setter
-    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_method", value)
 
     @_builtins.property
     @pulumi.getter(name="charLengthSemantics")
-    def char_length_semantics(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def char_length_semantics(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
         """
         return pulumi.get(self, "char_length_semantics")
 
     @char_length_semantics.setter
-    def char_length_semantics(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def char_length_semantics(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "char_length_semantics", value)
 
     @_builtins.property
     @pulumi.getter(name="convertTimestampWithZoneToUtc")
-    def convert_timestamp_with_zone_to_utc(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def convert_timestamp_with_zone_to_utc(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true`, converts timestamps with the timezone datatype to their UTC value.
         """
         return pulumi.get(self, "convert_timestamp_with_zone_to_utc")
 
     @convert_timestamp_with_zone_to_utc.setter
-    def convert_timestamp_with_zone_to_utc(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def convert_timestamp_with_zone_to_utc(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "convert_timestamp_with_zone_to_utc", value)
 
     @_builtins.property
     @pulumi.getter(name="directPathNoLog")
-    def direct_path_no_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def direct_path_no_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
         """
         return pulumi.get(self, "direct_path_no_log")
 
     @direct_path_no_log.setter
-    def direct_path_no_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def direct_path_no_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "direct_path_no_log", value)
 
     @_builtins.property
     @pulumi.getter(name="directPathParallelLoad")
-    def direct_path_parallel_load(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def direct_path_parallel_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, this attribute specifies a parallel load when use_direct_path_full_load is set to true.
         """
         return pulumi.get(self, "direct_path_parallel_load")
 
     @direct_path_parallel_load.setter
-    def direct_path_parallel_load(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def direct_path_parallel_load(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "direct_path_parallel_load", value)
 
     @_builtins.property
     @pulumi.getter(name="enableHomogenousTablespace")
-    def enable_homogenous_tablespace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_homogenous_tablespace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
         """
         return pulumi.get(self, "enable_homogenous_tablespace")
 
     @enable_homogenous_tablespace.setter
-    def enable_homogenous_tablespace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_homogenous_tablespace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_homogenous_tablespace", value)
 
     @_builtins.property
     @pulumi.getter(name="extraArchivedLogDestIds")
-    def extra_archived_log_dest_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def extra_archived_log_dest_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the dest_id column in the v$archived_log view.
         """
         return pulumi.get(self, "extra_archived_log_dest_ids")
 
     @extra_archived_log_dest_ids.setter
-    def extra_archived_log_dest_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def extra_archived_log_dest_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "extra_archived_log_dest_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="failTaskOnLobTruncation")
-    def fail_task_on_lob_truncation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_task_on_lob_truncation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
         """
         return pulumi.get(self, "fail_task_on_lob_truncation")
 
     @fail_task_on_lob_truncation.setter
-    def fail_task_on_lob_truncation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_task_on_lob_truncation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_task_on_lob_truncation", value)
 
     @_builtins.property
     @pulumi.getter(name="numberDatatypeScale")
-    def number_datatype_scale(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_datatype_scale(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number scale.
         """
         return pulumi.get(self, "number_datatype_scale")
 
     @number_datatype_scale.setter
-    def number_datatype_scale(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_datatype_scale(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_datatype_scale", value)
 
     @_builtins.property
     @pulumi.getter(name="openTransactionWindow")
-    def open_transaction_window(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def open_transaction_window(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
         """
         return pulumi.get(self, "open_transaction_window")
 
     @open_transaction_window.setter
-    def open_transaction_window(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def open_transaction_window(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "open_transaction_window", value)
 
     @_builtins.property
     @pulumi.getter(name="oraclePathPrefix")
-    def oracle_path_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oracle_path_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
         """
         return pulumi.get(self, "oracle_path_prefix")
 
     @oracle_path_prefix.setter
-    def oracle_path_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oracle_path_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oracle_path_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelAsmReadThreads")
-    def parallel_asm_read_threads(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parallel_asm_read_threads(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
         """
         return pulumi.get(self, "parallel_asm_read_threads")
 
     @parallel_asm_read_threads.setter
-    def parallel_asm_read_threads(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parallel_asm_read_threads(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parallel_asm_read_threads", value)
 
     @_builtins.property
     @pulumi.getter(name="readAheadBlocks")
-    def read_ahead_blocks(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_ahead_blocks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
         """
         return pulumi.get(self, "read_ahead_blocks")
 
     @read_ahead_blocks.setter
-    def read_ahead_blocks(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_ahead_blocks(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_ahead_blocks", value)
 
     @_builtins.property
     @pulumi.getter(name="readTableSpaceName")
-    def read_table_space_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_table_space_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, this attribute supports tablespace replication.
         """
         return pulumi.get(self, "read_table_space_name")
 
     @read_table_space_name.setter
-    def read_table_space_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_table_space_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_table_space_name", value)
 
     @_builtins.property
     @pulumi.getter(name="replacePathPrefix")
-    def replace_path_prefix(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_path_prefix(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `use_path_prefix` setting to access the redo logs.
         """
         return pulumi.get(self, "replace_path_prefix")
 
     @replace_path_prefix.setter
-    def replace_path_prefix(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_path_prefix(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_path_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="retryInterval")
-    def retry_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that the system waits before resending a query.
         """
         return pulumi.get(self, "retry_interval")
 
     @retry_interval.setter
-    def retry_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
-    def secrets_manager_oracle_asm_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_oracle_asm_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secrets_manager_oracle_asm_secret_id`.
         """
         return pulumi.get(self, "secrets_manager_oracle_asm_access_role_arn")
 
     @secrets_manager_oracle_asm_access_role_arn.setter
-    def secrets_manager_oracle_asm_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_oracle_asm_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_oracle_asm_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerOracleAsmSecretId")
-    def secrets_manager_oracle_asm_secret_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_oracle_asm_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
         """
         return pulumi.get(self, "secrets_manager_oracle_asm_secret_id")
 
     @secrets_manager_oracle_asm_secret_id.setter
-    def secrets_manager_oracle_asm_secret_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_oracle_asm_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_oracle_asm_secret_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityDbEncryption")
-    def security_db_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_db_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
         """
         return pulumi.get(self, "security_db_encryption")
 
     @security_db_encryption.setter
-    def security_db_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_db_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_db_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="securityDbEncryptionName")
-    def security_db_encryption_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_db_encryption_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
         """
         return pulumi.get(self, "security_db_encryption_name")
 
     @security_db_encryption_name.setter
-    def security_db_encryption_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_db_encryption_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_db_encryption_name", value)
 
     @_builtins.property
     @pulumi.getter(name="spatialDataOptionToGeoJsonFunctionName")
-    def spatial_data_option_to_geo_json_function_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spatial_data_option_to_geo_json_function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
         """
         return pulumi.get(self, "spatial_data_option_to_geo_json_function_name")
 
     @spatial_data_option_to_geo_json_function_name.setter
-    def spatial_data_option_to_geo_json_function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spatial_data_option_to_geo_json_function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spatial_data_option_to_geo_json_function_name", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyDelayTime")
-    def standby_delay_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def standby_delay_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
         """
         return pulumi.get(self, "standby_delay_time")
 
     @standby_delay_time.setter
-    def standby_delay_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def standby_delay_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "standby_delay_time", value)
 
     @_builtins.property
     @pulumi.getter(name="trimSpaceInChar")
-    def trim_space_in_char(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trim_space_in_char(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
         """
         return pulumi.get(self, "trim_space_in_char")
 
     @trim_space_in_char.setter
-    def trim_space_in_char(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trim_space_in_char(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trim_space_in_char", value)
 
     @_builtins.property
     @pulumi.getter(name="useAlternateFolderForOnline")
-    def use_alternate_folder_for_online(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_alternate_folder_for_online(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
         """
         return pulumi.get(self, "use_alternate_folder_for_online")
 
     @use_alternate_folder_for_online.setter
-    def use_alternate_folder_for_online(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_alternate_folder_for_online(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_alternate_folder_for_online", value)
 
     @_builtins.property
     @pulumi.getter(name="useBfile")
-    def use_bfile(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_bfile(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to `true` to capture change data using the Binary Reader utility. Set `use_logminer_reader` to `false` to set this attribute to `true`.
         """
         return pulumi.get(self, "use_bfile")
 
     @use_bfile.setter
-    def use_bfile(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_bfile(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_bfile", value)
 
     @_builtins.property
     @pulumi.getter(name="useDirectPathFullLoad")
-    def use_direct_path_full_load(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_direct_path_full_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
         """
         return pulumi.get(self, "use_direct_path_full_load")
 
     @use_direct_path_full_load.setter
-    def use_direct_path_full_load(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_direct_path_full_load(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_direct_path_full_load", value)
 
     @_builtins.property
     @pulumi.getter(name="useLogminerReader")
-    def use_logminer_reader(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_logminer_reader(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
         """
         return pulumi.get(self, "use_logminer_reader")
 
     @use_logminer_reader.setter
-    def use_logminer_reader(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_logminer_reader(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_logminer_reader", value)
 
     @_builtins.property
     @pulumi.getter(name="usePathPrefix")
-    def use_path_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_path_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
         """
         return pulumi.get(self, "use_path_prefix")
 
     @use_path_prefix.setter
-    def use_path_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_path_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_path_prefix", value)
 
 
 class EndpointPostgresSettingsArgsDict(TypedDict):
-    after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
+    after_connect_script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
     """
-    authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+    authentication_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the authentication method. Valid values: `password`, `iam`.
     """
-    babelfish_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    babelfish_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Babelfish for Aurora PostgreSQL database name for the endpoint.
     """
-    capture_ddls: NotRequired[pulumi.Input[_builtins.bool]]
+    capture_ddls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
     """
-    database_mode: NotRequired[pulumi.Input[_builtins.str]]
+    database_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
     """
-    ddl_artifacts_schema: NotRequired[pulumi.Input[_builtins.str]]
+    ddl_artifacts_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
     """
-    execute_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    execute_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
     """
-    fail_tasks_on_lob_truncation: NotRequired[pulumi.Input[_builtins.bool]]
+    fail_tasks_on_lob_truncation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
     """
-    heartbeat_enable: NotRequired[pulumi.Input[_builtins.bool]]
+    heartbeat_enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
     """
-    heartbeat_frequency: NotRequired[pulumi.Input[_builtins.int]]
+    heartbeat_frequency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
     """
-    heartbeat_schema: NotRequired[pulumi.Input[_builtins.str]]
+    heartbeat_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
     """
-    map_boolean_as_boolean: NotRequired[pulumi.Input[_builtins.bool]]
+    map_boolean_as_boolean: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
     """
-    map_jsonb_as_clob: NotRequired[pulumi.Input[_builtins.bool]]
+    map_jsonb_as_clob: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Optional When true, DMS migrates JSONB values as CLOB.
     """
-    map_long_varchar_as: NotRequired[pulumi.Input[_builtins.str]]
+    map_long_varchar_as: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional When true, DMS migrates LONG values as VARCHAR.
     """
-    max_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
     """
-    plugin_name: NotRequired[pulumi.Input[_builtins.str]]
+    plugin_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
     """
-    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the IAM role to use to authenticate the connection.
     """
-    slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    slot_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
     """
@@ -1927,24 +1927,24 @@ class EndpointPostgresSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointPostgresSettingsArgs:
     def __init__(__self__, *,
-                 after_connect_script: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 babelfish_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 capture_ddls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 ddl_artifacts_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 execute_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 fail_tasks_on_lob_truncation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 heartbeat_enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 heartbeat_frequency: Optional[pulumi.Input[_builtins.int]] = None,
-                 heartbeat_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_boolean_as_boolean: Optional[pulumi.Input[_builtins.bool]] = None,
-                 map_jsonb_as_clob: Optional[pulumi.Input[_builtins.bool]] = None,
-                 map_long_varchar_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_file_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 plugin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 slot_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 after_connect_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 babelfish_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 capture_ddls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddl_artifacts_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 fail_tasks_on_lob_truncation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 heartbeat_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 heartbeat_frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 heartbeat_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_boolean_as_boolean: pulumi.Input[Optional[_builtins.bool]] = None,
+                 map_jsonb_as_clob: pulumi.Input[Optional[_builtins.bool]] = None,
+                 map_long_varchar_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 plugin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] after_connect_script: For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
         :param pulumi.Input[_builtins.str] authentication_method: Specifies the authentication method. Valid values: `password`, `iam`.
@@ -2004,218 +2004,218 @@ class EndpointPostgresSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="afterConnectScript")
-    def after_connect_script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def after_connect_script(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
         """
         return pulumi.get(self, "after_connect_script")
 
     @after_connect_script.setter
-    def after_connect_script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def after_connect_script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "after_connect_script", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethod")
-    def authentication_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the authentication method. Valid values: `password`, `iam`.
         """
         return pulumi.get(self, "authentication_method")
 
     @authentication_method.setter
-    def authentication_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_method", value)
 
     @_builtins.property
     @pulumi.getter(name="babelfishDatabaseName")
-    def babelfish_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def babelfish_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Babelfish for Aurora PostgreSQL database name for the endpoint.
         """
         return pulumi.get(self, "babelfish_database_name")
 
     @babelfish_database_name.setter
-    def babelfish_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def babelfish_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "babelfish_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="captureDdls")
-    def capture_ddls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def capture_ddls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
         """
         return pulumi.get(self, "capture_ddls")
 
     @capture_ddls.setter
-    def capture_ddls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def capture_ddls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "capture_ddls", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseMode")
-    def database_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
         """
         return pulumi.get(self, "database_mode")
 
     @database_mode.setter
-    def database_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="ddlArtifactsSchema")
-    def ddl_artifacts_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ddl_artifacts_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
         """
         return pulumi.get(self, "ddl_artifacts_schema")
 
     @ddl_artifacts_schema.setter
-    def ddl_artifacts_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ddl_artifacts_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ddl_artifacts_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="executeTimeout")
-    def execute_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def execute_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
         """
         return pulumi.get(self, "execute_timeout")
 
     @execute_timeout.setter
-    def execute_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def execute_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "execute_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="failTasksOnLobTruncation")
-    def fail_tasks_on_lob_truncation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_tasks_on_lob_truncation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
         """
         return pulumi.get(self, "fail_tasks_on_lob_truncation")
 
     @fail_tasks_on_lob_truncation.setter
-    def fail_tasks_on_lob_truncation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_tasks_on_lob_truncation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_tasks_on_lob_truncation", value)
 
     @_builtins.property
     @pulumi.getter(name="heartbeatEnable")
-    def heartbeat_enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def heartbeat_enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
         """
         return pulumi.get(self, "heartbeat_enable")
 
     @heartbeat_enable.setter
-    def heartbeat_enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def heartbeat_enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "heartbeat_enable", value)
 
     @_builtins.property
     @pulumi.getter(name="heartbeatFrequency")
-    def heartbeat_frequency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def heartbeat_frequency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
         """
         return pulumi.get(self, "heartbeat_frequency")
 
     @heartbeat_frequency.setter
-    def heartbeat_frequency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def heartbeat_frequency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "heartbeat_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="heartbeatSchema")
-    def heartbeat_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def heartbeat_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
         """
         return pulumi.get(self, "heartbeat_schema")
 
     @heartbeat_schema.setter
-    def heartbeat_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def heartbeat_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "heartbeat_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="mapBooleanAsBoolean")
-    def map_boolean_as_boolean(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def map_boolean_as_boolean(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
         """
         return pulumi.get(self, "map_boolean_as_boolean")
 
     @map_boolean_as_boolean.setter
-    def map_boolean_as_boolean(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def map_boolean_as_boolean(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "map_boolean_as_boolean", value)
 
     @_builtins.property
     @pulumi.getter(name="mapJsonbAsClob")
-    def map_jsonb_as_clob(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def map_jsonb_as_clob(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Optional When true, DMS migrates JSONB values as CLOB.
         """
         return pulumi.get(self, "map_jsonb_as_clob")
 
     @map_jsonb_as_clob.setter
-    def map_jsonb_as_clob(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def map_jsonb_as_clob(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "map_jsonb_as_clob", value)
 
     @_builtins.property
     @pulumi.getter(name="mapLongVarcharAs")
-    def map_long_varchar_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def map_long_varchar_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional When true, DMS migrates LONG values as VARCHAR.
         """
         return pulumi.get(self, "map_long_varchar_as")
 
     @map_long_varchar_as.setter
-    def map_long_varchar_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def map_long_varchar_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "map_long_varchar_as", value)
 
     @_builtins.property
     @pulumi.getter(name="maxFileSize")
-    def max_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         """
         return pulumi.get(self, "max_file_size")
 
     @max_file_size.setter
-    def max_file_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_file_size", value)
 
     @_builtins.property
     @pulumi.getter(name="pluginName")
-    def plugin_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def plugin_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
         """
         return pulumi.get(self, "plugin_name")
 
     @plugin_name.setter
-    def plugin_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def plugin_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "plugin_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
-    def service_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IAM role to use to authenticate the connection.
         """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
-    def service_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="slotName")
-    def slot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
         """
         return pulumi.get(self, "slot_name")
 
     @slot_name.setter
-    def slot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slot_name", value)
 
 
@@ -2232,19 +2232,19 @@ class EndpointRedisSettingsArgsDict(TypedDict):
     """
     Fully qualified domain name of the endpoint.
     """
-    auth_password: NotRequired[pulumi.Input[_builtins.str]]
+    auth_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
     """
-    auth_user_name: NotRequired[pulumi.Input[_builtins.str]]
+    auth_user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
     """
-    ssl_ca_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_ca_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
     """
-    ssl_security_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    ssl_security_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
     """
@@ -2255,10 +2255,10 @@ class EndpointRedisSettingsArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
-                 auth_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_ca_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_security_protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_ca_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_security_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
         :param pulumi.Input[_builtins.int] port: Transmission Control Protocol (TCP) port for the endpoint.
@@ -2318,71 +2318,71 @@ class EndpointRedisSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="authPassword")
-    def auth_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
         """
         return pulumi.get(self, "auth_password")
 
     @auth_password.setter
-    def auth_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_password", value)
 
     @_builtins.property
     @pulumi.getter(name="authUserName")
-    def auth_user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
         """
         return pulumi.get(self, "auth_user_name")
 
     @auth_user_name.setter
-    def auth_user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCaCertificateArn")
-    def ssl_ca_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_ca_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
     @ssl_ca_certificate_arn.setter
-    def ssl_ca_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_ca_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_ca_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sslSecurityProtocol")
-    def ssl_security_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_security_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         """
         return pulumi.get(self, "ssl_security_protocol")
 
     @ssl_security_protocol.setter
-    def ssl_security_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_security_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_security_protocol", value)
 
 
 class EndpointRedshiftSettingsArgsDict(TypedDict):
-    bucket_folder: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_folder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom S3 Bucket Object prefix for intermediate storage.
     """
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom S3 Bucket name for intermediate storage.
     """
-    encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
     """
-    server_side_encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    server_side_encryption_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
     """
-    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
     """
@@ -2390,11 +2390,11 @@ class EndpointRedshiftSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointRedshiftSettingsArgs:
     def __init__(__self__, *,
-                 bucket_folder: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_folder: Custom S3 Bucket Object prefix for intermediate storage.
         :param pulumi.Input[_builtins.str] bucket_name: Custom S3 Bucket name for intermediate storage.
@@ -2415,62 +2415,62 @@ class EndpointRedshiftSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketFolder")
-    def bucket_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom S3 Bucket Object prefix for intermediate storage.
         """
         return pulumi.get(self, "bucket_folder")
 
     @bucket_folder.setter
-    def bucket_folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_folder", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom S3 Bucket name for intermediate storage.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionMode")
-    def encryption_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         """
         return pulumi.get(self, "encryption_mode")
 
     @encryption_mode.setter
-    def encryption_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
-    def server_side_encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_side_encryption_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
     @server_side_encryption_kms_key_id.setter
-    def server_side_encryption_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_side_encryption_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_side_encryption_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRoleArn")
-    def service_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
-    def service_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role_arn", value)
 
 
@@ -2479,31 +2479,31 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
     """
     Specifies a subnet group identifier to associate with the DMS Serverless replication.
     """
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
     """
-    dns_name_servers: NotRequired[pulumi.Input[_builtins.str]]
+    dns_name_servers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
     """
-    max_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    max_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
     """
-    min_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    min_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
     """
-    multi_az: NotRequired[pulumi.Input[_builtins.bool]]
+    multi_az: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
     """
-    preferred_maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
+    preferred_maintenance_window: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 
@@ -2512,7 +2512,7 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
     - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
     - Constraints: Minimum 30-minute window.
     """
-    vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpc_security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
     """
@@ -2521,14 +2521,14 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
 class ReplicationConfigComputeConfigArgs:
     def __init__(__self__, *,
                  replication_subnet_group_id: pulumi.Input[_builtins.str],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_name_servers: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_capacity_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_capacity_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 multi_az: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_name_servers: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_capacity_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_capacity_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 multi_az: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] replication_subnet_group_id: Specifies a subnet group identifier to associate with the DMS Serverless replication.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
@@ -2577,79 +2577,79 @@ class ReplicationConfigComputeConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsNameServers")
-    def dns_name_servers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_name_servers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
         """
         return pulumi.get(self, "dns_name_servers")
 
     @dns_name_servers.setter
-    def dns_name_servers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_name_servers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_name_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacityUnits")
-    def max_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
         """
         return pulumi.get(self, "max_capacity_units")
 
     @max_capacity_units.setter
-    def max_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_capacity_units", value)
 
     @_builtins.property
     @pulumi.getter(name="minCapacityUnits")
-    def min_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
         """
         return pulumi.get(self, "min_capacity_units")
 
     @min_capacity_units.setter
-    def min_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_capacity_units", value)
 
     @_builtins.property
     @pulumi.getter(name="multiAz")
-    def multi_az(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_az(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         """
         return pulumi.get(self, "multi_az")
 
     @multi_az.setter
-    def multi_az(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_az(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_az", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 
@@ -2661,19 +2661,19 @@ class ReplicationConfigComputeConfigArgs:
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 

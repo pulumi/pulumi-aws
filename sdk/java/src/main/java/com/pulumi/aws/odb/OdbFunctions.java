@@ -78,8 +78,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -122,8 +122,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -166,8 +166,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -210,8 +210,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -254,8 +254,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -298,8 +298,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -341,8 +341,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -384,8 +384,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -427,8 +427,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -470,8 +470,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -513,8 +513,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -556,8 +556,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -599,8 +599,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -643,8 +643,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -687,8 +687,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -731,8 +731,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -775,8 +775,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructureArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -819,8 +819,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructuresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -862,8 +862,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructuresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -905,8 +905,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructuresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -948,8 +948,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructuresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -991,8 +991,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructuresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1034,8 +1034,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructuresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1077,8 +1077,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudExadataInfrastructuresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1120,8 +1120,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1164,8 +1164,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1208,8 +1208,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1252,8 +1252,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1296,8 +1296,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1340,8 +1340,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1383,8 +1383,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1426,8 +1426,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1469,8 +1469,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1512,8 +1512,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1555,8 +1555,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1598,8 +1598,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetCloudVmClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1641,8 +1641,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1686,8 +1686,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1731,8 +1731,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1776,8 +1776,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1821,8 +1821,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1866,8 +1866,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1910,8 +1910,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1954,8 +1954,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1998,8 +1998,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2042,8 +2042,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbNodesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2086,8 +2086,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2131,8 +2131,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2176,8 +2176,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2221,8 +2221,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2266,8 +2266,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2311,8 +2311,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2355,8 +2355,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2399,8 +2399,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2443,8 +2443,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2487,8 +2487,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbServersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2531,8 +2531,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2574,8 +2574,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2617,8 +2617,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2660,8 +2660,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2703,8 +2703,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2746,8 +2746,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2789,8 +2789,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetDbSystemShapesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2907,8 +2907,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2949,8 +2949,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2991,8 +2991,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3033,8 +3033,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3075,8 +3075,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3119,8 +3119,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3163,8 +3163,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3207,8 +3207,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3251,8 +3251,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3295,8 +3295,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3339,8 +3339,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3382,8 +3382,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3425,8 +3425,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3468,8 +3468,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3511,8 +3511,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3554,8 +3554,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3597,8 +3597,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3638,8 +3638,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3679,8 +3679,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3720,8 +3720,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3761,8 +3761,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3802,8 +3802,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3843,8 +3843,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3884,8 +3884,8 @@ public final class OdbFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.odb.OdbFunctions;
      * import com.pulumi.aws.odb.inputs.GetNetworksArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -22,9 +22,9 @@ class StudioSessionMappingArgs:
                  identity_type: pulumi.Input[_builtins.str],
                  session_policy_arn: pulumi.Input[_builtins.str],
                  studio_id: pulumi.Input[_builtins.str],
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StudioSessionMapping resource.
 
@@ -83,50 +83,50 @@ class StudioSessionMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         """
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityName")
-    def identity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user or group from the Amazon Web Services SSO Identity Store.
         """
         return pulumi.get(self, "identity_name")
 
     @identity_name.setter
-    def identity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _StudioSessionMappingState:
     def __init__(__self__, *,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StudioSessionMapping resources.
 
@@ -152,74 +152,74 @@ class _StudioSessionMappingState:
 
     @_builtins.property
     @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         """
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
-    def identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityName")
-    def identity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user or group from the Amazon Web Services SSO Identity Store.
         """
         return pulumi.get(self, "identity_name")
 
     @identity_name.setter
-    def identity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_name", value)
 
     @_builtins.property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionPolicyArn")
-    def session_policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         """
         return pulumi.get(self, "session_policy_arn")
 
     @session_policy_arn.setter
-    def session_policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_policy_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="studioId")
-    def studio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def studio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
-    def studio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def studio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "studio_id", value)
 
 
@@ -229,12 +229,12 @@ class StudioSessionMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Elastic MapReduce Studio Session Mapping.
@@ -316,12 +316,12 @@ class StudioSessionMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -353,12 +353,12 @@ class StudioSessionMapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            session_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            studio_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'StudioSessionMapping':
+            identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            session_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            studio_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'StudioSessionMapping':
         """
         Get an existing StudioSessionMapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

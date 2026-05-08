@@ -116,25 +116,25 @@ export interface RecoveryGroupState {
     /**
      * ARN of the recovery group
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * List of cell arns to add as nested fault domains within this recovery group
      */
-    cells?: pulumi.Input<pulumi.Input<string>[]>;
+    cells?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A unique name describing the recovery group.
      *
      * The following arguments are optional:
      */
-    recoveryGroupName?: pulumi.Input<string>;
+    recoveryGroupName?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface RecoveryGroupArgs {
     /**
      * List of cell arns to add as nested fault domains within this recovery group
      */
-    cells?: pulumi.Input<pulumi.Input<string>[]>;
+    cells?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A unique name describing the recovery group.
      *
@@ -154,5 +154,5 @@ export interface RecoveryGroupArgs {
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -165,15 +165,15 @@ export interface QueuePolicyState {
     /**
      * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
      */
-    policy?: pulumi.Input<string | inputs.sqs.PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.sqs.PolicyDocument | undefined>;
     /**
      * URL of the SQS Queue to which to attach the policy.
      */
-    queueUrl?: pulumi.Input<string>;
+    queueUrl?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,5 +191,5 @@ export interface QueuePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

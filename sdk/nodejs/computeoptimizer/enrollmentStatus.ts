@@ -114,20 +114,20 @@ export interface EnrollmentStatusState {
     /**
      * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
      */
-    includeMemberAccounts?: pulumi.Input<boolean>;
+    includeMemberAccounts?: pulumi.Input<boolean | undefined>;
     /**
      * The count of organization member accounts that are opted in to the service, if your account is an organization management account.
      */
-    numberOfMemberAccountsOptedIn?: pulumi.Input<number>;
+    numberOfMemberAccountsOptedIn?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      */
-    status?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.computeoptimizer.EnrollmentStatusTimeouts>;
+    status?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.computeoptimizer.EnrollmentStatusTimeouts | undefined>;
 }
 
 /**
@@ -137,14 +137,14 @@ export interface EnrollmentStatusArgs {
     /**
      * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
      */
-    includeMemberAccounts?: pulumi.Input<boolean>;
+    includeMemberAccounts?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      */
     status: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.computeoptimizer.EnrollmentStatusTimeouts>;
+    timeouts?: pulumi.Input<inputs.computeoptimizer.EnrollmentStatusTimeouts | undefined>;
 }

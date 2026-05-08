@@ -170,53 +170,53 @@ export interface ConnectionGroupState {
     /**
      * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
      */
-    anycastIpListId?: pulumi.Input<string>;
+    anycastIpListId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the connection group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether the connection group is enabled. Default is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Current version of the connection group.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Whether IPv6 is enabled for the connection group. Default is `false`.
      */
-    ipv6Enabled?: pulumi.Input<boolean>;
+    ipv6Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the connection group is the default connection group for the distribution tenants.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Date and time when the connection group was last modified.
      */
-    lastModifiedTime?: pulumi.Input<string>;
+    lastModifiedTime?: pulumi.Input<string | undefined>;
     /**
      * Name of the connection group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The routing endpoint (also known as the DNS name) that is assigned to the connection group, such as d111111abcdef8.cloudfront.net.
      */
-    routingEndpoint?: pulumi.Input<string>;
+    routingEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Current status of the connection group.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.ConnectionGroupTimeouts>;
-    waitForDeployment?: pulumi.Input<boolean>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.ConnectionGroupTimeouts | undefined>;
+    waitForDeployment?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -226,23 +226,23 @@ export interface ConnectionGroupArgs {
     /**
      * ID of the associated Anycast IP List. `ipv6Enabled` must not be set to `true` in order to set this argument
      */
-    anycastIpListId?: pulumi.Input<string>;
+    anycastIpListId?: pulumi.Input<string | undefined>;
     /**
      * Whether the connection group is enabled. Default is `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether IPv6 is enabled for the connection group. Default is `false`.
      */
-    ipv6Enabled?: pulumi.Input<boolean>;
+    ipv6Enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the connection group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.ConnectionGroupTimeouts>;
-    waitForDeployment?: pulumi.Input<boolean>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.ConnectionGroupTimeouts | undefined>;
+    waitForDeployment?: pulumi.Input<boolean | undefined>;
 }

@@ -21,10 +21,10 @@ class VocabularyFilterArgs:
     def __init__(__self__, *,
                  language_code: pulumi.Input[_builtins.str],
                  vocabulary_filter_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vocabulary_filter_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vocabulary_filter_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VocabularyFilter resource.
 
@@ -76,65 +76,65 @@ class VocabularyFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vocabularyFilterFileUri")
-    def vocabulary_filter_file_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vocabulary_filter_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         """
         return pulumi.get(self, "vocabulary_filter_file_uri")
 
     @vocabulary_filter_file_uri.setter
-    def vocabulary_filter_file_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vocabulary_filter_file_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vocabulary_filter_file_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def words(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def words(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         return pulumi.get(self, "words")
 
     @words.setter
-    def words(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def words(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "words", value)
 
 
 @pulumi.input_type
 class _VocabularyFilterState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 download_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 language_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vocabulary_filter_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 vocabulary_filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 download_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 language_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vocabulary_filter_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 vocabulary_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VocabularyFilter resources.
 
@@ -170,88 +170,88 @@ class _VocabularyFilterState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the VocabularyFilter.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="downloadUri")
-    def download_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def download_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Generated download URI.
         """
         return pulumi.get(self, "download_uri")
 
     @download_uri.setter
-    def download_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def download_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "download_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="languageCode")
-    def language_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
-    def language_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="vocabularyFilterFileUri")
-    def vocabulary_filter_file_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vocabulary_filter_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         """
         return pulumi.get(self, "vocabulary_filter_file_uri")
 
     @vocabulary_filter_file_uri.setter
-    def vocabulary_filter_file_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vocabulary_filter_file_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vocabulary_filter_file_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="vocabularyFilterName")
-    def vocabulary_filter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vocabulary_filter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VocabularyFilter.
 
@@ -260,19 +260,19 @@ class _VocabularyFilterState:
         return pulumi.get(self, "vocabulary_filter_name")
 
     @vocabulary_filter_name.setter
-    def vocabulary_filter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vocabulary_filter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vocabulary_filter_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def words(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def words(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         return pulumi.get(self, "words")
 
     @words.setter
-    def words(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def words(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "words", value)
 
 
@@ -282,12 +282,12 @@ class VocabularyFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 language_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vocabulary_filter_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 vocabulary_filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 language_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vocabulary_filter_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 vocabulary_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Transcribe VocabularyFilter.
@@ -387,12 +387,12 @@ class VocabularyFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 language_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vocabulary_filter_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 vocabulary_filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 language_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vocabulary_filter_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 vocabulary_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,15 +425,15 @@ class VocabularyFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            download_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            language_code: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vocabulary_filter_file_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            vocabulary_filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-            words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'VocabularyFilter':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            download_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            language_code: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            vocabulary_filter_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            vocabulary_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+            words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'VocabularyFilter':
         """
         Get an existing VocabularyFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

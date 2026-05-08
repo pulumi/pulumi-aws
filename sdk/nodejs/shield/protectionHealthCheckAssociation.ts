@@ -131,11 +131,11 @@ export interface ProtectionHealthCheckAssociationState {
     /**
      * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
      */
-    healthCheckArn?: pulumi.Input<string>;
+    healthCheckArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the protected resource.
      */
-    shieldProtectionId?: pulumi.Input<string>;
+    shieldProtectionId?: pulumi.Input<string | undefined>;
 }
 
 /**

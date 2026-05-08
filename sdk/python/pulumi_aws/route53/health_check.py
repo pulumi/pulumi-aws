@@ -20,27 +20,27 @@ __all__ = ['HealthCheckArgs', 'HealthCheck']
 class HealthCheckArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 child_health_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cloudwatch_alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_alarm_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sni: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_health_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 invert_healthcheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 measure_latency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 request_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 child_health_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 child_healthchecks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cloudwatch_alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_alarm_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_health_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 invert_healthcheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 measure_latency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 request_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HealthCheck resource.
 
@@ -131,55 +131,55 @@ class HealthCheckArgs:
 
     @_builtins.property
     @pulumi.getter(name="childHealthThreshold")
-    def child_health_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def child_health_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         """
         return pulumi.get(self, "child_health_threshold")
 
     @child_health_threshold.setter
-    def child_health_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def child_health_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "child_health_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="childHealthchecks")
-    def child_healthchecks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def child_healthchecks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         """
         return pulumi.get(self, "child_healthchecks")
 
     @child_healthchecks.setter
-    def child_healthchecks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def child_healthchecks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "child_healthchecks", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmName")
-    def cloudwatch_alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_alarm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudWatch alarm.
         """
         return pulumi.get(self, "cloudwatch_alarm_name")
 
     @cloudwatch_alarm_name.setter
-    def cloudwatch_alarm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_alarm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_alarm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmRegion")
-    def cloudwatch_alarm_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_alarm_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region that the CloudWatch alarm was created in.
         """
         return pulumi.get(self, "cloudwatch_alarm_region")
 
     @cloudwatch_alarm_region.setter
-    def cloudwatch_alarm_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_alarm_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_alarm_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
         * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
@@ -191,108 +191,108 @@ class HealthCheckArgs:
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSni")
-    def enable_sni(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_sni(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         """
         return pulumi.get(self, "enable_sni")
 
     @enable_sni.setter
-    def enable_sni(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_sni(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_sni", value)
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failure_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive health checks that an endpoint must pass or fail.
         """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failure_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="insufficientDataHealthStatus")
-    def insufficient_data_health_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insufficient_data_health_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
         """
         return pulumi.get(self, "insufficient_data_health_status")
 
     @insufficient_data_health_status.setter
-    def insufficient_data_health_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insufficient_data_health_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insufficient_data_health_status", value)
 
     @_builtins.property
     @pulumi.getter(name="invertHealthcheck")
-    def invert_healthcheck(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invert_healthcheck(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
         """
         return pulumi.get(self, "invert_healthcheck")
 
     @invert_healthcheck.setter
-    def invert_healthcheck(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invert_healthcheck(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invert_healthcheck", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of the endpoint to be checked.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="measureLatency")
-    def measure_latency(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def measure_latency(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
         """
         return pulumi.get(self, "measure_latency")
 
     @measure_latency.setter
-    def measure_latency(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def measure_latency(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "measure_latency", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port of the endpoint to be checked.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a reference name used in Caller Reference
         (helpful for identifying single health_check set amongst others)
@@ -300,121 +300,121 @@ class HealthCheckArgs:
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="requestInterval")
-    def request_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def request_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         """
         return pulumi.get(self, "request_interval")
 
     @request_interval.setter
-    def request_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def request_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePath")
-    def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path that you want Amazon Route 53 to request when performing health checks.
         """
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
-    def resource_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_path", value)
 
     @_builtins.property
     @pulumi.getter(name="routingControlArn")
-    def routing_control_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_control_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         """
         return pulumi.get(self, "routing_control_arn")
 
     @routing_control_arn.setter
-    def routing_control_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_control_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_control_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="searchString")
-    def search_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         """
         return pulumi.get(self, "search_string")
 
     @search_string.setter
-    def search_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def triggers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def triggers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "triggers", value)
 
 
 @pulumi.input_type
 class _HealthCheckState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 child_health_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cloudwatch_alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_alarm_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sni: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_health_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 invert_healthcheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 measure_latency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 request_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 child_health_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 child_healthchecks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cloudwatch_alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_alarm_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_health_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 invert_healthcheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 measure_latency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 request_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HealthCheck resources.
 
@@ -500,67 +500,67 @@ class _HealthCheckState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Health Check.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="childHealthThreshold")
-    def child_health_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def child_health_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         """
         return pulumi.get(self, "child_health_threshold")
 
     @child_health_threshold.setter
-    def child_health_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def child_health_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "child_health_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="childHealthchecks")
-    def child_healthchecks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def child_healthchecks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         """
         return pulumi.get(self, "child_healthchecks")
 
     @child_healthchecks.setter
-    def child_healthchecks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def child_healthchecks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "child_healthchecks", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmName")
-    def cloudwatch_alarm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_alarm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudWatch alarm.
         """
         return pulumi.get(self, "cloudwatch_alarm_name")
 
     @cloudwatch_alarm_name.setter
-    def cloudwatch_alarm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_alarm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_alarm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchAlarmRegion")
-    def cloudwatch_alarm_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_alarm_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region that the CloudWatch alarm was created in.
         """
         return pulumi.get(self, "cloudwatch_alarm_region")
 
     @cloudwatch_alarm_region.setter
-    def cloudwatch_alarm_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_alarm_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_alarm_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
         * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
@@ -572,108 +572,108 @@ class _HealthCheckState:
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSni")
-    def enable_sni(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_sni(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         """
         return pulumi.get(self, "enable_sni")
 
     @enable_sni.setter
-    def enable_sni(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_sni(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_sni", value)
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failure_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive health checks that an endpoint must pass or fail.
         """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failure_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter(name="insufficientDataHealthStatus")
-    def insufficient_data_health_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insufficient_data_health_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
         """
         return pulumi.get(self, "insufficient_data_health_status")
 
     @insufficient_data_health_status.setter
-    def insufficient_data_health_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insufficient_data_health_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insufficient_data_health_status", value)
 
     @_builtins.property
     @pulumi.getter(name="invertHealthcheck")
-    def invert_healthcheck(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invert_healthcheck(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
         """
         return pulumi.get(self, "invert_healthcheck")
 
     @invert_healthcheck.setter
-    def invert_healthcheck(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invert_healthcheck(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invert_healthcheck", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of the endpoint to be checked.
         """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="measureLatency")
-    def measure_latency(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def measure_latency(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
         """
         return pulumi.get(self, "measure_latency")
 
     @measure_latency.setter
-    def measure_latency(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def measure_latency(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "measure_latency", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port of the endpoint to be checked.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceName")
-    def reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is a reference name used in Caller Reference
         (helpful for identifying single health_check set amongst others)
@@ -681,115 +681,115 @@ class _HealthCheckState:
         return pulumi.get(self, "reference_name")
 
     @reference_name.setter
-    def reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="requestInterval")
-    def request_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def request_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         """
         return pulumi.get(self, "request_interval")
 
     @request_interval.setter
-    def request_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def request_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePath")
-    def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path that you want Amazon Route 53 to request when performing health checks.
         """
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
-    def resource_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_path", value)
 
     @_builtins.property
     @pulumi.getter(name="routingControlArn")
-    def routing_control_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_control_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         """
         return pulumi.get(self, "routing_control_arn")
 
     @routing_control_arn.setter
-    def routing_control_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_control_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_control_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="searchString")
-    def search_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         """
         return pulumi.get(self, "search_string")
 
     @search_string.setter
-    def search_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def triggers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def triggers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "triggers", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -799,28 +799,28 @@ class HealthCheck(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 child_health_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cloudwatch_alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_alarm_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sni: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_health_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 invert_healthcheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 measure_latency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 request_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 child_health_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 child_healthchecks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cloudwatch_alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_alarm_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_health_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 invert_healthcheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 measure_latency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 request_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Route53 health check.
@@ -890,7 +890,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         foo = aws.route53.HealthCheck("foo",
             type="CLOUDWATCH_METRIC",
@@ -916,7 +916,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         example_health_check = aws.route53.HealthCheck("example",
             type="CLOUDWATCH_METRIC",
@@ -924,7 +924,7 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy",
             triggers={
-                "threshold": example.threshold,
+                "threshold": example.threshold.apply(lambda x: str(x)),
             })
         ```
 
@@ -1042,7 +1042,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         foo = aws.route53.HealthCheck("foo",
             type="CLOUDWATCH_METRIC",
@@ -1068,7 +1068,7 @@ class HealthCheck(pulumi.CustomResource):
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80,
+            threshold=float(80),
             alarm_description="This metric monitors ec2 cpu utilization")
         example_health_check = aws.route53.HealthCheck("example",
             type="CLOUDWATCH_METRIC",
@@ -1076,7 +1076,7 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy",
             triggers={
-                "threshold": example.threshold,
+                "threshold": example.threshold.apply(lambda x: str(x)),
             })
         ```
 
@@ -1104,28 +1104,28 @@ class HealthCheck(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 child_health_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cloudwatch_alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_alarm_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sni: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 insufficient_data_health_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 invert_healthcheck: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 measure_latency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 request_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 child_health_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 child_healthchecks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cloudwatch_alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_alarm_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 insufficient_data_health_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 invert_healthcheck: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 measure_latency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 request_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1171,30 +1171,30 @@ class HealthCheck(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            child_health_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-            child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cloudwatch_alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
-            cloudwatch_alarm_region: Optional[pulumi.Input[_builtins.str]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_sni: Optional[pulumi.Input[_builtins.bool]] = None,
-            failure_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-            fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-            insufficient_data_health_status: Optional[pulumi.Input[_builtins.str]] = None,
-            invert_healthcheck: Optional[pulumi.Input[_builtins.bool]] = None,
-            ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            measure_latency: Optional[pulumi.Input[_builtins.bool]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            request_interval: Optional[pulumi.Input[_builtins.int]] = None,
-            resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-            routing_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            search_string: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'HealthCheck':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            child_health_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+            child_healthchecks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cloudwatch_alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cloudwatch_alarm_region: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+            fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+            insufficient_data_health_status: pulumi.Input[Optional[_builtins.str]] = None,
+            invert_healthcheck: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            measure_latency: pulumi.Input[Optional[_builtins.bool]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            request_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+            routing_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            search_string: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'HealthCheck':
         """
         Get an existing HealthCheck resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

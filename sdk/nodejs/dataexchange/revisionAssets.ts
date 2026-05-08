@@ -160,44 +160,44 @@ export interface RevisionAssetsState {
     /**
      * The ARN of the Data Exchange Revision Assets.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A block to define the asset associated with the revision. See Asset for more details.
      *
      * The following arguments are optional:
      */
-    assets?: pulumi.Input<pulumi.Input<inputs.dataexchange.RevisionAssetsAsset>[]>;
+    assets?: pulumi.Input<pulumi.Input<inputs.dataexchange.RevisionAssetsAsset>[] | undefined>;
     /**
      * A comment for the revision. Maximum length is 16,348 characters.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the revision was created, in RFC3339 format.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the data set associated with the revision.
      */
-    dataSetId?: pulumi.Input<string>;
-    finalized?: pulumi.Input<boolean>;
-    forceDestroy?: pulumi.Input<boolean>;
+    dataSetId?: pulumi.Input<string | undefined>;
+    finalized?: pulumi.Input<boolean | undefined>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.dataexchange.RevisionAssetsTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.dataexchange.RevisionAssetsTimeouts | undefined>;
     /**
      * The timestamp when the revision was last updated, in RFC3339 format.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,24 +209,24 @@ export interface RevisionAssetsArgs {
      *
      * The following arguments are optional:
      */
-    assets?: pulumi.Input<pulumi.Input<inputs.dataexchange.RevisionAssetsAsset>[]>;
+    assets?: pulumi.Input<pulumi.Input<inputs.dataexchange.RevisionAssetsAsset>[] | undefined>;
     /**
      * A comment for the revision. Maximum length is 16,348 characters.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the data set associated with the revision.
      */
     dataSetId: pulumi.Input<string>;
-    finalized?: pulumi.Input<boolean>;
-    forceDestroy?: pulumi.Input<boolean>;
+    finalized?: pulumi.Input<boolean | undefined>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.dataexchange.RevisionAssetsTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.dataexchange.RevisionAssetsTimeouts | undefined>;
 }

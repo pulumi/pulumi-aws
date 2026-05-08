@@ -107,8 +107,8 @@ def get_broker_nodes(cluster_arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         node_info_lists=pulumi.get(__ret__, 'node_info_lists'),
         region=pulumi.get(__ret__, 'region'))
-def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_broker_nodes_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerNodesResult]:
     """
     Get information on an Amazon MSK Broker Nodes.

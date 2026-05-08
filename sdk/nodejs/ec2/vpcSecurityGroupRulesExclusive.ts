@@ -162,19 +162,19 @@ export interface VpcSecurityGroupRulesExclusiveState {
     /**
      * Egress rule IDs.
      */
-    egressRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    egressRuleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Ingress rule IDs.
      */
-    ingressRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    ingressRuleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the security group.
      */
-    securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface VpcSecurityGroupRulesExclusiveArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the security group.
      */

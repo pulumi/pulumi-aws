@@ -116,8 +116,8 @@ def get_route53_health_checks(plan_arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         plan_arn=pulumi.get(__ret__, 'plan_arn'),
         region=pulumi.get(__ret__, 'region'))
-def get_route53_health_checks_output(plan_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_route53_health_checks_output(plan_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoute53HealthChecksResult]:
     """
     Data source for managing Amazon ARC Region Switch Route53 Health Checks.

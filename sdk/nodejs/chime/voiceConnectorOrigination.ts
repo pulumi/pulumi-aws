@@ -139,19 +139,19 @@ export interface VoiceConnectorOriginationState {
     /**
      * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorOriginationRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorOriginationRoute>[] | undefined>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
-    voiceConnectorId?: pulumi.Input<string>;
+    voiceConnectorId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,11 +161,11 @@ export interface VoiceConnectorOriginationArgs {
     /**
      * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */

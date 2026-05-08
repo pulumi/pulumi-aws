@@ -144,31 +144,31 @@ export interface ApiCacheState {
     /**
      * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
      */
-    apiCachingBehavior?: pulumi.Input<string>;
+    apiCachingBehavior?: pulumi.Input<string | undefined>;
     /**
      * GraphQL API ID.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      */
-    atRestEncryptionEnabled?: pulumi.Input<boolean>;
+    atRestEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      */
-    transitEncryptionEnabled?: pulumi.Input<boolean>;
+    transitEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * TTL in seconds for cache entries.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -186,15 +186,15 @@ export interface ApiCacheArgs {
     /**
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      */
-    atRestEncryptionEnabled?: pulumi.Input<boolean>;
+    atRestEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      */
-    transitEncryptionEnabled?: pulumi.Input<boolean>;
+    transitEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * TTL in seconds for cache entries.
      */

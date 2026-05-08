@@ -21,9 +21,9 @@ class BackendEnvironmentArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
                  environment_name: pulumi.Input[_builtins.str],
-                 deployment_artifacts: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 deployment_artifacts: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackendEnvironment resource.
 
@@ -68,50 +68,50 @@ class BackendEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentArtifacts")
-    def deployment_artifacts(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_artifacts(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of deployment artifacts.
         """
         return pulumi.get(self, "deployment_artifacts")
 
     @deployment_artifacts.setter
-    def deployment_artifacts(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_artifacts(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_artifacts", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="stackName")
-    def stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS CloudFormation stack name of a backend environment.
         """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
-    def stack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_name", value)
 
 
 @pulumi.input_type
 class _BackendEnvironmentState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_artifacts: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_artifacts: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackendEnvironment resources.
 
@@ -137,74 +137,74 @@ class _BackendEnvironmentState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for a backend environment that is part of an Amplify app.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentArtifacts")
-    def deployment_artifacts(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_artifacts(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of deployment artifacts.
         """
         return pulumi.get(self, "deployment_artifacts")
 
     @deployment_artifacts.setter
-    def deployment_artifacts(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_artifacts(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the backend environment.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="stackName")
-    def stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS CloudFormation stack name of a backend environment.
         """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
-    def stack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_name", value)
 
 
@@ -214,11 +214,11 @@ class BackendEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_artifacts: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_artifacts: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amplify Backend Environment resource.
@@ -301,11 +301,11 @@ class BackendEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_artifacts: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_artifacts: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -335,12 +335,12 @@ class BackendEnvironment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_artifacts: Optional[pulumi.Input[_builtins.str]] = None,
-            environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            stack_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackendEnvironment':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_artifacts: pulumi.Input[Optional[_builtins.str]] = None,
+            environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            stack_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackendEnvironment':
         """
         Get an existing BackendEnvironment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

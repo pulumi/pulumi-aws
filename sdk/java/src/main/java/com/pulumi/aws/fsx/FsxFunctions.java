@@ -43,8 +43,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -169,8 +169,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -211,8 +211,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -253,8 +253,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -286,8 +286,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -364,8 +364,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -409,8 +409,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -442,8 +442,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -487,8 +487,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -520,8 +520,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -565,8 +565,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -598,8 +598,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -643,8 +643,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -676,8 +676,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -721,8 +721,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -754,8 +754,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachineArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -799,8 +799,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -844,8 +844,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -889,8 +889,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -934,8 +934,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -979,8 +979,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1024,8 +1024,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1069,8 +1069,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOntapStorageVirtualMachinesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1114,8 +1114,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1160,8 +1160,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1206,8 +1206,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1252,8 +1252,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1298,8 +1298,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1344,8 +1344,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1390,8 +1390,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1436,8 +1436,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1478,8 +1478,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1520,8 +1520,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1562,8 +1562,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1604,8 +1604,8 @@ public final class FsxFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.fsx.FsxFunctions;
      * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

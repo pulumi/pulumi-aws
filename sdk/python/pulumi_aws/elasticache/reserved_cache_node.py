@@ -22,11 +22,11 @@ __all__ = ['ReservedCacheNodeArgs', 'ReservedCacheNode']
 class ReservedCacheNodeArgs:
     def __init__(__self__, *,
                  reserved_cache_nodes_offering_id: pulumi.Input[_builtins.str],
-                 cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']] = None):
+                 cache_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 elasticache_reserved_cache_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ReservedCacheNodeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ReservedCacheNode resource.
 
@@ -70,7 +70,7 @@ class ReservedCacheNodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeCount")
-    def cache_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of cache node instances to reserve.
         Default value is `1`.
@@ -78,12 +78,12 @@ class ReservedCacheNodeArgs:
         return pulumi.get(self, "cache_node_count")
 
     @cache_node_count.setter
-    def cache_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticacheReservedCacheNodeId")
-    def elasticache_reserved_cache_node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elasticache_reserved_cache_node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer-specified identifier to track this reservation.
         If not specified, AWS will assign a random ID.
@@ -91,63 +91,63 @@ class ReservedCacheNodeArgs:
         return pulumi.get(self, "elasticache_reserved_cache_node_id")
 
     @elasticache_reserved_cache_node_id.setter
-    def elasticache_reserved_cache_node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elasticache_reserved_cache_node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elasticache_reserved_cache_node_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ReservedCacheNodeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ReservedCacheNodeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ReservedCacheNodeState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fixed_price: Optional[pulumi.Input[_builtins.float]] = None,
-                 offering_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_cache_nodes_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']] = None,
-                 usage_price: Optional[pulumi.Input[_builtins.float]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticache_reserved_cache_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fixed_price: pulumi.Input[Optional[_builtins.float]] = None,
+                 offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ReservedCacheNodeTimeoutsArgs']] = None,
+                 usage_price: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering ReservedCacheNode resources.
 
@@ -210,19 +210,19 @@ class _ReservedCacheNodeState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the reserved cache node.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeCount")
-    def cache_node_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_node_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of cache node instances to reserve.
         Default value is `1`.
@@ -230,36 +230,36 @@ class _ReservedCacheNodeState:
         return pulumi.get(self, "cache_node_count")
 
     @cache_node_count.setter
-    def cache_node_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_node_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_node_count", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeType")
-    def cache_node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Node type for the reserved cache nodes.
         """
         return pulumi.get(self, "cache_node_type")
 
     @cache_node_type.setter
-    def cache_node_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_node_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Duration of the reservation as an RFC3339 duration.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticacheReservedCacheNodeId")
-    def elasticache_reserved_cache_node_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def elasticache_reserved_cache_node_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer-specified identifier to track this reservation.
         If not specified, AWS will assign a random ID.
@@ -267,72 +267,72 @@ class _ReservedCacheNodeState:
         return pulumi.get(self, "elasticache_reserved_cache_node_id")
 
     @elasticache_reserved_cache_node_id.setter
-    def elasticache_reserved_cache_node_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def elasticache_reserved_cache_node_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "elasticache_reserved_cache_node_id", value)
 
     @_builtins.property
     @pulumi.getter(name="fixedPrice")
-    def fixed_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def fixed_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Fixed price charged for this reserved cache node.
         """
         return pulumi.get(self, "fixed_price")
 
     @fixed_price.setter
-    def fixed_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def fixed_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "fixed_price", value)
 
     @_builtins.property
     @pulumi.getter(name="offeringType")
-    def offering_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def offering_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Offering type of this reserved cache node.
         """
         return pulumi.get(self, "offering_type")
 
     @offering_type.setter
-    def offering_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def offering_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offering_type", value)
 
     @_builtins.property
     @pulumi.getter(name="productDescription")
-    def product_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Engine type for the reserved cache node.
         """
         return pulumi.get(self, "product_description")
 
     @product_description.setter
-    def product_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_description", value)
 
     @_builtins.property
     @pulumi.getter(name="recurringCharges")
-    def recurring_charges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]]:
+    def recurring_charges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]]:
         """
         Recurring price charged to run this reserved cache node.
         """
         return pulumi.get(self, "recurring_charges")
 
     @recurring_charges.setter
-    def recurring_charges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]]):
+    def recurring_charges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]]):
         pulumi.set(self, "recurring_charges", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="reservedCacheNodesOfferingId")
-    def reserved_cache_nodes_offering_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reserved_cache_nodes_offering_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the reserved cache node offering to purchase.
         To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
@@ -342,76 +342,76 @@ class _ReservedCacheNodeState:
         return pulumi.get(self, "reserved_cache_nodes_offering_id")
 
     @reserved_cache_nodes_offering_id.setter
-    def reserved_cache_nodes_offering_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reserved_cache_nodes_offering_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reserved_cache_nodes_offering_id", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time the reservation started.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the reserved cache node.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ReservedCacheNodeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ReservedCacheNodeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="usagePrice")
-    def usage_price(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def usage_price(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Hourly price charged for this reserved cache node.
         """
         return pulumi.get(self, "usage_price")
 
     @usage_price.setter
-    def usage_price(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def usage_price(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "usage_price", value)
 
 
@@ -421,12 +421,12 @@ class ReservedCacheNode(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_cache_nodes_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
+                 cache_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 elasticache_reserved_cache_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an ElastiCache Reserved Cache Node.
@@ -526,12 +526,12 @@ class ReservedCacheNode(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 reserved_cache_nodes_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
+                 cache_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 elasticache_reserved_cache_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -570,23 +570,23 @@ class ReservedCacheNode(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_node_count: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-            duration: Optional[pulumi.Input[_builtins.str]] = None,
-            elasticache_reserved_cache_node_id: Optional[pulumi.Input[_builtins.str]] = None,
-            fixed_price: Optional[pulumi.Input[_builtins.float]] = None,
-            offering_type: Optional[pulumi.Input[_builtins.str]] = None,
-            product_description: Optional[pulumi.Input[_builtins.str]] = None,
-            recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            reserved_cache_nodes_offering_id: Optional[pulumi.Input[_builtins.str]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
-            usage_price: Optional[pulumi.Input[_builtins.float]] = None) -> 'ReservedCacheNode':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_node_count: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+            duration: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticache_reserved_cache_node_id: pulumi.Input[Optional[_builtins.str]] = None,
+            fixed_price: pulumi.Input[Optional[_builtins.float]] = None,
+            offering_type: pulumi.Input[Optional[_builtins.str]] = None,
+            product_description: pulumi.Input[Optional[_builtins.str]] = None,
+            recurring_charges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            reserved_cache_nodes_offering_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
+            usage_price: pulumi.Input[Optional[_builtins.float]] = None) -> 'ReservedCacheNode':
         """
         Get an existing ReservedCacheNode resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

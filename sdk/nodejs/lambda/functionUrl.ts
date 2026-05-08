@@ -184,41 +184,41 @@ export interface FunctionUrlState {
     /**
      * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      */
-    cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
+    cors?: pulumi.Input<inputs.lambda.FunctionUrlCors | undefined>;
     /**
      * ARN of the Lambda function.
      */
-    functionArn?: pulumi.Input<string>;
+    functionArn?: pulumi.Input<string | undefined>;
     /**
      * Name or ARN of the Lambda function.
      *
      * The following arguments are optional:
      */
-    functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string | undefined>;
     /**
      * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
-    functionUrl?: pulumi.Input<string>;
+    functionUrl?: pulumi.Input<string | undefined>;
     /**
      * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      */
-    invokeMode?: pulumi.Input<string>;
+    invokeMode?: pulumi.Input<string | undefined>;
     /**
      * Alias name or `$LATEST`.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Generated ID for the endpoint.
      */
-    urlId?: pulumi.Input<string>;
+    urlId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -232,7 +232,7 @@ export interface FunctionUrlArgs {
     /**
      * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      */
-    cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
+    cors?: pulumi.Input<inputs.lambda.FunctionUrlCors | undefined>;
     /**
      * Name or ARN of the Lambda function.
      *
@@ -242,13 +242,13 @@ export interface FunctionUrlArgs {
     /**
      * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      */
-    invokeMode?: pulumi.Input<string>;
+    invokeMode?: pulumi.Input<string | undefined>;
     /**
      * Alias name or `$LATEST`.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

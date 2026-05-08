@@ -152,7 +152,7 @@ def get_ip_ranges(id: Optional[_builtins.str] = None,
         }],
         tags={
             "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
+            "SyncToken": output(european_ec2.sync_token).apply(lambda x: str(x)),
         })
     ```
 
@@ -187,10 +187,10 @@ def get_ip_ranges(id: Optional[_builtins.str] = None,
         services=pulumi.get(__ret__, 'services'),
         sync_token=pulumi.get(__ret__, 'sync_token'),
         url=pulumi.get(__ret__, 'url'))
-def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         regions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                         services: Optional[pulumi.Input[Sequence[_builtins.str]]] = None,
-                         url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_ip_ranges_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         regions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                         services: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
+                         url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpRangesResult]:
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
@@ -217,7 +217,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = N
         }],
         tags={
             "CreateDate": european_ec2.create_date,
-            "SyncToken": european_ec2.sync_token,
+            "SyncToken": output(european_ec2.sync_token).apply(lambda x: str(x)),
         })
     ```
 

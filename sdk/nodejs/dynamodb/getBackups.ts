@@ -120,21 +120,21 @@ export interface GetBackupsOutputArgs {
     /**
      * Backup type. Valid values: `USER`, `SYSTEM`, `AWS_BACKUP`, `ALL`.
      */
-    backupType?: pulumi.Input<string>;
+    backupType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the table to list backups for.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * Only backups created after this time are listed. Time must be in RFC3339 format.
      */
-    timeRangeLowerBound?: pulumi.Input<string>;
+    timeRangeLowerBound?: pulumi.Input<string | undefined>;
     /**
      * Only backups created before this time are listed. Time must be in RFC3339 format.
      */
-    timeRangeUpperBound?: pulumi.Input<string>;
+    timeRangeUpperBound?: pulumi.Input<string | undefined>;
 }

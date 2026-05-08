@@ -131,26 +131,26 @@ export interface LoadBalancerCookieStickinessPolicyState {
      * The time period after which
      * the session cookie should be considered stale, expressed in seconds.
      */
-    cookieExpirationPeriod?: pulumi.Input<number>;
+    cookieExpirationPeriod?: pulumi.Input<number | undefined>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    lbPort?: pulumi.Input<number>;
+    lbPort?: pulumi.Input<number | undefined>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    loadBalancer?: pulumi.Input<string>;
+    loadBalancer?: pulumi.Input<string | undefined>;
     /**
      * The name of the stickiness policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -161,7 +161,7 @@ export interface LoadBalancerCookieStickinessPolicyArgs {
      * The time period after which
      * the session cookie should be considered stale, expressed in seconds.
      */
-    cookieExpirationPeriod?: pulumi.Input<number>;
+    cookieExpirationPeriod?: pulumi.Input<number | undefined>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
@@ -176,9 +176,9 @@ export interface LoadBalancerCookieStickinessPolicyArgs {
     /**
      * The name of the stickiness policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

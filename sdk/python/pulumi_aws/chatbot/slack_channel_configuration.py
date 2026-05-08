@@ -25,13 +25,13 @@ class SlackChannelConfigurationArgs:
                  iam_role_arn: pulumi.Input[_builtins.str],
                  slack_channel_id: pulumi.Input[_builtins.str],
                  slack_team_id: pulumi.Input[_builtins.str],
-                 guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['SlackChannelConfigurationTimeoutsArgs']] = None,
-                 user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 guardrail_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['SlackChannelConfigurationTimeoutsArgs']] = None,
+                 user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
 
@@ -119,104 +119,104 @@ class SlackChannelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
-    def guardrail_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def guardrail_policy_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @guardrail_policy_arns.setter
-    def guardrail_policy_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def guardrail_policy_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "guardrail_policy_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
-    def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logging levels include `ERROR`, `INFO`, or `NONE`.
         """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
-    def logging_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
-    def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sns_topic_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         """
         return pulumi.get(self, "sns_topic_arns")
 
     @sns_topic_arns.setter
-    def sns_topic_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sns_topic_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sns_topic_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['SlackChannelConfigurationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['SlackChannelConfigurationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['SlackChannelConfigurationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['SlackChannelConfigurationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
-    def user_authorization_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_authorization_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables use of a user role requirement in your chat configuration.
         """
         return pulumi.get(self, "user_authorization_required")
 
     @user_authorization_required.setter
-    def user_authorization_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_authorization_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_authorization_required", value)
 
 
 @pulumi.input_type
 class _SlackChannelConfigurationState:
     def __init__(__self__, *,
-                 chat_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_team_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['SlackChannelConfigurationTimeoutsArgs']] = None,
-                 user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 chat_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_team_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['SlackChannelConfigurationTimeoutsArgs']] = None,
+                 user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SlackChannelConfiguration resources.
 
@@ -270,103 +270,103 @@ class _SlackChannelConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="chatConfigurationArn")
-    def chat_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chat_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Slack channel configuration.
         """
         return pulumi.get(self, "chat_configuration_arn")
 
     @chat_configuration_arn.setter
-    def chat_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chat_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chat_configuration_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Slack channel configuration.
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="guardrailPolicyArns")
-    def guardrail_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def guardrail_policy_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         """
         return pulumi.get(self, "guardrail_policy_arns")
 
     @guardrail_policy_arns.setter
-    def guardrail_policy_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def guardrail_policy_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "guardrail_policy_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
-    def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logging levels include `ERROR`, `INFO`, or `NONE`.
         """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
-    def logging_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="slackChannelId")
-    def slack_channel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slack_channel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Slack channel. For example, `C07EZ1ABC23`.
         """
         return pulumi.get(self, "slack_channel_id")
 
     @slack_channel_id.setter
-    def slack_channel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slack_channel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slack_channel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="slackChannelName")
-    def slack_channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slack_channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Slack channel.
         """
         return pulumi.get(self, "slack_channel_name")
 
     @slack_channel_name.setter
-    def slack_channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slack_channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slack_channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="slackTeamId")
-    def slack_team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slack_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
 
@@ -375,76 +375,76 @@ class _SlackChannelConfigurationState:
         return pulumi.get(self, "slack_team_id")
 
     @slack_team_id.setter
-    def slack_team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slack_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slack_team_id", value)
 
     @_builtins.property
     @pulumi.getter(name="slackTeamName")
-    def slack_team_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slack_team_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Slack team.
         """
         return pulumi.get(self, "slack_team_name")
 
     @slack_team_name.setter
-    def slack_team_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slack_team_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slack_team_name", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
-    def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sns_topic_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         """
         return pulumi.get(self, "sns_topic_arns")
 
     @sns_topic_arns.setter
-    def sns_topic_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sns_topic_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sns_topic_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['SlackChannelConfigurationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['SlackChannelConfigurationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['SlackChannelConfigurationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['SlackChannelConfigurationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="userAuthorizationRequired")
-    def user_authorization_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_authorization_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables use of a user role requirement in your chat configuration.
         """
         return pulumi.get(self, "user_authorization_required")
 
     @user_authorization_required.setter
-    def user_authorization_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_authorization_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_authorization_required", value)
 
 
@@ -454,17 +454,17 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
-                 user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
+                 user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Chatbot Slack Channel Configuration.
@@ -562,17 +562,17 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 slack_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
-                 user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
+                 user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -615,21 +615,21 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            chat_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            guardrail_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            slack_channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-            slack_channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-            slack_team_id: Optional[pulumi.Input[_builtins.str]] = None,
-            slack_team_name: Optional[pulumi.Input[_builtins.str]] = None,
-            sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
-            user_authorization_required: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SlackChannelConfiguration':
+            chat_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+            guardrail_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            slack_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            slack_channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+            slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            slack_team_name: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['SlackChannelConfigurationTimeoutsArgs', 'SlackChannelConfigurationTimeoutsArgsDict']]] = None,
+            user_authorization_required: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SlackChannelConfiguration':
         """
         Get an existing SlackChannelConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

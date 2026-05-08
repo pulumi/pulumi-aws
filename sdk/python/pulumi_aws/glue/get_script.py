@@ -327,10 +327,10 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
         python_script=pulumi.get(__ret__, 'python_script'),
         region=pulumi.get(__ret__, 'region'),
         scala_code=pulumi.get(__ret__, 'scala_code'))
-def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]]] = None,
-                      dag_nodes: Optional[pulumi.Input[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]]] = None,
-                      language: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_script_output(dag_edges: pulumi.Input[Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]]] = None,
+                      dag_nodes: pulumi.Input[Optional[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]]] = None,
+                      language: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptResult]:
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).

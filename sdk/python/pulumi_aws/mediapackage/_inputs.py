@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 class ChannelHlsIngestArgsDict(TypedDict):
-    ingest_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgsDict']]]]
+    ingest_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]]
     """
     A list of the ingest endpoints
     """
@@ -30,7 +30,7 @@ class ChannelHlsIngestArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelHlsIngestArgs:
     def __init__(__self__, *,
-                 ingest_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]] = None):
+                 ingest_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]] ingest_endpoints: A list of the ingest endpoints
         """
@@ -39,27 +39,27 @@ class ChannelHlsIngestArgs:
 
     @_builtins.property
     @pulumi.getter(name="ingestEndpoints")
-    def ingest_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]:
+    def ingest_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]:
         """
         A list of the ingest endpoints
         """
         return pulumi.get(self, "ingest_endpoints")
 
     @ingest_endpoints.setter
-    def ingest_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]):
+    def ingest_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]):
         pulumi.set(self, "ingest_endpoints", value)
 
 
 class ChannelHlsIngestIngestEndpointArgsDict(TypedDict):
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username
     """
@@ -67,9 +67,9 @@ class ChannelHlsIngestIngestEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ChannelHlsIngestIngestEndpointArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] password: The password
         :param pulumi.Input[_builtins.str] url: The URL
@@ -84,38 +84,38 @@ class ChannelHlsIngestIngestEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 

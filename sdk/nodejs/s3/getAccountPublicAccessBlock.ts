@@ -87,5 +87,5 @@ export interface GetAccountPublicAccessBlockOutputArgs {
     /**
      * AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
 }

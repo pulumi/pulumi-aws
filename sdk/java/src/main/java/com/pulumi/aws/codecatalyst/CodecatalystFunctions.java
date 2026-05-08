@@ -31,8 +31,8 @@ public final class CodecatalystFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
      * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -75,8 +75,8 @@ public final class CodecatalystFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
      * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -119,8 +119,8 @@ public final class CodecatalystFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
      * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -163,8 +163,8 @@ public final class CodecatalystFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
      * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -207,8 +207,8 @@ public final class CodecatalystFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.codecatalyst.CodecatalystFunctions;
      * import com.pulumi.aws.codecatalyst.inputs.GetDevEnvironmentArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

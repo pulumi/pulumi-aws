@@ -198,61 +198,61 @@ export interface MembershipState {
     /**
      * The ARN of the membership.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the joined collaboration.
      */
-    collaborationArn?: pulumi.Input<string>;
+    collaborationArn?: pulumi.Input<string | undefined>;
     /**
      * The account ID of the collaboration's creator.
      */
-    collaborationCreatorAccountId?: pulumi.Input<string>;
+    collaborationCreatorAccountId?: pulumi.Input<string | undefined>;
     /**
      * The display name of the collaboration's creator.
      */
-    collaborationCreatorDisplayName?: pulumi.Input<string>;
+    collaborationCreatorDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the collaboration to which the member was invited.
      */
-    collaborationId?: pulumi.Input<string>;
+    collaborationId?: pulumi.Input<string | undefined>;
     /**
      * The name of the joined collaboration.
      */
-    collaborationName?: pulumi.Input<string>;
+    collaborationName?: pulumi.Input<string | undefined>;
     /**
      * The date and time the membership was created.
      */
-    createTime?: pulumi.Input<string>;
+    createTime?: pulumi.Input<string | undefined>;
     /**
      * The default configuration for a query result.
      */
-    defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipDefaultResultConfiguration>;
+    defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipDefaultResultConfiguration | undefined>;
     /**
      * The list of abilities for the invited member.
      */
-    memberAbilities?: pulumi.Input<pulumi.Input<string>[]>;
-    paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfiguration>;
+    memberAbilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      */
-    queryLogStatus?: pulumi.Input<string>;
+    queryLogStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of the membership.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key value pairs which tag the membership.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The date and time the membership was last updated.
      */
-    updateTime?: pulumi.Input<string>;
+    updateTime?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -266,8 +266,8 @@ export interface MembershipArgs {
     /**
      * The default configuration for a query result.
      */
-    defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipDefaultResultConfiguration>;
-    paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfiguration>;
+    defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipDefaultResultConfiguration | undefined>;
+    paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      */
@@ -275,9 +275,9 @@ export interface MembershipArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key value pairs which tag the membership.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

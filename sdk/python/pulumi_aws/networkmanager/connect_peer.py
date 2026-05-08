@@ -23,11 +23,11 @@ class ConnectPeerArgs:
     def __init__(__self__, *,
                  connect_attachment_id: pulumi.Input[_builtins.str],
                  peer_address: pulumi.Input[_builtins.str],
-                 bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
-                 core_network_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bgp_options: pulumi.Input[Optional['ConnectPeerBgpOptionsArgs']] = None,
+                 core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
 
@@ -82,83 +82,83 @@ class ConnectPeerArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpOptions")
-    def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]:
+    def bgp_options(self) -> pulumi.Input[Optional['ConnectPeerBgpOptionsArgs']]:
         """
         Connect peer BGP options. See bgp_options for more information.
         """
         return pulumi.get(self, "bgp_options")
 
     @bgp_options.setter
-    def bgp_options(self, value: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]):
+    def bgp_options(self, value: pulumi.Input[Optional['ConnectPeerBgpOptionsArgs']]):
         pulumi.set(self, "bgp_options", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkAddress")
-    def core_network_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
     @core_network_address.setter
-    def core_network_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_address", value)
 
     @_builtins.property
     @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inside_cidr_blocks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
     @inside_cidr_blocks.setter
-    def inside_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inside_cidr_blocks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inside_cidr_blocks", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetArn")
-    def subnet_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "subnet_arn")
 
     @subnet_arn.setter
-    def subnet_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ConnectPeerState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]] = None,
-                 connect_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 connect_peer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_options: pulumi.Input[Optional['ConnectPeerBgpOptionsArgs']] = None,
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]] = None,
+                 connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connect_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConnectPeer resources.
 
@@ -213,127 +213,127 @@ class _ConnectPeerState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Connect peer.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bgpOptions")
-    def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]:
+    def bgp_options(self) -> pulumi.Input[Optional['ConnectPeerBgpOptionsArgs']]:
         """
         Connect peer BGP options. See bgp_options for more information.
         """
         return pulumi.get(self, "bgp_options")
 
     @bgp_options.setter
-    def bgp_options(self, value: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]):
+    def bgp_options(self, value: pulumi.Input[Optional['ConnectPeerBgpOptionsArgs']]):
         pulumi.set(self, "bgp_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]]:
+    def configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]]:
         """
         Configuration of the Connect peer.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]]):
+    def configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="connectAttachmentId")
-    def connect_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the connection attachment.
         """
         return pulumi.get(self, "connect_attachment_id")
 
     @connect_attachment_id.setter
-    def connect_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectPeerId")
-    def connect_peer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_peer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Connect peer.
         """
         return pulumi.get(self, "connect_peer_id")
 
     @connect_peer_id.setter
-    def connect_peer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_peer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_peer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkAddress")
-    def core_network_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
     @core_network_address.setter
-    def core_network_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_address", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a core network.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the Connect peer was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where the peer is located.
         """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
-    def edge_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_location", value)
 
     @_builtins.property
     @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inside_cidr_blocks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
     @inside_cidr_blocks.setter
-    def inside_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inside_cidr_blocks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inside_cidr_blocks", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAddress")
-    def peer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connect peer address.
 
@@ -342,55 +342,55 @@ class _ConnectPeerState:
         return pulumi.get(self, "peer_address")
 
     @peer_address.setter
-    def peer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the Connect peer.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetArn")
-    def subnet_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "subnet_arn")
 
     @subnet_arn.setter
-    def subnet_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -400,13 +400,13 @@ class ConnectPeer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: Optional[pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
-                 connect_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
+                 connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an AWS Network Manager Connect Peer.
@@ -645,13 +645,13 @@ class ConnectPeer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: Optional[pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
-                 connect_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
+                 connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -690,21 +690,21 @@ class ConnectPeer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            bgp_options: Optional[pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
-            configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict']]]]] = None,
-            connect_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            connect_peer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_address: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_location: Optional[pulumi.Input[_builtins.str]] = None,
-            inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            subnet_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConnectPeer':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bgp_options: pulumi.Input[Optional[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']]] = None,
+            configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict']]]]] = None,
+            connect_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            connect_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+            inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConnectPeer':
         """
         Get an existing ConnectPeer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

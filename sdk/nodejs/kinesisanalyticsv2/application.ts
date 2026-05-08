@@ -395,71 +395,71 @@ export interface ApplicationState {
     /**
      * The application's configuration
      */
-    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration | undefined>;
     /**
      * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
      */
-    applicationMode?: pulumi.Input<string>;
+    applicationMode?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the application.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * The current timestamp when the application was created.
      */
-    createTimestamp?: pulumi.Input<string>;
+    createTimestamp?: pulumi.Input<string | undefined>;
     /**
      * A summary description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether to force stop an unresponsive Flink-based application.
      */
-    forceStop?: pulumi.Input<boolean>;
+    forceStop?: pulumi.Input<boolean | undefined>;
     /**
      * The current timestamp when the application was last updated.
      */
-    lastUpdateTimestamp?: pulumi.Input<string>;
+    lastUpdateTimestamp?: pulumi.Input<string | undefined>;
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      */
-    runtimeEnvironment?: pulumi.Input<string>;
+    runtimeEnvironment?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      */
-    serviceExecutionRole?: pulumi.Input<string>;
+    serviceExecutionRole?: pulumi.Input<string | undefined>;
     /**
      * Whether to start or stop the application.
      */
-    startApplication?: pulumi.Input<boolean>;
+    startApplication?: pulumi.Input<boolean | undefined>;
     /**
      * The status of the application.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
-    versionId?: pulumi.Input<number>;
+    versionId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -469,31 +469,31 @@ export interface ApplicationArgs {
     /**
      * The application's configuration
      */
-    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration | undefined>;
     /**
      * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
      */
-    applicationMode?: pulumi.Input<string>;
+    applicationMode?: pulumi.Input<string | undefined>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * A summary description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether to force stop an unresponsive Flink-based application.
      */
-    forceStop?: pulumi.Input<boolean>;
+    forceStop?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
      */
@@ -505,9 +505,9 @@ export interface ApplicationArgs {
     /**
      * Whether to start or stop the application.
      */
-    startApplication?: pulumi.Input<boolean>;
+    startApplication?: pulumi.Input<boolean | undefined>;
     /**
      * A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

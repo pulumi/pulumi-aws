@@ -126,12 +126,12 @@ export interface ModelPackageGroupPolicyState {
     /**
      * The name of the model package group.
      */
-    modelPackageGroupName?: pulumi.Input<string>;
+    modelPackageGroupName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    resourcePolicy?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    resourcePolicy?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -145,6 +145,6 @@ export interface ModelPackageGroupPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     resourcePolicy: pulumi.Input<string>;
 }

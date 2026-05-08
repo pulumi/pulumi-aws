@@ -40,8 +40,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -73,8 +73,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -116,8 +116,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -149,8 +149,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -192,8 +192,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -225,8 +225,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -268,8 +268,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -301,8 +301,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -344,8 +344,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -377,8 +377,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -420,8 +420,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -453,8 +453,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -496,8 +496,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -529,8 +529,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -570,8 +570,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -610,8 +610,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -650,8 +650,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -690,8 +690,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -730,8 +730,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetDirectoryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -770,8 +770,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -810,8 +810,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -850,8 +850,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -890,8 +890,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -930,8 +930,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetImageArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -972,8 +972,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1005,8 +1005,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1048,8 +1048,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1081,8 +1081,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1124,8 +1124,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1157,8 +1157,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1200,8 +1200,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1233,8 +1233,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1276,8 +1276,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1309,8 +1309,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1352,8 +1352,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1385,8 +1385,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1428,8 +1428,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1461,8 +1461,8 @@ public final class WorkspacesFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.workspaces.WorkspacesFunctions;
      * import com.pulumi.aws.workspaces.inputs.GetWorkspaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

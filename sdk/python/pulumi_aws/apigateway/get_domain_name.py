@@ -308,10 +308,10 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
         regional_zone_id=pulumi.get(__ret__, 'regional_zone_id'),
         security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_name_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           domain_name_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_domain_name_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           domain_name_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     Use this data source to get the custom domain name for use with AWS API Gateway.

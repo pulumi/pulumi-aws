@@ -223,70 +223,70 @@ export interface FleetState {
     /**
      * ARN of the Fleet.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Number of machines allocated to the ﬂeet.
      */
-    baseCapacity?: pulumi.Input<number>;
+    baseCapacity?: pulumi.Input<number | undefined>;
     /**
      * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      */
-    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration>;
+    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration | undefined>;
     /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      */
-    computeType?: pulumi.Input<string>;
+    computeType?: pulumi.Input<string | undefined>;
     /**
      * Creation time of the fleet.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      *
      * The following arguments are optional:
      */
-    environmentType?: pulumi.Input<string>;
+    environmentType?: pulumi.Input<string | undefined>;
     /**
      * The service role associated with the compute fleet.
      */
-    fleetServiceRole?: pulumi.Input<string>;
+    fleetServiceRole?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
-    imageId?: pulumi.Input<string>;
+    imageId?: pulumi.Input<string | undefined>;
     /**
      * Last modification time of the fleet.
      */
-    lastModified?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string | undefined>;
     /**
      * Fleet name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
      */
-    overflowBehavior?: pulumi.Input<string>;
+    overflowBehavior?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
-    scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration>;
+    scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration | undefined>;
     /**
      * Nested attribute containing information about the current status of the fleet.
      */
-    statuses?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetStatus>[]>;
+    statuses?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetStatus>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block. See `vpcConfig` below.
      */
-    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetVpcConfig>[]>;
+    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetVpcConfig>[] | undefined>;
 }
 
 /**
@@ -300,7 +300,7 @@ export interface FleetArgs {
     /**
      * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `computeConfiguration` below.
      */
-    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration>;
+    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration | undefined>;
     /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      */
@@ -314,33 +314,33 @@ export interface FleetArgs {
     /**
      * The service role associated with the compute fleet.
      */
-    fleetServiceRole?: pulumi.Input<string>;
+    fleetServiceRole?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
-    imageId?: pulumi.Input<string>;
+    imageId?: pulumi.Input<string | undefined>;
     /**
      * Fleet name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
      */
-    overflowBehavior?: pulumi.Input<string>;
+    overflowBehavior?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
-    scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration>;
+    scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block. See `vpcConfig` below.
      */
-    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetVpcConfig>[]>;
+    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetVpcConfig>[] | undefined>;
 }

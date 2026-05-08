@@ -22,8 +22,8 @@ __all__ = ['DomainSamlOptionsArgs', 'DomainSamlOptions']
 class DomainSamlOptionsArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_options: pulumi.Input[Optional['DomainSamlOptionsSamlOptionsArgs']] = None):
         """
         The set of arguments for constructing a DomainSamlOptions resource.
 
@@ -55,35 +55,35 @@ class DomainSamlOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]:
+    def saml_options(self) -> pulumi.Input[Optional['DomainSamlOptionsSamlOptionsArgs']]:
         """
         The SAML authentication options for an AWS Elasticsearch Domain.
         """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
-    def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]):
+    def saml_options(self, value: pulumi.Input[Optional['DomainSamlOptionsSamlOptionsArgs']]):
         pulumi.set(self, "saml_options", value)
 
 
 @pulumi.input_type
 class _DomainSamlOptionsState:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_options: pulumi.Input[Optional['DomainSamlOptionsSamlOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering DomainSamlOptions resources.
 
@@ -102,7 +102,7 @@ class _DomainSamlOptionsState:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the domain.
 
@@ -111,31 +111,31 @@ class _DomainSamlOptionsState:
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]:
+    def saml_options(self) -> pulumi.Input[Optional['DomainSamlOptionsSamlOptionsArgs']]:
         """
         The SAML authentication options for an AWS Elasticsearch Domain.
         """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
-    def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]):
+    def saml_options(self, value: pulumi.Input[Optional['DomainSamlOptionsSamlOptionsArgs']]):
         pulumi.set(self, "saml_options", value)
 
 
@@ -145,9 +145,9 @@ class DomainSamlOptions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_options: Optional[pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Manages SAML authentication options for an AWS Elasticsearch Domain.
@@ -266,9 +266,9 @@ class DomainSamlOptions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_options: Optional[pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -293,9 +293,9 @@ class DomainSamlOptions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            saml_options: Optional[pulumi.Input[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None) -> 'DomainSamlOptions':
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            saml_options: pulumi.Input[Optional[Union['DomainSamlOptionsSamlOptionsArgs', 'DomainSamlOptionsSamlOptionsArgsDict']]] = None) -> 'DomainSamlOptions':
         """
         Get an existing DomainSamlOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

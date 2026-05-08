@@ -21,9 +21,9 @@ class IdentityPoolProviderPrincipalTagArgs:
     def __init__(__self__, *,
                  identity_pool_id: pulumi.Input[_builtins.str],
                  identity_provider_name: pulumi.Input[_builtins.str],
-                 principal_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
+                 principal_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_defaults: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
 
@@ -68,49 +68,49 @@ class IdentityPoolProviderPrincipalTagArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalTags")
-    def principal_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def principal_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         String to string map of variables.
         """
         return pulumi.get(self, "principal_tags")
 
     @principal_tags.setter
-    def principal_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def principal_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principal_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="useDefaults")
-    def use_defaults(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_defaults(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
-    def use_defaults(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_defaults(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_defaults", value)
 
 
 @pulumi.input_type
 class _IdentityPoolProviderPrincipalTagState:
     def __init__(__self__, *,
-                 identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_defaults: Optional[pulumi.Input[_builtins.bool]] = None):
+                 identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_defaults: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
 
@@ -133,62 +133,62 @@ class _IdentityPoolProviderPrincipalTagState:
 
     @_builtins.property
     @pulumi.getter(name="identityPoolId")
-    def identity_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identity pool ID.
         """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
-    def identity_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderName")
-    def identity_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the identity provider.
         """
         return pulumi.get(self, "identity_provider_name")
 
     @identity_provider_name.setter
-    def identity_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalTags")
-    def principal_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def principal_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         String to string map of variables.
         """
         return pulumi.get(self, "principal_tags")
 
     @principal_tags.setter
-    def principal_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def principal_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principal_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="useDefaults")
-    def use_defaults(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_defaults(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
-    def use_defaults(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_defaults(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_defaults", value)
 
 
@@ -198,11 +198,11 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_defaults: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_defaults: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an AWS Cognito Identity Principal Mapping.
@@ -319,11 +319,11 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_defaults: Optional[pulumi.Input[_builtins.bool]] = None,
+                 identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_defaults: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -352,11 +352,11 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            use_defaults: Optional[pulumi.Input[_builtins.bool]] = None) -> 'IdentityPoolProviderPrincipalTag':
+            identity_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            use_defaults: pulumi.Input[Optional[_builtins.bool]] = None) -> 'IdentityPoolProviderPrincipalTag':
         """
         Get an existing IdentityPoolProviderPrincipalTag resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

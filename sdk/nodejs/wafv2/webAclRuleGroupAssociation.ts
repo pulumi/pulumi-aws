@@ -380,38 +380,38 @@ export interface WebAclRuleGroupAssociationState {
     /**
      * Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
      */
-    managedRuleGroup?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationManagedRuleGroup>;
+    managedRuleGroup?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationManagedRuleGroup | undefined>;
     /**
      * Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
      */
-    overrideAction?: pulumi.Input<string>;
+    overrideAction?: pulumi.Input<string | undefined>;
     /**
      * Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
      */
-    ruleGroupReference?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationRuleGroupReference>;
+    ruleGroupReference?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationRuleGroupReference | undefined>;
     /**
      * Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
      */
-    ruleName?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationTimeouts>;
+    ruleName?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationTimeouts | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationVisibilityConfig | undefined>;
     /**
      * ARN of the Web ACL to associate the Rule Group with.
      *
      * The following arguments are optional:
      */
-    webAclArn?: pulumi.Input<string>;
+    webAclArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -421,11 +421,11 @@ export interface WebAclRuleGroupAssociationArgs {
     /**
      * Managed Rule Group configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `ruleGroupReference`. See below.
      */
-    managedRuleGroup?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationManagedRuleGroup>;
+    managedRuleGroup?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationManagedRuleGroup | undefined>;
     /**
      * Override action for the rule group. Valid values are `none` and `count`. Defaults to `none`. When set to `count`, the actions defined in the rule group rules are overridden to count matches instead of blocking or allowing requests.
      */
-    overrideAction?: pulumi.Input<string>;
+    overrideAction?: pulumi.Input<string | undefined>;
     /**
      * Priority of the rule within the Web ACL. Rules are evaluated in order of priority, with lower numbers evaluated first.
      */
@@ -433,20 +433,20 @@ export interface WebAclRuleGroupAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Custom Rule Group reference configuration. One of `ruleGroupReference` or `managedRuleGroup` is required. Conflicts with `managedRuleGroup`. See below.
      */
-    ruleGroupReference?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationRuleGroupReference>;
+    ruleGroupReference?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationRuleGroupReference | undefined>;
     /**
      * Name of the rule to create in the Web ACL that references the rule group. Must be between 1 and 128 characters.
      */
     ruleName: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationTimeouts | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See below.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclRuleGroupAssociationVisibilityConfig | undefined>;
     /**
      * ARN of the Web ACL to associate the Rule Group with.
      *

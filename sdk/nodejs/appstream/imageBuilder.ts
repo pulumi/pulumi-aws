@@ -210,77 +210,77 @@ export interface ImageBuilderState {
     /**
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[] | undefined>;
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      */
-    appstreamAgentVersion?: pulumi.Input<string>;
+    appstreamAgentVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN of the appstream image builder.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
      */
-    createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string | undefined>;
     /**
      * Description to display.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Human-readable friendly name for the AppStream image builder.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      */
-    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo>;
+    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo | undefined>;
     /**
      * Enables or disables default internet access for the image builder.
      */
-    enableDefaultInternetAccess?: pulumi.Input<boolean>;
+    enableDefaultInternetAccess?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the IAM role to apply to the image builder.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the public, private, or shared image to use.
      */
-    imageArn?: pulumi.Input<string>;
+    imageArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the image used to create the image builder.
      */
-    imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * Instance type to use when launching the image builder.
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the image builder.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig | undefined>;
 }
 
 /**
@@ -290,39 +290,39 @@ export interface ImageBuilderArgs {
     /**
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[] | undefined>;
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      */
-    appstreamAgentVersion?: pulumi.Input<string>;
+    appstreamAgentVersion?: pulumi.Input<string | undefined>;
     /**
      * Description to display.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Human-readable friendly name for the AppStream image builder.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      */
-    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo>;
+    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo | undefined>;
     /**
      * Enables or disables default internet access for the image builder.
      */
-    enableDefaultInternetAccess?: pulumi.Input<boolean>;
+    enableDefaultInternetAccess?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the IAM role to apply to the image builder.
      */
-    iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the public, private, or shared image to use.
      */
-    imageArn?: pulumi.Input<string>;
+    imageArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the image used to create the image builder.
      */
-    imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * Instance type to use when launching the image builder.
      */
@@ -332,17 +332,17 @@ export interface ImageBuilderArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig | undefined>;
 }

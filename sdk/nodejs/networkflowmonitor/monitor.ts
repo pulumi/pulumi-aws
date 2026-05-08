@@ -168,38 +168,38 @@ export interface MonitorState {
     /**
      * The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
      */
-    localResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorLocalResource>[]>;
+    localResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorLocalResource>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the monitor.
      */
-    monitorArn?: pulumi.Input<string>;
+    monitorArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the monitor. Cannot be changed after creation.
      */
-    monitorName?: pulumi.Input<string>;
+    monitorName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
      */
-    remoteResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorRemoteResource>[]>;
+    remoteResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorRemoteResource>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
      *
      * The following arguments are optional:
      */
-    scopeArn?: pulumi.Input<string>;
+    scopeArn?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.networkflowmonitor.MonitorTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.networkflowmonitor.MonitorTimeouts | undefined>;
 }
 
 /**
@@ -217,11 +217,11 @@ export interface MonitorArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The remote resources to monitor. A remote resource is the other endpoint specified for the network flow of a workload, with a local resource.
      */
-    remoteResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorRemoteResource>[]>;
+    remoteResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorRemoteResource>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
      *
@@ -231,6 +231,6 @@ export interface MonitorArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.networkflowmonitor.MonitorTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.networkflowmonitor.MonitorTimeouts | undefined>;
 }

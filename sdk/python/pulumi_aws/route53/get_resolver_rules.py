@@ -188,12 +188,12 @@ def get_resolver_rules(name_regex: Optional[_builtins.str] = None,
         resolver_rule_ids=pulumi.get(__ret__, 'resolver_rule_ids'),
         rule_type=pulumi.get(__ret__, 'rule_type'),
         share_status=pulumi.get(__ret__, 'share_status'))
-def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              owner_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              resolver_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              rule_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              share_status: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resolver_rules_output(name_regex: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              owner_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              resolver_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              rule_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              share_status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRulesResult]:
     """
     `route53_get_resolver_rules` provides details about a set of Route53 Resolver rules.

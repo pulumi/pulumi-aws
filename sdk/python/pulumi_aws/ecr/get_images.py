@@ -125,9 +125,9 @@ def get_images(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-def get_images_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      registry_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_images_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      registry_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
     The ECR Images data source allows the list of images in a specified repository to be retrieved.

@@ -169,7 +169,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			lambda, err := lambda.NewFunction(ctx, "lambda", &lambda.FunctionArgs{
+//			lambda2, err := lambda.NewFunction(ctx, "lambda", &lambda.FunctionArgs{
 //				Code:           pulumi.NewFileArchive("lambda.zip"),
 //				Name:           pulumi.String("mylambda"),
 //				Role:           role.Arn,
@@ -186,7 +186,7 @@ import (
 //				HttpMethod:            method.HttpMethod,
 //				IntegrationHttpMethod: pulumi.String("POST"),
 //				Type:                  pulumi.String("AWS_PROXY"),
-//				Uri:                   lambda.InvokeArn,
+//				Uri:                   lambda2.InvokeArn,
 //			})
 //			if err != nil {
 //				return err
@@ -195,7 +195,7 @@ import (
 //			_, err = lambda.NewPermission(ctx, "apigw_lambda", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowExecutionFromAPIGateway"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    lambda.Name,
+//				Function:    lambda2.Name,
 //				Principal:   pulumi.String("apigateway.amazonaws.com"),
 //				SourceArn: pulumi.All(api.ID(), method.HttpMethod, resource.Path).ApplyT(func(_args []interface{}) (string, error) {
 //					id := _args[0].(string)

@@ -117,11 +117,12 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_aws as aws
 
     foo = aws.ec2.get_vpcs()
     foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in len(foo.ids).apply(lambda length: range(length))]
-    test_flow_log = []
+    test_flow_log: list[Any] = []
     def create_test_flow_log(range_body):
         for range in [{"value": i} for i in range(0, range_body)]:
             test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc.apply(lambda foo_get_vpc: foo_get_vpc[range["value"]].id)))
@@ -149,9 +150,9 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']]]]] = None,
-                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_vpcs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']]]]] = None,
+                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcsResult]:
     """
     This resource can be useful for getting back a list of VPC Ids for a region.
@@ -176,11 +177,12 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetV
 
     ```python
     import pulumi
+    from typing import Any
     import pulumi_aws as aws
 
     foo = aws.ec2.get_vpcs()
     foo_get_vpc = [aws.ec2.get_vpc(id=foo.ids[__index]) for __index in len(foo.ids).apply(lambda length: range(length))]
-    test_flow_log = []
+    test_flow_log: list[Any] = []
     def create_test_flow_log(range_body):
         for range in [{"value": i} for i in range(0, range_body)]:
             test_flow_log.append(aws.ec2.FlowLog(f"test_flow_log-{range['value']}", vpc_id=foo_get_vpc.apply(lambda foo_get_vpc: foo_get_vpc[range["value"]].id)))

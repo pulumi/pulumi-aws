@@ -32,11 +32,11 @@ class TriggerTriggerArgsDict(TypedDict):
     """
     The name of the trigger.
     """
-    branches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
     """
-    custom_data: NotRequired[pulumi.Input[_builtins.str]]
+    custom_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
     """
@@ -47,8 +47,8 @@ class TriggerTriggerArgs:
                  destination_arn: pulumi.Input[_builtins.str],
                  events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[_builtins.str],
-                 branches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 branches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
@@ -102,26 +102,26 @@ class TriggerTriggerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def branches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
         """
         return pulumi.get(self, "branches")
 
     @branches.setter
-    def branches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def branches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "branches", value)
 
     @_builtins.property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
         """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_data", value)
 
 

@@ -161,8 +161,8 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[_builtins.str] =
         registry_id=pulumi.get(__ret__, 'registry_id'),
         upstream_registry_url=pulumi.get(__ret__, 'upstream_registry_url'),
         upstream_repository_prefix=pulumi.get(__ret__, 'upstream_repository_prefix'))
-def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_pull_through_cache_rule_output(ecr_repository_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
     """
     The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.

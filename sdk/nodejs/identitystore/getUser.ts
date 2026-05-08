@@ -180,7 +180,7 @@ export interface GetUserOutputArgs {
     /**
      * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      */
-    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs>;
+    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs | undefined>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
@@ -190,11 +190,11 @@ export interface GetUserOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The identifier for a user in the Identity Store.
      *
      * > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }

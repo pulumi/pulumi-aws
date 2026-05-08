@@ -179,12 +179,12 @@ def get_service(dns_name: Optional[_builtins.str] = None,
         reverse_dns_prefix=pulumi.get(__ret__, 'reverse_dns_prefix'),
         service_id=pulumi.get(__ret__, 'service_id'),
         supported=pulumi.get(__ret__, 'supported'))
-def get_service_output(dns_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       reverse_dns_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       reverse_dns_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       service_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_service_output(dns_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       reverse_dns_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       reverse_dns_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       service_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Use this data source to compose and decompose AWS service DNS names.

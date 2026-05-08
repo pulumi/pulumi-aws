@@ -134,21 +134,21 @@ export interface GetVoicesOutputArgs {
     /**
      * Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Whether to return any bilingual voices that use the specified language as an additional language.
      */
-    includeAdditionalLanguageCodes?: pulumi.Input<boolean>;
+    includeAdditionalLanguageCodes?: pulumi.Input<boolean | undefined>;
     /**
      * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
      */
-    languageCode?: pulumi.Input<string>;
+    languageCode?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
-    voices?: pulumi.Input<pulumi.Input<inputs.polly.GetVoicesVoiceArgs>[]>;
+    voices?: pulumi.Input<pulumi.Input<inputs.polly.GetVoicesVoiceArgs>[] | undefined>;
 }

@@ -21,8 +21,8 @@ class KinesisStreamingDestinationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 approximate_creation_date_time_precision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 approximate_creation_date_time_precision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KinesisStreamingDestination resource.
 
@@ -64,36 +64,36 @@ class KinesisStreamingDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
-    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approximate_creation_date_time_precision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
-    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approximate_creation_date_time_precision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approximate_creation_date_time_precision", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _KinesisStreamingDestinationState:
     def __init__(__self__, *,
-                 approximate_creation_date_time_precision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 approximate_creation_date_time_precision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering KinesisStreamingDestination resources.
 
@@ -113,50 +113,50 @@ class _KinesisStreamingDestinationState:
 
     @_builtins.property
     @pulumi.getter(name="approximateCreationDateTimePrecision")
-    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approximate_creation_date_time_precision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         """
         return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @approximate_creation_date_time_precision.setter
-    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approximate_creation_date_time_precision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approximate_creation_date_time_precision", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="streamArn")
-    def stream_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         """
         return pulumi.get(self, "stream_arn")
 
     @stream_arn.setter
-    def stream_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
 
@@ -166,10 +166,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approximate_creation_date_time_precision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 approximate_creation_date_time_precision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
@@ -267,10 +267,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approximate_creation_date_time_precision: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 approximate_creation_date_time_precision: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -298,10 +298,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            approximate_creation_date_time_precision: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            stream_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            table_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'KinesisStreamingDestination':
+            approximate_creation_date_time_precision: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'KinesisStreamingDestination':
         """
         Get an existing KinesisStreamingDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

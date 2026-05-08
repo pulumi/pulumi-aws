@@ -36,13 +36,13 @@ namespace Pulumi.Aws.EcrPublic
         ///         {
         ///             return img.Digest;
         ///         }).ToList(),
-        ///         ["imageTags"] = Std.Index.Flatten.Invoke(new()
+        ///         ["imageTags"] = Std.Flatten.Invoke(new()
         ///         {
         ///             Input = .Select(img =&gt; 
         ///             {
         ///                 return img.Tags;
         ///             }).ToList(),
-        ///         }).Apply(invoke =&gt; Std.Index.Distinct.Invoke(new()
+        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
         ///         {
         ///             Input = invoke.Result,
         ///         })).Apply(invoke =&gt; invoke.Result),
@@ -78,13 +78,13 @@ namespace Pulumi.Aws.EcrPublic
         ///         {
         ///             return img.Digest;
         ///         }).ToList(),
-        ///         ["imageTags"] = Std.Index.Flatten.Invoke(new()
+        ///         ["imageTags"] = Std.Flatten.Invoke(new()
         ///         {
         ///             Input = .Select(img =&gt; 
         ///             {
         ///                 return img.Tags;
         ///             }).ToList(),
-        ///         }).Apply(invoke =&gt; Std.Index.Distinct.Invoke(new()
+        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
         ///         {
         ///             Input = invoke.Result,
         ///         })).Apply(invoke =&gt; invoke.Result),
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.EcrPublic
         ///         {
         ///             return img.Digest;
         ///         }).ToList(),
-        ///         ["imageTags"] = Std.Index.Flatten.Invoke(new()
+        ///         ["imageTags"] = Std.Flatten.Invoke(new()
         ///         {
         ///             Input = .Select(img =&gt; 
         ///             {
         ///                 return img.Tags;
         ///             }).ToList(),
-        ///         }).Apply(invoke =&gt; Std.Index.Distinct.Invoke(new()
+        ///         }).Apply(invoke =&gt; Std.Distinct.Invoke(new()
         ///         {
         ///             Input = invoke.Result,
         ///         })).Apply(invoke =&gt; invoke.Result),

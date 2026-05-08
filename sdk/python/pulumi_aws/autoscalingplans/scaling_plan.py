@@ -23,8 +23,8 @@ class ScalingPlanArgs:
     def __init__(__self__, *,
                  application_source: pulumi.Input['ScalingPlanApplicationSourceArgs'],
                  scaling_instructions: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScalingPlan resource.
 
@@ -66,37 +66,37 @@ class ScalingPlanArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ScalingPlanState:
     def __init__(__self__, *,
-                 application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
-                 scaling_plan_version: Optional[pulumi.Input[_builtins.int]] = None):
+                 application_source: pulumi.Input[Optional['ScalingPlanApplicationSourceArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
+                 scaling_plan_version: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ScalingPlan resources.
 
@@ -119,62 +119,62 @@ class _ScalingPlanState:
 
     @_builtins.property
     @pulumi.getter(name="applicationSource")
-    def application_source(self) -> Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']]:
+    def application_source(self) -> pulumi.Input[Optional['ScalingPlanApplicationSourceArgs']]:
         """
         CloudFormation stack or set of tags. You can create one scaling plan per application source.
         """
         return pulumi.get(self, "application_source")
 
     @application_source.setter
-    def application_source(self, value: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']]):
+    def application_source(self, value: pulumi.Input[Optional['ScalingPlanApplicationSourceArgs']]):
         pulumi.set(self, "application_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingInstructions")
-    def scaling_instructions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]:
+    def scaling_instructions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]:
         """
         Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         """
         return pulumi.get(self, "scaling_instructions")
 
     @scaling_instructions.setter
-    def scaling_instructions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]):
+    def scaling_instructions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]):
         pulumi.set(self, "scaling_instructions", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPlanVersion")
-    def scaling_plan_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scaling_plan_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version number of the scaling plan. This value is always 1.
         """
         return pulumi.get(self, "scaling_plan_version")
 
     @scaling_plan_version.setter
-    def scaling_plan_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scaling_plan_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scaling_plan_version", value)
 
 
@@ -184,10 +184,10 @@ class ScalingPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source: Optional[pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
+                 application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an AWS Auto Scaling scaling plan.
@@ -237,7 +237,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
             }])
         ```
@@ -281,7 +281,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
                 "predictive_scaling_max_capacity_behavior": "SetForecastCapacityToMaxCapacity",
                 "predictive_scaling_mode": "ForecastAndScale",
@@ -361,7 +361,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
             }])
         ```
@@ -405,7 +405,7 @@ class ScalingPlan(pulumi.CustomResource):
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
-                    "target_value": 70,
+                    "target_value": float(70),
                 }],
                 "predictive_scaling_max_capacity_behavior": "SetForecastCapacityToMaxCapacity",
                 "predictive_scaling_mode": "ForecastAndScale",
@@ -439,10 +439,10 @@ class ScalingPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source: Optional[pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
+                 application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -471,11 +471,11 @@ class ScalingPlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_source: Optional[pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
-            scaling_plan_version: Optional[pulumi.Input[_builtins.int]] = None) -> 'ScalingPlan':
+            application_source: pulumi.Input[Optional[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_instructions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
+            scaling_plan_version: pulumi.Input[Optional[_builtins.int]] = None) -> 'ScalingPlan':
         """
         Get an existing ScalingPlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

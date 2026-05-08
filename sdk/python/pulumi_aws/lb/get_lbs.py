@@ -115,8 +115,8 @@ def get_lbs(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_lbs_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_lbs_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLbsResult]:
     """
     Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other

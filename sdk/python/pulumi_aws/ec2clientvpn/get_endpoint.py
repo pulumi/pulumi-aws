@@ -424,10 +424,10 @@ def get_endpoint(client_vpn_endpoint_id: Optional[_builtins.str] = None,
         transport_protocol=pulumi.get(__ret__, 'transport_protocol'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpn_port=pulumi.get(__ret__, 'vpn_port'))
-def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_endpoint_output(client_vpn_endpoint_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        filters: pulumi.Input[Optional[Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Get information on an EC2 Client VPN endpoint.

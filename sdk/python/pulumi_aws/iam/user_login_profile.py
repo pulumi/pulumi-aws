@@ -20,9 +20,9 @@ __all__ = ['UserLoginProfileArgs', 'UserLoginProfile']
 class UserLoginProfileArgs:
     def __init__(__self__, *,
                  user: pulumi.Input[_builtins.str],
-                 password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reset_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reset_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserLoginProfile resource.
 
@@ -53,51 +53,51 @@ class UserLoginProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="passwordLength")
-    def password_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         """
         return pulumi.get(self, "password_length")
 
     @password_length.setter
-    def password_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_length", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetRequired")
-    def password_reset_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_reset_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         """
         return pulumi.get(self, "password_reset_required")
 
     @password_reset_required.setter
-    def password_reset_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_reset_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_reset_required", value)
 
     @_builtins.property
     @pulumi.getter(name="pgpKey")
-    def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pgp_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
-    def pgp_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pgp_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pgp_key", value)
 
 
 @pulumi.input_type
 class _UserLoginProfileState:
     def __init__(__self__, *,
-                 encrypted_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reset_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 encrypted_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reset_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserLoginProfile resources.
 
@@ -126,86 +126,86 @@ class _UserLoginProfileState:
 
     @_builtins.property
     @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         """
         return pulumi.get(self, "encrypted_password")
 
     @encrypted_password.setter
-    def encrypted_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_password", value)
 
     @_builtins.property
     @pulumi.getter(name="keyFingerprint")
-    def key_fingerprint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_fingerprint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         """
         return pulumi.get(self, "key_fingerprint")
 
     @key_fingerprint.setter
-    def key_fingerprint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_fingerprint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_fingerprint", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The plain text password, only available when `pgp_key` is not provided.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordLength")
-    def password_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         """
         return pulumi.get(self, "password_length")
 
     @password_length.setter
-    def password_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_length", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetRequired")
-    def password_reset_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_reset_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         """
         return pulumi.get(self, "password_reset_required")
 
     @password_reset_required.setter
-    def password_reset_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_reset_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_reset_required", value)
 
     @_builtins.property
     @pulumi.getter(name="pgpKey")
-    def pgp_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pgp_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         """
         return pulumi.get(self, "pgp_key")
 
     @pgp_key.setter
-    def pgp_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pgp_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pgp_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IAM user's name.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -215,10 +215,10 @@ class UserLoginProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reset_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reset_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
@@ -326,10 +326,10 @@ class UserLoginProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reset_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reset_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,13 +360,13 @@ class UserLoginProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            encrypted_password: Optional[pulumi.Input[_builtins.str]] = None,
-            key_fingerprint: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            password_length: Optional[pulumi.Input[_builtins.int]] = None,
-            password_reset_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            pgp_key: Optional[pulumi.Input[_builtins.str]] = None,
-            user: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserLoginProfile':
+            encrypted_password: pulumi.Input[Optional[_builtins.str]] = None,
+            key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            password_length: pulumi.Input[Optional[_builtins.int]] = None,
+            password_reset_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            pgp_key: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserLoginProfile':
         """
         Get an existing UserLoginProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

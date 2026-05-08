@@ -121,23 +121,23 @@ export class Device extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Device resources.
  */
 export interface DeviceState {
-    agentVersion?: pulumi.Input<string>;
+    agentVersion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The device to register with SageMaker AI Edge Manager. See Device details below.
      */
-    device?: pulumi.Input<inputs.sagemaker.DeviceDevice>;
+    device?: pulumi.Input<inputs.sagemaker.DeviceDevice | undefined>;
     /**
      * The name of the Device Fleet.
      */
-    deviceFleetName?: pulumi.Input<string>;
+    deviceFleetName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -155,5 +155,5 @@ export interface DeviceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

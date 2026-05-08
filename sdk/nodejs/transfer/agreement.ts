@@ -171,45 +171,45 @@ export interface AgreementState {
     /**
      * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      */
-    accessRole?: pulumi.Input<string>;
+    accessRole?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the AS2 agreement.
      */
-    agreementId?: pulumi.Input<string>;
+    agreementId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the agreement.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The landing directory for the files transferred by using the AS2 protocol.
      */
-    baseDirectory?: pulumi.Input<string>;
+    baseDirectory?: pulumi.Input<string | undefined>;
     /**
      * The Optional description of the transdfer.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the AS2 local profile.
      */
-    localProfileId?: pulumi.Input<string>;
+    localProfileId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the AS2 partner profile.
      */
-    partnerProfileId?: pulumi.Input<string>;
+    partnerProfileId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
-    serverId?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -227,7 +227,7 @@ export interface AgreementArgs {
     /**
      * The Optional description of the transdfer.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the AS2 local profile.
      */
@@ -239,7 +239,7 @@ export interface AgreementArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
@@ -247,5 +247,5 @@ export interface AgreementArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

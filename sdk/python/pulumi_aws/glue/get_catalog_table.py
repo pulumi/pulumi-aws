@@ -318,12 +318,12 @@ def get_catalog_table(catalog_id: Optional[_builtins.str] = None,
         transaction_id=pulumi.get(__ret__, 'transaction_id'),
         view_expanded_text=pulumi.get(__ret__, 'view_expanded_text'),
         view_original_text=pulumi.get(__ret__, 'view_original_text'))
-def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             name: Optional[pulumi.Input[_builtins.str]] = None,
-                             query_as_of_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             transaction_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def get_catalog_table_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             name: pulumi.Input[Optional[_builtins.str]] = None,
+                             query_as_of_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             transaction_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogTableResult]:
     """
     This data source can be used to fetch information about an AWS Glue Data Catalog Table.

@@ -22,9 +22,9 @@ __all__ = ['AccountVdmAttributesArgs', 'AccountVdmAttributes']
 class AccountVdmAttributesArgs:
     def __init__(__self__, *,
                  vdm_enabled: pulumi.Input[_builtins.str],
-                 dashboard_attributes: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']] = None,
-                 guardian_attributes: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 dashboard_attributes: pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']] = None,
+                 guardian_attributes: pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountVdmAttributes resource.
 
@@ -59,48 +59,48 @@ class AccountVdmAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dashboardAttributes")
-    def dashboard_attributes(self) -> Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']]:
+    def dashboard_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
     @dashboard_attributes.setter
-    def dashboard_attributes(self, value: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']]):
+    def dashboard_attributes(self, value: pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']]):
         pulumi.set(self, "dashboard_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="guardianAttributes")
-    def guardian_attributes(self) -> Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']]:
+    def guardian_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 
     @guardian_attributes.setter
-    def guardian_attributes(self, value: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']]):
+    def guardian_attributes(self, value: pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']]):
         pulumi.set(self, "guardian_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _AccountVdmAttributesState:
     def __init__(__self__, *,
-                 dashboard_attributes: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']] = None,
-                 guardian_attributes: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vdm_enabled: Optional[pulumi.Input[_builtins.str]] = None):
+                 dashboard_attributes: pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']] = None,
+                 guardian_attributes: pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vdm_enabled: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountVdmAttributes resources.
 
@@ -122,43 +122,43 @@ class _AccountVdmAttributesState:
 
     @_builtins.property
     @pulumi.getter(name="dashboardAttributes")
-    def dashboard_attributes(self) -> Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']]:
+    def dashboard_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
     @dashboard_attributes.setter
-    def dashboard_attributes(self, value: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']]):
+    def dashboard_attributes(self, value: pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']]):
         pulumi.set(self, "dashboard_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="guardianAttributes")
-    def guardian_attributes(self) -> Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']]:
+    def guardian_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 
     @guardian_attributes.setter
-    def guardian_attributes(self, value: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']]):
+    def guardian_attributes(self, value: pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']]):
         pulumi.set(self, "guardian_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="vdmEnabled")
-    def vdm_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vdm_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
 
@@ -167,7 +167,7 @@ class _AccountVdmAttributesState:
         return pulumi.get(self, "vdm_enabled")
 
     @vdm_enabled.setter
-    def vdm_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vdm_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vdm_enabled", value)
 
 
@@ -177,10 +177,10 @@ class AccountVdmAttributes(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
-                 guardian_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vdm_enabled: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
+                 guardian_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vdm_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
@@ -272,10 +272,10 @@ class AccountVdmAttributes(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
-                 guardian_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 vdm_enabled: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
+                 guardian_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 vdm_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,10 +301,10 @@ class AccountVdmAttributes(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dashboard_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
-            guardian_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            vdm_enabled: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountVdmAttributes':
+            dashboard_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
+            guardian_attributes: pulumi.Input[Optional[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            vdm_enabled: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountVdmAttributes':
         """
         Get an existing AccountVdmAttributes resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

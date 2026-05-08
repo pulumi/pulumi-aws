@@ -292,46 +292,46 @@ export interface ExperimentTemplateState {
     /**
      * Action to be performed during an experiment. See below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateAction>[] | undefined>;
     /**
      * Description for the experiment template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The experiment options for the experiment template. See experimentOptions below for more details!
      */
-    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions>;
+    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     /**
      * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      */
-    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration>;
+    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
      * The configuration for experiment logging. See below.
      */
-    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * When an ongoing experiment should be stopped. See below.
      *
      * The following arguments are optional:
      */
-    stopConditions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
+    stopConditions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[] | undefined>;
     /**
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target of an action. See below.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[] | undefined>;
 }
 
 /**
@@ -349,19 +349,19 @@ export interface ExperimentTemplateArgs {
     /**
      * The experiment options for the experiment template. See experimentOptions below for more details!
      */
-    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions>;
+    experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     /**
      * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      */
-    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration>;
+    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
      * The configuration for experiment logging. See below.
      */
-    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
@@ -375,9 +375,9 @@ export interface ExperimentTemplateArgs {
     /**
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target of an action. See below.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[] | undefined>;
 }

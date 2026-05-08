@@ -259,76 +259,76 @@ export interface GuardrailState {
     /**
      * Message to return when the guardrail blocks a prompt.
      */
-    blockedInputMessaging?: pulumi.Input<string>;
+    blockedInputMessaging?: pulumi.Input<string | undefined>;
     /**
      * Message to return when the guardrail blocks a model response.
      */
-    blockedOutputsMessaging?: pulumi.Input<string>;
+    blockedOutputsMessaging?: pulumi.Input<string | undefined>;
     /**
      * Content policy config for a guardrail. See Content Policy Config for more information.
      */
-    contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfig>;
+    contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfig | undefined>;
     /**
      * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
      */
-    contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfig>;
+    contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
     /**
      * Unix epoch timestamp in seconds for when the Guardrail was created.
      */
-    createdAt?: pulumi.Input<string>;
-    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig>;
+    createdAt?: pulumi.Input<string | undefined>;
+    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
      * Description of the guardrail or its version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Guardrail.
      */
-    guardrailArn?: pulumi.Input<string>;
+    guardrailArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Guardrail.
      */
-    guardrailId?: pulumi.Input<string>;
+    guardrailId?: pulumi.Input<string | undefined>;
     /**
      * The KMS key with which the guardrail was encrypted at rest.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the guardrail.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
      */
-    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfig>;
+    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
     /**
      * Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.GuardrailTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.GuardrailTimeouts | undefined>;
     /**
      * Topic policy config for a guardrail. See Topic Policy Config for more information.
      */
-    topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfig>;
+    topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
     /**
      * Version of the Guardrail.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Word policy config for a guardrail. See Word Policy Config for more information.
      */
-    wordPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfig>;
+    wordPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfig | undefined>;
 }
 
 /**
@@ -346,45 +346,45 @@ export interface GuardrailArgs {
     /**
      * Content policy config for a guardrail. See Content Policy Config for more information.
      */
-    contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfig>;
+    contentPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfig | undefined>;
     /**
      * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
      */
-    contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfig>;
-    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig>;
+    contextualGroundingPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfig | undefined>;
+    crossRegionConfig?: pulumi.Input<inputs.bedrock.GuardrailCrossRegionConfig | undefined>;
     /**
      * Description of the guardrail or its version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The KMS key with which the guardrail was encrypted at rest.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the guardrail.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
      */
-    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfig>;
+    sensitiveInformationPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfig | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.GuardrailTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.GuardrailTimeouts | undefined>;
     /**
      * Topic policy config for a guardrail. See Topic Policy Config for more information.
      */
-    topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfig>;
+    topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
     /**
      * Word policy config for a guardrail. See Word Policy Config for more information.
      */
-    wordPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfig>;
+    wordPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfig | undefined>;
 }

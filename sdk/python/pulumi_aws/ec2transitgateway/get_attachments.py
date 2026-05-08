@@ -135,9 +135,9 @@ def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs',
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']]]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_attachments_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']]]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachmentsResult]:
     """
     Get information on EC2 Transit Gateway Attachments.

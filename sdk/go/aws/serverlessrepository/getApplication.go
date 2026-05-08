@@ -37,13 +37,21 @@ import (
 //				Name:            pulumi.String("Example"),
 //				ApplicationId:   pulumi.String(pulumi.String(example.ApplicationId)),
 //				SemanticVersion: pulumi.String(pulumi.String(example.SemanticVersion)),
-//				Capabilities:    interface{}(example.RequiredCapabilities),
+//				Capabilities:    toPulumiStringArray(example.RequiredCapabilities),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			return nil
 //		})
+//	}
+//
+//	func toPulumiStringArray(arr []string) pulumi.StringArray {
+//		var pulumiArr pulumi.StringArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.String(v))
+//		}
+//		return pulumiArr
 //	}
 //
 // ```

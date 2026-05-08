@@ -21,44 +21,44 @@ __all__ = ['LaunchTemplateArgs', 'LaunchTemplate']
 @pulumi.input_type
 class LaunchTemplateArgs:
     def __init__(__self__, *,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
-                 cpu_options: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']] = None,
-                 credit_specification: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']] = None,
-                 default_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_api_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_api_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
-                 hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
-                 iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_initiated_shutdown_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_market_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']] = None,
-                 instance_requirements: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
-                 maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
-                 metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
-                 monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
-                 network_performance_options: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']] = None,
-                 placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
-                 private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
-                 ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_default_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
+                 cpu_options: pulumi.Input[Optional['LaunchTemplateCpuOptionsArgs']] = None,
+                 credit_specification: pulumi.Input[Optional['LaunchTemplateCreditSpecificationArgs']] = None,
+                 default_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_options: pulumi.Input[Optional['LaunchTemplateEnclaveOptionsArgs']] = None,
+                 hibernation_options: pulumi.Input[Optional['LaunchTemplateHibernationOptionsArgs']] = None,
+                 iam_instance_profile: pulumi.Input[Optional['LaunchTemplateIamInstanceProfileArgs']] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_market_options: pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsArgs']] = None,
+                 instance_requirements: pulumi.Input[Optional['LaunchTemplateInstanceRequirementsArgs']] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 maintenance_options: pulumi.Input[Optional['LaunchTemplateMaintenanceOptionsArgs']] = None,
+                 metadata_options: pulumi.Input[Optional['LaunchTemplateMetadataOptionsArgs']] = None,
+                 monitoring: pulumi.Input[Optional['LaunchTemplateMonitoringArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+                 network_performance_options: pulumi.Input[Optional['LaunchTemplateNetworkPerformanceOptionsArgs']] = None,
+                 placement: pulumi.Input[Optional['LaunchTemplatePlacementArgs']] = None,
+                 private_dns_name_options: pulumi.Input[Optional['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
+                 ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]] = None,
+                 security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LaunchTemplate resource.
 
@@ -188,7 +188,7 @@ class LaunchTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]:
+    def block_device_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]:
         """
         Specify volumes to attach to the instance besides the volumes specified by the AMI.
         See Block Devices below for details.
@@ -196,36 +196,36 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
-    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]):
+    def block_device_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]):
         pulumi.set(self, "block_device_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']]:
+    def capacity_reservation_specification(self) -> pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationArgs']]:
         """
         Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
-    def capacity_reservation_specification(self, value: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']]):
+    def capacity_reservation_specification(self, value: pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']]:
+    def cpu_options(self) -> pulumi.Input[Optional['LaunchTemplateCpuOptionsArgs']]:
         """
         The CPU options for the instance. See CPU Options below for more details.
         """
         return pulumi.get(self, "cpu_options")
 
     @cpu_options.setter
-    def cpu_options(self, value: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']]):
+    def cpu_options(self, value: pulumi.Input[Optional['LaunchTemplateCpuOptionsArgs']]):
         pulumi.set(self, "cpu_options", value)
 
     @_builtins.property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']]:
+    def credit_specification(self) -> pulumi.Input[Optional['LaunchTemplateCreditSpecificationArgs']]:
         """
         Customize the credit specification of the instance. See Credit
         Specification below for more details.
@@ -233,48 +233,48 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
-    def credit_specification(self, value: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']]):
+    def credit_specification(self, value: pulumi.Input[Optional['LaunchTemplateCreditSpecificationArgs']]):
         pulumi.set(self, "credit_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default Version of the launch template.
         """
         return pulumi.get(self, "default_version")
 
     @default_version.setter
-    def default_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the launch template.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableApiStop")
-    def disable_api_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_api_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         """
         return pulumi.get(self, "disable_api_stop")
 
     @disable_api_stop.setter
-    def disable_api_stop(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_api_stop(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_api_stop", value)
 
     @_builtins.property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_api_termination(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true`, enables [EC2 Instance
         Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
@@ -282,48 +282,48 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "disable_api_termination")
 
     @disable_api_termination.setter
-    def disable_api_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_api_termination(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_api_termination", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `true`, the launched EC2 instance will be EBS-optimized.
         """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="enclaveOptions")
-    def enclave_options(self) -> Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']]:
+    def enclave_options(self) -> pulumi.Input[Optional['LaunchTemplateEnclaveOptionsArgs']]:
         """
         Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         """
         return pulumi.get(self, "enclave_options")
 
     @enclave_options.setter
-    def enclave_options(self, value: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']]):
+    def enclave_options(self, value: pulumi.Input[Optional['LaunchTemplateEnclaveOptionsArgs']]):
         pulumi.set(self, "enclave_options", value)
 
     @_builtins.property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']]:
+    def hibernation_options(self) -> pulumi.Input[Optional['LaunchTemplateHibernationOptionsArgs']]:
         """
         The hibernation options for the instance. See Hibernation Options below for more details.
         """
         return pulumi.get(self, "hibernation_options")
 
     @hibernation_options.setter
-    def hibernation_options(self, value: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']]):
+    def hibernation_options(self, value: pulumi.Input[Optional['LaunchTemplateHibernationOptionsArgs']]):
         pulumi.set(self, "hibernation_options", value)
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']]:
+    def iam_instance_profile(self) -> pulumi.Input[Optional['LaunchTemplateIamInstanceProfileArgs']]:
         """
         The IAM Instance Profile to launch the instance with. See Instance Profile
         below for more details.
@@ -331,24 +331,24 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']]):
+    def iam_instance_profile(self, value: pulumi.Input[Optional['LaunchTemplateIamInstanceProfileArgs']]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
-    def instance_initiated_shutdown_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_initiated_shutdown_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shutdown behavior for the instance. Can be `stop` or `terminate`.
         (Default: `stop`).
@@ -356,12 +356,12 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @instance_initiated_shutdown_behavior.setter
-    def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_initiated_shutdown_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_initiated_shutdown_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']]:
+    def instance_market_options(self) -> pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsArgs']]:
         """
         The market (purchasing) option for the instance. See Market Options
         below for details.
@@ -369,132 +369,132 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "instance_market_options")
 
     @instance_market_options.setter
-    def instance_market_options(self, value: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']]):
+    def instance_market_options(self, value: pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsArgs']]):
         pulumi.set(self, "instance_market_options", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]:
+    def instance_requirements(self) -> pulumi.Input[Optional['LaunchTemplateInstanceRequirementsArgs']]:
         """
         The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
         """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
-    def instance_requirements(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]):
+    def instance_requirements(self, value: pulumi.Input[Optional['LaunchTemplateInstanceRequirementsArgs']]):
         pulumi.set(self, "instance_requirements", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the instance. If present then `instance_requirements` cannot be present.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kernel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kernel ID.
         """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
-    def kernel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kernel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kernel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key name to use for the instance.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseSpecifications")
-    def license_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]:
+    def license_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]:
         """
         A list of license specifications to associate with. See License Specification below for more details.
         """
         return pulumi.get(self, "license_specifications")
 
     @license_specifications.setter
-    def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
+    def license_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
         pulumi.set(self, "license_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceOptions")
-    def maintenance_options(self) -> Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]:
+    def maintenance_options(self) -> pulumi.Input[Optional['LaunchTemplateMaintenanceOptionsArgs']]:
         """
         The maintenance options for the instance. See Maintenance Options below for more details.
         """
         return pulumi.get(self, "maintenance_options")
 
     @maintenance_options.setter
-    def maintenance_options(self, value: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]):
+    def maintenance_options(self, value: pulumi.Input[Optional['LaunchTemplateMaintenanceOptionsArgs']]):
         pulumi.set(self, "maintenance_options", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]:
+    def metadata_options(self) -> pulumi.Input[Optional['LaunchTemplateMetadataOptionsArgs']]:
         """
         Customize the metadata options for the instance. See Metadata Options below for more details.
         """
         return pulumi.get(self, "metadata_options")
 
     @metadata_options.setter
-    def metadata_options(self, value: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]):
+    def metadata_options(self, value: pulumi.Input[Optional['LaunchTemplateMetadataOptionsArgs']]):
         pulumi.set(self, "metadata_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['LaunchTemplateMonitoringArgs']]:
+    def monitoring(self) -> pulumi.Input[Optional['LaunchTemplateMonitoringArgs']]:
         """
         The monitoring option for the instance. See Monitoring below for more details.
         """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']]):
+    def monitoring(self, value: pulumi.Input[Optional['LaunchTemplateMonitoringArgs']]):
         pulumi.set(self, "monitoring", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]:
         """
         Customize network interfaces to be attached at instance boot time. See Network
         Interfaces below for more details.
@@ -502,69 +502,69 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPerformanceOptions")
-    def network_performance_options(self) -> Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]:
+    def network_performance_options(self) -> pulumi.Input[Optional['LaunchTemplateNetworkPerformanceOptionsArgs']]:
         return pulumi.get(self, "network_performance_options")
 
     @network_performance_options.setter
-    def network_performance_options(self, value: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]):
+    def network_performance_options(self, value: pulumi.Input[Optional['LaunchTemplateNetworkPerformanceOptionsArgs']]):
         pulumi.set(self, "network_performance_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def placement(self) -> Optional[pulumi.Input['LaunchTemplatePlacementArgs']]:
+    def placement(self) -> pulumi.Input[Optional['LaunchTemplatePlacementArgs']]:
         """
         The placement of the instance. See Placement below for more details.
         """
         return pulumi.get(self, "placement")
 
     @placement.setter
-    def placement(self, value: Optional[pulumi.Input['LaunchTemplatePlacementArgs']]):
+    def placement(self, value: pulumi.Input[Optional['LaunchTemplatePlacementArgs']]):
         pulumi.set(self, "placement", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptions")
-    def private_dns_name_options(self) -> Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]:
+    def private_dns_name_options(self) -> pulumi.Input[Optional['LaunchTemplatePrivateDnsNameOptionsArgs']]:
         """
         The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         """
         return pulumi.get(self, "private_dns_name_options")
 
     @private_dns_name_options.setter
-    def private_dns_name_options(self, value: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]):
+    def private_dns_name_options(self, value: pulumi.Input[Optional['LaunchTemplatePrivateDnsNameOptionsArgs']]):
         pulumi.set(self, "private_dns_name_options", value)
 
     @_builtins.property
     @pulumi.getter(name="ramDiskId")
-    def ram_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ram_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the RAM disk.
         """
         return pulumi.get(self, "ram_disk_id")
 
     @ram_disk_id.setter
-    def ram_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ram_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ram_disk_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryInterfaces")
-    def secondary_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]:
+    def secondary_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]:
         """
         Secondary interfaces to associate with instances launched from the template. See Secondary
         Interfaces below for more details.
@@ -572,12 +572,12 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "secondary_interfaces")
 
     @secondary_interfaces.setter
-    def secondary_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]):
+    def secondary_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]):
         pulumi.set(self, "secondary_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group names to associate with. If you are creating Instances in a VPC, use
         `vpc_security_group_ids` instead.
@@ -585,114 +585,114 @@ class LaunchTemplateArgs:
         return pulumi.get(self, "security_group_names")
 
     @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]:
+    def tag_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]:
         """
         The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
-    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]):
+    def tag_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="updateDefaultVersion")
-    def update_default_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def update_default_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to update Default Version each update. Conflicts with `default_version`.
         """
         return pulumi.get(self, "update_default_version")
 
     @update_default_version.setter
-    def update_default_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def update_default_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "update_default_version", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded user data to provide when launching the instance.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
 @pulumi.input_type
 class _LaunchTemplateState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
-                 cpu_options: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']] = None,
-                 credit_specification: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']] = None,
-                 default_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_api_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_api_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
-                 hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
-                 iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_initiated_shutdown_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_market_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']] = None,
-                 instance_requirements: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
-                 maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
-                 metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
-                 monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
-                 network_performance_options: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']] = None,
-                 placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
-                 private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
-                 ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_default_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
+                 cpu_options: pulumi.Input[Optional['LaunchTemplateCpuOptionsArgs']] = None,
+                 credit_specification: pulumi.Input[Optional['LaunchTemplateCreditSpecificationArgs']] = None,
+                 default_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_options: pulumi.Input[Optional['LaunchTemplateEnclaveOptionsArgs']] = None,
+                 hibernation_options: pulumi.Input[Optional['LaunchTemplateHibernationOptionsArgs']] = None,
+                 iam_instance_profile: pulumi.Input[Optional['LaunchTemplateIamInstanceProfileArgs']] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_market_options: pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsArgs']] = None,
+                 instance_requirements: pulumi.Input[Optional['LaunchTemplateInstanceRequirementsArgs']] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 maintenance_options: pulumi.Input[Optional['LaunchTemplateMaintenanceOptionsArgs']] = None,
+                 metadata_options: pulumi.Input[Optional['LaunchTemplateMetadataOptionsArgs']] = None,
+                 monitoring: pulumi.Input[Optional['LaunchTemplateMonitoringArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+                 network_performance_options: pulumi.Input[Optional['LaunchTemplateNetworkPerformanceOptionsArgs']] = None,
+                 placement: pulumi.Input[Optional['LaunchTemplatePlacementArgs']] = None,
+                 private_dns_name_options: pulumi.Input[Optional['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
+                 ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]] = None,
+                 security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LaunchTemplate resources.
 
@@ -831,19 +831,19 @@ class _LaunchTemplateState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the launch template.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]:
+    def block_device_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]:
         """
         Specify volumes to attach to the instance besides the volumes specified by the AMI.
         See Block Devices below for details.
@@ -851,36 +851,36 @@ class _LaunchTemplateState:
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
-    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]):
+    def block_device_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]):
         pulumi.set(self, "block_device_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityReservationSpecification")
-    def capacity_reservation_specification(self) -> Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']]:
+    def capacity_reservation_specification(self) -> pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationArgs']]:
         """
         Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @capacity_reservation_specification.setter
-    def capacity_reservation_specification(self, value: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']]):
+    def capacity_reservation_specification(self, value: pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationArgs']]):
         pulumi.set(self, "capacity_reservation_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuOptions")
-    def cpu_options(self) -> Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']]:
+    def cpu_options(self) -> pulumi.Input[Optional['LaunchTemplateCpuOptionsArgs']]:
         """
         The CPU options for the instance. See CPU Options below for more details.
         """
         return pulumi.get(self, "cpu_options")
 
     @cpu_options.setter
-    def cpu_options(self, value: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']]):
+    def cpu_options(self, value: pulumi.Input[Optional['LaunchTemplateCpuOptionsArgs']]):
         pulumi.set(self, "cpu_options", value)
 
     @_builtins.property
     @pulumi.getter(name="creditSpecification")
-    def credit_specification(self) -> Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']]:
+    def credit_specification(self) -> pulumi.Input[Optional['LaunchTemplateCreditSpecificationArgs']]:
         """
         Customize the credit specification of the instance. See Credit
         Specification below for more details.
@@ -888,48 +888,48 @@ class _LaunchTemplateState:
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
-    def credit_specification(self, value: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']]):
+    def credit_specification(self, value: pulumi.Input[Optional['LaunchTemplateCreditSpecificationArgs']]):
         pulumi.set(self, "credit_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Default Version of the launch template.
         """
         return pulumi.get(self, "default_version")
 
     @default_version.setter
-    def default_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the launch template.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableApiStop")
-    def disable_api_stop(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_api_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         """
         return pulumi.get(self, "disable_api_stop")
 
     @disable_api_stop.setter
-    def disable_api_stop(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_api_stop(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_api_stop", value)
 
     @_builtins.property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_api_termination(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true`, enables [EC2 Instance
         Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
@@ -937,48 +937,48 @@ class _LaunchTemplateState:
         return pulumi.get(self, "disable_api_termination")
 
     @disable_api_termination.setter
-    def disable_api_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_api_termination(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_api_termination", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If `true`, the launched EC2 instance will be EBS-optimized.
         """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="enclaveOptions")
-    def enclave_options(self) -> Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']]:
+    def enclave_options(self) -> pulumi.Input[Optional['LaunchTemplateEnclaveOptionsArgs']]:
         """
         Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         """
         return pulumi.get(self, "enclave_options")
 
     @enclave_options.setter
-    def enclave_options(self, value: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']]):
+    def enclave_options(self, value: pulumi.Input[Optional['LaunchTemplateEnclaveOptionsArgs']]):
         pulumi.set(self, "enclave_options", value)
 
     @_builtins.property
     @pulumi.getter(name="hibernationOptions")
-    def hibernation_options(self) -> Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']]:
+    def hibernation_options(self) -> pulumi.Input[Optional['LaunchTemplateHibernationOptionsArgs']]:
         """
         The hibernation options for the instance. See Hibernation Options below for more details.
         """
         return pulumi.get(self, "hibernation_options")
 
     @hibernation_options.setter
-    def hibernation_options(self, value: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']]):
+    def hibernation_options(self, value: pulumi.Input[Optional['LaunchTemplateHibernationOptionsArgs']]):
         pulumi.set(self, "hibernation_options", value)
 
     @_builtins.property
     @pulumi.getter(name="iamInstanceProfile")
-    def iam_instance_profile(self) -> Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']]:
+    def iam_instance_profile(self) -> pulumi.Input[Optional['LaunchTemplateIamInstanceProfileArgs']]:
         """
         The IAM Instance Profile to launch the instance with. See Instance Profile
         below for more details.
@@ -986,24 +986,24 @@ class _LaunchTemplateState:
         return pulumi.get(self, "iam_instance_profile")
 
     @iam_instance_profile.setter
-    def iam_instance_profile(self, value: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']]):
+    def iam_instance_profile(self, value: pulumi.Input[Optional['LaunchTemplateIamInstanceProfileArgs']]):
         pulumi.set(self, "iam_instance_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
-    def instance_initiated_shutdown_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_initiated_shutdown_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shutdown behavior for the instance. Can be `stop` or `terminate`.
         (Default: `stop`).
@@ -1011,12 +1011,12 @@ class _LaunchTemplateState:
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
 
     @instance_initiated_shutdown_behavior.setter
-    def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_initiated_shutdown_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_initiated_shutdown_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMarketOptions")
-    def instance_market_options(self) -> Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']]:
+    def instance_market_options(self) -> pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsArgs']]:
         """
         The market (purchasing) option for the instance. See Market Options
         below for details.
@@ -1024,144 +1024,144 @@ class _LaunchTemplateState:
         return pulumi.get(self, "instance_market_options")
 
     @instance_market_options.setter
-    def instance_market_options(self, value: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']]):
+    def instance_market_options(self, value: pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsArgs']]):
         pulumi.set(self, "instance_market_options", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]:
+    def instance_requirements(self) -> pulumi.Input[Optional['LaunchTemplateInstanceRequirementsArgs']]:
         """
         The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
         """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
-    def instance_requirements(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]):
+    def instance_requirements(self, value: pulumi.Input[Optional['LaunchTemplateInstanceRequirementsArgs']]):
         pulumi.set(self, "instance_requirements", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the instance. If present then `instance_requirements` cannot be present.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="kernelId")
-    def kernel_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kernel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kernel ID.
         """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
-    def kernel_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kernel_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kernel_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key name to use for the instance.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="latestVersion")
-    def latest_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def latest_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The latest version of the launch template.
         """
         return pulumi.get(self, "latest_version")
 
     @latest_version.setter
-    def latest_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def latest_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_version", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseSpecifications")
-    def license_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]:
+    def license_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]:
         """
         A list of license specifications to associate with. See License Specification below for more details.
         """
         return pulumi.get(self, "license_specifications")
 
     @license_specifications.setter
-    def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
+    def license_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
         pulumi.set(self, "license_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceOptions")
-    def maintenance_options(self) -> Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]:
+    def maintenance_options(self) -> pulumi.Input[Optional['LaunchTemplateMaintenanceOptionsArgs']]:
         """
         The maintenance options for the instance. See Maintenance Options below for more details.
         """
         return pulumi.get(self, "maintenance_options")
 
     @maintenance_options.setter
-    def maintenance_options(self, value: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]):
+    def maintenance_options(self, value: pulumi.Input[Optional['LaunchTemplateMaintenanceOptionsArgs']]):
         pulumi.set(self, "maintenance_options", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataOptions")
-    def metadata_options(self) -> Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]:
+    def metadata_options(self) -> pulumi.Input[Optional['LaunchTemplateMetadataOptionsArgs']]:
         """
         Customize the metadata options for the instance. See Metadata Options below for more details.
         """
         return pulumi.get(self, "metadata_options")
 
     @metadata_options.setter
-    def metadata_options(self, value: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]):
+    def metadata_options(self, value: pulumi.Input[Optional['LaunchTemplateMetadataOptionsArgs']]):
         pulumi.set(self, "metadata_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['LaunchTemplateMonitoringArgs']]:
+    def monitoring(self) -> pulumi.Input[Optional['LaunchTemplateMonitoringArgs']]:
         """
         The monitoring option for the instance. See Monitoring below for more details.
         """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']]):
+    def monitoring(self, value: pulumi.Input[Optional['LaunchTemplateMonitoringArgs']]):
         pulumi.set(self, "monitoring", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]:
         """
         Customize network interfaces to be attached at instance boot time. See Network
         Interfaces below for more details.
@@ -1169,69 +1169,69 @@ class _LaunchTemplateState:
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPerformanceOptions")
-    def network_performance_options(self) -> Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]:
+    def network_performance_options(self) -> pulumi.Input[Optional['LaunchTemplateNetworkPerformanceOptionsArgs']]:
         return pulumi.get(self, "network_performance_options")
 
     @network_performance_options.setter
-    def network_performance_options(self, value: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]):
+    def network_performance_options(self, value: pulumi.Input[Optional['LaunchTemplateNetworkPerformanceOptionsArgs']]):
         pulumi.set(self, "network_performance_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def placement(self) -> Optional[pulumi.Input['LaunchTemplatePlacementArgs']]:
+    def placement(self) -> pulumi.Input[Optional['LaunchTemplatePlacementArgs']]:
         """
         The placement of the instance. See Placement below for more details.
         """
         return pulumi.get(self, "placement")
 
     @placement.setter
-    def placement(self, value: Optional[pulumi.Input['LaunchTemplatePlacementArgs']]):
+    def placement(self, value: pulumi.Input[Optional['LaunchTemplatePlacementArgs']]):
         pulumi.set(self, "placement", value)
 
     @_builtins.property
     @pulumi.getter(name="privateDnsNameOptions")
-    def private_dns_name_options(self) -> Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]:
+    def private_dns_name_options(self) -> pulumi.Input[Optional['LaunchTemplatePrivateDnsNameOptionsArgs']]:
         """
         The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         """
         return pulumi.get(self, "private_dns_name_options")
 
     @private_dns_name_options.setter
-    def private_dns_name_options(self, value: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']]):
+    def private_dns_name_options(self, value: pulumi.Input[Optional['LaunchTemplatePrivateDnsNameOptionsArgs']]):
         pulumi.set(self, "private_dns_name_options", value)
 
     @_builtins.property
     @pulumi.getter(name="ramDiskId")
-    def ram_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ram_disk_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the RAM disk.
         """
         return pulumi.get(self, "ram_disk_id")
 
     @ram_disk_id.setter
-    def ram_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ram_disk_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ram_disk_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryInterfaces")
-    def secondary_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]:
+    def secondary_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]:
         """
         Secondary interfaces to associate with instances launched from the template. See Secondary
         Interfaces below for more details.
@@ -1239,12 +1239,12 @@ class _LaunchTemplateState:
         return pulumi.get(self, "secondary_interfaces")
 
     @secondary_interfaces.setter
-    def secondary_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]):
+    def secondary_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateSecondaryInterfaceArgs']]]]):
         pulumi.set(self, "secondary_interfaces", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group names to associate with. If you are creating Instances in a VPC, use
         `vpc_security_group_ids` instead.
@@ -1252,79 +1252,79 @@ class _LaunchTemplateState:
         return pulumi.get(self, "security_group_names")
 
     @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_names", value)
 
     @_builtins.property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]:
+    def tag_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]:
         """
         The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
-    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]):
+    def tag_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="updateDefaultVersion")
-    def update_default_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def update_default_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to update Default Version each update. Conflicts with `default_version`.
         """
         return pulumi.get(self, "update_default_version")
 
     @update_default_version.setter
-    def update_default_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def update_default_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "update_default_version", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base64-encoded user data to provide when launching the instance.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
@@ -1334,44 +1334,44 @@ class LaunchTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_options: Optional[pulumi.Input[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
-                 credit_specification: Optional[pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
-                 default_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_api_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_api_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_options: Optional[pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
-                 hibernation_options: Optional[pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_initiated_shutdown_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_market_options: Optional[pulumi.Input[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
-                 instance_requirements: Optional[pulumi.Input[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
-                 maintenance_options: Optional[pulumi.Input[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
-                 metadata_options: Optional[pulumi.Input[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
-                 monitoring: Optional[pulumi.Input[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
-                 network_performance_options: Optional[pulumi.Input[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
-                 placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
-                 private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
-                 ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_default_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
+                 cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
+                 credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
+                 default_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
+                 hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
+                 iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
+                 maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
+                 monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
+                 network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
+                 placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
+                 private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
+                 ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
+                 security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
@@ -1473,44 +1473,44 @@ class LaunchTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
-                 capacity_reservation_specification: Optional[pulumi.Input[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
-                 cpu_options: Optional[pulumi.Input[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
-                 credit_specification: Optional[pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
-                 default_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_api_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_api_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.str]] = None,
-                 enclave_options: Optional[pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
-                 hibernation_options: Optional[pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
-                 iam_instance_profile: Optional[pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_initiated_shutdown_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_market_options: Optional[pulumi.Input[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
-                 instance_requirements: Optional[pulumi.Input[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
-                 maintenance_options: Optional[pulumi.Input[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
-                 metadata_options: Optional[pulumi.Input[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
-                 monitoring: Optional[pulumi.Input[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
-                 network_performance_options: Optional[pulumi.Input[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
-                 placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
-                 private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
-                 ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 update_default_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
+                 capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
+                 cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
+                 credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
+                 default_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
+                 enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
+                 hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
+                 iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
+                 maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
+                 metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
+                 monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
+                 network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
+                 placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
+                 private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
+                 ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
+                 security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1571,47 +1571,47 @@ class LaunchTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
-            capacity_reservation_specification: Optional[pulumi.Input[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
-            cpu_options: Optional[pulumi.Input[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
-            credit_specification: Optional[pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
-            default_version: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_api_stop: Optional[pulumi.Input[_builtins.bool]] = None,
-            disable_api_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-            ebs_optimized: Optional[pulumi.Input[_builtins.str]] = None,
-            enclave_options: Optional[pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
-            hibernation_options: Optional[pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
-            iam_instance_profile: Optional[pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
-            image_id: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_initiated_shutdown_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_market_options: Optional[pulumi.Input[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
-            instance_requirements: Optional[pulumi.Input[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
-            instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            kernel_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_name: Optional[pulumi.Input[_builtins.str]] = None,
-            latest_version: Optional[pulumi.Input[_builtins.int]] = None,
-            license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
-            maintenance_options: Optional[pulumi.Input[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
-            metadata_options: Optional[pulumi.Input[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
-            monitoring: Optional[pulumi.Input[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
-            network_performance_options: Optional[pulumi.Input[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
-            placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
-            private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
-            ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
-            security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            update_default_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            user_data: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LaunchTemplate':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateBlockDeviceMappingArgs', 'LaunchTemplateBlockDeviceMappingArgsDict']]]]] = None,
+            capacity_reservation_specification: pulumi.Input[Optional[Union['LaunchTemplateCapacityReservationSpecificationArgs', 'LaunchTemplateCapacityReservationSpecificationArgsDict']]] = None,
+            cpu_options: pulumi.Input[Optional[Union['LaunchTemplateCpuOptionsArgs', 'LaunchTemplateCpuOptionsArgsDict']]] = None,
+            credit_specification: pulumi.Input[Optional[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']]] = None,
+            default_version: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_api_stop: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_api_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.str]] = None,
+            enclave_options: pulumi.Input[Optional[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
+            hibernation_options: pulumi.Input[Optional[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
+            iam_instance_profile: pulumi.Input[Optional[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
+            image_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_initiated_shutdown_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_market_options: pulumi.Input[Optional[Union['LaunchTemplateInstanceMarketOptionsArgs', 'LaunchTemplateInstanceMarketOptionsArgsDict']]] = None,
+            instance_requirements: pulumi.Input[Optional[Union['LaunchTemplateInstanceRequirementsArgs', 'LaunchTemplateInstanceRequirementsArgsDict']]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            kernel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_version: pulumi.Input[Optional[_builtins.int]] = None,
+            license_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateLicenseSpecificationArgs', 'LaunchTemplateLicenseSpecificationArgsDict']]]]] = None,
+            maintenance_options: pulumi.Input[Optional[Union['LaunchTemplateMaintenanceOptionsArgs', 'LaunchTemplateMaintenanceOptionsArgsDict']]] = None,
+            metadata_options: pulumi.Input[Optional[Union['LaunchTemplateMetadataOptionsArgs', 'LaunchTemplateMetadataOptionsArgsDict']]] = None,
+            monitoring: pulumi.Input[Optional[Union['LaunchTemplateMonitoringArgs', 'LaunchTemplateMonitoringArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
+            network_performance_options: pulumi.Input[Optional[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
+            placement: pulumi.Input[Optional[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
+            private_dns_name_options: pulumi.Input[Optional[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
+            ram_disk_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateSecondaryInterfaceArgs', 'LaunchTemplateSecondaryInterfaceArgsDict']]]]] = None,
+            security_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            update_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_data: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LaunchTemplate':
         """
         Get an existing LaunchTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

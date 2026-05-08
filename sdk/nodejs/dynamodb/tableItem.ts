@@ -142,25 +142,25 @@ export interface TableItemState {
     /**
      * Hash key to use for lookups and identification of the item
      */
-    hashKey?: pulumi.Input<string>;
+    hashKey?: pulumi.Input<string | undefined>;
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
-    item?: pulumi.Input<string>;
+    item?: pulumi.Input<string | undefined>;
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
-    rangeKey?: pulumi.Input<string>;
+    rangeKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name or ARN of the table to contain the item.
      *
      * > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,11 +178,11 @@ export interface TableItemArgs {
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
-    rangeKey?: pulumi.Input<string>;
+    rangeKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name or ARN of the table to contain the item.
      *

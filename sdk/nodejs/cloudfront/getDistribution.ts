@@ -125,5 +125,5 @@ export interface GetDistributionOutputArgs {
      * Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      */
     id: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

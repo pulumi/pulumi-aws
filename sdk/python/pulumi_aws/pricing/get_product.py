@@ -159,8 +159,8 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
         id=pulumi.get(__ret__, 'id'),
         result=pulumi.get(__ret__, 'result'),
         service_code=pulumi.get(__ret__, 'service_code'))
-def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
-                       service_code: Optional[pulumi.Input[_builtins.str]] = None,
+def get_product_output(filters: pulumi.Input[Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
+                       service_code: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Use this data source to get the pricing information of all products in AWS.

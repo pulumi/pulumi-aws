@@ -165,11 +165,11 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
         pool_id=pulumi.get(__ret__, 'pool_id'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolFilterArgs', 'GetCoipPoolFilterArgsDict']]]]] = None,
-                         local_gateway_route_table_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         pool_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_coip_pool_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCoipPoolFilterArgs', 'GetCoipPoolFilterArgsDict']]]]] = None,
+                         local_gateway_route_table_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         pool_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolResult]:
     """
     Provides details about a specific EC2 Customer-Owned IP Pool.

@@ -282,7 +282,7 @@ import (
 //							},
 //							"scope": []map[string]interface{}{
 //								map[string]interface{}{
-//									"protocols": []float64{
+//									"protocols": []int{
 //										6,
 //									},
 //									"destinationPorts": []map[string]interface{}{

@@ -220,20 +220,20 @@ export interface ResourcePolicyState {
      *
      * The following arguments are optional:
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The revision ID of the current resource-based policy.
      */
-    revisionId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.amp.ResourcePolicyTimeouts>;
+    revisionId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.amp.ResourcePolicyTimeouts | undefined>;
     /**
      * The ID of the workspace to attach the resource-based policy to.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -249,12 +249,12 @@ export interface ResourcePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The revision ID of the current resource-based policy.
      */
-    revisionId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.amp.ResourcePolicyTimeouts>;
+    revisionId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.amp.ResourcePolicyTimeouts | undefined>;
     /**
      * The ID of the workspace to attach the resource-based policy to.
      */

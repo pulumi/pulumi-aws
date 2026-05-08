@@ -23,15 +23,15 @@ class TrustProviderArgs:
     def __init__(__self__, *,
                  policy_reference_name: pulumi.Input[_builtins.str],
                  trust_provider_type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_options: Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']] = None,
-                 device_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 native_application_oidc_options: Optional[pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs']] = None,
-                 oidc_options: Optional[pulumi.Input['TrustProviderOidcOptionsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_specification: Optional[pulumi.Input['TrustProviderSseSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_options: pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']] = None,
+                 device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']] = None,
+                 oidc_options: pulumi.Input[Optional['TrustProviderOidcOptionsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_specification: pulumi.Input[Optional['TrustProviderSseSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustProvider resource.
 
@@ -97,125 +97,125 @@ class TrustProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the AWS Verified Access trust provider.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceOptions")
-    def device_options(self) -> Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']]:
+    def device_options(self) -> pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']]:
         """
         A block of options for device identity based trust providers.
         """
         return pulumi.get(self, "device_options")
 
     @device_options.setter
-    def device_options(self, value: Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']]):
+    def device_options(self, value: pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']]):
         pulumi.set(self, "device_options", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustProviderType")
-    def device_trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of device-based trust provider.
         """
         return pulumi.get(self, "device_trust_provider_type")
 
     @device_trust_provider_type.setter
-    def device_trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_trust_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="nativeApplicationOidcOptions")
-    def native_application_oidc_options(self) -> Optional[pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs']]:
+    def native_application_oidc_options(self) -> pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']]:
         """
         The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         """
         return pulumi.get(self, "native_application_oidc_options")
 
     @native_application_oidc_options.setter
-    def native_application_oidc_options(self, value: Optional[pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs']]):
+    def native_application_oidc_options(self, value: pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']]):
         pulumi.set(self, "native_application_oidc_options", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcOptions")
-    def oidc_options(self) -> Optional[pulumi.Input['TrustProviderOidcOptionsArgs']]:
+    def oidc_options(self) -> pulumi.Input[Optional['TrustProviderOidcOptionsArgs']]:
         """
         The OpenID Connect details for an oidc-type, user-identity based trust provider.
         """
         return pulumi.get(self, "oidc_options")
 
     @oidc_options.setter
-    def oidc_options(self, value: Optional[pulumi.Input['TrustProviderOidcOptionsArgs']]):
+    def oidc_options(self, value: pulumi.Input[Optional['TrustProviderOidcOptionsArgs']]):
         pulumi.set(self, "oidc_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['TrustProviderSseSpecificationArgs']]:
+    def sse_specification(self) -> pulumi.Input[Optional['TrustProviderSseSpecificationArgs']]:
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['TrustProviderSseSpecificationArgs']]):
+    def sse_specification(self, value: pulumi.Input[Optional['TrustProviderSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userTrustProviderType")
-    def user_trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of user-based trust provider.
         """
         return pulumi.get(self, "user_trust_provider_type")
 
     @user_trust_provider_type.setter
-    def user_trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_trust_provider_type", value)
 
 
 @pulumi.input_type
 class _TrustProviderState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_options: Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']] = None,
-                 device_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 native_application_oidc_options: Optional[pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs']] = None,
-                 oidc_options: Optional[pulumi.Input['TrustProviderOidcOptionsArgs']] = None,
-                 policy_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_specification: Optional[pulumi.Input['TrustProviderSseSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_options: pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']] = None,
+                 device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']] = None,
+                 oidc_options: pulumi.Input[Optional['TrustProviderOidcOptionsArgs']] = None,
+                 policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_specification: pulumi.Input[Optional['TrustProviderSseSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TrustProvider resources.
 
@@ -259,121 +259,121 @@ class _TrustProviderState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the AWS Verified Access trust provider.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceOptions")
-    def device_options(self) -> Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']]:
+    def device_options(self) -> pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']]:
         """
         A block of options for device identity based trust providers.
         """
         return pulumi.get(self, "device_options")
 
     @device_options.setter
-    def device_options(self, value: Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']]):
+    def device_options(self, value: pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']]):
         pulumi.set(self, "device_options", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceTrustProviderType")
-    def device_trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of device-based trust provider.
         """
         return pulumi.get(self, "device_trust_provider_type")
 
     @device_trust_provider_type.setter
-    def device_trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_trust_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="nativeApplicationOidcOptions")
-    def native_application_oidc_options(self) -> Optional[pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs']]:
+    def native_application_oidc_options(self) -> pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']]:
         """
         The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         """
         return pulumi.get(self, "native_application_oidc_options")
 
     @native_application_oidc_options.setter
-    def native_application_oidc_options(self, value: Optional[pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs']]):
+    def native_application_oidc_options(self, value: pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']]):
         pulumi.set(self, "native_application_oidc_options", value)
 
     @_builtins.property
     @pulumi.getter(name="oidcOptions")
-    def oidc_options(self) -> Optional[pulumi.Input['TrustProviderOidcOptionsArgs']]:
+    def oidc_options(self) -> pulumi.Input[Optional['TrustProviderOidcOptionsArgs']]:
         """
         The OpenID Connect details for an oidc-type, user-identity based trust provider.
         """
         return pulumi.get(self, "oidc_options")
 
     @oidc_options.setter
-    def oidc_options(self, value: Optional[pulumi.Input['TrustProviderOidcOptionsArgs']]):
+    def oidc_options(self, value: pulumi.Input[Optional['TrustProviderOidcOptionsArgs']]):
         pulumi.set(self, "oidc_options", value)
 
     @_builtins.property
     @pulumi.getter(name="policyReferenceName")
-    def policy_reference_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier to be used when working with policy rules.
         """
         return pulumi.get(self, "policy_reference_name")
 
     @policy_reference_name.setter
-    def policy_reference_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_reference_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['TrustProviderSseSpecificationArgs']]:
+    def sse_specification(self) -> pulumi.Input[Optional['TrustProviderSseSpecificationArgs']]:
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['TrustProviderSseSpecificationArgs']]):
+    def sse_specification(self, value: pulumi.Input[Optional['TrustProviderSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="trustProviderType")
-    def trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of trust provider can be either user or device-based.
 
@@ -382,19 +382,19 @@ class _TrustProviderState:
         return pulumi.get(self, "trust_provider_type")
 
     @trust_provider_type.setter
-    def trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userTrustProviderType")
-    def user_trust_provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of user-based trust provider.
         """
         return pulumi.get(self, "user_trust_provider_type")
 
     @user_trust_provider_type.setter
-    def user_trust_provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_trust_provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_trust_provider_type", value)
 
 
@@ -404,17 +404,17 @@ class TrustProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_options: Optional[pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
-                 device_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 native_application_oidc_options: Optional[pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-                 oidc_options: Optional[pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
-                 policy_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
+                 device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
+                 oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
+                 policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing a Verified Access Trust Provider.
@@ -500,17 +500,17 @@ class TrustProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_options: Optional[pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
-                 device_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 native_application_oidc_options: Optional[pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-                 oidc_options: Optional[pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
-                 policy_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
+                 device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
+                 oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
+                 policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -546,18 +546,18 @@ class TrustProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            device_options: Optional[pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
-            device_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-            native_application_oidc_options: Optional[pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-            oidc_options: Optional[pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
-            policy_reference_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sse_specification: Optional[pulumi.Input[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_trust_provider_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'TrustProvider':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
+            device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
+            oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
+            policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'TrustProvider':
         """
         Get an existing TrustProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

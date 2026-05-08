@@ -123,11 +123,11 @@ export interface UserPolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * The user the policy should be applied to
      */
-    user?: pulumi.Input<string | User>;
+    user?: pulumi.Input<string | User | undefined>;
 }
 
 /**

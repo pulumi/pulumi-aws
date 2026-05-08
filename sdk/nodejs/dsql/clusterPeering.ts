@@ -137,20 +137,20 @@ export interface ClusterPeeringState {
     /**
      * List of DSQL Cluster ARNs to be peered to this cluster.
      */
-    clusters?: pulumi.Input<pulumi.Input<string>[]>;
+    clusters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * DSQL Cluster Identifier.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.dsql.ClusterPeeringTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.dsql.ClusterPeeringTimeouts | undefined>;
     /**
      * Witness region for a multi-region cluster.
      */
-    witnessRegion?: pulumi.Input<string>;
+    witnessRegion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,8 +168,8 @@ export interface ClusterPeeringArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.dsql.ClusterPeeringTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.dsql.ClusterPeeringTimeouts | undefined>;
     /**
      * Witness region for a multi-region cluster.
      */

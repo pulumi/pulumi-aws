@@ -200,11 +200,11 @@ def get_engine_version(engine: Optional[_builtins.str] = None,
         valid_upgrade_targets=pulumi.get(__ret__, 'valid_upgrade_targets'),
         version=pulumi.get(__ret__, 'version'),
         version_description=pulumi.get(__ret__, 'version_description'))
-def get_engine_version_output(engine: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              parameter_group_family: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              preferred_versions: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_engine_version_output(engine: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              parameter_group_family: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              preferred_versions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
     Information about a DocumentDB engine version.

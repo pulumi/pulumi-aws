@@ -112,11 +112,11 @@ export interface ChannelAssociationState {
     /**
      * ARN of the channel to associate with the notification configuration. Must match pattern `^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$`.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the notification configuration to associate the channel with.
      */
-    notificationConfigurationArn?: pulumi.Input<string>;
+    notificationConfigurationArn?: pulumi.Input<string | undefined>;
 }
 
 /**

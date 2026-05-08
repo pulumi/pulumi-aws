@@ -131,33 +131,33 @@ export interface GetObjectsOutputArgs {
     /**
      * Character used to group keys (Default: none)
      */
-    delimiter?: pulumi.Input<string>;
+    delimiter?: pulumi.Input<string | undefined>;
     /**
      * Encodes keys using this method (Default: none; besides none, only "url" can be used)
      */
-    encodingType?: pulumi.Input<string>;
+    encodingType?: pulumi.Input<string | undefined>;
     /**
      * Boolean specifying whether to populate the owner list (Default: false)
      */
-    fetchOwner?: pulumi.Input<boolean>;
+    fetchOwner?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum object keys to return (Default: 1000)
      */
-    maxKeys?: pulumi.Input<number>;
+    maxKeys?: pulumi.Input<number | undefined>;
     /**
      * Limits results to object keys with this prefix (Default: none)
      */
-    prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
      */
-    requestPayer?: pulumi.Input<string>;
+    requestPayer?: pulumi.Input<string | undefined>;
     /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      */
-    startAfter?: pulumi.Input<string>;
+    startAfter?: pulumi.Input<string | undefined>;
 }

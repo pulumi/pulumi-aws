@@ -135,43 +135,43 @@ export interface UsagePlanState {
     /**
      * Associated API stages of the usage plan.
      */
-    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[] | undefined>;
     /**
      * ARN
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of a usage plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the usage plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    productCode?: pulumi.Input<string>;
+    productCode?: pulumi.Input<string | undefined>;
     /**
      * The quota settings of the usage plan.
      */
-    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The throttling limits of the usage plan.
      */
-    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
+    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings | undefined>;
 }
 
 /**
@@ -181,33 +181,33 @@ export interface UsagePlanArgs {
     /**
      * Associated API stages of the usage plan.
      */
-    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[] | undefined>;
     /**
      * Description of a usage plan.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the usage plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    productCode?: pulumi.Input<string>;
+    productCode?: pulumi.Input<string | undefined>;
     /**
      * The quota settings of the usage plan.
      */
-    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The throttling limits of the usage plan.
      */
-    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
+    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings | undefined>;
 }

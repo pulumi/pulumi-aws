@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.m2.Environment;
  * import com.pulumi.aws.m2.EnvironmentArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name("test-env")
  *             .engineType("bluage")
  *             .instanceType("M2.m5.large")
- *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .securityGroups(Arrays.asList("sg-01234567890abcdef"))
  *             .subnetIds(            
  *                 "subnet-01234567890abcdef",
  *                 "subnet-01234567890abcdea")
@@ -76,8 +76,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.m2.Environment;
  * import com.pulumi.aws.m2.EnvironmentArgs;
  * import com.pulumi.aws.m2.inputs.EnvironmentHighAvailabilityConfigArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .name("test-env")
  *             .engineType("bluage")
  *             .instanceType("M2.m5.large")
- *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .securityGroups(Arrays.asList("sg-01234567890abcdef"))
  *             .subnetIds(            
  *                 "subnet-01234567890abcdef",
  *                 "subnet-01234567890abcdea")
@@ -120,8 +120,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.m2.EnvironmentArgs;
  * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationArgs;
  * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationEfsArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *             .name("test-env")
  *             .engineType("bluage")
  *             .instanceType("M2.m5.large")
- *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .securityGroups(Arrays.asList("sg-01234567890abcdef"))
  *             .subnetIds(            
  *                 "subnet-01234567890abcdef",
  *                 "subnet-01234567890abcdea")
@@ -167,8 +167,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.m2.EnvironmentArgs;
  * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationArgs;
  * import com.pulumi.aws.m2.inputs.EnvironmentStorageConfigurationFsxArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *             .name("test-env")
  *             .engineType("bluage")
  *             .instanceType("M2.m5.large")
- *             .securityGroups(List.of("sg-01234567890abcdef"))
+ *             .securityGroups(Arrays.asList("sg-01234567890abcdef"))
  *             .subnetIds(            
  *                 "subnet-01234567890abcdef",
  *                 "subnet-01234567890abcdea")

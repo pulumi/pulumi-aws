@@ -200,79 +200,79 @@ export interface NamespaceState {
     /**
      * Amazon Resource Name (ARN) of namespace's admin user credentials secret.
      */
-    adminPasswordSecretArn?: pulumi.Input<string>;
+    adminPasswordSecretArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the KMS key used to encrypt the namespace's admin credentials secret.
      */
-    adminPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    adminPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The password of the administrator for the first database created in the namespace.
      * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
-    adminUserPassword?: pulumi.Input<string>;
+    adminUserPassword?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * The password of the administrator for the first database created in the namespace.
      * Conflicts with `manageAdminPassword` and `adminUserPassword`.
      */
-    adminUserPasswordWo?: pulumi.Input<string>;
+    adminUserPasswordWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
      */
-    adminUserPasswordWoVersion?: pulumi.Input<number>;
+    adminUserPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * The username of the administrator for the first database created in the namespace.
      */
-    adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the first database created in the namespace.
      */
-    dbName?: pulumi.Input<string>;
+    dbName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
-    defaultIamRoleArn?: pulumi.Input<string>;
+    defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM roles to associate with the namespace.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      */
-    logExports?: pulumi.Input<pulumi.Input<string>[]>;
+    logExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to use AWS SecretManager to manage namespace's admin credentials.
      * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
-    manageAdminPassword?: pulumi.Input<boolean>;
+    manageAdminPassword?: pulumi.Input<boolean | undefined>;
     /**
      * The Redshift Namespace ID.
      */
-    namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the namespace.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -282,51 +282,51 @@ export interface NamespaceArgs {
     /**
      * ID of the KMS key used to encrypt the namespace's admin credentials secret.
      */
-    adminPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    adminPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The password of the administrator for the first database created in the namespace.
      * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
-    adminUserPassword?: pulumi.Input<string>;
+    adminUserPassword?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * The password of the administrator for the first database created in the namespace.
      * Conflicts with `manageAdminPassword` and `adminUserPassword`.
      */
-    adminUserPasswordWo?: pulumi.Input<string>;
+    adminUserPasswordWo?: pulumi.Input<string | undefined>;
     /**
      * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
      */
-    adminUserPasswordWoVersion?: pulumi.Input<number>;
+    adminUserPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
      * The username of the administrator for the first database created in the namespace.
      */
-    adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string | undefined>;
     /**
      * The name of the first database created in the namespace.
      */
-    dbName?: pulumi.Input<string>;
+    dbName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      */
-    defaultIamRoleArn?: pulumi.Input<string>;
+    defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM roles to associate with the namespace.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      */
-    logExports?: pulumi.Input<pulumi.Input<string>[]>;
+    logExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to use AWS SecretManager to manage namespace's admin credentials.
      * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
-    manageAdminPassword?: pulumi.Input<boolean>;
+    manageAdminPassword?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the namespace.
      */
@@ -334,9 +334,9 @@ export interface NamespaceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

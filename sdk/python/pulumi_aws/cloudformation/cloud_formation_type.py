@@ -23,10 +23,10 @@ class CloudFormationTypeArgs:
     def __init__(__self__, *,
                  schema_handler_package: pulumi.Input[_builtins.str],
                  type_name: pulumi.Input[_builtins.str],
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional['CloudFormationTypeLoggingConfigArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudFormationType resource.
 
@@ -74,74 +74,74 @@ class CloudFormationTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['CloudFormationTypeLoggingConfigArgs']]:
         """
         Configuration block containing logging configuration.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['CloudFormationTypeLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _CloudFormationTypeState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecated_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
-                 provisioning_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_handler_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecated_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_config: pulumi.Input[Optional['CloudFormationTypeLoggingConfigArgs']] = None,
+                 provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_handler_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CloudFormationType resources.
 
@@ -203,218 +203,218 @@ class _CloudFormationTypeState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVersionId")
-    def default_version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the CloudFormation Type default version.
         """
         return pulumi.get(self, "default_version_id")
 
     @default_version_id.setter
-    def default_version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_version_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deprecatedStatus")
-    def deprecated_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deprecated_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Deprecation status of the version.
         """
         return pulumi.get(self, "deprecated_status")
 
     @deprecated_status.setter
-    def deprecated_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deprecated_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deprecated_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationUrl")
-    def documentation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the documentation for the CloudFormation Type.
         """
         return pulumi.get(self, "documentation_url")
 
     @documentation_url.setter
-    def documentation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_url", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefaultVersion")
-    def is_default_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the CloudFormation Type version is the default version.
         """
         return pulumi.get(self, "is_default_version")
 
     @is_default_version.setter
-    def is_default_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default_version", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['CloudFormationTypeLoggingConfigArgs']]:
         """
         Configuration block containing logging configuration.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['CloudFormationTypeLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningType")
-    def provisioning_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning behavior of the CloudFormation Type.
         """
         return pulumi.get(self, "provisioning_type")
 
     @provisioning_type.setter
-    def provisioning_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON document of the CloudFormation Type schema.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaHandlerPackage")
-    def schema_handler_package(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_handler_package(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         """
         return pulumi.get(self, "schema_handler_package")
 
     @schema_handler_package.setter
-    def schema_handler_package(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_handler_package(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_handler_package", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUrl")
-    def source_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the source code for the CloudFormation Type.
         """
         return pulumi.get(self, "source_url")
 
     @source_url.setter
-    def source_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="typeArn")
-    def type_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
         """
         return pulumi.get(self, "type_arn")
 
     @type_arn.setter
-    def type_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
         """
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Identifier of the CloudFormation Type version.
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scope of the CloudFormation Type.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -424,12 +424,12 @@ class CloudFormationType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_handler_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_handler_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a version of a CloudFormation Type.
@@ -485,12 +485,12 @@ class CloudFormationType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_handler_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_handler_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -532,24 +532,24 @@ class CloudFormationType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            default_version_id: Optional[pulumi.Input[_builtins.str]] = None,
-            deprecated_status: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            documentation_url: Optional[pulumi.Input[_builtins.str]] = None,
-            execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            is_default_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
-            provisioning_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_handler_package: Optional[pulumi.Input[_builtins.str]] = None,
-            source_url: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            type_name: Optional[pulumi.Input[_builtins.str]] = None,
-            version_id: Optional[pulumi.Input[_builtins.str]] = None,
-            visibility: Optional[pulumi.Input[_builtins.str]] = None) -> 'CloudFormationType':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            default_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            deprecated_status: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            documentation_url: pulumi.Input[Optional[_builtins.str]] = None,
+            execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            logging_config: pulumi.Input[Optional[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
+            provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_handler_package: pulumi.Input[Optional[_builtins.str]] = None,
+            source_url: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            type_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None) -> 'CloudFormationType':
         """
         Get an existing CloudFormationType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -146,19 +146,19 @@ export interface DashboardState {
     /**
      * The Amazon Resource Name (ARN) of the dashboard.
      */
-    dashboardArn?: pulumi.Input<string>;
+    dashboardArn?: pulumi.Input<string | undefined>;
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      */
-    dashboardBody?: pulumi.Input<string>;
+    dashboardBody?: pulumi.Input<string | undefined>;
     /**
      * The name of the dashboard.
      */
-    dashboardName?: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,5 +176,5 @@ export interface DashboardArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

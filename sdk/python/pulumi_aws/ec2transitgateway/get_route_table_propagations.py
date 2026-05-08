@@ -129,9 +129,9 @@ def get_route_table_propagations(filters: Optional[Sequence[Union['GetRouteTable
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
-def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTablePropagationsFilterArgs', 'GetRouteTablePropagationsFilterArgsDict']]]]] = None,
-                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                        transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_table_propagations_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTablePropagationsFilterArgs', 'GetRouteTablePropagationsFilterArgsDict']]]]] = None,
+                                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTablePropagationsResult]:
     """
     Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.

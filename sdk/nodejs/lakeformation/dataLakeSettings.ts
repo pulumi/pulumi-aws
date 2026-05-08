@@ -227,53 +227,53 @@ export interface DataLakeSettingsState {
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
-    admins?: pulumi.Input<pulumi.Input<string>[]>;
+    admins?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
      */
-    allowExternalDataFiltering?: pulumi.Input<boolean>;
+    allowExternalDataFiltering?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      */
-    allowFullTableExternalDataAccess?: pulumi.Input<boolean>;
+    allowFullTableExternalDataAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
-    authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
+    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[] | undefined>;
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[] | undefined>;
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      */
-    externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
-    readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
+    readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
-    trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -283,51 +283,51 @@ export interface DataLakeSettingsArgs {
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
-    admins?: pulumi.Input<pulumi.Input<string>[]>;
+    admins?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
      */
-    allowExternalDataFiltering?: pulumi.Input<boolean>;
+    allowExternalDataFiltering?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      */
-    allowFullTableExternalDataAccess?: pulumi.Input<boolean>;
+    allowFullTableExternalDataAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
      */
-    authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
+    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[] | undefined>;
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[] | undefined>;
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      */
-    externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
-    readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
+    readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      *
      * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
-    trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

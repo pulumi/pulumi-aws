@@ -22,16 +22,16 @@ class PermissionArgs:
                  action: pulumi.Input[_builtins.str],
                  function: pulumi.Input[_builtins.str],
                  principal: pulumi.Input[_builtins.str],
-                 event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url_auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Permission resource.
 
@@ -115,141 +115,141 @@ class PermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventSourceToken")
-    def event_source_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_source_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Event Source Token for Alexa Skills
         """
         return pulumi.get(self, "event_source_token")
 
     @event_source_token.setter
-    def event_source_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_source_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_source_token", value)
 
     @_builtins.property
     @pulumi.getter(name="functionUrlAuthType")
-    def function_url_auth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_url_auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         """
         return pulumi.get(self, "function_url_auth_type")
 
     @function_url_auth_type.setter
-    def function_url_auth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_url_auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_url_auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="invokedViaFunctionUrl")
-    def invoked_via_function_url(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invoked_via_function_url(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
         """
         return pulumi.get(self, "invoked_via_function_url")
 
     @invoked_via_function_url.setter
-    def invoked_via_function_url(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invoked_via_function_url(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invoked_via_function_url", value)
 
     @_builtins.property
     @pulumi.getter(name="principalOrgId")
-    def principal_org_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_org_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Organizations ID to grant permission to all accounts under this organization
         """
         return pulumi.get(self, "principal_org_id")
 
     @principal_org_id.setter
-    def principal_org_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_org_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_org_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda function version or alias name
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAccount")
-    def source_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the source owner for cross-account access, S3, or SES
         """
         return pulumi.get(self, "source_account")
 
     @source_account.setter
-    def source_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_account", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the source resource granting permission to invoke the Lambda function
         """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
-    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="statementId")
-    def statement_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Statement identifier. Generated by Pulumi if not provided
         """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
-    def statement_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_id", value)
 
     @_builtins.property
     @pulumi.getter(name="statementIdPrefix")
-    def statement_id_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_id_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Statement identifier prefix. Conflicts with `statement_id`
         """
         return pulumi.get(self, "statement_id_prefix")
 
     @statement_id_prefix.setter
-    def statement_id_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_id_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_id_prefix", value)
 
 
 @pulumi.input_type
 class _PermissionState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 function: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 function: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url_auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Permission resources.
 
@@ -298,67 +298,67 @@ class _PermissionState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="eventSourceToken")
-    def event_source_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_source_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Event Source Token for Alexa Skills
         """
         return pulumi.get(self, "event_source_token")
 
     @event_source_token.setter
-    def event_source_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_source_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_source_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name or ARN of the Lambda function
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function", value)
 
     @_builtins.property
     @pulumi.getter(name="functionUrlAuthType")
-    def function_url_auth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_url_auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda Function URL authentication type. Valid values: `AWS_IAM` or `NONE`. Only valid with `lambda:InvokeFunctionUrl` action
         """
         return pulumi.get(self, "function_url_auth_type")
 
     @function_url_auth_type.setter
-    def function_url_auth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_url_auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_url_auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="invokedViaFunctionUrl")
-    def invoked_via_function_url(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def invoked_via_function_url(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Lambda Function URL invoke permission. Only valid with `lambda:InvokeFunction` action
         """
         return pulumi.get(self, "invoked_via_function_url")
 
     @invoked_via_function_url.setter
-    def invoked_via_function_url(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def invoked_via_function_url(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "invoked_via_function_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS service or account that invokes the function (e.g., `s3.amazonaws.com`, `sns.amazonaws.com`, AWS account ID, or AWS IAM principal)
 
@@ -367,91 +367,91 @@ class _PermissionState:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter(name="principalOrgId")
-    def principal_org_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_org_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Organizations ID to grant permission to all accounts under this organization
         """
         return pulumi.get(self, "principal_org_id")
 
     @principal_org_id.setter
-    def principal_org_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_org_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_org_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def qualifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Lambda function version or alias name
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
-    def qualifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAccount")
-    def source_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID of the source owner for cross-account access, S3, or SES
         """
         return pulumi.get(self, "source_account")
 
     @source_account.setter
-    def source_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_account", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the source resource granting permission to invoke the Lambda function
         """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
-    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="statementId")
-    def statement_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Statement identifier. Generated by Pulumi if not provided
         """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
-    def statement_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_id", value)
 
     @_builtins.property
     @pulumi.getter(name="statementIdPrefix")
-    def statement_id_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement_id_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Statement identifier prefix. Conflicts with `statement_id`
         """
         return pulumi.get(self, "statement_id_prefix")
 
     @statement_id_prefix.setter
-    def statement_id_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement_id_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement_id_prefix", value)
 
 
@@ -461,19 +461,19 @@ class Permission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 function: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 function: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url_auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda permission. Use this resource to grant external sources (e.g., EventBridge Rules, SNS, or S3) permission to invoke Lambda functions.
@@ -856,19 +856,19 @@ class Permission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 function: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 function: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_url_auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -907,19 +907,19 @@ class Permission(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            event_source_token: Optional[pulumi.Input[_builtins.str]] = None,
-            function: Optional[pulumi.Input[_builtins.str]] = None,
-            function_url_auth_type: Optional[pulumi.Input[_builtins.str]] = None,
-            invoked_via_function_url: Optional[pulumi.Input[_builtins.bool]] = None,
-            principal: Optional[pulumi.Input[_builtins.str]] = None,
-            principal_org_id: Optional[pulumi.Input[_builtins.str]] = None,
-            qualifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_account: Optional[pulumi.Input[_builtins.str]] = None,
-            source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            statement_id: Optional[pulumi.Input[_builtins.str]] = None,
-            statement_id_prefix: Optional[pulumi.Input[_builtins.str]] = None) -> 'Permission':
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            event_source_token: pulumi.Input[Optional[_builtins.str]] = None,
+            function: pulumi.Input[Optional[_builtins.str]] = None,
+            function_url_auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            invoked_via_function_url: pulumi.Input[Optional[_builtins.bool]] = None,
+            principal: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            qualifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_account: pulumi.Input[Optional[_builtins.str]] = None,
+            source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_id: pulumi.Input[Optional[_builtins.str]] = None,
+            statement_id_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> 'Permission':
         """
         Get an existing Permission resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

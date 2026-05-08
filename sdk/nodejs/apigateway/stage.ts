@@ -223,82 +223,82 @@ export interface StageState {
     /**
      * Enables access logs for the API stage. See Access Log Settings below.
      */
-    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings | undefined>;
     /**
      * ARN
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether a cache cluster is enabled for the stage
      */
-    cacheClusterEnabled?: pulumi.Input<boolean>;
+    cacheClusterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    cacheClusterSize?: pulumi.Input<string>;
+    cacheClusterSize?: pulumi.Input<string | undefined>;
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      */
-    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
+    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings | undefined>;
     /**
      * Identifier of a client certificate for the stage.
      */
-    clientCertificateId?: pulumi.Input<string>;
+    clientCertificateId?: pulumi.Input<string | undefined>;
     /**
      * ID of the deployment that the stage points to
      */
-    deployment?: pulumi.Input<string | Deployment>;
+    deployment?: pulumi.Input<string | Deployment | undefined>;
     /**
      * Description of the stage.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Version of the associated API documentation.
      */
-    documentationVersion?: pulumi.Input<string>;
+    documentationVersion?: pulumi.Input<string | undefined>;
     /**
      * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
-    executionArn?: pulumi.Input<string>;
+    executionArn?: pulumi.Input<string | undefined>;
     /**
      * URL to invoke the API pointing to the stage,
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
-    invokeUrl?: pulumi.Input<string>;
+    invokeUrl?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi | undefined>;
     /**
      * Name of the stage
      */
-    stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map that defines the stage variables.
      */
-    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the WebAcl associated with the Stage.
      */
-    webAclArn?: pulumi.Input<string>;
+    webAclArn?: pulumi.Input<string | undefined>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    xrayTracingEnabled?: pulumi.Input<boolean>;
+    xrayTracingEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -308,23 +308,23 @@ export interface StageArgs {
     /**
      * Enables access logs for the API stage. See Access Log Settings below.
      */
-    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings | undefined>;
     /**
      * Whether a cache cluster is enabled for the stage
      */
-    cacheClusterEnabled?: pulumi.Input<boolean>;
+    cacheClusterEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    cacheClusterSize?: pulumi.Input<string>;
+    cacheClusterSize?: pulumi.Input<string | undefined>;
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      */
-    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
+    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings | undefined>;
     /**
      * Identifier of a client certificate for the stage.
      */
-    clientCertificateId?: pulumi.Input<string>;
+    clientCertificateId?: pulumi.Input<string | undefined>;
     /**
      * ID of the deployment that the stage points to
      */
@@ -332,15 +332,15 @@ export interface StageArgs {
     /**
      * Description of the stage.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Version of the associated API documentation.
      */
-    documentationVersion?: pulumi.Input<string>;
+    documentationVersion?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API
      */
@@ -352,13 +352,13 @@ export interface StageArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map that defines the stage variables.
      */
-    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    xrayTracingEnabled?: pulumi.Input<boolean>;
+    xrayTracingEnabled?: pulumi.Input<boolean | undefined>;
 }

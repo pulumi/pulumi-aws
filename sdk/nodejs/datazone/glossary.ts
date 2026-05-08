@@ -199,26 +199,26 @@ export interface GlossaryState {
     /**
      * Description of the glossary. Must have a length between 0 and 4096.
      */
-    description?: pulumi.Input<string>;
-    domainIdentifier?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the glossary. Must have length between 1 and 256.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
      *
      * The following arguments are optional:
      */
-    owningProjectIdentifier?: pulumi.Input<string>;
+    owningProjectIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -228,12 +228,12 @@ export interface GlossaryArgs {
     /**
      * Description of the glossary. Must have a length between 0 and 4096.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     domainIdentifier: pulumi.Input<string>;
     /**
      * Name of the glossary. Must have length between 1 and 256.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
      *
@@ -243,9 +243,9 @@ export interface GlossaryArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

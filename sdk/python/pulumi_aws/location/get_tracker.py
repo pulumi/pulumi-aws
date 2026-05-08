@@ -190,9 +190,9 @@ def get_tracker(region: Optional[_builtins.str] = None,
         tracker_arn=pulumi.get(__ret__, 'tracker_arn'),
         tracker_name=pulumi.get(__ret__, 'tracker_name'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_tracker_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                       tracker_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tracker_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                       tracker_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackerResult]:
     """
     Retrieve information about a Location Service Tracker.

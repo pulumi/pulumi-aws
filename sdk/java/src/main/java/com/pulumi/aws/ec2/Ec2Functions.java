@@ -225,8 +225,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -282,8 +282,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -339,8 +339,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -396,8 +396,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -453,8 +453,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -510,8 +510,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -567,8 +567,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -623,8 +623,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -667,8 +667,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -711,8 +711,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -755,8 +755,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -799,8 +799,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -843,8 +843,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -887,8 +887,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -931,8 +931,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -975,8 +975,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1019,8 +1019,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1170,8 +1170,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1212,8 +1212,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1254,8 +1254,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1296,8 +1296,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1338,8 +1338,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1380,8 +1380,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1422,8 +1422,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1466,8 +1466,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
      * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1525,8 +1525,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
      * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1584,8 +1584,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
      * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1643,8 +1643,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
      * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1702,8 +1702,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
      * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1761,8 +1761,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
      * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1820,8 +1820,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
      * import com.pulumi.aws.ec2.VpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1877,8 +1877,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.DedicatedHostArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1915,8 +1915,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1960,8 +1960,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.DedicatedHostArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1998,8 +1998,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2043,8 +2043,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.DedicatedHostArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2081,8 +2081,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2126,8 +2126,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.DedicatedHostArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2164,8 +2164,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2209,8 +2209,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.DedicatedHostArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2247,8 +2247,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2292,8 +2292,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.DedicatedHostArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2330,8 +2330,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2375,8 +2375,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.DedicatedHostArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2413,8 +2413,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2458,8 +2458,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2502,8 +2502,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2546,8 +2546,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2590,8 +2590,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2634,8 +2634,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2678,8 +2678,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2722,8 +2722,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2766,8 +2766,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2799,8 +2799,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2835,8 +2835,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2868,8 +2868,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2910,8 +2910,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2943,8 +2943,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2979,8 +2979,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3012,8 +3012,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3054,8 +3054,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3087,8 +3087,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3123,8 +3123,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3156,8 +3156,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3198,8 +3198,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3231,8 +3231,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3267,8 +3267,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3300,8 +3300,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3342,8 +3342,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3375,8 +3375,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3411,8 +3411,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3444,8 +3444,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3486,8 +3486,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3519,8 +3519,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3555,8 +3555,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3588,8 +3588,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3630,8 +3630,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3663,8 +3663,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3699,8 +3699,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3732,8 +3732,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3772,8 +3772,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3821,8 +3821,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3870,8 +3870,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3919,8 +3919,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3968,8 +3968,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4017,8 +4017,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4066,8 +4066,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4115,8 +4115,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4155,8 +4155,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4195,8 +4195,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4235,8 +4235,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4275,8 +4275,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4315,8 +4315,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4363,8 +4363,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4411,8 +4411,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4459,8 +4459,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4507,8 +4507,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4555,8 +4555,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4603,8 +4603,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4651,8 +4651,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4702,8 +4702,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4753,8 +4753,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4804,8 +4804,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4855,8 +4855,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4906,8 +4906,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4957,8 +4957,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5008,8 +5008,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5066,8 +5066,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5124,8 +5124,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5182,8 +5182,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5240,8 +5240,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5298,8 +5298,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5356,8 +5356,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5423,8 +5423,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5486,8 +5486,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5549,8 +5549,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5612,8 +5612,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5675,8 +5675,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5738,8 +5738,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5801,8 +5801,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5855,8 +5855,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5900,8 +5900,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5945,8 +5945,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5990,8 +5990,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6035,8 +6035,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6080,8 +6080,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6125,8 +6125,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6176,8 +6176,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6228,8 +6228,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6280,8 +6280,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6332,8 +6332,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6384,8 +6384,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
      * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6432,8 +6432,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6482,8 +6482,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6532,8 +6532,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6582,8 +6582,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6632,8 +6632,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6682,8 +6682,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6732,8 +6732,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6780,8 +6780,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6820,8 +6820,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6860,8 +6860,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6900,8 +6900,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6940,8 +6940,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6980,8 +6980,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7013,8 +7013,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7056,8 +7056,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7089,8 +7089,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7132,8 +7132,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7165,8 +7165,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7208,8 +7208,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7241,8 +7241,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7284,8 +7284,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7317,8 +7317,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7360,8 +7360,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7393,8 +7393,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7436,8 +7436,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7469,8 +7469,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7514,8 +7514,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7558,8 +7558,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7602,8 +7602,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7646,8 +7646,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7690,8 +7690,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7734,8 +7734,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7778,8 +7778,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7825,8 +7825,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7872,8 +7872,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7919,8 +7919,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7966,8 +7966,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8013,8 +8013,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8060,8 +8060,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8107,8 +8107,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8151,8 +8151,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8193,8 +8193,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8235,8 +8235,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8277,8 +8277,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8319,8 +8319,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8361,8 +8361,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8403,8 +8403,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8506,8 +8506,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8546,8 +8546,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8586,8 +8586,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8626,8 +8626,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8666,8 +8666,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8706,8 +8706,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8746,8 +8746,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8786,8 +8786,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8825,8 +8825,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8864,8 +8864,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8903,8 +8903,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8942,8 +8942,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8981,8 +8981,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9020,8 +9020,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9061,8 +9061,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9104,8 +9104,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9147,8 +9147,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9190,8 +9190,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9233,8 +9233,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9276,8 +9276,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9319,8 +9319,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9365,8 +9365,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9401,8 +9401,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9449,8 +9449,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9485,8 +9485,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9533,8 +9533,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9569,8 +9569,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9617,8 +9617,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9653,8 +9653,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9701,8 +9701,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9737,8 +9737,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9785,8 +9785,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9821,8 +9821,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9869,8 +9869,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9905,8 +9905,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10025,8 +10025,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10058,8 +10058,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10099,8 +10099,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10132,8 +10132,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10173,8 +10173,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10206,8 +10206,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10247,8 +10247,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10280,8 +10280,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10321,8 +10321,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10354,8 +10354,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10395,8 +10395,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10428,8 +10428,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10469,8 +10469,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10502,8 +10502,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10620,8 +10620,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10655,8 +10655,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10690,8 +10690,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10734,8 +10734,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10769,8 +10769,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10804,8 +10804,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10848,8 +10848,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10883,8 +10883,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10918,8 +10918,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10962,8 +10962,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10997,8 +10997,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11032,8 +11032,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11076,8 +11076,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11111,8 +11111,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11146,8 +11146,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11190,8 +11190,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11225,8 +11225,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11260,8 +11260,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11304,8 +11304,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11339,8 +11339,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11374,8 +11374,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11418,8 +11418,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11458,8 +11458,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11498,8 +11498,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11538,8 +11538,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11578,8 +11578,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11618,8 +11618,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11658,8 +11658,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsAnalysisArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11698,8 +11698,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11738,8 +11738,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11778,8 +11778,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11818,8 +11818,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11858,8 +11858,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11898,8 +11898,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11938,8 +11938,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInsightsPathArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11978,8 +11978,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12018,8 +12018,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12058,8 +12058,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12098,8 +12098,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12138,8 +12138,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12178,8 +12178,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12218,8 +12218,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12258,8 +12258,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12291,8 +12291,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12326,8 +12326,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12370,8 +12370,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12403,8 +12403,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12438,8 +12438,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12482,8 +12482,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12515,8 +12515,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12550,8 +12550,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12594,8 +12594,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12627,8 +12627,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12662,8 +12662,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12706,8 +12706,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12739,8 +12739,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12774,8 +12774,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12818,8 +12818,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12851,8 +12851,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12886,8 +12886,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12930,8 +12930,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12963,8 +12963,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12998,8 +12998,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13056,8 +13056,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.NetworkAclArgs;
      * import com.pulumi.aws.ec2.NetworkAclRule;
      * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13109,8 +13109,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13166,8 +13166,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.NetworkAclArgs;
      * import com.pulumi.aws.ec2.NetworkAclRule;
      * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13219,8 +13219,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13276,8 +13276,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.NetworkAclArgs;
      * import com.pulumi.aws.ec2.NetworkAclRule;
      * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13329,8 +13329,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13386,8 +13386,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.NetworkAclArgs;
      * import com.pulumi.aws.ec2.NetworkAclRule;
      * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13439,8 +13439,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13496,8 +13496,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.NetworkAclArgs;
      * import com.pulumi.aws.ec2.NetworkAclRule;
      * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13549,8 +13549,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13606,8 +13606,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.NetworkAclArgs;
      * import com.pulumi.aws.ec2.NetworkAclRule;
      * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13659,8 +13659,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13716,8 +13716,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.NetworkAclArgs;
      * import com.pulumi.aws.ec2.NetworkAclRule;
      * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13769,8 +13769,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13814,8 +13814,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13856,8 +13856,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13898,8 +13898,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13940,8 +13940,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13982,8 +13982,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14024,8 +14024,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14057,8 +14057,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14102,8 +14102,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14135,8 +14135,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14180,8 +14180,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14213,8 +14213,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14258,8 +14258,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14291,8 +14291,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14336,8 +14336,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14369,8 +14369,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14414,8 +14414,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14447,8 +14447,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14492,8 +14492,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14525,8 +14525,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14574,8 +14574,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14631,8 +14631,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14688,8 +14688,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14745,8 +14745,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14802,8 +14802,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14859,8 +14859,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14913,8 +14913,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -14967,8 +14967,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15021,8 +15021,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15075,8 +15075,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15129,8 +15129,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15183,8 +15183,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15238,8 +15238,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15298,8 +15298,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15358,8 +15358,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15418,8 +15418,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15478,8 +15478,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15538,8 +15538,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15598,8 +15598,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15660,8 +15660,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15716,8 +15716,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15772,8 +15772,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15828,8 +15828,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15884,8 +15884,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15940,8 +15940,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -15996,8 +15996,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
      * import com.pulumi.aws.ec2.Subnet;
      * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16043,8 +16043,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16077,8 +16077,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16125,8 +16125,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16159,8 +16159,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16207,8 +16207,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16241,8 +16241,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16289,8 +16289,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16323,8 +16323,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16371,8 +16371,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16405,8 +16405,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16453,8 +16453,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16487,8 +16487,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16535,8 +16535,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16569,8 +16569,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16617,8 +16617,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16656,8 +16656,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16695,8 +16695,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16734,8 +16734,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16773,8 +16773,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16812,8 +16812,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16851,8 +16851,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSerialConsoleAccessArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16890,8 +16890,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16930,8 +16930,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -16970,8 +16970,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17010,8 +17010,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17050,8 +17050,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17090,8 +17090,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17130,8 +17130,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfaceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17170,8 +17170,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17213,8 +17213,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17256,8 +17256,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17299,8 +17299,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17342,8 +17342,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17385,8 +17385,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17428,8 +17428,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17473,8 +17473,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17514,8 +17514,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17555,8 +17555,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17596,8 +17596,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17637,8 +17637,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17678,8 +17678,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17719,8 +17719,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotDatafeedSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17758,8 +17758,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17803,8 +17803,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17848,8 +17848,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17893,8 +17893,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17938,8 +17938,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -17983,8 +17983,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18028,8 +18028,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18080,8 +18080,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18127,8 +18127,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18177,8 +18177,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18224,8 +18224,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18274,8 +18274,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18321,8 +18321,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18371,8 +18371,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18418,8 +18418,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18468,8 +18468,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18515,8 +18515,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18565,8 +18565,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18612,8 +18612,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18662,8 +18662,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SecurityGroup;
      * import com.pulumi.aws.ec2.SecurityGroupArgs;
      * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18709,8 +18709,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18761,8 +18761,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18824,8 +18824,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18887,8 +18887,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -18950,8 +18950,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19013,8 +19013,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19076,8 +19076,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19139,8 +19139,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19195,8 +19195,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19237,8 +19237,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19279,8 +19279,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19321,8 +19321,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19363,8 +19363,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19405,8 +19405,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19447,8 +19447,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19499,8 +19499,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.CidrsubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19563,8 +19563,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.CidrsubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19627,8 +19627,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.CidrsubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19691,8 +19691,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.CidrsubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19755,8 +19755,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.CidrsubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19819,8 +19819,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.CidrsubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19883,8 +19883,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.SubnetArgs;
      * import com.pulumi.std.StdFunctions;
      * import com.pulumi.std.inputs.CidrsubnetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19937,8 +19937,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -19970,8 +19970,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20020,8 +20020,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20053,8 +20053,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20103,8 +20103,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20136,8 +20136,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20186,8 +20186,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20219,8 +20219,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20269,8 +20269,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20302,8 +20302,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20352,8 +20352,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20385,8 +20385,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20435,8 +20435,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20468,8 +20468,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20519,8 +20519,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20569,8 +20569,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20619,8 +20619,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20669,8 +20669,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20719,8 +20719,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20769,8 +20769,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20819,8 +20819,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
      * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20873,8 +20873,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpcArgs;
      * import com.pulumi.aws.ec2.VpcEndpoint;
      * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20919,8 +20919,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -20952,8 +20952,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21002,8 +21002,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpcArgs;
      * import com.pulumi.aws.ec2.VpcEndpoint;
      * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21048,8 +21048,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21081,8 +21081,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21131,8 +21131,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpcArgs;
      * import com.pulumi.aws.ec2.VpcEndpoint;
      * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21177,8 +21177,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21210,8 +21210,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21260,8 +21260,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpcArgs;
      * import com.pulumi.aws.ec2.VpcEndpoint;
      * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21306,8 +21306,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21339,8 +21339,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21389,8 +21389,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpcArgs;
      * import com.pulumi.aws.ec2.VpcEndpoint;
      * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21435,8 +21435,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21468,8 +21468,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21518,8 +21518,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpcArgs;
      * import com.pulumi.aws.ec2.VpcEndpoint;
      * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21564,8 +21564,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21597,8 +21597,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21647,8 +21647,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.VpcArgs;
      * import com.pulumi.aws.ec2.VpcEndpoint;
      * import com.pulumi.aws.ec2.VpcEndpointArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21693,8 +21693,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21726,8 +21726,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21771,8 +21771,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21813,8 +21813,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21855,8 +21855,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21897,8 +21897,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21939,8 +21939,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -21989,8 +21989,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22052,8 +22052,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22115,8 +22115,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22178,8 +22178,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22241,8 +22241,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22304,8 +22304,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22367,8 +22367,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22425,8 +22425,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22484,8 +22484,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22543,8 +22543,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22602,8 +22602,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22661,8 +22661,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22719,8 +22719,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22771,8 +22771,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22823,8 +22823,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22875,8 +22875,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22927,8 +22927,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -22979,8 +22979,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23031,8 +23031,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23081,8 +23081,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23114,8 +23114,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23150,8 +23150,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23195,8 +23195,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23228,8 +23228,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23264,8 +23264,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23309,8 +23309,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23342,8 +23342,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23378,8 +23378,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23423,8 +23423,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23456,8 +23456,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23492,8 +23492,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23537,8 +23537,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23570,8 +23570,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23606,8 +23606,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23651,8 +23651,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23684,8 +23684,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23720,8 +23720,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23765,8 +23765,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23798,8 +23798,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23834,8 +23834,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23882,8 +23882,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.RouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -23941,8 +23941,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.RouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24000,8 +24000,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.RouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24059,8 +24059,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.RouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24118,8 +24118,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.RouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24177,8 +24177,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.RouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24236,8 +24236,8 @@ public final class Ec2Functions {
      * import com.pulumi.aws.ec2.RouteTableArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24385,8 +24385,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24432,8 +24432,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24479,8 +24479,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24526,8 +24526,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24573,8 +24573,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24620,8 +24620,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24667,8 +24667,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24712,8 +24712,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24749,8 +24749,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24792,8 +24792,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24829,8 +24829,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24872,8 +24872,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24909,8 +24909,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24952,8 +24952,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -24989,8 +24989,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25032,8 +25032,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25069,8 +25069,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25112,8 +25112,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25149,8 +25149,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25192,8 +25192,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25229,8 +25229,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25271,8 +25271,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25316,8 +25316,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25361,8 +25361,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25406,8 +25406,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25451,8 +25451,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25496,8 +25496,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -25541,8 +25541,8 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

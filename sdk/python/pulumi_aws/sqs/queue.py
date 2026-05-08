@@ -19,25 +19,25 @@ __all__ = ['QueueArgs', 'Queue']
 @pulumi.input_type
 class QueueArgs:
     def __init__(__self__, *,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_retention_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 redrive_allow_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_retention_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 redrive_allow_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Queue resource.
 
@@ -102,258 +102,258 @@ class QueueArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentBasedDeduplication")
-    def content_based_deduplication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def content_based_deduplication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
         """
         return pulumi.get(self, "content_based_deduplication")
 
     @content_based_deduplication.setter
-    def content_based_deduplication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def content_based_deduplication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "content_based_deduplication", value)
 
     @_builtins.property
     @pulumi.getter(name="deduplicationScope")
-    def deduplication_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deduplication_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         """
         return pulumi.get(self, "deduplication_scope")
 
     @deduplication_scope.setter
-    def deduplication_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deduplication_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deduplication_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="delaySeconds")
-    def delay_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         """
         return pulumi.get(self, "delay_seconds")
 
     @delay_seconds.setter
-    def delay_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delay_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoQueue")
-    def fifo_queue(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fifo_queue(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
         """
         return pulumi.get(self, "fifo_queue")
 
     @fifo_queue.setter
-    def fifo_queue(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fifo_queue(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fifo_queue", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoThroughputLimit")
-    def fifo_throughput_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fifo_throughput_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         """
         return pulumi.get(self, "fifo_throughput_limit")
 
     @fifo_throughput_limit.setter
-    def fifo_throughput_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fifo_throughput_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fifo_throughput_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
-    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kms_data_key_reuse_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         """
         return pulumi.get(self, "kms_data_key_reuse_period_seconds")
 
     @kms_data_key_reuse_period_seconds.setter
-    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kms_data_key_reuse_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maxMessageSize")
-    def max_message_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_message_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB).
         """
         return pulumi.get(self, "max_message_size")
 
     @max_message_size.setter
-    def max_message_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_message_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_message_size", value)
 
     @_builtins.property
     @pulumi.getter(name="messageRetentionSeconds")
-    def message_retention_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_retention_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         """
         return pulumi.get(self, "message_retention_seconds")
 
     @message_retention_seconds.setter
-    def message_retention_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_retention_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_retention_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.QueuePolicy` resource instead.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveWaitTimeSeconds")
-    def receive_wait_time_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def receive_wait_time_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         """
         return pulumi.get(self, "receive_wait_time_seconds")
 
     @receive_wait_time_seconds.setter
-    def receive_wait_time_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def receive_wait_time_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "receive_wait_time_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="redriveAllowPolicy")
-    def redrive_allow_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redrive_allow_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedriveAllowPolicy` resource instead.
         """
         return pulumi.get(self, "redrive_allow_policy")
 
     @redrive_allow_policy.setter
-    def redrive_allow_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redrive_allow_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redrive_allow_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redrive_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         """
         return pulumi.get(self, "redrive_policy")
 
     @redrive_policy.setter
-    def redrive_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redrive_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redrive_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsManagedSseEnabled")
-    def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sqs_managed_sse_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "sqs_managed_sse_enabled")
 
     @sqs_managed_sse_enabled.setter
-    def sqs_managed_sse_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sqs_managed_sse_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sqs_managed_sse_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityTimeoutSeconds")
-    def visibility_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def visibility_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         return pulumi.get(self, "visibility_timeout_seconds")
 
     @visibility_timeout_seconds.setter
-    def visibility_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def visibility_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "visibility_timeout_seconds", value)
 
 
 @pulumi.input_type
 class _QueueState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_retention_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 redrive_allow_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 visibility_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_retention_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 redrive_allow_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
 
@@ -427,266 +427,266 @@ class _QueueState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the SQS queue.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="contentBasedDeduplication")
-    def content_based_deduplication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def content_based_deduplication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
         """
         return pulumi.get(self, "content_based_deduplication")
 
     @content_based_deduplication.setter
-    def content_based_deduplication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def content_based_deduplication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "content_based_deduplication", value)
 
     @_builtins.property
     @pulumi.getter(name="deduplicationScope")
-    def deduplication_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deduplication_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         """
         return pulumi.get(self, "deduplication_scope")
 
     @deduplication_scope.setter
-    def deduplication_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deduplication_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deduplication_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="delaySeconds")
-    def delay_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         """
         return pulumi.get(self, "delay_seconds")
 
     @delay_seconds.setter
-    def delay_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delay_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoQueue")
-    def fifo_queue(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fifo_queue(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
         """
         return pulumi.get(self, "fifo_queue")
 
     @fifo_queue.setter
-    def fifo_queue(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fifo_queue(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fifo_queue", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoThroughputLimit")
-    def fifo_throughput_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fifo_throughput_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         """
         return pulumi.get(self, "fifo_throughput_limit")
 
     @fifo_throughput_limit.setter
-    def fifo_throughput_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fifo_throughput_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fifo_throughput_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
-    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kms_data_key_reuse_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         """
         return pulumi.get(self, "kms_data_key_reuse_period_seconds")
 
     @kms_data_key_reuse_period_seconds.setter
-    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kms_data_key_reuse_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maxMessageSize")
-    def max_message_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_message_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 1048576 bytes (1024 KiB). The default for this attribute is 262144 (256 KiB).
         """
         return pulumi.get(self, "max_message_size")
 
     @max_message_size.setter
-    def max_message_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_message_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_message_size", value)
 
     @_builtins.property
     @pulumi.getter(name="messageRetentionSeconds")
-    def message_retention_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_retention_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         """
         return pulumi.get(self, "message_retention_seconds")
 
     @message_retention_seconds.setter
-    def message_retention_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_retention_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_retention_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.QueuePolicy` resource instead.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveWaitTimeSeconds")
-    def receive_wait_time_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def receive_wait_time_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         """
         return pulumi.get(self, "receive_wait_time_seconds")
 
     @receive_wait_time_seconds.setter
-    def receive_wait_time_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def receive_wait_time_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "receive_wait_time_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="redriveAllowPolicy")
-    def redrive_allow_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redrive_allow_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedriveAllowPolicy` resource instead.
         """
         return pulumi.get(self, "redrive_allow_policy")
 
     @redrive_allow_policy.setter
-    def redrive_allow_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redrive_allow_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redrive_allow_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="redrivePolicy")
-    def redrive_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redrive_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         """
         return pulumi.get(self, "redrive_policy")
 
     @redrive_policy.setter
-    def redrive_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redrive_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redrive_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsManagedSseEnabled")
-    def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sqs_managed_sse_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "sqs_managed_sse_enabled")
 
     @sqs_managed_sse_enabled.setter
-    def sqs_managed_sse_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sqs_managed_sse_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sqs_managed_sse_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Same as `id`: The URL for the created Amazon SQS queue.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityTimeoutSeconds")
-    def visibility_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def visibility_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         return pulumi.get(self, "visibility_timeout_seconds")
 
     @visibility_timeout_seconds.setter
-    def visibility_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def visibility_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "visibility_timeout_seconds", value)
 
 
@@ -696,25 +696,25 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_retention_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 redrive_allow_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_retention_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 redrive_allow_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Amazon SQS (Simple Queue Service) is a fully managed message queuing service that enables decoupling and scaling of microservices, distributed systems, and serverless applications. This resource allows you to create, configure, and manage an SQS queue, which acts as a reliable message buffer between producers and consumers. With support for standard and FIFO queues, SQS ensures secure, scalable, and asynchronous message processing. Use this resource to define queue attributes, configure access policies, and integrate seamlessly with AWS services like Lambda, SNS, and EC2.
@@ -987,25 +987,25 @@ class Queue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_retention_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 redrive_allow_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 visibility_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_retention_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 redrive_allow_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 visibility_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1047,28 +1047,28 @@ class Queue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-            deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-            fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-            kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            max_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-            message_retention_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            receive_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            redrive_allow_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            redrive_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            visibility_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None) -> 'Queue':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+            deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+            fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            max_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+            message_retention_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            receive_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            redrive_allow_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            redrive_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None) -> 'Queue':
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

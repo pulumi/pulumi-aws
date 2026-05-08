@@ -216,69 +216,69 @@ export interface VpcAttachmentState {
     /**
      * ARN of the attachment.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Policy rule number associated with the attachment.
      */
-    attachmentPolicyRuleNumber?: pulumi.Input<number>;
+    attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
     /**
      * Type of attachment.
      */
-    attachmentType?: pulumi.Input<string>;
+    attachmentType?: pulumi.Input<string | undefined>;
     /**
      * ARN of a core network.
      */
-    coreNetworkArn?: pulumi.Input<string>;
+    coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * ID of a core network for the VPC attachment.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Region where the edge is located.
      */
-    edgeLocation?: pulumi.Input<string>;
+    edgeLocation?: pulumi.Input<string | undefined>;
     /**
      * Options for the VPC attachment. See below.
      */
-    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
+    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions | undefined>;
     /**
      * ID of the attachment account owner.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Attachment resource ARN.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Name of the segment attachment.
      */
-    segmentName?: pulumi.Input<string>;
+    segmentName?: pulumi.Input<string | undefined>;
     /**
      * State of the attachment.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Subnet ARNs of the VPC attachment.
      */
-    subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the VPC.
      *
      * The following arguments are optional:
      */
-    vpcArn?: pulumi.Input<string>;
+    vpcArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -292,11 +292,11 @@ export interface VpcAttachmentArgs {
     /**
      * Options for the VPC attachment. See below.
      */
-    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
+    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions | undefined>;
     /**
      * The routing policy label to apply to the VPC attachment for traffic routing decisions. Maximum length of 256 characters.
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Subnet ARNs of the VPC attachment.
      */
@@ -304,7 +304,7 @@ export interface VpcAttachmentArgs {
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the VPC.
      *

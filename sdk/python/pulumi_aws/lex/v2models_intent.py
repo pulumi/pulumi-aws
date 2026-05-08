@@ -24,22 +24,22 @@ class V2modelsIntentArgs:
                  bot_id: pulumi.Input[_builtins.str],
                  bot_version: pulumi.Input[_builtins.str],
                  locale_id: pulumi.Input[_builtins.str],
-                 closing_setting: Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']] = None,
-                 confirmation_setting: Optional[pulumi.Input['V2modelsIntentConfirmationSettingArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']] = None,
-                 fulfillment_code_hook: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']] = None,
-                 initial_response_setting: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']] = None,
-                 input_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]] = None,
-                 kendra_configuration: Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 qna_intent_configuration: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
-                 slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
+                 closing_setting: pulumi.Input[Optional['V2modelsIntentClosingSettingArgs']] = None,
+                 confirmation_setting: pulumi.Input[Optional['V2modelsIntentConfirmationSettingArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional['V2modelsIntentDialogCodeHookArgs']] = None,
+                 fulfillment_code_hook: pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookArgs']] = None,
+                 initial_response_setting: pulumi.Input[Optional['V2modelsIntentInitialResponseSettingArgs']] = None,
+                 input_contexts: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]] = None,
+                 kendra_configuration: pulumi.Input[Optional['V2modelsIntentKendraConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_contexts: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 qna_intent_configuration: pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
+                 slot_priorities: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsIntentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a V2modelsIntent resource.
 
@@ -138,103 +138,103 @@ class V2modelsIntentArgs:
 
     @_builtins.property
     @pulumi.getter(name="closingSetting")
-    def closing_setting(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']]:
+    def closing_setting(self) -> pulumi.Input[Optional['V2modelsIntentClosingSettingArgs']]:
         """
         Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
         """
         return pulumi.get(self, "closing_setting")
 
     @closing_setting.setter
-    def closing_setting(self, value: Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']]):
+    def closing_setting(self, value: pulumi.Input[Optional['V2modelsIntentClosingSettingArgs']]):
         pulumi.set(self, "closing_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="confirmationSetting")
-    def confirmation_setting(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingArgs']]:
+    def confirmation_setting(self) -> pulumi.Input[Optional['V2modelsIntentConfirmationSettingArgs']]:
         """
         Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `prompt_attempts_specification`s. This will cause Terraform to report differences. Use the `confirmation_setting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmation_setting`.
         """
         return pulumi.get(self, "confirmation_setting")
 
     @confirmation_setting.setter
-    def confirmation_setting(self, value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingArgs']]):
+    def confirmation_setting(self, value: pulumi.Input[Optional['V2modelsIntentConfirmationSettingArgs']]):
         pulumi.set(self, "confirmation_setting", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the intent. Use the description to help identify the intent in lists.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
-    def dialog_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']]:
+    def dialog_code_hook(self) -> pulumi.Input[Optional['V2modelsIntentDialogCodeHookArgs']]:
         """
         Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
         """
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
-    def dialog_code_hook(self, value: Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']]):
+    def dialog_code_hook(self, value: pulumi.Input[Optional['V2modelsIntentDialogCodeHookArgs']]):
         pulumi.set(self, "dialog_code_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfillmentCodeHook")
-    def fulfillment_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']]:
+    def fulfillment_code_hook(self) -> pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookArgs']]:
         """
         Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
         """
         return pulumi.get(self, "fulfillment_code_hook")
 
     @fulfillment_code_hook.setter
-    def fulfillment_code_hook(self, value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']]):
+    def fulfillment_code_hook(self, value: pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookArgs']]):
         pulumi.set(self, "fulfillment_code_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="initialResponseSetting")
-    def initial_response_setting(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']]:
+    def initial_response_setting(self) -> pulumi.Input[Optional['V2modelsIntentInitialResponseSettingArgs']]:
         """
         Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         """
         return pulumi.get(self, "initial_response_setting")
 
     @initial_response_setting.setter
-    def initial_response_setting(self, value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']]):
+    def initial_response_setting(self, value: pulumi.Input[Optional['V2modelsIntentInitialResponseSettingArgs']]):
         pulumi.set(self, "initial_response_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="inputContexts")
-    def input_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]:
+    def input_contexts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]:
         """
         Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
         """
         return pulumi.get(self, "input_contexts")
 
     @input_contexts.setter
-    def input_contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]):
+    def input_contexts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]):
         pulumi.set(self, "input_contexts", value)
 
     @_builtins.property
     @pulumi.getter(name="kendraConfiguration")
-    def kendra_configuration(self) -> Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]:
+    def kendra_configuration(self) -> pulumi.Input[Optional['V2modelsIntentKendraConfigurationArgs']]:
         """
         Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         """
         return pulumi.get(self, "kendra_configuration")
 
     @kendra_configuration.setter
-    def kendra_configuration(self, value: Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]):
+    def kendra_configuration(self, value: pulumi.Input[Optional['V2modelsIntentKendraConfigurationArgs']]):
         pulumi.set(self, "kendra_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
 
@@ -243,116 +243,116 @@ class V2modelsIntentArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputContexts")
-    def output_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]:
+    def output_contexts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]:
         """
         Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         """
         return pulumi.get(self, "output_contexts")
 
     @output_contexts.setter
-    def output_contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]):
+    def output_contexts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]):
         pulumi.set(self, "output_contexts", value)
 
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
-    def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_intent_signature(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the built-in intent to base this intent on.
         """
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
-    def parent_intent_signature(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_intent_signature(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_intent_signature", value)
 
     @_builtins.property
     @pulumi.getter(name="qnaIntentConfiguration")
-    def qna_intent_configuration(self) -> Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]:
+    def qna_intent_configuration(self) -> pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationArgs']]:
         """
         Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
         """
         return pulumi.get(self, "qna_intent_configuration")
 
     @qna_intent_configuration.setter
-    def qna_intent_configuration(self, value: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]):
+    def qna_intent_configuration(self, value: pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationArgs']]):
         pulumi.set(self, "qna_intent_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
-    def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
+    def sample_utterances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
         """
         Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         """
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
-    def sample_utterances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]):
+    def sample_utterances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]):
         pulumi.set(self, "sample_utterances", value)
 
     @_builtins.property
     @pulumi.getter(name="slotPriorities")
-    def slot_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]:
+    def slot_priorities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]:
         """
         Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
         return pulumi.get(self, "slot_priorities")
 
     @slot_priorities.setter
-    def slot_priorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]):
+    def slot_priorities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]):
         pulumi.set(self, "slot_priorities", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsIntentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsIntentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _V2modelsIntentState:
     def __init__(__self__, *,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 closing_setting: Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']] = None,
-                 confirmation_setting: Optional[pulumi.Input['V2modelsIntentConfirmationSettingArgs']] = None,
-                 creation_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']] = None,
-                 fulfillment_code_hook: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']] = None,
-                 initial_response_setting: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']] = None,
-                 input_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]] = None,
-                 intent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kendra_configuration: Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']] = None,
-                 last_updated_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 qna_intent_configuration: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
-                 slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
-                 timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 closing_setting: pulumi.Input[Optional['V2modelsIntentClosingSettingArgs']] = None,
+                 confirmation_setting: pulumi.Input[Optional['V2modelsIntentConfirmationSettingArgs']] = None,
+                 creation_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional['V2modelsIntentDialogCodeHookArgs']] = None,
+                 fulfillment_code_hook: pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookArgs']] = None,
+                 initial_response_setting: pulumi.Input[Optional['V2modelsIntentInitialResponseSettingArgs']] = None,
+                 input_contexts: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]] = None,
+                 intent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kendra_configuration: pulumi.Input[Optional['V2modelsIntentKendraConfigurationArgs']] = None,
+                 last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_contexts: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 qna_intent_configuration: pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
+                 slot_priorities: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
+                 timeouts: pulumi.Input[Optional['V2modelsIntentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering V2modelsIntent resources.
 
@@ -427,175 +427,175 @@ class _V2modelsIntentState:
 
     @_builtins.property
     @pulumi.getter(name="botId")
-    def bot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the bot associated with this intent.
         """
         return pulumi.get(self, "bot_id")
 
     @bot_id.setter
-    def bot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="botVersion")
-    def bot_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bot_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the bot associated with this intent.
         """
         return pulumi.get(self, "bot_version")
 
     @bot_version.setter
-    def bot_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bot_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_version", value)
 
     @_builtins.property
     @pulumi.getter(name="closingSetting")
-    def closing_setting(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']]:
+    def closing_setting(self) -> pulumi.Input[Optional['V2modelsIntentClosingSettingArgs']]:
         """
         Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
         """
         return pulumi.get(self, "closing_setting")
 
     @closing_setting.setter
-    def closing_setting(self, value: Optional[pulumi.Input['V2modelsIntentClosingSettingArgs']]):
+    def closing_setting(self, value: pulumi.Input[Optional['V2modelsIntentClosingSettingArgs']]):
         pulumi.set(self, "closing_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="confirmationSetting")
-    def confirmation_setting(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingArgs']]:
+    def confirmation_setting(self) -> pulumi.Input[Optional['V2modelsIntentConfirmationSettingArgs']]:
         """
         Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `prompt_attempts_specification`s. This will cause Terraform to report differences. Use the `confirmation_setting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmation_setting`.
         """
         return pulumi.get(self, "confirmation_setting")
 
     @confirmation_setting.setter
-    def confirmation_setting(self, value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingArgs']]):
+    def confirmation_setting(self, value: pulumi.Input[Optional['V2modelsIntentConfirmationSettingArgs']]):
         pulumi.set(self, "confirmation_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="creationDateTime")
-    def creation_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of the date and time that the intent was created.
         """
         return pulumi.get(self, "creation_date_time")
 
     @creation_date_time.setter
-    def creation_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_date_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the intent. Use the description to help identify the intent in lists.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dialogCodeHook")
-    def dialog_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']]:
+    def dialog_code_hook(self) -> pulumi.Input[Optional['V2modelsIntentDialogCodeHookArgs']]:
         """
         Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
         """
         return pulumi.get(self, "dialog_code_hook")
 
     @dialog_code_hook.setter
-    def dialog_code_hook(self, value: Optional[pulumi.Input['V2modelsIntentDialogCodeHookArgs']]):
+    def dialog_code_hook(self, value: pulumi.Input[Optional['V2modelsIntentDialogCodeHookArgs']]):
         pulumi.set(self, "dialog_code_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="fulfillmentCodeHook")
-    def fulfillment_code_hook(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']]:
+    def fulfillment_code_hook(self) -> pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookArgs']]:
         """
         Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
         """
         return pulumi.get(self, "fulfillment_code_hook")
 
     @fulfillment_code_hook.setter
-    def fulfillment_code_hook(self, value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs']]):
+    def fulfillment_code_hook(self, value: pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookArgs']]):
         pulumi.set(self, "fulfillment_code_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="initialResponseSetting")
-    def initial_response_setting(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']]:
+    def initial_response_setting(self) -> pulumi.Input[Optional['V2modelsIntentInitialResponseSettingArgs']]:
         """
         Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         """
         return pulumi.get(self, "initial_response_setting")
 
     @initial_response_setting.setter
-    def initial_response_setting(self, value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingArgs']]):
+    def initial_response_setting(self, value: pulumi.Input[Optional['V2modelsIntentInitialResponseSettingArgs']]):
         pulumi.set(self, "initial_response_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="inputContexts")
-    def input_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]:
+    def input_contexts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]:
         """
         Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
         """
         return pulumi.get(self, "input_contexts")
 
     @input_contexts.setter
-    def input_contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]):
+    def input_contexts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]]]):
         pulumi.set(self, "input_contexts", value)
 
     @_builtins.property
     @pulumi.getter(name="intentId")
-    def intent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def intent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the intent.
         """
         return pulumi.get(self, "intent_id")
 
     @intent_id.setter
-    def intent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def intent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "intent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kendraConfiguration")
-    def kendra_configuration(self) -> Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]:
+    def kendra_configuration(self) -> pulumi.Input[Optional['V2modelsIntentKendraConfigurationArgs']]:
         """
         Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         """
         return pulumi.get(self, "kendra_configuration")
 
     @kendra_configuration.setter
-    def kendra_configuration(self, value: Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]):
+    def kendra_configuration(self, value: pulumi.Input[Optional['V2modelsIntentKendraConfigurationArgs']]):
         pulumi.set(self, "kendra_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDateTime")
-    def last_updated_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of the last time that the intent was modified.
         """
         return pulumi.get(self, "last_updated_date_time")
 
     @last_updated_date_time.setter
-    def last_updated_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="localeId")
-    def locale_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
         """
         return pulumi.get(self, "locale_id")
 
     @locale_id.setter
-    def locale_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
 
@@ -604,88 +604,88 @@ class _V2modelsIntentState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputContexts")
-    def output_contexts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]:
+    def output_contexts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]:
         """
         Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         """
         return pulumi.get(self, "output_contexts")
 
     @output_contexts.setter
-    def output_contexts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]):
+    def output_contexts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]]):
         pulumi.set(self, "output_contexts", value)
 
     @_builtins.property
     @pulumi.getter(name="parentIntentSignature")
-    def parent_intent_signature(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_intent_signature(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the built-in intent to base this intent on.
         """
         return pulumi.get(self, "parent_intent_signature")
 
     @parent_intent_signature.setter
-    def parent_intent_signature(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_intent_signature(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_intent_signature", value)
 
     @_builtins.property
     @pulumi.getter(name="qnaIntentConfiguration")
-    def qna_intent_configuration(self) -> Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]:
+    def qna_intent_configuration(self) -> pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationArgs']]:
         """
         Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
         """
         return pulumi.get(self, "qna_intent_configuration")
 
     @qna_intent_configuration.setter
-    def qna_intent_configuration(self, value: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]):
+    def qna_intent_configuration(self, value: pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationArgs']]):
         pulumi.set(self, "qna_intent_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
-    def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
+    def sample_utterances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
         """
         Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         """
         return pulumi.get(self, "sample_utterances")
 
     @sample_utterances.setter
-    def sample_utterances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]):
+    def sample_utterances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]):
         pulumi.set(self, "sample_utterances", value)
 
     @_builtins.property
     @pulumi.getter(name="slotPriorities")
-    def slot_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]:
+    def slot_priorities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]:
         """
         Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
         return pulumi.get(self, "slot_priorities")
 
     @slot_priorities.setter
-    def slot_priorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]):
+    def slot_priorities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]]):
         pulumi.set(self, "slot_priorities", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['V2modelsIntentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['V2modelsIntentTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -695,25 +695,25 @@ class V2modelsIntent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 closing_setting: Optional[pulumi.Input[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']]] = None,
-                 confirmation_setting: Optional[pulumi.Input[Union['V2modelsIntentConfirmationSettingArgs', 'V2modelsIntentConfirmationSettingArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']]] = None,
-                 fulfillment_code_hook: Optional[pulumi.Input[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']]] = None,
-                 initial_response_setting: Optional[pulumi.Input[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']]] = None,
-                 input_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]]] = None,
-                 kendra_configuration: Optional[pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']]] = None,
-                 locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 qna_intent_configuration: Optional[pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
-                 slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 closing_setting: pulumi.Input[Optional[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']]] = None,
+                 confirmation_setting: pulumi.Input[Optional[Union['V2modelsIntentConfirmationSettingArgs', 'V2modelsIntentConfirmationSettingArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']]] = None,
+                 fulfillment_code_hook: pulumi.Input[Optional[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']]] = None,
+                 initial_response_setting: pulumi.Input[Optional[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']]] = None,
+                 input_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]]] = None,
+                 kendra_configuration: pulumi.Input[Optional[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']]] = None,
+                 locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 qna_intent_configuration: pulumi.Input[Optional[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
+                 slot_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Intent.
@@ -1085,25 +1085,25 @@ class V2modelsIntent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 closing_setting: Optional[pulumi.Input[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']]] = None,
-                 confirmation_setting: Optional[pulumi.Input[Union['V2modelsIntentConfirmationSettingArgs', 'V2modelsIntentConfirmationSettingArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dialog_code_hook: Optional[pulumi.Input[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']]] = None,
-                 fulfillment_code_hook: Optional[pulumi.Input[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']]] = None,
-                 initial_response_setting: Optional[pulumi.Input[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']]] = None,
-                 input_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]]] = None,
-                 kendra_configuration: Optional[pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']]] = None,
-                 locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
-                 parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-                 qna_intent_configuration: Optional[pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
-                 slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None,
+                 bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 closing_setting: pulumi.Input[Optional[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']]] = None,
+                 confirmation_setting: pulumi.Input[Optional[Union['V2modelsIntentConfirmationSettingArgs', 'V2modelsIntentConfirmationSettingArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialog_code_hook: pulumi.Input[Optional[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']]] = None,
+                 fulfillment_code_hook: pulumi.Input[Optional[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']]] = None,
+                 initial_response_setting: pulumi.Input[Optional[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']]] = None,
+                 input_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]]] = None,
+                 kendra_configuration: pulumi.Input[Optional[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']]] = None,
+                 locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
+                 parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+                 qna_intent_configuration: pulumi.Input[Optional[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
+                 slot_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1151,28 +1151,28 @@ class V2modelsIntent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-            bot_version: Optional[pulumi.Input[_builtins.str]] = None,
-            closing_setting: Optional[pulumi.Input[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']]] = None,
-            confirmation_setting: Optional[pulumi.Input[Union['V2modelsIntentConfirmationSettingArgs', 'V2modelsIntentConfirmationSettingArgsDict']]] = None,
-            creation_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dialog_code_hook: Optional[pulumi.Input[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']]] = None,
-            fulfillment_code_hook: Optional[pulumi.Input[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']]] = None,
-            initial_response_setting: Optional[pulumi.Input[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']]] = None,
-            input_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]]] = None,
-            intent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            kendra_configuration: Optional[pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']]] = None,
-            last_updated_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            locale_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
-            parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
-            qna_intent_configuration: Optional[pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
-            slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None) -> 'V2modelsIntent':
+            bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bot_version: pulumi.Input[Optional[_builtins.str]] = None,
+            closing_setting: pulumi.Input[Optional[Union['V2modelsIntentClosingSettingArgs', 'V2modelsIntentClosingSettingArgsDict']]] = None,
+            confirmation_setting: pulumi.Input[Optional[Union['V2modelsIntentConfirmationSettingArgs', 'V2modelsIntentConfirmationSettingArgsDict']]] = None,
+            creation_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dialog_code_hook: pulumi.Input[Optional[Union['V2modelsIntentDialogCodeHookArgs', 'V2modelsIntentDialogCodeHookArgsDict']]] = None,
+            fulfillment_code_hook: pulumi.Input[Optional[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']]] = None,
+            initial_response_setting: pulumi.Input[Optional[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']]] = None,
+            input_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]]] = None,
+            intent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            kendra_configuration: pulumi.Input[Optional[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']]] = None,
+            last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            locale_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            output_contexts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
+            parent_intent_signature: pulumi.Input[Optional[_builtins.str]] = None,
+            qna_intent_configuration: pulumi.Input[Optional[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            sample_utterances: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
+            slot_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None) -> 'V2modelsIntent':
         """
         Get an existing V2modelsIntent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

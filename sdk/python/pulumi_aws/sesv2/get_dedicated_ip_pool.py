@@ -154,9 +154,9 @@ def get_dedicated_ip_pool(pool_name: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         scaling_mode=pulumi.get(__ret__, 'scaling_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_dedicated_ip_pool_output(pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.

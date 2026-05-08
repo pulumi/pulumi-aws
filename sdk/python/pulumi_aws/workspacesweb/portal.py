@@ -21,16 +21,16 @@ __all__ = ['PortalArgs', 'Portal']
 @pulumi.input_type
 class PortalArgs:
     def __init__(__self__, *,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrent_sessions: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['PortalTimeoutsArgs']] = None):
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['PortalTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Portal resource.
 
@@ -67,150 +67,150 @@ class PortalArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional encryption context for the customer managed key. Forces replacement if changed.
         """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="browserSettingsArn")
-    def browser_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def browser_settings_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the browser settings to use for the portal.
         """
         return pulumi.get(self, "browser_settings_arn")
 
     @browser_settings_arn.setter
-    def browser_settings_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def browser_settings_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "browser_settings_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the customer managed key. Forces replacement if changed.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the portal.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentSessions")
-    def max_concurrent_sessions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_sessions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of concurrent sessions for the portal.
         """
         return pulumi.get(self, "max_concurrent_sessions")
 
     @max_concurrent_sessions.setter
-    def max_concurrent_sessions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_sessions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_sessions", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['PortalTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['PortalTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['PortalTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['PortalTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _PortalState:
     def __init__(__self__, *,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_protection_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_access_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrent_sessions: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 renderer_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['PortalTimeoutsArgs']] = None,
-                 trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_access_logging_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_protection_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_access_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
+                 network_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 renderer_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['PortalTimeoutsArgs']] = None,
+                 trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_access_logging_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_settings_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Portal resources.
 
@@ -292,299 +292,299 @@ class _PortalState:
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
-    def additional_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional encryption context for the customer managed key. Forces replacement if changed.
         """
         return pulumi.get(self, "additional_encryption_context")
 
     @additional_encryption_context.setter
-    def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication type for the portal. Valid values: `Standard`, `IAM_Identity_Center`.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter(name="browserSettingsArn")
-    def browser_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def browser_settings_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the browser settings to use for the portal.
         """
         return pulumi.get(self, "browser_settings_arn")
 
     @browser_settings_arn.setter
-    def browser_settings_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def browser_settings_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "browser_settings_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="browserType")
-    def browser_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def browser_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Browser type of the portal.
         """
         return pulumi.get(self, "browser_type")
 
     @browser_type.setter
-    def browser_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def browser_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "browser_type", value)
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creation date of the portal.
         """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_date", value)
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_managed_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the customer managed key. Forces replacement if changed.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_managed_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_managed_key", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionSettingsArn")
-    def data_protection_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_protection_settings_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the data protection settings associated with the portal.
         """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @data_protection_settings_arn.setter
-    def data_protection_settings_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_protection_settings_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_protection_settings_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the portal.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance type for the portal. Valid values: `standard.regular`, `standard.large`.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAccessSettingsArn")
-    def ip_access_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_access_settings_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IP access settings associated with the portal.
         """
         return pulumi.get(self, "ip_access_settings_arn")
 
     @ip_access_settings_arn.setter
-    def ip_access_settings_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_access_settings_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_access_settings_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentSessions")
-    def max_concurrent_sessions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_sessions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of concurrent sessions for the portal.
         """
         return pulumi.get(self, "max_concurrent_sessions")
 
     @max_concurrent_sessions.setter
-    def max_concurrent_sessions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_sessions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_sessions", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSettingsArn")
-    def network_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_settings_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the network settings associated with the portal.
         """
         return pulumi.get(self, "network_settings_arn")
 
     @network_settings_arn.setter
-    def network_settings_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_settings_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_settings_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="portalArn")
-    def portal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the portal.
         """
         return pulumi.get(self, "portal_arn")
 
     @portal_arn.setter
-    def portal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="portalEndpoint")
-    def portal_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint URL of the portal.
         """
         return pulumi.get(self, "portal_endpoint")
 
     @portal_endpoint.setter
-    def portal_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="portalStatus")
-    def portal_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the portal.
         """
         return pulumi.get(self, "portal_status")
 
     @portal_status.setter
-    def portal_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="rendererType")
-    def renderer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renderer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Renderer type of the portal.
         """
         return pulumi.get(self, "renderer_type")
 
     @renderer_type.setter
-    def renderer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renderer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renderer_type", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionLoggerArn")
-    def session_logger_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_logger_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the session logger associated with the portal.
         """
         return pulumi.get(self, "session_logger_arn")
 
     @session_logger_arn.setter
-    def session_logger_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_logger_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_logger_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason for the current status of the portal.
         """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
-    def status_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['PortalTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['PortalTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['PortalTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['PortalTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="trustStoreArn")
-    def trust_store_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_store_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the trust store associated with the portal.
         """
         return pulumi.get(self, "trust_store_arn")
 
     @trust_store_arn.setter
-    def trust_store_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_store_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_store_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="userAccessLoggingSettingsArn")
-    def user_access_logging_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_access_logging_settings_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the user access logging settings associated with the portal.
         """
         return pulumi.get(self, "user_access_logging_settings_arn")
 
     @user_access_logging_settings_arn.setter
-    def user_access_logging_settings_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_access_logging_settings_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_access_logging_settings_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="userSettingsArn")
-    def user_settings_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_settings_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the user settings associated with the portal.
         """
         return pulumi.get(self, "user_settings_arn")
 
     @user_settings_arn.setter
-    def user_settings_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_settings_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_settings_arn", value)
 
 
@@ -594,16 +594,16 @@ class Portal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrent_sessions: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS WorkSpaces Web Portal.
@@ -734,16 +734,16 @@ class Portal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrent_sessions: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
+                 additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -788,31 +788,31 @@ class Portal(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            browser_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            browser_type: Optional[pulumi.Input[_builtins.str]] = None,
-            creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-            customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-            data_protection_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_access_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            max_concurrent_sessions: Optional[pulumi.Input[_builtins.int]] = None,
-            network_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            portal_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            portal_status: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            renderer_type: Optional[pulumi.Input[_builtins.str]] = None,
-            session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
-            trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            user_access_logging_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'Portal':
+            additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_type: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
+            data_protection_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_access_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            max_concurrent_sessions: pulumi.Input[Optional[_builtins.int]] = None,
+            network_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            portal_status: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            renderer_type: pulumi.Input[Optional[_builtins.str]] = None,
+            session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['PortalTimeoutsArgs', 'PortalTimeoutsArgsDict']]] = None,
+            trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            user_access_logging_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            user_settings_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'Portal':
         """
         Get an existing Portal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

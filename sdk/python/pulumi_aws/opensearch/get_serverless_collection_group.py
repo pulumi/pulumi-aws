@@ -179,9 +179,9 @@ def get_serverless_collection_group(id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         standby_replicas=pulumi.get(__ret__, 'standby_replicas'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_serverless_collection_group_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_serverless_collection_group_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCollectionGroupResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Collection Group.

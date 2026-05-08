@@ -19,18 +19,18 @@ __all__ = ['ExternalKeyArgs', 'ExternalKey']
 @pulumi.input_type
 class ExternalKeyArgs:
     def __init__(__self__, *,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_to: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_material_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_to: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExternalKey resource.
 
@@ -74,168 +74,168 @@ class ExternalKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
-    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
-    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_safety_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         """
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
-    def deletion_window_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deletion_window_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deletion_window_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the key.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="keyMaterialBase64")
-    def key_material_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_material_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         """
         return pulumi.get(self, "key_material_base64")
 
     @key_material_base64.setter
-    def key_material_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_material_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_material_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="keySpec")
-    def key_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         """
         return pulumi.get(self, "key_spec")
 
     @key_spec.setter
-    def key_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_spec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_region(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
         return pulumi.get(self, "multi_region")
 
     @multi_region.setter
-    def multi_region(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_region(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validTo")
-    def valid_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         return pulumi.get(self, "valid_to")
 
     @valid_to.setter
-    def valid_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_to", value)
 
 
 @pulumi.input_type
 class _ExternalKeyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiration_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_to: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiration_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_material_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_to: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExternalKey resources.
 
@@ -291,194 +291,194 @@ class _ExternalKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the key.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
-    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
-    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_policy_lockout_safety_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionWindowInDays")
-    def deletion_window_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deletion_window_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         """
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
-    def deletion_window_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deletion_window_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deletion_window_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the key.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationModel")
-    def expiration_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         """
         return pulumi.get(self, "expiration_model")
 
     @expiration_model.setter
-    def expiration_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_model", value)
 
     @_builtins.property
     @pulumi.getter(name="keyMaterialBase64")
-    def key_material_base64(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_material_base64(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         """
         return pulumi.get(self, "key_material_base64")
 
     @key_material_base64.setter
-    def key_material_base64(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_material_base64(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_material_base64", value)
 
     @_builtins.property
     @pulumi.getter(name="keySpec")
-    def key_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         """
         return pulumi.get(self, "key_spec")
 
     @key_spec.setter
-    def key_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_spec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="keyState")
-    def key_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The state of the CMK.
         """
         return pulumi.get(self, "key_state")
 
     @key_state.setter
-    def key_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_state", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="multiRegion")
-    def multi_region(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_region(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         """
         return pulumi.get(self, "multi_region")
 
     @multi_region.setter
-    def multi_region(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_region(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="validTo")
-    def valid_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def valid_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
         return pulumi.get(self, "valid_to")
 
     @valid_to.setter
-    def valid_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def valid_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "valid_to", value)
 
 
@@ -488,18 +488,18 @@ class ExternalKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_to: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_material_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_to: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a single-Region or multi-Region primary KMS key that uses external key material.
@@ -581,18 +581,18 @@ class ExternalKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 valid_to: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_material_base64: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 valid_to: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -630,22 +630,22 @@ class ExternalKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            bypass_policy_lockout_safety_check: Optional[pulumi.Input[_builtins.bool]] = None,
-            deletion_window_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            expiration_model: Optional[pulumi.Input[_builtins.str]] = None,
-            key_material_base64: Optional[pulumi.Input[_builtins.str]] = None,
-            key_spec: Optional[pulumi.Input[_builtins.str]] = None,
-            key_state: Optional[pulumi.Input[_builtins.str]] = None,
-            key_usage: Optional[pulumi.Input[_builtins.str]] = None,
-            multi_region: Optional[pulumi.Input[_builtins.bool]] = None,
-            policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            valid_to: Optional[pulumi.Input[_builtins.str]] = None) -> 'ExternalKey':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bypass_policy_lockout_safety_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            deletion_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            expiration_model: pulumi.Input[Optional[_builtins.str]] = None,
+            key_material_base64: pulumi.Input[Optional[_builtins.str]] = None,
+            key_spec: pulumi.Input[Optional[_builtins.str]] = None,
+            key_state: pulumi.Input[Optional[_builtins.str]] = None,
+            key_usage: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_region: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            valid_to: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExternalKey':
         """
         Get an existing ExternalKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

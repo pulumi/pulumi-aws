@@ -297,10 +297,10 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
         sockets=pulumi.get(__ret__, 'sockets'),
         tags=pulumi.get(__ret__, 'tags'),
         total_vcpus=pulumi.get(__ret__, 'total_vcpus'))
-def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
-                              host_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_dedicated_host_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
+                              host_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
     Use this data source to get information about an EC2 Dedicated Host.

@@ -21,23 +21,23 @@ class BranchArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
                  branch_name: pulumi.Input[_builtins.str],
-                 backend_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_build: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_performance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_pull_request_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_skew_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.str]] = None):
+                 backend_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Branch resource.
 
@@ -124,237 +124,237 @@ class BranchArgs:
 
     @_builtins.property
     @pulumi.getter(name="backendEnvironmentArn")
-    def backend_environment_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_environment_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for a backend environment that is part of an Amplify app.
         """
         return pulumi.get(self, "backend_environment_arn")
 
     @backend_environment_arn.setter
-    def backend_environment_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_environment_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_environment_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthCredentials")
-    def basic_auth_credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def basic_auth_credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Basic authorization credentials for the branch.
         """
         return pulumi.get(self, "basic_auth_credentials")
 
     @basic_auth_credentials.setter
-    def basic_auth_credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def basic_auth_credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "basic_auth_credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the branch.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name for a branch. This is used as the default domain prefix.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoBuild")
-    def enable_auto_build(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_build(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables auto building for the branch.
         """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
-    def enable_auto_build(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_build(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_build", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBasicAuth")
-    def enable_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_basic_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables basic authorization for the branch.
         """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
-    def enable_basic_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_basic_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNotification")
-    def enable_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables notifications for the branch.
         """
         return pulumi.get(self, "enable_notification")
 
     @enable_notification.setter
-    def enable_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePerformanceMode")
-    def enable_performance_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_performance_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables performance mode for the branch.
         """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
-    def enable_performance_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_performance_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_performance_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePullRequestPreview")
-    def enable_pull_request_preview(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_pull_request_preview(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables pull request previews for this branch.
         """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
-    def enable_pull_request_preview(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_pull_request_preview(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSkewProtection")
-    def enable_skew_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_skew_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables skew protection for the branch.
         """
         return pulumi.get(self, "enable_skew_protection")
 
     @enable_skew_protection.setter
-    def enable_skew_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_skew_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_skew_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Environment variables for the branch.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def framework(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def framework(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Framework for the branch.
         """
         return pulumi.get(self, "framework")
 
     @framework.setter
-    def framework(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def framework(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "framework", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestEnvironmentName")
-    def pull_request_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amplify environment name for the pull request.
         """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
-    def pull_request_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         """
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content Time To Live (TTL) for the website in seconds.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type
 class _BranchState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 backend_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_build: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_performance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_pull_request_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_skew_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 backend_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Branch resources.
 
@@ -437,302 +437,302 @@ class _BranchState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique ID for an Amplify app.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the branch.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedResources")
-    def associated_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associated_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of custom resources that are linked to this branch.
         """
         return pulumi.get(self, "associated_resources")
 
     @associated_resources.setter
-    def associated_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associated_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associated_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="backendEnvironmentArn")
-    def backend_environment_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backend_environment_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for a backend environment that is part of an Amplify app.
         """
         return pulumi.get(self, "backend_environment_arn")
 
     @backend_environment_arn.setter
-    def backend_environment_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backend_environment_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backend_environment_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthCredentials")
-    def basic_auth_credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def basic_auth_credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Basic authorization credentials for the branch.
         """
         return pulumi.get(self, "basic_auth_credentials")
 
     @basic_auth_credentials.setter
-    def basic_auth_credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def basic_auth_credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "basic_auth_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the branch.
         """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
-    def branch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Custom domains for the branch.
         """
         return pulumi.get(self, "custom_domains")
 
     @custom_domains.setter
-    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for the branch.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationBranch")
-    def destination_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination branch if the branch is a pull request branch.
         """
         return pulumi.get(self, "destination_branch")
 
     @destination_branch.setter
-    def destination_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_branch", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name for a branch. This is used as the default domain prefix.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoBuild")
-    def enable_auto_build(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_build(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables auto building for the branch.
         """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
-    def enable_auto_build(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_build(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_build", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBasicAuth")
-    def enable_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_basic_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables basic authorization for the branch.
         """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
-    def enable_basic_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_basic_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNotification")
-    def enable_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables notifications for the branch.
         """
         return pulumi.get(self, "enable_notification")
 
     @enable_notification.setter
-    def enable_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePerformanceMode")
-    def enable_performance_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_performance_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables performance mode for the branch.
         """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
-    def enable_performance_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_performance_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_performance_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePullRequestPreview")
-    def enable_pull_request_preview(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_pull_request_preview(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables pull request previews for this branch.
         """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
-    def enable_pull_request_preview(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_pull_request_preview(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSkewProtection")
-    def enable_skew_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_skew_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables skew protection for the branch.
         """
         return pulumi.get(self, "enable_skew_protection")
 
     @enable_skew_protection.setter
-    def enable_skew_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_skew_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_skew_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Environment variables for the branch.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def framework(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def framework(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Framework for the branch.
         """
         return pulumi.get(self, "framework")
 
     @framework.setter
-    def framework(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def framework(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "framework", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestEnvironmentName")
-    def pull_request_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amplify environment name for the pull request.
         """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
-    def pull_request_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceBranch")
-    def source_branch(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_branch(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source branch if the branch is a pull request branch.
         """
         return pulumi.get(self, "source_branch")
 
     @source_branch.setter
-    def source_branch(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_branch(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_branch", value)
 
     @_builtins.property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         """
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content Time To Live (TTL) for the website in seconds.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -742,25 +742,25 @@ class Branch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_build: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_performance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_pull_request_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_skew_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amplify Branch resource.
@@ -1025,25 +1025,25 @@ class Branch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 backend_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_build: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_performance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_pull_request_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_skew_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backend_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1094,31 +1094,31 @@ class Branch(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            associated_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            backend_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            basic_auth_credentials: Optional[pulumi.Input[_builtins.str]] = None,
-            branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_branch: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_auto_build: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_performance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_pull_request_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_skew_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-            environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            framework: Optional[pulumi.Input[_builtins.str]] = None,
-            pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            source_branch: Optional[pulumi.Input[_builtins.str]] = None,
-            stage: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ttl: Optional[pulumi.Input[_builtins.str]] = None) -> 'Branch':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            backend_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+            branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+            environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            framework: pulumi.Input[Optional[_builtins.str]] = None,
+            pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            source_branch: pulumi.Input[Optional[_builtins.str]] = None,
+            stage: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[_builtins.str]] = None) -> 'Branch':
         """
         Get an existing Branch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

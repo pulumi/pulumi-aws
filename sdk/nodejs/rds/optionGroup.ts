@@ -195,47 +195,47 @@ export interface OptionGroupState {
     /**
      * ARN of the DB option group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    engineName?: pulumi.Input<string>;
+    engineName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    majorEngineVersion?: pulumi.Input<string>;
+    majorEngineVersion?: pulumi.Input<string | undefined>;
     /**
      * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Description of the option group. Defaults to "Managed by Pulumi".
      */
-    optionGroupDescription?: pulumi.Input<string>;
+    optionGroupDescription?: pulumi.Input<string | undefined>;
     /**
      * The options to apply. See `option` Block below for more details.
      */
-    options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -253,29 +253,29 @@ export interface OptionGroupArgs {
     /**
      * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string | undefined>;
     /**
      * Description of the option group. Defaults to "Managed by Pulumi".
      */
-    optionGroupDescription?: pulumi.Input<string>;
+    optionGroupDescription?: pulumi.Input<string | undefined>;
     /**
      * The options to apply. See `option` Block below for more details.
      */
-    options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

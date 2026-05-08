@@ -432,85 +432,85 @@ export interface AssociationState {
     /**
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      */
-    applyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    applyOnlyAtCronInterval?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the SSM association
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the SSM association.
      */
-    associationId?: pulumi.Input<string>;
+    associationId?: pulumi.Input<string | undefined>;
     /**
      * The descriptive name for the association.
      */
-    associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string | undefined>;
     /**
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
-    automationTargetParameterName?: pulumi.Input<string>;
+    automationTargetParameterName?: pulumi.Input<string | undefined>;
     /**
      * One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
      */
-    calendarNames?: pulumi.Input<pulumi.Input<string>[]>;
+    calendarNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
-    complianceSeverity?: pulumi.Input<string>;
+    complianceSeverity?: pulumi.Input<string | undefined>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    documentVersion?: pulumi.Input<string>;
+    documentVersion?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string | undefined>;
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      */
-    maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string | undefined>;
     /**
      * The name of the SSM document to apply.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An output location block. Output Location is documented below.
      */
-    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation | undefined>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
-    scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string | undefined>;
     /**
      * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
      */
-    syncCompliance?: pulumi.Input<string>;
+    syncCompliance?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[] | undefined>;
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      *
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      */
-    waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
+    waitForSuccessTimeoutSeconds?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -520,71 +520,71 @@ export interface AssociationArgs {
     /**
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      */
-    applyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    applyOnlyAtCronInterval?: pulumi.Input<boolean | undefined>;
     /**
      * The descriptive name for the association.
      */
-    associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string | undefined>;
     /**
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
-    automationTargetParameterName?: pulumi.Input<string>;
+    automationTargetParameterName?: pulumi.Input<string | undefined>;
     /**
      * One or more Systems Manager Change Calendar names. The association runs only when the Change Calendar is open.
      */
-    calendarNames?: pulumi.Input<pulumi.Input<string>[]>;
+    calendarNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
-    complianceSeverity?: pulumi.Input<string>;
+    complianceSeverity?: pulumi.Input<string | undefined>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    documentVersion?: pulumi.Input<string>;
+    documentVersion?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string | undefined>;
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      */
-    maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string | undefined>;
     /**
      * The name of the SSM document to apply.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An output location block. Output Location is documented below.
      */
-    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation | undefined>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
-    scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string | undefined>;
     /**
      * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
      */
-    syncCompliance?: pulumi.Input<string>;
+    syncCompliance?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[] | undefined>;
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      *
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      */
-    waitForSuccessTimeoutSeconds?: pulumi.Input<number>;
+    waitForSuccessTimeoutSeconds?: pulumi.Input<number | undefined>;
 }

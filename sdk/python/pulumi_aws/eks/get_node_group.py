@@ -345,10 +345,10 @@ def get_node_group(cluster_name: Optional[_builtins.str] = None,
         taints=pulumi.get(__ret__, 'taints'),
         update_configs=pulumi.get(__ret__, 'update_configs'),
         version=pulumi.get(__ret__, 'version'))
-def get_node_group_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          node_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_node_group_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupResult]:
     """
     Retrieve information about an EKS Node Group.

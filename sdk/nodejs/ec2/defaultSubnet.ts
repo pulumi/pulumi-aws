@@ -187,8 +187,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DefaultSubnet resources.
  */
 export interface DefaultSubnetState {
-    arn?: pulumi.Input<string>;
-    assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    arn?: pulumi.Input<string | undefined>;
+    assignIpv6AddressOnCreation?: pulumi.Input<boolean | undefined>;
     /**
      * is required
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
@@ -196,50 +196,50 @@ export interface DefaultSubnetState {
      *
      * This resource supports the following additional arguments:
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The AZ ID of the subnet
      */
-    availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 CIDR block assigned to the subnet
      */
-    cidrBlock?: pulumi.Input<string>;
-    customerOwnedIpv4Pool?: pulumi.Input<string>;
-    enableDns64?: pulumi.Input<boolean>;
-    enableLniAtDeviceIndex?: pulumi.Input<number>;
-    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean>;
-    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean>;
-    existingDefaultSubnet?: pulumi.Input<boolean>;
+    cidrBlock?: pulumi.Input<string | undefined>;
+    customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
+    enableDns64?: pulumi.Input<boolean | undefined>;
+    enableLniAtDeviceIndex?: pulumi.Input<number | undefined>;
+    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean | undefined>;
+    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean | undefined>;
+    existingDefaultSubnet?: pulumi.Input<boolean | undefined>;
     /**
      * Whether destroying the resource deletes the default subnet. Default: `false`
      */
-    forceDestroy?: pulumi.Input<boolean>;
-    ipv6CidrBlock?: pulumi.Input<string>;
-    ipv6CidrBlockAssociationId?: pulumi.Input<string>;
-    ipv6Native?: pulumi.Input<boolean>;
-    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
-    mapPublicIpOnLaunch?: pulumi.Input<boolean>;
-    outpostArn?: pulumi.Input<string>;
-    ownerId?: pulumi.Input<string>;
-    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
+    ipv6CidrBlockAssociationId?: pulumi.Input<string | undefined>;
+    ipv6Native?: pulumi.Input<boolean | undefined>;
+    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean | undefined>;
+    mapPublicIpOnLaunch?: pulumi.Input<boolean | undefined>;
+    outpostArn?: pulumi.Input<string | undefined>;
+    ownerId?: pulumi.Input<string | undefined>;
+    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the VPC the subnet is in
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a DefaultSubnet resource.
  */
 export interface DefaultSubnetArgs {
-    assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    assignIpv6AddressOnCreation?: pulumi.Input<boolean | undefined>;
     /**
      * is required
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
@@ -248,22 +248,22 @@ export interface DefaultSubnetArgs {
      * This resource supports the following additional arguments:
      */
     availabilityZone: pulumi.Input<string>;
-    customerOwnedIpv4Pool?: pulumi.Input<string>;
-    enableDns64?: pulumi.Input<boolean>;
-    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean>;
-    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean>;
+    customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
+    enableDns64?: pulumi.Input<boolean | undefined>;
+    enableResourceNameDnsARecordOnLaunch?: pulumi.Input<boolean | undefined>;
+    enableResourceNameDnsAaaaRecordOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
      * Whether destroying the resource deletes the default subnet. Default: `false`
      */
-    forceDestroy?: pulumi.Input<boolean>;
-    ipv6CidrBlock?: pulumi.Input<string>;
-    ipv6Native?: pulumi.Input<boolean>;
-    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
-    mapPublicIpOnLaunch?: pulumi.Input<boolean>;
-    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
+    ipv6CidrBlock?: pulumi.Input<string | undefined>;
+    ipv6Native?: pulumi.Input<boolean | undefined>;
+    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean | undefined>;
+    mapPublicIpOnLaunch?: pulumi.Input<boolean | undefined>;
+    privateDnsHostnameTypeOnLaunch?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
      */
-    region?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

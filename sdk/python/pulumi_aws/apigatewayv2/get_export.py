@@ -176,13 +176,13 @@ def get_export(api_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         specification=pulumi.get(__ret__, 'specification'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
-def get_export_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      export_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      include_extensions: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                      output_type: Optional[pulumi.Input[_builtins.str]] = None,
-                      region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      specification: Optional[pulumi.Input[_builtins.str]] = None,
-                      stage_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_export_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      export_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      include_extensions: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                      output_type: pulumi.Input[Optional[_builtins.str]] = None,
+                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      specification: pulumi.Input[Optional[_builtins.str]] = None,
+                      stage_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     Exports a definition of an API in a particular output format and specification.

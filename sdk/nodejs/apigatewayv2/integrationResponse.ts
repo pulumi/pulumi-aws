@@ -139,31 +139,31 @@ export interface IntegrationResponseState {
     /**
      * API identifier.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      */
-    contentHandlingStrategy?: pulumi.Input<string>;
+    contentHandlingStrategy?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Integration`.
      */
-    integrationId?: pulumi.Input<string>;
+    integrationId?: pulumi.Input<string | undefined>;
     /**
      * Integration response key.
      */
-    integrationResponseKey?: pulumi.Input<string>;
+    integrationResponseKey?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
-    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
-    templateSelectionExpression?: pulumi.Input<string>;
+    templateSelectionExpression?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface IntegrationResponseArgs {
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      */
-    contentHandlingStrategy?: pulumi.Input<string>;
+    contentHandlingStrategy?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the `aws.apigatewayv2.Integration`.
      */
@@ -189,13 +189,13 @@ export interface IntegrationResponseArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
-    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
-    templateSelectionExpression?: pulumi.Input<string>;
+    templateSelectionExpression?: pulumi.Input<string | undefined>;
 }

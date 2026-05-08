@@ -144,19 +144,19 @@ export interface ZoneAssociationState {
     /**
      * The account ID of the account that created the hosted zone.
      */
-    owningAccount?: pulumi.Input<string>;
+    owningAccount?: pulumi.Input<string | undefined>;
     /**
      * The VPC to associate with the private hosted zone.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    vpcRegion?: pulumi.Input<string>;
+    vpcRegion?: pulumi.Input<string | undefined>;
     /**
      * The private hosted zone to associate.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface ZoneAssociationArgs {
     /**
      * The VPC's region. Defaults to the region of the AWS provider.
      */
-    vpcRegion?: pulumi.Input<string>;
+    vpcRegion?: pulumi.Input<string | undefined>;
     /**
      * The private hosted zone to associate.
      */

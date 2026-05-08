@@ -105,13 +105,13 @@ export interface AutoshiftObserverNotificationStatusState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Autoshift observer notification status. Valid values are `ENABLED` or `DISABLED`.
      *
      * The following arguments are optional:
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -121,7 +121,7 @@ export interface AutoshiftObserverNotificationStatusArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Autoshift observer notification status. Valid values are `ENABLED` or `DISABLED`.
      *

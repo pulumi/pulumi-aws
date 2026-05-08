@@ -22,11 +22,11 @@ __all__ = ['SlotTypeArgs', 'SlotType']
 class SlotTypeArgs:
     def __init__(__self__, *,
                  enumeration_values: pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]],
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None):
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SlotType resource.
 
@@ -73,7 +73,7 @@ class SlotTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
-    def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a new slot type version is created when the initial resource is created and on each
         update. Defaults to `false`.
@@ -81,48 +81,48 @@ class SlotTypeArgs:
         return pulumi.get(self, "create_version")
 
     @create_version.setter
-    def create_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the slot type. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="valueSelectionStrategy")
-    def value_selection_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_selection_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the slot resolution strategy that Amazon Lex
         uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -132,23 +132,23 @@ class SlotTypeArgs:
         return pulumi.get(self, "value_selection_strategy")
 
     @value_selection_strategy.setter
-    def value_selection_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_selection_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_selection_strategy", value)
 
 
 @pulumi.input_type
 class _SlotTypeState:
     def __init__(__self__, *,
-                 checksum: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]] = None,
-                 last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 checksum: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]] = None,
+                 last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SlotType resources.
 
@@ -194,7 +194,7 @@ class _SlotTypeState:
 
     @_builtins.property
     @pulumi.getter
-    def checksum(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checksum(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Checksum identifying the version of the slot type that was created. The checksum is
         not included as an argument because the resource will add it automatically when updating the slot type.
@@ -202,12 +202,12 @@ class _SlotTypeState:
         return pulumi.get(self, "checksum")
 
     @checksum.setter
-    def checksum(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checksum(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checksum", value)
 
     @_builtins.property
     @pulumi.getter(name="createVersion")
-    def create_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if a new slot type version is created when the initial resource is created and on each
         update. Defaults to `false`.
@@ -215,36 +215,36 @@ class _SlotTypeState:
         return pulumi.get(self, "create_version")
 
     @create_version.setter
-    def create_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_version", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the slot type version was created.
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the slot type. Must be less than or equal to 200 characters in length.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enumerationValues")
-    def enumeration_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]]:
+    def enumeration_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]]:
         """
         A list of EnumerationValue objects that defines the values that
         the slot type can take. Each value can have a list of synonyms, which are additional values that help
@@ -254,48 +254,48 @@ class _SlotTypeState:
         return pulumi.get(self, "enumeration_values")
 
     @enumeration_values.setter
-    def enumeration_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]]):
+    def enumeration_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]]):
         pulumi.set(self, "enumeration_values", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date when the `$LATEST` version of this slot type was updated.
         """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
-    def last_updated_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="valueSelectionStrategy")
-    def value_selection_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_selection_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the slot resolution strategy that Amazon Lex
         uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -305,19 +305,19 @@ class _SlotTypeState:
         return pulumi.get(self, "value_selection_strategy")
 
     @value_selection_strategy.setter
-    def value_selection_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_selection_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_selection_strategy", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the slot type.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -327,12 +327,12 @@ class SlotType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amazon Lex Slot Type resource. For more information see
@@ -455,12 +455,12 @@ class SlotType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None,
+                 create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -492,16 +492,16 @@ class SlotType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            checksum: Optional[pulumi.Input[_builtins.str]] = None,
-            create_version: Optional[pulumi.Input[_builtins.bool]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
-            last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            value_selection_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'SlotType':
+            checksum: pulumi.Input[Optional[_builtins.str]] = None,
+            create_version: pulumi.Input[Optional[_builtins.bool]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enumeration_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            value_selection_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'SlotType':
         """
         Get an existing SlotType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

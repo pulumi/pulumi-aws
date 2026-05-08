@@ -64,8 +64,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -99,8 +99,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -145,8 +145,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -180,8 +180,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -226,8 +226,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -261,8 +261,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -307,8 +307,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -342,8 +342,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -388,8 +388,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -423,8 +423,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -469,8 +469,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -504,8 +504,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -550,8 +550,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -585,8 +585,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -629,8 +629,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -669,8 +669,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -709,8 +709,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -749,8 +749,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -789,8 +789,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -829,8 +829,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -869,8 +869,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetConnectionGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -909,8 +909,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -949,8 +949,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -989,8 +989,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1029,8 +1029,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1069,8 +1069,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1109,8 +1109,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1149,8 +1149,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1189,8 +1189,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1229,8 +1229,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1269,8 +1269,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1309,8 +1309,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1349,8 +1349,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetDistributionTenantArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1389,8 +1389,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1432,8 +1432,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1475,8 +1475,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1518,8 +1518,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1561,8 +1561,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1616,8 +1616,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1698,8 +1698,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1780,8 +1780,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1862,8 +1862,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1944,8 +1944,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2026,8 +2026,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2108,8 +2108,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2180,8 +2180,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2222,8 +2222,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2264,8 +2264,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2306,8 +2306,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2348,8 +2348,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2390,8 +2390,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2424,8 +2424,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2468,8 +2468,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2502,8 +2502,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2546,8 +2546,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2580,8 +2580,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2624,8 +2624,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2658,8 +2658,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2702,8 +2702,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2736,8 +2736,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2780,8 +2780,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2814,8 +2814,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2858,8 +2858,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2892,8 +2892,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2936,8 +2936,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2978,8 +2978,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3020,8 +3020,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3062,8 +3062,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3104,8 +3104,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3144,8 +3144,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3179,8 +3179,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3219,8 +3219,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3254,8 +3254,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3294,8 +3294,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3329,8 +3329,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3369,8 +3369,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3404,8 +3404,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3444,8 +3444,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3479,8 +3479,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3519,8 +3519,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3554,8 +3554,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3594,8 +3594,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3629,8 +3629,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3669,8 +3669,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3709,8 +3709,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3749,8 +3749,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3789,8 +3789,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3829,8 +3829,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3871,8 +3871,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3906,8 +3906,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3948,8 +3948,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3983,8 +3983,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4025,8 +4025,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4060,8 +4060,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4102,8 +4102,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4137,8 +4137,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4179,8 +4179,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4214,8 +4214,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4256,8 +4256,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4291,8 +4291,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4333,8 +4333,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4368,8 +4368,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

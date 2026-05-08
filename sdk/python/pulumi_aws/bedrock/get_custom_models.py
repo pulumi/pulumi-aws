@@ -94,7 +94,7 @@ def get_custom_models(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         model_summaries=pulumi.get(__ret__, 'model_summaries'),
         region=pulumi.get(__ret__, 'region'))
-def get_custom_models_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_custom_models_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomModelsResult]:
     """
     Returns a list of Amazon Bedrock custom models.

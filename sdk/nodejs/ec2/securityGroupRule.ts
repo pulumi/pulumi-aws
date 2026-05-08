@@ -297,59 +297,59 @@ export interface SecurityGroupRuleState {
     /**
      * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
-    cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    cidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
-    fromPort?: pulumi.Input<number>;
+    fromPort?: pulumi.Input<number | undefined>;
     /**
      * List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
-    ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Prefix List IDs.
      */
-    prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+    prefixListIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
-    protocol?: pulumi.Input<string | enums.ec2.ProtocolType>;
+    protocol?: pulumi.Input<string | enums.ec2.ProtocolType | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Security group to apply this rule to.
      */
-    securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string | undefined>;
     /**
      * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
      */
-    securityGroupRuleId?: pulumi.Input<string>;
+    securityGroupRuleId?: pulumi.Input<string | undefined>;
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
-    self?: pulumi.Input<boolean>;
+    self?: pulumi.Input<boolean | undefined>;
     /**
      * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
-    sourceSecurityGroupId?: pulumi.Input<string>;
+    sourceSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * End port (or ICMP code if protocol is "icmp").
      */
-    toPort?: pulumi.Input<number>;
+    toPort?: pulumi.Input<number | undefined>;
     /**
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      *
      * The following arguments are optional:
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -359,11 +359,11 @@ export interface SecurityGroupRuleArgs {
     /**
      * List of CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
-    cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    cidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
      */
@@ -371,11 +371,11 @@ export interface SecurityGroupRuleArgs {
     /**
      * List of IPv6 CIDR blocks. Cannot be specified with `sourceSecurityGroupId` or `self`.
      */
-    ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Prefix List IDs.
      */
-    prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+    prefixListIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
@@ -384,7 +384,7 @@ export interface SecurityGroupRuleArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Security group to apply this rule to.
      */
@@ -392,11 +392,11 @@ export interface SecurityGroupRuleArgs {
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `sourceSecurityGroupId`.
      */
-    self?: pulumi.Input<boolean>;
+    self?: pulumi.Input<boolean | undefined>;
     /**
      * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidrBlocks`, `ipv6CidrBlocks`, or `self`.
      */
-    sourceSecurityGroupId?: pulumi.Input<string>;
+    sourceSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * End port (or ICMP code if protocol is "icmp").
      */

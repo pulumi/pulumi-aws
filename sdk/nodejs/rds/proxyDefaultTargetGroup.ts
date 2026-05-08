@@ -112,23 +112,23 @@ export interface ProxyDefaultTargetGroupState {
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig | undefined>;
     /**
      * Name of the RDS DB Proxy.
      */
-    dbProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the default target group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface ProxyDefaultTargetGroupArgs {
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig | undefined>;
     /**
      * Name of the RDS DB Proxy.
      */
@@ -146,5 +146,5 @@ export interface ProxyDefaultTargetGroupArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

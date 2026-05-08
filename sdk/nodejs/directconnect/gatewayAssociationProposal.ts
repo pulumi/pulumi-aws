@@ -149,31 +149,31 @@ export interface GatewayAssociationProposalState {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    associatedGatewayId?: pulumi.Input<string>;
+    associatedGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    associatedGatewayOwnerAccountId?: pulumi.Input<string | undefined>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    associatedGatewayType?: pulumi.Input<string>;
+    associatedGatewayType?: pulumi.Input<string | undefined>;
     /**
      * Direct Connect Gateway identifier.
      */
-    dxGatewayId?: pulumi.Input<string>;
+    dxGatewayId?: pulumi.Input<string | undefined>;
     /**
      * AWS Account identifier of the Direct Connect Gateway's owner.
      */
-    dxGatewayOwnerAccountId?: pulumi.Input<string>;
+    dxGatewayOwnerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -183,7 +183,7 @@ export interface GatewayAssociationProposalArgs {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
@@ -199,5 +199,5 @@ export interface GatewayAssociationProposalArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

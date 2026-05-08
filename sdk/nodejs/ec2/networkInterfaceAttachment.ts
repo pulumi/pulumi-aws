@@ -136,31 +136,31 @@ export interface NetworkInterfaceAttachmentState {
     /**
      * The ENI Attachment ID.
      */
-    attachmentId?: pulumi.Input<string>;
+    attachmentId?: pulumi.Input<string | undefined>;
     /**
      * Network interface index (int).
      */
-    deviceIndex?: pulumi.Input<number>;
+    deviceIndex?: pulumi.Input<number | undefined>;
     /**
      * Instance ID to attach.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
      */
-    networkCardIndex?: pulumi.Input<number>;
+    networkCardIndex?: pulumi.Input<number | undefined>;
     /**
      * ENI ID to attach.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The status of the Network Interface Attachment.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface NetworkInterfaceAttachmentArgs {
     /**
      * Index of the network card. Specify a value greater than 0 when using multiple network cards, which are supported by [some instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards). The default is 0.
      */
-    networkCardIndex?: pulumi.Input<number>;
+    networkCardIndex?: pulumi.Input<number | undefined>;
     /**
      * ENI ID to attach.
      */
@@ -186,5 +186,5 @@ export interface NetworkInterfaceAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

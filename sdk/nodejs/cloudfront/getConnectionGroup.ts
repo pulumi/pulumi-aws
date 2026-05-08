@@ -115,9 +115,9 @@ export interface GetConnectionGroupOutputArgs {
     /**
      * Identifier for the connection group. For example: `EDFDVBD632BHDS5`. Exactly one of `id` or `routingEndpoint` must be specified.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Routing endpoint for the connection group. For example: `d111111abcdef8.cloudfront.net`. Exactly one of `id` or `routingEndpoint` must be specified.
      */
-    routingEndpoint?: pulumi.Input<string>;
+    routingEndpoint?: pulumi.Input<string | undefined>;
 }

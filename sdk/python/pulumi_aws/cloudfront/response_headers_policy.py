@@ -21,13 +21,13 @@ __all__ = ['ResponseHeadersPolicyArgs', 'ResponseHeadersPolicy']
 @pulumi.input_type
 class ResponseHeadersPolicyArgs:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
-                 custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
-                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
-                 server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_config: pulumi.Input[Optional['ResponseHeadersPolicyCorsConfigArgs']] = None,
+                 custom_headers_config: pulumi.Input[Optional['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_headers_config: pulumi.Input[Optional['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
+                 security_headers_config: pulumi.Input[Optional['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+                 server_timing_headers_config: pulumi.Input[Optional['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
         The set of arguments for constructing a ResponseHeadersPolicy resource.
 
@@ -56,101 +56,101 @@ class ResponseHeadersPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfig")
-    def cors_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']]:
+    def cors_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyCorsConfigArgs']]:
         """
         A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         """
         return pulumi.get(self, "cors_config")
 
     @cors_config.setter
-    def cors_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']]):
+    def cors_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyCorsConfigArgs']]):
         pulumi.set(self, "cors_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeadersConfig")
-    def custom_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]:
+    def custom_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyCustomHeadersConfigArgs']]:
         """
         Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         """
         return pulumi.get(self, "custom_headers_config")
 
     @custom_headers_config.setter
-    def custom_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]):
+    def custom_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyCustomHeadersConfigArgs']]):
         pulumi.set(self, "custom_headers_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name to identify the response headers policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="removeHeadersConfig")
-    def remove_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]:
+    def remove_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyRemoveHeadersConfigArgs']]:
         """
         A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         """
         return pulumi.get(self, "remove_headers_config")
 
     @remove_headers_config.setter
-    def remove_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]):
+    def remove_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyRemoveHeadersConfigArgs']]):
         pulumi.set(self, "remove_headers_config", value)
 
     @_builtins.property
     @pulumi.getter(name="securityHeadersConfig")
-    def security_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]:
+    def security_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicySecurityHeadersConfigArgs']]:
         """
         A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         """
         return pulumi.get(self, "security_headers_config")
 
     @security_headers_config.setter
-    def security_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
+    def security_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
         pulumi.set(self, "security_headers_config", value)
 
     @_builtins.property
     @pulumi.getter(name="serverTimingHeadersConfig")
-    def server_timing_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]:
+    def server_timing_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]:
         """
         A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         return pulumi.get(self, "server_timing_headers_config")
 
     @server_timing_headers_config.setter
-    def server_timing_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]):
+    def server_timing_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]):
         pulumi.set(self, "server_timing_headers_config", value)
 
 
 @pulumi.input_type
 class _ResponseHeadersPolicyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
-                 custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
-                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
-                 server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_config: pulumi.Input[Optional['ResponseHeadersPolicyCorsConfigArgs']] = None,
+                 custom_headers_config: pulumi.Input[Optional['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_headers_config: pulumi.Input[Optional['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
+                 security_headers_config: pulumi.Input[Optional['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+                 server_timing_headers_config: pulumi.Input[Optional['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ResponseHeadersPolicy resources.
 
@@ -185,110 +185,110 @@ class _ResponseHeadersPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The response headers policy ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="corsConfig")
-    def cors_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']]:
+    def cors_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyCorsConfigArgs']]:
         """
         A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         """
         return pulumi.get(self, "cors_config")
 
     @cors_config.setter
-    def cors_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']]):
+    def cors_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyCorsConfigArgs']]):
         pulumi.set(self, "cors_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customHeadersConfig")
-    def custom_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]:
+    def custom_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyCustomHeadersConfigArgs']]:
         """
         Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         """
         return pulumi.get(self, "custom_headers_config")
 
     @custom_headers_config.setter
-    def custom_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]):
+    def custom_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyCustomHeadersConfigArgs']]):
         pulumi.set(self, "custom_headers_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the response headers policy.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name to identify the response headers policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="removeHeadersConfig")
-    def remove_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]:
+    def remove_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyRemoveHeadersConfigArgs']]:
         """
         A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         """
         return pulumi.get(self, "remove_headers_config")
 
     @remove_headers_config.setter
-    def remove_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]):
+    def remove_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyRemoveHeadersConfigArgs']]):
         pulumi.set(self, "remove_headers_config", value)
 
     @_builtins.property
     @pulumi.getter(name="securityHeadersConfig")
-    def security_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]:
+    def security_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicySecurityHeadersConfigArgs']]:
         """
         A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         """
         return pulumi.get(self, "security_headers_config")
 
     @security_headers_config.setter
-    def security_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
+    def security_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
         pulumi.set(self, "security_headers_config", value)
 
     @_builtins.property
     @pulumi.getter(name="serverTimingHeadersConfig")
-    def server_timing_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]:
+    def server_timing_headers_config(self) -> pulumi.Input[Optional['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]:
         """
         A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         return pulumi.get(self, "server_timing_headers_config")
 
     @server_timing_headers_config.setter
-    def server_timing_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]):
+    def server_timing_headers_config(self, value: pulumi.Input[Optional['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]):
         pulumi.set(self, "server_timing_headers_config", value)
 
 
@@ -298,13 +298,13 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
-                 custom_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
-                 security_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
-                 server_timing_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
+                 custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
+                 security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
+                 server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a CloudFront response headers policy resource.
@@ -384,7 +384,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             },
             server_timing_headers_config={
                 "enabled": True,
-                "sampling_rate": 50,
+                "sampling_rate": float(50),
             })
         ```
 
@@ -491,7 +491,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             },
             server_timing_headers_config={
                 "enabled": True,
-                "sampling_rate": 50,
+                "sampling_rate": float(50),
             })
         ```
 
@@ -519,13 +519,13 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cors_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
-                 custom_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
-                 security_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
-                 server_timing_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
+                 custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
+                 security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
+                 server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -554,15 +554,15 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            cors_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
-            custom_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            remove_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
-            security_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
-            server_timing_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None) -> 'ResponseHeadersPolicy':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            cors_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
+            custom_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remove_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
+            security_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
+            server_timing_headers_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyServerTimingHeadersConfigArgs', 'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict']]] = None) -> 'ResponseHeadersPolicy':
         """
         Get an existing ResponseHeadersPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

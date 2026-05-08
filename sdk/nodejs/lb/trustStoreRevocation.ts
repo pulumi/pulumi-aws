@@ -137,27 +137,27 @@ export interface TrustStoreRevocationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS assigned RevocationId, (number).
      */
-    revocationId?: pulumi.Input<number>;
+    revocationId?: pulumi.Input<number | undefined>;
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      */
-    revocationsS3Bucket?: pulumi.Input<string>;
+    revocationsS3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 object key holding the client certificate CA bundle.
      */
-    revocationsS3Key?: pulumi.Input<string>;
+    revocationsS3Key?: pulumi.Input<string | undefined>;
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
-    revocationsS3ObjectVersion?: pulumi.Input<string>;
+    revocationsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * Trust Store ARN.
      */
-    trustStoreArn?: pulumi.Input<string>;
+    trustStoreArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface TrustStoreRevocationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      */
@@ -179,7 +179,7 @@ export interface TrustStoreRevocationArgs {
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
-    revocationsS3ObjectVersion?: pulumi.Input<string>;
+    revocationsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * Trust Store ARN.
      */

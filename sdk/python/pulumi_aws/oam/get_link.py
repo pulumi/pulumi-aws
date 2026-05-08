@@ -202,9 +202,9 @@ def get_link(link_identifier: Optional[_builtins.str] = None,
         resource_types=pulumi.get(__ret__, 'resource_types'),
         sink_arn=pulumi.get(__ret__, 'sink_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_link_output(link_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_link_output(link_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     Data source for managing an AWS CloudWatch Observability Access Manager Link.

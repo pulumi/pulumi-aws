@@ -96,7 +96,7 @@ def get_role_policies(role_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         policy_names=pulumi.get(__ret__, 'policy_names'),
         role_name=pulumi.get(__ret__, 'role_name'))
-def get_role_policies_output(role_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_policies_output(role_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRolePoliciesResult]:
     """
     Use this data source to get the names of inline policies associated with an IAM role.

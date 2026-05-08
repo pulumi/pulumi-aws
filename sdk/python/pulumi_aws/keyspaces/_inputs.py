@@ -42,11 +42,11 @@ __all__ = [
 ]
 
 class KeyspaceReplicationSpecificationArgsDict(TypedDict):
-    region_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    region_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
     """
-    replication_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    replication_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
     """
@@ -54,8 +54,8 @@ class KeyspaceReplicationSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class KeyspaceReplicationSpecificationArgs:
     def __init__(__self__, *,
-                 region_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 replication_strategy: Optional[pulumi.Input[_builtins.str]] = None):
+                 region_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 replication_strategy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_lists: Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
         :param pulumi.Input[_builtins.str] replication_strategy: Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
@@ -67,39 +67,39 @@ class KeyspaceReplicationSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="regionLists")
-    def region_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def region_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
         """
         return pulumi.get(self, "region_lists")
 
     @region_lists.setter
-    def region_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def region_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "region_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationStrategy")
-    def replication_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
         """
         return pulumi.get(self, "replication_strategy")
 
     @replication_strategy.setter
-    def replication_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_strategy", value)
 
 
 class TableCapacitySpecificationArgsDict(TypedDict):
-    read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    read_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The throughput capacity specified for read operations defined in read capacity units (RCUs).
     """
-    throughput_mode: NotRequired[pulumi.Input[_builtins.str]]
+    throughput_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
     """
-    write_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    write_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The throughput capacity specified for write operations defined in write capacity units (WCUs).
     """
@@ -107,9 +107,9 @@ class TableCapacitySpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class TableCapacitySpecificationArgs:
     def __init__(__self__, *,
-                 read_capacity_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 throughput_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 write_capacity_units: Optional[pulumi.Input[_builtins.int]] = None):
+                 read_capacity_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 throughput_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 write_capacity_units: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] read_capacity_units: The throughput capacity specified for read operations defined in read capacity units (RCUs).
         :param pulumi.Input[_builtins.str] throughput_mode: The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
@@ -124,38 +124,38 @@ class TableCapacitySpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="readCapacityUnits")
-    def read_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput capacity specified for read operations defined in read capacity units (RCUs).
         """
         return pulumi.get(self, "read_capacity_units")
 
     @read_capacity_units.setter
-    def read_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_capacity_units", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputMode")
-    def throughput_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def throughput_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
         """
         return pulumi.get(self, "throughput_mode")
 
     @throughput_mode.setter
-    def throughput_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def throughput_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "throughput_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="writeCapacityUnits")
-    def write_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput capacity specified for write operations defined in write capacity units (WCUs).
         """
         return pulumi.get(self, "write_capacity_units")
 
     @write_capacity_units.setter
-    def write_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_capacity_units", value)
 
 
@@ -188,7 +188,7 @@ class TableClientSideTimestampsArgs:
 
 
 class TableCommentArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the table.
     """
@@ -196,7 +196,7 @@ class TableCommentArgsDict(TypedDict):
 @pulumi.input_type
 class TableCommentArgs:
     def __init__(__self__, *,
-                 message: Optional[pulumi.Input[_builtins.str]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] message: A description of the table.
         """
@@ -205,23 +205,23 @@ class TableCommentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the table.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
 
 class TableEncryptionSpecificationArgsDict(TypedDict):
-    kms_key_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the customer managed KMS key.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
     """
@@ -229,8 +229,8 @@ class TableEncryptionSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class TableEncryptionSpecificationArgs:
     def __init__(__self__, *,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_identifier: The Amazon Resource Name (ARN) of the customer managed KMS key.
         :param pulumi.Input[_builtins.str] type: The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
@@ -242,31 +242,31 @@ class TableEncryptionSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
-    def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the customer managed KMS key.
         """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
-    def kms_key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class TablePointInTimeRecoveryArgsDict(TypedDict):
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
     """
@@ -274,7 +274,7 @@ class TablePointInTimeRecoveryArgsDict(TypedDict):
 @pulumi.input_type
 class TablePointInTimeRecoveryArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] status: Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
         """
@@ -283,14 +283,14 @@ class TablePointInTimeRecoveryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -303,11 +303,11 @@ class TableSchemaDefinitionArgsDict(TypedDict):
     """
     The columns that are part of the partition key of the table .
     """
-    clustering_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgsDict']]]]
+    clustering_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]]
     """
     The columns that are part of the clustering key of the table.
     """
-    static_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgsDict']]]]
+    static_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]]
     """
     The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
     """
@@ -317,8 +317,8 @@ class TableSchemaDefinitionArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]],
                  partition_keys: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]],
-                 clustering_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]] = None,
-                 static_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]] = None):
+                 clustering_keys: pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]] = None,
+                 static_columns: pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]] columns: The regular columns of the table.
         :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]] partition_keys: The columns that are part of the partition key of the table .
@@ -358,26 +358,26 @@ class TableSchemaDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusteringKeys")
-    def clustering_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]:
+    def clustering_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]:
         """
         The columns that are part of the clustering key of the table.
         """
         return pulumi.get(self, "clustering_keys")
 
     @clustering_keys.setter
-    def clustering_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]):
+    def clustering_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]):
         pulumi.set(self, "clustering_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="staticColumns")
-    def static_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]:
+    def static_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]:
         """
         The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
         """
         return pulumi.get(self, "static_columns")
 
     @static_columns.setter
-    def static_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]):
+    def static_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]):
         pulumi.set(self, "static_columns", value)
 
 

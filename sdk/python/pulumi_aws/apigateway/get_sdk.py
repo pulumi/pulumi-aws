@@ -180,11 +180,11 @@ def get_sdk(parameters: Optional[Mapping[str, _builtins.str]] = None,
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         sdk_type=pulumi.get(__ret__, 'sdk_type'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
-def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                   sdk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                   stage_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sdk_output(parameters: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                   sdk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                   stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSdkResult]:
     """
     ## Example Usage

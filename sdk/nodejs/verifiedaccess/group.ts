@@ -173,54 +173,54 @@ export interface GroupState {
     /**
      * Timestamp when the access group was created.
      */
-    creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the access group was deleted.
      */
-    deletionTime?: pulumi.Input<string>;
+    deletionTime?: pulumi.Input<string | undefined>;
     /**
      * Description of the verified access group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the access group was last updated.
      */
-    lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * AWS account number owning this resource.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The policy document that is associated with this resource.
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to use KMS keys for server-side encryption.
      */
-    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration>;
+    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of this verified acess group.
      */
-    verifiedaccessGroupArn?: pulumi.Input<string>;
+    verifiedaccessGroupArn?: pulumi.Input<string | undefined>;
     /**
      * ID of this verified access group.
      */
-    verifiedaccessGroupId?: pulumi.Input<string>;
+    verifiedaccessGroupId?: pulumi.Input<string | undefined>;
     /**
      * The id of the verified access instance this group is associated with.
      *
      * The following arguments are optional:
      */
-    verifiedaccessInstanceId?: pulumi.Input<string>;
+    verifiedaccessInstanceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -230,23 +230,23 @@ export interface GroupArgs {
     /**
      * Description of the verified access group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The policy document that is associated with this resource.
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to use KMS keys for server-side encryption.
      */
-    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration>;
+    sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The id of the verified access instance this group is associated with.
      *

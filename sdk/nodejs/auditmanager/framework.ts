@@ -154,38 +154,38 @@ export interface FrameworkState {
      * Amazon Resource Name (ARN) of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
      */
-    complianceType?: pulumi.Input<string>;
+    complianceType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      *
      * The following arguments are optional:
      */
-    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.FrameworkControlSet>[]>;
+    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.FrameworkControlSet>[] | undefined>;
     /**
      * Description of the framework.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Framework type, such as a custom framework or a standard framework.
      */
-    frameworkType?: pulumi.Input<string>;
+    frameworkType?: pulumi.Input<string | undefined>;
     /**
      * Name of the framework.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -195,27 +195,27 @@ export interface FrameworkArgs {
     /**
      * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
      */
-    complianceType?: pulumi.Input<string>;
+    complianceType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block(s) for the control sets that are associated with the framework. See `controlSets` Block below for details.
      *
      * The following arguments are optional:
      */
-    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.FrameworkControlSet>[]>;
+    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.FrameworkControlSet>[] | undefined>;
     /**
      * Description of the framework.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the framework.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

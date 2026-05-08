@@ -154,45 +154,45 @@ export interface ChannelNamespaceState {
     /**
      * Event API ID.
      */
-    apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the channel namespace.
      */
-    channelNamespaceArn?: pulumi.Input<string>;
+    channelNamespaceArn?: pulumi.Input<string | undefined>;
     /**
      * Event handler functions that run custom business logic to process published events and subscribe requests.
      */
-    codeHandlers?: pulumi.Input<string>;
+    codeHandlers?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
      */
-    handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs>;
+    handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
      * Name of the channel namespace.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
      */
-    publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[]>;
+    publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
      */
-    subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[]>;
+    subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -206,31 +206,31 @@ export interface ChannelNamespaceArgs {
     /**
      * Event handler functions that run custom business logic to process published events and subscribe requests.
      */
-    codeHandlers?: pulumi.Input<string>;
+    codeHandlers?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
      */
-    handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs>;
+    handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
      * Name of the channel namespace.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
      */
-    publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[]>;
+    publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
      */
-    subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[]>;
+    subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

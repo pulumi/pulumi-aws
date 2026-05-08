@@ -114,15 +114,15 @@ export interface TableBucketPolicyState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */
-    resourcePolicy?: pulumi.Input<string>;
+    resourcePolicy?: pulumi.Input<string | undefined>;
     /**
      * ARN referencing the Table Bucket that owns this policy.
      */
-    tableBucketArn?: pulumi.Input<string>;
+    tableBucketArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,7 +132,7 @@ export interface TableBucketPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */

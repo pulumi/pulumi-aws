@@ -24,14 +24,14 @@ class MetricStreamArgs:
                  firehose_arn: pulumi.Input[_builtins.str],
                  output_format: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
-                 include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
+                 include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MetricStream resource.
 
@@ -109,120 +109,120 @@ class MetricStreamArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludeFilters")
-    def exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]:
+    def exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]:
         """
         List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         """
         return pulumi.get(self, "exclude_filters")
 
     @exclude_filters.setter
-    def exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]):
+    def exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]):
         pulumi.set(self, "exclude_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="includeFilters")
-    def include_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]:
+    def include_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]:
         """
         List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         """
         return pulumi.get(self, "include_filters")
 
     @include_filters.setter
-    def include_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]):
+    def include_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]):
         pulumi.set(self, "include_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="includeLinkedAccountsMetrics")
-    def include_linked_accounts_metrics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_linked_accounts_metrics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         """
         return pulumi.get(self, "include_linked_accounts_metrics")
 
     @include_linked_accounts_metrics.setter
-    def include_linked_accounts_metrics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_linked_accounts_metrics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_linked_accounts_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="statisticsConfigurations")
-    def statistics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]:
+    def statistics_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]:
         """
         For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         """
         return pulumi.get(self, "statistics_configurations")
 
     @statistics_configurations.setter
-    def statistics_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]):
+    def statistics_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]):
         pulumi.set(self, "statistics_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _MetricStreamState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
-                 firehose_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
-                 include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_update_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
+                 firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
+                 include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_update_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering MetricStream resources.
 
@@ -280,115 +280,115 @@ class _MetricStreamState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the metric stream.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def creation_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
         """
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def creation_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "creation_date", value)
 
     @_builtins.property
     @pulumi.getter(name="excludeFilters")
-    def exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]:
+    def exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]:
         """
         List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         """
         return pulumi.get(self, "exclude_filters")
 
     @exclude_filters.setter
-    def exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]):
+    def exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]]):
         pulumi.set(self, "exclude_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseArn")
-    def firehose_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firehose_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         """
         return pulumi.get(self, "firehose_arn")
 
     @firehose_arn.setter
-    def firehose_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firehose_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firehose_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="includeFilters")
-    def include_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]:
+    def include_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]:
         """
         List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         """
         return pulumi.get(self, "include_filters")
 
     @include_filters.setter
-    def include_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]):
+    def include_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]]):
         pulumi.set(self, "include_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="includeLinkedAccountsMetrics")
-    def include_linked_accounts_metrics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_linked_accounts_metrics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         """
         return pulumi.get(self, "include_linked_accounts_metrics")
 
     @include_linked_accounts_metrics.setter
-    def include_linked_accounts_metrics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_linked_accounts_metrics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_linked_accounts_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdateDate")
-    def last_update_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_update_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         """
         return pulumi.get(self, "last_update_date")
 
     @last_update_date.setter
-    def last_update_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_update_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_update_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
-    def name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="outputFormat")
-    def output_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
 
@@ -397,79 +397,79 @@ class _MetricStreamState:
         return pulumi.get(self, "output_format")
 
     @output_format.setter
-    def output_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the metric stream. Possible values are `running` and `stopped`.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="statisticsConfigurations")
-    def statistics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]:
+    def statistics_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]:
         """
         For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         """
         return pulumi.get(self, "statistics_configurations")
 
     @statistics_configurations.setter
-    def statistics_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]):
+    def statistics_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]):
         pulumi.set(self, "statistics_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -479,17 +479,17 @@ class MetricStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
-                 firehose_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
-                 include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
+                 firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
+                 include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Metric Stream resource.
@@ -800,17 +800,17 @@ class MetricStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
-                 firehose_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
-                 include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
+                 firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
+                 include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -852,22 +852,22 @@ class MetricStream(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            creation_date: Optional[pulumi.Input[_builtins.str]] = None,
-            exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
-            firehose_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
-            include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_update_date: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            output_format: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'MetricStream':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            creation_date: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamExcludeFilterArgs', 'MetricStreamExcludeFilterArgsDict']]]]] = None,
+            firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamIncludeFilterArgs', 'MetricStreamIncludeFilterArgsDict']]]]] = None,
+            include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_update_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            output_format: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'MetricStream':
         """
         Get an existing MetricStream resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -207,9 +207,9 @@ def get_public_key(grant_tokens: Optional[Sequence[_builtins.str]] = None,
         public_key_pem=pulumi.get(__ret__, 'public_key_pem'),
         region=pulumi.get(__ret__, 'region'),
         signing_algorithms=pulumi.get(__ret__, 'signing_algorithms'))
-def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                          key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_public_key_output(grant_tokens: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                          key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.

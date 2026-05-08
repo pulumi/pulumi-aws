@@ -153,25 +153,25 @@ export interface TableBucketState {
     /**
      * ARN of the table bucket.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the bucket was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * A single table bucket encryption configuration object.
      * See `encryptionConfiguration` below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
      * Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
-    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration>;
+    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration | undefined>;
     /**
      * Name of the table bucket.
      * Must be between 3 and 63 characters in length.
@@ -180,23 +180,23 @@ export interface TableBucketState {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Account ID of the account that owns the table bucket.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -207,16 +207,16 @@ export interface TableBucketArgs {
      * A single table bucket encryption configuration object.
      * See `encryptionConfiguration` below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
      * Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * A single table bucket maintenance configuration object.
      * See `maintenanceConfiguration` below.
      */
-    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration>;
+    maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration | undefined>;
     /**
      * Name of the table bucket.
      * Must be between 3 and 63 characters in length.
@@ -225,13 +225,13 @@ export interface TableBucketArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

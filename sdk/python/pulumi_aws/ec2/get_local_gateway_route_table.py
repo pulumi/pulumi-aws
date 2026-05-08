@@ -174,13 +174,13 @@ def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGate
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict']]]]] = None,
-                                         local_gateway_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         local_gateway_route_table_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         outpost_arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_local_gateway_route_table_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict']]]]] = None,
+                                         local_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         local_gateway_route_table_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         outpost_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
     Provides details about an EC2 Local Gateway Route Table.

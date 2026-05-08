@@ -126,11 +126,11 @@ export interface RolePoliciesExclusiveState {
     /**
      * A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
      */
-    policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    policyNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IAM role name.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
 }
 
 /**

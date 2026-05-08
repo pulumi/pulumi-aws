@@ -114,15 +114,15 @@ export interface GroupMembershipState {
     /**
      * The IAM Group name to attach the list of `users` to
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * The name to identify the Group Membership
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM User names to associate with the Group
      */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -136,7 +136,7 @@ export interface GroupMembershipArgs {
     /**
      * The name to identify the Group Membership
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of IAM User names to associate with the Group
      */

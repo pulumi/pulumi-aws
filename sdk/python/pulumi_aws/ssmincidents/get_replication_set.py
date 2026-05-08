@@ -184,7 +184,7 @@ def get_replication_set(tags: Optional[Mapping[str, _builtins.str]] = None,
         regions=pulumi.get(__ret__, 'regions'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_replication_set_output(tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_replication_set_output(tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationSetResult]:
     """
     > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.

@@ -162,50 +162,50 @@ export interface ClusterState {
     /**
      * ARN of the Cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Whether deletion protection is enabled in this cluster.
      * Default value is `false`.
      */
-    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Encryption configuration details for the DSQL Cluster.
      */
-    encryptionDetails?: pulumi.Input<pulumi.Input<inputs.dsql.ClusterEncryptionDetail>[]>;
+    encryptionDetails?: pulumi.Input<pulumi.Input<inputs.dsql.ClusterEncryptionDetail>[] | undefined>;
     /**
      * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Cluster Identifier.
      */
-    identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
      */
-    kmsEncryptionKey?: pulumi.Input<string>;
+    kmsEncryptionKey?: pulumi.Input<string | undefined>;
     /**
      * Multi-region properties of the DSQL Cluster.
      */
-    multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties>;
+    multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of tags to be associated with the AWS DSQL Cluster resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.dsql.ClusterTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.dsql.ClusterTimeouts | undefined>;
     /**
      * The DSQL Cluster's VPC endpoint service name.
      */
-    vpcEndpointServiceName?: pulumi.Input<string>;
+    vpcEndpointServiceName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -216,27 +216,27 @@ export interface ClusterArgs {
      * Whether deletion protection is enabled in this cluster.
      * Default value is `false`.
      */
-    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Destroys cluster even if `deletionProtectionEnabled` is set to `true`.
      * Default value is `false`.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
      */
-    kmsEncryptionKey?: pulumi.Input<string>;
+    kmsEncryptionKey?: pulumi.Input<string | undefined>;
     /**
      * Multi-region properties of the DSQL Cluster.
      */
-    multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties>;
+    multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Set of tags to be associated with the AWS DSQL Cluster resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.dsql.ClusterTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.dsql.ClusterTimeouts | undefined>;
 }

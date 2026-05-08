@@ -276,65 +276,65 @@ export interface ConnectPeerState {
     /**
      * ARN of the Connect peer.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Connect peer BGP options. See bgpOptions for more information.
      */
-    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptions>;
+    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptions | undefined>;
     /**
      * Configuration of the Connect peer.
      */
-    configurations?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectPeerConfiguration>[]>;
+    configurations?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectPeerConfiguration>[] | undefined>;
     /**
      * ID of the connection attachment.
      */
-    connectAttachmentId?: pulumi.Input<string>;
+    connectAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * ID of the Connect peer.
      */
-    connectPeerId?: pulumi.Input<string>;
+    connectPeerId?: pulumi.Input<string | undefined>;
     /**
      * Connect peer core network address.
      */
-    coreNetworkAddress?: pulumi.Input<string>;
+    coreNetworkAddress?: pulumi.Input<string | undefined>;
     /**
      * ID of a core network.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the Connect peer was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Region where the peer is located.
      */
-    edgeLocation?: pulumi.Input<string>;
+    edgeLocation?: pulumi.Input<string | undefined>;
     /**
      * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      */
-    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Connect peer address.
      *
      * The following arguments are optional:
      */
-    peerAddress?: pulumi.Input<string>;
+    peerAddress?: pulumi.Input<string | undefined>;
     /**
      * State of the Connect peer.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      */
-    subnetArn?: pulumi.Input<string>;
+    subnetArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -344,7 +344,7 @@ export interface ConnectPeerArgs {
     /**
      * Connect peer BGP options. See bgpOptions for more information.
      */
-    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptions>;
+    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptions | undefined>;
     /**
      * ID of the connection attachment.
      */
@@ -352,11 +352,11 @@ export interface ConnectPeerArgs {
     /**
      * Connect peer core network address.
      */
-    coreNetworkAddress?: pulumi.Input<string>;
+    coreNetworkAddress?: pulumi.Input<string | undefined>;
     /**
      * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      */
-    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Connect peer address.
      *
@@ -366,9 +366,9 @@ export interface ConnectPeerArgs {
     /**
      * Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      */
-    subnetArn?: pulumi.Input<string>;
+    subnetArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

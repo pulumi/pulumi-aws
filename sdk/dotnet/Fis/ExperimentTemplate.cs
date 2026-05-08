@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Fis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var current = Aws.Index.GetPartition.Invoke();
+    ///     var current = Aws.GetPartition.Invoke();
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {

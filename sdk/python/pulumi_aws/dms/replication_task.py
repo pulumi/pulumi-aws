@@ -25,13 +25,13 @@ class ReplicationTaskArgs:
                  source_endpoint_arn: pulumi.Input[_builtins.str],
                  table_mappings: pulumi.Input[_builtins.str],
                  target_endpoint_arn: pulumi.Input[_builtins.str],
-                 cdc_start_position: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdc_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_replication_task: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 cdc_start_position: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdc_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_replication_task: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationTask resource.
 
@@ -144,108 +144,108 @@ class ReplicationTaskArgs:
 
     @_builtins.property
     @pulumi.getter(name="cdcStartPosition")
-    def cdc_start_position(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdc_start_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         """
         return pulumi.get(self, "cdc_start_position")
 
     @cdc_start_position.setter
-    def cdc_start_position(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdc_start_position(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdc_start_position", value)
 
     @_builtins.property
     @pulumi.getter(name="cdcStartTime")
-    def cdc_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdc_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         """
         return pulumi.get(self, "cdc_start_time")
 
     @cdc_start_time.setter
-    def cdc_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdc_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdc_start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationTaskSettings")
-    def replication_task_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_task_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
         """
         return pulumi.get(self, "replication_task_settings")
 
     @replication_task_settings.setter
-    def replication_task_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_task_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_task_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="startReplicationTask")
-    def start_replication_task(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start_replication_task(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to run or stop the replication task.
         """
         return pulumi.get(self, "start_replication_task")
 
     @start_replication_task.setter
-    def start_replication_task(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start_replication_task(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start_replication_task", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ReplicationTaskState:
     def __init__(__self__, *,
-                 cdc_start_position: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdc_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_replication_task: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_mappings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 cdc_start_position: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdc_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_replication_task: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicationTask resources.
 
@@ -301,194 +301,194 @@ class _ReplicationTaskState:
 
     @_builtins.property
     @pulumi.getter(name="cdcStartPosition")
-    def cdc_start_position(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdc_start_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         """
         return pulumi.get(self, "cdc_start_position")
 
     @cdc_start_position.setter
-    def cdc_start_position(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdc_start_position(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdc_start_position", value)
 
     @_builtins.property
     @pulumi.getter(name="cdcStartTime")
-    def cdc_start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdc_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         """
         return pulumi.get(self, "cdc_start_time")
 
     @cdc_start_time.setter
-    def cdc_start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdc_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdc_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationType")
-    def migration_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         """
         return pulumi.get(self, "migration_type")
 
     @migration_type.setter
-    def migration_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationInstanceArn")
-    def replication_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the replication instance.
         """
         return pulumi.get(self, "replication_instance_arn")
 
     @replication_instance_arn.setter
-    def replication_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_instance_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationTaskArn")
-    def replication_task_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_task_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the replication task.
         """
         return pulumi.get(self, "replication_task_arn")
 
     @replication_task_arn.setter
-    def replication_task_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_task_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_task_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationTaskId")
-    def replication_task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_task_id")
 
     @replication_task_id.setter
-    def replication_task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_task_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationTaskSettings")
-    def replication_task_settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_task_settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
         """
         return pulumi.get(self, "replication_task_settings")
 
     @replication_task_settings.setter
-    def replication_task_settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_task_settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_task_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceEndpointArn")
-    def source_endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_endpoint_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN that uniquely identifies the source endpoint.
         """
         return pulumi.get(self, "source_endpoint_arn")
 
     @source_endpoint_arn.setter
-    def source_endpoint_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_endpoint_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_endpoint_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="startReplicationTask")
-    def start_replication_task(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def start_replication_task(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to run or stop the replication task.
         """
         return pulumi.get(self, "start_replication_task")
 
     @start_replication_task.setter
-    def start_replication_task(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def start_replication_task(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "start_replication_task", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Replication Task status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="tableMappings")
-    def table_mappings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_mappings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         """
         return pulumi.get(self, "table_mappings")
 
     @table_mappings.setter
-    def table_mappings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_mappings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetEndpointArn")
-    def target_endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_endpoint_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN that uniquely identifies the target endpoint.
         """
         return pulumi.get(self, "target_endpoint_arn")
 
     @target_endpoint_arn.setter
-    def target_endpoint_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_endpoint_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_endpoint_arn", value)
 
 
@@ -498,19 +498,19 @@ class ReplicationTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdc_start_position: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdc_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_replication_task: Optional[pulumi.Input[_builtins.bool]] = None,
-                 table_mappings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 cdc_start_position: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdc_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_replication_task: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
@@ -619,19 +619,19 @@ class ReplicationTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdc_start_position: Optional[pulumi.Input[_builtins.str]] = None,
-                 cdc_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_task_settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_replication_task: Optional[pulumi.Input[_builtins.bool]] = None,
-                 table_mappings: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 cdc_start_position: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdc_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_task_settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_replication_task: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -679,22 +679,22 @@ class ReplicationTask(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cdc_start_position: Optional[pulumi.Input[_builtins.str]] = None,
-            cdc_start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            migration_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_task_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_task_id: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_task_settings: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            source_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            start_replication_task: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            table_mappings: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'ReplicationTask':
+            cdc_start_position: pulumi.Input[Optional[_builtins.str]] = None,
+            cdc_start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            migration_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_task_id: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_task_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            start_replication_task: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReplicationTask':
         """
         Get an existing ReplicationTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

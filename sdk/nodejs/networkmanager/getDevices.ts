@@ -101,9 +101,9 @@ export interface GetDevicesOutputArgs {
     /**
      * ID of the site of the devices to retrieve.
      */
-    siteId?: pulumi.Input<string>;
+    siteId?: pulumi.Input<string | undefined>;
     /**
      * Restricts the list to the devices with these tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -20,41 +20,41 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']] = None,
-                 assume_roles: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]] = None,
-                 custom_ca_bundle: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
-                 ec2_metadata_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
-                 forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sts_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_policy_compliance: Optional[pulumi.Input[_builtins.str]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_agents: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 assume_role_with_web_identity: pulumi.Input[Optional['ProviderAssumeRoleWithWebIdentityArgs']] = None,
+                 assume_roles: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]] = None,
+                 custom_ca_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_tags: pulumi.Input[Optional['ProviderDefaultTagsArgs']] = None,
+                 ec2_metadata_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2_metadata_service_endpoint_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
+                 forbidden_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_tags: pulumi.Input[Optional['ProviderIgnoreTagsArgs']] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_us_east1_regional_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_use_path_style: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_config_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 shared_credentials_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_metadata_api_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_region_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_requesting_account_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sts_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_policy_compliance: pulumi.Input[Optional[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_bucket_rate_limiter_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_dualstack_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_fips_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_agents: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -179,7 +179,7 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key for API operations. You can retrieve this
         from the 'Security & Credentials' section of the AWS console.
@@ -187,153 +187,153 @@ class ProviderArgs:
         return pulumi.get(self, "access_key")
 
     @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAccountIds")
-    def allowed_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_account_ids")
 
     @allowed_account_ids.setter
-    def allowed_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="assumeRoleWithWebIdentity")
-    def assume_role_with_web_identity(self) -> Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]:
+    def assume_role_with_web_identity(self) -> pulumi.Input[Optional['ProviderAssumeRoleWithWebIdentityArgs']]:
         return pulumi.get(self, "assume_role_with_web_identity")
 
     @assume_role_with_web_identity.setter
-    def assume_role_with_web_identity(self, value: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]):
+    def assume_role_with_web_identity(self, value: pulumi.Input[Optional['ProviderAssumeRoleWithWebIdentityArgs']]):
         pulumi.set(self, "assume_role_with_web_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="assumeRoles")
-    def assume_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]]:
+    def assume_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]]:
         return pulumi.get(self, "assume_roles")
 
     @assume_roles.setter
-    def assume_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]]):
+    def assume_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]]):
         pulumi.set(self, "assume_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="customCaBundle")
-    def custom_ca_bundle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_ca_bundle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
         """
         return pulumi.get(self, "custom_ca_bundle")
 
     @custom_ca_bundle.setter
-    def custom_ca_bundle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_ca_bundle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_ca_bundle", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTags")
-    def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
+    def default_tags(self) -> pulumi.Input[Optional['ProviderDefaultTagsArgs']]:
         """
         Configuration block with settings to default resource tags across all resources.
         """
         return pulumi.get(self, "default_tags")
 
     @default_tags.setter
-    def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArgs']]):
+    def default_tags(self, value: pulumi.Input[Optional['ProviderDefaultTagsArgs']]):
         pulumi.set(self, "default_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2MetadataServiceEndpoint")
-    def ec2_metadata_service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ec2_metadata_service_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         """
         return pulumi.get(self, "ec2_metadata_service_endpoint")
 
     @ec2_metadata_service_endpoint.setter
-    def ec2_metadata_service_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ec2_metadata_service_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ec2_metadata_service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="ec2MetadataServiceEndpointMode")
-    def ec2_metadata_service_endpoint_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ec2_metadata_service_endpoint_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         """
         return pulumi.get(self, "ec2_metadata_service_endpoint_mode")
 
     @ec2_metadata_service_endpoint_mode.setter
-    def ec2_metadata_service_endpoint_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ec2_metadata_service_endpoint_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ec2_metadata_service_endpoint_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProviderEndpointArgs']]]]:
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="forbiddenAccountIds")
-    def forbidden_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def forbidden_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "forbidden_account_ids")
 
     @forbidden_account_ids.setter
-    def forbidden_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def forbidden_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "forbidden_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="httpProxy")
-    def http_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
         """
         return pulumi.get(self, "http_proxy")
 
     @http_proxy.setter
-    def http_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsProxy")
-    def https_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
         """
         return pulumi.get(self, "https_proxy")
 
     @https_proxy.setter
-    def https_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreTags")
-    def ignore_tags(self) -> Optional[pulumi.Input['ProviderIgnoreTagsArgs']]:
+    def ignore_tags(self) -> pulumi.Input[Optional['ProviderIgnoreTagsArgs']]:
         """
         Configuration block with settings to ignore resource tags across all resources.
         """
         return pulumi.get(self, "ignore_tags")
 
     @ignore_tags.setter
-    def ignore_tags(self, value: Optional[pulumi.Input['ProviderIgnoreTagsArgs']]):
+    def ignore_tags(self, value: pulumi.Input[Optional['ProviderIgnoreTagsArgs']]):
         pulumi.set(self, "ignore_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def insecure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         """
         return pulumi.get(self, "insecure")
 
     @insecure.setter
-    def insecure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of times an AWS API request is
         being executed. If the API request still fails, an error is
@@ -342,24 +342,24 @@ class ProviderArgs:
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="noProxy")
-    def no_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def no_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
         """
         return pulumi.get(self, "no_proxy")
 
     @no_proxy.setter
-    def no_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def no_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "no_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The profile for API operations. If not set, the default profile
         created with `aws configure` will be used.
@@ -367,12 +367,12 @@ class ProviderArgs:
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region where AWS operations will take place. Examples
         are us-east-1, us-west-2, etc.
@@ -380,36 +380,36 @@ class ProviderArgs:
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retryMode")
-    def retry_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retry_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
         """
         return pulumi.get(self, "retry_mode")
 
     @retry_mode.setter
-    def retry_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retry_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retry_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="s3UsEast1RegionalEndpoint")
-    def s3_us_east1_regional_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_us_east1_regional_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         """
         return pulumi.get(self, "s3_us_east1_regional_endpoint")
 
     @s3_us_east1_regional_endpoint.setter
-    def s3_us_east1_regional_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_us_east1_regional_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_us_east1_regional_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="s3UsePathStyle")
-    def s3_use_path_style(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def s3_use_path_style(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this to true to enable the request to use path-style addressing,
         i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
@@ -419,12 +419,12 @@ class ProviderArgs:
         return pulumi.get(self, "s3_use_path_style")
 
     @s3_use_path_style.setter
-    def s3_use_path_style(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def s3_use_path_style(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "s3_use_path_style", value)
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
-    def secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret key for API operations. You can retrieve this
         from the 'Security & Credentials' section of the AWS console.
@@ -432,84 +432,84 @@ class ProviderArgs:
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
-    def secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedConfigFiles")
-    def shared_config_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def shared_config_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of paths to shared config files. If not set, defaults to [~/.aws/config].
         """
         return pulumi.get(self, "shared_config_files")
 
     @shared_config_files.setter
-    def shared_config_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def shared_config_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "shared_config_files", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedCredentialsFiles")
-    def shared_credentials_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def shared_credentials_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
         """
         return pulumi.get(self, "shared_credentials_files")
 
     @shared_credentials_files.setter
-    def shared_credentials_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def shared_credentials_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "shared_credentials_files", value)
 
     @_builtins.property
     @pulumi.getter(name="skipCredentialsValidation")
-    def skip_credentials_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_credentials_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
         """
         return pulumi.get(self, "skip_credentials_validation")
 
     @skip_credentials_validation.setter
-    def skip_credentials_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_credentials_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_credentials_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="skipMetadataApiCheck")
-    def skip_metadata_api_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_metadata_api_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         """
         return pulumi.get(self, "skip_metadata_api_check")
 
     @skip_metadata_api_check.setter
-    def skip_metadata_api_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_metadata_api_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_metadata_api_check", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRegionValidation")
-    def skip_region_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_region_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
         """
         return pulumi.get(self, "skip_region_validation")
 
     @skip_region_validation.setter
-    def skip_region_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_region_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_region_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRequestingAccountId")
-    def skip_requesting_account_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_requesting_account_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         """
         return pulumi.get(self, "skip_requesting_account_id")
 
     @skip_requesting_account_id.setter
-    def skip_requesting_account_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_requesting_account_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_requesting_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stsRegion")
-    def sts_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sts_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region where AWS STS operations will take place. Examples
         are us-east-1 and us-west-2.
@@ -517,24 +517,24 @@ class ProviderArgs:
         return pulumi.get(self, "sts_region")
 
     @sts_region.setter
-    def sts_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sts_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sts_region", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPolicyCompliance")
-    def tag_policy_compliance(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_policy_compliance(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
         """
         return pulumi.get(self, "tag_policy_compliance")
 
     @tag_policy_compliance.setter
-    def tag_policy_compliance(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_policy_compliance(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_policy_compliance", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         session token. A session token is only required if you are
         using temporary security credentials.
@@ -542,55 +542,55 @@ class ProviderArgs:
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenBucketRateLimiterCapacity")
-    def token_bucket_rate_limiter_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def token_bucket_rate_limiter_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The capacity of the AWS SDK's token bucket rate limiter.
         """
         return pulumi.get(self, "token_bucket_rate_limiter_capacity")
 
     @token_bucket_rate_limiter_capacity.setter
-    def token_bucket_rate_limiter_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def token_bucket_rate_limiter_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "token_bucket_rate_limiter_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="useDualstackEndpoint")
-    def use_dualstack_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_dualstack_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Resolve an endpoint with DualStack capability
         """
         return pulumi.get(self, "use_dualstack_endpoint")
 
     @use_dualstack_endpoint.setter
-    def use_dualstack_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_dualstack_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_dualstack_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="useFipsEndpoint")
-    def use_fips_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_fips_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Resolve an endpoint with FIPS capability
         """
         return pulumi.get(self, "use_fips_endpoint")
 
     @use_fips_endpoint.setter
-    def use_fips_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_fips_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_fips_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="userAgents")
-    def user_agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_agents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Product details to append to the User-Agent string sent in all AWS API calls.
         """
         return pulumi.get(self, "user_agents")
 
     @user_agents.setter
-    def user_agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_agents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_agents", value)
 
 
@@ -600,41 +600,41 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
-                 assume_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]]]] = None,
-                 custom_ca_bundle: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
-                 ec2_metadata_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
-                 forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sts_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_policy_compliance: Optional[pulumi.Input[_builtins.str]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_agents: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 assume_role_with_web_identity: pulumi.Input[Optional[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
+                 assume_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]]]] = None,
+                 custom_ca_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 ec2_metadata_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2_metadata_service_endpoint_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
+                 forbidden_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_tags: pulumi.Input[Optional[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_us_east1_regional_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_use_path_style: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_config_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 shared_credentials_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_metadata_api_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_region_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_requesting_account_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sts_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_policy_compliance: pulumi.Input[Optional[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_bucket_rate_limiter_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_dualstack_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_fips_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_agents: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The provider type for the aws package. By default, resources use package-wide configuration
@@ -715,41 +715,41 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
-                 assume_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]]]] = None,
-                 custom_ca_bundle: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
-                 ec2_metadata_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
-                 forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retry_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sts_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_policy_compliance: Optional[pulumi.Input[_builtins.str]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_bucket_rate_limiter_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 use_dualstack_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_fips_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_agents: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 assume_role_with_web_identity: pulumi.Input[Optional[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
+                 assume_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]]]] = None,
+                 custom_ca_bundle: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 ec2_metadata_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2_metadata_service_endpoint_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
+                 forbidden_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_tags: pulumi.Input[Optional[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retry_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_us_east1_regional_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_use_path_style: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_config_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 shared_credentials_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_metadata_api_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_region_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_requesting_account_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sts_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_policy_compliance: pulumi.Input[Optional[_builtins.str]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_bucket_rate_limiter_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_dualstack_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_fips_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_agents: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

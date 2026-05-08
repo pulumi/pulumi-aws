@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.Index.GetAvailabilityZones.Invoke();
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
     /// 
     ///     var example = new Aws.AutoScaling.Group("example", new()
     ///     {
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///             {
     ///                 MaxCapacity = 3,
     ///                 MinCapacity = 0,
-    ///                 ResourceId = Std.Index.Format.Invoke(new()
+    ///                 ResourceId = Std.Format.Invoke(new()
     ///                 {
     ///                     Input = "autoScalingGroup/%s",
     ///                     Args = new[]
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var available = Aws.Index.GetAvailabilityZones.Invoke();
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
     /// 
     ///     var example = new Aws.AutoScaling.Group("example", new()
     ///     {
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     ///                 DisableDynamicScaling = true,
     ///                 MaxCapacity = 3,
     ///                 MinCapacity = 0,
-    ///                 ResourceId = Std.Index.Format.Invoke(new()
+    ///                 ResourceId = Std.Format.Invoke(new()
     ///                 {
     ///                     Input = "autoScalingGroup/%s",
     ///                     Args = new[]

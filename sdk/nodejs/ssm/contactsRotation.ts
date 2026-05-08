@@ -261,41 +261,41 @@ export interface ContactsRotationState {
     /**
      * The Amazon Resource Name (ARN) of the rotation.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
-    contactIds?: pulumi.Input<pulumi.Input<string>[]>;
+    contactIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name for the rotation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
      *
      * The following arguments are optional:
      */
-    recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
+    recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
      */
-    timeZoneId?: pulumi.Input<string>;
+    timeZoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -309,7 +309,7 @@ export interface ContactsRotationArgs {
     /**
      * The name for the rotation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
      *
@@ -319,15 +319,15 @@ export interface ContactsRotationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
      */

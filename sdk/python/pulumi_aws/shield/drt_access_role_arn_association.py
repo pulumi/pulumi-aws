@@ -22,7 +22,7 @@ __all__ = ['DrtAccessRoleArnAssociationArgs', 'DrtAccessRoleArnAssociation']
 class DrtAccessRoleArnAssociationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
+                 timeouts: pulumi.Input[Optional['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DrtAccessRoleArnAssociation resource.
 
@@ -46,19 +46,19 @@ class DrtAccessRoleArnAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DrtAccessRoleArnAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DrtAccessRoleArnAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _DrtAccessRoleArnAssociationState:
     def __init__(__self__, *,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DrtAccessRoleArnAssociation resources.
 
@@ -71,23 +71,23 @@ class _DrtAccessRoleArnAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['DrtAccessRoleArnAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['DrtAccessRoleArnAssociationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -97,8 +97,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
@@ -207,8 +207,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,8 +232,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None) -> 'DrtAccessRoleArnAssociation':
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None) -> 'DrtAccessRoleArnAssociation':
         """
         Get an existing DrtAccessRoleArnAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

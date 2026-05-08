@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Cognito
     ///         },
     ///     });
     /// 
-    ///     var current = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var test = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {

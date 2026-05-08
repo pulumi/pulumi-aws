@@ -226,60 +226,60 @@ export interface DistributionTenantState {
     /**
      * ARN of the distribution tenant.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
      */
-    connectionGroupId?: pulumi.Input<string>;
+    connectionGroupId?: pulumi.Input<string | undefined>;
     /**
      * Customizations for the distribution tenant (maximum one).
      */
-    customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizations>;
+    customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizations | undefined>;
     /**
      * ID of the multi-tenant distribution.
      */
-    distributionId?: pulumi.Input<string>;
+    distributionId?: pulumi.Input<string | undefined>;
     /**
      * Set of domains associated with the distribution tenant.
      */
-    domains?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantDomain>[]>;
+    domains?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantDomain>[] | undefined>;
     /**
      * Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Current version of the distribution tenant.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * Managed certificate request for CloudFront managed ACM certificate (maximum one).
      */
-    managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequest>;
+    managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequest | undefined>;
     /**
      * Name of the distribution tenant.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set of parameter values for the distribution tenant.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameter>[] | undefined>;
     /**
      * Current status of the distribution tenant.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.DistributionTenantTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.DistributionTenantTimeouts | undefined>;
     /**
      * If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
      */
-    waitForDeployment?: pulumi.Input<boolean>;
+    waitForDeployment?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -289,11 +289,11 @@ export interface DistributionTenantArgs {
     /**
      * ID of the connection group for the distribution tenant. If not specified, CloudFront uses the default connection group.
      */
-    connectionGroupId?: pulumi.Input<string>;
+    connectionGroupId?: pulumi.Input<string | undefined>;
     /**
      * Customizations for the distribution tenant (maximum one).
      */
-    customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizations>;
+    customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizations | undefined>;
     /**
      * ID of the multi-tenant distribution.
      */
@@ -301,30 +301,30 @@ export interface DistributionTenantArgs {
     /**
      * Set of domains associated with the distribution tenant.
      */
-    domains?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantDomain>[]>;
+    domains?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantDomain>[] | undefined>;
     /**
      * Whether the distribution tenant is enabled to serve traffic. Defaults to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Managed certificate request for CloudFront managed ACM certificate (maximum one).
      */
-    managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequest>;
+    managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequest | undefined>;
     /**
      * Name of the distribution tenant.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Set of parameter values for the distribution tenant.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameter>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.cloudfront.DistributionTenantTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.cloudfront.DistributionTenantTimeouts | undefined>;
     /**
      * If enabled, the resource will wait for the distribution tenant status to change from `InProgress` to `Deployed`. Setting this to `false` will skip the process. Default: `true`.
      */
-    waitForDeployment?: pulumi.Input<boolean>;
+    waitForDeployment?: pulumi.Input<boolean | undefined>;
 }

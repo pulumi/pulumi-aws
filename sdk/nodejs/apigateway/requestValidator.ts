@@ -121,23 +121,23 @@ export interface RequestValidatorState {
     /**
      * Name of the request validator
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated Rest API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi | undefined>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
-    validateRequestBody?: pulumi.Input<boolean>;
+    validateRequestBody?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      */
-    validateRequestParameters?: pulumi.Input<boolean>;
+    validateRequestParameters?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -147,11 +147,11 @@ export interface RequestValidatorArgs {
     /**
      * Name of the request validator
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated Rest API
      */
@@ -159,9 +159,9 @@ export interface RequestValidatorArgs {
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
-    validateRequestBody?: pulumi.Input<boolean>;
+    validateRequestBody?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      */
-    validateRequestParameters?: pulumi.Input<boolean>;
+    validateRequestParameters?: pulumi.Input<boolean | undefined>;
 }

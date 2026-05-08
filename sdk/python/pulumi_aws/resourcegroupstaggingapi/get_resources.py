@@ -189,12 +189,12 @@ def get_resources(exclude_compliant_resources: Optional[_builtins.bool] = None,
         resource_tag_mapping_lists=pulumi.get(__ret__, 'resource_tag_mapping_lists'),
         resource_type_filters=pulumi.get(__ret__, 'resource_type_filters'),
         tag_filters=pulumi.get(__ret__, 'tag_filters'))
-def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         include_compliance_details: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         resource_arn_lists: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                         resource_type_filters: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                         tag_filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']]]]] = None,
+def get_resources_output(exclude_compliant_resources: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         include_compliance_details: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_arn_lists: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                         resource_type_filters: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                         tag_filters: pulumi.Input[Optional[Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcesResult]:
     """
     Provides details about resource tagging.

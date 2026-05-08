@@ -22,14 +22,14 @@ __all__ = ['OrganizationArgs', 'Organization']
 class OrganizationArgs:
     def __init__(__self__, *,
                  organization_alias: pulumi.Input[_builtins.str],
-                 delete_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_identity_center_application: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interoperability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['OrganizationTimeoutsArgs']] = None):
+                 delete_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_identity_center_application: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interoperability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['OrganizationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Organization resource.
 
@@ -78,118 +78,118 @@ class OrganizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteDirectory")
-    def delete_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_directory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the AWS Directory Service directory associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
         """
         return pulumi.get(self, "delete_directory")
 
     @delete_directory.setter
-    def delete_directory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_directory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteIdentityCenterApplication")
-    def delete_identity_center_application(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_identity_center_application(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the IAM Identity Center application associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
         """
         return pulumi.get(self, "delete_identity_center_application")
 
     @delete_identity_center_application.setter
-    def delete_identity_center_application(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_identity_center_application(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_identity_center_application", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of an existing directory to associate with the organization. Changing this creates a new resource.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="interoperabilityEnabled")
-    def interoperability_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def interoperability_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable interoperability between WorkMail and Microsoft Exchange. Changing this creates a new resource.
         """
         return pulumi.get(self, "interoperability_enabled")
 
     @interoperability_enabled.setter
-    def interoperability_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def interoperability_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "interoperability_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a customer-managed KMS key to encrypt the organization's data. If omitted, AWS managed keys are used. Changing this creates a new resource.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['OrganizationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['OrganizationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['OrganizationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['OrganizationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _OrganizationState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 completed_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_mail_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_identity_center_application: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 interoperability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_admin: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['OrganizationTimeoutsArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 completed_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_mail_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_identity_center_application: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 interoperability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_admin: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['OrganizationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Organization resources.
 
@@ -249,127 +249,127 @@ class _OrganizationState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Organization.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="completedDate")
-    def completed_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def completed_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time (RFC3339) at which the organization became active.
         """
         return pulumi.get(self, "completed_date")
 
     @completed_date.setter
-    def completed_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def completed_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "completed_date", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMailDomain")
-    def default_mail_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_mail_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default mail domain for the organization.
         """
         return pulumi.get(self, "default_mail_domain")
 
     @default_mail_domain.setter
-    def default_mail_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_mail_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_mail_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteDirectory")
-    def delete_directory(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_directory(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the AWS Directory Service directory associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
         """
         return pulumi.get(self, "delete_directory")
 
     @delete_directory.setter
-    def delete_directory(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_directory(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteIdentityCenterApplication")
-    def delete_identity_center_application(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_identity_center_application(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the IAM Identity Center application associated with the organization on destroy. To update this value after creation, run `pulumi up` before running `terraform destroy`. Defaults to `false`.
         """
         return pulumi.get(self, "delete_identity_center_application")
 
     @delete_identity_center_application.setter
-    def delete_identity_center_application(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_identity_center_application(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_identity_center_application", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of an existing directory to associate with the organization. Changing this creates a new resource.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the associated directory.
         """
         return pulumi.get(self, "directory_type")
 
     @directory_type.setter
-    def directory_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_type", value)
 
     @_builtins.property
     @pulumi.getter(name="interoperabilityEnabled")
-    def interoperability_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def interoperability_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable interoperability between WorkMail and Microsoft Exchange. Changing this creates a new resource.
         """
         return pulumi.get(self, "interoperability_enabled")
 
     @interoperability_enabled.setter
-    def interoperability_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def interoperability_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "interoperability_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a customer-managed KMS key to encrypt the organization's data. If omitted, AWS managed keys are used. Changing this creates a new resource.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationAdmin")
-    def migration_admin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_admin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User ID of the migration admin if migration is enabled.
         """
         return pulumi.get(self, "migration_admin")
 
     @migration_admin.setter
-    def migration_admin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_admin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_admin", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationAlias")
-    def organization_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alias for the organization. Must be unique globally. Changing this creates a new resource.
 
@@ -378,76 +378,76 @@ class _OrganizationState:
         return pulumi.get(self, "organization_alias")
 
     @organization_alias.setter
-    def organization_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationId")
-    def organization_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the WorkMail Organization.
         """
         return pulumi.get(self, "organization_id")
 
     @organization_id.setter
-    def organization_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the organization.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['OrganizationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['OrganizationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['OrganizationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['OrganizationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -457,15 +457,15 @@ class Organization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_identity_center_application: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interoperability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None,
+                 delete_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_identity_center_application: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interoperability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS WorkMail Organization.
@@ -573,15 +573,15 @@ class Organization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_identity_center_application: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 interoperability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None,
+                 delete_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_identity_center_application: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interoperability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -620,23 +620,23 @@ class Organization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            completed_date: Optional[pulumi.Input[_builtins.str]] = None,
-            default_mail_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_directory: Optional[pulumi.Input[_builtins.bool]] = None,
-            delete_identity_center_application: Optional[pulumi.Input[_builtins.bool]] = None,
-            directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_type: Optional[pulumi.Input[_builtins.str]] = None,
-            interoperability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            migration_admin: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_alias: Optional[pulumi.Input[_builtins.str]] = None,
-            organization_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None) -> 'Organization':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            completed_date: pulumi.Input[Optional[_builtins.str]] = None,
+            default_mail_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_directory: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_identity_center_application: pulumi.Input[Optional[_builtins.bool]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_type: pulumi.Input[Optional[_builtins.str]] = None,
+            interoperability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            migration_admin: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_alias: pulumi.Input[Optional[_builtins.str]] = None,
+            organization_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['OrganizationTimeoutsArgs', 'OrganizationTimeoutsArgsDict']]] = None) -> 'Organization':
         """
         Get an existing Organization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

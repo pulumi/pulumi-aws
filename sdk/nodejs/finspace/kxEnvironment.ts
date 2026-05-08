@@ -248,61 +248,61 @@ export interface KxEnvironmentState {
     /**
      * Amazon Resource Name (ARN) identifier of the KX environment.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    createdTimestamp?: pulumi.Input<string>;
+    createdTimestamp?: pulumi.Input<string | undefined>;
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      */
-    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxEnvironmentCustomDnsConfiguration>[]>;
+    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxEnvironmentCustomDnsConfiguration>[] | undefined>;
     /**
      * Description for the KX environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for the AWS environment infrastructure account.
      */
-    infrastructureAccountId?: pulumi.Input<string>;
+    infrastructureAccountId?: pulumi.Input<string | undefined>;
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
      *
      * The following arguments are optional:
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      */
-    lastModifiedTimestamp?: pulumi.Input<string>;
+    lastModifiedTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Name of the KX environment that you want to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of environment creation
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */
-    transitGatewayConfiguration?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfiguration>;
+    transitGatewayConfiguration?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfiguration | undefined>;
 }
 
 /**
@@ -312,11 +312,11 @@ export interface KxEnvironmentArgs {
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      */
-    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxEnvironmentCustomDnsConfiguration>[]>;
+    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxEnvironmentCustomDnsConfiguration>[] | undefined>;
     /**
      * Description for the KX environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
      *
@@ -326,17 +326,17 @@ export interface KxEnvironmentArgs {
     /**
      * Name of the KX environment that you want to create.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */
-    transitGatewayConfiguration?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfiguration>;
+    transitGatewayConfiguration?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfiguration | undefined>;
 }

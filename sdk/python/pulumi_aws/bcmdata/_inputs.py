@@ -36,20 +36,20 @@ class ExportExportArgsDict(TypedDict):
     """
     Name of this specific data export.
     """
-    data_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgsDict']]]]
+    data_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]]]
     """
     Data query for this specific data export. See the `data_query` argument reference below.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description for this specific data export.
     """
-    destination_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgsDict']]]]
+    destination_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]]]
     """
     Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
     """
-    export_arn: NotRequired[pulumi.Input[_builtins.str]]
-    refresh_cadences: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgsDict']]]]
+    export_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    refresh_cadences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]]]
     """
     Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
     """
@@ -58,11 +58,11 @@ class ExportExportArgsDict(TypedDict):
 class ExportExportArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 data_queries: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]] = None,
-                 export_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_cadences: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]] = None):
+                 data_queries: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]] = None,
+                 export_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_cadences: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of this specific data export.
         :param pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgs']]] data_queries: Data query for this specific data export. See the `data_query` argument reference below.
@@ -96,59 +96,59 @@ class ExportExportArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataQueries")
-    def data_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]]:
+    def data_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]]:
         """
         Data query for this specific data export. See the `data_query` argument reference below.
         """
         return pulumi.get(self, "data_queries")
 
     @data_queries.setter
-    def data_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]]):
+    def data_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]]):
         pulumi.set(self, "data_queries", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description for this specific data export.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationConfigurations")
-    def destination_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]]:
+    def destination_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]]:
         """
         Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
         """
         return pulumi.get(self, "destination_configurations")
 
     @destination_configurations.setter
-    def destination_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]]):
+    def destination_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]]):
         pulumi.set(self, "destination_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="exportArn")
-    def export_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "export_arn")
 
     @export_arn.setter
-    def export_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshCadences")
-    def refresh_cadences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]]:
+    def refresh_cadences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]]:
         """
         Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
         """
         return pulumi.get(self, "refresh_cadences")
 
     @refresh_cadences.setter
-    def refresh_cadences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]]):
+    def refresh_cadences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]]):
         pulumi.set(self, "refresh_cadences", value)
 
 
@@ -158,7 +158,7 @@ class ExportExportDataQueryArgsDict(TypedDict):
     Query statement.
     See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
     """
-    table_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]
+    table_configurations: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]]
     """
     Table configuration.
     See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
@@ -170,7 +170,7 @@ class ExportExportDataQueryArgsDict(TypedDict):
 class ExportExportDataQueryArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[_builtins.str],
-                 table_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None):
+                 table_configurations: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None):
         """
         :param pulumi.Input[_builtins.str] query_statement: Query statement.
                See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
@@ -198,7 +198,7 @@ class ExportExportDataQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="tableConfigurations")
-    def table_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
+    def table_configurations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
         Table configuration.
         See the [AWS documentation](https://docs.aws.amazon.com/cur/latest/userguide/dataexports-table-dictionary.html) for a list of available tables.
@@ -208,12 +208,12 @@ class ExportExportDataQueryArgs:
         return pulumi.get(self, "table_configurations")
 
     @table_configurations.setter
-    def table_configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
+    def table_configurations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "table_configurations", value)
 
 
 class ExportExportDestinationConfigurationArgsDict(TypedDict):
-    s3_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgsDict']]]]
+    s3_destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]]
     """
     Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
     """
@@ -221,7 +221,7 @@ class ExportExportDestinationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ExportExportDestinationConfigurationArgs:
     def __init__(__self__, *,
-                 s3_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]] = None):
+                 s3_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]] s3_destinations: Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
         """
@@ -230,14 +230,14 @@ class ExportExportDestinationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Destinations")
-    def s3_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]:
+    def s3_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]:
         """
         Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
         """
         return pulumi.get(self, "s3_destinations")
 
     @s3_destinations.setter
-    def s3_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]):
+    def s3_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]):
         pulumi.set(self, "s3_destinations", value)
 
 
@@ -254,7 +254,7 @@ class ExportExportDestinationConfigurationS3DestinationArgsDict(TypedDict):
     """
     S3 bucket region.
     """
-    s3_output_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict']]]]
+    s3_output_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]]]
     """
     Output configuration for the data export. See the `s3_output_configurations` argument reference below.
     """
@@ -265,7 +265,7 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
                  s3_bucket: pulumi.Input[_builtins.str],
                  s3_prefix: pulumi.Input[_builtins.str],
                  s3_region: pulumi.Input[_builtins.str],
-                 s3_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]] = None):
+                 s3_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_bucket: Name of the Amazon S3 bucket used as the destination of a data export file.
         :param pulumi.Input[_builtins.str] s3_prefix: S3 path prefix you want prepended to the name of your data export.
@@ -316,14 +316,14 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3OutputConfigurations")
-    def s3_output_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]]:
+    def s3_output_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]]:
         """
         Output configuration for the data export. See the `s3_output_configurations` argument reference below.
         """
         return pulumi.get(self, "s3_output_configurations")
 
     @s3_output_configurations.setter
-    def s3_output_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]]):
+    def s3_output_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]]):
         pulumi.set(self, "s3_output_configurations", value)
 
 
@@ -441,11 +441,11 @@ class ExportExportRefreshCadenceArgs:
 
 
 class ExportTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -453,8 +453,8 @@ class ExportTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ExportTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -466,26 +466,26 @@ class ExportTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

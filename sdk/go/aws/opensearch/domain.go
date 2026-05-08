@@ -234,129 +234,129 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// var vpc interface{}
-// cfg.RequireObject("vpc", &vpc)
-// domain := "tf-test";
-// if param := cfg.Get("domain"); param != ""{
-// domain = param
-// }
-// example, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
-// Tags: pulumi.StringMap{
-// "Name": vpc,
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleGetSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-// Filters: []ec2.GetSubnetsFilter{
-// {
-// Name: "vpc-id",
-// Values: interface{}{
-// example.Id,
-// },
-// },
-// },
-// Tags: map[string]interface{}{
-// "Tier": "private",
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-// Name: pulumi.Sprintf("%v-opensearch-%v", vpc, domain),
-// Description: pulumi.String("Managed by Pulumi"),
-// VpcId: pulumi.String(pulumi.String(example.Id)),
-// Ingress: ec2.SecurityGroupIngressArray{
-// &ec2.SecurityGroupIngressArgs{
-// FromPort: pulumi.Int(443),
-// ToPort: pulumi.Int(443),
-// Protocol: pulumi.String("tcp"),
-// CidrBlocks: pulumi.StringArray{
-// pulumi.String(example.CidrBlock),
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// exampleServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "example", &iam.ServiceLinkedRoleArgs{
-// AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
-// })
-// if err != nil {
-// return err
-// }
-// exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "*",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Actions: []string{
-// "es:*",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Region, currentGetCallerIdentity.AccountId, domain),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-// DomainName: pulumi.String(pulumi.String(domain)),
-// EngineVersion: pulumi.String("OpenSearch_1.0"),
-// ClusterConfig: &opensearch.DomainClusterConfigArgs{
-// InstanceType: pulumi.String("m4.large.search"),
-// ZoneAwarenessEnabled: pulumi.Bool(true),
-// },
-// VpcOptions: &opensearch.DomainVpcOptionsArgs{
-// SubnetIds: pulumi.StringArray{
-// pulumi.String(exampleGetSubnets.Ids[0]),
-// pulumi.String(exampleGetSubnets.Ids[1]),
-// },
-// SecurityGroupIds: pulumi.StringArray{
-// exampleSecurityGroup.ID(),
-// },
-// },
-// AdvancedOptions: pulumi.StringMap{
-// "rest.action.multi.allow_explicit_index": pulumi.String("true"),
-// },
-// AccessPolicies: pulumi.String(pulumi.String(exampleGetPolicyDocument.Json)),
-// Tags: pulumi.StringMap{
-// "Domain": pulumi.String("TestDomain"),
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleServiceLinkedRole,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			var vpc interface{}
+//			cfg.RequireObject("vpc", &vpc)
+//			domain := "tf-test"
+//			if param := cfg.Get("domain"); param != "" {
+//				domain = param
+//			}
+//			example, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": vpc,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+//				Filters: []ec2.GetSubnetsFilter{
+//					{
+//						Name: "vpc-id",
+//						Values: pulumi.StringArray{
+//							example.Id,
+//						},
+//					},
+//				},
+//				Tags: map[string]interface{}{
+//					"Tier": "private",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name:        pulumi.Sprintf("%v-opensearch-%v", vpc, domain),
+//				Description: pulumi.String("Managed by Pulumi"),
+//				VpcId:       pulumi.String(pulumi.String(example.Id)),
+//				Ingress: ec2.SecurityGroupIngressArray{
+//					&ec2.SecurityGroupIngressArgs{
+//						FromPort: pulumi.Int(443),
+//						ToPort:   pulumi.Int(443),
+//						Protocol: pulumi.String("tcp"),
+//						CidrBlocks: pulumi.StringArray{
+//							pulumi.String(example.CidrBlock),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "example", &iam.ServiceLinkedRoleArgs{
+//				AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "*",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"es:*",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Region, currentGetCallerIdentity.AccountId, domain),
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//				DomainName:    pulumi.String(pulumi.String(domain)),
+//				EngineVersion: pulumi.String("OpenSearch_1.0"),
+//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
+//					InstanceType:         pulumi.String("m4.large.search"),
+//					ZoneAwarenessEnabled: pulumi.Bool(true),
+//				},
+//				VpcOptions: &opensearch.DomainVpcOptionsArgs{
+//					SubnetIds: pulumi.StringArray{
+//						pulumi.String(exampleGetSubnets.Ids[0]),
+//						pulumi.String(exampleGetSubnets.Ids[1]),
+//					},
+//					SecurityGroupIds: pulumi.StringArray{
+//						exampleSecurityGroup.ID(),
+//					},
+//				},
+//				AdvancedOptions: pulumi.StringMap{
+//					"rest.action.multi.allow_explicit_index": pulumi.String("true"),
+//				},
+//				AccessPolicies: pulumi.String(pulumi.String(exampleGetPolicyDocument.Json)),
+//				Tags: pulumi.StringMap{
+//					"Domain": pulumi.String("TestDomain"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleServiceLinkedRole,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Enabling fine-grained access control on an existing domain

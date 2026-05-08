@@ -136,9 +136,9 @@ def get_rule_group(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         scope=pulumi.get(__ret__, 'scope'))
-def get_rule_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rule_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          scope: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
     Retrieves the summary of a WAFv2 Rule Group.

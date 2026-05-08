@@ -140,9 +140,9 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
         pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'),
         region=pulumi.get(__ret__, 'region'))
-def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]]]] = None,
-                                   pipeline_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_pipeline_definition_output(parameter_values: pulumi.Input[Optional[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]]]] = None,
+                                   pipeline_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
     """
     Provides details about a specific DataPipeline Pipeline Definition.

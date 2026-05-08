@@ -249,53 +249,53 @@ export interface FormTypeState {
     /**
      * Creation time of the Form Type.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Creator of the Form Type.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Description of form type. Must have a length of between 1 and 2048 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the domain.
      */
-    domainIdentifier?: pulumi.Input<string>;
-    imports?: pulumi.Input<pulumi.Input<inputs.datazone.FormTypeImport>[]>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
+    imports?: pulumi.Input<pulumi.Input<inputs.datazone.FormTypeImport>[] | undefined>;
     /**
      * Object of the model of the form type that contains the following attributes.
      */
-    model?: pulumi.Input<inputs.datazone.FormTypeModel>;
+    model?: pulumi.Input<inputs.datazone.FormTypeModel | undefined>;
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Origin domain id of the Form Type.
      */
-    originDomainId?: pulumi.Input<string>;
+    originDomainId?: pulumi.Input<string | undefined>;
     /**
      * Origin project id of the Form Type.
      */
-    originProjectId?: pulumi.Input<string>;
+    originProjectId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
      */
-    owningProjectIdentifier?: pulumi.Input<string>;
+    owningProjectIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Revision of the Form Type.
      */
-    revision?: pulumi.Input<string>;
+    revision?: pulumi.Input<string | undefined>;
     /**
      * Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
      */
-    status?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.FormTypeTimeouts>;
+    status?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.FormTypeTimeouts | undefined>;
 }
 
 /**
@@ -305,7 +305,7 @@ export interface FormTypeArgs {
     /**
      * Description of form type. Must have a length of between 1 and 2048 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the domain.
      */
@@ -317,7 +317,7 @@ export interface FormTypeArgs {
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
      */
@@ -325,10 +325,10 @@ export interface FormTypeArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
      */
-    status?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.FormTypeTimeouts>;
+    status?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.FormTypeTimeouts | undefined>;
 }

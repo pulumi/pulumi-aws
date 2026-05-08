@@ -354,11 +354,11 @@ __all__ = [
 ]
 
 class AutomationRuleActionArgsDict(TypedDict):
-    finding_fields_update: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateArgsDict']]
+    finding_fields_update: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateArgs']]]
     """
     A block that specifies that the automation rule action is an update to a finding field.  Documented below.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
     """
@@ -366,8 +366,8 @@ class AutomationRuleActionArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleActionArgs:
     def __init__(__self__, *,
-                 finding_fields_update: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateArgs']] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 finding_fields_update: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AutomationRuleActionFindingFieldsUpdateArgs'] finding_fields_update: A block that specifies that the automation rule action is an update to a finding field.  Documented below.
         :param pulumi.Input[_builtins.str] type: Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
@@ -379,63 +379,63 @@ class AutomationRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="findingFieldsUpdate")
-    def finding_fields_update(self) -> Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateArgs']]:
+    def finding_fields_update(self) -> pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateArgs']]:
         """
         A block that specifies that the automation rule action is an update to a finding field.  Documented below.
         """
         return pulumi.get(self, "finding_fields_update")
 
     @finding_fields_update.setter
-    def finding_fields_update(self, value: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateArgs']]):
+    def finding_fields_update(self, value: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateArgs']]):
         pulumi.set(self, "finding_fields_update", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class AutomationRuleActionFindingFieldsUpdateArgsDict(TypedDict):
-    confidence: NotRequired[pulumi.Input[_builtins.int]]
+    confidence: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The rule action updates the `Confidence` field of a finding.
     """
-    criticality: NotRequired[pulumi.Input[_builtins.int]]
+    criticality: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The rule action updates the `Criticality` field of a finding.
     """
-    note: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateNoteArgsDict']]
+    note: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateNoteArgs']]]
     """
     A resource block that updates the note. Documented below.
     """
-    related_findings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgsDict']]]]
+    related_findings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]]]
     """
     A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
     """
-    severity: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateSeverityArgsDict']]
+    severity: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateSeverityArgs']]]
     """
     A resource block that updates to the severity information for a finding. Documented below.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The rule action updates the `Types` field of a finding.
     """
-    user_defined_fields: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    user_defined_fields: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The rule action updates the `UserDefinedFields` field of a finding.
     """
-    verification_state: NotRequired[pulumi.Input[_builtins.str]]
+    verification_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
     """
-    workflow: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict']]
+    workflow: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']]]
     """
     A resource block that is used to update information about the investigation into the finding. Documented below.
     """
@@ -443,15 +443,15 @@ class AutomationRuleActionFindingFieldsUpdateArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateArgs:
     def __init__(__self__, *,
-                 confidence: Optional[pulumi.Input[_builtins.int]] = None,
-                 criticality: Optional[pulumi.Input[_builtins.int]] = None,
-                 note: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateNoteArgs']] = None,
-                 related_findings: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]] = None,
-                 severity: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateSeverityArgs']] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_defined_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 verification_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']] = None):
+                 confidence: pulumi.Input[Optional[_builtins.int]] = None,
+                 criticality: pulumi.Input[Optional[_builtins.int]] = None,
+                 note: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateNoteArgs']] = None,
+                 related_findings: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]] = None,
+                 severity: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateSeverityArgs']] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_defined_fields: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 verification_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] confidence: The rule action updates the `Confidence` field of a finding.
         :param pulumi.Input[_builtins.int] criticality: The rule action updates the `Criticality` field of a finding.
@@ -484,110 +484,110 @@ class AutomationRuleActionFindingFieldsUpdateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def confidence(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def confidence(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The rule action updates the `Confidence` field of a finding.
         """
         return pulumi.get(self, "confidence")
 
     @confidence.setter
-    def confidence(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def confidence(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "confidence", value)
 
     @_builtins.property
     @pulumi.getter
-    def criticality(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def criticality(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The rule action updates the `Criticality` field of a finding.
         """
         return pulumi.get(self, "criticality")
 
     @criticality.setter
-    def criticality(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def criticality(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "criticality", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateNoteArgs']]:
+    def note(self) -> pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateNoteArgs']]:
         """
         A resource block that updates the note. Documented below.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateNoteArgs']]):
+    def note(self, value: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateNoteArgs']]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedFindings")
-    def related_findings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]]:
+    def related_findings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]]:
         """
         A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
         """
         return pulumi.get(self, "related_findings")
 
     @related_findings.setter
-    def related_findings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]]):
+    def related_findings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]]):
         pulumi.set(self, "related_findings", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateSeverityArgs']]:
+    def severity(self) -> pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateSeverityArgs']]:
         """
         A resource block that updates to the severity information for a finding. Documented below.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateSeverityArgs']]):
+    def severity(self, value: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateSeverityArgs']]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The rule action updates the `Types` field of a finding.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "types", value)
 
     @_builtins.property
     @pulumi.getter(name="userDefinedFields")
-    def user_defined_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def user_defined_fields(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The rule action updates the `UserDefinedFields` field of a finding.
         """
         return pulumi.get(self, "user_defined_fields")
 
     @user_defined_fields.setter
-    def user_defined_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def user_defined_fields(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_defined_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationState")
-    def verification_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verification_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
         """
         return pulumi.get(self, "verification_state")
 
     @verification_state.setter
-    def verification_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verification_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verification_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def workflow(self) -> Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']]:
+    def workflow(self) -> pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']]:
         """
         A resource block that is used to update information about the investigation into the finding. Documented below.
         """
         return pulumi.get(self, "workflow")
 
     @workflow.setter
-    def workflow(self, value: Optional[pulumi.Input['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']]):
+    def workflow(self, value: pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']]):
         pulumi.set(self, "workflow", value)
 
 
@@ -686,11 +686,11 @@ class AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs:
 
 
 class AutomationRuleActionFindingFieldsUpdateSeverityArgsDict(TypedDict):
-    label: NotRequired[pulumi.Input[_builtins.str]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
     """
-    product: NotRequired[pulumi.Input[_builtins.float]]
+    product: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The native severity as defined by the AWS service or integrated partner product that generated the finding.
     """
@@ -698,8 +698,8 @@ class AutomationRuleActionFindingFieldsUpdateSeverityArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateSeverityArgs:
     def __init__(__self__, *,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.float]] = None):
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] label: The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
         :param pulumi.Input[_builtins.float] product: The native severity as defined by the AWS service or integrated partner product that generated the finding.
@@ -711,31 +711,31 @@ class AutomationRuleActionFindingFieldsUpdateSeverityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def product(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The native severity as defined by the AWS service or integrated partner product that generated the finding.
         """
         return pulumi.get(self, "product")
 
     @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def product(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "product", value)
 
 
 class AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict(TypedDict):
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
     """
@@ -743,7 +743,7 @@ class AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateWorkflowArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] status: The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
         """
@@ -752,167 +752,167 @@ class AutomationRuleActionFindingFieldsUpdateWorkflowArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class AutomationRuleCriteriaArgsDict(TypedDict):
-    aws_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgsDict']]]]
+    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]]]
     """
     The AWS account ID in which a finding was generated. Documented below.
     """
-    aws_account_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgsDict']]]]
+    aws_account_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]]]
     """
     The name of the AWS account in which a finding was generated. Documented below.
     """
-    company_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgsDict']]]]
+    company_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]]]
     """
     The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
     """
-    compliance_associated_standards_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgsDict']]]]
+    compliance_associated_standards_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]]]
     """
     The unique identifier of a standard in which a control is enabled. Documented below.
     """
-    compliance_security_control_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgsDict']]]]
+    compliance_security_control_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]]]
     """
     The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
     """
-    compliance_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgsDict']]]]
+    compliance_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]]]
     """
     The result of a security check. This field is only used for findings generated from controls. Documented below.
     """
-    confidences: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgsDict']]]]
+    confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]]]
     """
     The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
     """
-    created_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgsDict']]]]
+    created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]]]
     """
     A timestamp that indicates when this finding record was created. Documented below.
     """
-    criticalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgsDict']]]]
+    criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]]]
     """
     The level of importance that is assigned to the resources that are associated with a finding. Documented below.
     """
-    descriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgsDict']]]]
+    descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]]]
     """
     A finding's description. Documented below.
     """
-    first_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgsDict']]]]
+    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]]]
     """
     A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
     """
-    generator_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgsDict']]]]
+    generator_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]]]
     """
     The identifier for the solution-specific component that generated a finding. Documented below.
     """
-    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgsDict']]]]
+    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]]]
     """
     The product-specific identifier for a finding. Documented below.
     """
-    last_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgsDict']]]]
+    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]]]
     """
     A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
     """
-    note_texts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgsDict']]]]
+    note_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]]]
     """
     The text of a user-defined note that's added to a finding. Documented below.
     """
-    note_updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgsDict']]]]
+    note_updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]]]
     """
     The timestamp of when the note was updated. Documented below.
     """
-    note_updated_bies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgsDict']]]]
+    note_updated_bies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]]]
     """
     The principal that created a note. Documented below.
     """
-    product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgsDict']]]]
+    product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]]]
     """
     The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
     """
-    product_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgsDict']]]]
+    product_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]]]
     """
     Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
     """
-    record_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgsDict']]]]
+    record_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]]]
     """
     Provides the current state of a finding. Documented below.
     """
-    related_findings_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgsDict']]]]
+    related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]]]
     """
     The product-generated identifier for a related finding.  Documented below.
     """
-    related_findings_product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgsDict']]]]
+    related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]]]
     """
     The ARN for the product that generated a related finding. Documented below.
     """
-    resource_application_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgsDict']]]]
+    resource_application_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]]]
     """
     The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
     """
-    resource_application_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgsDict']]]]
+    resource_application_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]]]
     """
     The name of the application that is related to a finding. Documented below.
     """
-    resource_details_others: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgsDict']]]]
+    resource_details_others: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]]]
     """
     Custom fields and values about the resource that a finding pertains to. Documented below.
     """
-    resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgsDict']]]]
+    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]]]
     """
     The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
     """
-    resource_partitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgsDict']]]]
+    resource_partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]]]
     """
     The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
     """
-    resource_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgsDict']]]]
+    resource_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]]]
     """
     The AWS Region where the resource that a finding pertains to is located. Documented below.
     """
-    resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgsDict']]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]]]
     """
     A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
     """
-    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgsDict']]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]]]
     """
     The type of resource that the finding pertains to. Documented below.
     """
-    severity_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgsDict']]]]
+    severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]]]
     """
     The severity value of the finding. Documented below.
     """
-    source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgsDict']]]]
+    source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]]]
     """
     Provides a URL that links to a page about the current finding in the finding product. Documented below.
     """
-    titles: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgsDict']]]]
+    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]]]
     """
     A finding's title. Documented below.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgsDict']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]]]
     """
     One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
     """
-    updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgsDict']]]]
+    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]]]
     """
     A timestamp that indicates when the finding record was most recently updated. Documented below.
     """
-    user_defined_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgsDict']]]]
+    user_defined_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]]]
     """
     A list of user-defined name and value string pairs added to a finding. Documented below.
     """
-    verification_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgsDict']]]]
+    verification_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]]]
     """
     Provides the veracity of a finding. Documented below.
     """
-    workflow_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgsDict']]]]
+    workflow_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]]]
     """
     Provides information about the status of the investigation into a finding. Documented below.
     """
@@ -920,44 +920,44 @@ class AutomationRuleCriteriaArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaArgs:
     def __init__(__self__, *,
-                 aws_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]] = None,
-                 aws_account_names: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]] = None,
-                 company_names: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]] = None,
-                 compliance_associated_standards_ids: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]] = None,
-                 compliance_security_control_ids: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]] = None,
-                 compliance_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]] = None,
-                 confidences: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]] = None,
-                 created_ats: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]] = None,
-                 criticalities: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]] = None,
-                 descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]] = None,
-                 first_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]] = None,
-                 generator_ids: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]] = None,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]] = None,
-                 last_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]] = None,
-                 note_texts: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]] = None,
-                 note_updated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]] = None,
-                 note_updated_bies: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]] = None,
-                 product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]] = None,
-                 product_names: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]] = None,
-                 record_states: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]] = None,
-                 related_findings_ids: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]] = None,
-                 related_findings_product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]] = None,
-                 resource_application_arns: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]] = None,
-                 resource_application_names: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]] = None,
-                 resource_details_others: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]] = None,
-                 resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]] = None,
-                 resource_partitions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]] = None,
-                 resource_regions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]] = None,
-                 severity_labels: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]] = None,
-                 source_urls: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]] = None,
-                 titles: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]] = None,
-                 updated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]] = None,
-                 user_defined_fields: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]] = None,
-                 verification_states: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]] = None,
-                 workflow_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]] = None):
+                 aws_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]] = None,
+                 aws_account_names: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]] = None,
+                 company_names: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]] = None,
+                 compliance_associated_standards_ids: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]] = None,
+                 compliance_security_control_ids: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]] = None,
+                 compliance_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]] = None,
+                 confidences: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]] = None,
+                 created_ats: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]] = None,
+                 criticalities: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]] = None,
+                 descriptions: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]] = None,
+                 first_observed_ats: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]] = None,
+                 generator_ids: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]] = None,
+                 ids: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]] = None,
+                 last_observed_ats: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]] = None,
+                 note_texts: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]] = None,
+                 note_updated_ats: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]] = None,
+                 note_updated_bies: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]] = None,
+                 product_arns: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]] = None,
+                 product_names: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]] = None,
+                 record_states: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]] = None,
+                 related_findings_ids: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]] = None,
+                 related_findings_product_arns: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]] = None,
+                 resource_application_arns: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]] = None,
+                 resource_application_names: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]] = None,
+                 resource_details_others: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]] = None,
+                 resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]] = None,
+                 resource_partitions: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]] = None,
+                 resource_regions: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]] = None,
+                 severity_labels: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]] = None,
+                 source_urls: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]] = None,
+                 titles: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]] = None,
+                 updated_ats: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]] = None,
+                 user_defined_fields: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]] = None,
+                 verification_states: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]] = None,
+                 workflow_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]] aws_account_ids: The AWS account ID in which a finding was generated. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]] aws_account_names: The name of the AWS account in which a finding was generated. Documented below.
@@ -1077,458 +1077,458 @@ class AutomationRuleCriteriaArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountIds")
-    def aws_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]]:
+    def aws_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]]:
         """
         The AWS account ID in which a finding was generated. Documented below.
         """
         return pulumi.get(self, "aws_account_ids")
 
     @aws_account_ids.setter
-    def aws_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]]):
+    def aws_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]]):
         pulumi.set(self, "aws_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountNames")
-    def aws_account_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]]:
+    def aws_account_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]]:
         """
         The name of the AWS account in which a finding was generated. Documented below.
         """
         return pulumi.get(self, "aws_account_names")
 
     @aws_account_names.setter
-    def aws_account_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]]):
+    def aws_account_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]]):
         pulumi.set(self, "aws_account_names", value)
 
     @_builtins.property
     @pulumi.getter(name="companyNames")
-    def company_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]]:
+    def company_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]]:
         """
         The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
         """
         return pulumi.get(self, "company_names")
 
     @company_names.setter
-    def company_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]]):
+    def company_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]]):
         pulumi.set(self, "company_names", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceAssociatedStandardsIds")
-    def compliance_associated_standards_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]]:
+    def compliance_associated_standards_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]]:
         """
         The unique identifier of a standard in which a control is enabled. Documented below.
         """
         return pulumi.get(self, "compliance_associated_standards_ids")
 
     @compliance_associated_standards_ids.setter
-    def compliance_associated_standards_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]]):
+    def compliance_associated_standards_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]]):
         pulumi.set(self, "compliance_associated_standards_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSecurityControlIds")
-    def compliance_security_control_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]]:
+    def compliance_security_control_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]]:
         """
         The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
         """
         return pulumi.get(self, "compliance_security_control_ids")
 
     @compliance_security_control_ids.setter
-    def compliance_security_control_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]]):
+    def compliance_security_control_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]]):
         pulumi.set(self, "compliance_security_control_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceStatuses")
-    def compliance_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]]:
+    def compliance_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]]:
         """
         The result of a security check. This field is only used for findings generated from controls. Documented below.
         """
         return pulumi.get(self, "compliance_statuses")
 
     @compliance_statuses.setter
-    def compliance_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]]):
+    def compliance_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]]):
         pulumi.set(self, "compliance_statuses", value)
 
     @_builtins.property
     @pulumi.getter
-    def confidences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]]:
+    def confidences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]]:
         """
         The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
         """
         return pulumi.get(self, "confidences")
 
     @confidences.setter
-    def confidences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]]):
+    def confidences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]]):
         pulumi.set(self, "confidences", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAts")
-    def created_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]]:
+    def created_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]]:
         """
         A timestamp that indicates when this finding record was created. Documented below.
         """
         return pulumi.get(self, "created_ats")
 
     @created_ats.setter
-    def created_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]]):
+    def created_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]]):
         pulumi.set(self, "created_ats", value)
 
     @_builtins.property
     @pulumi.getter
-    def criticalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]]:
+    def criticalities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]]:
         """
         The level of importance that is assigned to the resources that are associated with a finding. Documented below.
         """
         return pulumi.get(self, "criticalities")
 
     @criticalities.setter
-    def criticalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]]):
+    def criticalities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]]):
         pulumi.set(self, "criticalities", value)
 
     @_builtins.property
     @pulumi.getter
-    def descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]]:
+    def descriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]]:
         """
         A finding's description. Documented below.
         """
         return pulumi.get(self, "descriptions")
 
     @descriptions.setter
-    def descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]]):
+    def descriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]]):
         pulumi.set(self, "descriptions", value)
 
     @_builtins.property
     @pulumi.getter(name="firstObservedAts")
-    def first_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]]:
+    def first_observed_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]]:
         """
         A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
         """
         return pulumi.get(self, "first_observed_ats")
 
     @first_observed_ats.setter
-    def first_observed_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]]):
+    def first_observed_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]]):
         pulumi.set(self, "first_observed_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="generatorIds")
-    def generator_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]]:
+    def generator_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]]:
         """
         The identifier for the solution-specific component that generated a finding. Documented below.
         """
         return pulumi.get(self, "generator_ids")
 
     @generator_ids.setter
-    def generator_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]]):
+    def generator_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]]):
         pulumi.set(self, "generator_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]]:
+    def ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]]:
         """
         The product-specific identifier for a finding. Documented below.
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]]):
+    def ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]]):
         pulumi.set(self, "ids", value)
 
     @_builtins.property
     @pulumi.getter(name="lastObservedAts")
-    def last_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]]:
+    def last_observed_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]]:
         """
         A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
         """
         return pulumi.get(self, "last_observed_ats")
 
     @last_observed_ats.setter
-    def last_observed_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]]):
+    def last_observed_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]]):
         pulumi.set(self, "last_observed_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="noteTexts")
-    def note_texts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]]:
+    def note_texts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]]:
         """
         The text of a user-defined note that's added to a finding. Documented below.
         """
         return pulumi.get(self, "note_texts")
 
     @note_texts.setter
-    def note_texts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]]):
+    def note_texts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]]):
         pulumi.set(self, "note_texts", value)
 
     @_builtins.property
     @pulumi.getter(name="noteUpdatedAts")
-    def note_updated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]]:
+    def note_updated_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]]:
         """
         The timestamp of when the note was updated. Documented below.
         """
         return pulumi.get(self, "note_updated_ats")
 
     @note_updated_ats.setter
-    def note_updated_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]]):
+    def note_updated_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]]):
         pulumi.set(self, "note_updated_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="noteUpdatedBies")
-    def note_updated_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]]:
+    def note_updated_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]]:
         """
         The principal that created a note. Documented below.
         """
         return pulumi.get(self, "note_updated_bies")
 
     @note_updated_bies.setter
-    def note_updated_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]]):
+    def note_updated_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]]):
         pulumi.set(self, "note_updated_bies", value)
 
     @_builtins.property
     @pulumi.getter(name="productArns")
-    def product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]]:
+    def product_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]]:
         """
         The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
         """
         return pulumi.get(self, "product_arns")
 
     @product_arns.setter
-    def product_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]]):
+    def product_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]]):
         pulumi.set(self, "product_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="productNames")
-    def product_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]]:
+    def product_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]]:
         """
         Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
         """
         return pulumi.get(self, "product_names")
 
     @product_names.setter
-    def product_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]]):
+    def product_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]]):
         pulumi.set(self, "product_names", value)
 
     @_builtins.property
     @pulumi.getter(name="recordStates")
-    def record_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]]:
+    def record_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]]:
         """
         Provides the current state of a finding. Documented below.
         """
         return pulumi.get(self, "record_states")
 
     @record_states.setter
-    def record_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]]):
+    def record_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]]):
         pulumi.set(self, "record_states", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedFindingsIds")
-    def related_findings_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]]:
+    def related_findings_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]]:
         """
         The product-generated identifier for a related finding.  Documented below.
         """
         return pulumi.get(self, "related_findings_ids")
 
     @related_findings_ids.setter
-    def related_findings_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]]):
+    def related_findings_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]]):
         pulumi.set(self, "related_findings_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedFindingsProductArns")
-    def related_findings_product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]]:
+    def related_findings_product_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]]:
         """
         The ARN for the product that generated a related finding. Documented below.
         """
         return pulumi.get(self, "related_findings_product_arns")
 
     @related_findings_product_arns.setter
-    def related_findings_product_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]]):
+    def related_findings_product_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]]):
         pulumi.set(self, "related_findings_product_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceApplicationArns")
-    def resource_application_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]]:
+    def resource_application_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]]:
         """
         The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
         """
         return pulumi.get(self, "resource_application_arns")
 
     @resource_application_arns.setter
-    def resource_application_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]]):
+    def resource_application_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]]):
         pulumi.set(self, "resource_application_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceApplicationNames")
-    def resource_application_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]]:
+    def resource_application_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]]:
         """
         The name of the application that is related to a finding. Documented below.
         """
         return pulumi.get(self, "resource_application_names")
 
     @resource_application_names.setter
-    def resource_application_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]]):
+    def resource_application_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]]):
         pulumi.set(self, "resource_application_names", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceDetailsOthers")
-    def resource_details_others(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]]:
+    def resource_details_others(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]]:
         """
         Custom fields and values about the resource that a finding pertains to. Documented below.
         """
         return pulumi.get(self, "resource_details_others")
 
     @resource_details_others.setter
-    def resource_details_others(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]]):
+    def resource_details_others(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]]):
         pulumi.set(self, "resource_details_others", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIds")
-    def resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]]:
+    def resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]]:
         """
         The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
         """
         return pulumi.get(self, "resource_ids")
 
     @resource_ids.setter
-    def resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]]):
+    def resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]]):
         pulumi.set(self, "resource_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePartitions")
-    def resource_partitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]]:
+    def resource_partitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]]:
         """
         The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
         """
         return pulumi.get(self, "resource_partitions")
 
     @resource_partitions.setter
-    def resource_partitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]]):
+    def resource_partitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]]):
         pulumi.set(self, "resource_partitions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRegions")
-    def resource_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]]:
+    def resource_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]]:
         """
         The AWS Region where the resource that a finding pertains to is located. Documented below.
         """
         return pulumi.get(self, "resource_regions")
 
     @resource_regions.setter
-    def resource_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]]):
+    def resource_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]]):
         pulumi.set(self, "resource_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]]:
         """
         A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]]:
         """
         The type of resource that the finding pertains to. Documented below.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]]):
         pulumi.set(self, "resource_types", value)
 
     @_builtins.property
     @pulumi.getter(name="severityLabels")
-    def severity_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]]:
+    def severity_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]]:
         """
         The severity value of the finding. Documented below.
         """
         return pulumi.get(self, "severity_labels")
 
     @severity_labels.setter
-    def severity_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]]):
+    def severity_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]]):
         pulumi.set(self, "severity_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUrls")
-    def source_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]]:
+    def source_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]]:
         """
         Provides a URL that links to a page about the current finding in the finding product. Documented below.
         """
         return pulumi.get(self, "source_urls")
 
     @source_urls.setter
-    def source_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]]):
+    def source_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]]):
         pulumi.set(self, "source_urls", value)
 
     @_builtins.property
     @pulumi.getter
-    def titles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]]:
+    def titles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]]:
         """
         A finding's title. Documented below.
         """
         return pulumi.get(self, "titles")
 
     @titles.setter
-    def titles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]]):
+    def titles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]]):
         pulumi.set(self, "titles", value)
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]]:
         """
         One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]]):
         pulumi.set(self, "types", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAts")
-    def updated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]]:
+    def updated_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]]:
         """
         A timestamp that indicates when the finding record was most recently updated. Documented below.
         """
         return pulumi.get(self, "updated_ats")
 
     @updated_ats.setter
-    def updated_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]]):
+    def updated_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]]):
         pulumi.set(self, "updated_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="userDefinedFields")
-    def user_defined_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]]:
+    def user_defined_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]]:
         """
         A list of user-defined name and value string pairs added to a finding. Documented below.
         """
         return pulumi.get(self, "user_defined_fields")
 
     @user_defined_fields.setter
-    def user_defined_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]]):
+    def user_defined_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]]):
         pulumi.set(self, "user_defined_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationStates")
-    def verification_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]]:
+    def verification_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]]:
         """
         Provides the veracity of a finding. Documented below.
         """
         return pulumi.get(self, "verification_states")
 
     @verification_states.setter
-    def verification_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]]):
+    def verification_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]]):
         pulumi.set(self, "verification_states", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowStatuses")
-    def workflow_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]]:
+    def workflow_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]]:
         """
         Provides information about the status of the investigation into a finding. Documented below.
         """
         return pulumi.get(self, "workflow_statuses")
 
     @workflow_statuses.setter
-    def workflow_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]]):
+    def workflow_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]]):
         pulumi.set(self, "workflow_statuses", value)
 
 
@@ -1719,17 +1719,17 @@ class AutomationRuleCriteriaComplianceStatusArgs:
 
 
 class AutomationRuleCriteriaConfidenceArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.float]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gt: NotRequired[pulumi.Input[_builtins.float]]
-    gte: NotRequired[pulumi.Input[_builtins.float]]
+    gt: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lt: NotRequired[pulumi.Input[_builtins.float]]
-    lte: NotRequired[pulumi.Input[_builtins.float]]
+    lt: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -1737,11 +1737,11 @@ class AutomationRuleCriteriaConfidenceArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaConfidenceArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.float]] = None,
-                 gt: Optional[pulumi.Input[_builtins.float]] = None,
-                 gte: Optional[pulumi.Input[_builtins.float]] = None,
-                 lt: Optional[pulumi.Input[_builtins.float]] = None,
-                 lte: Optional[pulumi.Input[_builtins.float]] = None):
+                 eq: pulumi.Input[Optional[_builtins.float]] = None,
+                 gt: pulumi.Input[Optional[_builtins.float]] = None,
+                 gte: pulumi.Input[Optional[_builtins.float]] = None,
+                 lt: pulumi.Input[Optional[_builtins.float]] = None,
+                 lte: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.float] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -1760,69 +1760,69 @@ class AutomationRuleCriteriaConfidenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gt(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def gt(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "gt")
 
     @gt.setter
-    def gt(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def gt(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "gt", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lt(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def lt(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "lt")
 
     @lt.setter
-    def lt(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def lt(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "lt", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "lte", value)
 
 
 class AutomationRuleCriteriaCreatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaCreatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaCreatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -1830,9 +1830,9 @@ class AutomationRuleCriteriaCreatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaCreatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['AutomationRuleCriteriaCreatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['AutomationRuleCriteriaCreatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AutomationRuleCriteriaCreatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -1847,38 +1847,38 @@ class AutomationRuleCriteriaCreatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['AutomationRuleCriteriaCreatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['AutomationRuleCriteriaCreatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['AutomationRuleCriteriaCreatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['AutomationRuleCriteriaCreatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -1930,17 +1930,17 @@ class AutomationRuleCriteriaCreatedAtDateRangeArgs:
 
 
 class AutomationRuleCriteriaCriticalityArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.float]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gt: NotRequired[pulumi.Input[_builtins.float]]
-    gte: NotRequired[pulumi.Input[_builtins.float]]
+    gt: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lt: NotRequired[pulumi.Input[_builtins.float]]
-    lte: NotRequired[pulumi.Input[_builtins.float]]
+    lt: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -1948,11 +1948,11 @@ class AutomationRuleCriteriaCriticalityArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaCriticalityArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.float]] = None,
-                 gt: Optional[pulumi.Input[_builtins.float]] = None,
-                 gte: Optional[pulumi.Input[_builtins.float]] = None,
-                 lt: Optional[pulumi.Input[_builtins.float]] = None,
-                 lte: Optional[pulumi.Input[_builtins.float]] = None):
+                 eq: pulumi.Input[Optional[_builtins.float]] = None,
+                 gt: pulumi.Input[Optional[_builtins.float]] = None,
+                 gte: pulumi.Input[Optional[_builtins.float]] = None,
+                 lt: pulumi.Input[Optional[_builtins.float]] = None,
+                 lte: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.float] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -1971,56 +1971,56 @@ class AutomationRuleCriteriaCriticalityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gt(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def gt(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "gt")
 
     @gt.setter
-    def gt(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def gt(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "gt", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lt(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def lt(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "lt")
 
     @lt.setter
-    def lt(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def lt(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "lt", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "lte", value)
 
 
@@ -2056,15 +2056,15 @@ class AutomationRuleCriteriaDescriptionArgs:
 
 
 class AutomationRuleCriteriaFirstObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaFirstObservedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -2072,9 +2072,9 @@ class AutomationRuleCriteriaFirstObservedAtArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaFirstObservedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AutomationRuleCriteriaFirstObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -2089,38 +2089,38 @@ class AutomationRuleCriteriaFirstObservedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -2234,15 +2234,15 @@ class AutomationRuleCriteriaIdArgs:
 
 
 class AutomationRuleCriteriaLastObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaLastObservedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaLastObservedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -2250,9 +2250,9 @@ class AutomationRuleCriteriaLastObservedAtArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaLastObservedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['AutomationRuleCriteriaLastObservedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['AutomationRuleCriteriaLastObservedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AutomationRuleCriteriaLastObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -2267,38 +2267,38 @@ class AutomationRuleCriteriaLastObservedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['AutomationRuleCriteriaLastObservedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['AutomationRuleCriteriaLastObservedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['AutomationRuleCriteriaLastObservedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['AutomationRuleCriteriaLastObservedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -2381,15 +2381,15 @@ class AutomationRuleCriteriaNoteTextArgs:
 
 
 class AutomationRuleCriteriaNoteUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -2397,9 +2397,9 @@ class AutomationRuleCriteriaNoteUpdatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaNoteUpdatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -2414,38 +2414,38 @@ class AutomationRuleCriteriaNoteUpdatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -3097,15 +3097,15 @@ class AutomationRuleCriteriaTypeArgs:
 
 
 class AutomationRuleCriteriaUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaUpdatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaUpdatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -3113,9 +3113,9 @@ class AutomationRuleCriteriaUpdatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class AutomationRuleCriteriaUpdatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['AutomationRuleCriteriaUpdatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['AutomationRuleCriteriaUpdatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['AutomationRuleCriteriaUpdatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -3130,38 +3130,38 @@ class AutomationRuleCriteriaUpdatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['AutomationRuleCriteriaUpdatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['AutomationRuleCriteriaUpdatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['AutomationRuleCriteriaUpdatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['AutomationRuleCriteriaUpdatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -3331,11 +3331,11 @@ class ConfigurationPolicyConfigurationPolicyArgsDict(TypedDict):
     """
     Indicates whether Security Hub is enabled in the policy.
     """
-    enabled_standard_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    enabled_standard_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
     """
-    security_controls_configuration: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict']]
+    security_controls_configuration: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]]
     """
     Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
     """
@@ -3344,8 +3344,8 @@ class ConfigurationPolicyConfigurationPolicyArgsDict(TypedDict):
 class ConfigurationPolicyConfigurationPolicyArgs:
     def __init__(__self__, *,
                  service_enabled: pulumi.Input[_builtins.bool],
-                 enabled_standard_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_controls_configuration: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']] = None):
+                 enabled_standard_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_controls_configuration: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] service_enabled: Indicates whether Security Hub is enabled in the policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
@@ -3371,39 +3371,39 @@ class ConfigurationPolicyConfigurationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="enabledStandardArns")
-    def enabled_standard_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enabled_standard_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
         """
         return pulumi.get(self, "enabled_standard_arns")
 
     @enabled_standard_arns.setter
-    def enabled_standard_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enabled_standard_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enabled_standard_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="securityControlsConfiguration")
-    def security_controls_configuration(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]:
+    def security_controls_configuration(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]:
         """
         Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
         """
         return pulumi.get(self, "security_controls_configuration")
 
     @security_controls_configuration.setter
-    def security_controls_configuration(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]):
+    def security_controls_configuration(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]):
         pulumi.set(self, "security_controls_configuration", value)
 
 
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict(TypedDict):
-    disabled_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    disabled_control_identifiers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
     """
-    enabled_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    enabled_control_identifiers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
     """
-    security_control_custom_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgsDict']]]]
+    security_control_custom_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]]
     """
     A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
     """
@@ -3411,9 +3411,9 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDic
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs:
     def __init__(__self__, *,
-                 disabled_control_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enabled_control_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_control_custom_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]] = None):
+                 disabled_control_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enabled_control_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_control_custom_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_control_identifiers: A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_control_identifiers: A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
@@ -3428,38 +3428,38 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledControlIdentifiers")
-    def disabled_control_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disabled_control_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
         """
         return pulumi.get(self, "disabled_control_identifiers")
 
     @disabled_control_identifiers.setter
-    def disabled_control_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disabled_control_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disabled_control_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledControlIdentifiers")
-    def enabled_control_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enabled_control_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
         """
         return pulumi.get(self, "enabled_control_identifiers")
 
     @enabled_control_identifiers.setter
-    def enabled_control_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enabled_control_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enabled_control_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="securityControlCustomParameters")
-    def security_control_custom_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]:
+    def security_control_custom_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]:
         """
         A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
         """
         return pulumi.get(self, "security_control_custom_parameters")
 
     @security_control_custom_parameters.setter
-    def security_control_custom_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]):
+    def security_control_custom_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]):
         pulumi.set(self, "security_control_custom_parameters", value)
 
 
@@ -3519,35 +3519,35 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     """
     Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
     """
-    bool: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgsDict']]
+    bool: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]]
     """
     The bool `value` for a Boolean-typed Security Hub Control Parameter.
     """
-    double: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgsDict']]
+    double: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]]
     """
     The float `value` for a Double-typed Security Hub Control Parameter.
     """
-    enum: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgsDict']]
+    enum: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]]
     """
     The string `value` for a Enum-typed Security Hub Control Parameter.
     """
-    enum_list: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgsDict']]
+    enum_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]]
     """
     The string list `value` for a EnumList-typed Security Hub Control Parameter.
     """
-    int: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgsDict']]
+    int: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]]
     """
     The int `value` for a Int-typed Security Hub Control Parameter.
     """
-    int_list: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgsDict']]
+    int_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]]
     """
     The int list `value` for a IntList-typed Security Hub Control Parameter.
     """
-    string: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgsDict']]
+    string: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]]
     """
     The string `value` for a String-typed Security Hub Control Parameter.
     """
-    string_list: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict']]
+    string_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]]
     """
     The string list `value` for a StringList-typed Security Hub Control Parameter.
     """
@@ -3557,14 +3557,14 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  value_type: pulumi.Input[_builtins.str],
-                 bool: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']] = None,
-                 double: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']] = None,
-                 enum: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']] = None,
-                 enum_list: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']] = None,
-                 int: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']] = None,
-                 int_list: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']] = None,
-                 string: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']] = None,
-                 string_list: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']] = None):
+                 bool: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']] = None,
+                 double: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']] = None,
+                 enum: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']] = None,
+                 enum_list: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']] = None,
+                 int: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']] = None,
+                 int_list: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']] = None,
+                 string: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']] = None,
+                 string_list: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
         :param pulumi.Input[_builtins.str] value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
@@ -3622,98 +3622,98 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
 
     @_builtins.property
     @pulumi.getter
-    def bool(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]:
+    def bool(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]:
         """
         The bool `value` for a Boolean-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "bool")
 
     @bool.setter
-    def bool(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]):
+    def bool(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]):
         pulumi.set(self, "bool", value)
 
     @_builtins.property
     @pulumi.getter
-    def double(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]:
+    def double(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]:
         """
         The float `value` for a Double-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "double")
 
     @double.setter
-    def double(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]):
+    def double(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]):
         pulumi.set(self, "double", value)
 
     @_builtins.property
     @pulumi.getter
-    def enum(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]:
+    def enum(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]:
         """
         The string `value` for a Enum-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "enum")
 
     @enum.setter
-    def enum(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]):
+    def enum(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]):
         pulumi.set(self, "enum", value)
 
     @_builtins.property
     @pulumi.getter(name="enumList")
-    def enum_list(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]:
+    def enum_list(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]:
         """
         The string list `value` for a EnumList-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "enum_list")
 
     @enum_list.setter
-    def enum_list(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]):
+    def enum_list(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]):
         pulumi.set(self, "enum_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def int(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]:
+    def int(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]:
         """
         The int `value` for a Int-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "int")
 
     @int.setter
-    def int(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]):
+    def int(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]):
         pulumi.set(self, "int", value)
 
     @_builtins.property
     @pulumi.getter(name="intList")
-    def int_list(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]:
+    def int_list(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]:
         """
         The int list `value` for a IntList-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "int_list")
 
     @int_list.setter
-    def int_list(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]):
+    def int_list(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]):
         pulumi.set(self, "int_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def string(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]:
+    def string(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]:
         """
         The string `value` for a String-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "string")
 
     @string.setter
-    def string(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]):
+    def string(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]):
         pulumi.set(self, "string", value)
 
     @_builtins.property
     @pulumi.getter(name="stringList")
-    def string_list(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]:
+    def string_list(self) -> pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]:
         """
         The string list `value` for a StringList-typed Security Hub Control Parameter.
         """
         return pulumi.get(self, "string_list")
 
     @string_list.setter
-    def string_list(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]):
+    def string_list(self, value: pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]):
         pulumi.set(self, "string_list", value)
 
 
@@ -3870,375 +3870,375 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
 
 
 class InsightFiltersArgsDict(TypedDict):
-    aws_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgsDict']]]]
+    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]]]
     """
     AWS account ID that a finding is generated in. See String_Filter below for more details.
     """
-    aws_account_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgsDict']]]]
+    aws_account_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]]
     """
     The name of the AWS account in which a finding is generated. See String_Filter below for more details.
     """
-    company_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgsDict']]]]
+    company_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]]
     """
     The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
     """
-    compliance_associated_standards_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgsDict']]]]
+    compliance_associated_standards_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]]
     """
     The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
     """
-    compliance_security_control_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgsDict']]]]
+    compliance_security_control_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]]
     """
     The unique identifier of a control across standards. See String_Filter below for more details.
     """
-    compliance_security_control_parameters_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgsDict']]]]
+    compliance_security_control_parameters_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]]
     """
     The unique identifier of a control across standards. See String_Filter below for more details.
     """
-    compliance_security_control_parameters_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgsDict']]]]
+    compliance_security_control_parameters_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]]
     """
     The current value of a security control parameter. See String_Filter below for more details.
     """
-    compliance_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgsDict']]]]
+    compliance_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]]]
     """
     Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
     """
-    confidences: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgsDict']]]]
+    confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]]]
     """
     A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
     """
-    created_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgsDict']]]]
+    created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
     """
-    criticalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgsDict']]]]
+    criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]]]
     """
     The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
     """
-    descriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgsDict']]]]
+    descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]]]
     """
     A finding's description. See String Filter below for more details.
     """
-    finding_provider_fields_confidences: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgsDict']]]]
+    finding_provider_fields_confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]]]
     """
     The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
     """
-    finding_provider_fields_criticalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgsDict']]]]
+    finding_provider_fields_criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]]]
     """
     The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
     """
-    finding_provider_fields_related_findings_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgsDict']]]]
+    finding_provider_fields_related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]]]
     """
     The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
     """
-    finding_provider_fields_related_findings_product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgsDict']]]]
+    finding_provider_fields_related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]]]
     """
     The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
     """
-    finding_provider_fields_severity_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgsDict']]]]
+    finding_provider_fields_severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]]]
     """
     The finding provider value for the severity label. See String Filter below for more details.
     """
-    finding_provider_fields_severity_originals: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgsDict']]]]
+    finding_provider_fields_severity_originals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]]]
     """
     The finding provider's original value for the severity. See String Filter below for more details.
     """
-    finding_provider_fields_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgsDict']]]]
+    finding_provider_fields_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]]]
     """
     One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
     """
-    first_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgsDict']]]]
+    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
     """
-    generator_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgsDict']]]]
+    generator_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]]]
     """
     The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
     """
-    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgsDict']]]]
+    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersIdArgs']]]]]
     """
     The security findings provider-specific identifier for a finding. See String Filter below for more details.
     """
-    keywords: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgsDict']]]]
+    keywords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]]]
     """
     A keyword for a finding. See Keyword Filter below for more details.
     """
-    last_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgsDict']]]]
+    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
     """
-    malware_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgsDict']]]]
+    malware_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]]]
     """
     The name of the malware that was observed. See String Filter below for more details.
     """
-    malware_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgsDict']]]]
+    malware_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]]]
     """
     The filesystem path of the malware that was observed. See String Filter below for more details.
     """
-    malware_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgsDict']]]]
+    malware_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]]]
     """
     The state of the malware that was observed. See String Filter below for more details.
     """
-    malware_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgsDict']]]]
+    malware_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]]]
     """
     The type of the malware that was observed. See String Filter below for more details.
     """
-    network_destination_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgsDict']]]]
+    network_destination_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]]]
     """
     The destination domain of network-related information about a finding. See String Filter below for more details.
     """
-    network_destination_ipv4s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4ArgsDict']]]]
+    network_destination_ipv4s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]]]
     """
     The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_destination_ipv6s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6ArgsDict']]]]
+    network_destination_ipv6s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]]]
     """
     The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgsDict']]]]
+    network_destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]]]
     """
     The destination port of network-related information about a finding. See Number Filter below for more details.
     """
-    network_directions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgsDict']]]]
+    network_directions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]]]
     """
     Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
     """
-    network_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgsDict']]]]
+    network_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]]]
     """
     The protocol of network-related information about a finding. See String Filter below for more details.
     """
-    network_source_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgsDict']]]]
+    network_source_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]]]
     """
     The source domain of network-related information about a finding. See String Filter below for more details.
     """
-    network_source_ipv4s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4ArgsDict']]]]
+    network_source_ipv4s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]]]
     """
     The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_source_ipv6s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6ArgsDict']]]]
+    network_source_ipv6s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]]]
     """
     The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_source_macs: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgsDict']]]]
+    network_source_macs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]]]
     """
     The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
     """
-    network_source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgsDict']]]]
+    network_source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]]]
     """
     The source port of network-related information about a finding. See Number Filter below for more details.
     """
-    note_texts: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgsDict']]]]
+    note_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]]]
     """
     The text of a note. See String Filter below for more details.
     """
-    note_updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgsDict']]]]
+    note_updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]]]
     """
     The timestamp of when the note was updated. See Date Filter below for more details.
     """
-    note_updated_bies: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgsDict']]]]
+    note_updated_bies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]]]
     """
     The principal that created a note. See String Filter below for more details.
     """
-    process_launched_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgsDict']]]]
+    process_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]]]
     """
     The date/time that the process was launched. See Date Filter below for more details.
     """
-    process_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgsDict']]]]
+    process_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]]]
     """
     The name of the process. See String Filter below for more details.
     """
-    process_parent_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgsDict']]]]
+    process_parent_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]]]
     """
     The parent process ID. See Number Filter below for more details.
     """
-    process_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgsDict']]]]
+    process_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]]]
     """
     The path to the process executable. See String Filter below for more details.
     """
-    process_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgsDict']]]]
+    process_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]]]
     """
     The process ID. See Number Filter below for more details.
     """
-    process_terminated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgsDict']]]]
+    process_terminated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]]]
     """
     The date/time that the process was terminated. See Date Filter below for more details.
     """
-    product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgsDict']]]]
+    product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]]]
     """
     The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
     """
-    product_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgsDict']]]]
+    product_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]]]
     """
     A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
     """
-    product_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgsDict']]]]
+    product_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]]]
     """
     The name of the solution (product) that generates findings. See String Filter below for more details.
     """
-    recommendation_texts: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgsDict']]]]
+    recommendation_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]]]
     """
     The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
     """
-    record_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgsDict']]]]
+    record_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]]]
     """
     The updated record state for the finding. See String Filter below for more details.
     """
-    related_findings_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgsDict']]]]
+    related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]]]
     """
     The solution-generated identifier for a related finding. See String Filter below for more details.
     """
-    related_findings_product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgsDict']]]]
+    related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]]]
     """
     The ARN of the solution that generated a related finding. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_iam_instance_profile_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgsDict']]]]
+    resource_aws_ec2_instance_iam_instance_profile_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]]]
     """
     The IAM profile ARN of the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgsDict']]]]
+    resource_aws_ec2_instance_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]]
     """
     The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_ipv4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgsDict']]]]
+    resource_aws_ec2_instance_ipv4_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]]]
     """
     The IPv4 addresses associated with the instance. See Ip Filter below for more details.
     """
-    resource_aws_ec2_instance_ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgsDict']]]]
+    resource_aws_ec2_instance_ipv6_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]]]
     """
     The IPv6 addresses associated with the instance. See Ip Filter below for more details.
     """
-    resource_aws_ec2_instance_key_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgsDict']]]]
+    resource_aws_ec2_instance_key_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]]]
     """
     The key name associated with the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_launched_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict']]]]
+    resource_aws_ec2_instance_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]]]
     """
     The date and time the instance was launched. See Date Filter below for more details.
     """
-    resource_aws_ec2_instance_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgsDict']]]]
+    resource_aws_ec2_instance_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]]]
     """
     The identifier of the subnet that the instance was launched in. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgsDict']]]]
+    resource_aws_ec2_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]]]
     """
     The instance type of the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_vpc_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgsDict']]]]
+    resource_aws_ec2_instance_vpc_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]]]
     """
     The identifier of the VPC that the instance was launched in. See String Filter below for more details.
     """
-    resource_aws_iam_access_key_created_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict']]]]
+    resource_aws_iam_access_key_created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]]]
     """
     The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
     """
-    resource_aws_iam_access_key_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgsDict']]]]
+    resource_aws_iam_access_key_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]]]
     """
     The status of the IAM access key related to a finding. See String Filter below for more details.
     """
-    resource_aws_iam_access_key_user_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgsDict']]]]
+    resource_aws_iam_access_key_user_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]]]
     """
     The user associated with the IAM access key related to a finding. See String Filter below for more details.
     """
-    resource_aws_s3_bucket_owner_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgsDict']]]]
+    resource_aws_s3_bucket_owner_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]]]
     """
     The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
     """
-    resource_aws_s3_bucket_owner_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgsDict']]]]
+    resource_aws_s3_bucket_owner_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]]]
     """
     The display name of the owner of the S3 bucket. See String Filter below for more details.
     """
-    resource_container_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgsDict']]]]
+    resource_container_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]]]
     """
     The identifier of the image related to a finding. See String Filter below for more details.
     """
-    resource_container_image_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgsDict']]]]
+    resource_container_image_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]]]
     """
     The name of the image related to a finding. See String Filter below for more details.
     """
-    resource_container_launched_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgsDict']]]]
+    resource_container_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]]]
     """
     The date/time that the container was started. See Date Filter below for more details.
     """
-    resource_container_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgsDict']]]]
+    resource_container_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]]]
     """
     The name of the container related to a finding. See String Filter below for more details.
     """
-    resource_details_others: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgsDict']]]]
+    resource_details_others: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]]]
     """
     The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
     """
-    resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgsDict']]]]
+    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]]]
     """
     The canonical identifier for the given resource type. See String Filter below for more details.
     """
-    resource_partitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgsDict']]]]
+    resource_partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]]]
     """
     The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
     """
-    resource_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgsDict']]]]
+    resource_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]]]
     """
     The canonical AWS external Region name where this resource is located. See String Filter below for more details.
     """
-    resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgsDict']]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]]]
     """
     A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
     """
-    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgsDict']]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]]]
     """
     Specifies the type of the resource that details are provided for. See String Filter below for more details.
     """
-    severity_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgsDict']]]]
+    severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]]]
     """
     The label of a finding's severity. See String Filter below for more details.
     """
-    source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgsDict']]]]
+    source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]]]
     """
     A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
     """
-    threat_intel_indicator_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgsDict']]]]
+    threat_intel_indicator_categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]]]
     """
     The category of a threat intelligence indicator. See String Filter below for more details.
     """
-    threat_intel_indicator_last_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict']]]]
+    threat_intel_indicator_last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]]]
     """
     The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
     """
-    threat_intel_indicator_source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgsDict']]]]
+    threat_intel_indicator_source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]]]
     """
     The URL for more details from the source of the threat intelligence. See String Filter below for more details.
     """
-    threat_intel_indicator_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgsDict']]]]
+    threat_intel_indicator_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]]]
     """
     The source of the threat intelligence. See String Filter below for more details.
     """
-    threat_intel_indicator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgsDict']]]]
+    threat_intel_indicator_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]]]
     """
     The type of a threat intelligence indicator. See String Filter below for more details.
     """
-    threat_intel_indicator_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgsDict']]]]
+    threat_intel_indicator_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]]]
     """
     The value of a threat intelligence indicator. See String Filter below for more details.
     """
-    titles: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgsDict']]]]
+    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]]]
     """
     A finding's title. See String Filter below for more details.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgsDict']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]]]
     """
     A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
     """
-    updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgsDict']]]]
+    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
     """
-    user_defined_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgsDict']]]]
+    user_defined_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]]]
     """
     A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
     """
-    verification_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgsDict']]]]
+    verification_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]]]
     """
     The veracity of a finding. See String Filter below for more details.
     """
-    workflow_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgsDict']]]]
+    workflow_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]]]
     """
     The status of the investigation into a finding. See Workflow Status Filter below for more details.
     """
@@ -4246,99 +4246,99 @@ class InsightFiltersArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersArgs:
     def __init__(__self__, *,
-                 aws_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]] = None,
-                 aws_account_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]] = None,
-                 company_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]] = None,
-                 compliance_associated_standards_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]] = None,
-                 compliance_security_control_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]] = None,
-                 compliance_security_control_parameters_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]] = None,
-                 compliance_security_control_parameters_values: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]] = None,
-                 compliance_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]] = None,
-                 confidences: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]] = None,
-                 created_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]] = None,
-                 criticalities: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]] = None,
-                 descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]] = None,
-                 finding_provider_fields_confidences: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]] = None,
-                 finding_provider_fields_criticalities: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]] = None,
-                 finding_provider_fields_related_findings_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]] = None,
-                 finding_provider_fields_related_findings_product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]] = None,
-                 finding_provider_fields_severity_labels: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]] = None,
-                 finding_provider_fields_severity_originals: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]] = None,
-                 finding_provider_fields_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]] = None,
-                 first_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]] = None,
-                 generator_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]] = None,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgs']]]] = None,
-                 keywords: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]] = None,
-                 last_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]] = None,
-                 malware_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]] = None,
-                 malware_paths: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]] = None,
-                 malware_states: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]] = None,
-                 malware_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]] = None,
-                 network_destination_domains: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]] = None,
-                 network_destination_ipv4s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]] = None,
-                 network_destination_ipv6s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]] = None,
-                 network_destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]] = None,
-                 network_directions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]] = None,
-                 network_protocols: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]] = None,
-                 network_source_domains: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]] = None,
-                 network_source_ipv4s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]] = None,
-                 network_source_ipv6s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]] = None,
-                 network_source_macs: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]] = None,
-                 network_source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]] = None,
-                 note_texts: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]] = None,
-                 note_updated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]] = None,
-                 note_updated_bies: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]] = None,
-                 process_launched_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]] = None,
-                 process_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]] = None,
-                 process_parent_pids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]] = None,
-                 process_paths: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]] = None,
-                 process_pids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]] = None,
-                 process_terminated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]] = None,
-                 product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]] = None,
-                 product_fields: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]] = None,
-                 product_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]] = None,
-                 recommendation_texts: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]] = None,
-                 record_states: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]] = None,
-                 related_findings_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]] = None,
-                 related_findings_product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]] = None,
-                 resource_aws_ec2_instance_iam_instance_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]] = None,
-                 resource_aws_ec2_instance_image_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]] = None,
-                 resource_aws_ec2_instance_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]] = None,
-                 resource_aws_ec2_instance_ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]] = None,
-                 resource_aws_ec2_instance_key_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]] = None,
-                 resource_aws_ec2_instance_launched_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]] = None,
-                 resource_aws_ec2_instance_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]] = None,
-                 resource_aws_ec2_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]] = None,
-                 resource_aws_ec2_instance_vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]] = None,
-                 resource_aws_iam_access_key_created_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]] = None,
-                 resource_aws_iam_access_key_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]] = None,
-                 resource_aws_iam_access_key_user_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]] = None,
-                 resource_aws_s3_bucket_owner_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]] = None,
-                 resource_aws_s3_bucket_owner_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]] = None,
-                 resource_container_image_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]] = None,
-                 resource_container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]] = None,
-                 resource_container_launched_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]] = None,
-                 resource_container_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]] = None,
-                 resource_details_others: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]] = None,
-                 resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]] = None,
-                 resource_partitions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]] = None,
-                 resource_regions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]] = None,
-                 severity_labels: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]] = None,
-                 source_urls: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]] = None,
-                 threat_intel_indicator_categories: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]] = None,
-                 threat_intel_indicator_last_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]] = None,
-                 threat_intel_indicator_source_urls: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]] = None,
-                 threat_intel_indicator_sources: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]] = None,
-                 threat_intel_indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]] = None,
-                 threat_intel_indicator_values: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]] = None,
-                 titles: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]] = None,
-                 updated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]] = None,
-                 user_defined_values: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]] = None,
-                 verification_states: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]] = None,
-                 workflow_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]] = None):
+                 aws_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]] = None,
+                 aws_account_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]] = None,
+                 company_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]] = None,
+                 compliance_associated_standards_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]] = None,
+                 compliance_security_control_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]] = None,
+                 compliance_security_control_parameters_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]] = None,
+                 compliance_security_control_parameters_values: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]] = None,
+                 compliance_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]] = None,
+                 confidences: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]] = None,
+                 created_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]] = None,
+                 criticalities: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]] = None,
+                 descriptions: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]] = None,
+                 finding_provider_fields_confidences: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]] = None,
+                 finding_provider_fields_criticalities: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]] = None,
+                 finding_provider_fields_related_findings_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]] = None,
+                 finding_provider_fields_related_findings_product_arns: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]] = None,
+                 finding_provider_fields_severity_labels: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]] = None,
+                 finding_provider_fields_severity_originals: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]] = None,
+                 finding_provider_fields_types: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]] = None,
+                 first_observed_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]] = None,
+                 generator_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]] = None,
+                 ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersIdArgs']]]] = None,
+                 keywords: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]] = None,
+                 last_observed_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]] = None,
+                 malware_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]] = None,
+                 malware_paths: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]] = None,
+                 malware_states: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]] = None,
+                 malware_types: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]] = None,
+                 network_destination_domains: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]] = None,
+                 network_destination_ipv4s: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]] = None,
+                 network_destination_ipv6s: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]] = None,
+                 network_destination_ports: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]] = None,
+                 network_directions: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]] = None,
+                 network_protocols: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]] = None,
+                 network_source_domains: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]] = None,
+                 network_source_ipv4s: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]] = None,
+                 network_source_ipv6s: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]] = None,
+                 network_source_macs: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]] = None,
+                 network_source_ports: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]] = None,
+                 note_texts: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]] = None,
+                 note_updated_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]] = None,
+                 note_updated_bies: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]] = None,
+                 process_launched_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]] = None,
+                 process_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]] = None,
+                 process_parent_pids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]] = None,
+                 process_paths: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]] = None,
+                 process_pids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]] = None,
+                 process_terminated_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]] = None,
+                 product_arns: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]] = None,
+                 product_fields: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]] = None,
+                 product_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]] = None,
+                 recommendation_texts: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]] = None,
+                 record_states: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]] = None,
+                 related_findings_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]] = None,
+                 related_findings_product_arns: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]] = None,
+                 resource_aws_ec2_instance_iam_instance_profile_arns: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]] = None,
+                 resource_aws_ec2_instance_image_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]] = None,
+                 resource_aws_ec2_instance_ipv4_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]] = None,
+                 resource_aws_ec2_instance_ipv6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]] = None,
+                 resource_aws_ec2_instance_key_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]] = None,
+                 resource_aws_ec2_instance_launched_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]] = None,
+                 resource_aws_ec2_instance_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]] = None,
+                 resource_aws_ec2_instance_types: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]] = None,
+                 resource_aws_ec2_instance_vpc_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]] = None,
+                 resource_aws_iam_access_key_created_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]] = None,
+                 resource_aws_iam_access_key_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]] = None,
+                 resource_aws_iam_access_key_user_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]] = None,
+                 resource_aws_s3_bucket_owner_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]] = None,
+                 resource_aws_s3_bucket_owner_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]] = None,
+                 resource_container_image_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]] = None,
+                 resource_container_image_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]] = None,
+                 resource_container_launched_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]] = None,
+                 resource_container_names: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]] = None,
+                 resource_details_others: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]] = None,
+                 resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]] = None,
+                 resource_partitions: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]] = None,
+                 resource_regions: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]] = None,
+                 severity_labels: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]] = None,
+                 source_urls: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]] = None,
+                 threat_intel_indicator_categories: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]] = None,
+                 threat_intel_indicator_last_observed_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]] = None,
+                 threat_intel_indicator_source_urls: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]] = None,
+                 threat_intel_indicator_sources: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]] = None,
+                 threat_intel_indicator_types: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]] = None,
+                 threat_intel_indicator_values: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]] = None,
+                 titles: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]] = None,
+                 updated_ats: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]] = None,
+                 user_defined_values: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]] = None,
+                 verification_states: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]] = None,
+                 workflow_statuses: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]] aws_account_ids: AWS account ID that a finding is generated in. See String_Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]] aws_account_names: The name of the AWS account in which a finding is generated. See String_Filter below for more details.
@@ -4623,1118 +4623,1118 @@ class InsightFiltersArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountIds")
-    def aws_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]]:
+    def aws_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]]:
         """
         AWS account ID that a finding is generated in. See String_Filter below for more details.
         """
         return pulumi.get(self, "aws_account_ids")
 
     @aws_account_ids.setter
-    def aws_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]]):
+    def aws_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]]):
         pulumi.set(self, "aws_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountNames")
-    def aws_account_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]:
+    def aws_account_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]:
         """
         The name of the AWS account in which a finding is generated. See String_Filter below for more details.
         """
         return pulumi.get(self, "aws_account_names")
 
     @aws_account_names.setter
-    def aws_account_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]):
+    def aws_account_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]):
         pulumi.set(self, "aws_account_names", value)
 
     @_builtins.property
     @pulumi.getter(name="companyNames")
-    def company_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]:
+    def company_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]:
         """
         The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
         """
         return pulumi.get(self, "company_names")
 
     @company_names.setter
-    def company_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]):
+    def company_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]):
         pulumi.set(self, "company_names", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceAssociatedStandardsIds")
-    def compliance_associated_standards_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]:
+    def compliance_associated_standards_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]:
         """
         The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
         """
         return pulumi.get(self, "compliance_associated_standards_ids")
 
     @compliance_associated_standards_ids.setter
-    def compliance_associated_standards_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]):
+    def compliance_associated_standards_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]):
         pulumi.set(self, "compliance_associated_standards_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSecurityControlIds")
-    def compliance_security_control_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]:
+    def compliance_security_control_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]:
         """
         The unique identifier of a control across standards. See String_Filter below for more details.
         """
         return pulumi.get(self, "compliance_security_control_ids")
 
     @compliance_security_control_ids.setter
-    def compliance_security_control_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]):
+    def compliance_security_control_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]):
         pulumi.set(self, "compliance_security_control_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSecurityControlParametersNames")
-    def compliance_security_control_parameters_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]:
+    def compliance_security_control_parameters_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]:
         """
         The unique identifier of a control across standards. See String_Filter below for more details.
         """
         return pulumi.get(self, "compliance_security_control_parameters_names")
 
     @compliance_security_control_parameters_names.setter
-    def compliance_security_control_parameters_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]):
+    def compliance_security_control_parameters_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]):
         pulumi.set(self, "compliance_security_control_parameters_names", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSecurityControlParametersValues")
-    def compliance_security_control_parameters_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]:
+    def compliance_security_control_parameters_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]:
         """
         The current value of a security control parameter. See String_Filter below for more details.
         """
         return pulumi.get(self, "compliance_security_control_parameters_values")
 
     @compliance_security_control_parameters_values.setter
-    def compliance_security_control_parameters_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]):
+    def compliance_security_control_parameters_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]):
         pulumi.set(self, "compliance_security_control_parameters_values", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceStatuses")
-    def compliance_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]]:
+    def compliance_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]]:
         """
         Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
         """
         return pulumi.get(self, "compliance_statuses")
 
     @compliance_statuses.setter
-    def compliance_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]]):
+    def compliance_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]]):
         pulumi.set(self, "compliance_statuses", value)
 
     @_builtins.property
     @pulumi.getter
-    def confidences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]]:
+    def confidences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]]:
         """
         A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
         """
         return pulumi.get(self, "confidences")
 
     @confidences.setter
-    def confidences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]]):
+    def confidences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]]):
         pulumi.set(self, "confidences", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAts")
-    def created_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]]:
+    def created_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]]:
         """
         An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
         """
         return pulumi.get(self, "created_ats")
 
     @created_ats.setter
-    def created_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]]):
+    def created_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]]):
         pulumi.set(self, "created_ats", value)
 
     @_builtins.property
     @pulumi.getter
-    def criticalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]]:
+    def criticalities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]]:
         """
         The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
         """
         return pulumi.get(self, "criticalities")
 
     @criticalities.setter
-    def criticalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]]):
+    def criticalities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]]):
         pulumi.set(self, "criticalities", value)
 
     @_builtins.property
     @pulumi.getter
-    def descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]]:
+    def descriptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]]:
         """
         A finding's description. See String Filter below for more details.
         """
         return pulumi.get(self, "descriptions")
 
     @descriptions.setter
-    def descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]]):
+    def descriptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]]):
         pulumi.set(self, "descriptions", value)
 
     @_builtins.property
     @pulumi.getter(name="findingProviderFieldsConfidences")
-    def finding_provider_fields_confidences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]]:
+    def finding_provider_fields_confidences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]]:
         """
         The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
         """
         return pulumi.get(self, "finding_provider_fields_confidences")
 
     @finding_provider_fields_confidences.setter
-    def finding_provider_fields_confidences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]]):
+    def finding_provider_fields_confidences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]]):
         pulumi.set(self, "finding_provider_fields_confidences", value)
 
     @_builtins.property
     @pulumi.getter(name="findingProviderFieldsCriticalities")
-    def finding_provider_fields_criticalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]]:
+    def finding_provider_fields_criticalities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]]:
         """
         The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
         """
         return pulumi.get(self, "finding_provider_fields_criticalities")
 
     @finding_provider_fields_criticalities.setter
-    def finding_provider_fields_criticalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]]):
+    def finding_provider_fields_criticalities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]]):
         pulumi.set(self, "finding_provider_fields_criticalities", value)
 
     @_builtins.property
     @pulumi.getter(name="findingProviderFieldsRelatedFindingsIds")
-    def finding_provider_fields_related_findings_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]]:
+    def finding_provider_fields_related_findings_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]]:
         """
         The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
         """
         return pulumi.get(self, "finding_provider_fields_related_findings_ids")
 
     @finding_provider_fields_related_findings_ids.setter
-    def finding_provider_fields_related_findings_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]]):
+    def finding_provider_fields_related_findings_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]]):
         pulumi.set(self, "finding_provider_fields_related_findings_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="findingProviderFieldsRelatedFindingsProductArns")
-    def finding_provider_fields_related_findings_product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]]:
+    def finding_provider_fields_related_findings_product_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]]:
         """
         The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
         """
         return pulumi.get(self, "finding_provider_fields_related_findings_product_arns")
 
     @finding_provider_fields_related_findings_product_arns.setter
-    def finding_provider_fields_related_findings_product_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]]):
+    def finding_provider_fields_related_findings_product_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]]):
         pulumi.set(self, "finding_provider_fields_related_findings_product_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="findingProviderFieldsSeverityLabels")
-    def finding_provider_fields_severity_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]]:
+    def finding_provider_fields_severity_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]]:
         """
         The finding provider value for the severity label. See String Filter below for more details.
         """
         return pulumi.get(self, "finding_provider_fields_severity_labels")
 
     @finding_provider_fields_severity_labels.setter
-    def finding_provider_fields_severity_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]]):
+    def finding_provider_fields_severity_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]]):
         pulumi.set(self, "finding_provider_fields_severity_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="findingProviderFieldsSeverityOriginals")
-    def finding_provider_fields_severity_originals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]]:
+    def finding_provider_fields_severity_originals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]]:
         """
         The finding provider's original value for the severity. See String Filter below for more details.
         """
         return pulumi.get(self, "finding_provider_fields_severity_originals")
 
     @finding_provider_fields_severity_originals.setter
-    def finding_provider_fields_severity_originals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]]):
+    def finding_provider_fields_severity_originals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]]):
         pulumi.set(self, "finding_provider_fields_severity_originals", value)
 
     @_builtins.property
     @pulumi.getter(name="findingProviderFieldsTypes")
-    def finding_provider_fields_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]]:
+    def finding_provider_fields_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]]:
         """
         One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
         """
         return pulumi.get(self, "finding_provider_fields_types")
 
     @finding_provider_fields_types.setter
-    def finding_provider_fields_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]]):
+    def finding_provider_fields_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]]):
         pulumi.set(self, "finding_provider_fields_types", value)
 
     @_builtins.property
     @pulumi.getter(name="firstObservedAts")
-    def first_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]]:
+    def first_observed_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]]:
         """
         An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
         """
         return pulumi.get(self, "first_observed_ats")
 
     @first_observed_ats.setter
-    def first_observed_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]]):
+    def first_observed_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]]):
         pulumi.set(self, "first_observed_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="generatorIds")
-    def generator_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]]:
+    def generator_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]]:
         """
         The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "generator_ids")
 
     @generator_ids.setter
-    def generator_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]]):
+    def generator_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]]):
         pulumi.set(self, "generator_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgs']]]]:
+    def ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersIdArgs']]]]:
         """
         The security findings provider-specific identifier for a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "ids")
 
     @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgs']]]]):
+    def ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersIdArgs']]]]):
         pulumi.set(self, "ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]]:
+    def keywords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]]:
         """
         A keyword for a finding. See Keyword Filter below for more details.
         """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
-    def keywords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]]):
+    def keywords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]]):
         pulumi.set(self, "keywords", value)
 
     @_builtins.property
     @pulumi.getter(name="lastObservedAts")
-    def last_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]]:
+    def last_observed_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]]:
         """
         An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
         """
         return pulumi.get(self, "last_observed_ats")
 
     @last_observed_ats.setter
-    def last_observed_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]]):
+    def last_observed_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]]):
         pulumi.set(self, "last_observed_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="malwareNames")
-    def malware_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]]:
+    def malware_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]]:
         """
         The name of the malware that was observed. See String Filter below for more details.
         """
         return pulumi.get(self, "malware_names")
 
     @malware_names.setter
-    def malware_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]]):
+    def malware_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]]):
         pulumi.set(self, "malware_names", value)
 
     @_builtins.property
     @pulumi.getter(name="malwarePaths")
-    def malware_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]]:
+    def malware_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]]:
         """
         The filesystem path of the malware that was observed. See String Filter below for more details.
         """
         return pulumi.get(self, "malware_paths")
 
     @malware_paths.setter
-    def malware_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]]):
+    def malware_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]]):
         pulumi.set(self, "malware_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="malwareStates")
-    def malware_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]]:
+    def malware_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]]:
         """
         The state of the malware that was observed. See String Filter below for more details.
         """
         return pulumi.get(self, "malware_states")
 
     @malware_states.setter
-    def malware_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]]):
+    def malware_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]]):
         pulumi.set(self, "malware_states", value)
 
     @_builtins.property
     @pulumi.getter(name="malwareTypes")
-    def malware_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]]:
+    def malware_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]]:
         """
         The type of the malware that was observed. See String Filter below for more details.
         """
         return pulumi.get(self, "malware_types")
 
     @malware_types.setter
-    def malware_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]]):
+    def malware_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]]):
         pulumi.set(self, "malware_types", value)
 
     @_builtins.property
     @pulumi.getter(name="networkDestinationDomains")
-    def network_destination_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]]:
+    def network_destination_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]]:
         """
         The destination domain of network-related information about a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "network_destination_domains")
 
     @network_destination_domains.setter
-    def network_destination_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]]):
+    def network_destination_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]]):
         pulumi.set(self, "network_destination_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="networkDestinationIpv4s")
-    def network_destination_ipv4s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]]:
+    def network_destination_ipv4s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]]:
         """
         The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
         """
         return pulumi.get(self, "network_destination_ipv4s")
 
     @network_destination_ipv4s.setter
-    def network_destination_ipv4s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]]):
+    def network_destination_ipv4s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]]):
         pulumi.set(self, "network_destination_ipv4s", value)
 
     @_builtins.property
     @pulumi.getter(name="networkDestinationIpv6s")
-    def network_destination_ipv6s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]]:
+    def network_destination_ipv6s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]]:
         """
         The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
         """
         return pulumi.get(self, "network_destination_ipv6s")
 
     @network_destination_ipv6s.setter
-    def network_destination_ipv6s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]]):
+    def network_destination_ipv6s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]]):
         pulumi.set(self, "network_destination_ipv6s", value)
 
     @_builtins.property
     @pulumi.getter(name="networkDestinationPorts")
-    def network_destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]]:
+    def network_destination_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]]:
         """
         The destination port of network-related information about a finding. See Number Filter below for more details.
         """
         return pulumi.get(self, "network_destination_ports")
 
     @network_destination_ports.setter
-    def network_destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]]):
+    def network_destination_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]]):
         pulumi.set(self, "network_destination_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="networkDirections")
-    def network_directions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]]:
+    def network_directions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]]:
         """
         Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "network_directions")
 
     @network_directions.setter
-    def network_directions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]]):
+    def network_directions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]]):
         pulumi.set(self, "network_directions", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProtocols")
-    def network_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]]:
+    def network_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]]:
         """
         The protocol of network-related information about a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "network_protocols")
 
     @network_protocols.setter
-    def network_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]]):
+    def network_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]]):
         pulumi.set(self, "network_protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSourceDomains")
-    def network_source_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]]:
+    def network_source_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]]:
         """
         The source domain of network-related information about a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "network_source_domains")
 
     @network_source_domains.setter
-    def network_source_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]]):
+    def network_source_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]]):
         pulumi.set(self, "network_source_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSourceIpv4s")
-    def network_source_ipv4s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]]:
+    def network_source_ipv4s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]]:
         """
         The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
         """
         return pulumi.get(self, "network_source_ipv4s")
 
     @network_source_ipv4s.setter
-    def network_source_ipv4s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]]):
+    def network_source_ipv4s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]]):
         pulumi.set(self, "network_source_ipv4s", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSourceIpv6s")
-    def network_source_ipv6s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]]:
+    def network_source_ipv6s(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]]:
         """
         The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
         """
         return pulumi.get(self, "network_source_ipv6s")
 
     @network_source_ipv6s.setter
-    def network_source_ipv6s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]]):
+    def network_source_ipv6s(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]]):
         pulumi.set(self, "network_source_ipv6s", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSourceMacs")
-    def network_source_macs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]]:
+    def network_source_macs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]]:
         """
         The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "network_source_macs")
 
     @network_source_macs.setter
-    def network_source_macs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]]):
+    def network_source_macs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]]):
         pulumi.set(self, "network_source_macs", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSourcePorts")
-    def network_source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]]:
+    def network_source_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]]:
         """
         The source port of network-related information about a finding. See Number Filter below for more details.
         """
         return pulumi.get(self, "network_source_ports")
 
     @network_source_ports.setter
-    def network_source_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]]):
+    def network_source_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]]):
         pulumi.set(self, "network_source_ports", value)
 
     @_builtins.property
     @pulumi.getter(name="noteTexts")
-    def note_texts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]]:
+    def note_texts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]]:
         """
         The text of a note. See String Filter below for more details.
         """
         return pulumi.get(self, "note_texts")
 
     @note_texts.setter
-    def note_texts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]]):
+    def note_texts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]]):
         pulumi.set(self, "note_texts", value)
 
     @_builtins.property
     @pulumi.getter(name="noteUpdatedAts")
-    def note_updated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]]:
+    def note_updated_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]]:
         """
         The timestamp of when the note was updated. See Date Filter below for more details.
         """
         return pulumi.get(self, "note_updated_ats")
 
     @note_updated_ats.setter
-    def note_updated_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]]):
+    def note_updated_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]]):
         pulumi.set(self, "note_updated_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="noteUpdatedBies")
-    def note_updated_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]]:
+    def note_updated_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]]:
         """
         The principal that created a note. See String Filter below for more details.
         """
         return pulumi.get(self, "note_updated_bies")
 
     @note_updated_bies.setter
-    def note_updated_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]]):
+    def note_updated_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]]):
         pulumi.set(self, "note_updated_bies", value)
 
     @_builtins.property
     @pulumi.getter(name="processLaunchedAts")
-    def process_launched_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]]:
+    def process_launched_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]]:
         """
         The date/time that the process was launched. See Date Filter below for more details.
         """
         return pulumi.get(self, "process_launched_ats")
 
     @process_launched_ats.setter
-    def process_launched_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]]):
+    def process_launched_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]]):
         pulumi.set(self, "process_launched_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="processNames")
-    def process_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]]:
+    def process_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]]:
         """
         The name of the process. See String Filter below for more details.
         """
         return pulumi.get(self, "process_names")
 
     @process_names.setter
-    def process_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]]):
+    def process_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]]):
         pulumi.set(self, "process_names", value)
 
     @_builtins.property
     @pulumi.getter(name="processParentPids")
-    def process_parent_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]]:
+    def process_parent_pids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]]:
         """
         The parent process ID. See Number Filter below for more details.
         """
         return pulumi.get(self, "process_parent_pids")
 
     @process_parent_pids.setter
-    def process_parent_pids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]]):
+    def process_parent_pids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]]):
         pulumi.set(self, "process_parent_pids", value)
 
     @_builtins.property
     @pulumi.getter(name="processPaths")
-    def process_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]]:
+    def process_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]]:
         """
         The path to the process executable. See String Filter below for more details.
         """
         return pulumi.get(self, "process_paths")
 
     @process_paths.setter
-    def process_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]]):
+    def process_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]]):
         pulumi.set(self, "process_paths", value)
 
     @_builtins.property
     @pulumi.getter(name="processPids")
-    def process_pids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]]:
+    def process_pids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]]:
         """
         The process ID. See Number Filter below for more details.
         """
         return pulumi.get(self, "process_pids")
 
     @process_pids.setter
-    def process_pids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]]):
+    def process_pids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]]):
         pulumi.set(self, "process_pids", value)
 
     @_builtins.property
     @pulumi.getter(name="processTerminatedAts")
-    def process_terminated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]]:
+    def process_terminated_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]]:
         """
         The date/time that the process was terminated. See Date Filter below for more details.
         """
         return pulumi.get(self, "process_terminated_ats")
 
     @process_terminated_ats.setter
-    def process_terminated_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]]):
+    def process_terminated_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]]):
         pulumi.set(self, "process_terminated_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="productArns")
-    def product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]]:
+    def product_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]]:
         """
         The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
         """
         return pulumi.get(self, "product_arns")
 
     @product_arns.setter
-    def product_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]]):
+    def product_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]]):
         pulumi.set(self, "product_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="productFields")
-    def product_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]]:
+    def product_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]]:
         """
         A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
         """
         return pulumi.get(self, "product_fields")
 
     @product_fields.setter
-    def product_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]]):
+    def product_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]]):
         pulumi.set(self, "product_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="productNames")
-    def product_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]]:
+    def product_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]]:
         """
         The name of the solution (product) that generates findings. See String Filter below for more details.
         """
         return pulumi.get(self, "product_names")
 
     @product_names.setter
-    def product_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]]):
+    def product_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]]):
         pulumi.set(self, "product_names", value)
 
     @_builtins.property
     @pulumi.getter(name="recommendationTexts")
-    def recommendation_texts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]]:
+    def recommendation_texts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]]:
         """
         The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "recommendation_texts")
 
     @recommendation_texts.setter
-    def recommendation_texts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]]):
+    def recommendation_texts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]]):
         pulumi.set(self, "recommendation_texts", value)
 
     @_builtins.property
     @pulumi.getter(name="recordStates")
-    def record_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]]:
+    def record_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]]:
         """
         The updated record state for the finding. See String Filter below for more details.
         """
         return pulumi.get(self, "record_states")
 
     @record_states.setter
-    def record_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]]):
+    def record_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]]):
         pulumi.set(self, "record_states", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedFindingsIds")
-    def related_findings_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]]:
+    def related_findings_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]]:
         """
         The solution-generated identifier for a related finding. See String Filter below for more details.
         """
         return pulumi.get(self, "related_findings_ids")
 
     @related_findings_ids.setter
-    def related_findings_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]]):
+    def related_findings_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]]):
         pulumi.set(self, "related_findings_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedFindingsProductArns")
-    def related_findings_product_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]]:
+    def related_findings_product_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]]:
         """
         The ARN of the solution that generated a related finding. See String Filter below for more details.
         """
         return pulumi.get(self, "related_findings_product_arns")
 
     @related_findings_product_arns.setter
-    def related_findings_product_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]]):
+    def related_findings_product_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]]):
         pulumi.set(self, "related_findings_product_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceIamInstanceProfileArns")
-    def resource_aws_ec2_instance_iam_instance_profile_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]]:
+    def resource_aws_ec2_instance_iam_instance_profile_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]]:
         """
         The IAM profile ARN of the instance. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_iam_instance_profile_arns")
 
     @resource_aws_ec2_instance_iam_instance_profile_arns.setter
-    def resource_aws_ec2_instance_iam_instance_profile_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]]):
+    def resource_aws_ec2_instance_iam_instance_profile_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_iam_instance_profile_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceImageIds")
-    def resource_aws_ec2_instance_image_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]:
+    def resource_aws_ec2_instance_image_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]:
         """
         The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_image_ids")
 
     @resource_aws_ec2_instance_image_ids.setter
-    def resource_aws_ec2_instance_image_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]):
+    def resource_aws_ec2_instance_image_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_image_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceIpv4Addresses")
-    def resource_aws_ec2_instance_ipv4_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]]:
+    def resource_aws_ec2_instance_ipv4_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]]:
         """
         The IPv4 addresses associated with the instance. See Ip Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_ipv4_addresses")
 
     @resource_aws_ec2_instance_ipv4_addresses.setter
-    def resource_aws_ec2_instance_ipv4_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]]):
+    def resource_aws_ec2_instance_ipv4_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_ipv4_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceIpv6Addresses")
-    def resource_aws_ec2_instance_ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]]:
+    def resource_aws_ec2_instance_ipv6_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]]:
         """
         The IPv6 addresses associated with the instance. See Ip Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_ipv6_addresses")
 
     @resource_aws_ec2_instance_ipv6_addresses.setter
-    def resource_aws_ec2_instance_ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]]):
+    def resource_aws_ec2_instance_ipv6_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_ipv6_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceKeyNames")
-    def resource_aws_ec2_instance_key_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]]:
+    def resource_aws_ec2_instance_key_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]]:
         """
         The key name associated with the instance. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_key_names")
 
     @resource_aws_ec2_instance_key_names.setter
-    def resource_aws_ec2_instance_key_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]]):
+    def resource_aws_ec2_instance_key_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_key_names", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceLaunchedAts")
-    def resource_aws_ec2_instance_launched_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]]:
+    def resource_aws_ec2_instance_launched_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]]:
         """
         The date and time the instance was launched. See Date Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_launched_ats")
 
     @resource_aws_ec2_instance_launched_ats.setter
-    def resource_aws_ec2_instance_launched_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]]):
+    def resource_aws_ec2_instance_launched_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_launched_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceSubnetIds")
-    def resource_aws_ec2_instance_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]]:
+    def resource_aws_ec2_instance_subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]]:
         """
         The identifier of the subnet that the instance was launched in. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_subnet_ids")
 
     @resource_aws_ec2_instance_subnet_ids.setter
-    def resource_aws_ec2_instance_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]]):
+    def resource_aws_ec2_instance_subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceTypes")
-    def resource_aws_ec2_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]]:
+    def resource_aws_ec2_instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]]:
         """
         The instance type of the instance. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_types")
 
     @resource_aws_ec2_instance_types.setter
-    def resource_aws_ec2_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]]):
+    def resource_aws_ec2_instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_types", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsEc2InstanceVpcIds")
-    def resource_aws_ec2_instance_vpc_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]]:
+    def resource_aws_ec2_instance_vpc_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]]:
         """
         The identifier of the VPC that the instance was launched in. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_ec2_instance_vpc_ids")
 
     @resource_aws_ec2_instance_vpc_ids.setter
-    def resource_aws_ec2_instance_vpc_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]]):
+    def resource_aws_ec2_instance_vpc_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]]):
         pulumi.set(self, "resource_aws_ec2_instance_vpc_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsIamAccessKeyCreatedAts")
-    def resource_aws_iam_access_key_created_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]]:
+    def resource_aws_iam_access_key_created_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]]:
         """
         The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_iam_access_key_created_ats")
 
     @resource_aws_iam_access_key_created_ats.setter
-    def resource_aws_iam_access_key_created_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]]):
+    def resource_aws_iam_access_key_created_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]]):
         pulumi.set(self, "resource_aws_iam_access_key_created_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsIamAccessKeyStatuses")
-    def resource_aws_iam_access_key_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]]:
+    def resource_aws_iam_access_key_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]]:
         """
         The status of the IAM access key related to a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_iam_access_key_statuses")
 
     @resource_aws_iam_access_key_statuses.setter
-    def resource_aws_iam_access_key_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]]):
+    def resource_aws_iam_access_key_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]]):
         pulumi.set(self, "resource_aws_iam_access_key_statuses", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsIamAccessKeyUserNames")
-    def resource_aws_iam_access_key_user_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]]:
+    def resource_aws_iam_access_key_user_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]]:
         """
         The user associated with the IAM access key related to a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_iam_access_key_user_names")
 
     @resource_aws_iam_access_key_user_names.setter
-    def resource_aws_iam_access_key_user_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]]):
+    def resource_aws_iam_access_key_user_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]]):
         pulumi.set(self, "resource_aws_iam_access_key_user_names", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsS3BucketOwnerIds")
-    def resource_aws_s3_bucket_owner_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]]:
+    def resource_aws_s3_bucket_owner_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]]:
         """
         The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_s3_bucket_owner_ids")
 
     @resource_aws_s3_bucket_owner_ids.setter
-    def resource_aws_s3_bucket_owner_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]]):
+    def resource_aws_s3_bucket_owner_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]]):
         pulumi.set(self, "resource_aws_s3_bucket_owner_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceAwsS3BucketOwnerNames")
-    def resource_aws_s3_bucket_owner_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]]:
+    def resource_aws_s3_bucket_owner_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]]:
         """
         The display name of the owner of the S3 bucket. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_aws_s3_bucket_owner_names")
 
     @resource_aws_s3_bucket_owner_names.setter
-    def resource_aws_s3_bucket_owner_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]]):
+    def resource_aws_s3_bucket_owner_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]]):
         pulumi.set(self, "resource_aws_s3_bucket_owner_names", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceContainerImageIds")
-    def resource_container_image_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]]:
+    def resource_container_image_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]]:
         """
         The identifier of the image related to a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_container_image_ids")
 
     @resource_container_image_ids.setter
-    def resource_container_image_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]]):
+    def resource_container_image_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]]):
         pulumi.set(self, "resource_container_image_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceContainerImageNames")
-    def resource_container_image_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]]:
+    def resource_container_image_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]]:
         """
         The name of the image related to a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_container_image_names")
 
     @resource_container_image_names.setter
-    def resource_container_image_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]]):
+    def resource_container_image_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]]):
         pulumi.set(self, "resource_container_image_names", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceContainerLaunchedAts")
-    def resource_container_launched_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]]:
+    def resource_container_launched_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]]:
         """
         The date/time that the container was started. See Date Filter below for more details.
         """
         return pulumi.get(self, "resource_container_launched_ats")
 
     @resource_container_launched_ats.setter
-    def resource_container_launched_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]]):
+    def resource_container_launched_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]]):
         pulumi.set(self, "resource_container_launched_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceContainerNames")
-    def resource_container_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]]:
+    def resource_container_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]]:
         """
         The name of the container related to a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_container_names")
 
     @resource_container_names.setter
-    def resource_container_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]]):
+    def resource_container_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]]):
         pulumi.set(self, "resource_container_names", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceDetailsOthers")
-    def resource_details_others(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]]:
+    def resource_details_others(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]]:
         """
         The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
         """
         return pulumi.get(self, "resource_details_others")
 
     @resource_details_others.setter
-    def resource_details_others(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]]):
+    def resource_details_others(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]]):
         pulumi.set(self, "resource_details_others", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIds")
-    def resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]]:
+    def resource_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]]:
         """
         The canonical identifier for the given resource type. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_ids")
 
     @resource_ids.setter
-    def resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]]):
+    def resource_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]]):
         pulumi.set(self, "resource_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePartitions")
-    def resource_partitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]]:
+    def resource_partitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]]:
         """
         The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_partitions")
 
     @resource_partitions.setter
-    def resource_partitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]]):
+    def resource_partitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]]):
         pulumi.set(self, "resource_partitions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRegions")
-    def resource_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]]:
+    def resource_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]]:
         """
         The canonical AWS external Region name where this resource is located. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_regions")
 
     @resource_regions.setter
-    def resource_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]]):
+    def resource_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]]):
         pulumi.set(self, "resource_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]]:
         """
         A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]]:
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]]:
         """
         Specifies the type of the resource that details are provided for. See String Filter below for more details.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]]):
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]]):
         pulumi.set(self, "resource_types", value)
 
     @_builtins.property
     @pulumi.getter(name="severityLabels")
-    def severity_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]]:
+    def severity_labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]]:
         """
         The label of a finding's severity. See String Filter below for more details.
         """
         return pulumi.get(self, "severity_labels")
 
     @severity_labels.setter
-    def severity_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]]):
+    def severity_labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]]):
         pulumi.set(self, "severity_labels", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceUrls")
-    def source_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]]:
+    def source_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]]:
         """
         A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
         """
         return pulumi.get(self, "source_urls")
 
     @source_urls.setter
-    def source_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]]):
+    def source_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]]):
         pulumi.set(self, "source_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelIndicatorCategories")
-    def threat_intel_indicator_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]]:
+    def threat_intel_indicator_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]]:
         """
         The category of a threat intelligence indicator. See String Filter below for more details.
         """
         return pulumi.get(self, "threat_intel_indicator_categories")
 
     @threat_intel_indicator_categories.setter
-    def threat_intel_indicator_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]]):
+    def threat_intel_indicator_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]]):
         pulumi.set(self, "threat_intel_indicator_categories", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelIndicatorLastObservedAts")
-    def threat_intel_indicator_last_observed_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]]:
+    def threat_intel_indicator_last_observed_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]]:
         """
         The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
         """
         return pulumi.get(self, "threat_intel_indicator_last_observed_ats")
 
     @threat_intel_indicator_last_observed_ats.setter
-    def threat_intel_indicator_last_observed_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]]):
+    def threat_intel_indicator_last_observed_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]]):
         pulumi.set(self, "threat_intel_indicator_last_observed_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelIndicatorSourceUrls")
-    def threat_intel_indicator_source_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]]:
+    def threat_intel_indicator_source_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]]:
         """
         The URL for more details from the source of the threat intelligence. See String Filter below for more details.
         """
         return pulumi.get(self, "threat_intel_indicator_source_urls")
 
     @threat_intel_indicator_source_urls.setter
-    def threat_intel_indicator_source_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]]):
+    def threat_intel_indicator_source_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]]):
         pulumi.set(self, "threat_intel_indicator_source_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelIndicatorSources")
-    def threat_intel_indicator_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]]:
+    def threat_intel_indicator_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]]:
         """
         The source of the threat intelligence. See String Filter below for more details.
         """
         return pulumi.get(self, "threat_intel_indicator_sources")
 
     @threat_intel_indicator_sources.setter
-    def threat_intel_indicator_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]]):
+    def threat_intel_indicator_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]]):
         pulumi.set(self, "threat_intel_indicator_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelIndicatorTypes")
-    def threat_intel_indicator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]]:
+    def threat_intel_indicator_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]]:
         """
         The type of a threat intelligence indicator. See String Filter below for more details.
         """
         return pulumi.get(self, "threat_intel_indicator_types")
 
     @threat_intel_indicator_types.setter
-    def threat_intel_indicator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]]):
+    def threat_intel_indicator_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]]):
         pulumi.set(self, "threat_intel_indicator_types", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelIndicatorValues")
-    def threat_intel_indicator_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]]:
+    def threat_intel_indicator_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]]:
         """
         The value of a threat intelligence indicator. See String Filter below for more details.
         """
         return pulumi.get(self, "threat_intel_indicator_values")
 
     @threat_intel_indicator_values.setter
-    def threat_intel_indicator_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]]):
+    def threat_intel_indicator_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]]):
         pulumi.set(self, "threat_intel_indicator_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def titles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]]:
+    def titles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]]:
         """
         A finding's title. See String Filter below for more details.
         """
         return pulumi.get(self, "titles")
 
     @titles.setter
-    def titles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]]):
+    def titles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]]):
         pulumi.set(self, "titles", value)
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]]:
         """
         A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]]):
         pulumi.set(self, "types", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAts")
-    def updated_ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]]:
+    def updated_ats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]]:
         """
         An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
         """
         return pulumi.get(self, "updated_ats")
 
     @updated_ats.setter
-    def updated_ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]]):
+    def updated_ats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]]):
         pulumi.set(self, "updated_ats", value)
 
     @_builtins.property
     @pulumi.getter(name="userDefinedValues")
-    def user_defined_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]]:
+    def user_defined_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]]:
         """
         A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
         """
         return pulumi.get(self, "user_defined_values")
 
     @user_defined_values.setter
-    def user_defined_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]]):
+    def user_defined_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]]):
         pulumi.set(self, "user_defined_values", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationStates")
-    def verification_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]]:
+    def verification_states(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]]:
         """
         The veracity of a finding. See String Filter below for more details.
         """
         return pulumi.get(self, "verification_states")
 
     @verification_states.setter
-    def verification_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]]):
+    def verification_states(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]]):
         pulumi.set(self, "verification_states", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowStatuses")
-    def workflow_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]]:
+    def workflow_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]]:
         """
         The status of the investigation into a finding. See Workflow Status Filter below for more details.
         """
         return pulumi.get(self, "workflow_statuses")
 
     @workflow_statuses.setter
-    def workflow_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]]):
+    def workflow_statuses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]]):
         pulumi.set(self, "workflow_statuses", value)
 
 
@@ -5987,15 +5987,15 @@ class InsightFiltersComplianceStatusArgs:
 
 
 class InsightFiltersConfidenceArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -6003,9 +6003,9 @@ class InsightFiltersConfidenceArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersConfidenceArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -6020,51 +6020,51 @@ class InsightFiltersConfidenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
 class InsightFiltersCreatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersCreatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersCreatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -6072,9 +6072,9 @@ class InsightFiltersCreatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersCreatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersCreatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersCreatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersCreatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -6089,38 +6089,38 @@ class InsightFiltersCreatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersCreatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersCreatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersCreatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersCreatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -6172,15 +6172,15 @@ class InsightFiltersCreatedAtDateRangeArgs:
 
 
 class InsightFiltersCriticalityArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -6188,9 +6188,9 @@ class InsightFiltersCriticalityArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersCriticalityArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -6205,38 +6205,38 @@ class InsightFiltersCriticalityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
@@ -6272,15 +6272,15 @@ class InsightFiltersDescriptionArgs:
 
 
 class InsightFiltersFindingProviderFieldsConfidenceArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -6288,9 +6288,9 @@ class InsightFiltersFindingProviderFieldsConfidenceArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsConfidenceArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -6305,51 +6305,51 @@ class InsightFiltersFindingProviderFieldsConfidenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
 class InsightFiltersFindingProviderFieldsCriticalityArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -6357,9 +6357,9 @@ class InsightFiltersFindingProviderFieldsCriticalityArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsCriticalityArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -6374,38 +6374,38 @@ class InsightFiltersFindingProviderFieldsCriticalityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
@@ -6565,15 +6565,15 @@ class InsightFiltersFindingProviderFieldsTypeArgs:
 
 
 class InsightFiltersFirstObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersFirstObservedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -6581,9 +6581,9 @@ class InsightFiltersFirstObservedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersFirstObservedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersFirstObservedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -6598,38 +6598,38 @@ class InsightFiltersFirstObservedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersFirstObservedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersFirstObservedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -6771,15 +6771,15 @@ class InsightFiltersKeywordArgs:
 
 
 class InsightFiltersLastObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersLastObservedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -6787,9 +6787,9 @@ class InsightFiltersLastObservedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersLastObservedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersLastObservedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -6804,38 +6804,38 @@ class InsightFiltersLastObservedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersLastObservedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersLastObservedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -7098,15 +7098,15 @@ class InsightFiltersNetworkDestinationIpv6Args:
 
 
 class InsightFiltersNetworkDestinationPortArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -7114,9 +7114,9 @@ class InsightFiltersNetworkDestinationPortArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersNetworkDestinationPortArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -7131,38 +7131,38 @@ class InsightFiltersNetworkDestinationPortArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
@@ -7347,15 +7347,15 @@ class InsightFiltersNetworkSourceMacArgs:
 
 
 class InsightFiltersNetworkSourcePortArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -7363,9 +7363,9 @@ class InsightFiltersNetworkSourcePortArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersNetworkSourcePortArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -7380,38 +7380,38 @@ class InsightFiltersNetworkSourcePortArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
@@ -7447,15 +7447,15 @@ class InsightFiltersNoteTextArgs:
 
 
 class InsightFiltersNoteUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersNoteUpdatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -7463,9 +7463,9 @@ class InsightFiltersNoteUpdatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersNoteUpdatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersNoteUpdatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -7480,38 +7480,38 @@ class InsightFiltersNoteUpdatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersNoteUpdatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersNoteUpdatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -7594,15 +7594,15 @@ class InsightFiltersNoteUpdatedByArgs:
 
 
 class InsightFiltersProcessLaunchedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersProcessLaunchedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -7610,9 +7610,9 @@ class InsightFiltersProcessLaunchedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersProcessLaunchedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersProcessLaunchedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -7627,38 +7627,38 @@ class InsightFiltersProcessLaunchedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersProcessLaunchedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersProcessLaunchedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -7741,15 +7741,15 @@ class InsightFiltersProcessNameArgs:
 
 
 class InsightFiltersProcessParentPidArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -7757,9 +7757,9 @@ class InsightFiltersProcessParentPidArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersProcessParentPidArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -7774,38 +7774,38 @@ class InsightFiltersProcessParentPidArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
@@ -7841,15 +7841,15 @@ class InsightFiltersProcessPathArgs:
 
 
 class InsightFiltersProcessPidArgsDict(TypedDict):
-    eq: NotRequired[pulumi.Input[_builtins.str]]
+    eq: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The equal-to condition to be applied to a single field when querying for findings, provided as a String.
     """
-    gte: NotRequired[pulumi.Input[_builtins.str]]
+    gte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
-    lte: NotRequired[pulumi.Input[_builtins.str]]
+    lte: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
     """
@@ -7857,9 +7857,9 @@ class InsightFiltersProcessPidArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersProcessPidArgs:
     def __init__(__self__, *,
-                 eq: Optional[pulumi.Input[_builtins.str]] = None,
-                 gte: Optional[pulumi.Input[_builtins.str]] = None,
-                 lte: Optional[pulumi.Input[_builtins.str]] = None):
+                 eq: pulumi.Input[Optional[_builtins.str]] = None,
+                 gte: pulumi.Input[Optional[_builtins.str]] = None,
+                 lte: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] eq: The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[_builtins.str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
@@ -7874,51 +7874,51 @@ class InsightFiltersProcessPidArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eq(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def eq(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "eq")
 
     @eq.setter
-    def eq(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def eq(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "eq", value)
 
     @_builtins.property
     @pulumi.getter
-    def gte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "gte")
 
     @gte.setter
-    def gte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gte", value)
 
     @_builtins.property
     @pulumi.getter
-    def lte(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lte(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
         return pulumi.get(self, "lte")
 
     @lte.setter
-    def lte(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lte(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lte", value)
 
 
 class InsightFiltersProcessTerminatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersProcessTerminatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -7926,9 +7926,9 @@ class InsightFiltersProcessTerminatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersProcessTerminatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersProcessTerminatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -7943,38 +7943,38 @@ class InsightFiltersProcessTerminatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersProcessTerminatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersProcessTerminatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -8413,15 +8413,15 @@ class InsightFiltersResourceAwsEc2InstanceKeyNameArgs:
 
 
 class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -8429,9 +8429,9 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -8446,38 +8446,38 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -8622,15 +8622,15 @@ class InsightFiltersResourceAwsEc2InstanceVpcIdArgs:
 
 
 class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -8638,9 +8638,9 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -8655,38 +8655,38 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -8924,15 +8924,15 @@ class InsightFiltersResourceContainerImageNameArgs:
 
 
 class InsightFiltersResourceContainerLaunchedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -8940,9 +8940,9 @@ class InsightFiltersResourceContainerLaunchedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersResourceContainerLaunchedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -8957,38 +8957,38 @@ class InsightFiltersResourceContainerLaunchedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -9392,15 +9392,15 @@ class InsightFiltersThreatIntelIndicatorCategoryArgs:
 
 
 class InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -9408,9 +9408,9 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -9425,38 +9425,38 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 
@@ -9694,15 +9694,15 @@ class InsightFiltersTypeArgs:
 
 
 class InsightFiltersUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgsDict']]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersUpdatedAtDateRangeArgs']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
-    end: NotRequired[pulumi.Input[_builtins.str]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An end date for the date filter. Required with `start` if `date_range` is not specified.
     """
-    start: NotRequired[pulumi.Input[_builtins.str]]
+    start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A start date for the date filter. Required with `end` if `date_range` is not specified.
     """
@@ -9710,9 +9710,9 @@ class InsightFiltersUpdatedAtArgsDict(TypedDict):
 @pulumi.input_type
 class InsightFiltersUpdatedAtArgs:
     def __init__(__self__, *,
-                 date_range: Optional[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs']] = None,
-                 end: Optional[pulumi.Input[_builtins.str]] = None,
-                 start: Optional[pulumi.Input[_builtins.str]] = None):
+                 date_range: pulumi.Input[Optional['InsightFiltersUpdatedAtDateRangeArgs']] = None,
+                 end: pulumi.Input[Optional[_builtins.str]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs'] date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param pulumi.Input[_builtins.str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
@@ -9727,38 +9727,38 @@ class InsightFiltersUpdatedAtArgs:
 
     @_builtins.property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> Optional[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs']]:
+    def date_range(self) -> pulumi.Input[Optional['InsightFiltersUpdatedAtDateRangeArgs']]:
         """
         A configuration block of the date range for the date filter. See date_range below for more details.
         """
         return pulumi.get(self, "date_range")
 
     @date_range.setter
-    def date_range(self, value: Optional[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs']]):
+    def date_range(self, value: pulumi.Input[Optional['InsightFiltersUpdatedAtDateRangeArgs']]):
         pulumi.set(self, "date_range", value)
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An end date for the date filter. Required with `start` if `date_range` is not specified.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end", value)
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start", value)
 
 

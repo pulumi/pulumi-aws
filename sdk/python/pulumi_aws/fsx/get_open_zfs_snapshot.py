@@ -215,12 +215,12 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
         snapshot_ids=pulumi.get(__ret__, 'snapshot_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         volume_id=pulumi.get(__ret__, 'volume_id'))
-def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']]]]] = None,
-                                 most_recent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                 name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 snapshot_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                 tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_open_zfs_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']]]]] = None,
+                                 most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                 name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 snapshot_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenZfsSnapshotResult]:
     """
     Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.

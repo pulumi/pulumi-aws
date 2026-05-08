@@ -112,15 +112,15 @@ export interface SizeConstraintSetState {
     /**
      * Amazon Resource Name (ARN).
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name or description of the Size Constraint Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Parts of web requests that you want to inspect the size of.
      */
-    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[]>;
+    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[] | undefined>;
 }
 
 /**
@@ -130,9 +130,9 @@ export interface SizeConstraintSetArgs {
     /**
      * Name or description of the Size Constraint Set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Parts of web requests that you want to inspect the size of.
      */
-    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[]>;
+    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraint>[] | undefined>;
 }

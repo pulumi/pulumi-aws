@@ -22,11 +22,11 @@ __all__ = ['BucketNotificationArgs', 'BucketNotification']
 class BucketNotificationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 eventbridge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
-                 queues: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
+                 eventbridge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lambda_functions: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
+                 queues: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         The set of arguments for constructing a BucketNotification resource.
 
@@ -67,74 +67,74 @@ class BucketNotificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def eventbridge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def eventbridge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         """
         return pulumi.get(self, "eventbridge")
 
     @eventbridge.setter
-    def eventbridge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def eventbridge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "eventbridge", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctions")
-    def lambda_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
+    def lambda_functions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
         """
         Used to configure notifications to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 
     @lambda_functions.setter
-    def lambda_functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]):
+    def lambda_functions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]):
         pulumi.set(self, "lambda_functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
+    def queues(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
         """
         Notification configuration to SQS Queue. See below.
         """
         return pulumi.get(self, "queues")
 
     @queues.setter
-    def queues(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]):
+    def queues(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]):
         pulumi.set(self, "queues", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
+    def topics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
         """
         Notification configuration to SNS Topic. See below.
         """
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]):
+    def topics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]):
         pulumi.set(self, "topics", value)
 
 
 @pulumi.input_type
 class _BucketNotificationState:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventbridge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
-                 queues: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventbridge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lambda_functions: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
+                 queues: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketNotification resources.
 
@@ -162,7 +162,7 @@ class _BucketNotificationState:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bucket for notification configuration.
 
@@ -171,67 +171,67 @@ class _BucketNotificationState:
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def eventbridge(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def eventbridge(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         """
         return pulumi.get(self, "eventbridge")
 
     @eventbridge.setter
-    def eventbridge(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def eventbridge(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "eventbridge", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctions")
-    def lambda_functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
+    def lambda_functions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]:
         """
         Used to configure notifications to a Lambda Function. See below.
         """
         return pulumi.get(self, "lambda_functions")
 
     @lambda_functions.setter
-    def lambda_functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]):
+    def lambda_functions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]]):
         pulumi.set(self, "lambda_functions", value)
 
     @_builtins.property
     @pulumi.getter
-    def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
+    def queues(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]:
         """
         Notification configuration to SQS Queue. See below.
         """
         return pulumi.get(self, "queues")
 
     @queues.setter
-    def queues(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]):
+    def queues(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]]):
         pulumi.set(self, "queues", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
+    def topics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]:
         """
         Notification configuration to SNS Topic. See below.
         """
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]):
+    def topics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]]):
         pulumi.set(self, "topics", value)
 
 
@@ -241,12 +241,12 @@ class BucketNotification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventbridge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]]] = None,
-                 queues: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventbridge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lambda_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]]] = None,
+                 queues: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
@@ -768,12 +768,12 @@ class BucketNotification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 eventbridge: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]]] = None,
-                 queues: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 eventbridge: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lambda_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]]] = None,
+                 queues: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -801,12 +801,12 @@ class BucketNotification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            eventbridge: Optional[pulumi.Input[_builtins.bool]] = None,
-            lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]]] = None,
-            queues: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]]] = None) -> 'BucketNotification':
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            eventbridge: pulumi.Input[Optional[_builtins.bool]] = None,
+            lambda_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationLambdaFunctionArgs', 'BucketNotificationLambdaFunctionArgsDict']]]]] = None,
+            queues: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationQueueArgs', 'BucketNotificationQueueArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketNotificationTopicArgs', 'BucketNotificationTopicArgsDict']]]]] = None) -> 'BucketNotification':
         """
         Get an existing BucketNotification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -932,8 +932,8 @@ def get_instance_type(instance_type: Optional[_builtins.str] = None,
         total_neuron_device_memory=pulumi.get(__ret__, 'total_neuron_device_memory'),
         valid_cores=pulumi.get(__ret__, 'valid_cores'),
         valid_threads_per_cores=pulumi.get(__ret__, 'valid_threads_per_cores'))
-def get_instance_type_output(instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_instance_type_output(instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeResult]:
     """
     Get characteristics for a single EC2 Instance Type.

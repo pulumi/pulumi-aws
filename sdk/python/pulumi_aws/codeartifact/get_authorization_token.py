@@ -148,10 +148,10 @@ def get_authorization_token(domain: Optional[_builtins.str] = None,
         expiration=pulumi.get(__ret__, 'expiration'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_authorization_token_output(domain: Optional[pulumi.Input[_builtins.str]] = None,
-                                   domain_owner: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   duration_seconds: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_authorization_token_output(domain: pulumi.Input[Optional[_builtins.str]] = None,
+                                   domain_owner: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   duration_seconds: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.

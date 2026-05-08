@@ -195,60 +195,60 @@ export interface MultiRegionClusterState {
     /**
      * The ARN of the multi-region cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * description for the multi-region cluster.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the multi-region cluster.
      */
-    multiRegionClusterName?: pulumi.Input<string>;
+    multiRegionClusterName?: pulumi.Input<string | undefined>;
     /**
      * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      */
-    multiRegionClusterNameSuffix?: pulumi.Input<string>;
+    multiRegionClusterNameSuffix?: pulumi.Input<string | undefined>;
     /**
      * The name of the multi-region parameter group to be associated with the cluster.
      */
-    multiRegionParameterGroupName?: pulumi.Input<string>;
+    multiRegionParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The node type to be used for the multi-region cluster.
      *
      * The following arguments are optional:
      */
-    nodeType?: pulumi.Input<string>;
+    nodeType?: pulumi.Input<string | undefined>;
     /**
      * The number of shards for the multi-region cluster.
      */
-    numShards?: pulumi.Input<number>;
+    numShards?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.memorydb.MultiRegionClusterTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.memorydb.MultiRegionClusterTimeouts | undefined>;
     /**
      * A flag to enable in-transit encryption on the cluster.
      */
-    tlsEnabled?: pulumi.Input<boolean>;
-    updateStrategy?: pulumi.Input<string>;
+    tlsEnabled?: pulumi.Input<boolean | undefined>;
+    updateStrategy?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -258,15 +258,15 @@ export interface MultiRegionClusterArgs {
     /**
      * description for the multi-region cluster.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      */
@@ -274,7 +274,7 @@ export interface MultiRegionClusterArgs {
     /**
      * The name of the multi-region parameter group to be associated with the cluster.
      */
-    multiRegionParameterGroupName?: pulumi.Input<string>;
+    multiRegionParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * The node type to be used for the multi-region cluster.
      *
@@ -284,19 +284,19 @@ export interface MultiRegionClusterArgs {
     /**
      * The number of shards for the multi-region cluster.
      */
-    numShards?: pulumi.Input<number>;
+    numShards?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.memorydb.MultiRegionClusterTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.memorydb.MultiRegionClusterTimeouts | undefined>;
     /**
      * A flag to enable in-transit encryption on the cluster.
      */
-    tlsEnabled?: pulumi.Input<boolean>;
-    updateStrategy?: pulumi.Input<string>;
+    tlsEnabled?: pulumi.Input<boolean | undefined>;
+    updateStrategy?: pulumi.Input<string | undefined>;
 }

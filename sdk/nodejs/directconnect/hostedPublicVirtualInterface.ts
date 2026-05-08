@@ -193,56 +193,56 @@ export interface HostedPublicVirtualInterfaceState {
     /**
      * The address family for the BGP peer. `ipv4 ` or `ipv6`.
      */
-    addressFamily?: pulumi.Input<string>;
+    addressFamily?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    amazonAddress?: pulumi.Input<string>;
-    amazonSideAsn?: pulumi.Input<string>;
+    amazonAddress?: pulumi.Input<string | undefined>;
+    amazonSideAsn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the virtual interface.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      */
-    awsDevice?: pulumi.Input<string>;
+    awsDevice?: pulumi.Input<string | undefined>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
-    bgpAsn?: pulumi.Input<number>;
+    bgpAsn?: pulumi.Input<number | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
-    bgpAuthKey?: pulumi.Input<string>;
+    bgpAuthKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
-    connectionId?: pulumi.Input<string>;
+    connectionId?: pulumi.Input<string | undefined>;
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    customerAddress?: pulumi.Input<string>;
+    customerAddress?: pulumi.Input<string | undefined>;
     /**
      * The name for the virtual interface.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The AWS account that will own the new virtual interface.
      */
-    ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of routes to be advertised to the AWS network in this region.
      */
-    routeFilterPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    routeFilterPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The VLAN ID.
      */
-    vlan?: pulumi.Input<number>;
+    vlan?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -256,7 +256,7 @@ export interface HostedPublicVirtualInterfaceArgs {
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      */
-    amazonAddress?: pulumi.Input<string>;
+    amazonAddress?: pulumi.Input<string | undefined>;
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      */
@@ -264,7 +264,7 @@ export interface HostedPublicVirtualInterfaceArgs {
     /**
      * The authentication key for BGP configuration.
      */
-    bgpAuthKey?: pulumi.Input<string>;
+    bgpAuthKey?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      */
@@ -272,11 +272,11 @@ export interface HostedPublicVirtualInterfaceArgs {
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      */
-    customerAddress?: pulumi.Input<string>;
+    customerAddress?: pulumi.Input<string | undefined>;
     /**
      * The name for the virtual interface.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The AWS account that will own the new virtual interface.
      */
@@ -284,7 +284,7 @@ export interface HostedPublicVirtualInterfaceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of routes to be advertised to the AWS network in this region.
      */

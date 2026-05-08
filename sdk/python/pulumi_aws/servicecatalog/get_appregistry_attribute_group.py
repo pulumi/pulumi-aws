@@ -151,10 +151,10 @@ def get_appregistry_attribute_group(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_appregistry_attribute_group_output(arn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_appregistry_attribute_group_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppregistryAttributeGroupResult]:
     """
     Data source for managing an AWS Service Catalog AppRegistry Attribute Group.

@@ -201,29 +201,29 @@ export interface GetSnapshotOutputArgs {
     /**
      * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetSnapshotFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetSnapshotFilterArgs>[] | undefined>;
     /**
      * If more than one result is returned, use the most recent snapshot.
      */
-    mostRecent?: pulumi.Input<boolean>;
+    mostRecent?: pulumi.Input<boolean | undefined>;
     /**
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
-    owners?: pulumi.Input<pulumi.Input<string>[]>;
+    owners?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */
-    restorableByUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+    restorableByUserIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Returns information on a specific snapshot_id.
      */
-    snapshotIds?: pulumi.Input<pulumi.Input<string>[]>;
+    snapshotIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags for the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

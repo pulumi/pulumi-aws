@@ -23,7 +23,7 @@ class InstanceLoggingConfigurationArgs:
     def __init__(__self__, *,
                  access_logs: pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'],
                  verifiedaccess_instance_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceLoggingConfiguration resource.
 
@@ -62,23 +62,23 @@ class InstanceLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _InstanceLoggingConfigurationState:
     def __init__(__self__, *,
-                 access_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_logs: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 verifiedaccess_instance_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
 
@@ -95,38 +95,38 @@ class _InstanceLoggingConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']]:
+    def access_logs(self) -> pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsArgs']]:
         """
         A block that specifies the configuration options for Verified Access instances. Detailed below.
         """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
-    def access_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']]):
+    def access_logs(self, value: pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsArgs']]):
         pulumi.set(self, "access_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedaccessInstanceId")
-    def verifiedaccess_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verifiedaccess_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Verified Access instance.
         """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
     @verifiedaccess_instance_id.setter
-    def verifiedaccess_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verifiedaccess_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verifiedaccess_instance_id", value)
 
 
@@ -136,9 +136,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_logs: pulumi.Input[Optional[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 verifiedaccess_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing a Verified Access Logging Configuration.
@@ -393,9 +393,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_logs: pulumi.Input[Optional[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 verifiedaccess_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -422,9 +422,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_logs: Optional[pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            verifiedaccess_instance_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'InstanceLoggingConfiguration':
+            access_logs: pulumi.Input[Optional[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            verifiedaccess_instance_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'InstanceLoggingConfiguration':
         """
         Get an existing InstanceLoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

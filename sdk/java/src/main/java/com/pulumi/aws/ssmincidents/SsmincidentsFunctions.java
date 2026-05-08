@@ -36,8 +36,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
      * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
      * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -122,8 +122,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
      * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -165,8 +165,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
      * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -208,8 +208,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
      * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -251,8 +251,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
      * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -294,8 +294,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.SsmincidentsFunctions;
      * import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -335,8 +335,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.ResponsePlan;
      * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -377,8 +377,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.ResponsePlan;
      * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -419,8 +419,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.ResponsePlan;
      * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -461,8 +461,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.ResponsePlan;
      * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -503,8 +503,8 @@ public final class SsmincidentsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssmincidents.ResponsePlan;
      * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

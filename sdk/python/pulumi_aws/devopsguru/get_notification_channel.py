@@ -119,10 +119,10 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         sns=pulumi.get(__ret__, 'sns'))
-def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]]]] = None,
-                                    id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    sns: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
+def get_notification_channel_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]]]] = None,
+                                    id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    sns: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Data source for managing an AWS DevOps Guru Notification Channel.

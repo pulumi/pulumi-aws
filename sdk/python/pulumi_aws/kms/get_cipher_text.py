@@ -146,10 +146,10 @@ def get_cipher_text(context: Optional[Mapping[str, _builtins.str]] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         plaintext=pulumi.get(__ret__, 'plaintext'),
         region=pulumi.get(__ret__, 'region'))
-def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                           key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           plaintext: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cipher_text_output(context: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                           key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           plaintext: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCipherTextResult]:
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext

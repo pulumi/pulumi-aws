@@ -154,7 +154,7 @@ export interface GetUserHierarchyGroupOutputArgs {
     /**
      * Returns information on a specific hierarchy group by hierarchy group id
      */
-    hierarchyGroupId?: pulumi.Input<string>;
+    hierarchyGroupId?: pulumi.Input<string | undefined>;
     /**
      * Reference to the hosting Amazon Connect Instance
      */
@@ -164,13 +164,13 @@ export interface GetUserHierarchyGroupOutputArgs {
      *
      * > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the hierarchy group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -179,11 +179,11 @@ class AssessmentRolesAllArgs:
 
 
 class AssessmentScopeArgsDict(TypedDict):
-    aws_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgsDict']]]]
+    aws_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]]
     """
     Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
     """
-    aws_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgsDict']]]]
+    aws_services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]]
     """
     Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
     """
@@ -191,8 +191,8 @@ class AssessmentScopeArgsDict(TypedDict):
 @pulumi.input_type
 class AssessmentScopeArgs:
     def __init__(__self__, *,
-                 aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]] = None,
-                 aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]] = None):
+                 aws_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]] = None,
+                 aws_services: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
@@ -204,26 +204,26 @@ class AssessmentScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccounts")
-    def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]:
+    def aws_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]:
         """
         Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
         """
         return pulumi.get(self, "aws_accounts")
 
     @aws_accounts.setter
-    def aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]):
+    def aws_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]):
         pulumi.set(self, "aws_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="awsServices")
-    def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]:
+    def aws_services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]:
         """
         Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         """
         return pulumi.get(self, "aws_services")
 
     @aws_services.setter
-    def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]):
+    def aws_services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]):
         pulumi.set(self, "aws_services", value)
 
 
@@ -298,20 +298,20 @@ class ControlControlMappingSourceArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    source_description: NotRequired[pulumi.Input[_builtins.str]]
+    source_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the source.
     """
-    source_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    source_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
     """
-    source_id: NotRequired[pulumi.Input[_builtins.str]]
-    source_keyword: NotRequired[pulumi.Input['ControlControlMappingSourceSourceKeywordArgsDict']]
+    source_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_keyword: NotRequired[pulumi.Input[Optional['ControlControlMappingSourceSourceKeywordArgs']]]
     """
     The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
     """
-    troubleshooting_text: NotRequired[pulumi.Input[_builtins.str]]
+    troubleshooting_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instructions for troubleshooting the control.
     """
@@ -322,11 +322,11 @@ class ControlControlMappingSourceArgs:
                  source_name: pulumi.Input[_builtins.str],
                  source_set_up_option: pulumi.Input[_builtins.str],
                  source_type: pulumi.Input[_builtins.str],
-                 source_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_keyword: Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArgs']] = None,
-                 troubleshooting_text: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_keyword: pulumi.Input[Optional['ControlControlMappingSourceSourceKeywordArgs']] = None,
+                 troubleshooting_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source_name: Name of the source.
         :param pulumi.Input[_builtins.str] source_set_up_option: The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
@@ -392,59 +392,59 @@ class ControlControlMappingSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceDescription")
-    def source_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the source.
         """
         return pulumi.get(self, "source_description")
 
     @source_description.setter
-    def source_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_description", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFrequency")
-    def source_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
         """
         return pulumi.get(self, "source_frequency")
 
     @source_frequency.setter
-    def source_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_id")
 
     @source_id.setter
-    def source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceKeyword")
-    def source_keyword(self) -> Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArgs']]:
+    def source_keyword(self) -> pulumi.Input[Optional['ControlControlMappingSourceSourceKeywordArgs']]:
         """
         The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         """
         return pulumi.get(self, "source_keyword")
 
     @source_keyword.setter
-    def source_keyword(self, value: Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArgs']]):
+    def source_keyword(self, value: pulumi.Input[Optional['ControlControlMappingSourceSourceKeywordArgs']]):
         pulumi.set(self, "source_keyword", value)
 
     @_builtins.property
     @pulumi.getter(name="troubleshootingText")
-    def troubleshooting_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def troubleshooting_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructions for troubleshooting the control.
         """
         return pulumi.get(self, "troubleshooting_text")
 
     @troubleshooting_text.setter
-    def troubleshooting_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def troubleshooting_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "troubleshooting_text", value)
 
 
@@ -500,11 +500,11 @@ class FrameworkControlSetArgsDict(TypedDict):
     """
     Name of the control set.
     """
-    controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgsDict']]]]
+    controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]]
     """
     Configuration block(s) for the controls within the control set. See `controls` Block below for details.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the framework.
     """
@@ -513,8 +513,8 @@ class FrameworkControlSetArgsDict(TypedDict):
 class FrameworkControlSetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 controls: pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the control set.
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]] controls: Configuration block(s) for the controls within the control set. See `controls` Block below for details.
@@ -540,26 +540,26 @@ class FrameworkControlSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]:
+    def controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]:
         """
         Configuration block(s) for the controls within the control set. See `controls` Block below for details.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]):
+    def controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]):
         pulumi.set(self, "controls", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the framework.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 

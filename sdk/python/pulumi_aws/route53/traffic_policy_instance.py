@@ -23,7 +23,7 @@ class TrafficPolicyInstanceArgs:
                  traffic_policy_id: pulumi.Input[_builtins.str],
                  traffic_policy_version: pulumi.Input[_builtins.int],
                  ttl: pulumi.Input[_builtins.int],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrafficPolicyInstance resource.
 
@@ -90,26 +90,26 @@ class TrafficPolicyInstanceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _TrafficPolicyInstanceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_policy_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_policy_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficPolicyInstance resources.
 
@@ -135,74 +135,74 @@ class _TrafficPolicyInstanceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the traffic policy instance.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
-    def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosted_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficPolicyId")
-    def traffic_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
         """
         return pulumi.get(self, "traffic_policy_id")
 
     @traffic_policy_id.setter
-    def traffic_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficPolicyVersion")
-    def traffic_policy_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def traffic_policy_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version of the traffic policy
         """
         return pulumi.get(self, "traffic_policy_version")
 
     @traffic_policy_version.setter
-    def traffic_policy_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def traffic_policy_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "traffic_policy_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -212,11 +212,11 @@ class TrafficPolicyInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_policy_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_policy_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Route53 traffic policy instance resource.
@@ -299,11 +299,11 @@ class TrafficPolicyInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_policy_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_policy_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -337,12 +337,12 @@ class TrafficPolicyInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_policy_version: Optional[pulumi.Input[_builtins.int]] = None,
-            ttl: Optional[pulumi.Input[_builtins.int]] = None) -> 'TrafficPolicyInstance':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_policy_version: pulumi.Input[Optional[_builtins.int]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None) -> 'TrafficPolicyInstance':
         """
         Get an existing TrafficPolicyInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

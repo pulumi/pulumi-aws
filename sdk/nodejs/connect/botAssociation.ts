@@ -165,15 +165,15 @@ export interface BotAssociationState {
     /**
      * The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
      */
-    instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
-    lexBot?: pulumi.Input<inputs.connect.BotAssociationLexBot>;
+    lexBot?: pulumi.Input<inputs.connect.BotAssociationLexBot | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -191,5 +191,5 @@ export interface BotAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

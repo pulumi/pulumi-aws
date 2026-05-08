@@ -118,7 +118,7 @@ export interface GetAliasOutputArgs {
     /**
      * Description of state machine alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the State Machine alias.
      */
@@ -126,7 +126,7 @@ export interface GetAliasOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the State Machine.
      */

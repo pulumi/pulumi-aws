@@ -22,9 +22,9 @@ __all__ = ['EndpointServicePrivateDnsVerificationArgs', 'EndpointServicePrivateD
 class EndpointServicePrivateDnsVerificationArgs:
     def __init__(__self__, *,
                  service_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['EndpointServicePrivateDnsVerificationTimeoutsArgs']] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
 
@@ -58,45 +58,45 @@ class EndpointServicePrivateDnsVerificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['EndpointServicePrivateDnsVerificationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['EndpointServicePrivateDnsVerificationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForVerification")
-    def wait_for_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_verification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
         """
         return pulumi.get(self, "wait_for_verification")
 
     @wait_for_verification.setter
-    def wait_for_verification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_verification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_verification", value)
 
 
 @pulumi.input_type
 class _EndpointServicePrivateDnsVerificationState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['EndpointServicePrivateDnsVerificationTimeoutsArgs']] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
 
@@ -117,19 +117,19 @@ class _EndpointServicePrivateDnsVerificationState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceId")
-    def service_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the endpoint service.
 
@@ -138,28 +138,28 @@ class _EndpointServicePrivateDnsVerificationState:
         return pulumi.get(self, "service_id")
 
     @service_id.setter
-    def service_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['EndpointServicePrivateDnsVerificationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['EndpointServicePrivateDnsVerificationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForVerification")
-    def wait_for_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_verification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
         """
         return pulumi.get(self, "wait_for_verification")
 
     @wait_for_verification.setter
-    def wait_for_verification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_verification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_verification", value)
 
 
@@ -169,10 +169,10 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
@@ -253,10 +253,10 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
-                 wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
+                 wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,10 +282,10 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_id: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
-            wait_for_verification: Optional[pulumi.Input[_builtins.bool]] = None) -> 'EndpointServicePrivateDnsVerification':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_id: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
+            wait_for_verification: pulumi.Input[Optional[_builtins.bool]] = None) -> 'EndpointServicePrivateDnsVerification':
         """
         Get an existing EndpointServicePrivateDnsVerification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

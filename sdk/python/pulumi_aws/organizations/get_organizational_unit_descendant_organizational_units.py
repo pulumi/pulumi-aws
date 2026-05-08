@@ -98,7 +98,7 @@ def get_organizational_unit_descendant_organizational_units(parent_id: Optional[
         childrens=pulumi.get(__ret__, 'childrens'),
         id=pulumi.get(__ret__, 'id'),
         parent_id=pulumi.get(__ret__, 'parent_id'))
-def get_organizational_unit_descendant_organizational_units_output(parent_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organizational_unit_descendant_organizational_units_output(parent_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitDescendantOrganizationalUnitsResult]:
     """
     Get all direct child organizational units under a parent organizational unit. This provides all children.

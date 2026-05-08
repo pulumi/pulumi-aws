@@ -202,47 +202,47 @@ export interface DataQualityRulesetState {
     /**
      * ARN of the Glue Data Quality Ruleset.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The time and date that this data quality ruleset was created.
      */
-    createdOn?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
     /**
      * Description of the data quality ruleset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The time and date that this data quality ruleset was created.
      */
-    lastModifiedOn?: pulumi.Input<string>;
+    lastModifiedOn?: pulumi.Input<string | undefined>;
     /**
      * Name of the data quality ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
      */
-    recommendationRunId?: pulumi.Input<string>;
+    recommendationRunId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
-    ruleset?: pulumi.Input<string>;
+    ruleset?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
      */
-    targetTable?: pulumi.Input<inputs.glue.DataQualityRulesetTargetTable>;
+    targetTable?: pulumi.Input<inputs.glue.DataQualityRulesetTargetTable | undefined>;
 }
 
 /**
@@ -252,15 +252,15 @@ export interface DataQualityRulesetArgs {
     /**
      * Description of the data quality ruleset.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the data quality ruleset.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
@@ -268,9 +268,9 @@ export interface DataQualityRulesetArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
      */
-    targetTable?: pulumi.Input<inputs.glue.DataQualityRulesetTargetTable>;
+    targetTable?: pulumi.Input<inputs.glue.DataQualityRulesetTargetTable | undefined>;
 }

@@ -26,15 +26,15 @@ class RepositoryExternalConnectionsArgsDict(TypedDict):
     """
     The name of the external connection associated with a repository.
     """
-    package_format: NotRequired[pulumi.Input[_builtins.str]]
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    package_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RepositoryExternalConnectionsArgs:
     def __init__(__self__, *,
                  external_connection_name: pulumi.Input[_builtins.str],
-                 package_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 package_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] external_connection_name: The name of the external connection associated with a repository.
         """
@@ -58,20 +58,20 @@ class RepositoryExternalConnectionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="packageFormat")
-    def package_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def package_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "package_format")
 
     @package_format.setter
-    def package_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def package_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "package_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 

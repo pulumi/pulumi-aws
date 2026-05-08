@@ -22,9 +22,9 @@ class MemberArgs:
                  account_id: pulumi.Input[_builtins.str],
                  email_address: pulumi.Input[_builtins.str],
                  graph_arn: pulumi.Input[_builtins.str],
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
 
@@ -83,56 +83,56 @@ class MemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableEmailNotification")
-    def disable_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
-    def disable_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_email_notification", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _MemberState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 graph_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 invited_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_usage_in_bytes: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 invited_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_usage_in_bytes: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
 
@@ -175,143 +175,143 @@ class _MemberState:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID for the account.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorId")
-    def administrator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID for the administrator account.
         """
         return pulumi.get(self, "administrator_id")
 
     @administrator_id.setter
-    def administrator_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_id", value)
 
     @_builtins.property
     @pulumi.getter(name="disableEmailNotification")
-    def disable_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
-    def disable_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_email_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="disabledReason")
-    def disabled_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disabled_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "disabled_reason")
 
     @disabled_reason.setter
-    def disabled_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disabled_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disabled_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address for the account.
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="graphArn")
-    def graph_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def graph_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the behavior graph to invite the member accounts to contribute their data to.
         """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
-    def graph_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def graph_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "graph_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="invitedTime")
-    def invited_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invited_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
         """
         return pulumi.get(self, "invited_time")
 
     @invited_time.setter
-    def invited_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invited_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invited_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current membership status of the member account.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedTime")
-    def updated_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         """
         return pulumi.get(self, "updated_time")
 
     @updated_time.setter
-    def updated_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_time", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeUsageInBytes")
-    def volume_usage_in_bytes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_usage_in_bytes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data volume in bytes per day for the member account.
         """
         return pulumi.get(self, "volume_usage_in_bytes")
 
     @volume_usage_in_bytes.setter
-    def volume_usage_in_bytes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_usage_in_bytes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_usage_in_bytes", value)
 
 
@@ -321,12 +321,12 @@ class Member(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 graph_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
@@ -412,12 +412,12 @@ class Member(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 graph_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -455,18 +455,18 @@ class Member(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            administrator_id: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-            disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            email_address: Optional[pulumi.Input[_builtins.str]] = None,
-            graph_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            invited_time: Optional[pulumi.Input[_builtins.str]] = None,
-            message: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            updated_time: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_usage_in_bytes: Optional[pulumi.Input[_builtins.str]] = None) -> 'Member':
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            administrator_id: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            email_address: pulumi.Input[Optional[_builtins.str]] = None,
+            graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            invited_time: pulumi.Input[Optional[_builtins.str]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_time: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_usage_in_bytes: pulumi.Input[Optional[_builtins.str]] = None) -> 'Member':
         """
         Get an existing Member resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

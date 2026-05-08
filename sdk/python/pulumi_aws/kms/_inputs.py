@@ -73,11 +73,11 @@ class CustomKeyStoreXksProxyAuthenticationCredentialArgs:
 
 
 class GrantConstraintArgsDict(TypedDict):
-    encryption_context_equals: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    encryption_context_equals: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
     """
-    encryption_context_subset: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    encryption_context_subset: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
     """
@@ -85,8 +85,8 @@ class GrantConstraintArgsDict(TypedDict):
 @pulumi.input_type
 class GrantConstraintArgs:
     def __init__(__self__, *,
-                 encryption_context_equals: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 encryption_context_subset: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 encryption_context_equals: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_context_subset: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] encryption_context_equals: A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] encryption_context_subset: A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
@@ -98,26 +98,26 @@ class GrantConstraintArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionContextEquals")
-    def encryption_context_equals(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def encryption_context_equals(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
         """
         return pulumi.get(self, "encryption_context_equals")
 
     @encryption_context_equals.setter
-    def encryption_context_equals(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def encryption_context_equals(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "encryption_context_equals", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionContextSubset")
-    def encryption_context_subset(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def encryption_context_subset(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
         return pulumi.get(self, "encryption_context_subset")
 
     @encryption_context_subset.setter
-    def encryption_context_subset(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def encryption_context_subset(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "encryption_context_subset", value)
 
 

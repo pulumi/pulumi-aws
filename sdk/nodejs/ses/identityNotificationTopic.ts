@@ -122,23 +122,23 @@ export interface IdentityNotificationTopicState {
     /**
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      */
-    identity?: pulumi.Input<string>;
+    identity?: pulumi.Input<string | undefined>;
     /**
      * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
      */
-    includeOriginalHeaders?: pulumi.Input<boolean>;
+    includeOriginalHeaders?: pulumi.Input<boolean | undefined>;
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      */
-    notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
-    topicArn?: pulumi.Input<string>;
+    topicArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface IdentityNotificationTopicArgs {
     /**
      * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
      */
-    includeOriginalHeaders?: pulumi.Input<boolean>;
+    includeOriginalHeaders?: pulumi.Input<boolean | undefined>;
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      */
@@ -160,9 +160,9 @@ export interface IdentityNotificationTopicArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
-    topicArn?: pulumi.Input<string>;
+    topicArn?: pulumi.Input<string | undefined>;
 }

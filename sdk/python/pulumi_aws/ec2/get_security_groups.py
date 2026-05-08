@@ -169,9 +169,9 @@ def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilte
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
-def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]]]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_security_groups_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]]]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupsResult]:
     """
     Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.

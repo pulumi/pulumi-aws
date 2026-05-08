@@ -114,8 +114,8 @@ def get_role_policy_attachments(path_prefix: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         path_prefix=pulumi.get(__ret__, 'path_prefix'),
         role_name=pulumi.get(__ret__, 'role_name'))
-def get_role_policy_attachments_output(path_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       role_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_policy_attachments_output(path_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       role_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRolePolicyAttachmentsResult]:
     """
     Provides details about the managed policies attached to an AWS IAM Role.

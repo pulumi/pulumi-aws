@@ -23,12 +23,12 @@ class RepositoryArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[_builtins.str],
                  repository: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_connections: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_connections: pulumi.Input[Optional['RepositoryExternalConnectionsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
         The set of arguments for constructing a Repository resource.
 
@@ -82,91 +82,91 @@ class RepositoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the repository.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account number of the AWS account that owns the domain.
         """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
-    def domain_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="externalConnections")
-    def external_connections(self) -> Optional[pulumi.Input['RepositoryExternalConnectionsArgs']]:
+    def external_connections(self) -> pulumi.Input[Optional['RepositoryExternalConnectionsArgs']]:
         """
         An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         """
         return pulumi.get(self, "external_connections")
 
     @external_connections.setter
-    def external_connections(self, value: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']]):
+    def external_connections(self, value: pulumi.Input[Optional['RepositoryExternalConnectionsArgs']]):
         pulumi.set(self, "external_connections", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def upstreams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]:
+    def upstreams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]:
         """
         A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         return pulumi.get(self, "upstreams")
 
     @upstreams.setter
-    def upstreams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]):
+    def upstreams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]):
         pulumi.set(self, "upstreams", value)
 
 
 @pulumi.input_type
 class _RepositoryState:
     def __init__(__self__, *,
-                 administrator_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_connections: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
+                 administrator_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_connections: pulumi.Input[Optional['RepositoryExternalConnectionsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
 
@@ -207,134 +207,134 @@ class _RepositoryState:
 
     @_builtins.property
     @pulumi.getter(name="administratorAccount")
-    def administrator_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account number of the AWS account that manages the repository.
         """
         return pulumi.get(self, "administrator_account")
 
     @administrator_account.setter
-    def administrator_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_account", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the repository.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the repository.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain that contains the created repository.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="domainOwner")
-    def domain_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account number of the AWS account that owns the domain.
         """
         return pulumi.get(self, "domain_owner")
 
     @domain_owner.setter
-    def domain_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="externalConnections")
-    def external_connections(self) -> Optional[pulumi.Input['RepositoryExternalConnectionsArgs']]:
+    def external_connections(self) -> pulumi.Input[Optional['RepositoryExternalConnectionsArgs']]:
         """
         An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         """
         return pulumi.get(self, "external_connections")
 
     @external_connections.setter
-    def external_connections(self, value: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']]):
+    def external_connections(self, value: pulumi.Input[Optional['RepositoryExternalConnectionsArgs']]):
         pulumi.set(self, "external_connections", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the repository to create.
         """
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def upstreams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]:
+    def upstreams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]:
         """
         A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
         return pulumi.get(self, "upstreams")
 
     @upstreams.setter
-    def upstreams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]):
+    def upstreams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]]):
         pulumi.set(self, "upstreams", value)
 
 
@@ -344,14 +344,14 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a CodeArtifact Repository Resource.
@@ -519,14 +519,14 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -561,17 +561,17 @@ class Repository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administrator_account: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            repository: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None) -> 'Repository':
+            administrator_account: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            external_connections: pulumi.Input[Optional[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            repository: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            upstreams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -33,8 +33,8 @@ public final class CurFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cur.CurFunctions;
      * import com.pulumi.aws.cur.inputs.GetReportDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -77,8 +77,8 @@ public final class CurFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cur.CurFunctions;
      * import com.pulumi.aws.cur.inputs.GetReportDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class CurFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cur.CurFunctions;
      * import com.pulumi.aws.cur.inputs.GetReportDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -165,8 +165,8 @@ public final class CurFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cur.CurFunctions;
      * import com.pulumi.aws.cur.inputs.GetReportDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -209,8 +209,8 @@ public final class CurFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.cur.CurFunctions;
      * import com.pulumi.aws.cur.inputs.GetReportDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

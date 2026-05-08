@@ -50,7 +50,7 @@ class ScheduleFlexibleTimeWindowArgsDict(TypedDict):
     """
     Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
     """
-    maximum_window_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_window_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
     """
@@ -59,7 +59,7 @@ class ScheduleFlexibleTimeWindowArgsDict(TypedDict):
 class ScheduleFlexibleTimeWindowArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[_builtins.str],
-                 maximum_window_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum_window_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
         :param pulumi.Input[_builtins.int] maximum_window_in_minutes: Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
@@ -82,14 +82,14 @@ class ScheduleFlexibleTimeWindowArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumWindowInMinutes")
-    def maximum_window_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_window_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
         """
         return pulumi.get(self, "maximum_window_in_minutes")
 
     @maximum_window_in_minutes.setter
-    def maximum_window_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_window_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_window_in_minutes", value)
 
 
@@ -104,35 +104,35 @@ class ScheduleTargetArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    dead_letter_config: NotRequired[pulumi.Input['ScheduleTargetDeadLetterConfigArgsDict']]
+    dead_letter_config: NotRequired[pulumi.Input[Optional['ScheduleTargetDeadLetterConfigArgs']]]
     """
     Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
     """
-    ecs_parameters: NotRequired[pulumi.Input['ScheduleTargetEcsParametersArgsDict']]
+    ecs_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetEcsParametersArgs']]]
     """
     Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
     """
-    eventbridge_parameters: NotRequired[pulumi.Input['ScheduleTargetEventbridgeParametersArgsDict']]
+    eventbridge_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetEventbridgeParametersArgs']]]
     """
     Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
     """
-    input: NotRequired[pulumi.Input[_builtins.str]]
+    input: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
     """
-    kinesis_parameters: NotRequired[pulumi.Input['ScheduleTargetKinesisParametersArgsDict']]
+    kinesis_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetKinesisParametersArgs']]]
     """
     Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
     """
-    retry_policy: NotRequired[pulumi.Input['ScheduleTargetRetryPolicyArgsDict']]
+    retry_policy: NotRequired[pulumi.Input[Optional['ScheduleTargetRetryPolicyArgs']]]
     """
     Information about the retry policy settings. Detailed below.
     """
-    sagemaker_pipeline_parameters: NotRequired[pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgsDict']]
+    sagemaker_pipeline_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetSagemakerPipelineParametersArgs']]]
     """
     Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
     """
-    sqs_parameters: NotRequired[pulumi.Input['ScheduleTargetSqsParametersArgsDict']]
+    sqs_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetSqsParametersArgs']]]
     """
     The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
     """
@@ -142,14 +142,14 @@ class ScheduleTargetArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 dead_letter_config: Optional[pulumi.Input['ScheduleTargetDeadLetterConfigArgs']] = None,
-                 ecs_parameters: Optional[pulumi.Input['ScheduleTargetEcsParametersArgs']] = None,
-                 eventbridge_parameters: Optional[pulumi.Input['ScheduleTargetEventbridgeParametersArgs']] = None,
-                 input: Optional[pulumi.Input[_builtins.str]] = None,
-                 kinesis_parameters: Optional[pulumi.Input['ScheduleTargetKinesisParametersArgs']] = None,
-                 retry_policy: Optional[pulumi.Input['ScheduleTargetRetryPolicyArgs']] = None,
-                 sagemaker_pipeline_parameters: Optional[pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgs']] = None,
-                 sqs_parameters: Optional[pulumi.Input['ScheduleTargetSqsParametersArgs']] = None):
+                 dead_letter_config: pulumi.Input[Optional['ScheduleTargetDeadLetterConfigArgs']] = None,
+                 ecs_parameters: pulumi.Input[Optional['ScheduleTargetEcsParametersArgs']] = None,
+                 eventbridge_parameters: pulumi.Input[Optional['ScheduleTargetEventbridgeParametersArgs']] = None,
+                 input: pulumi.Input[Optional[_builtins.str]] = None,
+                 kinesis_parameters: pulumi.Input[Optional['ScheduleTargetKinesisParametersArgs']] = None,
+                 retry_policy: pulumi.Input[Optional['ScheduleTargetRetryPolicyArgs']] = None,
+                 sagemaker_pipeline_parameters: pulumi.Input[Optional['ScheduleTargetSagemakerPipelineParametersArgs']] = None,
+                 sqs_parameters: pulumi.Input[Optional['ScheduleTargetSqsParametersArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] arn: ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
@@ -211,98 +211,98 @@ class ScheduleTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="deadLetterConfig")
-    def dead_letter_config(self) -> Optional[pulumi.Input['ScheduleTargetDeadLetterConfigArgs']]:
+    def dead_letter_config(self) -> pulumi.Input[Optional['ScheduleTargetDeadLetterConfigArgs']]:
         """
         Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
         """
         return pulumi.get(self, "dead_letter_config")
 
     @dead_letter_config.setter
-    def dead_letter_config(self, value: Optional[pulumi.Input['ScheduleTargetDeadLetterConfigArgs']]):
+    def dead_letter_config(self, value: pulumi.Input[Optional['ScheduleTargetDeadLetterConfigArgs']]):
         pulumi.set(self, "dead_letter_config", value)
 
     @_builtins.property
     @pulumi.getter(name="ecsParameters")
-    def ecs_parameters(self) -> Optional[pulumi.Input['ScheduleTargetEcsParametersArgs']]:
+    def ecs_parameters(self) -> pulumi.Input[Optional['ScheduleTargetEcsParametersArgs']]:
         """
         Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
         """
         return pulumi.get(self, "ecs_parameters")
 
     @ecs_parameters.setter
-    def ecs_parameters(self, value: Optional[pulumi.Input['ScheduleTargetEcsParametersArgs']]):
+    def ecs_parameters(self, value: pulumi.Input[Optional['ScheduleTargetEcsParametersArgs']]):
         pulumi.set(self, "ecs_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="eventbridgeParameters")
-    def eventbridge_parameters(self) -> Optional[pulumi.Input['ScheduleTargetEventbridgeParametersArgs']]:
+    def eventbridge_parameters(self) -> pulumi.Input[Optional['ScheduleTargetEventbridgeParametersArgs']]:
         """
         Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
         """
         return pulumi.get(self, "eventbridge_parameters")
 
     @eventbridge_parameters.setter
-    def eventbridge_parameters(self, value: Optional[pulumi.Input['ScheduleTargetEventbridgeParametersArgs']]):
+    def eventbridge_parameters(self, value: pulumi.Input[Optional['ScheduleTargetEventbridgeParametersArgs']]):
         pulumi.set(self, "eventbridge_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def input(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def input(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "input", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisParameters")
-    def kinesis_parameters(self) -> Optional[pulumi.Input['ScheduleTargetKinesisParametersArgs']]:
+    def kinesis_parameters(self) -> pulumi.Input[Optional['ScheduleTargetKinesisParametersArgs']]:
         """
         Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
         """
         return pulumi.get(self, "kinesis_parameters")
 
     @kinesis_parameters.setter
-    def kinesis_parameters(self, value: Optional[pulumi.Input['ScheduleTargetKinesisParametersArgs']]):
+    def kinesis_parameters(self, value: pulumi.Input[Optional['ScheduleTargetKinesisParametersArgs']]):
         pulumi.set(self, "kinesis_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="retryPolicy")
-    def retry_policy(self) -> Optional[pulumi.Input['ScheduleTargetRetryPolicyArgs']]:
+    def retry_policy(self) -> pulumi.Input[Optional['ScheduleTargetRetryPolicyArgs']]:
         """
         Information about the retry policy settings. Detailed below.
         """
         return pulumi.get(self, "retry_policy")
 
     @retry_policy.setter
-    def retry_policy(self, value: Optional[pulumi.Input['ScheduleTargetRetryPolicyArgs']]):
+    def retry_policy(self, value: pulumi.Input[Optional['ScheduleTargetRetryPolicyArgs']]):
         pulumi.set(self, "retry_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="sagemakerPipelineParameters")
-    def sagemaker_pipeline_parameters(self) -> Optional[pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgs']]:
+    def sagemaker_pipeline_parameters(self) -> pulumi.Input[Optional['ScheduleTargetSagemakerPipelineParametersArgs']]:
         """
         Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
         """
         return pulumi.get(self, "sagemaker_pipeline_parameters")
 
     @sagemaker_pipeline_parameters.setter
-    def sagemaker_pipeline_parameters(self, value: Optional[pulumi.Input['ScheduleTargetSagemakerPipelineParametersArgs']]):
+    def sagemaker_pipeline_parameters(self, value: pulumi.Input[Optional['ScheduleTargetSagemakerPipelineParametersArgs']]):
         pulumi.set(self, "sagemaker_pipeline_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="sqsParameters")
-    def sqs_parameters(self) -> Optional[pulumi.Input['ScheduleTargetSqsParametersArgs']]:
+    def sqs_parameters(self) -> pulumi.Input[Optional['ScheduleTargetSqsParametersArgs']]:
         """
         The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
         """
         return pulumi.get(self, "sqs_parameters")
 
     @sqs_parameters.setter
-    def sqs_parameters(self, value: Optional[pulumi.Input['ScheduleTargetSqsParametersArgs']]):
+    def sqs_parameters(self, value: pulumi.Input[Optional['ScheduleTargetSqsParametersArgs']]):
         pulumi.set(self, "sqs_parameters", value)
 
 
@@ -341,55 +341,55 @@ class ScheduleTargetEcsParametersArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    capacity_provider_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgsDict']]]]
+    capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]]]
     """
     Up to `6` capacity provider strategies to use for the task. Detailed below.
     """
-    enable_ecs_managed_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_ecs_managed_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
     """
-    enable_execute_command: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_execute_command: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable the execute command functionality for the containers in this task.
     """
-    group: NotRequired[pulumi.Input[_builtins.str]]
+    group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies an ECS task group for the task. At most 255 characters.
     """
-    launch_type: NotRequired[pulumi.Input[_builtins.str]]
+    launch_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
     """
-    network_configuration: NotRequired[pulumi.Input['ScheduleTargetEcsParametersNetworkConfigurationArgsDict']]
+    network_configuration: NotRequired[pulumi.Input[Optional['ScheduleTargetEcsParametersNetworkConfigurationArgs']]]
     """
     Configures the networking associated with the task. Detailed below.
     """
-    placement_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgsDict']]]]
+    placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]]]
     """
     A set of up to 10 placement constraints to use for the task. Detailed below.
     """
-    placement_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgsDict']]]]
+    placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]]]
     """
     A set of up to 5 placement strategies. Detailed below.
     """
-    platform_version: NotRequired[pulumi.Input[_builtins.str]]
+    platform_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
     """
-    propagate_tags: NotRequired[pulumi.Input[_builtins.str]]
+    propagate_tags: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
     """
-    reference_id: NotRequired[pulumi.Input[_builtins.str]]
+    reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reference ID to use for the task.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
     """
-    task_count: NotRequired[pulumi.Input[_builtins.int]]
+    task_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of tasks to create. Ranges from `1` (default) to `10`.
     """
@@ -398,19 +398,19 @@ class ScheduleTargetEcsParametersArgsDict(TypedDict):
 class ScheduleTargetEcsParametersArgs:
     def __init__(__self__, *,
                  task_definition_arn: pulumi.Input[_builtins.str],
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]] = None,
-                 enable_ecs_managed_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_execute_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_configuration: Optional[pulumi.Input['ScheduleTargetEcsParametersNetworkConfigurationArgs']] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]] = None,
-                 placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]] = None,
-                 platform_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagate_tags: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 task_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 capacity_provider_strategies: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]] = None,
+                 enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_configuration: pulumi.Input[Optional['ScheduleTargetEcsParametersNetworkConfigurationArgs']] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]] = None,
+                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_tags: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 task_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] task_definition_arn: ARN of the task definition to use.
                
@@ -473,158 +473,158 @@ class ScheduleTargetEcsParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategies")
-    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]]:
+    def capacity_provider_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]]:
         """
         Up to `6` capacity provider strategies to use for the task. Detailed below.
         """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
-    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]]):
+    def capacity_provider_strategies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]]):
         pulumi.set(self, "capacity_provider_strategies", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
-    def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ecs_managed_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @enable_ecs_managed_tags.setter
-    def enable_ecs_managed_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ecs_managed_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ecs_managed_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
-    def enable_execute_command(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_execute_command(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable the execute command functionality for the containers in this task.
         """
         return pulumi.get(self, "enable_execute_command")
 
     @enable_execute_command.setter
-    def enable_execute_command(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_execute_command(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_execute_command", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an ECS task group for the task. At most 255 characters.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
     @_builtins.property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def launch_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
         """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
-    def launch_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def launch_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "launch_type", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ScheduleTargetEcsParametersNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['ScheduleTargetEcsParametersNetworkConfigurationArgs']]:
         """
         Configures the networking associated with the task. Detailed below.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ScheduleTargetEcsParametersNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['ScheduleTargetEcsParametersNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
-    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]]:
+    def placement_constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]]:
         """
         A set of up to 10 placement constraints to use for the task. Detailed below.
         """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
-    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]]):
+    def placement_constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]]):
         pulumi.set(self, "placement_constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="placementStrategies")
-    def placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]]:
+    def placement_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]]:
         """
         A set of up to 5 placement strategies. Detailed below.
         """
         return pulumi.get(self, "placement_strategies")
 
     @placement_strategies.setter
-    def placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]]):
+    def placement_strategies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]]):
         pulumi.set(self, "placement_strategies", value)
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
         """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
-    def platform_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_version", value)
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
-    def propagate_tags(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def propagate_tags(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
         """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
-    def propagate_tags(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def propagate_tags(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "propagate_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="referenceId")
-    def reference_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reference ID to use for the task.
         """
         return pulumi.get(self, "reference_id")
 
     @reference_id.setter
-    def reference_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reference_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taskCount")
-    def task_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def task_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of tasks to create. Ranges from `1` (default) to `10`.
         """
         return pulumi.get(self, "task_count")
 
     @task_count.setter
-    def task_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def task_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "task_count", value)
 
 
@@ -633,11 +633,11 @@ class ScheduleTargetEcsParametersCapacityProviderStrategyArgsDict(TypedDict):
     """
     Short name of the capacity provider.
     """
-    base: NotRequired[pulumi.Input[_builtins.int]]
+    base: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
     """
-    weight: NotRequired[pulumi.Input[_builtins.int]]
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
     """
@@ -646,8 +646,8 @@ class ScheduleTargetEcsParametersCapacityProviderStrategyArgsDict(TypedDict):
 class ScheduleTargetEcsParametersCapacityProviderStrategyArgs:
     def __init__(__self__, *,
                  capacity_provider: pulumi.Input[_builtins.str],
-                 base: Optional[pulumi.Input[_builtins.int]] = None,
-                 weight: Optional[pulumi.Input[_builtins.int]] = None):
+                 base: pulumi.Input[Optional[_builtins.int]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] capacity_provider: Short name of the capacity provider.
         :param pulumi.Input[_builtins.int] base: How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
@@ -673,26 +673,26 @@ class ScheduleTargetEcsParametersCapacityProviderStrategyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def base(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def base(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
         """
         return pulumi.get(self, "base")
 
     @base.setter
-    def base(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def base(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "base", value)
 
     @_builtins.property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -701,11 +701,11 @@ class ScheduleTargetEcsParametersNetworkConfigurationArgsDict(TypedDict):
     """
     Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
     """
-    assign_public_ip: NotRequired[pulumi.Input[_builtins.bool]]
+    assign_public_ip: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
     """
-    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
     """
@@ -714,8 +714,8 @@ class ScheduleTargetEcsParametersNetworkConfigurationArgsDict(TypedDict):
 class ScheduleTargetEcsParametersNetworkConfigurationArgs:
     def __init__(__self__, *,
                  subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 assign_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 assign_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
         :param pulumi.Input[_builtins.bool] assign_public_ip: Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
@@ -741,26 +741,26 @@ class ScheduleTargetEcsParametersNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignPublicIp")
-    def assign_public_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def assign_public_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
         """
         return pulumi.get(self, "assign_public_ip")
 
     @assign_public_ip.setter
-    def assign_public_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def assign_public_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "assign_public_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
         """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups", value)
 
 
@@ -769,7 +769,7 @@ class ScheduleTargetEcsParametersPlacementConstraintArgsDict(TypedDict):
     """
     The type of constraint. One of: `distinctInstance`, `memberOf`.
     """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
     """
@@ -778,7 +778,7 @@ class ScheduleTargetEcsParametersPlacementConstraintArgsDict(TypedDict):
 class ScheduleTargetEcsParametersPlacementConstraintArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of constraint. One of: `distinctInstance`, `memberOf`.
         :param pulumi.Input[_builtins.str] expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
@@ -801,14 +801,14 @@ class ScheduleTargetEcsParametersPlacementConstraintArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
 
@@ -817,7 +817,7 @@ class ScheduleTargetEcsParametersPlacementStrategyArgsDict(TypedDict):
     """
     The type of placement strategy. One of: `random`, `spread`, `binpack`.
     """
-    field: NotRequired[pulumi.Input[_builtins.str]]
+    field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The field to apply the placement strategy against.
     """
@@ -826,7 +826,7 @@ class ScheduleTargetEcsParametersPlacementStrategyArgsDict(TypedDict):
 class ScheduleTargetEcsParametersPlacementStrategyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 field: Optional[pulumi.Input[_builtins.str]] = None):
+                 field: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of placement strategy. One of: `random`, `spread`, `binpack`.
         :param pulumi.Input[_builtins.str] field: The field to apply the placement strategy against.
@@ -849,14 +849,14 @@ class ScheduleTargetEcsParametersPlacementStrategyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The field to apply the placement strategy against.
         """
         return pulumi.get(self, "field")
 
     @field.setter
-    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field", value)
 
 
@@ -936,11 +936,11 @@ class ScheduleTargetKinesisParametersArgs:
 
 
 class ScheduleTargetRetryPolicyArgsDict(TypedDict):
-    maximum_event_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_event_age_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
     """
-    maximum_retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_retry_attempts: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
     """
@@ -948,8 +948,8 @@ class ScheduleTargetRetryPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduleTargetRetryPolicyArgs:
     def __init__(__self__, *,
-                 maximum_event_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum_event_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] maximum_event_age_in_seconds: Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
         :param pulumi.Input[_builtins.int] maximum_retry_attempts: Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
@@ -961,31 +961,31 @@ class ScheduleTargetRetryPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumEventAgeInSeconds")
-    def maximum_event_age_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_event_age_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
         """
         return pulumi.get(self, "maximum_event_age_in_seconds")
 
     @maximum_event_age_in_seconds.setter
-    def maximum_event_age_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_event_age_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_event_age_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumRetryAttempts")
-    def maximum_retry_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
         """
         return pulumi.get(self, "maximum_retry_attempts")
 
     @maximum_retry_attempts.setter
-    def maximum_retry_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_retry_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_retry_attempts", value)
 
 
 class ScheduleTargetSagemakerPipelineParametersArgsDict(TypedDict):
-    pipeline_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgsDict']]]]
+    pipeline_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]]]
     """
     Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
     """
@@ -993,7 +993,7 @@ class ScheduleTargetSagemakerPipelineParametersArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduleTargetSagemakerPipelineParametersArgs:
     def __init__(__self__, *,
-                 pipeline_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]] = None):
+                 pipeline_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]] pipeline_parameters: Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
         """
@@ -1002,14 +1002,14 @@ class ScheduleTargetSagemakerPipelineParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="pipelineParameters")
-    def pipeline_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]]:
+    def pipeline_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]]:
         """
         Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
         """
         return pulumi.get(self, "pipeline_parameters")
 
     @pipeline_parameters.setter
-    def pipeline_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]]):
+    def pipeline_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]]):
         pulumi.set(self, "pipeline_parameters", value)
 
 
@@ -1061,7 +1061,7 @@ class ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs:
 
 
 class ScheduleTargetSqsParametersArgsDict(TypedDict):
-    message_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    message_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     FIFO message group ID to use as the target.
     """
@@ -1069,7 +1069,7 @@ class ScheduleTargetSqsParametersArgsDict(TypedDict):
 @pulumi.input_type
 class ScheduleTargetSqsParametersArgs:
     def __init__(__self__, *,
-                 message_group_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 message_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] message_group_id: FIFO message group ID to use as the target.
         """
@@ -1078,14 +1078,14 @@ class ScheduleTargetSqsParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageGroupId")
-    def message_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         FIFO message group ID to use as the target.
         """
         return pulumi.get(self, "message_group_id")
 
     @message_group_id.setter
-    def message_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_group_id", value)
 
 

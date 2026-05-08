@@ -310,11 +310,11 @@ def get_patch_baseline(default_baseline: Optional[_builtins.bool] = None,
         rejected_patches=pulumi.get(__ret__, 'rejected_patches'),
         rejected_patches_action=pulumi.get(__ret__, 'rejected_patches_action'),
         sources=pulumi.get(__ret__, 'sources'))
-def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                              name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              operating_system: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              owner: Optional[pulumi.Input[_builtins.str]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_patch_baseline_output(default_baseline: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                              name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              operating_system: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              owner: pulumi.Input[Optional[_builtins.str]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.

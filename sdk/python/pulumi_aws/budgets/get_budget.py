@@ -309,10 +309,10 @@ def get_budget(account_id: Optional[_builtins.str] = None,
         time_period_end=pulumi.get(__ret__, 'time_period_end'),
         time_period_start=pulumi.get(__ret__, 'time_period_start'),
         time_unit=pulumi.get(__ret__, 'time_unit'))
-def get_budget_output(account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                      name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_budget_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      name: pulumi.Input[Optional[_builtins.str]] = None,
+                      name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Data source for managing an AWS Web Services Budgets Budget.

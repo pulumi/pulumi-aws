@@ -114,19 +114,19 @@ export interface GetTagsOutputArgs {
     /**
      * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      */
-    filter?: pulumi.Input<inputs.costexplorer.GetTagsFilterArgs>;
+    filter?: pulumi.Input<inputs.costexplorer.GetTagsFilterArgs | undefined>;
     /**
      * Value that you want to search for.
      */
-    searchString?: pulumi.Input<string>;
+    searchString?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
      */
-    sortBies?: pulumi.Input<pulumi.Input<inputs.costexplorer.GetTagsSortByArgs>[]>;
+    sortBies?: pulumi.Input<pulumi.Input<inputs.costexplorer.GetTagsSortByArgs>[] | undefined>;
     /**
      * Key of the tag that you want to return values for.
      */
-    tagKey?: pulumi.Input<string>;
+    tagKey?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
      */

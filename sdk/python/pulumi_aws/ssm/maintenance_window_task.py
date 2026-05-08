@@ -24,16 +24,16 @@ class MaintenanceWindowTaskArgs:
                  task_arn: pulumi.Input[_builtins.str],
                  task_type: pulumi.Input[_builtins.str],
                  window_id: pulumi.Input[_builtins.str],
-                 cutoff_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
-                 task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None):
+                 cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTask resource.
 
@@ -113,143 +113,143 @@ class MaintenanceWindowTaskArgs:
 
     @_builtins.property
     @pulumi.getter(name="cutoffBehavior")
-    def cutoff_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cutoff_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         """
         return pulumi.get(self, "cutoff_behavior")
 
     @cutoff_behavior.setter
-    def cutoff_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cutoff_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cutoff_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the maintenance window task.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_concurrency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of targets this task can be run for in parallel.
         """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_concurrency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_concurrency", value)
 
     @_builtins.property
     @pulumi.getter(name="maxErrors")
-    def max_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_errors(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of errors allowed before this task stops being scheduled.
         """
         return pulumi.get(self, "max_errors")
 
     @max_errors.setter
-    def max_errors(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_errors(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the maintenance window task.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
-    def service_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]:
         """
         The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]):
         pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter(name="taskInvocationParameters")
-    def task_invocation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]:
+    def task_invocation_parameters(self) -> pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersArgs']]:
         """
         Configuration block with parameters for task execution.
         """
         return pulumi.get(self, "task_invocation_parameters")
 
     @task_invocation_parameters.setter
-    def task_invocation_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]):
+    def task_invocation_parameters(self, value: pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersArgs']]):
         pulumi.set(self, "task_invocation_parameters", value)
 
 
 @pulumi.input_type
 class _MaintenanceWindowTaskState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cutoff_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
-                 task_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 window_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 window_task_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
+                 task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 window_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 window_task_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindowTask resources.
 
@@ -302,182 +302,182 @@ class _MaintenanceWindowTaskState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the maintenance window task.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cutoffBehavior")
-    def cutoff_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cutoff_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         """
         return pulumi.get(self, "cutoff_behavior")
 
     @cutoff_behavior.setter
-    def cutoff_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cutoff_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cutoff_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the maintenance window task.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_concurrency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of targets this task can be run for in parallel.
         """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_concurrency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_concurrency", value)
 
     @_builtins.property
     @pulumi.getter(name="maxErrors")
-    def max_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_errors(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum number of errors allowed before this task stops being scheduled.
         """
         return pulumi.get(self, "max_errors")
 
     @max_errors.setter
-    def max_errors(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_errors(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the maintenance window task.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRoleArn")
-    def service_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         """
         return pulumi.get(self, "service_role_arn")
 
     @service_role_arn.setter
-    def service_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]:
         """
         The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]]):
         pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter(name="taskArn")
-    def task_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the task to execute.
         """
         return pulumi.get(self, "task_arn")
 
     @task_arn.setter
-    def task_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="taskInvocationParameters")
-    def task_invocation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]:
+    def task_invocation_parameters(self) -> pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersArgs']]:
         """
         Configuration block with parameters for task execution.
         """
         return pulumi.get(self, "task_invocation_parameters")
 
     @task_invocation_parameters.setter
-    def task_invocation_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']]):
+    def task_invocation_parameters(self, value: pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersArgs']]):
         pulumi.set(self, "task_invocation_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
-    def task_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_type", value)
 
     @_builtins.property
     @pulumi.getter(name="windowId")
-    def window_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def window_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Id of the maintenance window to register the task with.
         """
         return pulumi.get(self, "window_id")
 
     @window_id.setter
-    def window_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def window_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "window_id", value)
 
     @_builtins.property
     @pulumi.getter(name="windowTaskId")
-    def window_task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def window_task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the maintenance window task.
         """
         return pulumi.get(self, "window_task_id")
 
     @window_task_id.setter
-    def window_task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def window_task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "window_task_id", value)
 
 
@@ -487,19 +487,19 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cutoff_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
-                 task_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_invocation_parameters: Optional[pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 window_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+                 task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 window_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an SSM Maintenance Window Task resource
@@ -820,19 +820,19 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cutoff_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
-                 task_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_invocation_parameters: Optional[pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
-                 task_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 window_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+                 task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+                 task_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 window_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -873,21 +873,21 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cutoff_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            max_concurrency: Optional[pulumi.Input[_builtins.str]] = None,
-            max_errors: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
-            task_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            task_invocation_parameters: Optional[pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
-            task_type: Optional[pulumi.Input[_builtins.str]] = None,
-            window_id: Optional[pulumi.Input[_builtins.str]] = None,
-            window_task_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'MaintenanceWindowTask':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
+            max_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+            task_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+            task_type: pulumi.Input[Optional[_builtins.str]] = None,
+            window_id: pulumi.Input[Optional[_builtins.str]] = None,
+            window_task_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'MaintenanceWindowTask':
         """
         Get an existing MaintenanceWindowTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

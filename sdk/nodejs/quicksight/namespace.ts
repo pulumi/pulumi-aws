@@ -148,42 +148,42 @@ export interface NamespaceState {
     /**
      * ARN of the Namespace.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Namespace AWS Region.
      */
-    capacityRegion?: pulumi.Input<string>;
+    capacityRegion?: pulumi.Input<string | undefined>;
     /**
      * Creation status of the namespace.
      */
-    creationStatus?: pulumi.Input<string>;
+    creationStatus?: pulumi.Input<string | undefined>;
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      */
-    identityStore?: pulumi.Input<string>;
+    identityStore?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      *
      * The following arguments are optional:
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts | undefined>;
 }
 
 /**
@@ -193,11 +193,11 @@ export interface NamespaceArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      */
-    identityStore?: pulumi.Input<string>;
+    identityStore?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      *
@@ -207,10 +207,10 @@ export interface NamespaceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts | undefined>;
 }

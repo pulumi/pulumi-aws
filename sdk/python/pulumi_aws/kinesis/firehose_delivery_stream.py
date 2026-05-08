@@ -22,24 +22,24 @@ __all__ = ['FirehoseDeliveryStreamArgs', 'FirehoseDeliveryStream']
 class FirehoseDeliveryStreamArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[_builtins.str],
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] = None,
-                 extended_s3_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
-                 http_endpoint_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
-                 iceberg_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']] = None,
-                 kinesis_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
-                 msk_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opensearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
-                 opensearchserverless_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
-                 redshift_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
-                 snowflake_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']] = None,
-                 splunk_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] = None,
+                 extended_s3_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
+                 http_endpoint_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
+                 iceberg_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationArgs']] = None,
+                 kinesis_source_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
+                 msk_source_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opensearch_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
+                 opensearchserverless_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
+                 redshift_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
+                 snowflake_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationArgs']] = None,
+                 splunk_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirehoseDeliveryStream resource.
 
@@ -115,184 +115,184 @@ class FirehoseDeliveryStreamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) specifying the Stream
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationId")
-    def destination_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "destination_id")
 
     @destination_id.setter
-    def destination_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_id", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticsearchConfiguration")
-    def elasticsearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
+    def elasticsearch_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
         """
         Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         """
         return pulumi.get(self, "elasticsearch_configuration")
 
     @elasticsearch_configuration.setter
-    def elasticsearch_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]):
+    def elasticsearch_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]):
         pulumi.set(self, "elasticsearch_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedS3Configuration")
-    def extended_s3_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]:
+    def extended_s3_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]:
         """
         Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         """
         return pulumi.get(self, "extended_s3_configuration")
 
     @extended_s3_configuration.setter
-    def extended_s3_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]):
+    def extended_s3_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]):
         pulumi.set(self, "extended_s3_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="httpEndpointConfiguration")
-    def http_endpoint_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
+    def http_endpoint_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
         """
         Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         """
         return pulumi.get(self, "http_endpoint_configuration")
 
     @http_endpoint_configuration.setter
-    def http_endpoint_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]):
+    def http_endpoint_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]):
         pulumi.set(self, "http_endpoint_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="icebergConfiguration")
-    def iceberg_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
+    def iceberg_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
         """
         Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         """
         return pulumi.get(self, "iceberg_configuration")
 
     @iceberg_configuration.setter
-    def iceberg_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]):
+    def iceberg_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationArgs']]):
         pulumi.set(self, "iceberg_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisSourceConfiguration")
-    def kinesis_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
+    def kinesis_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
         """
         The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         """
         return pulumi.get(self, "kinesis_source_configuration")
 
     @kinesis_source_configuration.setter
-    def kinesis_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]):
+    def kinesis_source_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]):
         pulumi.set(self, "kinesis_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="mskSourceConfiguration")
-    def msk_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
+    def msk_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
         """
         The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         """
         return pulumi.get(self, "msk_source_configuration")
 
     @msk_source_configuration.setter
-    def msk_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]):
+    def msk_source_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']]):
         pulumi.set(self, "msk_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="opensearchConfiguration")
-    def opensearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
+    def opensearch_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
         """
         Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         """
         return pulumi.get(self, "opensearch_configuration")
 
     @opensearch_configuration.setter
-    def opensearch_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]):
+    def opensearch_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationArgs']]):
         pulumi.set(self, "opensearch_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="opensearchserverlessConfiguration")
-    def opensearchserverless_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
+    def opensearchserverless_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
         """
         Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         """
         return pulumi.get(self, "opensearchserverless_configuration")
 
     @opensearchserverless_configuration.setter
-    def opensearchserverless_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]):
+    def opensearchserverless_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]):
         pulumi.set(self, "opensearchserverless_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
-    def redshift_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
+    def redshift_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
         """
         Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
         """
         return pulumi.get(self, "redshift_configuration")
 
     @redshift_configuration.setter
-    def redshift_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]):
+    def redshift_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationArgs']]):
         pulumi.set(self, "redshift_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
+    def server_side_encryption(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
         """
         Encrypt at rest options. See `server_side_encryption` block below for details.
         """
         return pulumi.get(self, "server_side_encryption")
 
     @server_side_encryption.setter
-    def server_side_encryption(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]):
+    def server_side_encryption(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamServerSideEncryptionArgs']]):
         pulumi.set(self, "server_side_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="snowflakeConfiguration")
-    def snowflake_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]:
+    def snowflake_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]:
         """
         Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         """
         return pulumi.get(self, "snowflake_configuration")
 
     @snowflake_configuration.setter
-    def snowflake_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]):
+    def snowflake_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]):
         pulumi.set(self, "snowflake_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="splunkConfiguration")
-    def splunk_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
+    def splunk_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
         """
         Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
 
@@ -301,54 +301,54 @@ class FirehoseDeliveryStreamArgs:
         return pulumi.get(self, "splunk_configuration")
 
     @splunk_configuration.setter
-    def splunk_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]):
+    def splunk_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']]):
         pulumi.set(self, "splunk_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
 @pulumi.input_type
 class _FirehoseDeliveryStreamState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] = None,
-                 extended_s3_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
-                 http_endpoint_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
-                 iceberg_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']] = None,
-                 kinesis_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
-                 msk_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opensearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
-                 opensearchserverless_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
-                 redshift_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
-                 snowflake_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']] = None,
-                 splunk_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] = None,
+                 extended_s3_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
+                 http_endpoint_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
+                 iceberg_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationArgs']] = None,
+                 kinesis_source_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
+                 msk_source_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opensearch_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
+                 opensearchserverless_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
+                 redshift_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
+                 snowflake_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationArgs']] = None,
+                 splunk_configuration: pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirehoseDeliveryStream resources.
 
@@ -416,196 +416,196 @@ class _FirehoseDeliveryStreamState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) specifying the Stream
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationId")
-    def destination_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "destination_id")
 
     @destination_id.setter
-    def destination_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_id", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticsearchConfiguration")
-    def elasticsearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
+    def elasticsearch_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
         """
         Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         """
         return pulumi.get(self, "elasticsearch_configuration")
 
     @elasticsearch_configuration.setter
-    def elasticsearch_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]):
+    def elasticsearch_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]):
         pulumi.set(self, "elasticsearch_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedS3Configuration")
-    def extended_s3_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]:
+    def extended_s3_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]:
         """
         Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         """
         return pulumi.get(self, "extended_s3_configuration")
 
     @extended_s3_configuration.setter
-    def extended_s3_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]):
+    def extended_s3_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]):
         pulumi.set(self, "extended_s3_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="httpEndpointConfiguration")
-    def http_endpoint_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
+    def http_endpoint_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
         """
         Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         """
         return pulumi.get(self, "http_endpoint_configuration")
 
     @http_endpoint_configuration.setter
-    def http_endpoint_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]):
+    def http_endpoint_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]):
         pulumi.set(self, "http_endpoint_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="icebergConfiguration")
-    def iceberg_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
+    def iceberg_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
         """
         Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         """
         return pulumi.get(self, "iceberg_configuration")
 
     @iceberg_configuration.setter
-    def iceberg_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]):
+    def iceberg_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationArgs']]):
         pulumi.set(self, "iceberg_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisSourceConfiguration")
-    def kinesis_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
+    def kinesis_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
         """
         The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         """
         return pulumi.get(self, "kinesis_source_configuration")
 
     @kinesis_source_configuration.setter
-    def kinesis_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]):
+    def kinesis_source_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]):
         pulumi.set(self, "kinesis_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="mskSourceConfiguration")
-    def msk_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
+    def msk_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
         """
         The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         """
         return pulumi.get(self, "msk_source_configuration")
 
     @msk_source_configuration.setter
-    def msk_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]):
+    def msk_source_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']]):
         pulumi.set(self, "msk_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="opensearchConfiguration")
-    def opensearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
+    def opensearch_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
         """
         Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         """
         return pulumi.get(self, "opensearch_configuration")
 
     @opensearch_configuration.setter
-    def opensearch_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]):
+    def opensearch_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationArgs']]):
         pulumi.set(self, "opensearch_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="opensearchserverlessConfiguration")
-    def opensearchserverless_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
+    def opensearchserverless_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
         """
         Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         """
         return pulumi.get(self, "opensearchserverless_configuration")
 
     @opensearchserverless_configuration.setter
-    def opensearchserverless_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]):
+    def opensearchserverless_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]):
         pulumi.set(self, "opensearchserverless_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
-    def redshift_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
+    def redshift_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
         """
         Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
         """
         return pulumi.get(self, "redshift_configuration")
 
     @redshift_configuration.setter
-    def redshift_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]):
+    def redshift_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationArgs']]):
         pulumi.set(self, "redshift_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryption")
-    def server_side_encryption(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
+    def server_side_encryption(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
         """
         Encrypt at rest options. See `server_side_encryption` block below for details.
         """
         return pulumi.get(self, "server_side_encryption")
 
     @server_side_encryption.setter
-    def server_side_encryption(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]):
+    def server_side_encryption(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamServerSideEncryptionArgs']]):
         pulumi.set(self, "server_side_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="snowflakeConfiguration")
-    def snowflake_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]:
+    def snowflake_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]:
         """
         Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         """
         return pulumi.get(self, "snowflake_configuration")
 
     @snowflake_configuration.setter
-    def snowflake_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]):
+    def snowflake_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationArgs']]):
         pulumi.set(self, "snowflake_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="splunkConfiguration")
-    def splunk_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
+    def splunk_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
         """
         Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
 
@@ -614,40 +614,40 @@ class _FirehoseDeliveryStreamState:
         return pulumi.get(self, "splunk_configuration")
 
     @splunk_configuration.setter
-    def splunk_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]):
+    def splunk_configuration(self, value: pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']]):
         pulumi.set(self, "splunk_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
@@ -657,25 +657,25 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
-                 extended_s3_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
-                 http_endpoint_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
-                 iceberg_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
-                 kinesis_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
-                 msk_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opensearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
-                 opensearchserverless_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
-                 redshift_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
-                 snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
-                 splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
+                 extended_s3_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
+                 http_endpoint_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
+                 iceberg_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
+                 kinesis_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
+                 msk_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opensearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
+                 opensearchserverless_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
+                 redshift_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
+                 snowflake_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
+                 splunk_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 , Amazon Redshift and Snowflake.
@@ -1988,25 +1988,25 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
-                 extended_s3_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
-                 http_endpoint_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
-                 iceberg_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
-                 kinesis_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
-                 msk_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 opensearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
-                 opensearchserverless_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
-                 redshift_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption: Optional[pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
-                 snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
-                 splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
+                 extended_s3_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
+                 http_endpoint_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
+                 iceberg_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
+                 kinesis_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
+                 msk_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 opensearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
+                 opensearchserverless_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
+                 redshift_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption: pulumi.Input[Optional[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
+                 snowflake_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
+                 splunk_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2048,26 +2048,26 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_id: Optional[pulumi.Input[_builtins.str]] = None,
-            elasticsearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
-            extended_s3_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
-            http_endpoint_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
-            iceberg_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
-            kinesis_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
-            msk_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            opensearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
-            opensearchserverless_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
-            redshift_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            server_side_encryption: Optional[pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
-            snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
-            splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FirehoseDeliveryStream':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_id: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticsearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
+            extended_s3_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
+            http_endpoint_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
+            iceberg_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
+            kinesis_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
+            msk_source_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            opensearch_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
+            opensearchserverless_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
+            redshift_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            server_side_encryption: pulumi.Input[Optional[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
+            snowflake_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
+            splunk_configuration: pulumi.Input[Optional[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FirehoseDeliveryStream':
         """
         Get an existing FirehoseDeliveryStream resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,8 +21,8 @@ class ThingGroupMembershipArgs:
     def __init__(__self__, *,
                  thing_group_name: pulumi.Input[_builtins.str],
                  thing_name: pulumi.Input[_builtins.str],
-                 override_dynamic_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 override_dynamic_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThingGroupMembership resource.
 
@@ -64,36 +64,36 @@ class ThingGroupMembershipArgs:
 
     @_builtins.property
     @pulumi.getter(name="overrideDynamicGroup")
-    def override_dynamic_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_dynamic_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
         """
         return pulumi.get(self, "override_dynamic_group")
 
     @override_dynamic_group.setter
-    def override_dynamic_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_dynamic_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_dynamic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ThingGroupMembershipState:
     def __init__(__self__, *,
-                 override_dynamic_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 override_dynamic_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThingGroupMembership resources.
 
@@ -113,50 +113,50 @@ class _ThingGroupMembershipState:
 
     @_builtins.property
     @pulumi.getter(name="overrideDynamicGroup")
-    def override_dynamic_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def override_dynamic_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
         """
         return pulumi.get(self, "override_dynamic_group")
 
     @override_dynamic_group.setter
-    def override_dynamic_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def override_dynamic_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "override_dynamic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="thingGroupName")
-    def thing_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the group to which you are adding a thing.
         """
         return pulumi.get(self, "thing_group_name")
 
     @thing_group_name.setter
-    def thing_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="thingName")
-    def thing_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the thing to add to a group.
         """
         return pulumi.get(self, "thing_name")
 
     @thing_name.setter
-    def thing_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_name", value)
 
 
@@ -166,10 +166,10 @@ class ThingGroupMembership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 override_dynamic_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 override_dynamic_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Adds an IoT Thing to an IoT Thing Group.
@@ -247,10 +247,10 @@ class ThingGroupMembership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 override_dynamic_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 override_dynamic_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -278,10 +278,10 @@ class ThingGroupMembership(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            override_dynamic_group: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            thing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-            thing_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ThingGroupMembership':
+            override_dynamic_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            thing_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ThingGroupMembership':
         """
         Get an existing ThingGroupMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

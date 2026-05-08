@@ -251,51 +251,51 @@ export interface EnvironmentProfileState {
     /**
      * Id of the AWS account being used.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Desired region for environment profile.
      */
-    awsAccountRegion?: pulumi.Input<string>;
+    awsAccountRegion?: pulumi.Input<string | undefined>;
     /**
      * Creation time of environment profile.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Creator of environment profile.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Description of environment profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Domain Identifier for environment profile.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * ID of the blueprint which the environment will be created with.
      */
-    environmentBlueprintIdentifier?: pulumi.Input<string>;
+    environmentBlueprintIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the environment profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Project identifier for environment profile.
      */
-    projectIdentifier?: pulumi.Input<string>;
+    projectIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Time of last update to environment profile.
      */
-    updatedAt?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string | undefined>;
     /**
      * Array of user parameters of the environment profile with the following attributes:
      */
-    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProfileUserParameter>[]>;
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProfileUserParameter>[] | undefined>;
 }
 
 /**
@@ -305,7 +305,7 @@ export interface EnvironmentProfileArgs {
     /**
      * Id of the AWS account being used.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Desired region for environment profile.
      */
@@ -313,7 +313,7 @@ export interface EnvironmentProfileArgs {
     /**
      * Description of environment profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Domain Identifier for environment profile.
      */
@@ -325,7 +325,7 @@ export interface EnvironmentProfileArgs {
     /**
      * Name of the environment profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Project identifier for environment profile.
      */
@@ -333,9 +333,9 @@ export interface EnvironmentProfileArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Array of user parameters of the environment profile with the following attributes:
      */
-    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProfileUserParameter>[]>;
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProfileUserParameter>[] | undefined>;
 }

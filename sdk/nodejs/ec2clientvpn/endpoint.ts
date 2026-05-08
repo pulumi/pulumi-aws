@@ -263,107 +263,107 @@ export interface EndpointState {
     /**
      * The ARN of the Client VPN endpoint.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Information about the authentication method to be used to authenticate clients. See `authenticationOptions` Block Reference below for details.
      */
-    authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
+    authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[] | undefined>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
      */
-    clientCidrBlock?: pulumi.Input<string>;
+    clientCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      */
-    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
+    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions | undefined>;
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      */
-    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions | undefined>;
     /**
      * Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      */
-    clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
+    clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions | undefined>;
     /**
      * Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      */
-    connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
+    connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions | undefined>;
     /**
      * A brief description of the Client VPN endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
      */
-    disconnectOnSessionTimeout?: pulumi.Input<boolean>;
+    disconnectOnSessionTimeout?: pulumi.Input<boolean | undefined>;
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
      */
-    endpointIpAddressType?: pulumi.Input<string>;
+    endpointIpAddressType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
-    selfServicePortal?: pulumi.Input<string>;
+    selfServicePortal?: pulumi.Input<string | undefined>;
     /**
      * The URL of the self-service portal.
      */
-    selfServicePortalUrl?: pulumi.Input<string>;
+    selfServicePortalUrl?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the ACM server certificate.
      */
-    serverCertificateArn?: pulumi.Input<string>;
+    serverCertificateArn?: pulumi.Input<string | undefined>;
     /**
      * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
      */
-    sessionTimeoutHours?: pulumi.Input<number>;
+    sessionTimeoutHours?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
-    splitTunnel?: pulumi.Input<boolean>;
+    splitTunnel?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
      */
-    trafficIpAddressType?: pulumi.Input<string>;
+    trafficIpAddressType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
      */
-    transitGatewayConfiguration?: pulumi.Input<inputs.ec2clientvpn.EndpointTransitGatewayConfiguration>;
+    transitGatewayConfiguration?: pulumi.Input<inputs.ec2clientvpn.EndpointTransitGatewayConfiguration | undefined>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
-    transportProtocol?: pulumi.Input<string>;
+    transportProtocol?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
      */
-    vpnPort?: pulumi.Input<number>;
+    vpnPort?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -377,19 +377,19 @@ export interface EndpointArgs {
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater. When `trafficIpAddressType` is set to `ipv6`, it must not be specified. Otherwise, it is required.
      */
-    clientCidrBlock?: pulumi.Input<string>;
+    clientCidrBlock?: pulumi.Input<string | undefined>;
     /**
      * The options for managing connection authorization for new client connections. See `clientConnectOptions` Block Reference below for details.
      */
-    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
+    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions | undefined>;
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. See `clientLoginBannerOptions` Block Reference below for details.
      */
-    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions | undefined>;
     /**
      * Options for enforce administrator defined routes on devices connected through the VPN. See `clientRouteEnforcementOptions` Block Reference below for details.
      */
-    clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
+    clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions | undefined>;
     /**
      * Information about the client connection logging options. See `connectionLogOptions` Block Reference below for details.
      */
@@ -397,31 +397,31 @@ export interface EndpointArgs {
     /**
      * A brief description of the Client VPN endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the client VPN session is disconnected after the maximum `sessionTimeoutHours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
      */
-    disconnectOnSessionTimeout?: pulumi.Input<boolean>;
+    disconnectOnSessionTimeout?: pulumi.Input<boolean | undefined>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IP address type for the Client VPN endpoint. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`.
      */
-    endpointIpAddressType?: pulumi.Input<string>;
+    endpointIpAddressType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups. Conflicts with `transitGatewayConfiguration`.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
-    selfServicePortal?: pulumi.Input<string>;
+    selfServicePortal?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the ACM server certificate.
      */
@@ -429,33 +429,33 @@ export interface EndpointArgs {
     /**
      * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
      */
-    sessionTimeoutHours?: pulumi.Input<number>;
+    sessionTimeoutHours?: pulumi.Input<number | undefined>;
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
-    splitTunnel?: pulumi.Input<boolean>;
+    splitTunnel?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * IP address type for traffic within the Client VPN tunnel. Valid values are `ipv4`, `ipv6`, or `dual-stack`. Defaults to `ipv4`. When it is set to `ipv6`, `clientCidrBlock` must not be specified.
      */
-    trafficIpAddressType?: pulumi.Input<string>;
+    trafficIpAddressType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for associating the Client VPN endpoint with a Transit Gateway. Conflicts with `vpcId` and `securityGroupIds`. See `transitGatewayConfiguration` Block Reference below for details.
      */
-    transitGatewayConfiguration?: pulumi.Input<inputs.ec2clientvpn.EndpointTransitGatewayConfiguration>;
+    transitGatewayConfiguration?: pulumi.Input<inputs.ec2clientvpn.EndpointTransitGatewayConfiguration | undefined>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
-    transportProtocol?: pulumi.Input<string>;
+    transportProtocol?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied. Conflicts with `transitGatewayConfiguration`.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
      */
-    vpnPort?: pulumi.Input<number>;
+    vpnPort?: pulumi.Input<number | undefined>;
 }

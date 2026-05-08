@@ -135,25 +135,25 @@ export interface ControlTowerControlState {
     /**
      * The ARN of the EnabledControl resource.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      */
-    controlIdentifier?: pulumi.Input<string>;
+    controlIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the organizational unit.
      *
      * The following arguments are optional:
      */
-    targetIdentifier?: pulumi.Input<string>;
+    targetIdentifier?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,11 +167,11 @@ export interface ControlTowerControlArgs {
     /**
      * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the organizational unit.
      *

@@ -143,34 +143,34 @@ export interface UserProfileState {
     /**
      * Details about the user profile.
      */
-    details?: pulumi.Input<pulumi.Input<inputs.datazone.UserProfileDetail>[]>;
+    details?: pulumi.Input<pulumi.Input<inputs.datazone.UserProfileDetail>[] | undefined>;
     /**
      * The domain identifier.
      */
-    domainIdentifier?: pulumi.Input<string>;
+    domainIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The user profile status.
      */
-    status?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.UserProfileTimeouts>;
+    status?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.UserProfileTimeouts | undefined>;
     /**
      * The user profile type.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The user identifier.
      *
      * The following arguments are optional:
      */
-    userIdentifier?: pulumi.Input<string>;
+    userIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The user type.
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,12 +184,12 @@ export interface UserProfileArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The user profile status.
      */
-    status?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.datazone.UserProfileTimeouts>;
+    status?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.datazone.UserProfileTimeouts | undefined>;
     /**
      * The user identifier.
      *
@@ -199,5 +199,5 @@ export interface UserProfileArgs {
     /**
      * The user type.
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }

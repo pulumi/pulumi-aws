@@ -112,8 +112,8 @@ def get_environments(application_id: Optional[_builtins.str] = None,
         environment_ids=pulumi.get(__ret__, 'environment_ids'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_environments_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_environments_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
     Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another

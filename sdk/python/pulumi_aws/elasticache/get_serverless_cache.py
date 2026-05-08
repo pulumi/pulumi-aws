@@ -305,8 +305,8 @@ def get_serverless_cache(name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         user_group_id=pulumi.get(__ret__, 'user_group_id'))
-def get_serverless_cache_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_serverless_cache_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCacheResult]:
     """
     Use this data source to get information about an ElastiCache Serverless Cache.

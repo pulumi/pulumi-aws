@@ -24,10 +24,10 @@ class BucketLoggingV2Args:
                  bucket: pulumi.Input[_builtins.str],
                  target_bucket: pulumi.Input[_builtins.str],
                  target_prefix: pulumi.Input[_builtins.str],
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
-                 target_object_key_format: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']] = None):
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
+                 target_object_key_format: pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatArgs']] = None):
         """
         The set of arguments for constructing a BucketLoggingV2 resource.
 
@@ -93,63 +93,63 @@ class BucketLoggingV2Args:
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGrants")
-    def target_grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]:
+    def target_grants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]:
         """
         Set of configuration blocks with information for granting permissions. See below.
         """
         return pulumi.get(self, "target_grants")
 
     @target_grants.setter
-    def target_grants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]):
+    def target_grants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]):
         pulumi.set(self, "target_grants", value)
 
     @_builtins.property
     @pulumi.getter(name="targetObjectKeyFormat")
-    def target_object_key_format(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]:
+    def target_object_key_format(self) -> pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatArgs']]:
         """
         Amazon S3 key format for log objects. See below.
         """
         return pulumi.get(self, "target_object_key_format")
 
     @target_object_key_format.setter
-    def target_object_key_format(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]):
+    def target_object_key_format(self, value: pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatArgs']]):
         pulumi.set(self, "target_object_key_format", value)
 
 
 @pulumi.input_type
 class _BucketLoggingV2State:
     def __init__(__self__, *,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
-                 target_object_key_format: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']] = None,
-                 target_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
+                 target_object_key_format: pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatArgs']] = None,
+                 target_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketLoggingV2 resources.
 
@@ -181,87 +181,87 @@ class _BucketLoggingV2State:
 
     @_builtins.property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bucket.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
     @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="targetBucket")
-    def target_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the bucket where you want Amazon S3 to store server access logs.
         """
         return pulumi.get(self, "target_bucket")
 
     @target_bucket.setter
-    def target_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGrants")
-    def target_grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]:
+    def target_grants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]:
         """
         Set of configuration blocks with information for granting permissions. See below.
         """
         return pulumi.get(self, "target_grants")
 
     @target_grants.setter
-    def target_grants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]):
+    def target_grants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]]):
         pulumi.set(self, "target_grants", value)
 
     @_builtins.property
     @pulumi.getter(name="targetObjectKeyFormat")
-    def target_object_key_format(self) -> Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]:
+    def target_object_key_format(self) -> pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatArgs']]:
         """
         Amazon S3 key format for log objects. See below.
         """
         return pulumi.get(self, "target_object_key_format")
 
     @target_object_key_format.setter
-    def target_object_key_format(self, value: Optional[pulumi.Input['BucketLoggingV2TargetObjectKeyFormatArgs']]):
+    def target_object_key_format(self, value: pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatArgs']]):
         pulumi.set(self, "target_object_key_format", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPrefix")
-    def target_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prefix for all log object keys.
         """
         return pulumi.get(self, "target_prefix")
 
     @target_prefix.setter
-    def target_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_prefix", value)
 
 
@@ -276,13 +276,13 @@ class BucketLoggingV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
-                 target_object_key_format: Optional[pulumi.Input[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
-                 target_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
+                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
+                 target_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an S3 bucket (server access) logging resource. For more information, see [Logging requests using server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html)
@@ -513,13 +513,13 @@ class BucketLoggingV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
-                 target_object_key_format: Optional[pulumi.Input[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
-                 target_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
+                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
+                 target_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         pulumi.log.warn("""BucketLoggingV2 is deprecated: aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -555,13 +555,13 @@ class BucketLoggingV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            target_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            target_grants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
-            target_object_key_format: Optional[pulumi.Input[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
-            target_prefix: Optional[pulumi.Input[_builtins.str]] = None) -> 'BucketLoggingV2':
+            bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
+            target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
+            target_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketLoggingV2':
         """
         Get an existing BucketLoggingV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -277,82 +277,82 @@ export class Environment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Environment resources.
  */
 export interface EnvironmentState {
-    applyChangesDuringMaintenanceWindow?: pulumi.Input<boolean>;
+    applyChangesDuringMaintenanceWindow?: pulumi.Input<boolean | undefined>;
     /**
      * ARN of the Environment.
      */
-    arn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Engine type must be `microfocus` or `bluage`.
      */
-    engineType?: pulumi.Input<string>;
+    engineType?: pulumi.Input<string | undefined>;
     /**
      * The specific version of the engine for the Environment.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The id of the Environment.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * Force update the environment even if applications are running.
      */
-    forceUpdate?: pulumi.Input<boolean>;
-    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig>;
+    forceUpdate?: pulumi.Input<boolean | undefined>;
+    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * M2 Instance Type.
      *
      * The following arguments are optional:
      */
-    instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS key to use for the Environment.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * ARN of the load balancer created by the Environment.
      */
-    loadBalancerArn?: pulumi.Input<string>;
+    loadBalancerArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the runtime environment. Must be unique within the account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Allow applications deployed to this environment to be publicly accessible.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of security group ids.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration | undefined>;
     /**
      * List of subnet ids to deploy environment to.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.m2.EnvironmentTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.m2.EnvironmentTimeouts | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
-    applyChangesDuringMaintenanceWindow?: pulumi.Input<boolean>;
-    description?: pulumi.Input<string>;
+    applyChangesDuringMaintenanceWindow?: pulumi.Input<boolean | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Engine type must be `microfocus` or `bluage`.
      */
@@ -360,12 +360,12 @@ export interface EnvironmentArgs {
     /**
      * The specific version of the engine for the Environment.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Force update the environment even if applications are running.
      */
-    forceUpdate?: pulumi.Input<boolean>;
-    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig>;
+    forceUpdate?: pulumi.Input<boolean | undefined>;
+    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * M2 Instance Type.
      *
@@ -375,35 +375,35 @@ export interface EnvironmentArgs {
     /**
      * ARN of the KMS key to use for the Environment.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the runtime environment. Must be unique within the account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * Allow applications deployed to this environment to be publicly accessible.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of security group ids.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration | undefined>;
     /**
      * List of subnet ids to deploy environment to.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.m2.EnvironmentTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.m2.EnvironmentTimeouts | undefined>;
 }

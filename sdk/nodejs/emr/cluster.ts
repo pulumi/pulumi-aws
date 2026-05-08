@@ -596,32 +596,32 @@ export interface ClusterState {
     /**
      * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
      */
-    additionalInfo?: pulumi.Input<string>;
+    additionalInfo?: pulumi.Input<string | undefined>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      */
-    applications?: pulumi.Input<pulumi.Input<string>[]>;
+    applications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN of the cluster.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
      */
-    autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy>;
+    autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy | undefined>;
     /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
-    autoscalingRole?: pulumi.Input<string>;
+    autoscalingRole?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
      */
-    bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
-    clusterState?: pulumi.Input<string>;
+    bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[] | undefined>;
+    clusterState?: pulumi.Input<string | undefined>;
     /**
      * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      */
-    configurations?: pulumi.Input<string>;
+    configurations?: pulumi.Input<string | undefined>;
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
      *
@@ -648,123 +648,123 @@ export interface ClusterState {
      * `});
      * ```
      */
-    configurationsJson?: pulumi.Input<string>;
+    configurationsJson?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
      */
-    coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet>;
+    coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet | undefined>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      */
-    coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
+    coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup | undefined>;
     /**
      * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      */
-    customAmiId?: pulumi.Input<string>;
+    customAmiId?: pulumi.Input<string | undefined>;
     /**
      * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
      */
-    ebsRootVolumeSize?: pulumi.Input<number>;
+    ebsRootVolumeSize?: pulumi.Input<number | undefined>;
     /**
      * Attributes for the EC2 instances running the job flow. See below.
      */
-    ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
+    ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes | undefined>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
-    keepJobFlowAliveWhenNoSteps?: pulumi.Input<boolean>;
+    keepJobFlowAliveWhenNoSteps?: pulumi.Input<boolean | undefined>;
     /**
      * Kerberos configuration for the cluster. See below.
      */
-    kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
+    kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes | undefined>;
     /**
      * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
      */
-    listStepsStates?: pulumi.Input<pulumi.Input<string>[]>;
+    listStepsStates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      */
-    logEncryptionKmsKeyId?: pulumi.Input<string>;
+    logEncryptionKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
      */
-    logUri?: pulumi.Input<string>;
+    logUri?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
      */
-    masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet>;
+    masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet | undefined>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      */
-    masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
+    masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup | undefined>;
     /**
      * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      */
-    masterPublicDns?: pulumi.Input<string>;
+    masterPublicDns?: pulumi.Input<string | undefined>;
     /**
      * Name of the job flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
      */
-    osReleaseLabel?: pulumi.Input<string>;
+    osReleaseLabel?: pulumi.Input<string | undefined>;
     /**
      * The specified placement group configuration for an Amazon EMR cluster.
      */
-    placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[]>;
+    placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Release label for the Amazon EMR release.
      */
-    releaseLabel?: pulumi.Input<string>;
+    releaseLabel?: pulumi.Input<string | undefined>;
     /**
      * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
-    scaleDownBehavior?: pulumi.Input<string>;
+    scaleDownBehavior?: pulumi.Input<string | undefined>;
     /**
      * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
      */
-    securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string | undefined>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      *
      * The following arguments are optional:
      */
-    serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string | undefined>;
     /**
      * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
      */
-    stepConcurrencyLevel?: pulumi.Input<number>;
+    stepConcurrencyLevel?: pulumi.Input<number | undefined>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[] | undefined>;
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
-    terminationProtection?: pulumi.Input<boolean>;
+    terminationProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
      */
-    unhealthyNodeReplacement?: pulumi.Input<boolean>;
+    unhealthyNodeReplacement?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      *
      * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
      */
-    visibleToAllUsers?: pulumi.Input<boolean>;
+    visibleToAllUsers?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -774,27 +774,27 @@ export interface ClusterArgs {
     /**
      * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
      */
-    additionalInfo?: pulumi.Input<string>;
+    additionalInfo?: pulumi.Input<string | undefined>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      */
-    applications?: pulumi.Input<pulumi.Input<string>[]>;
+    applications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
      */
-    autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy>;
+    autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy | undefined>;
     /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
-    autoscalingRole?: pulumi.Input<string>;
+    autoscalingRole?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
      */
-    bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
+    bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[] | undefined>;
     /**
      * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      */
-    configurations?: pulumi.Input<string>;
+    configurations?: pulumi.Input<string | undefined>;
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
      *
@@ -821,71 +821,71 @@ export interface ClusterArgs {
      * `});
      * ```
      */
-    configurationsJson?: pulumi.Input<string>;
+    configurationsJson?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `coreInstanceGroup` configuration blocks are set. Detailed below.
      */
-    coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet>;
+    coreInstanceFleet?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleet | undefined>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      */
-    coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup>;
+    coreInstanceGroup?: pulumi.Input<inputs.emr.ClusterCoreInstanceGroup | undefined>;
     /**
      * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      */
-    customAmiId?: pulumi.Input<string>;
+    customAmiId?: pulumi.Input<string | undefined>;
     /**
      * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
      */
-    ebsRootVolumeSize?: pulumi.Input<number>;
+    ebsRootVolumeSize?: pulumi.Input<number | undefined>;
     /**
      * Attributes for the EC2 instances running the job flow. See below.
      */
-    ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes>;
+    ec2Attributes?: pulumi.Input<inputs.emr.ClusterEc2Attributes | undefined>;
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      */
-    keepJobFlowAliveWhenNoSteps?: pulumi.Input<boolean>;
+    keepJobFlowAliveWhenNoSteps?: pulumi.Input<boolean | undefined>;
     /**
      * Kerberos configuration for the cluster. See below.
      */
-    kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
+    kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes | undefined>;
     /**
      * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
      */
-    listStepsStates?: pulumi.Input<pulumi.Input<string>[]>;
+    listStepsStates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      */
-    logEncryptionKmsKeyId?: pulumi.Input<string>;
+    logEncryptionKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
      */
-    logUri?: pulumi.Input<string>;
+    logUri?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `masterInstanceGroup` configuration blocks are set. Detailed below.
      */
-    masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet>;
+    masterInstanceFleet?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleet | undefined>;
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      */
-    masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
+    masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup | undefined>;
     /**
      * Name of the job flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
      */
-    osReleaseLabel?: pulumi.Input<string>;
+    osReleaseLabel?: pulumi.Input<string | undefined>;
     /**
      * The specified placement group configuration for an Amazon EMR cluster.
      */
-    placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[]>;
+    placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Release label for the Amazon EMR release.
      */
@@ -893,11 +893,11 @@ export interface ClusterArgs {
     /**
      * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      */
-    scaleDownBehavior?: pulumi.Input<string>;
+    scaleDownBehavior?: pulumi.Input<string | undefined>;
     /**
      * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `releaseLabel` 4.8.0 or greater.
      */
-    securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string | undefined>;
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      *
@@ -907,27 +907,27 @@ export interface ClusterArgs {
     /**
      * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
      */
-    stepConcurrencyLevel?: pulumi.Input<number>;
+    stepConcurrencyLevel?: pulumi.Input<number | undefined>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[] | undefined>;
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
-    terminationProtection?: pulumi.Input<boolean>;
+    terminationProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
      */
-    unhealthyNodeReplacement?: pulumi.Input<boolean>;
+    unhealthyNodeReplacement?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      *
      * **NOTE:** As per the [Amazon EMR API Reference](https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html#EMR-RunJobFlow-request-VisibleToAllUsers), this argument is no longer supported. Do not set this argument, particularly to `false`, as it would lead to perpetual differences.
      */
-    visibleToAllUsers?: pulumi.Input<boolean>;
+    visibleToAllUsers?: pulumi.Input<boolean | undefined>;
 }

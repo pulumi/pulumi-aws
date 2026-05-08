@@ -164,7 +164,7 @@ export interface GetHoursOfOperationOutputArgs {
     /**
      * Returns information on a specific Hours of Operation by hours of operation id
      */
-    hoursOfOperationId?: pulumi.Input<string>;
+    hoursOfOperationId?: pulumi.Input<string | undefined>;
     /**
      * Reference to the hosting Amazon Connect Instance
      */
@@ -174,13 +174,13 @@ export interface GetHoursOfOperationOutputArgs {
      *
      * > **NOTE:** `instanceId` and one of either `name` or `hoursOfOperationId` is required.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the Hours of Operation.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -116,5 +116,5 @@ export interface GetReplicationSetOutputArgs {
     /**
      * All tags applied to the replication set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -116,9 +116,9 @@ def get_agent_agent_versions(agent_id: Optional[_builtins.str] = None,
         agent_version_summaries=pulumi.get(__ret__, 'agent_version_summaries'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_agent_agent_versions_output(agent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    agent_version_summaries: Optional[pulumi.Input[Optional[Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']]]]] = None,
-                                    region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_agent_agent_versions_output(agent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    agent_version_summaries: pulumi.Input[Optional[Optional[Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']]]]] = None,
+                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentAgentVersionsResult]:
     """
     Data source for managing an AWS Amazon BedrockAgent Agent Versions.

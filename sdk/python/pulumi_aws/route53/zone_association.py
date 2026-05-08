@@ -21,7 +21,7 @@ class ZoneAssociationArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str],
                  zone_id: pulumi.Input[_builtins.str],
-                 vpc_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ZoneAssociation resource.
 
@@ -60,24 +60,24 @@ class ZoneAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcRegion")
-    def vpc_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC's region. Defaults to the region of the AWS provider.
         """
         return pulumi.get(self, "vpc_region")
 
     @vpc_region.setter
-    def vpc_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_region", value)
 
 
 @pulumi.input_type
 class _ZoneAssociationState:
     def __init__(__self__, *,
-                 owning_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 owning_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ZoneAssociation resources.
 
@@ -97,50 +97,50 @@ class _ZoneAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="owningAccount")
-    def owning_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owning_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account ID of the account that created the hosted zone.
         """
         return pulumi.get(self, "owning_account")
 
     @owning_account.setter
-    def owning_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owning_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owning_account", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC to associate with the private hosted zone.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcRegion")
-    def vpc_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The VPC's region. Defaults to the region of the AWS provider.
         """
         return pulumi.get(self, "vpc_region")
 
     @vpc_region.setter
-    def vpc_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_region", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneId")
-    def zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The private hosted zone to associate.
         """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
-    def zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone_id", value)
 
 
@@ -150,9 +150,9 @@ class ZoneAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
@@ -281,9 +281,9 @@ class ZoneAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,10 +311,10 @@ class ZoneAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            owning_account: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_region: Optional[pulumi.Input[_builtins.str]] = None,
-            zone_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ZoneAssociation':
+            owning_account: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_region: pulumi.Input[Optional[_builtins.str]] = None,
+            zone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ZoneAssociation':
         """
         Get an existing ZoneAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

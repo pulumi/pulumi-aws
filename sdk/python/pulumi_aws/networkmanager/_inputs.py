@@ -82,7 +82,7 @@ __all__ = [
 ]
 
 class ConnectAttachmentOptionsArgsDict(TypedDict):
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
     """
@@ -90,7 +90,7 @@ class ConnectAttachmentOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectAttachmentOptionsArgs:
     def __init__(__self__, *,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] protocol: Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
         """
@@ -99,19 +99,19 @@ class ConnectAttachmentOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
 
 class ConnectPeerBgpOptionsArgsDict(TypedDict):
-    peer_asn: NotRequired[pulumi.Input[_builtins.str]]
+    peer_asn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
     """
@@ -119,7 +119,7 @@ class ConnectPeerBgpOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectPeerBgpOptionsArgs:
     def __init__(__self__, *,
-                 peer_asn: Optional[pulumi.Input[_builtins.str]] = None):
+                 peer_asn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] peer_asn: Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         """
@@ -128,43 +128,43 @@ class ConnectPeerBgpOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_asn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_asn", value)
 
 
 class ConnectPeerConfigurationArgsDict(TypedDict):
-    bgp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgsDict']]]]
-    core_network_address: NotRequired[pulumi.Input[_builtins.str]]
+    bgp_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]]
+    core_network_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connect peer core network address.
     """
-    inside_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inside_cidr_blocks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
     """
-    peer_address: NotRequired[pulumi.Input[_builtins.str]]
+    peer_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connect peer address.
 
     The following arguments are optional:
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectPeerConfigurationArgs:
     def __init__(__self__, *,
-                 bgp_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]] = None,
-                 core_network_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 bgp_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]] = None,
+                 core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] core_network_address: Connect peer core network address.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inside_cidr_blocks: Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
@@ -185,40 +185,40 @@ class ConnectPeerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bgpConfigurations")
-    def bgp_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]:
+    def bgp_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]:
         return pulumi.get(self, "bgp_configurations")
 
     @bgp_configurations.setter
-    def bgp_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]):
+    def bgp_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]):
         pulumi.set(self, "bgp_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkAddress")
-    def core_network_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
     @core_network_address.setter
-    def core_network_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_address", value)
 
     @_builtins.property
     @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inside_cidr_blocks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
     @inside_cidr_blocks.setter
-    def inside_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inside_cidr_blocks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inside_cidr_blocks", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAddress")
-    def peer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connect peer address.
 
@@ -227,32 +227,32 @@ class ConnectPeerConfigurationArgs:
         return pulumi.get(self, "peer_address")
 
     @peer_address.setter
-    def peer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
 
 class ConnectPeerConfigurationBgpConfigurationArgsDict(TypedDict):
-    core_network_address: NotRequired[pulumi.Input[_builtins.str]]
+    core_network_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connect peer core network address.
     """
-    core_network_asn: NotRequired[pulumi.Input[_builtins.int]]
-    peer_address: NotRequired[pulumi.Input[_builtins.str]]
+    core_network_asn: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    peer_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connect peer address.
 
     The following arguments are optional:
     """
-    peer_asn: NotRequired[pulumi.Input[_builtins.str]]
+    peer_asn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
     """
@@ -260,10 +260,10 @@ class ConnectPeerConfigurationBgpConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectPeerConfigurationBgpConfigurationArgs:
     def __init__(__self__, *,
-                 core_network_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 peer_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_asn: Optional[pulumi.Input[_builtins.str]] = None):
+                 core_network_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_asn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] core_network_address: Connect peer core network address.
         :param pulumi.Input[_builtins.str] peer_address: Connect peer address.
@@ -282,28 +282,28 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkAddress")
-    def core_network_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
     @core_network_address.setter
-    def core_network_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_address", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkAsn")
-    def core_network_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def core_network_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "core_network_asn")
 
     @core_network_asn.setter
-    def core_network_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def core_network_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "core_network_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAddress")
-    def peer_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connect peer address.
 
@@ -312,32 +312,32 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
         return pulumi.get(self, "peer_address")
 
     @peer_address.setter
-    def peer_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_address", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_asn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_asn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_asn", value)
 
 
 class CoreNetworkEdgeArgsDict(TypedDict):
-    asn: NotRequired[pulumi.Input[_builtins.int]]
+    asn: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     ASN of a core network edge.
     """
-    edge_location: NotRequired[pulumi.Input[_builtins.str]]
+    edge_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Region where a core network edge is located.
     """
-    inside_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inside_cidr_blocks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Inside IP addresses used for core network edges.
     """
@@ -345,9 +345,9 @@ class CoreNetworkEdgeArgsDict(TypedDict):
 @pulumi.input_type
 class CoreNetworkEdgeArgs:
     def __init__(__self__, *,
-                 asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 edge_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 inside_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] asn: ASN of a core network edge.
         :param pulumi.Input[_builtins.str] edge_location: Region where a core network edge is located.
@@ -362,51 +362,51 @@ class CoreNetworkEdgeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         ASN of a core network edge.
         """
         return pulumi.get(self, "asn")
 
     @asn.setter
-    def asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "asn", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where a core network edge is located.
         """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
-    def edge_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_location", value)
 
     @_builtins.property
     @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inside_cidr_blocks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Inside IP addresses used for core network edges.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
     @inside_cidr_blocks.setter
-    def inside_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inside_cidr_blocks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inside_cidr_blocks", value)
 
 
 class CoreNetworkSegmentArgsDict(TypedDict):
-    edge_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    edge_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Regions where the edges are located.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a core network segment.
     """
-    shared_segments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    shared_segments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Shared segments of a core network.
     """
@@ -414,9 +414,9 @@ class CoreNetworkSegmentArgsDict(TypedDict):
 @pulumi.input_type
 class CoreNetworkSegmentArgs:
     def __init__(__self__, *,
-                 edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_segments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_segments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: Regions where the edges are located.
         :param pulumi.Input[_builtins.str] name: Name of a core network segment.
@@ -431,47 +431,47 @@ class CoreNetworkSegmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="edgeLocations")
-    def edge_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def edge_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Regions where the edges are located.
         """
         return pulumi.get(self, "edge_locations")
 
     @edge_locations.setter
-    def edge_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def edge_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "edge_locations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a core network segment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedSegments")
-    def shared_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def shared_segments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Shared segments of a core network.
         """
         return pulumi.get(self, "shared_segments")
 
     @shared_segments.setter
-    def shared_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def shared_segments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "shared_segments", value)
 
 
 class DeviceAwsLocationArgsDict(TypedDict):
-    subnet_arn: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of the subnet that the device is located in.
     """
-    zone: NotRequired[pulumi.Input[_builtins.str]]
+    zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
     """
@@ -479,8 +479,8 @@ class DeviceAwsLocationArgsDict(TypedDict):
 @pulumi.input_type
 class DeviceAwsLocationArgs:
     def __init__(__self__, *,
-                 subnet_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 subnet_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_arn: ARN of the subnet that the device is located in.
         :param pulumi.Input[_builtins.str] zone: Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
@@ -492,39 +492,39 @@ class DeviceAwsLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="subnetArn")
-    def subnet_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subnet_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the subnet that the device is located in.
         """
         return pulumi.get(self, "subnet_arn")
 
     @subnet_arn.setter
-    def subnet_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subnet_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
         return pulumi.get(self, "zone")
 
     @zone.setter
-    def zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zone", value)
 
 
 class DeviceLocationArgsDict(TypedDict):
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Physical address.
     """
-    latitude: NotRequired[pulumi.Input[_builtins.str]]
+    latitude: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Latitude.
     """
-    longitude: NotRequired[pulumi.Input[_builtins.str]]
+    longitude: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Longitude.
     """
@@ -532,9 +532,9 @@ class DeviceLocationArgsDict(TypedDict):
 @pulumi.input_type
 class DeviceLocationArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 latitude: Optional[pulumi.Input[_builtins.str]] = None,
-                 longitude: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 latitude: pulumi.Input[Optional[_builtins.str]] = None,
+                 longitude: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address: Physical address.
         :param pulumi.Input[_builtins.str] latitude: Latitude.
@@ -549,51 +549,51 @@ class DeviceLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Physical address.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def latitude(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def latitude(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Latitude.
         """
         return pulumi.get(self, "latitude")
 
     @latitude.setter
-    def latitude(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def latitude(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "latitude", value)
 
     @_builtins.property
     @pulumi.getter
-    def longitude(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def longitude(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Longitude.
         """
         return pulumi.get(self, "longitude")
 
     @longitude.setter
-    def longitude(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def longitude(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "longitude", value)
 
 
 class DxGatewayAttachmentTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -601,9 +601,9 @@ class DxGatewayAttachmentTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class DxGatewayAttachmentTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -618,47 +618,47 @@ class DxGatewayAttachmentTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class LinkBandwidthArgsDict(TypedDict):
-    download_speed: NotRequired[pulumi.Input[_builtins.int]]
+    download_speed: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Download speed in Mbps.
     """
-    upload_speed: NotRequired[pulumi.Input[_builtins.int]]
+    upload_speed: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Upload speed in Mbps.
     """
@@ -666,8 +666,8 @@ class LinkBandwidthArgsDict(TypedDict):
 @pulumi.input_type
 class LinkBandwidthArgs:
     def __init__(__self__, *,
-                 download_speed: Optional[pulumi.Input[_builtins.int]] = None,
-                 upload_speed: Optional[pulumi.Input[_builtins.int]] = None):
+                 download_speed: pulumi.Input[Optional[_builtins.int]] = None,
+                 upload_speed: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] download_speed: Download speed in Mbps.
         :param pulumi.Input[_builtins.int] upload_speed: Upload speed in Mbps.
@@ -679,39 +679,39 @@ class LinkBandwidthArgs:
 
     @_builtins.property
     @pulumi.getter(name="downloadSpeed")
-    def download_speed(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def download_speed(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Download speed in Mbps.
         """
         return pulumi.get(self, "download_speed")
 
     @download_speed.setter
-    def download_speed(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def download_speed(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "download_speed", value)
 
     @_builtins.property
     @pulumi.getter(name="uploadSpeed")
-    def upload_speed(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def upload_speed(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Upload speed in Mbps.
         """
         return pulumi.get(self, "upload_speed")
 
     @upload_speed.setter
-    def upload_speed(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def upload_speed(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "upload_speed", value)
 
 
 class SiteLocationArgsDict(TypedDict):
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Address of the location.
     """
-    latitude: NotRequired[pulumi.Input[_builtins.str]]
+    latitude: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Latitude of the location.
     """
-    longitude: NotRequired[pulumi.Input[_builtins.str]]
+    longitude: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Longitude of the location.
     """
@@ -719,9 +719,9 @@ class SiteLocationArgsDict(TypedDict):
 @pulumi.input_type
 class SiteLocationArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 latitude: Optional[pulumi.Input[_builtins.str]] = None,
-                 longitude: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 latitude: pulumi.Input[Optional[_builtins.str]] = None,
+                 longitude: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address: Address of the location.
         :param pulumi.Input[_builtins.str] latitude: Latitude of the location.
@@ -736,55 +736,55 @@ class SiteLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address of the location.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def latitude(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def latitude(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Latitude of the location.
         """
         return pulumi.get(self, "latitude")
 
     @latitude.setter
-    def latitude(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def latitude(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "latitude", value)
 
     @_builtins.property
     @pulumi.getter
-    def longitude(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def longitude(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Longitude of the location.
         """
         return pulumi.get(self, "longitude")
 
     @longitude.setter
-    def longitude(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def longitude(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "longitude", value)
 
 
 class VpcAttachmentOptionsArgsDict(TypedDict):
-    appliance_mode_support: NotRequired[pulumi.Input[_builtins.bool]]
+    appliance_mode_support: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
     """
-    dns_support: NotRequired[pulumi.Input[_builtins.bool]]
+    dns_support: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
     """
-    ipv6_support: NotRequired[pulumi.Input[_builtins.bool]]
+    ipv6_support: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
     """
-    security_group_referencing_support: NotRequired[pulumi.Input[_builtins.bool]]
+    security_group_referencing_support: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
     """
@@ -792,10 +792,10 @@ class VpcAttachmentOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class VpcAttachmentOptionsArgs:
     def __init__(__self__, *,
-                 appliance_mode_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dns_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_referencing_support: Optional[pulumi.Input[_builtins.bool]] = None):
+                 appliance_mode_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ipv6_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_referencing_support: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] appliance_mode_support: Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         :param pulumi.Input[_builtins.bool] dns_support: Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
@@ -813,50 +813,50 @@ class VpcAttachmentOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="applianceModeSupport")
-    def appliance_mode_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def appliance_mode_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "appliance_mode_support")
 
     @appliance_mode_support.setter
-    def appliance_mode_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def appliance_mode_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "appliance_mode_support", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSupport")
-    def dns_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def dns_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "dns_support")
 
     @dns_support.setter
-    def dns_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def dns_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "dns_support", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Support")
-    def ipv6_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "ipv6_support")
 
     @ipv6_support.setter
-    def ipv6_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_support", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupReferencingSupport")
-    def security_group_referencing_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def security_group_referencing_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "security_group_referencing_support")
 
     @security_group_referencing_support.setter
-    def security_group_referencing_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def security_group_referencing_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "security_group_referencing_support", value)
 
 

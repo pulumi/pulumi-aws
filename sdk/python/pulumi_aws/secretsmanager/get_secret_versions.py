@@ -172,9 +172,9 @@ def get_secret_versions(include_deprecated: Optional[_builtins.bool] = None,
         region=pulumi.get(__ret__, 'region'),
         secret_id=pulumi.get(__ret__, 'secret_id'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               secret_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_secret_versions_output(include_deprecated: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionsResult]:
     """
     Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `secretsmanager.Secret` and `secretsmanager.SecretVersion`.

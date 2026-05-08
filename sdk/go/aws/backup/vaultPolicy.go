@@ -27,61 +27,62 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleVault, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
-// Name: pulumi.String("example"),
-// })
-// if err != nil {
-// return err
-// }
-// example := exampleVault.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// current.AccountId,
-// },
-// },
-// },
-// Actions: []string{
-// "backup:DescribeBackupVault",
-// "backup:DeleteBackupVault",
-// "backup:PutBackupVaultAccessPolicy",
-// "backup:DeleteBackupVaultAccessPolicy",
-// "backup:GetBackupVaultAccessPolicy",
-// "backup:StartBackupJob",
-// "backup:GetBackupVaultNotifications",
-// "backup:PutBackupVaultNotifications",
-// },
-// Resources: []string{
-// arn,
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = backup.NewVaultPolicy(ctx, "example", &backup.VaultPolicyArgs{
-// BackupVaultName: exampleVault.Name,
-// Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVault, err := backup.NewVault(ctx, "example", &backup.VaultArgs{
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := exampleVault.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: pulumi.StringArray{
+//										current.AccountId,
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"backup:DescribeBackupVault",
+//								"backup:DeleteBackupVault",
+//								"backup:PutBackupVaultAccessPolicy",
+//								"backup:DeleteBackupVaultAccessPolicy",
+//								"backup:GetBackupVaultAccessPolicy",
+//								"backup:StartBackupJob",
+//								"backup:GetBackupVaultNotifications",
+//								"backup:PutBackupVaultNotifications",
+//							},
+//							Resources: []string{
+//								arn,
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = backup.NewVaultPolicy(ctx, "example", &backup.VaultPolicyArgs{
+//				BackupVaultName: exampleVault.Name,
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

@@ -163,7 +163,7 @@ def get_origin_access_control(id: Optional[_builtins.str] = None,
         origin_access_control_origin_type=pulumi.get(__ret__, 'origin_access_control_origin_type'),
         signing_behavior=pulumi.get(__ret__, 'signing_behavior'),
         signing_protocol=pulumi.get(__ret__, 'signing_protocol'))
-def get_origin_access_control_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_access_control_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
     Use this data source to retrieve information for an Amazon CloudFront origin access control config.

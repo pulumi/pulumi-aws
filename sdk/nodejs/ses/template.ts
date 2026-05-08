@@ -123,27 +123,27 @@ export interface TemplateState {
     /**
      * The ARN of the SES template
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    html?: pulumi.Input<string>;
+    html?: pulumi.Input<string | undefined>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The subject line of the email.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    text?: pulumi.Input<string>;
+    text?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,21 +153,21 @@ export interface TemplateArgs {
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    html?: pulumi.Input<string>;
+    html?: pulumi.Input<string | undefined>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The subject line of the email.
      */
-    subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string | undefined>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    text?: pulumi.Input<string>;
+    text?: pulumi.Input<string | undefined>;
 }

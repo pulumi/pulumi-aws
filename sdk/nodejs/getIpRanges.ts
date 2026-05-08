@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  *     }],
  *     tags: {
  *         CreateDate: europeanEc2.then(europeanEc2 => europeanEc2.createDate),
- *         SyncToken: europeanEc2.then(europeanEc2 => europeanEc2.syncToken),
+ *         SyncToken: output(europeanEc2.then(europeanEc2 => europeanEc2.syncToken)).apply(x =>String(x)),
  *     },
  * });
  * ```
@@ -127,7 +127,7 @@ export interface GetIpRangesResult {
  *     }],
  *     tags: {
  *         CreateDate: europeanEc2.then(europeanEc2 => europeanEc2.createDate),
- *         SyncToken: europeanEc2.then(europeanEc2 => europeanEc2.syncToken),
+ *         SyncToken: output(europeanEc2.then(europeanEc2 => europeanEc2.syncToken)).apply(x =>String(x)),
  *     },
  * });
  * ```
@@ -146,13 +146,13 @@ export function getIpRangesOutput(args: GetIpRangesOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getIpRanges.
  */
 export interface GetIpRangesOutputArgs {
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Filter IP ranges by regions (or include all regions, if
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
      * (e.g., `eu-central-1`)
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Filter IP ranges by services. Valid items are `amazon`
      * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
@@ -167,5 +167,5 @@ export interface GetIpRangesOutputArgs {
     /**
      * Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }

@@ -49,8 +49,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -91,8 +91,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -133,8 +133,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -175,8 +175,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -217,8 +217,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -259,8 +259,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -301,8 +301,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -343,8 +343,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -385,8 +385,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -427,8 +427,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -469,8 +469,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -510,8 +510,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -551,8 +551,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -592,8 +592,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -633,8 +633,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -674,8 +674,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -715,8 +715,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -754,8 +754,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -795,8 +795,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -836,8 +836,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -877,8 +877,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -918,8 +918,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -959,8 +959,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1000,8 +1000,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1042,8 +1042,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1088,8 +1088,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1134,8 +1134,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1180,8 +1180,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1226,8 +1226,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1274,8 +1274,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1320,8 +1320,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1366,8 +1366,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1412,8 +1412,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1458,8 +1458,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1503,8 +1503,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1547,8 +1547,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1591,8 +1591,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1635,8 +1635,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1679,8 +1679,8 @@ public final class SsoadminFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
      * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

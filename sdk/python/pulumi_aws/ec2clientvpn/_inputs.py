@@ -36,19 +36,19 @@ class EndpointAuthenticationOptionArgsDict(TypedDict):
     """
     The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
     """
-    active_directory_id: NotRequired[pulumi.Input[_builtins.str]]
+    active_directory_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
     """
-    root_certificate_chain_arn: NotRequired[pulumi.Input[_builtins.str]]
+    root_certificate_chain_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
     """
-    saml_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
+    saml_provider_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM SAML identity provider if type is `federated-authentication`.
     """
-    self_service_saml_provider_arn: NotRequired[pulumi.Input[_builtins.str]]
+    self_service_saml_provider_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
     """
@@ -57,10 +57,10 @@ class EndpointAuthenticationOptionArgsDict(TypedDict):
 class EndpointAuthenticationOptionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 active_directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_certificate_chain_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 self_service_saml_provider_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_certificate_chain_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 self_service_saml_provider_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
         :param pulumi.Input[_builtins.str] active_directory_id: The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
@@ -92,59 +92,59 @@ class EndpointAuthenticationOptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryId")
-    def active_directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
         """
         return pulumi.get(self, "active_directory_id")
 
     @active_directory_id.setter
-    def active_directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rootCertificateChainArn")
-    def root_certificate_chain_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def root_certificate_chain_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
         """
         return pulumi.get(self, "root_certificate_chain_arn")
 
     @root_certificate_chain_arn.setter
-    def root_certificate_chain_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def root_certificate_chain_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "root_certificate_chain_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="samlProviderArn")
-    def saml_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml_provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM SAML identity provider if type is `federated-authentication`.
         """
         return pulumi.get(self, "saml_provider_arn")
 
     @saml_provider_arn.setter
-    def saml_provider_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml_provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml_provider_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="selfServiceSamlProviderArn")
-    def self_service_saml_provider_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def self_service_saml_provider_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
         """
         return pulumi.get(self, "self_service_saml_provider_arn")
 
     @self_service_saml_provider_arn.setter
-    def self_service_saml_provider_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def self_service_saml_provider_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "self_service_saml_provider_arn", value)
 
 
 class EndpointClientConnectOptionsArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether client connect options are enabled. The default is `false` (not enabled).
     """
-    lambda_function_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_function_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
     """
@@ -152,8 +152,8 @@ class EndpointClientConnectOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointClientConnectOptionsArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lambda_function_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lambda_function_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
         :param pulumi.Input[_builtins.str] lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
@@ -165,35 +165,35 @@ class EndpointClientConnectOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether client connect options are enabled. The default is `false` (not enabled).
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctionArn")
-    def lambda_function_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lambda_function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
         """
         return pulumi.get(self, "lambda_function_arn")
 
     @lambda_function_arn.setter
-    def lambda_function_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lambda_function_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_function_arn", value)
 
 
 class EndpointClientLoginBannerOptionsArgsDict(TypedDict):
-    banner_text: NotRequired[pulumi.Input[_builtins.str]]
+    banner_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
     """
@@ -201,8 +201,8 @@ class EndpointClientLoginBannerOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointClientLoginBannerOptionsArgs:
     def __init__(__self__, *,
-                 banner_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 banner_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
         :param pulumi.Input[_builtins.bool] enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
@@ -214,31 +214,31 @@ class EndpointClientLoginBannerOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="bannerText")
-    def banner_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def banner_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
         """
         return pulumi.get(self, "banner_text")
 
     @banner_text.setter
-    def banner_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def banner_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "banner_text", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 class EndpointClientRouteEnforcementOptionsArgsDict(TypedDict):
-    enforced: NotRequired[pulumi.Input[_builtins.bool]]
+    enforced: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable or disable Client Route Enforcement. The default is `false` (not enabled).
     """
@@ -246,7 +246,7 @@ class EndpointClientRouteEnforcementOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointClientRouteEnforcementOptionsArgs:
     def __init__(__self__, *,
-                 enforced: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enforced: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] enforced: Enable or disable Client Route Enforcement. The default is `false` (not enabled).
         """
@@ -255,14 +255,14 @@ class EndpointClientRouteEnforcementOptionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable Client Route Enforcement. The default is `false` (not enabled).
         """
         return pulumi.get(self, "enforced")
 
     @enforced.setter
-    def enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforced", value)
 
 
@@ -271,11 +271,11 @@ class EndpointConnectionLogOptionsArgsDict(TypedDict):
     """
     Indicates whether connection logging is enabled.
     """
-    cloudwatch_log_group: NotRequired[pulumi.Input[_builtins.str]]
+    cloudwatch_log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the CloudWatch Logs log group.
     """
-    cloudwatch_log_stream: NotRequired[pulumi.Input[_builtins.str]]
+    cloudwatch_log_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the CloudWatch Logs log stream to which the connection data is published.
     """
@@ -284,8 +284,8 @@ class EndpointConnectionLogOptionsArgsDict(TypedDict):
 class EndpointConnectionLogOptionsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 cloudwatch_log_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 cloudwatch_log_stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 cloudwatch_log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloudwatch_log_stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether connection logging is enabled.
         :param pulumi.Input[_builtins.str] cloudwatch_log_group: The name of the CloudWatch Logs log group.
@@ -311,43 +311,43 @@ class EndpointConnectionLogOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogGroup")
-    def cloudwatch_log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudWatch Logs log group.
         """
         return pulumi.get(self, "cloudwatch_log_group")
 
     @cloudwatch_log_group.setter
-    def cloudwatch_log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_log_group", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLogStream")
-    def cloudwatch_log_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloudwatch_log_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the CloudWatch Logs log stream to which the connection data is published.
         """
         return pulumi.get(self, "cloudwatch_log_stream")
 
     @cloudwatch_log_stream.setter
-    def cloudwatch_log_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloudwatch_log_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloudwatch_log_stream", value)
 
 
 class EndpointTransitGatewayConfigurationArgsDict(TypedDict):
-    availability_zone_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    availability_zone_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
     """
-    availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
     """
-    transit_gateway_attachment_id: NotRequired[pulumi.Input[_builtins.str]]
+    transit_gateway_attachment_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the Transit Gateway attachment.
     """
-    transit_gateway_id: NotRequired[pulumi.Input[_builtins.str]]
+    transit_gateway_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the Transit Gateway to which the Client VPN endpoint is associated.
     """
@@ -355,10 +355,10 @@ class EndpointTransitGatewayConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class EndpointTransitGatewayConfigurationArgs:
     def __init__(__self__, *,
-                 availability_zone_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zone_ids: List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
@@ -376,50 +376,50 @@ class EndpointTransitGatewayConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneIds")
-    def availability_zone_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zone_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of availability zone IDs in which the transit gateway is present. Conflicts with `availability_zones`.
         """
         return pulumi.get(self, "availability_zone_ids")
 
     @availability_zone_ids.setter
-    def availability_zone_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zone_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zone_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of availability zones in which the transit gateway is present. Conflicts with `availability_zone_ids`.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Transit Gateway attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Transit Gateway to which the Client VPN endpoint is associated.
         """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
-    def transit_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_id", value)
 
 

@@ -124,8 +124,8 @@ def get_service_principal(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         service_name=pulumi.get(__ret__, 'service_name'),
         suffix=pulumi.get(__ret__, 'suffix'))
-def get_service_principal_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_principal_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServicePrincipalResult]:
     """
     Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.

@@ -307,74 +307,74 @@ export interface AgentcoreGatewayState {
     /**
      * Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
      */
-    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
      * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
-    authorizerType?: pulumi.Input<string>;
+    authorizerType?: pulumi.Input<string | undefined>;
     /**
      * Description of the gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
      */
-    exceptionLevel?: pulumi.Input<string>;
+    exceptionLevel?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Gateway.
      */
-    gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier of the Gateway.
      */
-    gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string | undefined>;
     /**
      * URL endpoint for the gateway.
      */
-    gatewayUrl?: pulumi.Input<string>;
+    gatewayUrl?: pulumi.Input<string | undefined>;
     /**
      * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
      */
-    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[]>;
+    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[] | undefined>;
     /**
      * ARN of the KMS key used to encrypt the gateway data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the gateway.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
      */
-    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayProtocolConfiguration>;
+    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayProtocolConfiguration | undefined>;
     /**
      * Protocol type for the gateway. Valid values: `MCP`.
      */
-    protocolType?: pulumi.Input<string>;
+    protocolType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that the gateway assumes to access AWS services.
      *
      * The following arguments are optional:
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTimeouts | undefined>;
     /**
      * Workload identity details for the gateway. See `workloadIdentityDetails` below.
      */
-    workloadIdentityDetails?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayWorkloadIdentityDetail>[]>;
+    workloadIdentityDetails?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayWorkloadIdentityDetail>[] | undefined>;
 }
 
 /**
@@ -384,7 +384,7 @@ export interface AgentcoreGatewayArgs {
     /**
      * Configuration for request authorization. Required when `authorizerType` is set to `CUSTOM_JWT`. See `authorizerConfiguration` below.
      */
-    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration>;
+    authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
      * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
@@ -392,27 +392,27 @@ export interface AgentcoreGatewayArgs {
     /**
      * Description of the gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Exception level for the gateway. Valid values: `INFO`, `WARN`, `ERROR`.
      */
-    exceptionLevel?: pulumi.Input<string>;
+    exceptionLevel?: pulumi.Input<string | undefined>;
     /**
      * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
      */
-    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[]>;
+    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[] | undefined>;
     /**
      * ARN of the KMS key used to encrypt the gateway data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the gateway.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
      */
-    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayProtocolConfiguration>;
+    protocolConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayProtocolConfiguration | undefined>;
     /**
      * Protocol type for the gateway. Valid values: `MCP`.
      */
@@ -420,7 +420,7 @@ export interface AgentcoreGatewayArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that the gateway assumes to access AWS services.
      *
@@ -430,6 +430,6 @@ export interface AgentcoreGatewayArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTimeouts | undefined>;
 }

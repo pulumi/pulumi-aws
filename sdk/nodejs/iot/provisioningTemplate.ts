@@ -219,51 +219,51 @@ export interface ProvisioningTemplateState {
     /**
      * The ARN that identifies the provisioning template.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The default version of the fleet provisioning template.
      */
-    defaultVersionId?: pulumi.Input<number>;
+    defaultVersionId?: pulumi.Input<number | undefined>;
     /**
      * The description of the fleet provisioning template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * True to enable the fleet provisioning template, otherwise false.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the fleet provisioning template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a pre-provisioning hook template. Details below.
      */
-    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplatePreProvisioningHook>;
+    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplatePreProvisioningHook | undefined>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */
-    provisioningRoleArn?: pulumi.Input<string>;
+    provisioningRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The JSON formatted contents of the fleet provisioning template.
      */
-    templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string | undefined>;
     /**
      * The type you define in a provisioning template.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -273,19 +273,19 @@ export interface ProvisioningTemplateArgs {
     /**
      * The description of the fleet provisioning template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * True to enable the fleet provisioning template, otherwise false.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the fleet provisioning template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates a pre-provisioning hook template. Details below.
      */
-    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplatePreProvisioningHook>;
+    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplatePreProvisioningHook | undefined>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */
@@ -293,11 +293,11 @@ export interface ProvisioningTemplateArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The JSON formatted contents of the fleet provisioning template.
      */
@@ -305,5 +305,5 @@ export interface ProvisioningTemplateArgs {
     /**
      * The type you define in a provisioning template.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

@@ -150,27 +150,27 @@ export interface AmiLaunchPermissionState {
     /**
      * AWS account ID for the launch permission.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Name of the group for the launch permission. Valid values: `"all"`.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * ID of the AMI.
      */
-    imageId?: pulumi.Input<string>;
+    imageId?: pulumi.Input<string | undefined>;
     /**
      * ARN of an organization for the launch permission.
      */
-    organizationArn?: pulumi.Input<string>;
+    organizationArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of an organizational unit for the launch permission.
      */
-    organizationalUnitArn?: pulumi.Input<string>;
+    organizationalUnitArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,11 +180,11 @@ export interface AmiLaunchPermissionArgs {
     /**
      * AWS account ID for the launch permission.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Name of the group for the launch permission. Valid values: `"all"`.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * ID of the AMI.
      */
@@ -192,13 +192,13 @@ export interface AmiLaunchPermissionArgs {
     /**
      * ARN of an organization for the launch permission.
      */
-    organizationArn?: pulumi.Input<string>;
+    organizationArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of an organizational unit for the launch permission.
      */
-    organizationalUnitArn?: pulumi.Input<string>;
+    organizationalUnitArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

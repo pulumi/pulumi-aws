@@ -262,107 +262,107 @@ export interface DevEndpointState {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ARN of the endpoint.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The AWS availability zone where this endpoint is located.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
      */
-    extraJarsS3Path?: pulumi.Input<string>;
+    extraJarsS3Path?: pulumi.Input<string | undefined>;
     /**
      * Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
      */
-    extraPythonLibsS3Path?: pulumi.Input<string>;
+    extraPythonLibsS3Path?: pulumi.Input<string | undefined>;
     /**
      * The reason for a current failure in this endpoint.
      */
-    failureReason?: pulumi.Input<string>;
+    failureReason?: pulumi.Input<string | undefined>;
     /**
      * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      */
-    glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of this endpoint. It must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      */
-    numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number | undefined>;
     /**
      * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      */
-    numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
      * A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      */
-    privateAddress?: pulumi.Input<string>;
+    privateAddress?: pulumi.Input<string | undefined>;
     /**
      * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      */
-    publicAddress?: pulumi.Input<string>;
+    publicAddress?: pulumi.Input<string | undefined>;
     /**
      * The public key to be used by this endpoint for authentication.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * A list of public keys to be used by this endpoint for authentication.
      */
-    publicKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    publicKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role for this endpoint.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the Security Configuration structure to be used with this endpoint.
      */
-    securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Security group IDs for the security groups to be used by this endpoint.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The current status of this endpoint.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The subnet ID for the new endpoint to use.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * he ID of the VPC used by this endpoint.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */
-    workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string | undefined>;
     /**
      * The YARN endpoint address used by this endpoint.
      */
-    yarnEndpointAddress?: pulumi.Input<string>;
+    yarnEndpointAddress?: pulumi.Input<string | undefined>;
     /**
      * The Apache Zeppelin port for the remote Apache Spark interpreter.
      */
-    zeppelinRemoteSparkInterpreterPort?: pulumi.Input<number>;
+    zeppelinRemoteSparkInterpreterPort?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -372,43 +372,43 @@ export interface DevEndpointArgs {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
      */
-    extraJarsS3Path?: pulumi.Input<string>;
+    extraJarsS3Path?: pulumi.Input<string | undefined>;
     /**
      * Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
      */
-    extraPythonLibsS3Path?: pulumi.Input<string>;
+    extraPythonLibsS3Path?: pulumi.Input<string | undefined>;
     /**
      * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      */
-    glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of this endpoint. It must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      */
-    numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number | undefined>;
     /**
      * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      */
-    numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
      * The public key to be used by this endpoint for authentication.
      */
-    publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string | undefined>;
     /**
      * A list of public keys to be used by this endpoint for authentication.
      */
-    publicKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    publicKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role for this endpoint.
      */
@@ -416,21 +416,21 @@ export interface DevEndpointArgs {
     /**
      * The name of the Security Configuration structure to be used with this endpoint.
      */
-    securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Security group IDs for the security groups to be used by this endpoint.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The subnet ID for the new endpoint to use.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */
-    workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string | undefined>;
 }

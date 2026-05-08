@@ -23,7 +23,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var accepter = Aws.Index.GetCallerIdentity.Invoke();
+    ///     var accepter = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     // Creator's side of the VIF
     ///     var creator = new Aws.DirectConnect.HostedPublicVirtualInterface("creator", new()

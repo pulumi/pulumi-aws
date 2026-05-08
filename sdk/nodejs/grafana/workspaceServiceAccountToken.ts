@@ -153,39 +153,39 @@ export interface WorkspaceServiceAccountTokenState {
     /**
      * Specifies when the service account token was created.
      */
-    createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string | undefined>;
     /**
      * Specifies when the service account token will expire.
      */
-    expiresAt?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string | undefined>;
     /**
      * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * A name for the token to create. The name must be unique within the workspace.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      */
-    secondsToLive?: pulumi.Input<number>;
+    secondsToLive?: pulumi.Input<number | undefined>;
     /**
      * The ID of the service account for which to create a token.
      */
-    serviceAccountId?: pulumi.Input<string>;
+    serviceAccountId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the service account token in the given Grafana workspace.
      */
-    serviceAccountTokenId?: pulumi.Input<string>;
+    serviceAccountTokenId?: pulumi.Input<string | undefined>;
     /**
      * The Grafana workspace with which the service account token is associated.
      */
-    workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,11 +195,11 @@ export interface WorkspaceServiceAccountTokenArgs {
     /**
      * A name for the token to create. The name must be unique within the workspace.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      */

@@ -299,10 +299,10 @@ def get_file_system(creation_token: Optional[_builtins.str] = None,
         size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
         tags=pulumi.get(__ret__, 'tags'),
         throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
-def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           file_system_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_file_system_output(creation_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           file_system_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemResult]:
     """
     Provides information about an Elastic File System (EFS) File System.

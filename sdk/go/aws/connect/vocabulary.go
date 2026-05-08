@@ -32,7 +32,7 @@ import (
 //			_, err := connect.NewVocabulary(ctx, "example", &connect.VocabularyArgs{
 //				InstanceId:   pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				Name:         pulumi.String("example"),
-//				Content:      pulumi.String("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	"),
+//				Content:      pulumi.String("Phrase\tIPA\tSoundsLike\tDisplayAs\nLos-Angeles\t\t\tLos Angeles\nF.B.I.\tɛ f b i aɪ\t\tFBI\nEtienne\t\teh-tee-en\t"),
 //				LanguageCode: pulumi.String("en-US"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("Value1"),

@@ -149,9 +149,9 @@ def get_selection(plan_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         resources=pulumi.get(__ret__, 'resources'),
         selection_id=pulumi.get(__ret__, 'selection_id'))
-def get_selection_output(plan_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         selection_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_selection_output(plan_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         selection_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSelectionResult]:
     """
     Use this data source to get information on an existing backup selection.

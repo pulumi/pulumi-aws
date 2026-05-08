@@ -22,9 +22,9 @@ __all__ = ['EnrollmentStatusArgs', 'EnrollmentStatus']
 class EnrollmentStatusArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[_builtins.str],
-                 include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']] = None):
+                 include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['EnrollmentStatusTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a EnrollmentStatus resource.
 
@@ -54,46 +54,46 @@ class EnrollmentStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeMemberAccounts")
-    def include_member_accounts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_member_accounts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         """
         return pulumi.get(self, "include_member_accounts")
 
     @include_member_accounts.setter
-    def include_member_accounts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_member_accounts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_member_accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['EnrollmentStatusTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['EnrollmentStatusTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _EnrollmentStatusState:
     def __init__(__self__, *,
-                 include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 number_of_member_accounts_opted_in: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']] = None):
+                 include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number_of_member_accounts_opted_in: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['EnrollmentStatusTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering EnrollmentStatus resources.
 
@@ -115,59 +115,59 @@ class _EnrollmentStatusState:
 
     @_builtins.property
     @pulumi.getter(name="includeMemberAccounts")
-    def include_member_accounts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_member_accounts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         """
         return pulumi.get(self, "include_member_accounts")
 
     @include_member_accounts.setter
-    def include_member_accounts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_member_accounts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_member_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfMemberAccountsOptedIn")
-    def number_of_member_accounts_opted_in(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_member_accounts_opted_in(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The count of organization member accounts that are opted in to the service, if your account is an organization management account.
         """
         return pulumi.get(self, "number_of_member_accounts_opted_in")
 
     @number_of_member_accounts_opted_in.setter
-    def number_of_member_accounts_opted_in(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_member_accounts_opted_in(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_member_accounts_opted_in", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The enrollment status of the account. Valid values: `Active`, `Inactive`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['EnrollmentStatusTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['EnrollmentStatusTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -177,10 +177,10 @@ class EnrollmentStatus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
+                 include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages AWS Compute Optimizer enrollment status.
@@ -251,10 +251,10 @@ class EnrollmentStatus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
+                 include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,11 +281,11 @@ class EnrollmentStatus(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            include_member_accounts: Optional[pulumi.Input[_builtins.bool]] = None,
-            number_of_member_accounts_opted_in: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None) -> 'EnrollmentStatus':
+            include_member_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
+            number_of_member_accounts_opted_in: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None) -> 'EnrollmentStatus':
         """
         Get an existing EnrollmentStatus resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

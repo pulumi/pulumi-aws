@@ -20,7 +20,7 @@ __all__ = ['HostedZoneDnsSecArgs', 'HostedZoneDnsSec']
 class HostedZoneDnsSecArgs:
     def __init__(__self__, *,
                  hosted_zone_id: pulumi.Input[_builtins.str],
-                 signing_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 signing_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HostedZoneDnsSec resource.
 
@@ -49,22 +49,22 @@ class HostedZoneDnsSecArgs:
 
     @_builtins.property
     @pulumi.getter(name="signingStatus")
-    def signing_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         return pulumi.get(self, "signing_status")
 
     @signing_status.setter
-    def signing_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_status", value)
 
 
 @pulumi.input_type
 class _HostedZoneDnsSecState:
     def __init__(__self__, *,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HostedZoneDnsSec resources.
 
@@ -80,7 +80,7 @@ class _HostedZoneDnsSecState:
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Route 53 Hosted Zone.
 
@@ -89,19 +89,19 @@ class _HostedZoneDnsSecState:
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
-    def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosted_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="signingStatus")
-    def signing_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         return pulumi.get(self, "signing_status")
 
     @signing_status.setter
-    def signing_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_status", value)
 
 
@@ -111,8 +111,8 @@ class HostedZoneDnsSec(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
@@ -272,8 +272,8 @@ class HostedZoneDnsSec(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,8 +297,8 @@ class HostedZoneDnsSec(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_status: Optional[pulumi.Input[_builtins.str]] = None) -> 'HostedZoneDnsSec':
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'HostedZoneDnsSec':
         """
         Get an existing HostedZoneDnsSec resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

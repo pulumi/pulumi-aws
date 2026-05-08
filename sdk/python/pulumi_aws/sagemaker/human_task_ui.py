@@ -23,8 +23,8 @@ class HumanTaskUIArgs:
     def __init__(__self__, *,
                  human_task_ui_name: pulumi.Input[_builtins.str],
                  ui_template: pulumi.Input['HumanTaskUIUiTemplateArgs'],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HumanTaskUI resource.
 
@@ -66,38 +66,38 @@ class HumanTaskUIArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _HumanTaskUIState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 human_task_ui_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ui_template: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ui_template: pulumi.Input[Optional['HumanTaskUIUiTemplateArgs']] = None):
         """
         Input properties used for looking up and filtering HumanTaskUI resources.
 
@@ -123,74 +123,74 @@ class _HumanTaskUIState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="humanTaskUiName")
-    def human_task_ui_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def human_task_ui_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Human Task UI.
         """
         return pulumi.get(self, "human_task_ui_name")
 
     @human_task_ui_name.setter
-    def human_task_ui_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def human_task_ui_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "human_task_ui_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="uiTemplate")
-    def ui_template(self) -> Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']]:
+    def ui_template(self) -> pulumi.Input[Optional['HumanTaskUIUiTemplateArgs']]:
         """
         The Liquid template for the worker user interface. See UI Template below.
         """
         return pulumi.get(self, "ui_template")
 
     @ui_template.setter
-    def ui_template(self, value: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']]):
+    def ui_template(self, value: pulumi.Input[Optional['HumanTaskUIUiTemplateArgs']]):
         pulumi.set(self, "ui_template", value)
 
 
@@ -200,10 +200,10 @@ class HumanTaskUI(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 human_task_ui_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ui_template: Optional[pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
+                 human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Human Task UI resource.
@@ -285,10 +285,10 @@ class HumanTaskUI(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 human_task_ui_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ui_template: Optional[pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
+                 human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,12 +318,12 @@ class HumanTaskUI(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            human_task_ui_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ui_template: Optional[pulumi.Input[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None) -> 'HumanTaskUI':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ui_template: pulumi.Input[Optional[Union['HumanTaskUIUiTemplateArgs', 'HumanTaskUIUiTemplateArgsDict']]] = None) -> 'HumanTaskUI':
         """
         Get an existing HumanTaskUI resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

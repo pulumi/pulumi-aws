@@ -222,10 +222,10 @@ def get_quicksight_user(aws_account_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         user_name=pulumi.get(__ret__, 'user_name'),
         user_role=pulumi.get(__ret__, 'user_role'))
-def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               namespace: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               user_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_quicksight_user_output(aws_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               namespace: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               user_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightUserResult]:
     """
     This data source can be used to fetch information about a specific

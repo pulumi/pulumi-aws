@@ -202,41 +202,41 @@ export interface EventDestinationState {
     /**
      * The SES event destination ARN.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * CloudWatch destination for the events
      */
-    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
+    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[] | undefined>;
     /**
      * The name of the configuration set
      */
-    configurationSetName?: pulumi.Input<string>;
+    configurationSetName?: pulumi.Input<string | undefined>;
     /**
      * If true, the event destination will be enabled
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Send the events to a kinesis firehose destination
      */
-    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
+    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination | undefined>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
-    matchingTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    matchingTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the event destination
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Send the events to an SNS Topic destination
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
-    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
+    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination | undefined>;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface EventDestinationArgs {
     /**
      * CloudWatch destination for the events
      */
-    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
+    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[] | undefined>;
     /**
      * The name of the configuration set
      */
@@ -254,11 +254,11 @@ export interface EventDestinationArgs {
     /**
      * If true, the event destination will be enabled
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Send the events to a kinesis firehose destination
      */
-    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
+    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination | undefined>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
@@ -266,15 +266,15 @@ export interface EventDestinationArgs {
     /**
      * The name of the event destination
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Send the events to an SNS Topic destination
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
-    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
+    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination | undefined>;
 }

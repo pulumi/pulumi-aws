@@ -21,14 +21,14 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 app_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input['ApplicationIamIdentityCenterOptionsArgs']] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional['ApplicationIamIdentityCenterOptionsArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -59,112 +59,112 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="appConfigs")
-    def app_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]:
+    def app_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]:
         """
         Configuration block(s) for OpenSearch application settings. See App Config below.
         """
         return pulumi.get(self, "app_configs")
 
     @app_configs.setter
-    def app_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]):
+    def app_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]):
         pulumi.set(self, "app_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]:
+    def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]:
         """
         Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
         """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]):
+    def data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]):
         pulumi.set(self, "data_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="iamIdentityCenterOptions")
-    def iam_identity_center_options(self) -> Optional[pulumi.Input['ApplicationIamIdentityCenterOptionsArgs']]:
+    def iam_identity_center_options(self) -> pulumi.Input[Optional['ApplicationIamIdentityCenterOptionsArgs']]:
         """
         Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
         """
         return pulumi.get(self, "iam_identity_center_options")
 
     @iam_identity_center_options.setter
-    def iam_identity_center_options(self, value: Optional[pulumi.Input['ApplicationIamIdentityCenterOptionsArgs']]):
+    def iam_identity_center_options(self, value: pulumi.Input[Optional['ApplicationIamIdentityCenterOptionsArgs']]):
         pulumi.set(self, "iam_identity_center_options", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key used to encrypt the application's data at rest.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the OpenSearch application. Names must be unique within an AWS Region for each account. Must be between 3 and 30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ApplicationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ApplicationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ApplicationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ApplicationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ApplicationState:
     def __init__(__self__, *,
-                 app_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input['ApplicationIamIdentityCenterOptionsArgs']] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional['ApplicationIamIdentityCenterOptionsArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ApplicationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Application resources.
 
@@ -204,131 +204,131 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter(name="appConfigs")
-    def app_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]:
+    def app_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]:
         """
         Configuration block(s) for OpenSearch application settings. See App Config below.
         """
         return pulumi.get(self, "app_configs")
 
     @app_configs.setter
-    def app_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]):
+    def app_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]):
         pulumi.set(self, "app_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the OpenSearch application.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]:
+    def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]:
         """
         Configuration block(s) for data sources to link to the OpenSearch application. See Data Source below.
         """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]):
+    def data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]):
         pulumi.set(self, "data_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint URL of the OpenSearch application.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="iamIdentityCenterOptions")
-    def iam_identity_center_options(self) -> Optional[pulumi.Input['ApplicationIamIdentityCenterOptionsArgs']]:
+    def iam_identity_center_options(self) -> pulumi.Input[Optional['ApplicationIamIdentityCenterOptionsArgs']]:
         """
         Configuration block for integrating AWS IAM Identity Center with the OpenSearch application. See IAM Identity Center Options below.
         """
         return pulumi.get(self, "iam_identity_center_options")
 
     @iam_identity_center_options.setter
-    def iam_identity_center_options(self, value: Optional[pulumi.Input['ApplicationIamIdentityCenterOptionsArgs']]):
+    def iam_identity_center_options(self, value: pulumi.Input[Optional['ApplicationIamIdentityCenterOptionsArgs']]):
         pulumi.set(self, "iam_identity_center_options", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the KMS key used to encrypt the application's data at rest.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique name of the OpenSearch application. Names must be unique within an AWS Region for each account. Must be between 3 and 30 characters, start with a lowercase letter, and contain only lowercase letters, numbers, and hyphens.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ApplicationTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ApplicationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ApplicationTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ApplicationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -338,14 +338,14 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Provides an AWS OpenSearch Application resource. OpenSearch Applications provide a user interface for interacting with OpenSearch data and managing OpenSearch resources.
@@ -718,14 +718,14 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -756,17 +756,17 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
-            endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            iam_identity_center_options: Optional[pulumi.Input[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
+            app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+            endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_identity_center_options: pulumi.Input[Optional[Union['ApplicationIamIdentityCenterOptionsArgs', 'ApplicationIamIdentityCenterOptionsArgsDict']]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

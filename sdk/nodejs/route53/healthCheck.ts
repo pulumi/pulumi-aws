@@ -112,7 +112,7 @@ import * as utilities from "../utilities";
  *     cloudwatchAlarmRegion: "us-west-2",
  *     insufficientDataHealthStatus: "Healthy",
  *     triggers: {
- *         threshold: example.threshold,
+ *         threshold: example.threshold.apply(x =>String(x)),
  *     },
  * });
  * ```
@@ -335,23 +335,23 @@ export interface HealthCheckState {
     /**
      * The Amazon Resource Name (ARN) of the Health Check.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      */
-    childHealthThreshold?: pulumi.Input<number>;
+    childHealthThreshold?: pulumi.Input<number | undefined>;
     /**
      * For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
      */
-    childHealthchecks?: pulumi.Input<pulumi.Input<string>[]>;
+    childHealthchecks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the CloudWatch alarm.
      */
-    cloudwatchAlarmName?: pulumi.Input<string>;
+    cloudwatchAlarmName?: pulumi.Input<string | undefined>;
     /**
      * The region that the CloudWatch alarm was created in.
      */
-    cloudwatchAlarmRegion?: pulumi.Input<string>;
+    cloudwatchAlarmRegion?: pulumi.Input<string | undefined>;
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
      * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
@@ -360,80 +360,80 @@ export interface HealthCheckState {
      *
      * > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      */
-    enableSni?: pulumi.Input<boolean>;
+    enableSni?: pulumi.Input<boolean | undefined>;
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      */
-    failureThreshold?: pulumi.Input<number>;
+    failureThreshold?: pulumi.Input<number | undefined>;
     /**
      * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
      */
-    insufficientDataHealthStatus?: pulumi.Input<string>;
+    insufficientDataHealthStatus?: pulumi.Input<string | undefined>;
     /**
      * A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
      */
-    invertHealthcheck?: pulumi.Input<boolean>;
+    invertHealthcheck?: pulumi.Input<boolean | undefined>;
     /**
      * The IP address of the endpoint to be checked.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
      */
-    measureLatency?: pulumi.Input<boolean>;
+    measureLatency?: pulumi.Input<boolean | undefined>;
     /**
      * The port of the endpoint to be checked.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single healthCheck set amongst others)
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
      */
-    requestInterval?: pulumi.Input<number>;
+    requestInterval?: pulumi.Input<number | undefined>;
     /**
      * The path that you want Amazon Route 53 to request when performing health checks.
      */
-    resourcePath?: pulumi.Input<string>;
+    resourcePath?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      */
-    routingControlArn?: pulumi.Input<string>;
+    routingControlArn?: pulumi.Input<string | undefined>;
     /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
-    searchString?: pulumi.Input<string>;
+    searchString?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -443,19 +443,19 @@ export interface HealthCheckArgs {
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      */
-    childHealthThreshold?: pulumi.Input<number>;
+    childHealthThreshold?: pulumi.Input<number | undefined>;
     /**
      * For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
      */
-    childHealthchecks?: pulumi.Input<pulumi.Input<string>[]>;
+    childHealthchecks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the CloudWatch alarm.
      */
-    cloudwatchAlarmName?: pulumi.Input<string>;
+    cloudwatchAlarmName?: pulumi.Input<string | undefined>;
     /**
      * The region that the CloudWatch alarm was created in.
      */
-    cloudwatchAlarmRegion?: pulumi.Input<string>;
+    cloudwatchAlarmRegion?: pulumi.Input<string | undefined>;
     /**
      * A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
      * * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
@@ -464,72 +464,72 @@ export interface HealthCheckArgs {
      *
      * > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
      */
-    enableSni?: pulumi.Input<boolean>;
+    enableSni?: pulumi.Input<boolean | undefined>;
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      */
-    failureThreshold?: pulumi.Input<number>;
+    failureThreshold?: pulumi.Input<number | undefined>;
     /**
      * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
      */
-    insufficientDataHealthStatus?: pulumi.Input<string>;
+    insufficientDataHealthStatus?: pulumi.Input<string | undefined>;
     /**
      * A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
      */
-    invertHealthcheck?: pulumi.Input<boolean>;
+    invertHealthcheck?: pulumi.Input<boolean | undefined>;
     /**
      * The IP address of the endpoint to be checked.
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
      */
-    measureLatency?: pulumi.Input<boolean>;
+    measureLatency?: pulumi.Input<boolean | undefined>;
     /**
      * The port of the endpoint to be checked.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single healthCheck set amongst others)
      */
-    referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[]>;
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
      */
-    requestInterval?: pulumi.Input<number>;
+    requestInterval?: pulumi.Input<number | undefined>;
     /**
      * The path that you want Amazon Route 53 to request when performing health checks.
      */
-    resourcePath?: pulumi.Input<string>;
+    resourcePath?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      */
-    routingControlArn?: pulumi.Input<string>;
+    routingControlArn?: pulumi.Input<string | undefined>;
     /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
-    searchString?: pulumi.Input<string>;
+    searchString?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */

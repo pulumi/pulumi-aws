@@ -22,25 +22,25 @@ __all__ = ['OntapVolumeArgs', 'OntapVolume']
 class OntapVolumeArgs:
     def __init__(__self__, *,
                  storage_virtual_machine_id: pulumi.Input[_builtins.str],
-                 aggregate_configuration: Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']] = None,
-                 bypass_snaplock_enterprise_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 junction_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ontap_volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_bytes: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snaplock_configuration: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']] = None,
-                 snapshot_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_efficiency_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tiering_policy: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']] = None,
-                 volume_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 aggregate_configuration: pulumi.Input[Optional['OntapVolumeAggregateConfigurationArgs']] = None,
+                 bypass_snaplock_enterprise_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 junction_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snaplock_configuration: pulumi.Input[Optional['OntapVolumeSnaplockConfigurationArgs']] = None,
+                 snapshot_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_efficiency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tiering_policy: pulumi.Input[Optional['OntapVolumeTieringPolicyArgs']] = None,
+                 volume_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OntapVolume resource.
 
@@ -123,261 +123,261 @@ class OntapVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregateConfiguration")
-    def aggregate_configuration(self) -> Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']]:
+    def aggregate_configuration(self) -> pulumi.Input[Optional['OntapVolumeAggregateConfigurationArgs']]:
         """
         The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         """
         return pulumi.get(self, "aggregate_configuration")
 
     @aggregate_configuration.setter
-    def aggregate_configuration(self, value: Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']]):
+    def aggregate_configuration(self, value: pulumi.Input[Optional['OntapVolumeAggregateConfigurationArgs']]):
         pulumi.set(self, "aggregate_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassSnaplockEnterpriseRetention")
-    def bypass_snaplock_enterprise_retention(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_snaplock_enterprise_retention(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         """
         return pulumi.get(self, "bypass_snaplock_enterprise_retention")
 
     @bypass_snaplock_enterprise_retention.setter
-    def bypass_snaplock_enterprise_retention(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_snaplock_enterprise_retention(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_snaplock_enterprise_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")
-    def copy_tags_to_backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
-    def copy_tags_to_backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_backups", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBackupTags")
-    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to apply to the volume's final backup.
         """
         return pulumi.get(self, "final_backup_tags")
 
     @final_backup_tags.setter
-    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def final_backup_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "final_backup_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="junctionPath")
-    def junction_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def junction_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         """
         return pulumi.get(self, "junction_path")
 
     @junction_path.setter
-    def junction_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def junction_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "junction_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ontapVolumeType")
-    def ontap_volume_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ontap_volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         """
         return pulumi.get(self, "ontap_volume_type")
 
     @ontap_volume_type.setter
-    def ontap_volume_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ontap_volume_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ontap_volume_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityStyle")
-    def security_style(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         """
         return pulumi.get(self, "security_style")
 
     @security_style.setter
-    def security_style(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_style(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_style", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size_in_bytes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         """
         return pulumi.get(self, "size_in_bytes")
 
     @size_in_bytes.setter
-    def size_in_bytes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size_in_bytes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInMegabytes")
-    def size_in_megabytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_in_megabytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         """
         return pulumi.get(self, "size_in_megabytes")
 
     @size_in_megabytes.setter
-    def size_in_megabytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_in_megabytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_in_megabytes", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalBackup")
-    def skip_final_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         """
         return pulumi.get(self, "skip_final_backup")
 
     @skip_final_backup.setter
-    def skip_final_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="snaplockConfiguration")
-    def snaplock_configuration(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']]:
+    def snaplock_configuration(self) -> pulumi.Input[Optional['OntapVolumeSnaplockConfigurationArgs']]:
         """
         The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         """
         return pulumi.get(self, "snaplock_configuration")
 
     @snaplock_configuration.setter
-    def snaplock_configuration(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']]):
+    def snaplock_configuration(self, value: pulumi.Input[Optional['OntapVolumeSnaplockConfigurationArgs']]):
         pulumi.set(self, "snaplock_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotPolicy")
-    def snapshot_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         """
         return pulumi.get(self, "snapshot_policy")
 
     @snapshot_policy.setter
-    def snapshot_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEfficiencyEnabled")
-    def storage_efficiency_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_efficiency_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         """
         return pulumi.get(self, "storage_efficiency_enabled")
 
     @storage_efficiency_enabled.setter
-    def storage_efficiency_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_efficiency_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_efficiency_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tieringPolicy")
-    def tiering_policy(self) -> Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']]:
+    def tiering_policy(self) -> pulumi.Input[Optional['OntapVolumeTieringPolicyArgs']]:
         """
         The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         """
         return pulumi.get(self, "tiering_policy")
 
     @tiering_policy.setter
-    def tiering_policy(self, value: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']]):
+    def tiering_policy(self, value: pulumi.Input[Optional['OntapVolumeTieringPolicyArgs']]):
         pulumi.set(self, "tiering_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeStyle")
-    def volume_style(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         """
         return pulumi.get(self, "volume_style")
 
     @volume_style.setter
-    def volume_style(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_style(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_style", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of volume, currently the only valid value is `ONTAP`.
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_type", value)
 
 
 @pulumi.input_type
 class _OntapVolumeState:
     def __init__(__self__, *,
-                 aggregate_configuration: Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bypass_snaplock_enterprise_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 flexcache_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 junction_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ontap_volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_bytes: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snaplock_configuration: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']] = None,
-                 snapshot_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_efficiency_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tiering_policy: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']] = None,
-                 uuid: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 aggregate_configuration: pulumi.Input[Optional['OntapVolumeAggregateConfigurationArgs']] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bypass_snaplock_enterprise_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 flexcache_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 junction_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snaplock_configuration: pulumi.Input[Optional['OntapVolumeSnaplockConfigurationArgs']] = None,
+                 snapshot_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_efficiency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tiering_policy: pulumi.Input[Optional['OntapVolumeTieringPolicyArgs']] = None,
+                 uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OntapVolume resources.
 
@@ -462,223 +462,223 @@ class _OntapVolumeState:
 
     @_builtins.property
     @pulumi.getter(name="aggregateConfiguration")
-    def aggregate_configuration(self) -> Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']]:
+    def aggregate_configuration(self) -> pulumi.Input[Optional['OntapVolumeAggregateConfigurationArgs']]:
         """
         The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         """
         return pulumi.get(self, "aggregate_configuration")
 
     @aggregate_configuration.setter
-    def aggregate_configuration(self, value: Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']]):
+    def aggregate_configuration(self, value: pulumi.Input[Optional['OntapVolumeAggregateConfigurationArgs']]):
         pulumi.set(self, "aggregate_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name of the volune.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="bypassSnaplockEnterpriseRetention")
-    def bypass_snaplock_enterprise_retention(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bypass_snaplock_enterprise_retention(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         """
         return pulumi.get(self, "bypass_snaplock_enterprise_retention")
 
     @bypass_snaplock_enterprise_retention.setter
-    def bypass_snaplock_enterprise_retention(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bypass_snaplock_enterprise_retention(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bypass_snaplock_enterprise_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="copyTagsToBackups")
-    def copy_tags_to_backups(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
     @copy_tags_to_backups.setter
-    def copy_tags_to_backups(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_tags_to_backups(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_tags_to_backups", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the file system for the volume, e.g. `fs-12345679`
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBackupTags")
-    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to apply to the volume's final backup.
         """
         return pulumi.get(self, "final_backup_tags")
 
     @final_backup_tags.setter
-    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def final_backup_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "final_backup_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="flexcacheEndpointType")
-    def flexcache_endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flexcache_endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         """
         return pulumi.get(self, "flexcache_endpoint_type")
 
     @flexcache_endpoint_type.setter
-    def flexcache_endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flexcache_endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flexcache_endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="junctionPath")
-    def junction_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def junction_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         """
         return pulumi.get(self, "junction_path")
 
     @junction_path.setter
-    def junction_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def junction_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "junction_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ontapVolumeType")
-    def ontap_volume_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ontap_volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         """
         return pulumi.get(self, "ontap_volume_type")
 
     @ontap_volume_type.setter
-    def ontap_volume_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ontap_volume_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ontap_volume_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityStyle")
-    def security_style(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         """
         return pulumi.get(self, "security_style")
 
     @security_style.setter
-    def security_style(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_style(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_style", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size_in_bytes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         """
         return pulumi.get(self, "size_in_bytes")
 
     @size_in_bytes.setter
-    def size_in_bytes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size_in_bytes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInMegabytes")
-    def size_in_megabytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_in_megabytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         """
         return pulumi.get(self, "size_in_megabytes")
 
     @size_in_megabytes.setter
-    def size_in_megabytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_in_megabytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_in_megabytes", value)
 
     @_builtins.property
     @pulumi.getter(name="skipFinalBackup")
-    def skip_final_backup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_final_backup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         """
         return pulumi.get(self, "skip_final_backup")
 
     @skip_final_backup.setter
-    def skip_final_backup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_final_backup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_final_backup", value)
 
     @_builtins.property
     @pulumi.getter(name="snaplockConfiguration")
-    def snaplock_configuration(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']]:
+    def snaplock_configuration(self) -> pulumi.Input[Optional['OntapVolumeSnaplockConfigurationArgs']]:
         """
         The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         """
         return pulumi.get(self, "snaplock_configuration")
 
     @snaplock_configuration.setter
-    def snaplock_configuration(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']]):
+    def snaplock_configuration(self, value: pulumi.Input[Optional['OntapVolumeSnaplockConfigurationArgs']]):
         pulumi.set(self, "snaplock_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotPolicy")
-    def snapshot_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         """
         return pulumi.get(self, "snapshot_policy")
 
     @snapshot_policy.setter
-    def snapshot_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="storageEfficiencyEnabled")
-    def storage_efficiency_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def storage_efficiency_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         """
         return pulumi.get(self, "storage_efficiency_enabled")
 
     @storage_efficiency_enabled.setter
-    def storage_efficiency_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def storage_efficiency_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "storage_efficiency_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="storageVirtualMachineId")
-    def storage_virtual_machine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_virtual_machine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage virtual machine in which to create the volume.
 
@@ -687,79 +687,79 @@ class _OntapVolumeState:
         return pulumi.get(self, "storage_virtual_machine_id")
 
     @storage_virtual_machine_id.setter
-    def storage_virtual_machine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_virtual_machine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_virtual_machine_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="tieringPolicy")
-    def tiering_policy(self) -> Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']]:
+    def tiering_policy(self) -> pulumi.Input[Optional['OntapVolumeTieringPolicyArgs']]:
         """
         The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         """
         return pulumi.get(self, "tiering_policy")
 
     @tiering_policy.setter
-    def tiering_policy(self, value: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']]):
+    def tiering_policy(self, value: pulumi.Input[Optional['OntapVolumeTieringPolicyArgs']]):
         pulumi.set(self, "tiering_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def uuid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Volume's UUID (universally unique identifier).
         """
         return pulumi.get(self, "uuid")
 
     @uuid.setter
-    def uuid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uuid", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeStyle")
-    def volume_style(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         """
         return pulumi.get(self, "volume_style")
 
     @volume_style.setter
-    def volume_style(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_style(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_style", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of volume, currently the only valid value is `ONTAP`.
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_type", value)
 
 
@@ -769,26 +769,26 @@ class OntapVolume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregate_configuration: Optional[pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
-                 bypass_snaplock_enterprise_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 junction_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ontap_volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_bytes: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snaplock_configuration: Optional[pulumi.Input[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']]] = None,
-                 snapshot_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_efficiency_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tiering_policy: Optional[pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
-                 volume_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 aggregate_configuration: pulumi.Input[Optional[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
+                 bypass_snaplock_enterprise_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 junction_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snaplock_configuration: pulumi.Input[Optional[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']]] = None,
+                 snapshot_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_efficiency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tiering_policy: pulumi.Input[Optional[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
+                 volume_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a FSx ONTAP Volume.
@@ -934,26 +934,26 @@ class OntapVolume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregate_configuration: Optional[pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
-                 bypass_snaplock_enterprise_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-                 copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 junction_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ontap_volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_bytes: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snaplock_configuration: Optional[pulumi.Input[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']]] = None,
-                 snapshot_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_efficiency_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tiering_policy: Optional[pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
-                 volume_style: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 aggregate_configuration: pulumi.Input[Optional[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
+                 bypass_snaplock_enterprise_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+                 final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 junction_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snaplock_configuration: pulumi.Input[Optional[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']]] = None,
+                 snapshot_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_efficiency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tiering_policy: pulumi.Input[Optional[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
+                 volume_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1000,31 +1000,31 @@ class OntapVolume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aggregate_configuration: Optional[pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            bypass_snaplock_enterprise_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-            copy_tags_to_backups: Optional[pulumi.Input[_builtins.bool]] = None,
-            file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-            final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            flexcache_endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-            junction_path: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            ontap_volume_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_style: Optional[pulumi.Input[_builtins.str]] = None,
-            size_in_bytes: Optional[pulumi.Input[_builtins.str]] = None,
-            size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
-            skip_final_backup: Optional[pulumi.Input[_builtins.bool]] = None,
-            snaplock_configuration: Optional[pulumi.Input[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']]] = None,
-            snapshot_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_efficiency_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tiering_policy: Optional[pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
-            uuid: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_style: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'OntapVolume':
+            aggregate_configuration: pulumi.Input[Optional[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            bypass_snaplock_enterprise_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+            copy_tags_to_backups: pulumi.Input[Optional[_builtins.bool]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            final_backup_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            flexcache_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            junction_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_style: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+            size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
+            skip_final_backup: pulumi.Input[Optional[_builtins.bool]] = None,
+            snaplock_configuration: pulumi.Input[Optional[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']]] = None,
+            snapshot_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_efficiency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tiering_policy: pulumi.Input[Optional[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
+            uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_style: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'OntapVolume':
         """
         Get an existing OntapVolume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

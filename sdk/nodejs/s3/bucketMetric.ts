@@ -190,19 +190,19 @@ export interface BucketMetricState {
     /**
      * Name of the bucket to put metric configuration.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
+    filter?: pulumi.Input<inputs.s3.BucketMetricFilter | undefined>;
     /**
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -216,13 +216,13 @@ export interface BucketMetricArgs {
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
+    filter?: pulumi.Input<inputs.s3.BucketMetricFilter | undefined>;
     /**
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -112,15 +112,15 @@ export interface AttachmentRoutingPolicyLabelState {
     /**
      * The ID of the attachment to apply the routing policy label to.
      */
-    attachmentId?: pulumi.Input<string>;
+    attachmentId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the core network containing the attachment.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId?: pulumi.Input<string | undefined>;
     /**
      * The routing policy label to apply to the attachment.
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
 }
 
 /**

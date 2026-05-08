@@ -112,8 +112,8 @@ def get_endpoint_associations(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'))
-def get_endpoint_associations_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_associations_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointAssociationsResult]:
     """
     Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.

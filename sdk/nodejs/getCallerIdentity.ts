@@ -90,5 +90,5 @@ export interface GetCallerIdentityOutputArgs {
     /**
      * Account ID number of the account that owns or contains the calling entity.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }

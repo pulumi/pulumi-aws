@@ -191,9 +191,9 @@ def get_connection(connection_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         link_id=pulumi.get(__ret__, 'link_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connection_output(connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          global_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_connection_output(connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Provides details about an existing Network Manager connection.

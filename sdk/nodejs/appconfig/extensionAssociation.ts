@@ -156,27 +156,27 @@ export interface ExtensionAssociationState {
     /**
      * ARN of the AppConfig Extension Association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the extension defined in the association.
      */
-    extensionArn?: pulumi.Input<string>;
+    extensionArn?: pulumi.Input<string | undefined>;
     /**
      * The version number for the extension defined in the association.
      */
-    extensionVersion?: pulumi.Input<number>;
+    extensionVersion?: pulumi.Input<number | undefined>;
     /**
      * The parameter names and values defined for the association.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,11 +190,11 @@ export interface ExtensionAssociationArgs {
     /**
      * The parameter names and values defined for the association.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      */

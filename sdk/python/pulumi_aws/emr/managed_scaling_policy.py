@@ -23,9 +23,9 @@ class ManagedScalingPolicyArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
                  compute_limits: pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 utilization_performance_index: Optional[pulumi.Input[_builtins.int]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ManagedScalingPolicy resource.
 
@@ -70,49 +70,49 @@ class ManagedScalingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingStrategy")
-    def scaling_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scaling strategy. When set to `ADVANCED`, the `utilization_performance_index` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
         """
         return pulumi.get(self, "scaling_strategy")
 
     @scaling_strategy.setter
-    def scaling_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="utilizationPerformanceIndex")
-    def utilization_performance_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def utilization_performance_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scaling_strategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
         """
         return pulumi.get(self, "utilization_performance_index")
 
     @utilization_performance_index.setter
-    def utilization_performance_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def utilization_performance_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "utilization_performance_index", value)
 
 
 @pulumi.input_type
 class _ManagedScalingPolicyState:
     def __init__(__self__, *,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 utilization_performance_index: Optional[pulumi.Input[_builtins.int]] = None):
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ManagedScalingPolicy resources.
 
@@ -135,62 +135,62 @@ class _ManagedScalingPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the EMR cluster
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="computeLimits")
-    def compute_limits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]]:
+    def compute_limits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]]:
         """
         Configuration block with compute limit settings. Described below.
         """
         return pulumi.get(self, "compute_limits")
 
     @compute_limits.setter
-    def compute_limits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]]):
+    def compute_limits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedScalingPolicyComputeLimitArgs']]]]):
         pulumi.set(self, "compute_limits", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingStrategy")
-    def scaling_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scaling_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scaling strategy. When set to `ADVANCED`, the `utilization_performance_index` argument can be used to configure an advanced scaling strategy. An advanced scaling strategy requires Amazon EMR on EC2 version 7.0 or later. Valid values: `ADVANCED`, `DEFAULT`.
         """
         return pulumi.get(self, "scaling_strategy")
 
     @scaling_strategy.setter
-    def scaling_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scaling_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scaling_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="utilizationPerformanceIndex")
-    def utilization_performance_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def utilization_performance_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Integer value that represents the advanced scaling strategy. Higher values optimize for performance, while lower values optimize for resource conservation. A value of `50` provides a balance between performance and resource conservation. See [the AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/managed-scaling-allocation-strategy-optimized.html#managed-scaling-allocation-strategy-optimized-getting-started) for more details. Required when `scaling_strategy` is set to `ADVANCED`. Valid values: `1`, `25`, `50`, `75`, `100`.
         """
         return pulumi.get(self, "utilization_performance_index")
 
     @utilization_performance_index.setter
-    def utilization_performance_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def utilization_performance_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "utilization_performance_index", value)
 
 
@@ -200,11 +200,11 @@ class ManagedScalingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 utilization_performance_index: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
@@ -311,11 +311,11 @@ class ManagedScalingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scaling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 utilization_performance_index: Optional[pulumi.Input[_builtins.int]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -344,11 +344,11 @@ class ManagedScalingPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            compute_limits: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            scaling_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-            utilization_performance_index: Optional[pulumi.Input[_builtins.int]] = None) -> 'ManagedScalingPolicy':
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedScalingPolicyComputeLimitArgs', 'ManagedScalingPolicyComputeLimitArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+            utilization_performance_index: pulumi.Input[Optional[_builtins.int]] = None) -> 'ManagedScalingPolicy':
         """
         Get an existing ManagedScalingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -454,9 +454,9 @@ def get_db_node(cloud_vm_cluster_id: Optional[_builtins.str] = None,
         total_cpu_core_count=pulumi.get(__ret__, 'total_cpu_core_count'),
         vnic2_id=pulumi.get(__ret__, 'vnic2_id'),
         vnic_id=pulumi.get(__ret__, 'vnic_id'))
-def get_db_node_output(cloud_vm_cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       id: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_db_node_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                       id: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbNodeResult]:
     """
     Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.

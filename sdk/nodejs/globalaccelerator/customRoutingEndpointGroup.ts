@@ -136,23 +136,23 @@ export interface CustomRoutingEndpointGroupState {
     /**
      * The Amazon Resource Name (ARN) of the custom routing endpoint group.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      */
-    destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration>[]>;
+    destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration>[] | undefined>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[] | undefined>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      */
-    endpointGroupRegion?: pulumi.Input<string>;
+    endpointGroupRegion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the custom routing listener.
      */
-    listenerArn?: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,11 +166,11 @@ export interface CustomRoutingEndpointGroupArgs {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[] | undefined>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      */
-    endpointGroupRegion?: pulumi.Input<string>;
+    endpointGroupRegion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the custom routing listener.
      */

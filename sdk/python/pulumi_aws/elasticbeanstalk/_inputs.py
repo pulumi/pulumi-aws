@@ -30,15 +30,15 @@ class ApplicationAppversionLifecycleArgsDict(TypedDict):
     """
     The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
     """
-    delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
+    delete_source_from_s3: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
     """
-    max_age_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    max_age_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
     """
-    max_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
     """
@@ -47,9 +47,9 @@ class ApplicationAppversionLifecycleArgsDict(TypedDict):
 class ApplicationAppversionLifecycleArgs:
     def __init__(__self__, *,
                  service_role: pulumi.Input[_builtins.str],
-                 delete_source_from_s3: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_age_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_count: Optional[pulumi.Input[_builtins.int]] = None):
+                 delete_source_from_s3: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_age_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] service_role: The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         :param pulumi.Input[_builtins.bool] delete_source_from_s3: Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
@@ -78,38 +78,38 @@ class ApplicationAppversionLifecycleArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteSourceFromS3")
-    def delete_source_from_s3(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_source_from_s3(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
         """
         return pulumi.get(self, "delete_source_from_s3")
 
     @delete_source_from_s3.setter
-    def delete_source_from_s3(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_source_from_s3(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_source_from_s3", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeInDays")
-    def max_age_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
         return pulumi.get(self, "max_age_in_days")
 
     @max_age_in_days.setter
-    def max_age_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_count", value)
 
 
@@ -120,7 +120,7 @@ class ConfigurationTemplateSettingArgsDict(TypedDict):
     """
     namespace: pulumi.Input[_builtins.str]
     value: pulumi.Input[_builtins.str]
-    resource: NotRequired[pulumi.Input[_builtins.str]]
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConfigurationTemplateSettingArgs:
@@ -128,7 +128,7 @@ class ConfigurationTemplateSettingArgs:
                  name: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 resource: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A unique name for this Template.
         """
@@ -170,11 +170,11 @@ class ConfigurationTemplateSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource", value)
 
 
@@ -186,7 +186,7 @@ class EnvironmentAllSettingArgsDict(TypedDict):
     """
     namespace: pulumi.Input[_builtins.str]
     value: pulumi.Input[_builtins.str]
-    resource: NotRequired[pulumi.Input[_builtins.str]]
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EnvironmentAllSettingArgs:
@@ -194,7 +194,7 @@ class EnvironmentAllSettingArgs:
                  name: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 resource: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A unique name for this Environment. This name is used
                in the application URL
@@ -238,11 +238,11 @@ class EnvironmentAllSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource", value)
 
 
@@ -254,7 +254,7 @@ class EnvironmentSettingArgsDict(TypedDict):
     """
     namespace: pulumi.Input[_builtins.str]
     value: pulumi.Input[_builtins.str]
-    resource: NotRequired[pulumi.Input[_builtins.str]]
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EnvironmentSettingArgs:
@@ -262,7 +262,7 @@ class EnvironmentSettingArgs:
                  name: pulumi.Input[_builtins.str],
                  namespace: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 resource: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A unique name for this Environment. This name is used
                in the application URL
@@ -306,11 +306,11 @@ class EnvironmentSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource", value)
 
 

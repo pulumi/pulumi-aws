@@ -153,28 +153,28 @@ export interface EventPermissionState {
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
+    condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition | undefined>;
     /**
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      */
-    eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string | undefined>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * An identifier string for the external account that you are granting permissions to.
      */
-    statementId?: pulumi.Input<string>;
+    statementId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -184,16 +184,16 @@ export interface EventPermissionArgs {
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
+    condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition | undefined>;
     /**
      * The name of the event bus to set the permissions on.
      * If you omit this, the permissions are set on the `default` event bus.
      */
-    eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string | undefined>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
@@ -201,7 +201,7 @@ export interface EventPermissionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * An identifier string for the external account that you are granting permissions to.
      */

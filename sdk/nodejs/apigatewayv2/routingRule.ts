@@ -166,33 +166,33 @@ export interface RoutingRuleState {
     /**
      * Configuration of resulting action based on matching routing rules condition. See below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleAction>[] | undefined>;
     /**
      * Conditions configuration. See below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleCondition>[] | undefined>;
     /**
      * Domain name. Must be between 1 and 512 characters in length.
      *
      * The following arguments are optional:
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Routing Rule.
      */
-    routingRuleArn?: pulumi.Input<string>;
+    routingRuleArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Routing Rule.
      */
-    routingRuleId?: pulumi.Input<string>;
+    routingRuleId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -220,5 +220,5 @@ export interface RoutingRuleArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

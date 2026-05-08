@@ -158,35 +158,35 @@ export interface OutboundConnectionState {
     /**
      * Accepts the connection.
      */
-    acceptConnection?: pulumi.Input<boolean>;
+    acceptConnection?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the connection alias that will be used by the customer for this connection.
      */
-    connectionAlias?: pulumi.Input<string>;
+    connectionAlias?: pulumi.Input<string | undefined>;
     /**
      * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
      */
-    connectionMode?: pulumi.Input<string>;
+    connectionMode?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the outbound connection.
      */
-    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties>;
+    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties | undefined>;
     /**
      * Status of the connection request.
      */
-    connectionStatus?: pulumi.Input<string>;
+    connectionStatus?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the local Opensearch domain.
      */
-    localDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionLocalDomainInfo>;
+    localDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionLocalDomainInfo | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the remote Opensearch domain.
      */
-    remoteDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionRemoteDomainInfo>;
+    remoteDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionRemoteDomainInfo | undefined>;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface OutboundConnectionArgs {
     /**
      * Accepts the connection.
      */
-    acceptConnection?: pulumi.Input<boolean>;
+    acceptConnection?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the connection alias that will be used by the customer for this connection.
      */
@@ -204,11 +204,11 @@ export interface OutboundConnectionArgs {
     /**
      * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
      */
-    connectionMode?: pulumi.Input<string>;
+    connectionMode?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the outbound connection.
      */
-    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties>;
+    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties | undefined>;
     /**
      * Configuration block for the local Opensearch domain.
      */
@@ -216,7 +216,7 @@ export interface OutboundConnectionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for the remote Opensearch domain.
      */

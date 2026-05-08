@@ -28,7 +28,7 @@ class GroupConfigurationArgsDict(TypedDict):
     """
     Specifies the type of group configuration item.
     """
-    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]]
     """
     A collection of parameters for this group configuration item. See below for details.
     """
@@ -37,7 +37,7 @@ class GroupConfigurationArgsDict(TypedDict):
 class GroupConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None):
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Specifies the type of group configuration item.
         :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
@@ -60,14 +60,14 @@ class GroupConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
         """
         A collection of parameters for this group configuration item. See below for details.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -123,7 +123,7 @@ class GroupResourceQueryArgsDict(TypedDict):
     """
     The resource query as a JSON string.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
     """
@@ -132,7 +132,7 @@ class GroupResourceQueryArgsDict(TypedDict):
 class GroupResourceQueryArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[_builtins.str],
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] query: The resource query as a JSON string.
         :param pulumi.Input[_builtins.str] type: The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
@@ -155,14 +155,14 @@ class GroupResourceQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

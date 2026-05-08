@@ -188,55 +188,55 @@ export interface PrimaryContactState {
     /**
      * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The first line of the primary contact address.
      */
-    addressLine1?: pulumi.Input<string>;
+    addressLine1?: pulumi.Input<string | undefined>;
     /**
      * The second line of the primary contact address, if any.
      */
-    addressLine2?: pulumi.Input<string>;
+    addressLine2?: pulumi.Input<string | undefined>;
     /**
      * The third line of the primary contact address, if any.
      */
-    addressLine3?: pulumi.Input<string>;
+    addressLine3?: pulumi.Input<string | undefined>;
     /**
      * The city of the primary contact address.
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * The name of the company associated with the primary contact information, if any.
      */
-    companyName?: pulumi.Input<string>;
+    companyName?: pulumi.Input<string | undefined>;
     /**
      * The ISO-3166 two-letter country code for the primary contact address.
      */
-    countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string | undefined>;
     /**
      * The district or county of the primary contact address, if any.
      */
-    districtOrCounty?: pulumi.Input<string>;
+    districtOrCounty?: pulumi.Input<string | undefined>;
     /**
      * The full name of the primary contact address.
      */
-    fullName?: pulumi.Input<string>;
+    fullName?: pulumi.Input<string | undefined>;
     /**
      * The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
      */
-    phoneNumber?: pulumi.Input<string>;
+    phoneNumber?: pulumi.Input<string | undefined>;
     /**
      * The postal code of the primary contact address.
      */
-    postalCode?: pulumi.Input<string>;
+    postalCode?: pulumi.Input<string | undefined>;
     /**
      * The state or region of the primary contact address. This field is required in selected countries.
      */
-    stateOrRegion?: pulumi.Input<string>;
+    stateOrRegion?: pulumi.Input<string | undefined>;
     /**
      * The URL of the website associated with the primary contact information, if any.
      */
-    websiteUrl?: pulumi.Input<string>;
+    websiteUrl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface PrimaryContactArgs {
     /**
      * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The first line of the primary contact address.
      */
@@ -254,11 +254,11 @@ export interface PrimaryContactArgs {
     /**
      * The second line of the primary contact address, if any.
      */
-    addressLine2?: pulumi.Input<string>;
+    addressLine2?: pulumi.Input<string | undefined>;
     /**
      * The third line of the primary contact address, if any.
      */
-    addressLine3?: pulumi.Input<string>;
+    addressLine3?: pulumi.Input<string | undefined>;
     /**
      * The city of the primary contact address.
      */
@@ -266,7 +266,7 @@ export interface PrimaryContactArgs {
     /**
      * The name of the company associated with the primary contact information, if any.
      */
-    companyName?: pulumi.Input<string>;
+    companyName?: pulumi.Input<string | undefined>;
     /**
      * The ISO-3166 two-letter country code for the primary contact address.
      */
@@ -274,7 +274,7 @@ export interface PrimaryContactArgs {
     /**
      * The district or county of the primary contact address, if any.
      */
-    districtOrCounty?: pulumi.Input<string>;
+    districtOrCounty?: pulumi.Input<string | undefined>;
     /**
      * The full name of the primary contact address.
      */
@@ -290,9 +290,9 @@ export interface PrimaryContactArgs {
     /**
      * The state or region of the primary contact address. This field is required in selected countries.
      */
-    stateOrRegion?: pulumi.Input<string>;
+    stateOrRegion?: pulumi.Input<string | undefined>;
     /**
      * The URL of the website associated with the primary contact information, if any.
      */
-    websiteUrl?: pulumi.Input<string>;
+    websiteUrl?: pulumi.Input<string | undefined>;
 }

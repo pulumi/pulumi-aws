@@ -221,45 +221,45 @@ export interface ConnectionFunctionState {
     /**
      * ARN of the connection function.
      */
-    connectionFunctionArn?: pulumi.Input<string>;
+    connectionFunctionArn?: pulumi.Input<string | undefined>;
     /**
      * Code for the connection function. Maximum length is 40960 characters.
      */
-    connectionFunctionCode?: pulumi.Input<string>;
+    connectionFunctionCode?: pulumi.Input<string | undefined>;
     /**
      * Configuration information for the connection function. See `connectionFunctionConfig` below.
      */
-    connectionFunctionConfig?: pulumi.Input<inputs.cloudfront.ConnectionFunctionConnectionFunctionConfig>;
+    connectionFunctionConfig?: pulumi.Input<inputs.cloudfront.ConnectionFunctionConnectionFunctionConfig | undefined>;
     /**
      * ETag of the connection function.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * ETag of the function's LIVE stage. Will be empty if the function has not been published.
      */
-    liveStageEtag?: pulumi.Input<string>;
+    liveStageEtag?: pulumi.Input<string | undefined>;
     /**
      * Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Status of the connection function.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -279,13 +279,13 @@ export interface ConnectionFunctionArgs {
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish the function to the `LIVE` stage after creation or update. Defaults to `false`.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

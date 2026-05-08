@@ -121,20 +121,20 @@ export interface AccountSettingsState {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
      */
-    defaultNamespace?: pulumi.Input<string>;
+    defaultNamespace?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      */
-    terminationProtectionEnabled?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.quicksight.AccountSettingsTimeouts>;
+    terminationProtectionEnabled?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.quicksight.AccountSettingsTimeouts | undefined>;
 }
 
 /**
@@ -144,18 +144,18 @@ export interface AccountSettingsArgs {
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
      */
-    defaultNamespace?: pulumi.Input<string>;
+    defaultNamespace?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      */
-    terminationProtectionEnabled?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.quicksight.AccountSettingsTimeouts>;
+    terminationProtectionEnabled?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.quicksight.AccountSettingsTimeouts | undefined>;
 }

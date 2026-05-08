@@ -26,25 +26,25 @@ class DistributionArgs:
                  origins: pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]],
                  restrictions: pulumi.Input['DistributionRestrictionsArgs'],
                  viewer_certificate: pulumi.Input['DistributionViewerCertificateArgs'],
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_association: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']] = None,
-                 continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
-                 default_root_object: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_config: Optional[pulumi.Input['DistributionLoggingConfigArgs']] = None,
-                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
-                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
-                 price_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 staging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 viewer_mtls_config: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_association: pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']] = None,
+                 continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
+                 default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_config: pulumi.Input[Optional['DistributionLoggingConfigArgs']] = None,
+                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
+                 price_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 staging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 viewer_mtls_config: pulumi.Input[Optional['DistributionViewerMtlsConfigArgs']] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_acl_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Distribution resource.
 
@@ -179,272 +179,272 @@ class DistributionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Extra CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
-    def anycast_ip_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anycast_ip_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Anycast static IP list that is associated with the distribution.
         """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @anycast_ip_list_id.setter
-    def anycast_ip_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anycast_ip_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anycast_ip_list_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any comments you want to include about the distribution.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionAssociation")
-    def connection_function_association(self) -> Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]:
+    def connection_function_association(self) -> pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']]:
         """
         A connection function association configuration block (maximum one).
         """
         return pulumi.get(self, "connection_function_association")
 
     @connection_function_association.setter
-    def connection_function_association(self, value: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]):
+    def connection_function_association(self, value: pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']]):
         pulumi.set(self, "connection_function_association", value)
 
     @_builtins.property
     @pulumi.getter(name="continuousDeploymentPolicyId")
-    def continuous_deployment_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def continuous_deployment_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         """
         return pulumi.get(self, "continuous_deployment_policy_id")
 
     @continuous_deployment_policy_id.setter
-    def continuous_deployment_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def continuous_deployment_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "continuous_deployment_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customErrorResponses")
-    def custom_error_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]:
+    def custom_error_responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]:
         """
         One or more custom error response elements (multiples allowed).
         """
         return pulumi.get(self, "custom_error_responses")
 
     @custom_error_responses.setter
-    def custom_error_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]):
+    def custom_error_responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]):
         pulumi.set(self, "custom_error_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRootObject")
-    def default_root_object(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_root_object(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         """
         return pulumi.get(self, "default_root_object")
 
     @default_root_object.setter
-    def default_root_object(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_root_object(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_root_object", value)
 
     @_builtins.property
     @pulumi.getter(name="httpVersion")
-    def http_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         """
         return pulumi.get(self, "http_version")
 
     @http_version.setter
-    def http_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_version", value)
 
     @_builtins.property
     @pulumi.getter(name="isIpv6Enabled")
-    def is_ipv6_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_ipv6_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the IPv6 is enabled for the distribution.
         """
         return pulumi.get(self, "is_ipv6_enabled")
 
     @is_ipv6_enabled.setter
-    def is_ipv6_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_ipv6_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_ipv6_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['DistributionLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['DistributionLoggingConfigArgs']]:
         """
         The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['DistributionLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['DistributionLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
     @_builtins.property
     @pulumi.getter(name="orderedCacheBehaviors")
-    def ordered_cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]:
+    def ordered_cache_behaviors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]:
         """
         Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         """
         return pulumi.get(self, "ordered_cache_behaviors")
 
     @ordered_cache_behaviors.setter
-    def ordered_cache_behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]):
+    def ordered_cache_behaviors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]):
         pulumi.set(self, "ordered_cache_behaviors", value)
 
     @_builtins.property
     @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]:
+    def origin_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]:
         """
         One or more origin_group for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origin_groups")
 
     @origin_groups.setter
-    def origin_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]):
+    def origin_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]):
         pulumi.set(self, "origin_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="priceClass")
-    def price_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def price_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         """
         return pulumi.get(self, "price_class")
 
     @price_class.setter
-    def price_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def price_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "price_class", value)
 
     @_builtins.property
     @pulumi.getter(name="retainOnDelete")
-    def retain_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         """
         return pulumi.get(self, "retain_on_delete")
 
     @retain_on_delete.setter
-    def retain_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_on_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def staging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def staging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         """
         return pulumi.get(self, "staging")
 
     @staging.setter
-    def staging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def staging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "staging", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="viewerMtlsConfig")
-    def viewer_mtls_config(self) -> Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]:
+    def viewer_mtls_config(self) -> pulumi.Input[Optional['DistributionViewerMtlsConfigArgs']]:
         """
         The viewer mTLS configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "viewer_mtls_config")
 
     @viewer_mtls_config.setter
-    def viewer_mtls_config(self, value: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]):
+    def viewer_mtls_config(self, value: pulumi.Input[Optional['DistributionViewerMtlsConfigArgs']]):
         pulumi.set(self, "viewer_mtls_config", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
-    def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
-    def wait_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="webAclId")
-    def web_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_acl_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         return pulumi.get(self, "web_acl_id")
 
     @web_acl_id.setter
-    def web_acl_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_acl_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_acl_id", value)
 
 
 @pulumi.input_type
 class _DistributionState:
     def __init__(__self__, *,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_association: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']] = None,
-                 continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
-                 default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
-                 default_root_object: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_progress_validation_batches: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input['DistributionLoggingConfigArgs']] = None,
-                 logging_v1_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
-                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
-                 price_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
-                 retain_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 staging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]] = None,
-                 trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]] = None,
-                 viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
-                 viewer_mtls_config: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_association: pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']] = None,
+                 continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
+                 default_cache_behavior: pulumi.Input[Optional['DistributionDefaultCacheBehaviorArgs']] = None,
+                 default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_progress_validation_batches: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional['DistributionLoggingConfigArgs']] = None,
+                 logging_v1_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
+                 price_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 restrictions: pulumi.Input[Optional['DistributionRestrictionsArgs']] = None,
+                 retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 staging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]] = None,
+                 trusted_signers: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]] = None,
+                 viewer_certificate: pulumi.Input[Optional['DistributionViewerCertificateArgs']] = None,
+                 viewer_mtls_config: pulumi.Input[Optional['DistributionViewerMtlsConfigArgs']] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_acl_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Distribution resources.
 
@@ -560,434 +560,434 @@ class _DistributionState:
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Extra CNAMEs (alternate domain names), if any, for this distribution.
         """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="anycastIpListId")
-    def anycast_ip_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def anycast_ip_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Anycast static IP list that is associated with the distribution.
         """
         return pulumi.get(self, "anycast_ip_list_id")
 
     @anycast_ip_list_id.setter
-    def anycast_ip_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def anycast_ip_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anycast_ip_list_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="callerReference")
-    def caller_reference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def caller_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Internal value used by CloudFront to allow future updates to the distribution configuration.
         """
         return pulumi.get(self, "caller_reference")
 
     @caller_reference.setter
-    def caller_reference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def caller_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "caller_reference", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any comments you want to include about the distribution.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionAssociation")
-    def connection_function_association(self) -> Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]:
+    def connection_function_association(self) -> pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']]:
         """
         A connection function association configuration block (maximum one).
         """
         return pulumi.get(self, "connection_function_association")
 
     @connection_function_association.setter
-    def connection_function_association(self, value: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]):
+    def connection_function_association(self, value: pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']]):
         pulumi.set(self, "connection_function_association", value)
 
     @_builtins.property
     @pulumi.getter(name="continuousDeploymentPolicyId")
-    def continuous_deployment_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def continuous_deployment_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         """
         return pulumi.get(self, "continuous_deployment_policy_id")
 
     @continuous_deployment_policy_id.setter
-    def continuous_deployment_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def continuous_deployment_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "continuous_deployment_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customErrorResponses")
-    def custom_error_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]:
+    def custom_error_responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]:
         """
         One or more custom error response elements (multiples allowed).
         """
         return pulumi.get(self, "custom_error_responses")
 
     @custom_error_responses.setter
-    def custom_error_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]):
+    def custom_error_responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]):
         pulumi.set(self, "custom_error_responses", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultCacheBehavior")
-    def default_cache_behavior(self) -> Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]:
+    def default_cache_behavior(self) -> pulumi.Input[Optional['DistributionDefaultCacheBehaviorArgs']]:
         """
         Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         """
         return pulumi.get(self, "default_cache_behavior")
 
     @default_cache_behavior.setter
-    def default_cache_behavior(self, value: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]):
+    def default_cache_behavior(self, value: pulumi.Input[Optional['DistributionDefaultCacheBehaviorArgs']]):
         pulumi.set(self, "default_cache_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRootObject")
-    def default_root_object(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_root_object(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         """
         return pulumi.get(self, "default_root_object")
 
     @default_root_object.setter
-    def default_root_object(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_root_object(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_root_object", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
-    def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
-    def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hosted_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="httpVersion")
-    def http_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         """
         return pulumi.get(self, "http_version")
 
     @http_version.setter
-    def http_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_version", value)
 
     @_builtins.property
     @pulumi.getter(name="inProgressValidationBatches")
-    def in_progress_validation_batches(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def in_progress_validation_batches(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of invalidation batches currently in progress.
         """
         return pulumi.get(self, "in_progress_validation_batches")
 
     @in_progress_validation_batches.setter
-    def in_progress_validation_batches(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def in_progress_validation_batches(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "in_progress_validation_batches", value)
 
     @_builtins.property
     @pulumi.getter(name="isIpv6Enabled")
-    def is_ipv6_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_ipv6_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the IPv6 is enabled for the distribution.
         """
         return pulumi.get(self, "is_ipv6_enabled")
 
     @is_ipv6_enabled.setter
-    def is_ipv6_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_ipv6_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_ipv6_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
-    def last_modified_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_modified_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time the distribution was last modified.
         """
         return pulumi.get(self, "last_modified_time")
 
     @last_modified_time.setter
-    def last_modified_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_modified_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_modified_time", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['DistributionLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['DistributionLoggingConfigArgs']]:
         """
         The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['DistributionLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['DistributionLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingV1Enabled")
-    def logging_v1_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def logging_v1_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether V1 logging is enabled for the distribution.
         """
         return pulumi.get(self, "logging_v1_enabled")
 
     @logging_v1_enabled.setter
-    def logging_v1_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def logging_v1_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "logging_v1_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="orderedCacheBehaviors")
-    def ordered_cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]:
+    def ordered_cache_behaviors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]:
         """
         Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
         """
         return pulumi.get(self, "ordered_cache_behaviors")
 
     @ordered_cache_behaviors.setter
-    def ordered_cache_behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]):
+    def ordered_cache_behaviors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]]):
         pulumi.set(self, "ordered_cache_behaviors", value)
 
     @_builtins.property
     @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]:
+    def origin_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]:
         """
         One or more origin_group for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origin_groups")
 
     @origin_groups.setter
-    def origin_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]):
+    def origin_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]]):
         pulumi.set(self, "origin_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]:
+    def origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginArgs']]]]:
         """
         One or more origins for this distribution (multiples allowed).
         """
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]):
+    def origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOriginArgs']]]]):
         pulumi.set(self, "origins", value)
 
     @_builtins.property
     @pulumi.getter(name="priceClass")
-    def price_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def price_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         """
         return pulumi.get(self, "price_class")
 
     @price_class.setter
-    def price_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def price_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "price_class", value)
 
     @_builtins.property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input['DistributionRestrictionsArgs']]:
+    def restrictions(self) -> pulumi.Input[Optional['DistributionRestrictionsArgs']]:
         """
         The restriction configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input['DistributionRestrictionsArgs']]):
+    def restrictions(self, value: pulumi.Input[Optional['DistributionRestrictionsArgs']]):
         pulumi.set(self, "restrictions", value)
 
     @_builtins.property
     @pulumi.getter(name="retainOnDelete")
-    def retain_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         """
         return pulumi.get(self, "retain_on_delete")
 
     @retain_on_delete.setter
-    def retain_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_on_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def staging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def staging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         """
         return pulumi.get(self, "staging")
 
     @staging.setter
-    def staging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def staging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "staging", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedKeyGroups")
-    def trusted_key_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]]:
+    def trusted_key_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]]:
         """
         List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
         """
         return pulumi.get(self, "trusted_key_groups")
 
     @trusted_key_groups.setter
-    def trusted_key_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]]):
+    def trusted_key_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]]):
         pulumi.set(self, "trusted_key_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedSigners")
-    def trusted_signers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]]:
+    def trusted_signers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]]:
         """
         List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         """
         return pulumi.get(self, "trusted_signers")
 
     @trusted_signers.setter
-    def trusted_signers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]]):
+    def trusted_signers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]]):
         pulumi.set(self, "trusted_signers", value)
 
     @_builtins.property
     @pulumi.getter(name="viewerCertificate")
-    def viewer_certificate(self) -> Optional[pulumi.Input['DistributionViewerCertificateArgs']]:
+    def viewer_certificate(self) -> pulumi.Input[Optional['DistributionViewerCertificateArgs']]:
         """
         The SSL configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "viewer_certificate")
 
     @viewer_certificate.setter
-    def viewer_certificate(self, value: Optional[pulumi.Input['DistributionViewerCertificateArgs']]):
+    def viewer_certificate(self, value: pulumi.Input[Optional['DistributionViewerCertificateArgs']]):
         pulumi.set(self, "viewer_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="viewerMtlsConfig")
-    def viewer_mtls_config(self) -> Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]:
+    def viewer_mtls_config(self) -> pulumi.Input[Optional['DistributionViewerMtlsConfigArgs']]:
         """
         The viewer mTLS configuration for this distribution (maximum one).
         """
         return pulumi.get(self, "viewer_mtls_config")
 
     @viewer_mtls_config.setter
-    def viewer_mtls_config(self, value: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]):
+    def viewer_mtls_config(self, value: pulumi.Input[Optional['DistributionViewerMtlsConfigArgs']]):
         pulumi.set(self, "viewer_mtls_config", value)
 
     @_builtins.property
     @pulumi.getter(name="waitForDeployment")
-    def wait_for_deployment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wait_for_deployment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         """
         return pulumi.get(self, "wait_for_deployment")
 
     @wait_for_deployment.setter
-    def wait_for_deployment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wait_for_deployment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wait_for_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="webAclId")
-    def web_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_acl_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
         return pulumi.get(self, "web_acl_id")
 
     @web_acl_id.setter
-    def web_acl_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_acl_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_acl_id", value)
 
 
@@ -997,30 +997,30 @@ class Distribution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_association: Optional[pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
-                 continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
-                 default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
-                 default_root_object: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_config: Optional[pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
-                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
-                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
-                 price_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 restrictions: Optional[pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
-                 retain_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 staging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
-                 viewer_mtls_config: Optional[pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
+                 continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
+                 price_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
+                 retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 staging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
+                 viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an Amazon CloudFront web distribution.
@@ -1037,6 +1037,7 @@ class Distribution(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
 
         b = aws.s3.Bucket("b",
@@ -1189,7 +1190,7 @@ class Distribution(pulumi.CustomResource):
             policy=origin_bucket_policy.json)
         # Create Route53 records for the CloudFront distribution aliases
         my_domain_get_zone = aws.route53.get_zone(name=my_domain)
-        cloudfront = []
+        cloudfront: list[Any] = []
         def create_cloudfront(range_body):
             for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
                 cloudfront.append(aws.route53.Record(f"cloudfront-{range['key']}",
@@ -1461,6 +1462,7 @@ class Distribution(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_aws as aws
 
         b = aws.s3.Bucket("b",
@@ -1613,7 +1615,7 @@ class Distribution(pulumi.CustomResource):
             policy=origin_bucket_policy.json)
         # Create Route53 records for the CloudFront distribution aliases
         my_domain_get_zone = aws.route53.get_zone(name=my_domain)
-        cloudfront = []
+        cloudfront: list[Any] = []
         def create_cloudfront(range_body):
             for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
                 cloudfront.append(aws.route53.Record(f"cloudfront-{range['key']}",
@@ -1852,30 +1854,30 @@ class Distribution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_function_association: Optional[pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
-                 continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
-                 default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
-                 default_root_object: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logging_config: Optional[pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
-                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
-                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
-                 price_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 restrictions: Optional[pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
-                 retain_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 staging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
-                 viewer_mtls_config: Optional[pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
-                 wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 web_acl_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
+                 continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
+                 default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+                 default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+                 ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
+                 origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
+                 price_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
+                 retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 staging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
+                 viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
+                 wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1941,42 +1943,42 @@ class Distribution(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            anycast_ip_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            caller_reference: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_function_association: Optional[pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
-            continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
-            default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
-            default_root_object: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-            http_version: Optional[pulumi.Input[_builtins.str]] = None,
-            in_progress_validation_batches: Optional[pulumi.Input[_builtins.int]] = None,
-            is_ipv6_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_modified_time: Optional[pulumi.Input[_builtins.str]] = None,
-            logging_config: Optional[pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
-            logging_v1_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
-            origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
-            origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
-            price_class: Optional[pulumi.Input[_builtins.str]] = None,
-            restrictions: Optional[pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
-            retain_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            staging: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]]] = None,
-            trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]]] = None,
-            viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
-            viewer_mtls_config: Optional[pulumi.Input[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
-            wait_for_deployment: Optional[pulumi.Input[_builtins.bool]] = None,
-            web_acl_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Distribution':
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
+            continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_error_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
+            default_cache_behavior: pulumi.Input[Optional[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
+            default_root_object: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+            http_version: pulumi.Input[Optional[_builtins.str]] = None,
+            in_progress_validation_batches: pulumi.Input[Optional[_builtins.int]] = None,
+            is_ipv6_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
+            logging_config: pulumi.Input[Optional[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+            logging_v1_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ordered_cache_behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
+            origin_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
+            price_class: pulumi.Input[Optional[_builtins.str]] = None,
+            restrictions: pulumi.Input[Optional[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
+            retain_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            staging: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            trusted_key_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]]] = None,
+            trusted_signers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]]] = None,
+            viewer_certificate: pulumi.Input[Optional[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
+            viewer_mtls_config: pulumi.Input[Optional[Union['DistributionViewerMtlsConfigArgs', 'DistributionViewerMtlsConfigArgsDict']]] = None,
+            wait_for_deployment: pulumi.Input[Optional[_builtins.bool]] = None,
+            web_acl_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Distribution':
         """
         Get an existing Distribution resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

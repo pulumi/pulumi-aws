@@ -221,79 +221,79 @@ export interface ClusterSnapshotCopyState {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number | undefined>;
     /**
      * Whether to copy existing tags. Defaults to `false`.
      */
-    copyTags?: pulumi.Input<boolean>;
+    copyTags?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the DB cluster snapshot.
      */
-    dbClusterSnapshotArn?: pulumi.Input<string>;
+    dbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The Destination region to place snapshot copy.
      */
-    destinationRegion?: pulumi.Input<string>;
+    destinationRegion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the database engine.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the database engine.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * KMS key ID.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * License model information for the restored DB instance.
      */
-    licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string | undefined>;
     /**
      * URL that contains a Signature Version 4 signed request.
      */
-    presignedUrl?: pulumi.Input<string>;
+    presignedUrl?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    snapshotType?: pulumi.Input<string>;
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    snapshotType?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the source snapshot.
      */
-    sourceDbClusterSnapshotIdentifier?: pulumi.Input<string>;
+    sourceDbClusterSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the storage type associated with DB cluster snapshot.
      */
-    storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier for the snapshot.
      *
      * The following arguments are optional:
      */
-    targetDbClusterSnapshotIdentifier?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.ClusterSnapshotCopyTimeouts>;
+    targetDbClusterSnapshotIdentifier?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.rds.ClusterSnapshotCopyTimeouts | undefined>;
     /**
      * Provides the VPC ID associated with the DB cluster snapshot.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -303,27 +303,27 @@ export interface ClusterSnapshotCopyArgs {
     /**
      * Whether to copy existing tags. Defaults to `false`.
      */
-    copyTags?: pulumi.Input<boolean>;
+    copyTags?: pulumi.Input<boolean | undefined>;
     /**
      * The Destination region to place snapshot copy.
      */
-    destinationRegion?: pulumi.Input<string>;
+    destinationRegion?: pulumi.Input<string | undefined>;
     /**
      * KMS key ID.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * URL that contains a Signature Version 4 signed request.
      */
-    presignedUrl?: pulumi.Input<string>;
+    presignedUrl?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
-    sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Identifier of the source snapshot.
      */
@@ -331,12 +331,12 @@ export interface ClusterSnapshotCopyArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Identifier for the snapshot.
      *
      * The following arguments are optional:
      */
     targetDbClusterSnapshotIdentifier: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.rds.ClusterSnapshotCopyTimeouts>;
+    timeouts?: pulumi.Input<inputs.rds.ClusterSnapshotCopyTimeouts | undefined>;
 }

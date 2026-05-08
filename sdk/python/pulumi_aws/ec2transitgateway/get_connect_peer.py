@@ -245,10 +245,10 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
         transit_gateway_address=pulumi.get(__ret__, 'transit_gateway_address'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_connect_peer_id=pulumi.get(__ret__, 'transit_gateway_connect_peer_id'))
-def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]]]] = None,
-                            region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                            transit_gateway_connect_peer_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connect_peer_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]]]] = None,
+                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                            transit_gateway_connect_peer_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectPeerResult]:
     """
     Get information on an EC2 Transit Gateway Connect Peer.

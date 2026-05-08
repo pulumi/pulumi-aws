@@ -123,7 +123,7 @@ export function getTableItemOutput(args: GetTableItemOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getTableItem.
  */
 export interface GetTableItemOutputArgs {
-    expressionAttributeNames?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    expressionAttributeNames?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
      * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
@@ -135,11 +135,11 @@ export interface GetTableItemOutputArgs {
      * A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
      * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
      */
-    projectionExpression?: pulumi.Input<string>;
+    projectionExpression?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the table containing the requested item.
      */

@@ -21,8 +21,8 @@ class StandardsControlArgs:
     def __init__(__self__, *,
                  control_status: pulumi.Input[_builtins.str],
                  standards_control_arn: pulumi.Input[_builtins.str],
-                 disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StandardsControl resource.
 
@@ -64,43 +64,43 @@ class StandardsControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledReason")
-    def disabled_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disabled_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         """
         return pulumi.get(self, "disabled_reason")
 
     @disabled_reason.setter
-    def disabled_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disabled_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disabled_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _StandardsControlState:
     def __init__(__self__, *,
-                 control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 related_requirements: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 remediation_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity_rating: Optional[pulumi.Input[_builtins.str]] = None,
-                 standards_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 related_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 remediation_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity_rating: pulumi.Input[Optional[_builtins.str]] = None,
+                 standards_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandardsControl resources.
 
@@ -141,134 +141,134 @@ class _StandardsControlState:
 
     @_builtins.property
     @pulumi.getter(name="controlId")
-    def control_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the security standard control.
         """
         return pulumi.get(self, "control_id")
 
     @control_id.setter
-    def control_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_id", value)
 
     @_builtins.property
     @pulumi.getter(name="controlStatus")
-    def control_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         """
         return pulumi.get(self, "control_status")
 
     @control_status.setter
-    def control_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_status", value)
 
     @_builtins.property
     @pulumi.getter(name="controlStatusUpdatedAt")
-    def control_status_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_status_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time that the status of the security standard control was most recently updated.
         """
         return pulumi.get(self, "control_status_updated_at")
 
     @control_status_updated_at.setter
-    def control_status_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_status_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_status_updated_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The standard control longer description. Provides information about what the control is checking for.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disabledReason")
-    def disabled_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disabled_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         """
         return pulumi.get(self, "disabled_reason")
 
     @disabled_reason.setter
-    def disabled_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disabled_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disabled_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedRequirements")
-    def related_requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def related_requirements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of requirements that are related to this control.
         """
         return pulumi.get(self, "related_requirements")
 
     @related_requirements.setter
-    def related_requirements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def related_requirements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "related_requirements", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationUrl")
-    def remediation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remediation_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A link to remediation information for the control in the Security Hub user documentation.
         """
         return pulumi.get(self, "remediation_url")
 
     @remediation_url.setter
-    def remediation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remediation_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remediation_url", value)
 
     @_builtins.property
     @pulumi.getter(name="severityRating")
-    def severity_rating(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity_rating(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The severity of findings generated from this security standard control.
         """
         return pulumi.get(self, "severity_rating")
 
     @severity_rating.setter
-    def severity_rating(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity_rating(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity_rating", value)
 
     @_builtins.property
     @pulumi.getter(name="standardsControlArn")
-    def standards_control_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def standards_control_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         """
         return pulumi.get(self, "standards_control_arn")
 
     @standards_control_arn.setter
-    def standards_control_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def standards_control_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "standards_control_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The standard control title.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -278,10 +278,10 @@ class StandardsControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standards_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standards_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Disable/enable Security Hub standards control in the current region.
@@ -387,10 +387,10 @@ class StandardsControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 control_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 standards_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 control_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 standards_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,17 +425,17 @@ class StandardsControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            control_id: Optional[pulumi.Input[_builtins.str]] = None,
-            control_status: Optional[pulumi.Input[_builtins.str]] = None,
-            control_status_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disabled_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            related_requirements: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            remediation_url: Optional[pulumi.Input[_builtins.str]] = None,
-            severity_rating: Optional[pulumi.Input[_builtins.str]] = None,
-            standards_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None) -> 'StandardsControl':
+            control_id: pulumi.Input[Optional[_builtins.str]] = None,
+            control_status: pulumi.Input[Optional[_builtins.str]] = None,
+            control_status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            related_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            remediation_url: pulumi.Input[Optional[_builtins.str]] = None,
+            severity_rating: pulumi.Input[Optional[_builtins.str]] = None,
+            standards_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> 'StandardsControl':
         """
         Get an existing StandardsControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

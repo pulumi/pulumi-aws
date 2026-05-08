@@ -147,11 +147,11 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
         principal_id=pulumi.get(__ret__, 'principal_id'),
         principal_type=pulumi.get(__ret__, 'principal_type'),
         region=pulumi.get(__ret__, 'region'))
-def get_principal_application_assignments_output(application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
-                                                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 principal_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_principal_application_assignments_output(application_assignments: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
+                                                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 principal_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalApplicationAssignmentsResult]:
     """
     Data source for viewing AWS SSO Admin Principal Application Assignments.

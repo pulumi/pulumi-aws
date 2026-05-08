@@ -58,17 +58,17 @@ class AttachmentAccepterArgs:
 @pulumi.input_type
 class _AttachmentAccepterState:
     def __init__(__self__, *,
-                 attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 segment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AttachmentAccepter resources.
 
@@ -109,134 +109,134 @@ class _AttachmentAccepterState:
 
     @_builtins.property
     @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the attachment.
         """
         return pulumi.get(self, "attachment_id")
 
     @attachment_id.setter
-    def attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
-    def attachment_policy_rule_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def attachment_policy_rule_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Policy rule number associated with the attachment.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
     @attachment_policy_rule_number.setter
-    def attachment_policy_rule_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def attachment_policy_rule_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "attachment_policy_rule_number", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentType")
-    def attachment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attachment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
         """
         return pulumi.get(self, "attachment_type")
 
     @attachment_type.setter
-    def attachment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attachment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attachment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the core network.
         """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
-    def core_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the core network.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edge_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
         """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
-    def edge_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edge_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_location", value)
 
     @_builtins.property
     @pulumi.getter(name="edgeLocations")
-    def edge_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def edge_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
         """
         return pulumi.get(self, "edge_locations")
 
     @edge_locations.setter
-    def edge_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def edge_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "edge_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
-    def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
-    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentName")
-    def segment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def segment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the segment attachment.
         """
         return pulumi.get(self, "segment_name")
 
     @segment_name.setter
-    def segment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def segment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "segment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the attachment.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -246,8 +246,8 @@ class AttachmentAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Network Manager Attachment Accepter.
@@ -401,8 +401,8 @@ class AttachmentAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -437,17 +437,17 @@ class AttachmentAccepter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            attachment_policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-            attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            core_network_id: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_location: Optional[pulumi.Input[_builtins.str]] = None,
-            edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            segment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None) -> 'AttachmentAccepter':
+            attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            attachment_policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+            attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_location: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            segment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> 'AttachmentAccepter':
         """
         Get an existing AttachmentAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

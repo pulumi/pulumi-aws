@@ -160,47 +160,47 @@ export interface ProxyTargetState {
      *
      * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
-    dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * DB instance identifier.
      */
-    dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the DB proxy.
      */
-    dbProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string | undefined>;
     /**
      * Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Port for the target RDS DB Instance or Aurora DB Cluster.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Identifier representing the DB Instance or DB Cluster target.
      */
-    rdsResourceId?: pulumi.Input<string>;
+    rdsResourceId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
-    targetArn?: pulumi.Input<string>;
+    targetArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the target group.
      */
-    targetGroupName?: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string | undefined>;
     /**
      * DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
      */
-    trackedClusterId?: pulumi.Input<string>;
+    trackedClusterId?: pulumi.Input<string | undefined>;
     /**
      * Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -212,11 +212,11 @@ export interface ProxyTargetArgs {
      *
      * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
-    dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * DB instance identifier.
      */
-    dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the DB proxy.
      */
@@ -224,7 +224,7 @@ export interface ProxyTargetArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the target group.
      */

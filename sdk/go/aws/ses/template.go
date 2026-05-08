@@ -31,7 +31,7 @@ import (
 //				Name:    pulumi.String("MyTemplate"),
 //				Subject: pulumi.String("Greetings, {{name}}!"),
 //				Html:    pulumi.String("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"),
-//				Text:    pulumi.String("Hello {{name}},\nYour favorite animal is {{favoriteanimal}}."),
+//				Text:    pulumi.String("Hello {{name}},\r\nYour favorite animal is {{favoriteanimal}}."),
 //			})
 //			if err != nil {
 //				return err

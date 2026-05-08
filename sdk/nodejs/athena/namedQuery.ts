@@ -148,27 +148,27 @@ export interface NamedQueryState {
     /**
      * Database to which the query belongs.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Brief explanation of the query. Maximum length of 1024.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Plain language name for the query. Maximum length of 128.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Workgroup to which the query belongs. Defaults to `primary`
      */
-    workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -182,11 +182,11 @@ export interface NamedQueryArgs {
     /**
      * Brief explanation of the query. Maximum length of 1024.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Plain language name for the query. Maximum length of 128.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
@@ -194,9 +194,9 @@ export interface NamedQueryArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Workgroup to which the query belongs. Defaults to `primary`
      */
-    workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string | undefined>;
 }

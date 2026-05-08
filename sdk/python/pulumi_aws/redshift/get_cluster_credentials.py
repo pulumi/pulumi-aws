@@ -188,13 +188,13 @@ def get_cluster_credentials(auto_create: Optional[_builtins.bool] = None,
         expiration=pulumi.get(__ret__, 'expiration'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                   cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                   db_groups: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                   db_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   db_user: Optional[pulumi.Input[_builtins.str]] = None,
-                                   duration_seconds: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                                   region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_cluster_credentials_output(auto_create: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                   cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                   db_groups: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                   db_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   db_user: pulumi.Input[Optional[_builtins.str]] = None,
+                                   duration_seconds: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterCredentialsResult]:
     """
     Provides redshift cluster temporary credentials.

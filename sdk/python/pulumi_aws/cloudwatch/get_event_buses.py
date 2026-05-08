@@ -112,8 +112,8 @@ def get_event_buses(name_prefix: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         region=pulumi.get(__ret__, 'region'))
-def get_event_buses_output(name_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_event_buses_output(name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusesResult]:
     """
     Data source for managing an AWS EventBridge Event Buses.

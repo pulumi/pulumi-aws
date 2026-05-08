@@ -229,52 +229,52 @@ export interface ZoneState {
     /**
      * The Amazon Resource Name (ARN) of the Hosted Zone.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
-    delegationSetId?: pulumi.Input<string>;
+    delegationSetId?: pulumi.Input<string | undefined>;
     /**
      * Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
      */
-    enableAcceleratedRecovery?: pulumi.Input<boolean>;
+    enableAcceleratedRecovery?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * This is the name of the hosted zone.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of name servers in associated (or default) delegation set.
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      */
-    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Route 53 name server that created the SOA record.
      */
-    primaryNameServer?: pulumi.Input<string>;
+    primaryNameServer?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[] | undefined>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -284,29 +284,29 @@ export interface ZoneArgs {
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
-    delegationSetId?: pulumi.Input<string>;
+    delegationSetId?: pulumi.Input<string | undefined>;
     /**
      * Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
      */
-    enableAcceleratedRecovery?: pulumi.Input<boolean>;
+    enableAcceleratedRecovery?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */
-    forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * This is the name of the hosted zone.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[] | undefined>;
 }

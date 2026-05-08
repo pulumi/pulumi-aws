@@ -31,82 +31,83 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// main, err := elb.GetServiceAccount(ctx, &elb.GetServiceAccountArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// elbLogs, err := s3.NewBucket(ctx, "elb_logs", &s3.BucketArgs{
-// Bucket: pulumi.String("my-elb-tf-test-bucket"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = s3.NewBucketAcl(ctx, "elb_logs_acl", &s3.BucketAclArgs{
-// Bucket: elbLogs.ID(),
-// Acl: pulumi.String("private"),
-// })
-// if err != nil {
-// return err
-// }
-// allowElbLogging := elbLogs.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: interface{}{
-// main.Arn,
-// },
-// },
-// },
-// Actions: []string{
-// "s3:PutObject",
-// },
-// Resources: []string{
-// fmt.Sprintf("%v/AWSLogs/*", arn),
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = s3.NewBucketPolicy(ctx, "allow_elb_logging", &s3.BucketPolicyArgs{
-// Bucket: elbLogs.ID(),
-// Policy: pulumi.String(allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {
-// return &allowElbLogging.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
-// Name: pulumi.String("my-foobar-elb"),
-// AvailabilityZones: pulumi.StringArray{
-// pulumi.String("us-west-2a"),
-// },
-// AccessLogs: &elb.LoadBalancerAccessLogsArgs{
-// Bucket: elbLogs.ID(),
-// Interval: pulumi.Int(5),
-// },
-// Listeners: elb.LoadBalancerListenerArray{
-// &elb.LoadBalancerListenerArgs{
-// InstancePort: pulumi.Int(8000),
-// InstanceProtocol: pulumi.String("http"),
-// LbPort: pulumi.Int(80),
-// LbProtocol: pulumi.String("http"),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := elb.GetServiceAccount(ctx, &elb.GetServiceAccountArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			elbLogs, err := s3.NewBucket(ctx, "elb_logs", &s3.BucketArgs{
+//				Bucket: pulumi.String("my-elb-tf-test-bucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAcl(ctx, "elb_logs_acl", &s3.BucketAclArgs{
+//				Bucket: elbLogs.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			allowElbLogging := elbLogs.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
+//						{
+//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
+//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//								{
+//									Type: "AWS",
+//									Identifiers: pulumi.StringArray{
+//										main.Arn,
+//									},
+//								},
+//							},
+//							Actions: []string{
+//								"s3:PutObject",
+//							},
+//							Resources: []string{
+//								fmt.Sprintf("%v/AWSLogs/*", arn),
+//							},
+//						},
+//					}),
+//				}, nil))), nil
+//			}).(iam.GetPolicyDocumentResultOutput)
+//			_, err = s3.NewBucketPolicy(ctx, "allow_elb_logging", &s3.BucketPolicyArgs{
+//				Bucket: elbLogs.ID(),
+//				Policy: pulumi.String(allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {
+//					return &allowElbLogging.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("my-foobar-elb"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//				},
+//				AccessLogs: &elb.LoadBalancerAccessLogsArgs{
+//					Bucket:   elbLogs.ID(),
+//					Interval: pulumi.Int(5),
+//				},
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("http"),
+//						LbPort:           pulumi.Int(80),
+//						LbProtocol:       pulumi.String("http"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

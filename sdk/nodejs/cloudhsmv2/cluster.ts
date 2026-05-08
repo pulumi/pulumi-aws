@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         vpcId: cloudhsmV2Vpc.id,
  *         cidrBlock: subnets[range.value],
  *         mapPublicIpOnLaunch: false,
- *         availabilityZone: available.then(available => available.names[range.value]),
+ *         availabilityZone: available.then(available => available.names)[range.value],
  *         tags: {
  *             Name: "example-aws_cloudhsm_v2_cluster",
  *         },
@@ -198,51 +198,51 @@ export interface ClusterState {
     /**
      * The list of cluster certificates.
      */
-    clusterCertificates?: pulumi.Input<pulumi.Input<inputs.cloudhsmv2.ClusterClusterCertificate>[]>;
+    clusterCertificates?: pulumi.Input<pulumi.Input<inputs.cloudhsmv2.ClusterClusterCertificate>[] | undefined>;
     /**
      * The id of the CloudHSM cluster.
      */
-    clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * The state of the CloudHSM cluster.
      */
-    clusterState?: pulumi.Input<string>;
+    clusterState?: pulumi.Input<string | undefined>;
     /**
      * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      */
-    hsmType?: pulumi.Input<string>;
+    hsmType?: pulumi.Input<string | undefined>;
     /**
      * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
-    securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string | undefined>;
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      */
-    sourceBackupIdentifier?: pulumi.Input<string>;
+    sourceBackupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The IDs of subnets in which cluster will operate.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -256,15 +256,15 @@ export interface ClusterArgs {
     /**
      * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      */
-    sourceBackupIdentifier?: pulumi.Input<string>;
+    sourceBackupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The IDs of subnets in which cluster will operate.
      */
@@ -272,5 +272,5 @@ export interface ClusterArgs {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

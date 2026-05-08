@@ -130,23 +130,23 @@ export interface PreparedStatementState {
     /**
      * Brief explanation of prepared statement. Maximum length of 1024.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the prepared statement. Maximum length of 256.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query string for the prepared statement.
      */
-    queryStatement?: pulumi.Input<string>;
+    queryStatement?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */
-    workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -156,11 +156,11 @@ export interface PreparedStatementArgs {
     /**
      * Brief explanation of prepared statement. Maximum length of 1024.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the prepared statement. Maximum length of 256.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The query string for the prepared statement.
      */
@@ -168,7 +168,7 @@ export interface PreparedStatementArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the workgroup to which the prepared statement belongs.
      */

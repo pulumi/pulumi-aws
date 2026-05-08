@@ -108,15 +108,15 @@ export interface SingleScramSecretAssociationState {
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      */
-    clusterArn?: pulumi.Input<string>;
+    clusterArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS Secrets Manager secret ARN.
      */
-    secretArn?: pulumi.Input<string>;
+    secretArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -130,7 +130,7 @@ export interface SingleScramSecretAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * AWS Secrets Manager secret ARN.
      */

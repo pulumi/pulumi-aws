@@ -114,19 +114,19 @@ export interface ThingPrincipalAttachmentState {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the thing.
      */
-    thing?: pulumi.Input<string>;
+    thing?: pulumi.Input<string | undefined>;
     /**
      * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
      */
-    thingPrincipalType?: pulumi.Input<string>;
+    thingPrincipalType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface ThingPrincipalAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the thing.
      */
@@ -148,5 +148,5 @@ export interface ThingPrincipalAttachmentArgs {
     /**
      * The type of relationship to specify when attaching a principal to a thing. Valid values are `EXCLUSIVE_THING` (the thing will be the only one attached to the principal) or `NON_EXCLUSIVE_THING` (multiple things can be attached to the principal). Defaults to `NON_EXCLUSIVE_THING`.
      */
-    thingPrincipalType?: pulumi.Input<string>;
+    thingPrincipalType?: pulumi.Input<string | undefined>;
 }

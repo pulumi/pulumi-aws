@@ -110,8 +110,8 @@ def get_user_hierarchy_structure(instance_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_user_hierarchy_structure_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
     Provides details about a specific Amazon Connect User Hierarchy Structure

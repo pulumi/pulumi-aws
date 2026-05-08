@@ -111,24 +111,24 @@ export interface OptInState {
     /**
      * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInCondition>[] | undefined>;
     /**
      * Last modified date and time of the record.
      */
-    lastModified?: pulumi.Input<string>;
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string | undefined>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
      */
-    principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[]>;
+    principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Structure for the resource. See Resource for more details.
      */
-    resourceDatas?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInResourceData>[]>;
+    resourceDatas?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInResourceData>[] | undefined>;
 }
 
 /**
@@ -138,17 +138,17 @@ export interface OptInArgs {
     /**
      * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInCondition>[] | undefined>;
     /**
      * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
      */
-    principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[]>;
+    principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Structure for the resource. See Resource for more details.
      */
-    resourceDatas?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInResourceData>[]>;
+    resourceDatas?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInResourceData>[] | undefined>;
 }

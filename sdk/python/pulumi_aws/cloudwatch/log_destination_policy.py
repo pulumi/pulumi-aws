@@ -21,8 +21,8 @@ class LogDestinationPolicyArgs:
     def __init__(__self__, *,
                  access_policy: pulumi.Input[_builtins.str],
                  destination_name: pulumi.Input[_builtins.str],
-                 force_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 force_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDestinationPolicy resource.
 
@@ -64,36 +64,36 @@ class LogDestinationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
-    def force_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         """
         return pulumi.get(self, "force_update")
 
     @force_update.setter
-    def force_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_update", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LogDestinationPolicyState:
     def __init__(__self__, *,
-                 access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDestinationPolicy resources.
 
@@ -113,50 +113,50 @@ class _LogDestinationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
-    def access_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationName")
-    def destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the subscription filter
         """
         return pulumi.get(self, "destination_name")
 
     @destination_name.setter
-    def destination_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_name", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdate")
-    def force_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def force_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         """
         return pulumi.get(self, "force_update")
 
     @force_update.setter
-    def force_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def force_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_update", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -166,10 +166,10 @@ class LogDestinationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Logs destination policy resource.
@@ -271,10 +271,10 @@ class LogDestinationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 force_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,10 +302,10 @@ class LogDestinationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-            force_update: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'LogDestinationPolicy':
+            access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+            force_update: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogDestinationPolicy':
         """
         Get an existing LogDestinationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -97,7 +97,7 @@ def get_delegated_services(account_id: Optional[_builtins.str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         delegated_services=pulumi.get(__ret__, 'delegated_services'),
         id=pulumi.get(__ret__, 'id'))
-def get_delegated_services_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delegated_services_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedServicesResult]:
     """
     Get a list the AWS services for which the specified account is a delegated administrator

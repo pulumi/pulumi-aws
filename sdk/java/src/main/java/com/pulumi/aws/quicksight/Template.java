@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.quicksight.TemplateArgs;
  * import com.pulumi.aws.quicksight.inputs.TemplateSourceEntityArgs;
  * import com.pulumi.aws.quicksight.inputs.TemplateSourceEntitySourceTemplateArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Template;
  * import com.pulumi.aws.quicksight.TemplateArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -95,8 +95,8 @@ import javax.annotation.Nullable;
  *             .name("example-name")
  *             .versionDescription("version")
  *             .definition(Map.ofEntries(
- *                 Map.entry("dataSetConfigurations", List.of(Map.ofEntries(
- *                     Map.entry("dataSetSchema", Map.of("columnSchemaLists", List.of(                    
+ *                 Map.entry("dataSetConfigurations", Arrays.asList(Map.ofEntries(
+ *                     Map.entry("dataSetSchema", Map.of("columnSchemaLists", Arrays.asList(                    
  *                         Map.ofEntries(
  *                             Map.entry("name", "Column1"),
  *                             Map.entry("dataType", "STRING")
@@ -107,20 +107,20 @@ import javax.annotation.Nullable;
  *                         )))),
  *                     Map.entry("placeholder", "1")
  *                 ))),
- *                 Map.entry("sheets", List.of(Map.ofEntries(
+ *                 Map.entry("sheets", Arrays.asList(Map.ofEntries(
  *                     Map.entry("title", "Test"),
  *                     Map.entry("sheetId", "Test1"),
- *                     Map.entry("visuals", List.of(Map.of("barChartVisual", Map.ofEntries(
+ *                     Map.entry("visuals", Arrays.asList(Map.of("barChartVisual", Map.ofEntries(
  *                         Map.entry("visualId", "BarChart"),
  *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("barChartAggregatedFieldWells", Map.ofEntries(
- *                             Map.entry("categories", List.of(Map.of("categoricalDimensionField", Map.ofEntries(
+ *                             Map.entry("categories", Arrays.asList(Map.of("categoricalDimensionField", Map.ofEntries(
  *                                 Map.entry("fieldId", "1"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("columnName", "Column1"),
  *                                     Map.entry("dataSetIdentifier", "1")
  *                                 ))
  *                             )))),
- *                             Map.entry("values", List.of(Map.of("numericalMeasureField", Map.ofEntries(
+ *                             Map.entry("values", Arrays.asList(Map.of("numericalMeasureField", Map.ofEntries(
  *                                 Map.entry("fieldId", "2"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("columnName", "Column2"),

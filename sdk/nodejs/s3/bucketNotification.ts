@@ -379,27 +379,27 @@ export interface BucketNotificationState {
      *
      * The following arguments are optional:
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
-    eventbridge?: pulumi.Input<boolean>;
+    eventbridge?: pulumi.Input<boolean | undefined>;
     /**
      * Used to configure notifications to a Lambda Function. See below.
      */
-    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
+    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[] | undefined>;
     /**
      * Notification configuration to SQS Queue. See below.
      */
-    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
+    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Notification configuration to SNS Topic. See below.
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[] | undefined>;
 }
 
 /**
@@ -415,21 +415,21 @@ export interface BucketNotificationArgs {
     /**
      * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
-    eventbridge?: pulumi.Input<boolean>;
+    eventbridge?: pulumi.Input<boolean | undefined>;
     /**
      * Used to configure notifications to a Lambda Function. See below.
      */
-    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
+    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[] | undefined>;
     /**
      * Notification configuration to SQS Queue. See below.
      */
-    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
+    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Notification configuration to SNS Topic. See below.
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[] | undefined>;
 }

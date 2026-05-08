@@ -382,39 +382,39 @@ export interface LifecyclePolicyState {
     /**
      * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
      */
-    defaultPolicy?: pulumi.Input<string>;
+    defaultPolicy?: pulumi.Input<string | undefined>;
     /**
      * A description for the DLM lifecycle policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
+    policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -424,7 +424,7 @@ export interface LifecyclePolicyArgs {
     /**
      * Specify the type of default policy to create. valid values are `VOLUME` or `INSTANCE`.
      */
-    defaultPolicy?: pulumi.Input<string>;
+    defaultPolicy?: pulumi.Input<string | undefined>;
     /**
      * A description for the DLM lifecycle policy.
      */
@@ -440,13 +440,13 @@ export interface LifecyclePolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -208,9 +208,9 @@ def get_control(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         testing_information=pulumi.get(__ret__, 'testing_information'),
         type=pulumi.get(__ret__, 'type'))
-def get_control_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_control_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       type: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlResult]:
     """
     Data source for managing an AWS Audit Manager Control.

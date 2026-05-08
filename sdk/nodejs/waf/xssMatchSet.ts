@@ -118,15 +118,15 @@ export interface XssMatchSetState {
     /**
      * Amazon Resource Name (ARN)
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name or description of the SizeConstraintSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.XssMatchSetXssMatchTuple>[]>;
+    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.XssMatchSetXssMatchTuple>[] | undefined>;
 }
 
 /**
@@ -136,9 +136,9 @@ export interface XssMatchSetArgs {
     /**
      * The name or description of the SizeConstraintSet.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.XssMatchSetXssMatchTuple>[]>;
+    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.XssMatchSetXssMatchTuple>[] | undefined>;
 }

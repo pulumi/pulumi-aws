@@ -122,20 +122,20 @@ export interface FastSnapshotRestoreState {
     /**
      * Availability zone in which to enable fast snapshot restores.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the snapshot.
      */
-    snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string | undefined>;
     /**
      * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
      */
-    state?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts>;
+    state?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts | undefined>;
 }
 
 /**
@@ -149,10 +149,10 @@ export interface FastSnapshotRestoreArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the snapshot.
      */
     snapshotId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts>;
+    timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts | undefined>;
 }

@@ -136,9 +136,9 @@ def get_certificate(arn: Optional[_builtins.str] = None,
         certificate_chain=pulumi.get(__ret__, 'certificate_chain'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_certificate_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                           certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_certificate_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                           certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.

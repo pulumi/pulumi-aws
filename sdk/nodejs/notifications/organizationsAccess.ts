@@ -102,8 +102,8 @@ export interface OrganizationsAccessState {
     /**
      * Whether to enable organizations access for AWS User Notifications in AWS Organizations. When set to `true`, enables organizations access. When set to `false`, disables organizations access.
      */
-    enabled?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.notifications.OrganizationsAccessTimeouts>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.notifications.OrganizationsAccessTimeouts | undefined>;
 }
 
 /**
@@ -114,5 +114,5 @@ export interface OrganizationsAccessArgs {
      * Whether to enable organizations access for AWS User Notifications in AWS Organizations. When set to `true`, enables organizations access. When set to `false`, disables organizations access.
      */
     enabled: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.notifications.OrganizationsAccessTimeouts>;
+    timeouts?: pulumi.Input<inputs.notifications.OrganizationsAccessTimeouts | undefined>;
 }

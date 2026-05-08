@@ -129,23 +129,23 @@ export interface EnvironmentMembershipState {
     /**
      * The ID of the environment that contains the environment member you want to add.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      */
-    userArn?: pulumi.Input<string>;
+    userArn?: pulumi.Input<string | undefined>;
     /**
      * The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -163,7 +163,7 @@ export interface EnvironmentMembershipArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      */

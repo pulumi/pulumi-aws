@@ -190,9 +190,9 @@ def get_parameter(name: Optional[_builtins.str] = None,
         value=pulumi.get(__ret__, 'value'),
         version=pulumi.get(__ret__, 'version'),
         with_decryption=pulumi.get(__ret__, 'with_decryption'))
-def get_parameter_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         with_decryption: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_parameter_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         with_decryption: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterResult]:
     """
     Provides an SSM Parameter data source.

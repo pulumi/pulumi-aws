@@ -271,90 +271,90 @@ export interface WorkspaceState {
     /**
      * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      */
-    accountAccessType?: pulumi.Input<string>;
+    accountAccessType?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Grafana workspace.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
-    authenticationProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    authenticationProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      */
-    configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string | undefined>;
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
      */
-    dataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The workspace description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The endpoint of the Grafana workspace.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
      */
-    grafanaVersion?: pulumi.Input<string>;
+    grafanaVersion?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS KMS key for encrypting workspace data.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The Grafana workspace name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      */
-    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl>;
+    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl | undefined>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
-    notificationDestinations?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationDestinations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The role name that the workspace uses to access resources through Amazon Organizations.
      */
-    organizationRoleName?: pulumi.Input<string>;
+    organizationRoleName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      */
-    organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
+    organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      *
      * The following arguments are optional:
      */
-    permissionType?: pulumi.Input<string>;
+    permissionType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role ARN that the workspace assumes.
      */
-    roleArn?: pulumi.Input<string>;
-    samlConfigurationStatus?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
+    samlConfigurationStatus?: pulumi.Input<string | undefined>;
     /**
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
-    stackSetName?: pulumi.Input<string>;
+    stackSetName?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */
-    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration | undefined>;
 }
 
 /**
@@ -372,43 +372,43 @@ export interface WorkspaceArgs {
     /**
      * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      */
-    configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string | undefined>;
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
      */
-    dataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The workspace description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
      */
-    grafanaVersion?: pulumi.Input<string>;
+    grafanaVersion?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS KMS key for encrypting workspace data.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The Grafana workspace name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      */
-    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl>;
+    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl | undefined>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
-    notificationDestinations?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationDestinations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The role name that the workspace uses to access resources through Amazon Organizations.
      */
-    organizationRoleName?: pulumi.Input<string>;
+    organizationRoleName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      */
-    organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
+    organizationalUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      *
@@ -418,21 +418,21 @@ export interface WorkspaceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role ARN that the workspace assumes.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
-    stackSetName?: pulumi.Input<string>;
+    stackSetName?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */
-    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration | undefined>;
 }

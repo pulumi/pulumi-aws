@@ -241,9 +241,9 @@ def get_experience(experience_id: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_experience_output(experience_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          index_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_experience_output(experience_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          index_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperienceResult]:
     """
     Provides details about a specific Amazon Kendra Experience.

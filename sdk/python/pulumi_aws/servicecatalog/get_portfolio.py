@@ -179,10 +179,10 @@ def get_portfolio(accept_language: Optional[_builtins.str] = None,
         provider_name=pulumi.get(__ret__, 'provider_name'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         id: Optional[pulumi.Input[_builtins.str]] = None,
-                         region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_portfolio_output(accept_language: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         id: pulumi.Input[Optional[_builtins.str]] = None,
+                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioResult]:
     """
     Provides information for a Service Catalog Portfolio.

@@ -149,39 +149,39 @@ export interface HubState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Hub.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A description of the hub.
      */
-    hubDescription?: pulumi.Input<string>;
+    hubDescription?: pulumi.Input<string | undefined>;
     /**
      * The display name of the hub.
      */
-    hubDisplayName?: pulumi.Input<string>;
+    hubDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the hub.
      */
-    hubName?: pulumi.Input<string>;
+    hubName?: pulumi.Input<string | undefined>;
     /**
      * The searchable keywords for the hub.
      */
-    hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[]>;
+    hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
      */
-    s3StorageConfig?: pulumi.Input<inputs.sagemaker.HubS3StorageConfig>;
+    s3StorageConfig?: pulumi.Input<inputs.sagemaker.HubS3StorageConfig | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface HubArgs {
     /**
      * The display name of the hub.
      */
-    hubDisplayName?: pulumi.Input<string>;
+    hubDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the hub.
      */
@@ -203,17 +203,17 @@ export interface HubArgs {
     /**
      * The searchable keywords for the hub.
      */
-    hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[]>;
+    hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
      */
-    s3StorageConfig?: pulumi.Input<inputs.sagemaker.HubS3StorageConfig>;
+    s3StorageConfig?: pulumi.Input<inputs.sagemaker.HubS3StorageConfig | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -21,15 +21,15 @@ class SecurityGroupIngressRuleArgs:
     def __init__(__self__, *,
                  ip_protocol: pulumi.Input[_builtins.str],
                  security_group_id: pulumi.Input[_builtins.str],
-                 cidr_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 referenced_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 cidr_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 referenced_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityGroupIngressRule resource.
 
@@ -94,103 +94,103 @@ class SecurityGroupIngressRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="cidrIpv4")
-    def cidr_ipv4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_ipv4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source IPv4 CIDR range.
         """
         return pulumi.get(self, "cidr_ipv4")
 
     @cidr_ipv4.setter
-    def cidr_ipv4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_ipv4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrIpv6")
-    def cidr_ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source IPv6 CIDR range.
         """
         return pulumi.get(self, "cidr_ipv6")
 
     @cidr_ipv6.setter
-    def cidr_ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security group rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
-    def from_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_port", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
-    def prefix_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="referencedSecurityGroupId")
-    def referenced_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def referenced_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source security group that is referenced in the rule.
         """
         return pulumi.get(self, "referenced_security_group_id")
 
     @referenced_security_group_id.setter
-    def referenced_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def referenced_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "referenced_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 
@@ -199,27 +199,27 @@ class SecurityGroupIngressRuleArgs:
         return pulumi.get(self, "to_port")
 
     @to_port.setter
-    def to_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to_port", value)
 
 
 @pulumi.input_type
 class _SecurityGroupIngressRuleState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 referenced_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 referenced_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupIngressRule resources.
 
@@ -271,163 +271,163 @@ class _SecurityGroupIngressRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the security group rule.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrIpv4")
-    def cidr_ipv4(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_ipv4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source IPv4 CIDR range.
         """
         return pulumi.get(self, "cidr_ipv4")
 
     @cidr_ipv4.setter
-    def cidr_ipv4(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_ipv4(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrIpv6")
-    def cidr_ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source IPv6 CIDR range.
         """
         return pulumi.get(self, "cidr_ipv6")
 
     @cidr_ipv6.setter
-    def cidr_ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The security group rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
-    def from_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_port", value)
 
     @_builtins.property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         """
         return pulumi.get(self, "ip_protocol")
 
     @ip_protocol.setter
-    def ip_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixListId")
-    def prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source prefix list.
         """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
-    def prefix_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="referencedSecurityGroupId")
-    def referenced_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def referenced_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source security group that is referenced in the rule.
         """
         return pulumi.get(self, "referenced_security_group_id")
 
     @referenced_security_group_id.setter
-    def referenced_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def referenced_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "referenced_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security group.
         """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
-    def security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupRuleId")
-    def security_group_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_group_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security group rule.
         """
         return pulumi.get(self, "security_group_rule_id")
 
     @security_group_rule_id.setter
-    def security_group_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_group_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_group_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 
@@ -436,7 +436,7 @@ class _SecurityGroupIngressRuleState:
         return pulumi.get(self, "to_port")
 
     @to_port.setter
-    def to_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to_port", value)
 
 
@@ -446,17 +446,17 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 referenced_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 referenced_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages an inbound (ingress) rule for a security group.
@@ -595,17 +595,17 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 referenced_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 referenced_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -643,20 +643,20 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            cidr_ipv4: Optional[pulumi.Input[_builtins.str]] = None,
-            cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            from_port: Optional[pulumi.Input[_builtins.int]] = None,
-            ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-            referenced_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            security_group_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            to_port: Optional[pulumi.Input[_builtins.int]] = None) -> 'SecurityGroupIngressRule':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_ipv4: pulumi.Input[Optional[_builtins.str]] = None,
+            cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            from_port: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+            referenced_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            security_group_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            to_port: pulumi.Input[Optional[_builtins.int]] = None) -> 'SecurityGroupIngressRule':
         """
         Get an existing SecurityGroupIngressRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

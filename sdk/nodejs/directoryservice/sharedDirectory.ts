@@ -146,29 +146,29 @@ export interface SharedDirectoryState {
     /**
      * Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
-    sharedDirectoryId?: pulumi.Input<string>;
+    sharedDirectoryId?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      *
      * The following arguments are optional:
      */
-    target?: pulumi.Input<inputs.directoryservice.SharedDirectoryTarget>;
+    target?: pulumi.Input<inputs.directoryservice.SharedDirectoryTarget | undefined>;
 }
 
 /**
@@ -182,15 +182,15 @@ export interface SharedDirectoryArgs {
     /**
      * Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      *

@@ -302,79 +302,79 @@ export interface DirectoryState {
     /**
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      */
-    accessUrl?: pulumi.Input<string>;
+    accessUrl?: pulumi.Input<string | undefined>;
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings>;
+    connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings | undefined>;
     /**
      * A textual description for the directory.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      */
-    desiredNumberOfDomainControllers?: pulumi.Input<number>;
+    desiredNumberOfDomainControllers?: pulumi.Input<number | undefined>;
     /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      */
-    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
      */
-    enableDirectoryDataAccess?: pulumi.Input<boolean>;
+    enableDirectoryDataAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
-    enableSso?: pulumi.Input<boolean>;
+    enableSso?: pulumi.Input<boolean | undefined>;
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The password for the directory administrator or connector user.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the security group created by the directory.
      */
-    securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string | undefined>;
     /**
      * The short name of the directory, such as `CORP`.
      */
-    shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string | undefined>;
     /**
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      */
-    size?: pulumi.Input<string>;
+    size?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings>;
+    vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings | undefined>;
 }
 
 /**
@@ -384,31 +384,31 @@ export interface DirectoryArgs {
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enableSso`.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings>;
+    connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings | undefined>;
     /**
      * A textual description for the directory.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      */
-    desiredNumberOfDomainControllers?: pulumi.Input<number>;
+    desiredNumberOfDomainControllers?: pulumi.Input<number | undefined>;
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * Enables access to directory data via the Directory Service Data API for the specified directory. For more information, see [Directory Service Data API Reference](https://docs.aws.amazon.com/directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.html).
      */
-    enableDirectoryDataAccess?: pulumi.Input<boolean>;
+    enableDirectoryDataAccess?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      */
-    enableSso?: pulumi.Input<boolean>;
+    enableSso?: pulumi.Input<boolean | undefined>;
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      */
@@ -420,25 +420,25 @@ export interface DirectoryArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The short name of the directory, such as `CORP`.
      */
-    shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string | undefined>;
     /**
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      */
-    size?: pulumi.Input<string>;
+    size?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings>;
+    vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings | undefined>;
 }

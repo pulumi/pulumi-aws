@@ -128,21 +128,21 @@ export interface AgentcoreWorkloadIdentityState {
     /**
      * Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
      */
-    allowedResourceOauth2ReturnUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedResourceOauth2ReturnUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the Workload Identity.
      */
-    workloadIdentityArn?: pulumi.Input<string>;
+    workloadIdentityArn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,15 +152,15 @@ export interface AgentcoreWorkloadIdentityArgs {
     /**
      * Set of allowed OAuth2 return URLs for resources associated with this workload identity. These URLs are used as valid redirect targets during OAuth2 authentication flows.
      */
-    allowedResourceOauth2ReturnUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedResourceOauth2ReturnUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the workload identity. Must be 3-255 characters and contain only alphanumeric characters, hyphens, periods, and underscores.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

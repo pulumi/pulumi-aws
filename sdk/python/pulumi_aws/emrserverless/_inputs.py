@@ -54,7 +54,7 @@ __all__ = [
 ]
 
 class ApplicationAutoStartConfigurationArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables the application to automatically start on job submission. Defaults to `true`.
     """
@@ -62,7 +62,7 @@ class ApplicationAutoStartConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationAutoStartConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Enables the application to automatically start on job submission. Defaults to `true`.
         """
@@ -71,23 +71,23 @@ class ApplicationAutoStartConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the application to automatically start on job submission. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
 class ApplicationAutoStopConfigurationArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
     """
-    idle_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    idle_timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
     """
@@ -95,8 +95,8 @@ class ApplicationAutoStopConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationAutoStopConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idle_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idle_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
         :param pulumi.Input[_builtins.int] idle_timeout_minutes: The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
@@ -108,26 +108,26 @@ class ApplicationAutoStopConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutMinutes")
-    def idle_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
         """
         return pulumi.get(self, "idle_timeout_minutes")
 
     @idle_timeout_minutes.setter
-    def idle_timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout_minutes", value)
 
 
@@ -164,7 +164,7 @@ class ApplicationInitialCapacityArgsDict(TypedDict):
     """
     The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
     """
-    initial_capacity_config: NotRequired[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgsDict']]
+    initial_capacity_config: NotRequired[pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigArgs']]]
     """
     The initial capacity configuration per worker.
     """
@@ -173,7 +173,7 @@ class ApplicationInitialCapacityArgsDict(TypedDict):
 class ApplicationInitialCapacityArgs:
     def __init__(__self__, *,
                  initial_capacity_type: pulumi.Input[_builtins.str],
-                 initial_capacity_config: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']] = None):
+                 initial_capacity_config: pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] initial_capacity_type: The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
         :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs'] initial_capacity_config: The initial capacity configuration per worker.
@@ -196,14 +196,14 @@ class ApplicationInitialCapacityArgs:
 
     @_builtins.property
     @pulumi.getter(name="initialCapacityConfig")
-    def initial_capacity_config(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']]:
+    def initial_capacity_config(self) -> pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigArgs']]:
         """
         The initial capacity configuration per worker.
         """
         return pulumi.get(self, "initial_capacity_config")
 
     @initial_capacity_config.setter
-    def initial_capacity_config(self, value: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']]):
+    def initial_capacity_config(self, value: pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigArgs']]):
         pulumi.set(self, "initial_capacity_config", value)
 
 
@@ -212,7 +212,7 @@ class ApplicationInitialCapacityInitialCapacityConfigArgsDict(TypedDict):
     """
     The number of workers in the initial capacity configuration.
     """
-    worker_configuration: NotRequired[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict']]
+    worker_configuration: NotRequired[pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]]
     """
     The resource configuration of the initial capacity configuration.
     """
@@ -221,7 +221,7 @@ class ApplicationInitialCapacityInitialCapacityConfigArgsDict(TypedDict):
 class ApplicationInitialCapacityInitialCapacityConfigArgs:
     def __init__(__self__, *,
                  worker_count: pulumi.Input[_builtins.int],
-                 worker_configuration: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']] = None):
+                 worker_configuration: pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] worker_count: The number of workers in the initial capacity configuration.
         :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs'] worker_configuration: The resource configuration of the initial capacity configuration.
@@ -244,14 +244,14 @@ class ApplicationInitialCapacityInitialCapacityConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="workerConfiguration")
-    def worker_configuration(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]:
+    def worker_configuration(self) -> pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]:
         """
         The resource configuration of the initial capacity configuration.
         """
         return pulumi.get(self, "worker_configuration")
 
     @worker_configuration.setter
-    def worker_configuration(self, value: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]):
+    def worker_configuration(self, value: pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]):
         pulumi.set(self, "worker_configuration", value)
 
 
@@ -264,7 +264,7 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict
     """
     The memory requirements for every worker instance of the worker type.
     """
-    disk: NotRequired[pulumi.Input[_builtins.str]]
+    disk: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The disk requirements for every worker instance of the worker type.
     """
@@ -274,7 +274,7 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[_builtins.str],
                  memory: pulumi.Input[_builtins.str],
-                 disk: Optional[pulumi.Input[_builtins.str]] = None):
+                 disk: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cpu: The CPU requirements for every worker instance of the worker type.
         :param pulumi.Input[_builtins.str] memory: The memory requirements for every worker instance of the worker type.
@@ -311,23 +311,23 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disk(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The disk requirements for every worker instance of the worker type.
         """
         return pulumi.get(self, "disk")
 
     @disk.setter
-    def disk(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk", value)
 
 
 class ApplicationInteractiveConfigurationArgsDict(TypedDict):
-    livy_endpoint_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    livy_endpoint_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
     """
-    studio_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    studio_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
     """
@@ -335,8 +335,8 @@ class ApplicationInteractiveConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationInteractiveConfigurationArgs:
     def __init__(__self__, *,
-                 livy_endpoint_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 studio_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 livy_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 studio_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] livy_endpoint_enabled: Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
         :param pulumi.Input[_builtins.bool] studio_enabled: Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
@@ -348,46 +348,46 @@ class ApplicationInteractiveConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="livyEndpointEnabled")
-    def livy_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def livy_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
         """
         return pulumi.get(self, "livy_endpoint_enabled")
 
     @livy_endpoint_enabled.setter
-    def livy_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def livy_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "livy_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="studioEnabled")
-    def studio_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def studio_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
         """
         return pulumi.get(self, "studio_enabled")
 
     @studio_enabled.setter
-    def studio_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def studio_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "studio_enabled", value)
 
 
 class ApplicationJobLevelCostAllocationConfigurationArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class ApplicationJobLevelCostAllocationConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -400,7 +400,7 @@ class ApplicationMaximumCapacityArgsDict(TypedDict):
     """
     The maximum allowed resources for an application.
     """
-    disk: NotRequired[pulumi.Input[_builtins.str]]
+    disk: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum allowed disk for an application.
     """
@@ -410,7 +410,7 @@ class ApplicationMaximumCapacityArgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[_builtins.str],
                  memory: pulumi.Input[_builtins.str],
-                 disk: Optional[pulumi.Input[_builtins.str]] = None):
+                 disk: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cpu: The maximum allowed CPU for an application.
         :param pulumi.Input[_builtins.str] memory: The maximum allowed resources for an application.
@@ -447,31 +447,31 @@ class ApplicationMaximumCapacityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disk(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disk(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum allowed disk for an application.
         """
         return pulumi.get(self, "disk")
 
     @disk.setter
-    def disk(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disk(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disk", value)
 
 
 class ApplicationMonitoringConfigurationArgsDict(TypedDict):
-    cloudwatch_logging_configuration: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgsDict']]
+    cloudwatch_logging_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']]]
     """
     The Amazon CloudWatch configuration for monitoring logs.
     """
-    managed_persistence_monitoring_configuration: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgsDict']]
+    managed_persistence_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']]]
     """
     The managed log persistence configuration for monitoring logs.
     """
-    prometheus_monitoring_configuration: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgsDict']]
+    prometheus_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']]]
     """
     The Prometheus configuration for monitoring metrics.
     """
-    s3_monitoring_configuration: NotRequired[pulumi.Input['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgsDict']]
+    s3_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']]]
     """
     The Amazon S3 configuration for monitoring log publishing.
     """
@@ -479,10 +479,10 @@ class ApplicationMonitoringConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationMonitoringConfigurationArgs:
     def __init__(__self__, *,
-                 cloudwatch_logging_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']] = None,
-                 managed_persistence_monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']] = None,
-                 prometheus_monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']] = None,
-                 s3_monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']] = None):
+                 cloudwatch_logging_configuration: pulumi.Input[Optional['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']] = None,
+                 managed_persistence_monitoring_configuration: pulumi.Input[Optional['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']] = None,
+                 prometheus_monitoring_configuration: pulumi.Input[Optional['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']] = None,
+                 s3_monitoring_configuration: pulumi.Input[Optional['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']] = None):
         """
         :param pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs'] cloudwatch_logging_configuration: The Amazon CloudWatch configuration for monitoring logs.
         :param pulumi.Input['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs'] managed_persistence_monitoring_configuration: The managed log persistence configuration for monitoring logs.
@@ -500,50 +500,50 @@ class ApplicationMonitoringConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudwatchLoggingConfiguration")
-    def cloudwatch_logging_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']]:
+    def cloudwatch_logging_configuration(self) -> pulumi.Input[Optional['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']]:
         """
         The Amazon CloudWatch configuration for monitoring logs.
         """
         return pulumi.get(self, "cloudwatch_logging_configuration")
 
     @cloudwatch_logging_configuration.setter
-    def cloudwatch_logging_configuration(self, value: Optional[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']]):
+    def cloudwatch_logging_configuration(self, value: pulumi.Input[Optional['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']]):
         pulumi.set(self, "cloudwatch_logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="managedPersistenceMonitoringConfiguration")
-    def managed_persistence_monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']]:
+    def managed_persistence_monitoring_configuration(self) -> pulumi.Input[Optional['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']]:
         """
         The managed log persistence configuration for monitoring logs.
         """
         return pulumi.get(self, "managed_persistence_monitoring_configuration")
 
     @managed_persistence_monitoring_configuration.setter
-    def managed_persistence_monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']]):
+    def managed_persistence_monitoring_configuration(self, value: pulumi.Input[Optional['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']]):
         pulumi.set(self, "managed_persistence_monitoring_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="prometheusMonitoringConfiguration")
-    def prometheus_monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']]:
+    def prometheus_monitoring_configuration(self) -> pulumi.Input[Optional['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']]:
         """
         The Prometheus configuration for monitoring metrics.
         """
         return pulumi.get(self, "prometheus_monitoring_configuration")
 
     @prometheus_monitoring_configuration.setter
-    def prometheus_monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']]):
+    def prometheus_monitoring_configuration(self, value: pulumi.Input[Optional['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']]):
         pulumi.set(self, "prometheus_monitoring_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3MonitoringConfiguration")
-    def s3_monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']]:
+    def s3_monitoring_configuration(self) -> pulumi.Input[Optional['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']]:
         """
         The Amazon S3 configuration for monitoring log publishing.
         """
         return pulumi.get(self, "s3_monitoring_configuration")
 
     @s3_monitoring_configuration.setter
-    def s3_monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']]):
+    def s3_monitoring_configuration(self, value: pulumi.Input[Optional['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']]):
         pulumi.set(self, "s3_monitoring_configuration", value)
 
 
@@ -552,19 +552,19 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgsDict(T
     """
     Enables CloudWatch logging.
     """
-    encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
     """
-    log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
     """
-    log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    log_stream_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prefix for the CloudWatch log stream name.
     """
-    log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgsDict']]]]
+    log_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]]]
     """
     The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
     """
@@ -573,10 +573,10 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgsDict(T
 class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_stream_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_types: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]] = None):
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_stream_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_types: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Enables CloudWatch logging.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
@@ -608,50 +608,50 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
         """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logStreamNamePrefix")
-    def log_stream_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_stream_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prefix for the CloudWatch log stream name.
         """
         return pulumi.get(self, "log_stream_name_prefix")
 
     @log_stream_name_prefix.setter
-    def log_stream_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_stream_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_stream_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="logTypes")
-    def log_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]]:
+    def log_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]]:
         """
         The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
         """
         return pulumi.get(self, "log_types")
 
     @log_types.setter
-    def log_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]]):
+    def log_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]]):
         pulumi.set(self, "log_types", value)
 
 
@@ -703,11 +703,11 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArg
 
 
 class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgsDict(TypedDict):
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables managed log persistence for monitoring logs.
     """
-    encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The KMS key ARN to encrypt the logs stored in managed persistence.
     """
@@ -715,8 +715,8 @@ class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguratio
 @pulumi.input_type
 class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Enables managed log persistence for monitoring logs.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The KMS key ARN to encrypt the logs stored in managed persistence.
@@ -728,31 +728,31 @@ class ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfiguratio
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables managed log persistence for monitoring logs.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key ARN to encrypt the logs stored in managed persistence.
         """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
 
 class ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgsDict(TypedDict):
-    remote_write_url: NotRequired[pulumi.Input[_builtins.str]]
+    remote_write_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
     """
@@ -760,7 +760,7 @@ class ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgsDic
 @pulumi.input_type
 class ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs:
     def __init__(__self__, *,
-                 remote_write_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 remote_write_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] remote_write_url: The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
         """
@@ -769,23 +769,23 @@ class ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="remoteWriteUrl")
-    def remote_write_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_write_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Prometheus remote write URL for sending metrics. Only supported in EMR 7.1.0 and later versions.
         """
         return pulumi.get(self, "remote_write_url")
 
     @remote_write_url.setter
-    def remote_write_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_write_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_write_url", value)
 
 
 class ApplicationMonitoringConfigurationS3MonitoringConfigurationArgsDict(TypedDict):
-    encryption_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
     """
-    log_uri: NotRequired[pulumi.Input[_builtins.str]]
+    log_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 destination URI for log publishing.
     """
@@ -793,8 +793,8 @@ class ApplicationMonitoringConfigurationS3MonitoringConfigurationArgsDict(TypedD
 @pulumi.input_type
 class ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs:
     def __init__(__self__, *,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_key_arn: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
         :param pulumi.Input[_builtins.str] log_uri: The Amazon S3 destination URI for log publishing.
@@ -806,35 +806,35 @@ class ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
         """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="logUri")
-    def log_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 destination URI for log publishing.
         """
         return pulumi.get(self, "log_uri")
 
     @log_uri.setter
-    def log_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_uri", value)
 
 
 class ApplicationNetworkConfigurationArgsDict(TypedDict):
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The array of security group Ids for customer VPC connectivity.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The array of subnet Ids for customer VPC connectivity.
     """
@@ -842,8 +842,8 @@ class ApplicationNetworkConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The array of security group Ids for customer VPC connectivity.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The array of subnet Ids for customer VPC connectivity.
@@ -855,26 +855,26 @@ class ApplicationNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The array of security group Ids for customer VPC connectivity.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The array of subnet Ids for customer VPC connectivity.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -883,7 +883,7 @@ class ApplicationRuntimeConfigurationArgsDict(TypedDict):
     """
     The classification within a configuration.
     """
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A set of properties specified within a configuration classification.
     """
@@ -892,7 +892,7 @@ class ApplicationRuntimeConfigurationArgsDict(TypedDict):
 class ApplicationRuntimeConfigurationArgs:
     def __init__(__self__, *,
                  classification: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] classification: The classification within a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: A set of properties specified within a configuration classification.
@@ -915,23 +915,23 @@ class ApplicationRuntimeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A set of properties specified within a configuration classification.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
 
 class ApplicationSchedulerConfigurationArgsDict(TypedDict):
-    max_concurrent_runs: NotRequired[pulumi.Input[_builtins.int]]
+    max_concurrent_runs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
     """
-    queue_timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    queue_timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
     """
@@ -939,8 +939,8 @@ class ApplicationSchedulerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationSchedulerConfigurationArgs:
     def __init__(__self__, *,
-                 max_concurrent_runs: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_concurrent_runs: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
         :param pulumi.Input[_builtins.int] queue_timeout_minutes: Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
@@ -952,26 +952,26 @@ class ApplicationSchedulerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrentRuns")
-    def max_concurrent_runs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_concurrent_runs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum concurrent job runs on this application. Valid range is `1` to `1000`. Defaults to `15`.
         """
         return pulumi.get(self, "max_concurrent_runs")
 
     @max_concurrent_runs.setter
-    def max_concurrent_runs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_concurrent_runs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_runs", value)
 
     @_builtins.property
     @pulumi.getter(name="queueTimeoutMinutes")
-    def queue_timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def queue_timeout_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum duration in minutes for the job in QUEUED state. Valid range is from `15` to `720`. Defaults to `360`.
         """
         return pulumi.get(self, "queue_timeout_minutes")
 
     @queue_timeout_minutes.setter
-    def queue_timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def queue_timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "queue_timeout_minutes", value)
 
 

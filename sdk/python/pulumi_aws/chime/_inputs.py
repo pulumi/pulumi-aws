@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 class SdkvoiceGlobalSettingsVoiceConnectorArgsDict(TypedDict):
-    cdr_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    cdr_bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 bucket that stores the Voice Connector's call detail records.
     """
@@ -42,7 +42,7 @@ class SdkvoiceGlobalSettingsVoiceConnectorArgsDict(TypedDict):
 @pulumi.input_type
 class SdkvoiceGlobalSettingsVoiceConnectorArgs:
     def __init__(__self__, *,
-                 cdr_bucket: Optional[pulumi.Input[_builtins.str]] = None):
+                 cdr_bucket: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cdr_bucket: The S3 bucket that stores the Voice Connector's call detail records.
         """
@@ -51,14 +51,14 @@ class SdkvoiceGlobalSettingsVoiceConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="cdrBucket")
-    def cdr_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cdr_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 bucket that stores the Voice Connector's call detail records.
         """
         return pulumi.get(self, "cdr_bucket")
 
     @cdr_bucket.setter
-    def cdr_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cdr_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cdr_bucket", value)
 
 
@@ -254,7 +254,7 @@ class VoiceConnectorOriginationRouteArgsDict(TypedDict):
     """
     The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The designated origination route port. Defaults to `5060`.
     """
@@ -266,7 +266,7 @@ class VoiceConnectorOriginationRouteArgs:
                  priority: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
                  weight: pulumi.Input[_builtins.int],
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] host: The FQDN or IP address to contact for origination traffic.
         :param pulumi.Input[_builtins.int] priority: The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
@@ -331,23 +331,23 @@ class VoiceConnectorOriginationRouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The designated origination route port. Defaults to `5060`.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
 class VoiceConnectorStreamingMediaInsightsConfigurationArgsDict(TypedDict):
-    configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
+    configuration_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The media insights configuration that will be invoked by the Voice Connector.
     """
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     When `true`, the media insights configuration is not enabled. Defaults to `false`.
     """
@@ -355,8 +355,8 @@ class VoiceConnectorStreamingMediaInsightsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] configuration_arn: The media insights configuration that will be invoked by the Voice Connector.
         :param pulumi.Input[_builtins.bool] disabled: When `true`, the media insights configuration is not enabled. Defaults to `false`.
@@ -368,26 +368,26 @@ class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationArn")
-    def configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The media insights configuration that will be invoked by the Voice Connector.
         """
         return pulumi.get(self, "configuration_arn")
 
     @configuration_arn.setter
-    def configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When `true`, the media insights configuration is not enabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
 

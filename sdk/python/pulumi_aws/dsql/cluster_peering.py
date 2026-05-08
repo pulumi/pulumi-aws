@@ -24,8 +24,8 @@ class ClusterPeeringArgs:
                  clusters: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  identifier: pulumi.Input[_builtins.str],
                  witness_region: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['ClusterPeeringTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ClusterPeering resource.
 
@@ -80,34 +80,34 @@ class ClusterPeeringArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ClusterPeeringTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ClusterPeeringTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ClusterPeeringState:
     def __init__(__self__, *,
-                 clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']] = None,
-                 witness_region: Optional[pulumi.Input[_builtins.str]] = None):
+                 clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['ClusterPeeringTimeoutsArgs']] = None,
+                 witness_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterPeering resources.
 
@@ -129,59 +129,59 @@ class _ClusterPeeringState:
 
     @_builtins.property
     @pulumi.getter
-    def clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def clusters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of DSQL Cluster ARNs to be peered to this cluster.
         """
         return pulumi.get(self, "clusters")
 
     @clusters.setter
-    def clusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def clusters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "clusters", value)
 
     @_builtins.property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DSQL Cluster Identifier.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ClusterPeeringTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ClusterPeeringTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="witnessRegion")
-    def witness_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def witness_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Witness region for a multi-region cluster.
         """
         return pulumi.get(self, "witness_region")
 
     @witness_region.setter
-    def witness_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def witness_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "witness_region", value)
 
 
@@ -191,11 +191,11 @@ class ClusterPeering(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
-                 witness_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
+                 witness_region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Aurora DSQL Cluster Peering.
@@ -297,11 +297,11 @@ class ClusterPeering(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
-                 witness_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
+                 witness_region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -332,11 +332,11 @@ class ClusterPeering(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            clusters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
-            witness_region: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterPeering':
+            clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
+            witness_region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterPeering':
         """
         Get an existing ClusterPeering resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -99,7 +99,7 @@ def get_data_shares(region: Optional[_builtins.str] = None,
         data_shares=pulumi.get(__ret__, 'data_shares'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-def get_data_shares_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_data_shares_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSharesResult]:
     """
     Data source for managing AWS Redshift Data Shares.

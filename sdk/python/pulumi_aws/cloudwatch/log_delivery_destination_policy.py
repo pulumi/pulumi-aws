@@ -21,7 +21,7 @@ class LogDeliveryDestinationPolicyArgs:
     def __init__(__self__, *,
                  delivery_destination_name: pulumi.Input[_builtins.str],
                  delivery_destination_policy: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDeliveryDestinationPolicy resource.
 
@@ -60,23 +60,23 @@ class LogDeliveryDestinationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LogDeliveryDestinationPolicyState:
     def __init__(__self__, *,
-                 delivery_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 delivery_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogDeliveryDestinationPolicy resources.
 
@@ -93,38 +93,38 @@ class _LogDeliveryDestinationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationName")
-    def delivery_destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the delivery destination to assign this policy to.
         """
         return pulumi.get(self, "delivery_destination_name")
 
     @delivery_destination_name.setter
-    def delivery_destination_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_destination_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_destination_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contents of the policy.
         """
         return pulumi.get(self, "delivery_destination_policy")
 
     @delivery_destination_policy.setter
-    def delivery_destination_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_destination_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_destination_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -134,9 +134,9 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 delivery_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudWatch Logs Delivery Destination Policy.
@@ -215,9 +215,9 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_destination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 delivery_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,9 +244,9 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            delivery_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-            delivery_destination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'LogDeliveryDestinationPolicy':
+            delivery_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+            delivery_destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogDeliveryDestinationPolicy':
         """
         Get an existing LogDeliveryDestinationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

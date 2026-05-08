@@ -21,12 +21,12 @@ __all__ = ['ViewArgs', 'View']
 @pulumi.input_type
 class ViewArgs:
     def __init__(__self__, *,
-                 data_filter_expression: Optional[pulumi.Input['ViewDataFilterExpressionArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_views: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ViewTimeoutsArgs']] = None):
+                 data_filter_expression: pulumi.Input[Optional['ViewDataFilterExpressionArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ViewTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a View resource.
 
@@ -53,43 +53,43 @@ class ViewArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataFilterExpression")
-    def data_filter_expression(self) -> Optional[pulumi.Input['ViewDataFilterExpressionArgs']]:
+    def data_filter_expression(self) -> pulumi.Input[Optional['ViewDataFilterExpressionArgs']]:
         """
         Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
         """
         return pulumi.get(self, "data_filter_expression")
 
     @data_filter_expression.setter
-    def data_filter_expression(self, value: Optional[pulumi.Input['ViewDataFilterExpressionArgs']]):
+    def data_filter_expression(self, value: pulumi.Input[Optional['ViewDataFilterExpressionArgs']]):
         pulumi.set(self, "data_filter_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the custom billing view.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the custom billing view to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceViews")
-    def source_views(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_views(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ARNs of the source data views for the custom billing view.
 
@@ -98,50 +98,50 @@ class ViewArgs:
         return pulumi.get(self, "source_views")
 
     @source_views.setter
-    def source_views(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_views(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_views", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of key value map specifying tags associated to the billing view being created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ViewTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ViewTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ViewTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ViewTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ViewState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_view_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_filter_expression: Optional[pulumi.Input['ViewDataFilterExpressionArgs']] = None,
-                 derived_view_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_view_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_views: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ViewTimeoutsArgs']] = None,
-                 updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 view_definition_last_updated_at: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_view_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_filter_expression: pulumi.Input[Optional['ViewDataFilterExpressionArgs']] = None,
+                 derived_view_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_view_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ViewTimeoutsArgs']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_definition_last_updated_at: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering View resources.
 
@@ -198,127 +198,127 @@ class _ViewState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the View.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="billingViewType")
-    def billing_view_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_view_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
         """
         return pulumi.get(self, "billing_view_type")
 
     @billing_view_type.setter
-    def billing_view_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_view_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_view_type", value)
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the billing view was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFilterExpression")
-    def data_filter_expression(self) -> Optional[pulumi.Input['ViewDataFilterExpressionArgs']]:
+    def data_filter_expression(self) -> pulumi.Input[Optional['ViewDataFilterExpressionArgs']]:
         """
         Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
         """
         return pulumi.get(self, "data_filter_expression")
 
     @data_filter_expression.setter
-    def data_filter_expression(self, value: Optional[pulumi.Input['ViewDataFilterExpressionArgs']]):
+    def data_filter_expression(self, value: pulumi.Input[Optional['ViewDataFilterExpressionArgs']]):
         pulumi.set(self, "data_filter_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="derivedViewCount")
-    def derived_view_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def derived_view_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of billing views that use this billing view as a source.
         """
         return pulumi.get(self, "derived_view_count")
 
     @derived_view_count.setter
-    def derived_view_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def derived_view_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "derived_view_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the custom billing view.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the custom billing view to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
-    def owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account owner of the billing view.
         """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
-    def owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAccountId")
-    def source_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID that owns the source billing view, if this is a derived billing view.
         """
         return pulumi.get(self, "source_account_id")
 
     @source_account_id.setter
-    def source_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceViewCount")
-    def source_view_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def source_view_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of source views associated with this billing view.
         """
         return pulumi.get(self, "source_view_count")
 
     @source_view_count.setter
-    def source_view_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def source_view_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "source_view_count", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceViews")
-    def source_views(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def source_views(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ARNs of the source data views for the custom billing view.
 
@@ -327,64 +327,64 @@ class _ViewState:
         return pulumi.get(self, "source_views")
 
     @source_views.setter
-    def source_views(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def source_views(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "source_views", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of key value map specifying tags associated to the billing view being created.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         List of key value map specifying tags associated to the billing view.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ViewTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ViewTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ViewTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ViewTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time when the billing view was last updated.
         """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_at", value)
 
     @_builtins.property
     @pulumi.getter(name="viewDefinitionLastUpdatedAt")
-    def view_definition_last_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def view_definition_last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of when the billing view definition was last updated.
         """
         return pulumi.get(self, "view_definition_last_updated_at")
 
     @view_definition_last_updated_at.setter
-    def view_definition_last_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def view_definition_last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "view_definition_last_updated_at", value)
 
 
@@ -394,12 +394,12 @@ class View(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_filter_expression: Optional[pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_views: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
+                 data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS Billing View.
@@ -484,12 +484,12 @@ class View(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_filter_expression: Optional[pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_views: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
+                 data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -525,22 +525,22 @@ class View(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            billing_view_type: Optional[pulumi.Input[_builtins.str]] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            data_filter_expression: Optional[pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
-            derived_view_count: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_view_count: Optional[pulumi.Input[_builtins.int]] = None,
-            source_views: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
-            updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-            view_definition_last_updated_at: Optional[pulumi.Input[_builtins.str]] = None) -> 'View':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            billing_view_type: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
+            derived_view_count: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_view_count: pulumi.Input[Optional[_builtins.int]] = None,
+            source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            view_definition_last_updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'View':
         """
         Get an existing View resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -170,23 +170,23 @@ export interface ManagedPolicyAttachmentState {
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
      */
-    managedPolicyArn?: pulumi.Input<string>;
+    managedPolicyArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the IAM Managed Policy.
      */
-    managedPolicyName?: pulumi.Input<string>;
+    managedPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -208,5 +208,5 @@ export interface ManagedPolicyAttachmentArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -130,29 +130,29 @@ export interface DataShareAuthorizationState {
     /**
      * Whether to allow write operations for a datashare.
      */
-    allowWrites?: pulumi.Input<boolean>;
+    allowWrites?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
      */
-    consumerIdentifier?: pulumi.Input<string>;
+    consumerIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
      *
      * The following arguments are optional:
      */
-    dataShareArn?: pulumi.Input<string>;
+    dataShareArn?: pulumi.Input<string | undefined>;
     /**
      * Identifier of a datashare to show its managing entity.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the producer.
      */
-    producerArn?: pulumi.Input<string>;
+    producerArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface DataShareAuthorizationArgs {
     /**
      * Whether to allow write operations for a datashare.
      */
-    allowWrites?: pulumi.Input<boolean>;
+    allowWrites?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
      */
@@ -176,5 +176,5 @@ export interface DataShareAuthorizationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

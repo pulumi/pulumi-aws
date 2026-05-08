@@ -215,58 +215,58 @@ export interface CollaborationState {
     /**
      * Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
      */
-    analyticsEngine?: pulumi.Input<string>;
+    analyticsEngine?: pulumi.Input<string | undefined>;
     /**
      * ARN of the collaboration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date and time the collaboration was created.
      */
-    createTime?: pulumi.Input<string>;
+    createTime?: pulumi.Input<string | undefined>;
     /**
      * Name for the member record for the collaboration creator.
      */
-    creatorDisplayName?: pulumi.Input<string>;
+    creatorDisplayName?: pulumi.Input<string | undefined>;
     /**
      * List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      */
-    creatorMemberAbilities?: pulumi.Input<pulumi.Input<string>[]>;
+    creatorMemberAbilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
      */
-    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadata>;
+    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
     /**
      * Description for a collaboration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Additional members of the collaboration which will be invited to join the collaboration. See below.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMember>[] | undefined>;
     /**
      * Name of the collaboration.  Collaboration names do not need to be unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      *
      * The following arguments are optional:
      */
-    queryLogStatus?: pulumi.Input<string>;
+    queryLogStatus?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key value pairs which tag the collaboration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Date and time the collaboration was last updated.
      */
-    updateTime?: pulumi.Input<string>;
+    updateTime?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -276,7 +276,7 @@ export interface CollaborationArgs {
     /**
      * Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
      */
-    analyticsEngine?: pulumi.Input<string>;
+    analyticsEngine?: pulumi.Input<string | undefined>;
     /**
      * Name for the member record for the collaboration creator.
      */
@@ -288,7 +288,7 @@ export interface CollaborationArgs {
     /**
      * Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
      */
-    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadata>;
+    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
     /**
      * Description for a collaboration.
      */
@@ -296,11 +296,11 @@ export interface CollaborationArgs {
     /**
      * Additional members of the collaboration which will be invited to join the collaboration. See below.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMember>[] | undefined>;
     /**
      * Name of the collaboration.  Collaboration names do not need to be unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      *
@@ -310,9 +310,9 @@ export interface CollaborationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key value pairs which tag the collaboration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

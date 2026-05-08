@@ -192,8 +192,8 @@ def get_account(account_id: Optional[_builtins.str] = None,
         parent_id=pulumi.get(__ret__, 'parent_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_account_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                       tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_account_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get information about an account in an organization.

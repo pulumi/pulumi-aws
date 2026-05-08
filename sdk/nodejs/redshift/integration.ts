@@ -258,50 +258,50 @@ export interface IntegrationState {
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
      * You can only include this parameter if you specify the `kmsKeyId` parameter.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the Integration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the integration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the integration.
      */
-    integrationName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string | undefined>;
     /**
      * KMS key identifier for the key to use to encrypt the integration.
      * If you don't specify an encryption key, Redshift uses a default AWS owned key.
      * You can only include this parameter if `sourceArn` references a DynamoDB table.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
      */
-    sourceArn?: pulumi.Input<string>;
+    sourceArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the Redshift data warehouse to use as the target for replication.
      *
      * The following arguments are optional:
      */
-    targetArn?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.redshift.IntegrationTimeouts>;
+    targetArn?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.redshift.IntegrationTimeouts | undefined>;
 }
 
 /**
@@ -313,11 +313,11 @@ export interface IntegrationArgs {
      * For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
      * You can only include this parameter if you specify the `kmsKeyId` parameter.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Description of the integration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the integration.
      */
@@ -327,11 +327,11 @@ export interface IntegrationArgs {
      * If you don't specify an encryption key, Redshift uses a default AWS owned key.
      * You can only include this parameter if `sourceArn` references a DynamoDB table.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
      */
@@ -341,12 +341,12 @@ export interface IntegrationArgs {
      *
      * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/redshift/create-integration.html).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the Redshift data warehouse to use as the target for replication.
      *
      * The following arguments are optional:
      */
     targetArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.redshift.IntegrationTimeouts>;
+    timeouts?: pulumi.Input<inputs.redshift.IntegrationTimeouts | undefined>;
 }

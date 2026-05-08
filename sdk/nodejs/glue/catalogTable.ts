@@ -340,77 +340,77 @@ export interface CatalogTableState {
     /**
      * The ARN of the Glue Table.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      *
      * The following arguments are optional:
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Description of the table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for open table formats. See `openTableFormatInput` below.
      */
-    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput>;
+    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput | undefined>;
     /**
      * Owner of the table.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
+    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[] | undefined>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Retention time for this table.
      */
-    retention?: pulumi.Input<number>;
+    retention?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor | undefined>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
-    tableType?: pulumi.Input<string>;
+    tableType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
+    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable | undefined>;
     /**
      * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      */
-    viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition>;
+    viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition | undefined>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
-    viewExpandedText?: pulumi.Input<string>;
+    viewExpandedText?: pulumi.Input<string | undefined>;
     /**
      * If the table is a view, the original text of the view; otherwise null.
      */
-    viewOriginalText?: pulumi.Input<string>;
+    viewOriginalText?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -420,7 +420,7 @@ export interface CatalogTableArgs {
     /**
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
-    catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      *
@@ -430,61 +430,61 @@ export interface CatalogTableArgs {
     /**
      * Description of the table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for open table formats. See `openTableFormatInput` below.
      */
-    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput>;
+    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput | undefined>;
     /**
      * Owner of the table.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Properties associated with this table, as a list of key-value pairs.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
+    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[] | undefined>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Retention time for this table.
      */
-    retention?: pulumi.Input<number>;
+    retention?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor | undefined>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
-    tableType?: pulumi.Input<string>;
+    tableType?: pulumi.Input<string | undefined>;
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
+    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable | undefined>;
     /**
      * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      */
-    viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition>;
+    viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition | undefined>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
-    viewExpandedText?: pulumi.Input<string>;
+    viewExpandedText?: pulumi.Input<string | undefined>;
     /**
      * If the table is a view, the original text of the view; otherwise null.
      */
-    viewOriginalText?: pulumi.Input<string>;
+    viewOriginalText?: pulumi.Input<string | undefined>;
 }

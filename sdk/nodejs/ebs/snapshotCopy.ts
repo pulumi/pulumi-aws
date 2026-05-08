@@ -206,73 +206,73 @@ export interface SnapshotCopyState {
     /**
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
      */
-    completionDurationMinutes?: pulumi.Input<number>;
+    completionDurationMinutes?: pulumi.Input<number | undefined>;
     /**
      * The data encryption key identifier for the snapshot.
      */
-    dataEncryptionKeyId?: pulumi.Input<string>;
+    dataEncryptionKeyId?: pulumi.Input<string | undefined>;
     /**
      * A description of what the snapshot is.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the snapshot is encrypted.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN for the KMS encryption key.
      */
-    kmsKeyId?: pulumi.Input<string>;
-    outpostArn?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
+    outpostArn?: pulumi.Input<string | undefined>;
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      */
-    ownerAlias?: pulumi.Input<string>;
+    ownerAlias?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID of the snapshot owner.
      */
-    ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to permanently restore an archived snapshot.
      */
-    permanentRestore?: pulumi.Input<boolean>;
+    permanentRestore?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The region of the source snapshot.
      */
-    sourceRegion?: pulumi.Input<string>;
+    sourceRegion?: pulumi.Input<string | undefined>;
     /**
      * The ARN for the snapshot to be copied.
      */
-    sourceSnapshotId?: pulumi.Input<string>;
+    sourceSnapshotId?: pulumi.Input<string | undefined>;
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
-    storageTier?: pulumi.Input<string>;
+    storageTier?: pulumi.Input<string | undefined>;
     /**
      * A map of tags for the snapshot.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      */
-    temporaryRestoreDays?: pulumi.Input<number>;
-    volumeId?: pulumi.Input<string>;
+    temporaryRestoreDays?: pulumi.Input<number | undefined>;
+    volumeId?: pulumi.Input<string | undefined>;
     /**
      * The size of the drive in GiBs.
      */
-    volumeSize?: pulumi.Input<number>;
+    volumeSize?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -282,27 +282,27 @@ export interface SnapshotCopyArgs {
     /**
      * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
      */
-    completionDurationMinutes?: pulumi.Input<number>;
+    completionDurationMinutes?: pulumi.Input<number | undefined>;
     /**
      * A description of what the snapshot is.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether the snapshot is encrypted.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN for the KMS encryption key.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to permanently restore an archived snapshot.
      */
-    permanentRestore?: pulumi.Input<boolean>;
+    permanentRestore?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The region of the source snapshot.
      */
@@ -314,13 +314,13 @@ export interface SnapshotCopyArgs {
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      */
-    storageTier?: pulumi.Input<string>;
+    storageTier?: pulumi.Input<string | undefined>;
     /**
      * A map of tags for the snapshot.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      */
-    temporaryRestoreDays?: pulumi.Input<number>;
+    temporaryRestoreDays?: pulumi.Input<number | undefined>;
 }

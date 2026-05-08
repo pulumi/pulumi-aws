@@ -114,18 +114,18 @@ export interface EndpointServicePrivateDnsVerificationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the endpoint service.
      *
      * The following arguments are optional:
      */
-    serviceId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.vpc.EndpointServicePrivateDnsVerificationTimeouts>;
+    serviceId?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.vpc.EndpointServicePrivateDnsVerificationTimeouts | undefined>;
     /**
      * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
      */
-    waitForVerification?: pulumi.Input<boolean>;
+    waitForVerification?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -135,16 +135,16 @@ export interface EndpointServicePrivateDnsVerificationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ID of the endpoint service.
      *
      * The following arguments are optional:
      */
     serviceId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.vpc.EndpointServicePrivateDnsVerificationTimeouts>;
+    timeouts?: pulumi.Input<inputs.vpc.EndpointServicePrivateDnsVerificationTimeouts | undefined>;
     /**
      * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
      */
-    waitForVerification?: pulumi.Input<boolean>;
+    waitForVerification?: pulumi.Input<boolean | undefined>;
 }

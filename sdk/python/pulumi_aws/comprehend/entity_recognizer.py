@@ -24,14 +24,14 @@ class EntityRecognizerArgs:
                  data_access_role_arn: pulumi.Input[_builtins.str],
                  input_data_config: pulumi.Input['EntityRecognizerInputDataConfigArgs'],
                  language_code: pulumi.Input[_builtins.str],
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None):
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional['EntityRecognizerVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a EntityRecognizer resource.
 
@@ -123,19 +123,19 @@ class EntityRecognizerArgs:
 
     @_builtins.property
     @pulumi.getter(name="modelKmsKeyId")
-    def model_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
         """
         return pulumi.get(self, "model_kms_key_id")
 
     @model_kms_key_id.setter
-    def model_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the Entity Recognizer.
         Has a maximum length of 63 characters.
@@ -146,36 +146,36 @@ class EntityRecognizerArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the version of the Entity Recognizer.
         Each version must have a unique name within the Entity Recognizer.
@@ -188,12 +188,12 @@ class EntityRecognizerArgs:
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionNamePrefix")
-    def version_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique version name beginning with the specified prefix.
         Has a maximum length of 37 characters.
@@ -203,24 +203,24 @@ class EntityRecognizerArgs:
         return pulumi.get(self, "version_name_prefix")
 
     @version_name_prefix.setter
-    def version_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeKmsKeyId")
-    def volume_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
     @volume_kms_key_id.setter
-    def volume_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['EntityRecognizerVpcConfigArgs']]:
         """
         Configuration parameters for VPC to contain Entity Recognizer resources.
         See the `vpc_config` Configuration Block section below.
@@ -228,26 +228,26 @@ class EntityRecognizerArgs:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['EntityRecognizerVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
 class _EntityRecognizerState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_data_config: Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']] = None,
-                 language_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_data_config: pulumi.Input[Optional['EntityRecognizerInputDataConfigArgs']] = None,
+                 language_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional['EntityRecognizerVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering EntityRecognizer resources.
 
@@ -310,31 +310,31 @@ class _EntityRecognizerState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Entity Recognizer version.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dataAccessRoleArn")
-    def data_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         """
         return pulumi.get(self, "data_access_role_arn")
 
     @data_access_role_arn.setter
-    def data_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="inputDataConfig")
-    def input_data_config(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']]:
+    def input_data_config(self) -> pulumi.Input[Optional['EntityRecognizerInputDataConfigArgs']]:
         """
         Configuration for the training and testing data.
         See the `input_data_config` Configuration Block section below.
@@ -342,12 +342,12 @@ class _EntityRecognizerState:
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
-    def input_data_config(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']]):
+    def input_data_config(self, value: pulumi.Input[Optional['EntityRecognizerInputDataConfigArgs']]):
         pulumi.set(self, "input_data_config", value)
 
     @_builtins.property
     @pulumi.getter(name="languageCode")
-    def language_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Two-letter language code for the language.
         One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -355,24 +355,24 @@ class _EntityRecognizerState:
         return pulumi.get(self, "language_code")
 
     @language_code.setter
-    def language_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language_code", value)
 
     @_builtins.property
     @pulumi.getter(name="modelKmsKeyId")
-    def model_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
         """
         return pulumi.get(self, "model_kms_key_id")
 
     @model_kms_key_id.setter
-    def model_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the Entity Recognizer.
         Has a maximum length of 63 characters.
@@ -383,48 +383,48 @@ class _EntityRecognizerState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the version of the Entity Recognizer.
         Each version must have a unique name within the Entity Recognizer.
@@ -437,12 +437,12 @@ class _EntityRecognizerState:
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionNamePrefix")
-    def version_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Creates a unique version name beginning with the specified prefix.
         Has a maximum length of 37 characters.
@@ -452,24 +452,24 @@ class _EntityRecognizerState:
         return pulumi.get(self, "version_name_prefix")
 
     @version_name_prefix.setter
-    def version_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeKmsKeyId")
-    def volume_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
     @volume_kms_key_id.setter
-    def volume_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['EntityRecognizerVpcConfigArgs']]:
         """
         Configuration parameters for VPC to contain Entity Recognizer resources.
         See the `vpc_config` Configuration Block section below.
@@ -477,7 +477,7 @@ class _EntityRecognizerState:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['EntityRecognizerVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -487,17 +487,17 @@ class EntityRecognizer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_data_config: Optional[pulumi.Input[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
-                 language_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None,
+                 data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
+                 language_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Comprehend Entity Recognizer.
@@ -652,17 +652,17 @@ class EntityRecognizer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_data_config: Optional[pulumi.Input[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
-                 language_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None,
+                 data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
+                 language_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -701,19 +701,19 @@ class EntityRecognizer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            input_data_config: Optional[pulumi.Input[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
-            language_code: Optional[pulumi.Input[_builtins.str]] = None,
-            model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            version_name: Optional[pulumi.Input[_builtins.str]] = None,
-            version_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            vpc_config: Optional[pulumi.Input[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None) -> 'EntityRecognizer':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
+            language_code: pulumi.Input[Optional[_builtins.str]] = None,
+            model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            version_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None) -> 'EntityRecognizer':
         """
         Get an existing EntityRecognizer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

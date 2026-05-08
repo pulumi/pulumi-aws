@@ -19,15 +19,15 @@ __all__ = ['AccountPasswordPolicyArgs', 'AccountPasswordPolicy']
 @pulumi.input_type
 class AccountPasswordPolicyArgs:
     def __init__(__self__, *,
-                 allow_users_to_change_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_expiry: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_password_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reuse_prevention: Optional[pulumi.Input[_builtins.int]] = None,
-                 require_lowercase_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_numbers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_symbols: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_uppercase_characters: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_users_to_change_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_password_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reuse_prevention: pulumi.Input[Optional[_builtins.int]] = None,
+                 require_lowercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_numbers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_symbols: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_uppercase_characters: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AccountPasswordPolicy resource.
 
@@ -62,126 +62,126 @@ class AccountPasswordPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowUsersToChangePassword")
-    def allow_users_to_change_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_users_to_change_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow users to change their own password
         """
         return pulumi.get(self, "allow_users_to_change_password")
 
     @allow_users_to_change_password.setter
-    def allow_users_to_change_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_users_to_change_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_users_to_change_password", value)
 
     @_builtins.property
     @pulumi.getter(name="hardExpiry")
-    def hard_expiry(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_expiry(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         """
         return pulumi.get(self, "hard_expiry")
 
     @hard_expiry.setter
-    def hard_expiry(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_expiry(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPasswordAge")
-    def max_password_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_password_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that an user password is valid.
         """
         return pulumi.get(self, "max_password_age")
 
     @max_password_age.setter
-    def max_password_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_password_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_password_age", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumPasswordLength")
-    def minimum_password_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_password_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum length to require for user passwords.
         """
         return pulumi.get(self, "minimum_password_length")
 
     @minimum_password_length.setter
-    def minimum_password_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_password_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_password_length", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordReusePrevention")
-    def password_reuse_prevention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_reuse_prevention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of previous passwords that users are prevented from reusing.
         """
         return pulumi.get(self, "password_reuse_prevention")
 
     @password_reuse_prevention.setter
-    def password_reuse_prevention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_reuse_prevention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_reuse_prevention", value)
 
     @_builtins.property
     @pulumi.getter(name="requireLowercaseCharacters")
-    def require_lowercase_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_lowercase_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require lowercase characters for user passwords.
         """
         return pulumi.get(self, "require_lowercase_characters")
 
     @require_lowercase_characters.setter
-    def require_lowercase_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_lowercase_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_lowercase_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="requireNumbers")
-    def require_numbers(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_numbers(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require numbers for user passwords.
         """
         return pulumi.get(self, "require_numbers")
 
     @require_numbers.setter
-    def require_numbers(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_numbers(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_numbers", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSymbols")
-    def require_symbols(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_symbols(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require symbols for user passwords.
         """
         return pulumi.get(self, "require_symbols")
 
     @require_symbols.setter
-    def require_symbols(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_symbols(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_symbols", value)
 
     @_builtins.property
     @pulumi.getter(name="requireUppercaseCharacters")
-    def require_uppercase_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_uppercase_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require uppercase characters for user passwords.
         """
         return pulumi.get(self, "require_uppercase_characters")
 
     @require_uppercase_characters.setter
-    def require_uppercase_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_uppercase_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_uppercase_characters", value)
 
 
 @pulumi.input_type
 class _AccountPasswordPolicyState:
     def __init__(__self__, *,
-                 allow_users_to_change_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expire_passwords: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_expiry: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_password_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reuse_prevention: Optional[pulumi.Input[_builtins.int]] = None,
-                 require_lowercase_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_numbers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_symbols: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_uppercase_characters: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_users_to_change_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expire_passwords: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_password_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reuse_prevention: pulumi.Input[Optional[_builtins.int]] = None,
+                 require_lowercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_numbers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_symbols: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_uppercase_characters: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AccountPasswordPolicy resources.
 
@@ -219,122 +219,122 @@ class _AccountPasswordPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="allowUsersToChangePassword")
-    def allow_users_to_change_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_users_to_change_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow users to change their own password
         """
         return pulumi.get(self, "allow_users_to_change_password")
 
     @allow_users_to_change_password.setter
-    def allow_users_to_change_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_users_to_change_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_users_to_change_password", value)
 
     @_builtins.property
     @pulumi.getter(name="expirePasswords")
-    def expire_passwords(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expire_passwords(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         """
         return pulumi.get(self, "expire_passwords")
 
     @expire_passwords.setter
-    def expire_passwords(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expire_passwords(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expire_passwords", value)
 
     @_builtins.property
     @pulumi.getter(name="hardExpiry")
-    def hard_expiry(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hard_expiry(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         """
         return pulumi.get(self, "hard_expiry")
 
     @hard_expiry.setter
-    def hard_expiry(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hard_expiry(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hard_expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="maxPasswordAge")
-    def max_password_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_password_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that an user password is valid.
         """
         return pulumi.get(self, "max_password_age")
 
     @max_password_age.setter
-    def max_password_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_password_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_password_age", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumPasswordLength")
-    def minimum_password_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_password_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum length to require for user passwords.
         """
         return pulumi.get(self, "minimum_password_length")
 
     @minimum_password_length.setter
-    def minimum_password_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_password_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_password_length", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordReusePrevention")
-    def password_reuse_prevention(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_reuse_prevention(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of previous passwords that users are prevented from reusing.
         """
         return pulumi.get(self, "password_reuse_prevention")
 
     @password_reuse_prevention.setter
-    def password_reuse_prevention(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_reuse_prevention(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_reuse_prevention", value)
 
     @_builtins.property
     @pulumi.getter(name="requireLowercaseCharacters")
-    def require_lowercase_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_lowercase_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require lowercase characters for user passwords.
         """
         return pulumi.get(self, "require_lowercase_characters")
 
     @require_lowercase_characters.setter
-    def require_lowercase_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_lowercase_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_lowercase_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="requireNumbers")
-    def require_numbers(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_numbers(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require numbers for user passwords.
         """
         return pulumi.get(self, "require_numbers")
 
     @require_numbers.setter
-    def require_numbers(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_numbers(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_numbers", value)
 
     @_builtins.property
     @pulumi.getter(name="requireSymbols")
-    def require_symbols(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_symbols(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require symbols for user passwords.
         """
         return pulumi.get(self, "require_symbols")
 
     @require_symbols.setter
-    def require_symbols(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_symbols(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_symbols", value)
 
     @_builtins.property
     @pulumi.getter(name="requireUppercaseCharacters")
-    def require_uppercase_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def require_uppercase_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to require uppercase characters for user passwords.
         """
         return pulumi.get(self, "require_uppercase_characters")
 
     @require_uppercase_characters.setter
-    def require_uppercase_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def require_uppercase_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "require_uppercase_characters", value)
 
 
@@ -344,15 +344,15 @@ class AccountPasswordPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_users_to_change_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_expiry: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_password_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reuse_prevention: Optional[pulumi.Input[_builtins.int]] = None,
-                 require_lowercase_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_numbers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_symbols: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_uppercase_characters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_users_to_change_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_password_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reuse_prevention: pulumi.Input[Optional[_builtins.int]] = None,
+                 require_lowercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_numbers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_symbols: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_uppercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
@@ -449,15 +449,15 @@ class AccountPasswordPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_users_to_change_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hard_expiry: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_password_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_password_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_reuse_prevention: Optional[pulumi.Input[_builtins.int]] = None,
-                 require_lowercase_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_numbers: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_symbols: Optional[pulumi.Input[_builtins.bool]] = None,
-                 require_uppercase_characters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_users_to_change_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hard_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_password_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_password_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_reuse_prevention: pulumi.Input[Optional[_builtins.int]] = None,
+                 require_lowercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_numbers: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_symbols: pulumi.Input[Optional[_builtins.bool]] = None,
+                 require_uppercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -487,16 +487,16 @@ class AccountPasswordPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_users_to_change_password: Optional[pulumi.Input[_builtins.bool]] = None,
-            expire_passwords: Optional[pulumi.Input[_builtins.bool]] = None,
-            hard_expiry: Optional[pulumi.Input[_builtins.bool]] = None,
-            max_password_age: Optional[pulumi.Input[_builtins.int]] = None,
-            minimum_password_length: Optional[pulumi.Input[_builtins.int]] = None,
-            password_reuse_prevention: Optional[pulumi.Input[_builtins.int]] = None,
-            require_lowercase_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-            require_numbers: Optional[pulumi.Input[_builtins.bool]] = None,
-            require_symbols: Optional[pulumi.Input[_builtins.bool]] = None,
-            require_uppercase_characters: Optional[pulumi.Input[_builtins.bool]] = None) -> 'AccountPasswordPolicy':
+            allow_users_to_change_password: pulumi.Input[Optional[_builtins.bool]] = None,
+            expire_passwords: pulumi.Input[Optional[_builtins.bool]] = None,
+            hard_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+            max_password_age: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_password_length: pulumi.Input[Optional[_builtins.int]] = None,
+            password_reuse_prevention: pulumi.Input[Optional[_builtins.int]] = None,
+            require_lowercase_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_numbers: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_symbols: pulumi.Input[Optional[_builtins.bool]] = None,
+            require_uppercase_characters: pulumi.Input[Optional[_builtins.bool]] = None) -> 'AccountPasswordPolicy':
         """
         Get an existing AccountPasswordPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

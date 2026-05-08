@@ -24,15 +24,15 @@ class TableArgs:
                  keyspace_name: pulumi.Input[_builtins.str],
                  schema_definition: pulumi.Input['TableSchemaDefinitionArgs'],
                  table_name: pulumi.Input[_builtins.str],
-                 capacity_specification: Optional[pulumi.Input['TableCapacitySpecificationArgs']] = None,
-                 client_side_timestamps: Optional[pulumi.Input['TableClientSideTimestampsArgs']] = None,
-                 comment: Optional[pulumi.Input['TableCommentArgs']] = None,
-                 default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
-                 point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input['TableTtlArgs']] = None):
+                 capacity_specification: pulumi.Input[Optional['TableCapacitySpecificationArgs']] = None,
+                 client_side_timestamps: pulumi.Input[Optional['TableClientSideTimestampsArgs']] = None,
+                 comment: pulumi.Input[Optional['TableCommentArgs']] = None,
+                 default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_specification: pulumi.Input[Optional['TableEncryptionSpecificationArgs']] = None,
+                 point_in_time_recovery: pulumi.Input[Optional['TablePointInTimeRecoveryArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional['TableTtlArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -113,130 +113,130 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacitySpecification")
-    def capacity_specification(self) -> Optional[pulumi.Input['TableCapacitySpecificationArgs']]:
+    def capacity_specification(self) -> pulumi.Input[Optional['TableCapacitySpecificationArgs']]:
         """
         Specifies the read/write throughput capacity mode for the table.
         """
         return pulumi.get(self, "capacity_specification")
 
     @capacity_specification.setter
-    def capacity_specification(self, value: Optional[pulumi.Input['TableCapacitySpecificationArgs']]):
+    def capacity_specification(self, value: pulumi.Input[Optional['TableCapacitySpecificationArgs']]):
         pulumi.set(self, "capacity_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSideTimestamps")
-    def client_side_timestamps(self) -> Optional[pulumi.Input['TableClientSideTimestampsArgs']]:
+    def client_side_timestamps(self) -> pulumi.Input[Optional['TableClientSideTimestampsArgs']]:
         """
         Enables client-side timestamps for the table. By default, the setting is disabled.
         """
         return pulumi.get(self, "client_side_timestamps")
 
     @client_side_timestamps.setter
-    def client_side_timestamps(self, value: Optional[pulumi.Input['TableClientSideTimestampsArgs']]):
+    def client_side_timestamps(self, value: pulumi.Input[Optional['TableClientSideTimestampsArgs']]):
         pulumi.set(self, "client_side_timestamps", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input['TableCommentArgs']]:
+    def comment(self) -> pulumi.Input[Optional['TableCommentArgs']]:
         """
         A description of the table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input['TableCommentArgs']]):
+    def comment(self, value: pulumi.Input[Optional['TableCommentArgs']]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeToLive")
-    def default_time_to_live(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         """
         return pulumi.get(self, "default_time_to_live")
 
     @default_time_to_live.setter
-    def default_time_to_live(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_time_to_live(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_time_to_live", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSpecification")
-    def encryption_specification(self) -> Optional[pulumi.Input['TableEncryptionSpecificationArgs']]:
+    def encryption_specification(self) -> pulumi.Input[Optional['TableEncryptionSpecificationArgs']]:
         """
         Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         """
         return pulumi.get(self, "encryption_specification")
 
     @encryption_specification.setter
-    def encryption_specification(self, value: Optional[pulumi.Input['TableEncryptionSpecificationArgs']]):
+    def encryption_specification(self, value: pulumi.Input[Optional['TableEncryptionSpecificationArgs']]):
         pulumi.set(self, "encryption_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRecovery")
-    def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
+    def point_in_time_recovery(self) -> pulumi.Input[Optional['TablePointInTimeRecoveryArgs']]:
         """
         Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         """
         return pulumi.get(self, "point_in_time_recovery")
 
     @point_in_time_recovery.setter
-    def point_in_time_recovery(self, value: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]):
+    def point_in_time_recovery(self, value: pulumi.Input[Optional['TablePointInTimeRecoveryArgs']]):
         pulumi.set(self, "point_in_time_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
+    def ttl(self) -> pulumi.Input[Optional['TableTtlArgs']]:
         """
         Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input['TableTtlArgs']]):
+    def ttl(self, value: pulumi.Input[Optional['TableTtlArgs']]):
         pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type
 class _TableState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 capacity_specification: Optional[pulumi.Input['TableCapacitySpecificationArgs']] = None,
-                 client_side_timestamps: Optional[pulumi.Input['TableClientSideTimestampsArgs']] = None,
-                 comment: Optional[pulumi.Input['TableCommentArgs']] = None,
-                 default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_definition: Optional[pulumi.Input['TableSchemaDefinitionArgs']] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input['TableTtlArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_specification: pulumi.Input[Optional['TableCapacitySpecificationArgs']] = None,
+                 client_side_timestamps: pulumi.Input[Optional['TableClientSideTimestampsArgs']] = None,
+                 comment: pulumi.Input[Optional['TableCommentArgs']] = None,
+                 default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_specification: pulumi.Input[Optional['TableEncryptionSpecificationArgs']] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 point_in_time_recovery: pulumi.Input[Optional['TablePointInTimeRecoveryArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_definition: pulumi.Input[Optional['TableSchemaDefinitionArgs']] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional['TableTtlArgs']] = None):
         """
         Input properties used for looking up and filtering Table resources.
 
@@ -288,127 +288,127 @@ class _TableState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the table.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="capacitySpecification")
-    def capacity_specification(self) -> Optional[pulumi.Input['TableCapacitySpecificationArgs']]:
+    def capacity_specification(self) -> pulumi.Input[Optional['TableCapacitySpecificationArgs']]:
         """
         Specifies the read/write throughput capacity mode for the table.
         """
         return pulumi.get(self, "capacity_specification")
 
     @capacity_specification.setter
-    def capacity_specification(self, value: Optional[pulumi.Input['TableCapacitySpecificationArgs']]):
+    def capacity_specification(self, value: pulumi.Input[Optional['TableCapacitySpecificationArgs']]):
         pulumi.set(self, "capacity_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSideTimestamps")
-    def client_side_timestamps(self) -> Optional[pulumi.Input['TableClientSideTimestampsArgs']]:
+    def client_side_timestamps(self) -> pulumi.Input[Optional['TableClientSideTimestampsArgs']]:
         """
         Enables client-side timestamps for the table. By default, the setting is disabled.
         """
         return pulumi.get(self, "client_side_timestamps")
 
     @client_side_timestamps.setter
-    def client_side_timestamps(self, value: Optional[pulumi.Input['TableClientSideTimestampsArgs']]):
+    def client_side_timestamps(self, value: pulumi.Input[Optional['TableClientSideTimestampsArgs']]):
         pulumi.set(self, "client_side_timestamps", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input['TableCommentArgs']]:
+    def comment(self) -> pulumi.Input[Optional['TableCommentArgs']]:
         """
         A description of the table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input['TableCommentArgs']]):
+    def comment(self, value: pulumi.Input[Optional['TableCommentArgs']]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTimeToLive")
-    def default_time_to_live(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def default_time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         """
         return pulumi.get(self, "default_time_to_live")
 
     @default_time_to_live.setter
-    def default_time_to_live(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def default_time_to_live(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "default_time_to_live", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSpecification")
-    def encryption_specification(self) -> Optional[pulumi.Input['TableEncryptionSpecificationArgs']]:
+    def encryption_specification(self) -> pulumi.Input[Optional['TableEncryptionSpecificationArgs']]:
         """
         Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         """
         return pulumi.get(self, "encryption_specification")
 
     @encryption_specification.setter
-    def encryption_specification(self, value: Optional[pulumi.Input['TableEncryptionSpecificationArgs']]):
+    def encryption_specification(self, value: pulumi.Input[Optional['TableEncryptionSpecificationArgs']]):
         pulumi.set(self, "encryption_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="keyspaceName")
-    def keyspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keyspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the keyspace that the table is going to be created in.
         """
         return pulumi.get(self, "keyspace_name")
 
     @keyspace_name.setter
-    def keyspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keyspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keyspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pointInTimeRecovery")
-    def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
+    def point_in_time_recovery(self) -> pulumi.Input[Optional['TablePointInTimeRecoveryArgs']]:
         """
         Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         """
         return pulumi.get(self, "point_in_time_recovery")
 
     @point_in_time_recovery.setter
-    def point_in_time_recovery(self, value: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]):
+    def point_in_time_recovery(self, value: pulumi.Input[Optional['TablePointInTimeRecoveryArgs']]):
         pulumi.set(self, "point_in_time_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
-    def schema_definition(self) -> Optional[pulumi.Input['TableSchemaDefinitionArgs']]:
+    def schema_definition(self) -> pulumi.Input[Optional['TableSchemaDefinitionArgs']]:
         """
         Describes the schema of the table.
         """
         return pulumi.get(self, "schema_definition")
 
     @schema_definition.setter
-    def schema_definition(self, value: Optional[pulumi.Input['TableSchemaDefinitionArgs']]):
+    def schema_definition(self, value: pulumi.Input[Optional['TableSchemaDefinitionArgs']]):
         pulumi.set(self, "schema_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the table.
 
@@ -417,43 +417,43 @@ class _TableState:
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
+    def ttl(self) -> pulumi.Input[Optional['TableTtlArgs']]:
         """
         Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input['TableTtlArgs']]):
+    def ttl(self, value: pulumi.Input[Optional['TableTtlArgs']]):
         pulumi.set(self, "ttl", value)
 
 
@@ -463,18 +463,18 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_specification: Optional[pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
-                 client_side_timestamps: Optional[pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
-                 comment: Optional[pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
-                 default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
+                 capacity_specification: pulumi.Input[Optional[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
+                 client_side_timestamps: pulumi.Input[Optional[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
+                 default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 point_in_time_recovery: pulumi.Input[Optional[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_definition: pulumi.Input[Optional[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Keyspaces Table.
@@ -582,18 +582,18 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_specification: Optional[pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
-                 client_side_timestamps: Optional[pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
-                 comment: Optional[pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
-                 default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
-                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
+                 capacity_specification: pulumi.Input[Optional[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
+                 client_side_timestamps: pulumi.Input[Optional[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
+                 default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
+                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 point_in_time_recovery: pulumi.Input[Optional[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_definition: pulumi.Input[Optional[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ttl: pulumi.Input[Optional[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -633,20 +633,20 @@ class Table(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            capacity_specification: Optional[pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
-            client_side_timestamps: Optional[pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
-            comment: Optional[pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
-            default_time_to_live: Optional[pulumi.Input[_builtins.int]] = None,
-            encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
-            keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-            point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
-            table_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None) -> 'Table':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            capacity_specification: pulumi.Input[Optional[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
+            client_side_timestamps: pulumi.Input[Optional[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
+            comment: pulumi.Input[Optional[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
+            default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
+            encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
+            keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+            point_in_time_recovery: pulumi.Input[Optional[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_definition: pulumi.Input[Optional[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            ttl: pulumi.Input[Optional[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

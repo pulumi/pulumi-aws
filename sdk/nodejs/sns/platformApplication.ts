@@ -217,65 +217,65 @@ export interface PlatformApplicationState {
     /**
      * The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
      */
-    applePlatformBundleId?: pulumi.Input<string>;
+    applePlatformBundleId?: pulumi.Input<string | undefined>;
     /**
      * The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
      */
-    applePlatformTeamId?: pulumi.Input<string>;
+    applePlatformTeamId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS platform application
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    eventDeliveryFailureTopicArn?: pulumi.Input<string>;
+    eventDeliveryFailureTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    eventEndpointCreatedTopicArn?: pulumi.Input<string>;
+    eventEndpointCreatedTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    eventEndpointDeletedTopicArn?: pulumi.Input<string>;
+    eventEndpointDeletedTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
+    eventEndpointUpdatedTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
-    failureFeedbackRoleArn?: pulumi.Input<string>;
+    failureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The friendly name for the SNS platform application
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    platformCredential?: pulumi.Input<string>;
+    platformCredential?: pulumi.Input<string | undefined>;
     /**
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    platformPrincipal?: pulumi.Input<string>;
+    platformPrincipal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
-    successFeedbackRoleArn?: pulumi.Input<string>;
+    successFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
      *
      * The following attributes are needed only when using APNS token credentials:
      */
-    successFeedbackSampleRate?: pulumi.Input<string>;
+    successFeedbackSampleRate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -285,35 +285,35 @@ export interface PlatformApplicationArgs {
     /**
      * The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
      */
-    applePlatformBundleId?: pulumi.Input<string>;
+    applePlatformBundleId?: pulumi.Input<string | undefined>;
     /**
      * The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
      */
-    applePlatformTeamId?: pulumi.Input<string>;
+    applePlatformTeamId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    eventDeliveryFailureTopicArn?: pulumi.Input<string>;
+    eventDeliveryFailureTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    eventEndpointCreatedTopicArn?: pulumi.Input<string>;
+    eventEndpointCreatedTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    eventEndpointDeletedTopicArn?: pulumi.Input<string>;
+    eventEndpointDeletedTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
+    eventEndpointUpdatedTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
-    failureFeedbackRoleArn?: pulumi.Input<string>;
+    failureFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The friendly name for the SNS platform application
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
@@ -325,19 +325,19 @@ export interface PlatformApplicationArgs {
     /**
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    platformPrincipal?: pulumi.Input<string>;
+    platformPrincipal?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
-    successFeedbackRoleArn?: pulumi.Input<string>;
+    successFeedbackRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
      *
      * The following attributes are needed only when using APNS token credentials:
      */
-    successFeedbackSampleRate?: pulumi.Input<string>;
+    successFeedbackSampleRate?: pulumi.Input<string | undefined>;
 }

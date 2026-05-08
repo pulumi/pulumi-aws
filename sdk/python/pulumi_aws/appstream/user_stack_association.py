@@ -22,8 +22,8 @@ class UserStackAssociationArgs:
                  authentication_type: pulumi.Input[_builtins.str],
                  stack_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserStackAssociation resource.
 
@@ -83,37 +83,37 @@ class UserStackAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailNotification")
-    def send_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
-    def send_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_notification", value)
 
 
 @pulumi.input_type
 class _UserStackAssociationState:
     def __init__(__self__, *,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserStackAssociation resources.
 
@@ -138,55 +138,55 @@ class _UserStackAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication type for the user.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailNotification")
-    def send_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
-    def send_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="stackName")
-    def stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the stack that is associated with the user.
         """
         return pulumi.get(self, "stack_name")
 
     @stack_name.setter
-    def stack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the user who is associated with the stack.
 
@@ -195,7 +195,7 @@ class _UserStackAssociationState:
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -205,11 +205,11 @@ class UserStackAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AppStream User Stack association.
@@ -298,11 +298,11 @@ class UserStackAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,11 +333,11 @@ class UserStackAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_type: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            send_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-            stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserStackAssociation':
+            authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            send_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserStackAssociation':
         """
         Get an existing UserStackAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

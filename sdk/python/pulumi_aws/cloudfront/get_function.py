@@ -203,8 +203,8 @@ def get_function(name: Optional[_builtins.str] = None,
         runtime=pulumi.get(__ret__, 'runtime'),
         stage=pulumi.get(__ret__, 'stage'),
         status=pulumi.get(__ret__, 'status'))
-def get_function_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                        stage: Optional[pulumi.Input[_builtins.str]] = None,
+def get_function_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                        stage: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Provides information about a CloudFront Function.

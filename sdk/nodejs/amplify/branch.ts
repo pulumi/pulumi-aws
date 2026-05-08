@@ -338,103 +338,103 @@ export interface BranchState {
     /**
      * Unique ID for an Amplify app.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * ARN for the branch.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A list of custom resources that are linked to this branch.
      */
-    associatedResources?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN for a backend environment that is part of an Amplify app.
      */
-    backendEnvironmentArn?: pulumi.Input<string>;
+    backendEnvironmentArn?: pulumi.Input<string | undefined>;
     /**
      * Basic authorization credentials for the branch.
      */
-    basicAuthCredentials?: pulumi.Input<string>;
+    basicAuthCredentials?: pulumi.Input<string | undefined>;
     /**
      * Name for the branch.
      */
-    branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string | undefined>;
     /**
      * Custom domains for the branch.
      */
-    customDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    customDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description for the branch.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Destination branch if the branch is a pull request branch.
      */
-    destinationBranch?: pulumi.Input<string>;
+    destinationBranch?: pulumi.Input<string | undefined>;
     /**
      * Display name for a branch. This is used as the default domain prefix.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Enables auto building for the branch.
      */
-    enableAutoBuild?: pulumi.Input<boolean>;
+    enableAutoBuild?: pulumi.Input<boolean | undefined>;
     /**
      * Enables basic authorization for the branch.
      */
-    enableBasicAuth?: pulumi.Input<boolean>;
+    enableBasicAuth?: pulumi.Input<boolean | undefined>;
     /**
      * Enables notifications for the branch.
      */
-    enableNotification?: pulumi.Input<boolean>;
+    enableNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Enables performance mode for the branch.
      */
-    enablePerformanceMode?: pulumi.Input<boolean>;
+    enablePerformanceMode?: pulumi.Input<boolean | undefined>;
     /**
      * Enables pull request previews for this branch.
      */
-    enablePullRequestPreview?: pulumi.Input<boolean>;
+    enablePullRequestPreview?: pulumi.Input<boolean | undefined>;
     /**
      * Enables skew protection for the branch.
      */
-    enableSkewProtection?: pulumi.Input<boolean>;
+    enableSkewProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Environment variables for the branch.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Framework for the branch.
      */
-    framework?: pulumi.Input<string>;
+    framework?: pulumi.Input<string | undefined>;
     /**
      * Amplify environment name for the pull request.
      */
-    pullRequestEnvironmentName?: pulumi.Input<string>;
+    pullRequestEnvironmentName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Source branch if the branch is a pull request branch.
      */
-    sourceBranch?: pulumi.Input<string>;
+    sourceBranch?: pulumi.Input<string | undefined>;
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Content Time To Live (TTL) for the website in seconds.
      */
-    ttl?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -448,11 +448,11 @@ export interface BranchArgs {
     /**
      * ARN for a backend environment that is part of an Amplify app.
      */
-    backendEnvironmentArn?: pulumi.Input<string>;
+    backendEnvironmentArn?: pulumi.Input<string | undefined>;
     /**
      * Basic authorization credentials for the branch.
      */
-    basicAuthCredentials?: pulumi.Input<string>;
+    basicAuthCredentials?: pulumi.Input<string | undefined>;
     /**
      * Name for the branch.
      */
@@ -460,61 +460,61 @@ export interface BranchArgs {
     /**
      * Description for the branch.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Display name for a branch. This is used as the default domain prefix.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Enables auto building for the branch.
      */
-    enableAutoBuild?: pulumi.Input<boolean>;
+    enableAutoBuild?: pulumi.Input<boolean | undefined>;
     /**
      * Enables basic authorization for the branch.
      */
-    enableBasicAuth?: pulumi.Input<boolean>;
+    enableBasicAuth?: pulumi.Input<boolean | undefined>;
     /**
      * Enables notifications for the branch.
      */
-    enableNotification?: pulumi.Input<boolean>;
+    enableNotification?: pulumi.Input<boolean | undefined>;
     /**
      * Enables performance mode for the branch.
      */
-    enablePerformanceMode?: pulumi.Input<boolean>;
+    enablePerformanceMode?: pulumi.Input<boolean | undefined>;
     /**
      * Enables pull request previews for this branch.
      */
-    enablePullRequestPreview?: pulumi.Input<boolean>;
+    enablePullRequestPreview?: pulumi.Input<boolean | undefined>;
     /**
      * Enables skew protection for the branch.
      */
-    enableSkewProtection?: pulumi.Input<boolean>;
+    enableSkewProtection?: pulumi.Input<boolean | undefined>;
     /**
      * Environment variables for the branch.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Framework for the branch.
      */
-    framework?: pulumi.Input<string>;
+    framework?: pulumi.Input<string | undefined>;
     /**
      * Amplify environment name for the pull request.
      */
-    pullRequestEnvironmentName?: pulumi.Input<string>;
+    pullRequestEnvironmentName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Content Time To Live (TTL) for the website in seconds.
      */
-    ttl?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string | undefined>;
 }

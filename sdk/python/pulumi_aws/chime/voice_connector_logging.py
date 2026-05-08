@@ -20,9 +20,9 @@ __all__ = ['VoiceConnectorLoggingArgs', 'VoiceConnectorLogging']
 class VoiceConnectorLoggingArgs:
     def __init__(__self__, *,
                  voice_connector_id: pulumi.Input[_builtins.str],
-                 enable_media_metric_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sip_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_media_metric_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sip_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VoiceConnectorLogging resource.
 
@@ -53,48 +53,48 @@ class VoiceConnectorLoggingArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableMediaMetricLogs")
-    def enable_media_metric_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_media_metric_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         """
         return pulumi.get(self, "enable_media_metric_logs")
 
     @enable_media_metric_logs.setter
-    def enable_media_metric_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_media_metric_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_media_metric_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSipLogs")
-    def enable_sip_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_sip_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "enable_sip_logs")
 
     @enable_sip_logs.setter
-    def enable_sip_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_sip_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_sip_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _VoiceConnectorLoggingState:
     def __init__(__self__, *,
-                 enable_media_metric_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sip_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_media_metric_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sip_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorLogging resources.
 
@@ -114,50 +114,50 @@ class _VoiceConnectorLoggingState:
 
     @_builtins.property
     @pulumi.getter(name="enableMediaMetricLogs")
-    def enable_media_metric_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_media_metric_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         """
         return pulumi.get(self, "enable_media_metric_logs")
 
     @enable_media_metric_logs.setter
-    def enable_media_metric_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_media_metric_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_media_metric_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSipLogs")
-    def enable_sip_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_sip_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "enable_sip_logs")
 
     @enable_sip_logs.setter
-    def enable_sip_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_sip_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_sip_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="voiceConnectorId")
-    def voice_connector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def voice_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Chime Voice Connector ID.
         """
         return pulumi.get(self, "voice_connector_id")
 
     @voice_connector_id.setter
-    def voice_connector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def voice_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "voice_connector_id", value)
 
 
@@ -167,10 +167,10 @@ class VoiceConnectorLogging(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_media_metric_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sip_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_media_metric_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sip_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
@@ -254,10 +254,10 @@ class VoiceConnectorLogging(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_media_metric_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_sip_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_media_metric_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_sip_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,10 +283,10 @@ class VoiceConnectorLogging(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enable_media_metric_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_sip_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            voice_connector_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'VoiceConnectorLogging':
+            enable_media_metric_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_sip_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            voice_connector_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VoiceConnectorLogging':
         """
         Get an existing VoiceConnectorLogging resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

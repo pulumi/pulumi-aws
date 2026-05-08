@@ -168,10 +168,10 @@ def get_alias(description: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         routing_configurations=pulumi.get(__ret__, 'routing_configurations'),
         statemachine_arn=pulumi.get(__ret__, 'statemachine_arn'))
-def get_alias_output(description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     name: Optional[pulumi.Input[_builtins.str]] = None,
-                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     statemachine_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alias_output(description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     name: pulumi.Input[Optional[_builtins.str]] = None,
+                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     statemachine_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Data source for managing an AWS SFN (Step Functions) State Machine Alias.

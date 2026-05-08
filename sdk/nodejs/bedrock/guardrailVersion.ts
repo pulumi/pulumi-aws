@@ -128,26 +128,26 @@ export interface GuardrailVersionState {
     /**
      * Description of the Guardrail version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Guardrail ARN.
      *
      * The following arguments are optional:
      */
-    guardrailArn?: pulumi.Input<string>;
+    guardrailArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      */
-    skipDestroy?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts | undefined>;
     /**
      * Guardrail version.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface GuardrailVersionArgs {
     /**
      * Description of the Guardrail version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Guardrail ARN.
      *
@@ -167,10 +167,10 @@ export interface GuardrailVersionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      */
-    skipDestroy?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.GuardrailVersionTimeouts | undefined>;
 }

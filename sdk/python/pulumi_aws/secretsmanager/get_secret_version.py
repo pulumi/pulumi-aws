@@ -212,10 +212,10 @@ def get_secret_version(region: Optional[_builtins.str] = None,
         version_id=pulumi.get(__ret__, 'version_id'),
         version_stage=pulumi.get(__ret__, 'version_stage'),
         version_stages=pulumi.get(__ret__, 'version_stages'))
-def get_secret_version_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              secret_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              version_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              version_stage: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_secret_version_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              version_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              version_stage: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionResult]:
     """
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.

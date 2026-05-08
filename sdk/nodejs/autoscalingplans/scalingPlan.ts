@@ -218,23 +218,23 @@ export interface ScalingPlanState {
     /**
      * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      */
-    applicationSource?: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
+    applicationSource?: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource | undefined>;
     /**
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
-    scalingInstructions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
+    scalingInstructions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[] | undefined>;
     /**
      * The version number of the scaling plan. This value is always 1.
      */
-    scalingPlanVersion?: pulumi.Input<number>;
+    scalingPlanVersion?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -248,11 +248,11 @@ export interface ScalingPlanArgs {
     /**
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */

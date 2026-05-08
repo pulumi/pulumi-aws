@@ -157,39 +157,39 @@ export interface PlanState {
     /**
      * An object that specifies backup options for each resource type.
      */
-    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[] | undefined>;
     /**
      * The ARN of the backup plan.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The display name of a backup plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[] | undefined>;
     /**
      * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
      */
-    scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[]>;
+    scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[] | undefined>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,15 +199,15 @@ export interface PlanArgs {
     /**
      * An object that specifies backup options for each resource type.
      */
-    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[] | undefined>;
     /**
      * The display name of a backup plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
@@ -215,9 +215,9 @@ export interface PlanArgs {
     /**
      * Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental. Detailed below.
      */
-    scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[]>;
+    scanSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanScanSetting>[] | undefined>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

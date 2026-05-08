@@ -161,40 +161,40 @@ export interface DevicePoolState {
     /**
      * The Amazon Resource Name of this Device Pool
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The device pool's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The number of devices that Device Farm can add to your device pool.
      */
-    maxDevices?: pulumi.Input<number>;
+    maxDevices?: pulumi.Input<number | undefined>;
     /**
      * The name of the Device Pool
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the project for the device pool.
      */
-    projectArn?: pulumi.Input<string>;
+    projectArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The device pool's rules. See Rule.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRule>[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    type?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -204,15 +204,15 @@ export interface DevicePoolArgs {
     /**
      * The device pool's description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The number of devices that Device Farm can add to your device pool.
      */
-    maxDevices?: pulumi.Input<number>;
+    maxDevices?: pulumi.Input<number | undefined>;
     /**
      * The name of the Device Pool
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the project for the device pool.
      */
@@ -220,7 +220,7 @@ export interface DevicePoolArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The device pool's rules. See Rule.
      */
@@ -228,5 +228,5 @@ export interface DevicePoolArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

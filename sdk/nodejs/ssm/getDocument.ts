@@ -138,11 +138,11 @@ export interface GetDocumentOutputArgs {
     /**
      * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      */
-    documentFormat?: pulumi.Input<string>;
+    documentFormat?: pulumi.Input<string | undefined>;
     /**
      * The document version.
      */
-    documentVersion?: pulumi.Input<string>;
+    documentVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the document.
      */
@@ -150,5 +150,5 @@ export interface GetDocumentOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -151,36 +151,36 @@ export interface RestoreTestingPlanState {
     /**
      * ARN of the Restore Testing Plan.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
-    recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
+    recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The schedule expression for the restore testing plan.
      */
-    scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string | undefined>;
     /**
      * The timezone for the schedule expression. If not provided, the state value will be used.
      */
-    scheduleExpressionTimezone?: pulumi.Input<string>;
+    scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
      * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      */
-    startWindowHours?: pulumi.Input<number>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    startWindowHours?: pulumi.Input<number | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface RestoreTestingPlanArgs {
     /**
      * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
@@ -198,7 +198,7 @@ export interface RestoreTestingPlanArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The schedule expression for the restore testing plan.
      */
@@ -206,10 +206,10 @@ export interface RestoreTestingPlanArgs {
     /**
      * The timezone for the schedule expression. If not provided, the state value will be used.
      */
-    scheduleExpressionTimezone?: pulumi.Input<string>;
+    scheduleExpressionTimezone?: pulumi.Input<string | undefined>;
     /**
      * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      */
-    startWindowHours?: pulumi.Input<number>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    startWindowHours?: pulumi.Input<number | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -480,94 +480,94 @@ export interface MetricAlarmState {
     /**
      * Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
      */
-    actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
      * The description for the alarm.
      */
-    alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the CloudWatch Metric Alarm.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
-    comparisonOperator?: pulumi.Input<string>;
+    comparisonOperator?: pulumi.Input<string | undefined>;
     /**
      * The number of data points that must be breaching to trigger the alarm.
      */
-    datapointsToAlarm?: pulumi.Input<number>;
+    datapointsToAlarm?: pulumi.Input<number | undefined>;
     /**
      * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Used only for alarms based on percentiles.
      * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
      * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
-    evaluateLowSampleCountPercentiles?: pulumi.Input<string>;
+    evaluateLowSampleCountPercentiles?: pulumi.Input<string | undefined>;
     /**
      * The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
      */
-    evaluationCriteria?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationCriteria>;
+    evaluationCriteria?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationCriteria | undefined>;
     /**
      * The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
      */
-    evaluationInterval?: pulumi.Input<number>;
+    evaluationInterval?: pulumi.Input<number | undefined>;
     /**
      * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      */
-    evaluationPeriods?: pulumi.Input<number>;
+    evaluationPeriods?: pulumi.Input<number | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */
-    extendedStatistic?: pulumi.Input<string>;
+    extendedStatistic?: pulumi.Input<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
      * The name for the alarm's associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string | undefined>;
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
+    metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[] | undefined>;
     /**
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
      * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      */
-    period?: pulumi.Input<number>;
+    period?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
-    statistic?: pulumi.Input<string>;
+    statistic?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -576,27 +576,27 @@ export interface MetricAlarmState {
      *
      * > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
-    threshold?: pulumi.Input<number>;
+    threshold?: pulumi.Input<number | undefined>;
     /**
      * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
      */
-    thresholdMetricId?: pulumi.Input<string>;
+    thresholdMetricId?: pulumi.Input<string | undefined>;
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */
-    treatMissingData?: pulumi.Input<string>;
+    treatMissingData?: pulumi.Input<string | undefined>;
     /**
      * The unit for the alarm's associated metric.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -606,90 +606,90 @@ export interface MetricAlarmArgs {
     /**
      * Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
      */
-    actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
      * The description for the alarm.
      */
-    alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string | undefined>;
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      */
-    comparisonOperator?: pulumi.Input<string>;
+    comparisonOperator?: pulumi.Input<string | undefined>;
     /**
      * The number of data points that must be breaching to trigger the alarm.
      */
-    datapointsToAlarm?: pulumi.Input<number>;
+    datapointsToAlarm?: pulumi.Input<number | undefined>;
     /**
      * The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Used only for alarms based on percentiles.
      * If you specify `ignore`, the alarm state will not change during periods with too few data points to be statistically significant.
      * If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
      * The following values are supported: `ignore`, and `evaluate`.
      */
-    evaluateLowSampleCountPercentiles?: pulumi.Input<string>;
+    evaluateLowSampleCountPercentiles?: pulumi.Input<string | undefined>;
     /**
      * The evaluation criteria for PromQL alarms. Cannot be used with traditional metric alarm parameters.
      */
-    evaluationCriteria?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationCriteria>;
+    evaluationCriteria?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationCriteria | undefined>;
     /**
      * The frequency, in seconds, at which the alarm is evaluated. Valid values are `10`, `20`, `30`, and any multiple of `60`. Required when using `evaluationCriteria`.
      */
-    evaluationInterval?: pulumi.Input<number>;
+    evaluationInterval?: pulumi.Input<number | undefined>;
     /**
      * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      */
-    evaluationPeriods?: pulumi.Input<number>;
+    evaluationPeriods?: pulumi.Input<number | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */
-    extendedStatistic?: pulumi.Input<string>;
+    extendedStatistic?: pulumi.Input<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
      * The name for the alarm's associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string | undefined>;
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
+    metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[] | undefined>;
     /**
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string | Topic>[] | undefined>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
      * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      */
-    period?: pulumi.Input<number>;
+    period?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
-    statistic?: pulumi.Input<string>;
+    statistic?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -698,21 +698,21 @@ export interface MetricAlarmArgs {
      *
      * > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      */
-    threshold?: pulumi.Input<number>;
+    threshold?: pulumi.Input<number | undefined>;
     /**
      * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
      */
-    thresholdMetricId?: pulumi.Input<string>;
+    thresholdMetricId?: pulumi.Input<string | undefined>;
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      */
-    treatMissingData?: pulumi.Input<string>;
+    treatMissingData?: pulumi.Input<string | undefined>;
     /**
      * The unit for the alarm's associated metric.
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }

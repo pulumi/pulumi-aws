@@ -20,13 +20,13 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 close_on_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 create_govcloud: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_user_access_to_billing: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 close_on_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 create_govcloud: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_user_access_to_billing: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -71,43 +71,43 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="closeOnDeletion")
-    def close_on_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def close_on_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         """
         return pulumi.get(self, "close_on_deletion")
 
     @close_on_deletion.setter
-    def close_on_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def close_on_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "close_on_deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="createGovcloud")
-    def create_govcloud(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_govcloud(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         """
         return pulumi.get(self, "create_govcloud")
 
     @create_govcloud.setter
-    def create_govcloud(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_govcloud(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_govcloud", value)
 
     @_builtins.property
     @pulumi.getter(name="iamUserAccessToBilling")
-    def iam_user_access_to_billing(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_user_access_to_billing(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
         """
         return pulumi.get(self, "iam_user_access_to_billing")
 
     @iam_user_access_to_billing.setter
-    def iam_user_access_to_billing(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_user_access_to_billing(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_user_access_to_billing", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name for the member account.
 
@@ -116,64 +116,64 @@ class AccountArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 close_on_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 create_govcloud: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 govcloud_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_user_access_to_billing: Optional[pulumi.Input[_builtins.str]] = None,
-                 joined_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 joined_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 close_on_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 create_govcloud: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 govcloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_user_access_to_billing: pulumi.Input[Optional[_builtins.str]] = None,
+                 joined_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 joined_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -231,103 +231,103 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for this account.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="closeOnDeletion")
-    def close_on_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def close_on_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         """
         return pulumi.get(self, "close_on_deletion")
 
     @close_on_deletion.setter
-    def close_on_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def close_on_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "close_on_deletion", value)
 
     @_builtins.property
     @pulumi.getter(name="createGovcloud")
-    def create_govcloud(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_govcloud(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         """
         return pulumi.get(self, "create_govcloud")
 
     @create_govcloud.setter
-    def create_govcloud(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_govcloud(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_govcloud", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="govcloudId")
-    def govcloud_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def govcloud_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for a GovCloud account created with the account.
         """
         return pulumi.get(self, "govcloud_id")
 
     @govcloud_id.setter
-    def govcloud_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def govcloud_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "govcloud_id", value)
 
     @_builtins.property
     @pulumi.getter(name="iamUserAccessToBilling")
-    def iam_user_access_to_billing(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_user_access_to_billing(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
         """
         return pulumi.get(self, "iam_user_access_to_billing")
 
     @iam_user_access_to_billing.setter
-    def iam_user_access_to_billing(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_user_access_to_billing(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_user_access_to_billing", value)
 
     @_builtins.property
     @pulumi.getter(name="joinedMethod")
-    def joined_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def joined_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Method by which the account joined the organization.
         """
         return pulumi.get(self, "joined_method")
 
     @joined_method.setter
-    def joined_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def joined_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "joined_method", value)
 
     @_builtins.property
     @pulumi.getter(name="joinedTimestamp")
-    def joined_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def joined_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date the account became a part of the organization.
         """
         return pulumi.get(self, "joined_timestamp")
 
     @joined_timestamp.setter
-    def joined_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def joined_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "joined_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Friendly name for the member account.
 
@@ -336,80 +336,80 @@ class _AccountState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
-    def parent_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         """
         return pulumi.get(self, "parent_id")
 
     @parent_id.setter
-    def parent_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the account in the organization.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""status is deprecated. Use state instead.""")
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (**Deprecated** use `state` instead) Status of the account in the organization.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -419,14 +419,14 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 close_on_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 create_govcloud: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_user_access_to_billing: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 close_on_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 create_govcloud: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_user_access_to_billing: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a resource to create a member account in the current organization.
@@ -572,14 +572,14 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 close_on_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 create_govcloud: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_user_access_to_billing: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 close_on_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 create_govcloud: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_user_access_to_billing: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -616,21 +616,21 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            close_on_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-            create_govcloud: Optional[pulumi.Input[_builtins.bool]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            govcloud_id: Optional[pulumi.Input[_builtins.str]] = None,
-            iam_user_access_to_billing: Optional[pulumi.Input[_builtins.str]] = None,
-            joined_method: Optional[pulumi.Input[_builtins.str]] = None,
-            joined_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-            role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            close_on_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+            create_govcloud: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            govcloud_id: pulumi.Input[Optional[_builtins.str]] = None,
+            iam_user_access_to_billing: pulumi.Input[Optional[_builtins.str]] = None,
+            joined_method: pulumi.Input[Optional[_builtins.str]] = None,
+            joined_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

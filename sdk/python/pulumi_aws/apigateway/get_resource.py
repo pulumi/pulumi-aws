@@ -138,9 +138,9 @@ def get_resource(path: Optional[_builtins.str] = None,
         path_part=pulumi.get(__ret__, 'path_part'),
         region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
-def get_resource_output(path: Optional[pulumi.Input[_builtins.str]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_output(path: pulumi.Input[Optional[_builtins.str]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     Use this data source to get the id of a Resource in API Gateway.

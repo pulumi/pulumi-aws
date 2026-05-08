@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SubnetArgs;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -103,8 +103,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -127,11 +127,11 @@ import javax.annotation.Nullable;
  *         for (var i = 0; i < 2; i++) {
  *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(exampleVpc.id())
- *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
- *                     .input(_cidrBlock)
+ *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(exampleVpc.cidrBlock())
  *                     .newbits(8)
  *                     .netnum(range.value())
- *                     .build())).applyValue(_invoke -> _invoke.result()))
+ *                     .build()).applyValue(_invoke -> _invoke.result()))
  *                 .build());
  * 
  *         
@@ -168,8 +168,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -226,8 +226,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
  * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

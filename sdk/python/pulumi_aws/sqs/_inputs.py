@@ -27,14 +27,14 @@ class PolicyDocumentArgsDict(TypedDict):
     """
     statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
     version: pulumi.Input['iam.PolicyDocumentVersion']
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PolicyDocumentArgs:
     def __init__(__self__, *,
                  statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]],
                  version: pulumi.Input['iam.PolicyDocumentVersion'],
-                 id: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
         """
@@ -63,11 +63,11 @@ class PolicyDocumentArgs:
 
     @_builtins.property
     @pulumi.getter(name="Id")
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 

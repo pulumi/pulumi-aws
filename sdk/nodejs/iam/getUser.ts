@@ -106,7 +106,7 @@ export interface GetUserOutputArgs {
     /**
      * Map of key-value pairs associated with the user.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Friendly IAM user name to match.
      */

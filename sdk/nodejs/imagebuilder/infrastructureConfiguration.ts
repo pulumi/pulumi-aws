@@ -231,81 +231,81 @@ export interface InfrastructureConfigurationState {
     /**
      * Amazon Resource Name (ARN) of the configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Date when the configuration was created.
      */
-    dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string | undefined>;
     /**
      * Date when the configuration was updated.
      */
-    dateUpdated?: pulumi.Input<string>;
+    dateUpdated?: pulumi.Input<string | undefined>;
     /**
      * Description for the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      */
-    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions>;
+    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
     /**
      * Name of IAM Instance Profile.
      */
-    instanceProfileName?: pulumi.Input<string>;
+    instanceProfileName?: pulumi.Input<string | undefined>;
     /**
      * Set of EC2 Instance Types.
      */
-    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of EC2 Key Pair.
      */
-    keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
+    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
     /**
      * Name for the configuration.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
      */
-    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement>;
+    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
-    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Set of EC2 Security Group identifiers.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of SNS Topic.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * EC2 Subnet identifier. Also requires `securityGroupIds` argument.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */
-    terminateInstanceOnFailure?: pulumi.Input<boolean>;
+    terminateInstanceOnFailure?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -315,11 +315,11 @@ export interface InfrastructureConfigurationArgs {
     /**
      * Description for the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      */
-    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions>;
+    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
     /**
      * Name of IAM Instance Profile.
      */
@@ -327,51 +327,51 @@ export interface InfrastructureConfigurationArgs {
     /**
      * Set of EC2 Instance Types.
      */
-    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of EC2 Key Pair.
      */
-    keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
+    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
     /**
      * Name for the configuration.
      *
      * The following arguments are optional:
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
      */
-    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement>;
+    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
-    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Set of EC2 Security Group identifiers.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of SNS Topic.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * EC2 Subnet identifier. Also requires `securityGroupIds` argument.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */
-    terminateInstanceOnFailure?: pulumi.Input<boolean>;
+    terminateInstanceOnFailure?: pulumi.Input<boolean | undefined>;
 }

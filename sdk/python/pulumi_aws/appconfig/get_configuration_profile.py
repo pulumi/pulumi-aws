@@ -230,10 +230,10 @@ def get_configuration_profile(application_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validators=pulumi.get(__ret__, 'validators'))
-def get_configuration_profile_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     configuration_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_configuration_profile_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
     Provides access to an AppConfig Configuration Profile.

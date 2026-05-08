@@ -128,7 +128,7 @@ class AppAuthorizationConnectionTenantArgs:
 
 
 class AppAuthorizationConnectionTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -136,7 +136,7 @@ class AppAuthorizationConnectionTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class AppAuthorizationConnectionTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
@@ -145,23 +145,23 @@ class AppAuthorizationConnectionTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
 
 class AppAuthorizationCredentialArgsDict(TypedDict):
-    api_key_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgsDict']]]]
+    api_key_credentials: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]]]
     """
     Contains API key credential information.
     """
-    oauth2_credential: NotRequired[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgsDict']]
+    oauth2_credential: NotRequired[pulumi.Input[Optional['AppAuthorizationCredentialOauth2CredentialArgs']]]
     """
     Contains OAuth2 client credential information.
     """
@@ -169,8 +169,8 @@ class AppAuthorizationCredentialArgsDict(TypedDict):
 @pulumi.input_type
 class AppAuthorizationCredentialArgs:
     def __init__(__self__, *,
-                 api_key_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]] = None,
-                 oauth2_credential: Optional[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgs']] = None):
+                 api_key_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]] = None,
+                 oauth2_credential: pulumi.Input[Optional['AppAuthorizationCredentialOauth2CredentialArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]] api_key_credentials: Contains API key credential information.
         :param pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgs'] oauth2_credential: Contains OAuth2 client credential information.
@@ -182,26 +182,26 @@ class AppAuthorizationCredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKeyCredentials")
-    def api_key_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]]:
+    def api_key_credentials(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]]:
         """
         Contains API key credential information.
         """
         return pulumi.get(self, "api_key_credentials")
 
     @api_key_credentials.setter
-    def api_key_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]]):
+    def api_key_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]]):
         pulumi.set(self, "api_key_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="oauth2Credential")
-    def oauth2_credential(self) -> Optional[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgs']]:
+    def oauth2_credential(self) -> pulumi.Input[Optional['AppAuthorizationCredentialOauth2CredentialArgs']]:
         """
         Contains OAuth2 client credential information.
         """
         return pulumi.get(self, "oauth2_credential")
 
     @oauth2_credential.setter
-    def oauth2_credential(self, value: Optional[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgs']]):
+    def oauth2_credential(self, value: pulumi.Input[Optional['AppAuthorizationCredentialOauth2CredentialArgs']]):
         pulumi.set(self, "oauth2_credential", value)
 
 
@@ -328,15 +328,15 @@ class AppAuthorizationTenantArgs:
 
 
 class AppAuthorizationTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -344,9 +344,9 @@ class AppAuthorizationTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class AppAuthorizationTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -361,38 +361,38 @@ class AppAuthorizationTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -453,11 +453,11 @@ class IngestionDestinationDestinationConfigurationAuditLogArgs:
 
 
 class IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict(TypedDict):
-    firehose_stream: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict']]
+    firehose_stream: NotRequired[pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']]]
     """
     Contains information about an Amazon Data Firehose delivery stream.
     """
-    s3_bucket: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict']]
+    s3_bucket: NotRequired[pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']]]
     """
     Contains information about an Amazon S3 bucket.
     """
@@ -465,8 +465,8 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict(Ty
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs:
     def __init__(__self__, *,
-                 firehose_stream: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']] = None,
-                 s3_bucket: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']] = None):
+                 firehose_stream: pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']] = None,
+                 s3_bucket: pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']] = None):
         """
         :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs'] firehose_stream: Contains information about an Amazon Data Firehose delivery stream.
         :param pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs'] s3_bucket: Contains information about an Amazon S3 bucket.
@@ -478,26 +478,26 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="firehoseStream")
-    def firehose_stream(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']]:
+    def firehose_stream(self) -> pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']]:
         """
         Contains information about an Amazon Data Firehose delivery stream.
         """
         return pulumi.get(self, "firehose_stream")
 
     @firehose_stream.setter
-    def firehose_stream(self, value: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']]):
+    def firehose_stream(self, value: pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']]):
         pulumi.set(self, "firehose_stream", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']]:
+    def s3_bucket(self) -> pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']]:
         """
         Contains information about an Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']]):
+    def s3_bucket(self, value: pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']]):
         pulumi.set(self, "s3_bucket", value)
 
 
@@ -522,7 +522,7 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStr
 
 class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict(TypedDict):
     bucket_name: pulumi.Input[_builtins.str]
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key to use.
     """
@@ -531,7 +531,7 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArg
 class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] prefix: The object key to use.
         """
@@ -550,14 +550,14 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArg
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key to use.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -637,15 +637,15 @@ class IngestionDestinationProcessingConfigurationAuditLogArgs:
 
 
 class IngestionDestinationTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -653,9 +653,9 @@ class IngestionDestinationTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class IngestionDestinationTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -670,38 +670,38 @@ class IngestionDestinationTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

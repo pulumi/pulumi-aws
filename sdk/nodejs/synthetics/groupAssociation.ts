@@ -119,20 +119,20 @@ export interface GroupAssociationState {
     /**
      * ARN of the canary.
      */
-    canaryArn?: pulumi.Input<string>;
-    groupArn?: pulumi.Input<string>;
+    canaryArn?: pulumi.Input<string | undefined>;
+    groupArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the Group.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Name of the group that the canary will be associated with.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -150,5 +150,5 @@ export interface GroupAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

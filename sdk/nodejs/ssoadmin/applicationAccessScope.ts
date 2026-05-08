@@ -125,21 +125,21 @@ export interface ApplicationAccessScopeState {
     /**
      * Specifies the ARN of the application with the access scope with the targets to add or update.
      */
-    applicationArn?: pulumi.Input<string>;
+    applicationArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies an array list of ARNs that represent the authorized targets for this access scope.
      */
-    authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *
      * The following arguments are optional:
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -153,11 +153,11 @@ export interface ApplicationAccessScopeArgs {
     /**
      * Specifies an array list of ARNs that represent the authorized targets for this access scope.
      */
-    authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *

@@ -393,105 +393,105 @@ export interface DirectoryState {
     /**
      * Configuration for Active Directory integration when `workspaceType` is set to `POOLS`. Defined below.
      */
-    activeDirectoryConfig?: pulumi.Input<inputs.workspaces.DirectoryActiveDirectoryConfig>;
+    activeDirectoryConfig?: pulumi.Input<inputs.workspaces.DirectoryActiveDirectoryConfig | undefined>;
     /**
      * The directory alias.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
      */
-    certificateBasedAuthProperties?: pulumi.Input<inputs.workspaces.DirectoryCertificateBasedAuthProperties>;
+    certificateBasedAuthProperties?: pulumi.Input<inputs.workspaces.DirectoryCertificateBasedAuthProperties | undefined>;
     /**
      * The user name for the service account.
      */
-    customerUserName?: pulumi.Input<string>;
+    customerUserName?: pulumi.Input<string | undefined>;
     /**
      * The directory identifier for registration in WorkSpaces service.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * The name of the directory.
      */
-    directoryName?: pulumi.Input<string>;
+    directoryName?: pulumi.Input<string | undefined>;
     /**
      * The directory type.
      */
-    directoryType?: pulumi.Input<string>;
+    directoryType?: pulumi.Input<string | undefined>;
     /**
      * The IP addresses of the DNS servers for the directory.
      */
-    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      */
-    iamRoleId?: pulumi.Input<string>;
+    iamRoleId?: pulumi.Input<string | undefined>;
     /**
      * The identifiers of the IP access control groups associated with the directory.
      */
-    ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    ipGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
-    registrationCode?: pulumi.Input<string>;
+    registrationCode?: pulumi.Input<string | undefined>;
     /**
      * Configuration of SAML authentication integration. Defined below.
      */
-    samlProperties?: pulumi.Input<inputs.workspaces.DirectorySamlProperties>;
+    samlProperties?: pulumi.Input<inputs.workspaces.DirectorySamlProperties | undefined>;
     /**
      * Permissions to enable or disable self-service capabilities when `workspaceType` is set to `PERSONAL`.. Defined below.
      */
-    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions | undefined>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
      */
-    tenancy?: pulumi.Input<string>;
+    tenancy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      *
      * > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
      */
-    userIdentityType?: pulumi.Input<string>;
+    userIdentityType?: pulumi.Input<string | undefined>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties | undefined>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties | undefined>;
     /**
      * The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      */
-    workspaceDirectoryDescription?: pulumi.Input<string>;
+    workspaceDirectoryDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      */
-    workspaceDirectoryName?: pulumi.Input<string>;
+    workspaceDirectoryName?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
-    workspaceSecurityGroupId?: pulumi.Input<string>;
+    workspaceSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
      */
-    workspaceType?: pulumi.Input<string>;
+    workspaceType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -501,67 +501,67 @@ export interface DirectoryArgs {
     /**
      * Configuration for Active Directory integration when `workspaceType` is set to `POOLS`. Defined below.
      */
-    activeDirectoryConfig?: pulumi.Input<inputs.workspaces.DirectoryActiveDirectoryConfig>;
+    activeDirectoryConfig?: pulumi.Input<inputs.workspaces.DirectoryActiveDirectoryConfig | undefined>;
     /**
      * Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
      */
-    certificateBasedAuthProperties?: pulumi.Input<inputs.workspaces.DirectoryCertificateBasedAuthProperties>;
+    certificateBasedAuthProperties?: pulumi.Input<inputs.workspaces.DirectoryCertificateBasedAuthProperties | undefined>;
     /**
      * The directory identifier for registration in WorkSpaces service.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * The identifiers of the IP access control groups associated with the directory.
      */
-    ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    ipGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration of SAML authentication integration. Defined below.
      */
-    samlProperties?: pulumi.Input<inputs.workspaces.DirectorySamlProperties>;
+    samlProperties?: pulumi.Input<inputs.workspaces.DirectorySamlProperties | undefined>;
     /**
      * Permissions to enable or disable self-service capabilities when `workspaceType` is set to `PERSONAL`.. Defined below.
      */
-    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions | undefined>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
      */
-    tenancy?: pulumi.Input<string>;
+    tenancy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
      *
      * > **Note:** When `workspaceType` is set to `POOLS`, the `directoryId` is automatically generated and cannot be manually set.
      */
-    userIdentityType?: pulumi.Input<string>;
+    userIdentityType?: pulumi.Input<string | undefined>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties | undefined>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties | undefined>;
     /**
      * The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      */
-    workspaceDirectoryDescription?: pulumi.Input<string>;
+    workspaceDirectoryDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
      */
-    workspaceDirectoryName?: pulumi.Input<string>;
+    workspaceDirectoryName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
      */
-    workspaceType?: pulumi.Input<string>;
+    workspaceType?: pulumi.Input<string | undefined>;
 }

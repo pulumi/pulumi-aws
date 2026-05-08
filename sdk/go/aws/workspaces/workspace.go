@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			workspaces, err := kms.LookupKey(ctx, &kms.LookupKeyArgs{
+//			workspaces2, err := kms.LookupKey(ctx, &kms.LookupKeyArgs{
 //				KeyId: "alias/aws/workspaces",
 //			}, nil)
 //			if err != nil {
@@ -49,7 +49,7 @@ import (
 //				UserName:                    pulumi.String("john.doe"),
 //				RootVolumeEncryptionEnabled: pulumi.Bool(true),
 //				UserVolumeEncryptionEnabled: pulumi.Bool(true),
-//				VolumeEncryptionKey:         pulumi.String(pulumi.String(workspaces.Arn)),
+//				VolumeEncryptionKey:         pulumi.String(pulumi.String(workspaces2.Arn)),
 //				WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
 //					ComputeTypeName:                     pulumi.String("VALUE"),
 //					UserVolumeSizeGib:                   pulumi.Int(10),

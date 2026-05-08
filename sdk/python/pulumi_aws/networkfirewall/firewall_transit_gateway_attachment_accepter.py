@@ -22,8 +22,8 @@ __all__ = ['FirewallTransitGatewayAttachmentAccepterArgs', 'FirewallTransitGatew
 class FirewallTransitGatewayAttachmentAccepterArgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a FirewallTransitGatewayAttachmentAccepter resource.
 
@@ -50,32 +50,32 @@ class FirewallTransitGatewayAttachmentAccepterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _FirewallTransitGatewayAttachmentAccepterState:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FirewallTransitGatewayAttachmentAccepter resources.
 
@@ -91,35 +91,35 @@ class _FirewallTransitGatewayAttachmentAccepterState:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
@@ -129,9 +129,9 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Network Firewall Firewall Transit Gateway Attachment Accepter.
@@ -219,9 +219,9 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,9 +246,9 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
-            transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'FirewallTransitGatewayAttachmentAccepter':
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FirewallTransitGatewayAttachmentAccepter':
         """
         Get an existing FirewallTransitGatewayAttachmentAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

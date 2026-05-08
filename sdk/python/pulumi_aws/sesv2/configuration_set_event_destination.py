@@ -24,7 +24,7 @@ class ConfigurationSetEventDestinationArgs:
                  configuration_set_name: pulumi.Input[_builtins.str],
                  event_destination: pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs'],
                  event_destination_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationSetEventDestination resource.
 
@@ -77,24 +77,24 @@ class ConfigurationSetEventDestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _ConfigurationSetEventDestinationState:
     def __init__(__self__, *,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']] = None,
-                 event_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destination: pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationArgs']] = None,
+                 event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationSetEventDestination resources.
 
@@ -114,50 +114,50 @@ class _ConfigurationSetEventDestinationState:
 
     @_builtins.property
     @pulumi.getter(name="configurationSetName")
-    def configuration_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration set.
         """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
-    def configuration_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventDestination")
-    def event_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']]:
+    def event_destination(self) -> pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationArgs']]:
         """
         An object that defines the event destination. See `event_destination` Block for details.
         """
         return pulumi.get(self, "event_destination")
 
     @event_destination.setter
-    def event_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']]):
+    def event_destination(self, value: pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationArgs']]):
         pulumi.set(self, "event_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="eventDestinationName")
-    def event_destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name that identifies the event destination within the configuration set.
         """
         return pulumi.get(self, "event_destination_name")
 
     @event_destination_name.setter
-    def event_destination_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_destination_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -167,10 +167,10 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destination: Optional[pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
-                 event_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+                 event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
@@ -428,10 +428,10 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destination: Optional[pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
-                 event_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+                 event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -461,10 +461,10 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-            event_destination: Optional[pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
-            event_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'ConfigurationSetEventDestination':
+            configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+            event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+            event_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConfigurationSetEventDestination':
         """
         Get an existing ConfigurationSetEventDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

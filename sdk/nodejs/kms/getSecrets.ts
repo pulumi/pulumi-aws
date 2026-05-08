@@ -77,7 +77,7 @@ export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getSecrets.
  */
 export interface GetSecretsOutputArgs {
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
      */

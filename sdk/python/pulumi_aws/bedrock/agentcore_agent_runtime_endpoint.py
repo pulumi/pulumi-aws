@@ -22,12 +22,12 @@ __all__ = ['AgentcoreAgentRuntimeEndpointArgs', 'AgentcoreAgentRuntimeEndpoint']
 class AgentcoreAgentRuntimeEndpointArgs:
     def __init__(__self__, *,
                  agent_runtime_id: pulumi.Input[_builtins.str],
-                 agent_runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']] = None):
+                 agent_runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreAgentRuntimeEndpointTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreAgentRuntimeEndpoint resource.
 
@@ -70,87 +70,87 @@ class AgentcoreAgentRuntimeEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeVersion")
-    def agent_runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the agent runtime to use for this endpoint.
         """
         return pulumi.get(self, "agent_runtime_version")
 
     @agent_runtime_version.setter
-    def agent_runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_runtime_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the agent runtime endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the agent runtime endpoint.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AgentcoreAgentRuntimeEndpointState:
     def __init__(__self__, *,
-                 agent_runtime_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_runtime_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_runtime_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']] = None):
+                 agent_runtime_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_runtime_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_runtime_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['AgentcoreAgentRuntimeEndpointTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentcoreAgentRuntimeEndpoint resources.
 
@@ -189,31 +189,31 @@ class _AgentcoreAgentRuntimeEndpointState:
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeArn")
-    def agent_runtime_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_runtime_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the associated Agent Runtime.
         """
         return pulumi.get(self, "agent_runtime_arn")
 
     @agent_runtime_arn.setter
-    def agent_runtime_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_runtime_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_runtime_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeEndpointArn")
-    def agent_runtime_endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_runtime_endpoint_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Agent Runtime Endpoint.
         """
         return pulumi.get(self, "agent_runtime_endpoint_arn")
 
     @agent_runtime_endpoint_arn.setter
-    def agent_runtime_endpoint_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_runtime_endpoint_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_runtime_endpoint_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeId")
-    def agent_runtime_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_runtime_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the agent runtime this endpoint belongs to.
 
@@ -222,88 +222,88 @@ class _AgentcoreAgentRuntimeEndpointState:
         return pulumi.get(self, "agent_runtime_id")
 
     @agent_runtime_id.setter
-    def agent_runtime_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_runtime_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_runtime_id", value)
 
     @_builtins.property
     @pulumi.getter(name="agentRuntimeVersion")
-    def agent_runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the agent runtime to use for this endpoint.
         """
         return pulumi.get(self, "agent_runtime_version")
 
     @agent_runtime_version.setter
-    def agent_runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_runtime_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the agent runtime endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the agent runtime endpoint.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AgentcoreAgentRuntimeEndpointTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -313,13 +313,13 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_runtime_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreAgentRuntimeEndpointTimeoutsArgs', 'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict']]] = None,
+                 agent_runtime_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeEndpointTimeoutsArgs', 'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Agent Runtime Endpoint. Agent Runtime Endpoints provide a network-accessible interface for interacting with agent runtimes, enabling external systems to communicate with and invoke agent capabilities.
@@ -405,13 +405,13 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_runtime_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AgentcoreAgentRuntimeEndpointTimeoutsArgs', 'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict']]] = None,
+                 agent_runtime_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeEndpointTimeoutsArgs', 'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -443,16 +443,16 @@ class AgentcoreAgentRuntimeEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_runtime_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_runtime_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_runtime_id: Optional[pulumi.Input[_builtins.str]] = None,
-            agent_runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['AgentcoreAgentRuntimeEndpointTimeoutsArgs', 'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict']]] = None) -> 'AgentcoreAgentRuntimeEndpoint':
+            agent_runtime_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_runtime_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_runtime_id: pulumi.Input[Optional[_builtins.str]] = None,
+            agent_runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeEndpointTimeoutsArgs', 'AgentcoreAgentRuntimeEndpointTimeoutsArgsDict']]] = None) -> 'AgentcoreAgentRuntimeEndpoint':
         """
         Get an existing AgentcoreAgentRuntimeEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

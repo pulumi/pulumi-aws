@@ -131,8 +131,8 @@ def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterA
         id=pulumi.get(__ret__, 'id'),
         instance_types=pulumi.get(__ret__, 'instance_types'),
         region=pulumi.get(__ret__, 'region'))
-def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']]]]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_instance_types_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']]]]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypesResult]:
     """
     Information about EC2 Instance Types.

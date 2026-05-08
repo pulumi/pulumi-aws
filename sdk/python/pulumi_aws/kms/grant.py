@@ -24,12 +24,12 @@ class GrantArgs:
                  grantee_principal: pulumi.Input[_builtins.str],
                  key_id: pulumi.Input[_builtins.str],
                  operations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
-                 grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retire_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retiring_principal: Optional[pulumi.Input[_builtins.str]] = None):
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
+                 grant_creation_tokens: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retire_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retiring_principal: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Grant resource.
 
@@ -98,55 +98,55 @@ class GrantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
+    def constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
         """
         A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
-    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]):
+    def constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]]):
         pulumi.set(self, "constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="grantCreationTokens")
-    def grant_creation_tokens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def grant_creation_tokens(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         """
         return pulumi.get(self, "grant_creation_tokens")
 
     @grant_creation_tokens.setter
-    def grant_creation_tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def grant_creation_tokens(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "grant_creation_tokens", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for identifying the grant.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retireOnDelete")
-    def retire_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retire_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
         See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
@@ -154,36 +154,36 @@ class GrantArgs:
         return pulumi.get(self, "retire_on_delete")
 
     @retire_on_delete.setter
-    def retire_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retire_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retire_on_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="retiringPrincipal")
-    def retiring_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retiring_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "retiring_principal")
 
     @retiring_principal.setter
-    def retiring_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retiring_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retiring_principal", value)
 
 
 @pulumi.input_type
 class _GrantState:
     def __init__(__self__, *,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
-                 grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 grantee_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retire_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retiring_principal: Optional[pulumi.Input[_builtins.str]] = None):
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
+                 grant_creation_tokens: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 grantee_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retire_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retiring_principal: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Grant resources.
 
@@ -225,115 +225,115 @@ class _GrantState:
 
     @_builtins.property
     @pulumi.getter
-    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
+    def constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
         """
         A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
-    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]):
+    def constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]]):
         pulumi.set(self, "constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="grantCreationTokens")
-    def grant_creation_tokens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def grant_creation_tokens(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         """
         return pulumi.get(self, "grant_creation_tokens")
 
     @grant_creation_tokens.setter
-    def grant_creation_tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def grant_creation_tokens(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "grant_creation_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="grantId")
-    def grant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the grant.
         """
         return pulumi.get(self, "grant_id")
 
     @grant_id.setter
-    def grant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="grantToken")
-    def grant_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grant_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
         """
         return pulumi.get(self, "grant_token")
 
     @grant_token.setter
-    def grant_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grant_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grant_token", value)
 
     @_builtins.property
     @pulumi.getter(name="granteePrincipal")
-    def grantee_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grantee_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "grantee_principal")
 
     @grantee_principal.setter
-    def grantee_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grantee_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grantee_principal", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for identifying the grant.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         """
         return pulumi.get(self, "operations")
 
     @operations.setter
-    def operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "operations", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="retireOnDelete")
-    def retire_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retire_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
         See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
@@ -341,19 +341,19 @@ class _GrantState:
         return pulumi.get(self, "retire_on_delete")
 
     @retire_on_delete.setter
-    def retire_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retire_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retire_on_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="retiringPrincipal")
-    def retiring_principal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retiring_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "retiring_principal")
 
     @retiring_principal.setter
-    def retiring_principal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retiring_principal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retiring_principal", value)
 
 
@@ -363,15 +363,15 @@ class Grant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict']]]]] = None,
-                 grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grantee_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retire_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retiring_principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict']]]]] = None,
+                 grant_creation_tokens: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grantee_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retire_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retiring_principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
@@ -433,15 +433,15 @@ class Grant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict']]]]] = None,
-                 grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grantee_principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 retire_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retiring_principal: Optional[pulumi.Input[_builtins.str]] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict']]]]] = None,
+                 grant_creation_tokens: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grantee_principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 retire_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retiring_principal: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,17 +480,17 @@ class Grant(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict']]]]] = None,
-            grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            grant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            grant_token: Optional[pulumi.Input[_builtins.str]] = None,
-            grantee_principal: Optional[pulumi.Input[_builtins.str]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            retire_on_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            retiring_principal: Optional[pulumi.Input[_builtins.str]] = None) -> 'Grant':
+            constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict']]]]] = None,
+            grant_creation_tokens: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            grant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_token: pulumi.Input[Optional[_builtins.str]] = None,
+            grantee_principal: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            retire_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            retiring_principal: pulumi.Input[Optional[_builtins.str]] = None) -> 'Grant':
         """
         Get an existing Grant resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

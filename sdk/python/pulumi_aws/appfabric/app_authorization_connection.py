@@ -23,9 +23,9 @@ class AppAuthorizationConnectionArgs:
     def __init__(__self__, *,
                  app_authorization_arn: pulumi.Input[_builtins.str],
                  app_bundle_arn: pulumi.Input[_builtins.str],
-                 auth_request: Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']] = None):
+                 auth_request: pulumi.Input[Optional['AppAuthorizationConnectionAuthRequestArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AppAuthorizationConnectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AppAuthorizationConnection resource.
 
@@ -69,48 +69,48 @@ class AppAuthorizationConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="authRequest")
-    def auth_request(self) -> Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']]:
+    def auth_request(self) -> pulumi.Input[Optional['AppAuthorizationConnectionAuthRequestArgs']]:
         """
         Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         """
         return pulumi.get(self, "auth_request")
 
     @auth_request.setter
-    def auth_request(self, value: Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']]):
+    def auth_request(self, value: pulumi.Input[Optional['AppAuthorizationConnectionAuthRequestArgs']]):
         pulumi.set(self, "auth_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AppAuthorizationConnectionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AppAuthorizationConnectionTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AppAuthorizationConnectionState:
     def __init__(__self__, *,
-                 app: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_authorization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_bundle_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_request: Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenants: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]] = None,
-                 timeouts: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']] = None):
+                 app: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_request: pulumi.Input[Optional['AppAuthorizationConnectionAuthRequestArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenants: pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]] = None,
+                 timeouts: pulumi.Input[Optional['AppAuthorizationConnectionTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AppAuthorizationConnection resources.
 
@@ -138,83 +138,83 @@ class _AppAuthorizationConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application.
         """
         return pulumi.get(self, "app")
 
     @app.setter
-    def app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app", value)
 
     @_builtins.property
     @pulumi.getter(name="appAuthorizationArn")
-    def app_authorization_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_authorization_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         """
         return pulumi.get(self, "app_authorization_arn")
 
     @app_authorization_arn.setter
-    def app_authorization_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_authorization_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_authorization_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="appBundleArn")
-    def app_bundle_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_bundle_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
     @app_bundle_arn.setter
-    def app_bundle_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_bundle_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_bundle_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="authRequest")
-    def auth_request(self) -> Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']]:
+    def auth_request(self) -> pulumi.Input[Optional['AppAuthorizationConnectionAuthRequestArgs']]:
         """
         Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         """
         return pulumi.get(self, "auth_request")
 
     @auth_request.setter
-    def auth_request(self, value: Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']]):
+    def auth_request(self, value: pulumi.Input[Optional['AppAuthorizationConnectionAuthRequestArgs']]):
         pulumi.set(self, "auth_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]]:
+    def tenants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]]:
         """
         Contains information about an application tenant, such as the application display name and identifier.
         """
         return pulumi.get(self, "tenants")
 
     @tenants.setter
-    def tenants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]]):
+    def tenants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]]):
         pulumi.set(self, "tenants", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AppAuthorizationConnectionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AppAuthorizationConnectionTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -224,11 +224,11 @@ class AppAuthorizationConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_authorization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_bundle_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_request: Optional[pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
+                 app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS AppFabric App Authorization Connection.
@@ -292,11 +292,11 @@ class AppAuthorizationConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_authorization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_bundle_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_request: Optional[pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
+                 app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -327,13 +327,13 @@ class AppAuthorizationConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app: Optional[pulumi.Input[_builtins.str]] = None,
-            app_authorization_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            app_bundle_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            auth_request: Optional[pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tenants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None) -> 'AppAuthorizationConnection':
+            app: pulumi.Input[Optional[_builtins.str]] = None,
+            app_authorization_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            app_bundle_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_request: pulumi.Input[Optional[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tenants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None) -> 'AppAuthorizationConnection':
         """
         Get an existing AppAuthorizationConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

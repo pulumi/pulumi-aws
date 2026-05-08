@@ -123,9 +123,9 @@ export interface GetSecurityControlsOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the standard that you want to list controls for. If omitted, all controls are returned.
      */
-    standardsArn?: pulumi.Input<string>;
+    standardsArn?: pulumi.Input<string | undefined>;
 }

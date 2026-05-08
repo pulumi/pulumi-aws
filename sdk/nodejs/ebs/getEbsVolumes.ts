@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  *         VolumeSet: "TestVolumeSet",
  *     },
  * });
- * const exampleGetVolume = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
+ * const exampleGetVolume = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ebs.getVolume({
  *     filters: [{
  *         name: "volume-id",
  *         values: [__value],
  *     }],
  * }) }), {}));
- * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [s.id]: s.availabilityZone }), {}));
+ * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [String(s.id)]: s.availabilityZone }), {}));
  * ```
  */
 export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetEbsVolumesResult> {
@@ -101,13 +101,13 @@ export interface GetEbsVolumesResult {
  *         VolumeSet: "TestVolumeSet",
  *     },
  * });
- * const exampleGetVolume = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
+ * const exampleGetVolume = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ebs.getVolume({
  *     filters: [{
  *         name: "volume-id",
  *         values: [__value],
  *     }],
  * }) }), {}));
- * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [s.id]: s.availabilityZone }), {}));
+ * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [String(s.id)]: s.availabilityZone }), {}));
  * ```
  */
 export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEbsVolumesResult> {
@@ -127,11 +127,11 @@ export interface GetEbsVolumesOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetEbsVolumesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetEbsVolumesFilterArgs>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired volumes.
@@ -139,5 +139,5 @@ export interface GetEbsVolumesOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

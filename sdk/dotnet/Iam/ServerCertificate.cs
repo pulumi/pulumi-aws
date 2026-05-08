@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Iam
     ///     var testCert = new Aws.Iam.ServerCertificate("test_cert", new()
     ///     {
     ///         Name = "some_test_cert",
-    ///         CertificateBody = Std.Index.File.Invoke(new()
+    ///         CertificateBody = Std.File.Invoke(new()
     ///         {
     ///             Input = "self-ca-cert.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PrivateKey = Std.Index.File.Invoke(new()
+    ///         PrivateKey = Std.File.Invoke(new()
     ///         {
     ///             Input = "test-key.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

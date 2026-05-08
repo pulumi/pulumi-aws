@@ -47,8 +47,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetGatewayRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -89,8 +89,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetGatewayRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -131,8 +131,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetGatewayRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -173,8 +173,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetGatewayRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -215,8 +215,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetGatewayRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -257,8 +257,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -290,8 +290,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -334,8 +334,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -411,8 +411,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -444,8 +444,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -488,8 +488,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -521,8 +521,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -565,8 +565,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -598,8 +598,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetMeshArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -642,8 +642,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -684,8 +684,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -726,8 +726,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -768,8 +768,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -810,8 +810,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetRouteArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -854,8 +854,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -897,8 +897,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -940,8 +940,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -983,8 +983,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1026,8 +1026,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualGatewayArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1067,8 +1067,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1108,8 +1108,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1149,8 +1149,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1190,8 +1190,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1231,8 +1231,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualNodeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1272,8 +1272,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualRouterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1313,8 +1313,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualRouterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1354,8 +1354,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualRouterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1395,8 +1395,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualRouterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1436,8 +1436,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualRouterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1477,8 +1477,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1511,8 +1511,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1556,8 +1556,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1590,8 +1590,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1635,8 +1635,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1669,8 +1669,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1714,8 +1714,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1748,8 +1748,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1793,8 +1793,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1827,8 +1827,8 @@ public final class AppmeshFunctions {
      * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.appmesh.AppmeshFunctions;
      * import com.pulumi.aws.appmesh.inputs.GetVirtualServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

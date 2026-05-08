@@ -152,21 +152,21 @@ export interface MailFromState {
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
-    behaviorOnMxFailure?: pulumi.Input<string>;
+    behaviorOnMxFailure?: pulumi.Input<string | undefined>;
     /**
      * Verified domain name or email identity to generate DKIM tokens for.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      *
      * The following arguments are optional:
      */
-    mailFromDomain?: pulumi.Input<string>;
+    mailFromDomain?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface MailFromArgs {
     /**
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      */
-    behaviorOnMxFailure?: pulumi.Input<string>;
+    behaviorOnMxFailure?: pulumi.Input<string | undefined>;
     /**
      * Verified domain name or email identity to generate DKIM tokens for.
      */
@@ -190,5 +190,5 @@ export interface MailFromArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

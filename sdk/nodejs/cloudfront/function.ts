@@ -146,45 +146,45 @@ export interface FunctionState {
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Source code of the function
      */
-    code?: pulumi.Input<string>;
+    code?: pulumi.Input<string | undefined>;
     /**
      * Comment.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      */
-    etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string | undefined>;
     /**
      * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      */
-    keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[]>;
+    keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ETag hash of any `LIVE` stage of the function.
      */
-    liveStageEtag?: pulumi.Input<string>;
+    liveStageEtag?: pulumi.Input<string | undefined>;
     /**
      * Unique name for your CloudFront Function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */
-    runtime?: pulumi.Input<string>;
+    runtime?: pulumi.Input<string | undefined>;
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -198,19 +198,19 @@ export interface FunctionArgs {
     /**
      * Comment.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
      */
-    keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[]>;
+    keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Unique name for your CloudFront Function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *

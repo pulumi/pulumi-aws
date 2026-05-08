@@ -246,61 +246,61 @@ export interface TaskState {
     /**
      * Amazon Resource Name (ARN) of the DataSync Task.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    cloudwatchLogGroupArn?: pulumi.Input<string>;
+    cloudwatchLogGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    destinationLocationArn?: pulumi.Input<string>;
+    destinationLocationArn?: pulumi.Input<string | undefined>;
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    excludes?: pulumi.Input<inputs.datasync.TaskExcludes | undefined>;
     /**
      * Filter rules that determines which files to include in a task.
      */
-    includes?: pulumi.Input<inputs.datasync.TaskIncludes>;
+    includes?: pulumi.Input<inputs.datasync.TaskIncludes | undefined>;
     /**
      * Name of the DataSync Task.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    options?: pulumi.Input<inputs.datasync.TaskOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
+    schedule?: pulumi.Input<inputs.datasync.TaskSchedule | undefined>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    sourceLocationArn?: pulumi.Input<string>;
+    sourceLocationArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One of the following task modes for your data transfer:
      * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
      * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
      */
-    taskMode?: pulumi.Input<string>;
+    taskMode?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      */
-    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig>;
+    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig | undefined>;
 }
 
 /**
@@ -310,7 +310,7 @@ export interface TaskArgs {
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    cloudwatchLogGroupArn?: pulumi.Input<string>;
+    cloudwatchLogGroupArn?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
@@ -318,27 +318,27 @@ export interface TaskArgs {
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    excludes?: pulumi.Input<inputs.datasync.TaskExcludes | undefined>;
     /**
      * Filter rules that determines which files to include in a task.
      */
-    includes?: pulumi.Input<inputs.datasync.TaskIncludes>;
+    includes?: pulumi.Input<inputs.datasync.TaskIncludes | undefined>;
     /**
      * Name of the DataSync Task.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    options?: pulumi.Input<inputs.datasync.TaskOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
+    schedule?: pulumi.Input<inputs.datasync.TaskSchedule | undefined>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -346,15 +346,15 @@ export interface TaskArgs {
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * One of the following task modes for your data transfer:
      * * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
      * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
      */
-    taskMode?: pulumi.Input<string>;
+    taskMode?: pulumi.Input<string | undefined>;
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      */
-    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig>;
+    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig | undefined>;
 }

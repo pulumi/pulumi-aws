@@ -24,30 +24,30 @@ class EndpointArgs:
                  endpoint_id: pulumi.Input[_builtins.str],
                  endpoint_type: pulumi.Input[_builtins.str],
                  engine_name: pulumi.Input[_builtins.str],
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_settings: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']] = None,
-                 extra_connection_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_settings: Optional[pulumi.Input['EndpointKafkaSettingsArgs']] = None,
-                 kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
-                 mysql_settings: Optional[pulumi.Input['EndpointMysqlSettingsArgs']] = None,
-                 oracle_settings: Optional[pulumi.Input['EndpointOracleSettingsArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
-                 redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
-                 redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_settings: pulumi.Input[Optional['EndpointElasticsearchSettingsArgs']] = None,
+                 extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_settings: pulumi.Input[Optional['EndpointKafkaSettingsArgs']] = None,
+                 kinesis_settings: pulumi.Input[Optional['EndpointKinesisSettingsArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongodb_settings: pulumi.Input[Optional['EndpointMongodbSettingsArgs']] = None,
+                 mysql_settings: pulumi.Input[Optional['EndpointMysqlSettingsArgs']] = None,
+                 oracle_settings: pulumi.Input[Optional['EndpointOracleSettingsArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 pause_replication_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 postgres_settings: pulumi.Input[Optional['EndpointPostgresSettingsArgs']] = None,
+                 redis_settings: pulumi.Input[Optional['EndpointRedisSettingsArgs']] = None,
+                 redshift_settings: pulumi.Input[Optional['EndpointRedshiftSettingsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
@@ -172,79 +172,79 @@ class EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the endpoint database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticsearchSettings")
-    def elasticsearch_settings(self) -> Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']]:
+    def elasticsearch_settings(self) -> pulumi.Input[Optional['EndpointElasticsearchSettingsArgs']]:
         """
         Configuration block for OpenSearch settings. See below.
         """
         return pulumi.get(self, "elasticsearch_settings")
 
     @elasticsearch_settings.setter
-    def elasticsearch_settings(self, value: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']]):
+    def elasticsearch_settings(self, value: pulumi.Input[Optional['EndpointElasticsearchSettingsArgs']]):
         pulumi.set(self, "elasticsearch_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="extraConnectionAttributes")
-    def extra_connection_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extra_connection_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         """
         return pulumi.get(self, "extra_connection_attributes")
 
     @extra_connection_attributes.setter
-    def extra_connection_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extra_connection_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extra_connection_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaSettings")
-    def kafka_settings(self) -> Optional[pulumi.Input['EndpointKafkaSettingsArgs']]:
+    def kafka_settings(self) -> pulumi.Input[Optional['EndpointKafkaSettingsArgs']]:
         """
         Configuration block for Kafka settings. See below.
         """
         return pulumi.get(self, "kafka_settings")
 
     @kafka_settings.setter
-    def kafka_settings(self, value: Optional[pulumi.Input['EndpointKafkaSettingsArgs']]):
+    def kafka_settings(self, value: pulumi.Input[Optional['EndpointKafkaSettingsArgs']]):
         pulumi.set(self, "kafka_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisSettings")
-    def kinesis_settings(self) -> Optional[pulumi.Input['EndpointKinesisSettingsArgs']]:
+    def kinesis_settings(self) -> pulumi.Input[Optional['EndpointKinesisSettingsArgs']]:
         """
         Configuration block for Kinesis settings. See below.
         """
         return pulumi.get(self, "kinesis_settings")
 
     @kinesis_settings.setter
-    def kinesis_settings(self, value: Optional[pulumi.Input['EndpointKinesisSettingsArgs']]):
+    def kinesis_settings(self, value: pulumi.Input[Optional['EndpointKinesisSettingsArgs']]):
         pulumi.set(self, "kinesis_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
 
@@ -253,129 +253,129 @@ class EndpointArgs:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="mongodbSettings")
-    def mongodb_settings(self) -> Optional[pulumi.Input['EndpointMongodbSettingsArgs']]:
+    def mongodb_settings(self) -> pulumi.Input[Optional['EndpointMongodbSettingsArgs']]:
         """
         Configuration block for MongoDB settings. See below.
         """
         return pulumi.get(self, "mongodb_settings")
 
     @mongodb_settings.setter
-    def mongodb_settings(self, value: Optional[pulumi.Input['EndpointMongodbSettingsArgs']]):
+    def mongodb_settings(self, value: pulumi.Input[Optional['EndpointMongodbSettingsArgs']]):
         pulumi.set(self, "mongodb_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="mysqlSettings")
-    def mysql_settings(self) -> Optional[pulumi.Input['EndpointMysqlSettingsArgs']]:
+    def mysql_settings(self) -> pulumi.Input[Optional['EndpointMysqlSettingsArgs']]:
         """
         Configuration block for MySQL settings. See below.
         """
         return pulumi.get(self, "mysql_settings")
 
     @mysql_settings.setter
-    def mysql_settings(self, value: Optional[pulumi.Input['EndpointMysqlSettingsArgs']]):
+    def mysql_settings(self, value: pulumi.Input[Optional['EndpointMysqlSettingsArgs']]):
         pulumi.set(self, "mysql_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="oracleSettings")
-    def oracle_settings(self) -> Optional[pulumi.Input['EndpointOracleSettingsArgs']]:
+    def oracle_settings(self) -> pulumi.Input[Optional['EndpointOracleSettingsArgs']]:
         """
         Configuration block for Oracle settings. See below.
         """
         return pulumi.get(self, "oracle_settings")
 
     @oracle_settings.setter
-    def oracle_settings(self, value: Optional[pulumi.Input['EndpointOracleSettingsArgs']]):
+    def oracle_settings(self, value: pulumi.Input[Optional['EndpointOracleSettingsArgs']]):
         pulumi.set(self, "oracle_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password to be used to login to the endpoint database.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="pauseReplicationTasks")
-    def pause_replication_tasks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pause_replication_tasks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
         """
         return pulumi.get(self, "pause_replication_tasks")
 
     @pause_replication_tasks.setter
-    def pause_replication_tasks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pause_replication_tasks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pause_replication_tasks", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port used by the endpoint database.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="postgresSettings")
-    def postgres_settings(self) -> Optional[pulumi.Input['EndpointPostgresSettingsArgs']]:
+    def postgres_settings(self) -> pulumi.Input[Optional['EndpointPostgresSettingsArgs']]:
         """
         Configuration block for Postgres settings. See below.
         """
         return pulumi.get(self, "postgres_settings")
 
     @postgres_settings.setter
-    def postgres_settings(self, value: Optional[pulumi.Input['EndpointPostgresSettingsArgs']]):
+    def postgres_settings(self, value: pulumi.Input[Optional['EndpointPostgresSettingsArgs']]):
         pulumi.set(self, "postgres_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="redisSettings")
-    def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
+    def redis_settings(self) -> pulumi.Input[Optional['EndpointRedisSettingsArgs']]:
         return pulumi.get(self, "redis_settings")
 
     @redis_settings.setter
-    def redis_settings(self, value: Optional[pulumi.Input['EndpointRedisSettingsArgs']]):
+    def redis_settings(self, value: pulumi.Input[Optional['EndpointRedisSettingsArgs']]):
         pulumi.set(self, "redis_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftSettings")
-    def redshift_settings(self) -> Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]:
+    def redshift_settings(self) -> pulumi.Input[Optional['EndpointRedshiftSettingsArgs']]:
         """
         Configuration block for Redshift settings. See below.
         """
         return pulumi.get(self, "redshift_settings")
 
     @redshift_settings.setter
-    def redshift_settings(self, value: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]):
+    def redshift_settings(self, value: pulumi.Input[Optional['EndpointRedshiftSettingsArgs']]):
         pulumi.set(self, "redshift_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
-    def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
 
@@ -384,114 +384,114 @@ class EndpointArgs:
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
     @secrets_manager_access_role_arn.setter
-    def secrets_manager_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerArn")
-    def secrets_manager_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 
     @secrets_manager_arn.setter
-    def secrets_manager_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Host name of the server.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRole")
-    def service_access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN used by the service access IAM role for dynamodb endpoints.
         """
         return pulumi.get(self, "service_access_role")
 
     @service_access_role.setter
-    def service_access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role", value)
 
     @_builtins.property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         """
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name to be used to login to the endpoint database.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _EndpointState:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_settings: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']] = None,
-                 endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_connection_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_settings: Optional[pulumi.Input['EndpointKafkaSettingsArgs']] = None,
-                 kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
-                 mysql_settings: Optional[pulumi.Input['EndpointMysqlSettingsArgs']] = None,
-                 oracle_settings: Optional[pulumi.Input['EndpointOracleSettingsArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 postgres_settings: Optional[pulumi.Input['EndpointPostgresSettingsArgs']] = None,
-                 redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
-                 redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_settings: pulumi.Input[Optional['EndpointElasticsearchSettingsArgs']] = None,
+                 endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_settings: pulumi.Input[Optional['EndpointKafkaSettingsArgs']] = None,
+                 kinesis_settings: pulumi.Input[Optional['EndpointKinesisSettingsArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongodb_settings: pulumi.Input[Optional['EndpointMongodbSettingsArgs']] = None,
+                 mysql_settings: pulumi.Input[Optional['EndpointMysqlSettingsArgs']] = None,
+                 oracle_settings: pulumi.Input[Optional['EndpointOracleSettingsArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 pause_replication_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 postgres_settings: pulumi.Input[Optional['EndpointPostgresSettingsArgs']] = None,
+                 redis_settings: pulumi.Input[Optional['EndpointRedisSettingsArgs']] = None,
+                 redshift_settings: pulumi.Input[Optional['EndpointRedshiftSettingsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
 
@@ -589,127 +589,127 @@ class _EndpointState:
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the endpoint database.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticsearchSettings")
-    def elasticsearch_settings(self) -> Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']]:
+    def elasticsearch_settings(self) -> pulumi.Input[Optional['EndpointElasticsearchSettingsArgs']]:
         """
         Configuration block for OpenSearch settings. See below.
         """
         return pulumi.get(self, "elasticsearch_settings")
 
     @elasticsearch_settings.setter
-    def elasticsearch_settings(self, value: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']]):
+    def elasticsearch_settings(self, value: pulumi.Input[Optional['EndpointElasticsearchSettingsArgs']]):
         pulumi.set(self, "elasticsearch_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointArn")
-    def endpoint_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the endpoint.
         """
         return pulumi.get(self, "endpoint_arn")
 
     @endpoint_arn.setter
-    def endpoint_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointId")
-    def endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         """
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
-    def endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of endpoint. Valid values are `source`, `target`.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="engineName")
-    def engine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         """
         return pulumi.get(self, "engine_name")
 
     @engine_name.setter
-    def engine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extraConnectionAttributes")
-    def extra_connection_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extra_connection_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         """
         return pulumi.get(self, "extra_connection_attributes")
 
     @extra_connection_attributes.setter
-    def extra_connection_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extra_connection_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extra_connection_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="kafkaSettings")
-    def kafka_settings(self) -> Optional[pulumi.Input['EndpointKafkaSettingsArgs']]:
+    def kafka_settings(self) -> pulumi.Input[Optional['EndpointKafkaSettingsArgs']]:
         """
         Configuration block for Kafka settings. See below.
         """
         return pulumi.get(self, "kafka_settings")
 
     @kafka_settings.setter
-    def kafka_settings(self, value: Optional[pulumi.Input['EndpointKafkaSettingsArgs']]):
+    def kafka_settings(self, value: pulumi.Input[Optional['EndpointKafkaSettingsArgs']]):
         pulumi.set(self, "kafka_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisSettings")
-    def kinesis_settings(self) -> Optional[pulumi.Input['EndpointKinesisSettingsArgs']]:
+    def kinesis_settings(self) -> pulumi.Input[Optional['EndpointKinesisSettingsArgs']]:
         """
         Configuration block for Kinesis settings. See below.
         """
         return pulumi.get(self, "kinesis_settings")
 
     @kinesis_settings.setter
-    def kinesis_settings(self, value: Optional[pulumi.Input['EndpointKinesisSettingsArgs']]):
+    def kinesis_settings(self, value: pulumi.Input[Optional['EndpointKinesisSettingsArgs']]):
         pulumi.set(self, "kinesis_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
 
@@ -718,129 +718,129 @@ class _EndpointState:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="mongodbSettings")
-    def mongodb_settings(self) -> Optional[pulumi.Input['EndpointMongodbSettingsArgs']]:
+    def mongodb_settings(self) -> pulumi.Input[Optional['EndpointMongodbSettingsArgs']]:
         """
         Configuration block for MongoDB settings. See below.
         """
         return pulumi.get(self, "mongodb_settings")
 
     @mongodb_settings.setter
-    def mongodb_settings(self, value: Optional[pulumi.Input['EndpointMongodbSettingsArgs']]):
+    def mongodb_settings(self, value: pulumi.Input[Optional['EndpointMongodbSettingsArgs']]):
         pulumi.set(self, "mongodb_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="mysqlSettings")
-    def mysql_settings(self) -> Optional[pulumi.Input['EndpointMysqlSettingsArgs']]:
+    def mysql_settings(self) -> pulumi.Input[Optional['EndpointMysqlSettingsArgs']]:
         """
         Configuration block for MySQL settings. See below.
         """
         return pulumi.get(self, "mysql_settings")
 
     @mysql_settings.setter
-    def mysql_settings(self, value: Optional[pulumi.Input['EndpointMysqlSettingsArgs']]):
+    def mysql_settings(self, value: pulumi.Input[Optional['EndpointMysqlSettingsArgs']]):
         pulumi.set(self, "mysql_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="oracleSettings")
-    def oracle_settings(self) -> Optional[pulumi.Input['EndpointOracleSettingsArgs']]:
+    def oracle_settings(self) -> pulumi.Input[Optional['EndpointOracleSettingsArgs']]:
         """
         Configuration block for Oracle settings. See below.
         """
         return pulumi.get(self, "oracle_settings")
 
     @oracle_settings.setter
-    def oracle_settings(self, value: Optional[pulumi.Input['EndpointOracleSettingsArgs']]):
+    def oracle_settings(self, value: pulumi.Input[Optional['EndpointOracleSettingsArgs']]):
         pulumi.set(self, "oracle_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password to be used to login to the endpoint database.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="pauseReplicationTasks")
-    def pause_replication_tasks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pause_replication_tasks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
         """
         return pulumi.get(self, "pause_replication_tasks")
 
     @pause_replication_tasks.setter
-    def pause_replication_tasks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pause_replication_tasks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pause_replication_tasks", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Port used by the endpoint database.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="postgresSettings")
-    def postgres_settings(self) -> Optional[pulumi.Input['EndpointPostgresSettingsArgs']]:
+    def postgres_settings(self) -> pulumi.Input[Optional['EndpointPostgresSettingsArgs']]:
         """
         Configuration block for Postgres settings. See below.
         """
         return pulumi.get(self, "postgres_settings")
 
     @postgres_settings.setter
-    def postgres_settings(self, value: Optional[pulumi.Input['EndpointPostgresSettingsArgs']]):
+    def postgres_settings(self, value: pulumi.Input[Optional['EndpointPostgresSettingsArgs']]):
         pulumi.set(self, "postgres_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="redisSettings")
-    def redis_settings(self) -> Optional[pulumi.Input['EndpointRedisSettingsArgs']]:
+    def redis_settings(self) -> pulumi.Input[Optional['EndpointRedisSettingsArgs']]:
         return pulumi.get(self, "redis_settings")
 
     @redis_settings.setter
-    def redis_settings(self, value: Optional[pulumi.Input['EndpointRedisSettingsArgs']]):
+    def redis_settings(self, value: pulumi.Input[Optional['EndpointRedisSettingsArgs']]):
         pulumi.set(self, "redis_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftSettings")
-    def redshift_settings(self) -> Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]:
+    def redshift_settings(self) -> pulumi.Input[Optional['EndpointRedshiftSettingsArgs']]:
         """
         Configuration block for Redshift settings. See below.
         """
         return pulumi.get(self, "redshift_settings")
 
     @redshift_settings.setter
-    def redshift_settings(self, value: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]):
+    def redshift_settings(self, value: pulumi.Input[Optional['EndpointRedshiftSettingsArgs']]):
         pulumi.set(self, "redshift_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerAccessRoleArn")
-    def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
 
@@ -849,91 +849,91 @@ class _EndpointState:
         return pulumi.get(self, "secrets_manager_access_role_arn")
 
     @secrets_manager_access_role_arn.setter
-    def secrets_manager_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretsManagerArn")
-    def secrets_manager_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secrets_manager_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 
     @secrets_manager_arn.setter
-    def secrets_manager_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secrets_manager_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secrets_manager_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Host name of the server.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessRole")
-    def service_access_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_access_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN used by the service access IAM role for dynamodb endpoints.
         """
         return pulumi.get(self, "service_access_role")
 
     @service_access_role.setter
-    def service_access_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_access_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role", value)
 
     @_builtins.property
     @pulumi.getter(name="sslMode")
-    def ssl_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         """
         return pulumi.get(self, "ssl_mode")
 
     @ssl_mode.setter
-    def ssl_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name to be used to login to the endpoint database.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -943,33 +943,33 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_settings: Optional[pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
-                 endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_connection_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_settings: Optional[pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
-                 kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
-                 mysql_settings: Optional[pulumi.Input[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']]] = None,
-                 oracle_settings: Optional[pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
-                 redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
-                 redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
+                 endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
+                 kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongodb_settings: pulumi.Input[Optional[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
+                 mysql_settings: pulumi.Input[Optional[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']]] = None,
+                 oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 pause_replication_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 postgres_settings: pulumi.Input[Optional[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
+                 redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
+                 redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
@@ -1097,33 +1097,33 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 elasticsearch_settings: Optional[pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
-                 endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 extra_connection_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 kafka_settings: Optional[pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
-                 kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
-                 mysql_settings: Optional[pulumi.Input[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']]] = None,
-                 oracle_settings: Optional[pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
-                 redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
-                 redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets_manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
+                 endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
+                 kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mongodb_settings: pulumi.Input[Optional[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
+                 mysql_settings: pulumi.Input[Optional[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']]] = None,
+                 oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 pause_replication_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 postgres_settings: pulumi.Input[Optional[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
+                 redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
+                 redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1180,35 +1180,35 @@ class Endpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            database_name: Optional[pulumi.Input[_builtins.str]] = None,
-            elasticsearch_settings: Optional[pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
-            endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-            endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-            extra_connection_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-            kafka_settings: Optional[pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
-            kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
-            kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
-            mysql_settings: Optional[pulumi.Input[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']]] = None,
-            oracle_settings: Optional[pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            pause_replication_tasks: Optional[pulumi.Input[_builtins.bool]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
-            redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
-            redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            secrets_manager_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            secrets_manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            server_name: Optional[pulumi.Input[_builtins.str]] = None,
-            service_access_role: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'Endpoint':
+            certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            database_name: pulumi.Input[Optional[_builtins.str]] = None,
+            elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
+            endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+            extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
+            kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
+            kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            mongodb_settings: pulumi.Input[Optional[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
+            mysql_settings: pulumi.Input[Optional[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']]] = None,
+            oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            pause_replication_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            postgres_settings: pulumi.Input[Optional[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
+            redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
+            redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets_manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            service_access_role: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'Endpoint':
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

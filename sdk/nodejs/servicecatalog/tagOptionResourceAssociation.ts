@@ -136,31 +136,31 @@ export interface TagOptionResourceAssociationState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the resource.
      */
-    resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string | undefined>;
     /**
      * Creation time of the resource.
      */
-    resourceCreatedTime?: pulumi.Input<string>;
+    resourceCreatedTime?: pulumi.Input<string | undefined>;
     /**
      * Description of the resource.
      */
-    resourceDescription?: pulumi.Input<string>;
+    resourceDescription?: pulumi.Input<string | undefined>;
     /**
      * Resource identifier.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * Description of the resource.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Tag Option identifier.
      */
-    tagOptionId?: pulumi.Input<string>;
+    tagOptionId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface TagOptionResourceAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Resource identifier.
      */

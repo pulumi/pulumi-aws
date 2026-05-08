@@ -44,11 +44,11 @@ __all__ = [
 ]
 
 class ApplicationPortalOptionsArgsDict(TypedDict):
-    sign_in_options: NotRequired[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgsDict']]
+    sign_in_options: NotRequired[pulumi.Input[Optional['ApplicationPortalOptionsSignInOptionsArgs']]]
     """
     Sign-in options for the access portal. See `sign_in_options` below.
     """
-    visibility: NotRequired[pulumi.Input[_builtins.str]]
+    visibility: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
     """
@@ -56,8 +56,8 @@ class ApplicationPortalOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ApplicationPortalOptionsArgs:
     def __init__(__self__, *,
-                 sign_in_options: Optional[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs']] = None,
-                 visibility: Optional[pulumi.Input[_builtins.str]] = None):
+                 sign_in_options: pulumi.Input[Optional['ApplicationPortalOptionsSignInOptionsArgs']] = None,
+                 visibility: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs'] sign_in_options: Sign-in options for the access portal. See `sign_in_options` below.
         :param pulumi.Input[_builtins.str] visibility: Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
@@ -69,26 +69,26 @@ class ApplicationPortalOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="signInOptions")
-    def sign_in_options(self) -> Optional[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs']]:
+    def sign_in_options(self) -> pulumi.Input[Optional['ApplicationPortalOptionsSignInOptionsArgs']]:
         """
         Sign-in options for the access portal. See `sign_in_options` below.
         """
         return pulumi.get(self, "sign_in_options")
 
     @sign_in_options.setter
-    def sign_in_options(self, value: Optional[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgs']]):
+    def sign_in_options(self, value: pulumi.Input[Optional['ApplicationPortalOptionsSignInOptionsArgs']]):
         pulumi.set(self, "sign_in_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -100,7 +100,7 @@ class ApplicationPortalOptionsSignInOptionsArgsDict(TypedDict):
     If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
     If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
     """
-    application_url: NotRequired[pulumi.Input[_builtins.str]]
+    application_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL that accepts authentication requests for an application.
     """
@@ -109,7 +109,7 @@ class ApplicationPortalOptionsSignInOptionsArgsDict(TypedDict):
 class ApplicationPortalOptionsSignInOptionsArgs:
     def __init__(__self__, *,
                  origin: pulumi.Input[_builtins.str],
-                 application_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] origin: Determines how IAM Identity Center navigates the user to the target application.
                Valid values are `APPLICATION` and `IDENTITY_CENTER`.
@@ -138,14 +138,14 @@ class ApplicationPortalOptionsSignInOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationUrl")
-    def application_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that accepts authentication requests for an application.
         """
         return pulumi.get(self, "application_url")
 
     @application_url.setter
-    def application_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_url", value)
 
 
@@ -154,7 +154,7 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict(Type
     """
     Name of the customer managed IAM Policy to be attached.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
     """
@@ -163,7 +163,7 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict(Type
 class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the customer managed IAM Policy to be attached.
         :param pulumi.Input[_builtins.str] path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
@@ -186,14 +186,14 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
@@ -202,7 +202,7 @@ class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArg
     """
     Name of the customer managed IAM Policy to be attached.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
     """
@@ -211,7 +211,7 @@ class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArg
 class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the customer managed IAM Policy to be attached.
         :param pulumi.Input[_builtins.str] path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
@@ -234,23 +234,23 @@ class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArg
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 
 class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -258,8 +258,8 @@ class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -271,26 +271,26 @@ class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
@@ -370,11 +370,11 @@ class InstanceAccessControlAttributesAttributeValueArgs:
 
 
 class ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -382,8 +382,8 @@ class ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedPolicyAttachmentsExclusiveTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -395,35 +395,35 @@ class ManagedPolicyAttachmentsExclusiveTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 
 class PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict(TypedDict):
-    customer_managed_policy_reference: NotRequired[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict']]
+    customer_managed_policy_reference: NotRequired[pulumi.Input[Optional['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]]
     """
     Specifies the name and path of a customer managed policy. See below.
     """
-    managed_policy_arn: NotRequired[pulumi.Input[_builtins.str]]
+    managed_policy_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS-managed IAM policy ARN to use as the permissions boundary.
     """
@@ -431,8 +431,8 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict(TypedDict):
 @pulumi.input_type
 class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
     def __init__(__self__, *,
-                 customer_managed_policy_reference: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']] = None,
-                 managed_policy_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 customer_managed_policy_reference: pulumi.Input[Optional['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']] = None,
+                 managed_policy_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[_builtins.str] managed_policy_arn: AWS-managed IAM policy ARN to use as the permissions boundary.
@@ -444,26 +444,26 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerManagedPolicyReference")
-    def customer_managed_policy_reference(self) -> Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]:
+    def customer_managed_policy_reference(self) -> pulumi.Input[Optional['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]:
         """
         Specifies the name and path of a customer managed policy. See below.
         """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
-    def customer_managed_policy_reference(self, value: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]):
+    def customer_managed_policy_reference(self, value: pulumi.Input[Optional['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]):
         pulumi.set(self, "customer_managed_policy_reference", value)
 
     @_builtins.property
     @pulumi.getter(name="managedPolicyArn")
-    def managed_policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS-managed IAM policy ARN to use as the permissions boundary.
         """
         return pulumi.get(self, "managed_policy_arn")
 
     @managed_policy_arn.setter
-    def managed_policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_policy_arn", value)
 
 
@@ -472,7 +472,7 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
     """
     Name of the customer managed IAM Policy to be attached.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
     """
@@ -481,7 +481,7 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
 class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the customer managed IAM Policy to be attached.
         :param pulumi.Input[_builtins.str] path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
@@ -504,14 +504,14 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
 

@@ -272,51 +272,51 @@ export interface RuleState {
     /**
      * The ARN of the config rule
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the rule
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      */
-    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[]>;
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string | undefined>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule.
      */
-    maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the config rule
      */
-    ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string | undefined>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
-    scope?: pulumi.Input<inputs.cfg.RuleScope>;
+    scope?: pulumi.Input<inputs.cfg.RuleScope | undefined>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
-    source?: pulumi.Input<inputs.cfg.RuleSource>;
+    source?: pulumi.Input<inputs.cfg.RuleSource | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -326,31 +326,31 @@ export interface RuleArgs {
     /**
      * Description of the rule
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      */
-    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[]>;
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string | undefined>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule.
      */
-    maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
-    scope?: pulumi.Input<inputs.cfg.RuleScope>;
+    scope?: pulumi.Input<inputs.cfg.RuleScope | undefined>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
@@ -358,5 +358,5 @@ export interface RuleArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

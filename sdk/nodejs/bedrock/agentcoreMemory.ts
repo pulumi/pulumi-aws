@@ -186,42 +186,42 @@ export interface AgentcoreMemoryState {
     /**
      * ARN of the Memory.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the memory.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      *
      * The following arguments are optional:
      */
-    eventExpiryDuration?: pulumi.Input<number>;
+    eventExpiryDuration?: pulumi.Input<number | undefined>;
     /**
      * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
      */
-    memoryExecutionRoleArn?: pulumi.Input<string>;
+    memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the memory.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryTimeouts>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryTimeouts | undefined>;
 }
 
 /**
@@ -231,11 +231,11 @@ export interface AgentcoreMemoryArgs {
     /**
      * Description of the memory.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      *
@@ -245,18 +245,18 @@ export interface AgentcoreMemoryArgs {
     /**
      * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
      */
-    memoryExecutionRoleArn?: pulumi.Input<string>;
+    memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the memory.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryTimeouts>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryTimeouts | undefined>;
 }

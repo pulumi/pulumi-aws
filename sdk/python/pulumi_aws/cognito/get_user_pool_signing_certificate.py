@@ -109,8 +109,8 @@ def get_user_pool_signing_certificate(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
-def get_user_pool_signing_certificate_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                             user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_signing_certificate_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolSigningCertificateResult]:
     """
     Use this data source to get the signing certificate for a Cognito IdP user pool.

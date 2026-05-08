@@ -220,35 +220,35 @@ export interface EventArchiveState {
     /**
      * ARN of the archive.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description for the archive.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
-    eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string | undefined>;
     /**
      * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      */
-    eventSourceArn?: pulumi.Input<string>;
+    eventSourceArn?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the archive. The archive name cannot exceed 48 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -258,11 +258,11 @@ export interface EventArchiveArgs {
     /**
      * Description for the archive.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
-    eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string | undefined>;
     /**
      * ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
      */
@@ -270,17 +270,17 @@ export interface EventArchiveArgs {
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Name of the archive. The archive name cannot exceed 48 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */
-    retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number | undefined>;
 }

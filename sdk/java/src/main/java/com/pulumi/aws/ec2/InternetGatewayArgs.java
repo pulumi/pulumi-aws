@@ -48,8 +48,8 @@ public final class InternetGatewayArgs extends com.pulumi.resources.ResourceArgs
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -95,8 +95,8 @@ public final class InternetGatewayArgs extends com.pulumi.resources.ResourceArgs
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.resources.CustomResourceOptions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class InternetGatewayArgs extends com.pulumi.resources.ResourceArgs
          * import com.pulumi.aws.ec2.Instance;
          * import com.pulumi.aws.ec2.InstanceArgs;
          * import com.pulumi.resources.CustomResourceOptions;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;
@@ -256,8 +256,8 @@ public final class InternetGatewayArgs extends com.pulumi.resources.ResourceArgs
          * import com.pulumi.aws.ec2.Instance;
          * import com.pulumi.aws.ec2.InstanceArgs;
          * import com.pulumi.resources.CustomResourceOptions;
-         * import java.util.List;
          * import java.util.ArrayList;
+         * import java.util.Arrays;
          * import java.util.Map;
          * import java.io.File;
          * import java.nio.file.Files;

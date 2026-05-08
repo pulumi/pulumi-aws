@@ -20,11 +20,11 @@ __all__ = ['GatewayAssociationArgs', 'GatewayAssociation']
 class GatewayAssociationArgs:
     def __init__(__self__, *,
                  dx_gateway_id: pulumi.Input[_builtins.str],
-                 allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 proposal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 proposal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayAssociation resource.
 
@@ -68,7 +68,7 @@ class GatewayAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedPrefixes")
-    def allowed_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
 
@@ -79,12 +79,12 @@ class GatewayAssociationArgs:
         return pulumi.get(self, "allowed_prefixes")
 
     @allowed_prefixes.setter
-    def allowed_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedGatewayId")
-    def associated_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         Used for single account Direct Connect gateway associations.
@@ -92,12 +92,12 @@ class GatewayAssociationArgs:
         return pulumi.get(self, "associated_gateway_id")
 
     @associated_gateway_id.setter
-    def associated_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedGatewayOwnerAccountId")
-    def associated_gateway_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_gateway_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         Used for cross-account Direct Connect gateway associations.
@@ -105,12 +105,12 @@ class GatewayAssociationArgs:
         return pulumi.get(self, "associated_gateway_owner_account_id")
 
     @associated_gateway_owner_account_id.setter
-    def associated_gateway_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_gateway_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_gateway_owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="proposalId")
-    def proposal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proposal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Direct Connect gateway association proposal.
         Used for cross-account Direct Connect gateway associations.
@@ -118,35 +118,35 @@ class GatewayAssociationArgs:
         return pulumi.get(self, "proposal_id")
 
     @proposal_id.setter
-    def proposal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proposal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proposal_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _GatewayAssociationState:
     def __init__(__self__, *,
-                 allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_gateway_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 dx_gateway_association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dx_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dx_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 proposal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 dx_gateway_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dx_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 proposal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayAssociation resources.
 
@@ -191,7 +191,7 @@ class _GatewayAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="allowedPrefixes")
-    def allowed_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
 
@@ -202,12 +202,12 @@ class _GatewayAssociationState:
         return pulumi.get(self, "allowed_prefixes")
 
     @allowed_prefixes.setter
-    def allowed_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedGatewayId")
-    def associated_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         Used for single account Direct Connect gateway associations.
@@ -215,12 +215,12 @@ class _GatewayAssociationState:
         return pulumi.get(self, "associated_gateway_id")
 
     @associated_gateway_id.setter
-    def associated_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedGatewayOwnerAccountId")
-    def associated_gateway_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_gateway_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         Used for cross-account Direct Connect gateway associations.
@@ -228,60 +228,60 @@ class _GatewayAssociationState:
         return pulumi.get(self, "associated_gateway_owner_account_id")
 
     @associated_gateway_owner_account_id.setter
-    def associated_gateway_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_gateway_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_gateway_owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedGatewayType")
-    def associated_gateway_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_gateway_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         """
         return pulumi.get(self, "associated_gateway_type")
 
     @associated_gateway_type.setter
-    def associated_gateway_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_gateway_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_gateway_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dxGatewayAssociationId")
-    def dx_gateway_association_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dx_gateway_association_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Direct Connect gateway association.
         """
         return pulumi.get(self, "dx_gateway_association_id")
 
     @dx_gateway_association_id.setter
-    def dx_gateway_association_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dx_gateway_association_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dx_gateway_association_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dxGatewayId")
-    def dx_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dx_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Direct Connect gateway.
         """
         return pulumi.get(self, "dx_gateway_id")
 
     @dx_gateway_id.setter
-    def dx_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dx_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dx_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dxGatewayOwnerAccountId")
-    def dx_gateway_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dx_gateway_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS account that owns the Direct Connect gateway.
         """
         return pulumi.get(self, "dx_gateway_owner_account_id")
 
     @dx_gateway_owner_account_id.setter
-    def dx_gateway_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dx_gateway_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dx_gateway_owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="proposalId")
-    def proposal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proposal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Direct Connect gateway association proposal.
         Used for cross-account Direct Connect gateway associations.
@@ -289,31 +289,31 @@ class _GatewayAssociationState:
         return pulumi.get(self, "proposal_id")
 
     @proposal_id.setter
-    def proposal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proposal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proposal_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Transit Gateway Attachment when the type is `transitGateway`.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
@@ -323,12 +323,12 @@ class GatewayAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dx_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 proposal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 proposal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Associates a Direct Connect Gateway with a VGW or transit gateway.
@@ -513,12 +513,12 @@ class GatewayAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 associated_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dx_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 proposal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 proposal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -550,16 +550,16 @@ class GatewayAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            associated_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-            associated_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            associated_gateway_type: Optional[pulumi.Input[_builtins.str]] = None,
-            dx_gateway_association_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dx_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-            dx_gateway_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            proposal_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'GatewayAssociation':
+            allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            associated_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_gateway_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+            dx_gateway_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            proposal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GatewayAssociation':
         """
         Get an existing GatewayAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

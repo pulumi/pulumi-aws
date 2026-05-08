@@ -21,8 +21,8 @@ class LoggingOptionsArgs:
     def __init__(__self__, *,
                  default_log_level: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 disable_all_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 disable_all_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingOptions resource.
 
@@ -64,36 +64,36 @@ class LoggingOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableAllLogs")
-    def disable_all_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_all_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true` all logs are disabled. The default is `false`.
         """
         return pulumi.get(self, "disable_all_logs")
 
     @disable_all_logs.setter
-    def disable_all_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_all_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_all_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _LoggingOptionsState:
     def __init__(__self__, *,
-                 default_log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_all_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_all_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoggingOptions resources.
 
@@ -113,50 +113,50 @@ class _LoggingOptionsState:
 
     @_builtins.property
     @pulumi.getter(name="defaultLogLevel")
-    def default_log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         """
         return pulumi.get(self, "default_log_level")
 
     @default_log_level.setter
-    def default_log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="disableAllLogs")
-    def disable_all_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_all_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If `true` all logs are disabled. The default is `false`.
         """
         return pulumi.get(self, "disable_all_logs")
 
     @disable_all_logs.setter
-    def disable_all_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_all_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_all_logs", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -166,10 +166,10 @@ class LoggingOptions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_all_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_all_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
@@ -229,10 +229,10 @@ class LoggingOptions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_all_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_all_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -260,10 +260,10 @@ class LoggingOptions(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            default_log_level: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_all_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'LoggingOptions':
+            default_log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_all_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'LoggingOptions':
         """
         Get an existing LoggingOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

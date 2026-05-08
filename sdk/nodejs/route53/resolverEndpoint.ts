@@ -199,59 +199,59 @@ export interface ResolverEndpointState {
     /**
      * ARN of the Route 53 Resolver endpoint.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC), `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC) or `INBOUND_DELEGATION` (resolver delegates queries to Route 53 private hosted zones from your network).
      */
-    direction?: pulumi.Input<string>;
+    direction?: pulumi.Input<string | undefined>;
     /**
      * ID of the VPC that you want to create the resolver endpoint in.
      */
-    hostVpcId?: pulumi.Input<string>;
+    hostVpcId?: pulumi.Input<string | undefined>;
     /**
      * Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      */
-    ipAddresses?: pulumi.Input<pulumi.Input<inputs.route53.ResolverEndpointIpAddress>[]>;
+    ipAddresses?: pulumi.Input<pulumi.Input<inputs.route53.ResolverEndpointIpAddress>[] | undefined>;
     /**
      * Friendly name of the Route 53 Resolver endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Protocols you want to use for the Route 53 Resolver endpoint.
      * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      */
-    protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      */
-    resolverEndpointType?: pulumi.Input<string>;
+    resolverEndpointType?: pulumi.Input<string | undefined>;
     /**
      * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
      */
-    rniEnhancedMetricsEnabled?: pulumi.Input<boolean>;
+    rniEnhancedMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
      */
-    targetNameServerMetricsEnabled?: pulumi.Input<boolean>;
+    targetNameServerMetricsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -271,25 +271,25 @@ export interface ResolverEndpointArgs {
     /**
      * Friendly name of the Route 53 Resolver endpoint.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Protocols you want to use for the Route 53 Resolver endpoint.
      * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      */
-    protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      */
-    resolverEndpointType?: pulumi.Input<string>;
+    resolverEndpointType?: pulumi.Input<string | undefined>;
     /**
      * Boolean indicating whether RNI enhanced metrics are enabled for the Resolver endpoint. Defaults to `false`. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
      */
-    rniEnhancedMetricsEnabled?: pulumi.Input<boolean>;
+    rniEnhancedMetricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      */
@@ -297,9 +297,9 @@ export interface ResolverEndpointArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Boolean indicating whether target name server metrics are enabled for the outbound Resolver endpoints. Defaults to `false`. This argument is supported only for outbound endpoints. Once set, changing the value back to `false` requires explicitly specifying `false` rather than removing the argument.
      */
-    targetNameServerMetricsEnabled?: pulumi.Input<boolean>;
+    targetNameServerMetricsEnabled?: pulumi.Input<boolean | undefined>;
 }

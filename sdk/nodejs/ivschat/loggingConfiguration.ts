@@ -199,31 +199,31 @@ export interface LoggingConfigurationState {
     /**
      * ARN of the Logging Configuration.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      */
-    destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration>;
+    destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration | undefined>;
     /**
      * Logging Configuration name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the Logging Configuration.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -233,17 +233,17 @@ export interface LoggingConfigurationArgs {
     /**
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      */
-    destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration>;
+    destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration | undefined>;
     /**
      * Logging Configuration name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

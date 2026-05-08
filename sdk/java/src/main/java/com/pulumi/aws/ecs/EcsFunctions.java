@@ -45,8 +45,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -86,8 +86,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -127,8 +127,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -168,8 +168,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -209,8 +209,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClusterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -251,8 +251,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -292,8 +292,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -333,8 +333,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -374,8 +374,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -415,8 +415,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -456,8 +456,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -497,8 +497,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -537,8 +537,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -579,8 +579,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -621,8 +621,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -663,8 +663,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -705,8 +705,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -747,8 +747,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -789,8 +789,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -831,8 +831,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -873,8 +873,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -915,8 +915,8 @@ public final class EcsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -963,8 +963,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1042,8 +1042,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1121,8 +1121,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1200,8 +1200,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1279,8 +1279,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.ClusterArgs;
      * import com.pulumi.aws.ecs.Service;
      * import com.pulumi.aws.ecs.ServiceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1356,8 +1356,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1409,8 +1409,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1462,8 +1462,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1515,8 +1515,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1568,8 +1568,8 @@ public final class EcsFunctions {
      * import com.pulumi.aws.ecs.EcsFunctions;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionArgs;
      * import com.pulumi.aws.ecs.inputs.GetTaskExecutionNetworkConfigurationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

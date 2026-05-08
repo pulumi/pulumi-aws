@@ -32,12 +32,12 @@ class ReplicationConfigurationTemplateArgs:
                  staging_area_subnet_id: pulumi.Input[_builtins.str],
                  staging_area_tags: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  use_dedicated_replication_server: pulumi.Input[_builtins.bool],
-                 auto_replicate_new_disks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ebs_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']] = None):
+                 auto_replicate_new_disks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 pit_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ReplicationConfigurationTemplateTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ReplicationConfigurationTemplate resource.
 
@@ -220,96 +220,96 @@ class ReplicationConfigurationTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoReplicateNewDisks")
-    def auto_replicate_new_disks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_replicate_new_disks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow the AWS replication agent to automatically replicate newly added disks.
         """
         return pulumi.get(self, "auto_replicate_new_disks")
 
     @auto_replicate_new_disks.setter
-    def auto_replicate_new_disks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_replicate_new_disks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_replicate_new_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsEncryptionKeyArn")
-    def ebs_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ebs_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the EBS encryption key to be used during replication.
         """
         return pulumi.get(self, "ebs_encryption_key_arn")
 
     @ebs_encryption_key_arn.setter
-    def ebs_encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ebs_encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ebs_encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="pitPolicies")
-    def pit_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]:
+    def pit_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]:
         """
         Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
         """
         return pulumi.get(self, "pit_policies")
 
     @pit_policies.setter
-    def pit_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]):
+    def pit_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]):
         pulumi.set(self, "pit_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of tags to be associated with the Replication Configuration Template resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ReplicationConfigurationTemplateTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ReplicationConfigurationTemplateTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _ReplicationConfigurationTemplateState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 associate_default_security_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_replicate_new_disks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bandwidth_throttling: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_plane_routing: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_large_staging_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_server_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 staging_area_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']] = None,
-                 use_dedicated_replication_server: Optional[pulumi.Input[_builtins.bool]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 associate_default_security_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_replicate_new_disks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bandwidth_throttling: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_plane_routing: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_large_staging_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 pit_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_server_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_servers_security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional['ReplicationConfigurationTemplateTimeoutsArgs']] = None,
+                 use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ReplicationConfigurationTemplate resources.
 
@@ -375,220 +375,220 @@ class _ReplicationConfigurationTemplateState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Replication configuration template ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="associateDefaultSecurityGroup")
-    def associate_default_security_group(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def associate_default_security_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
         """
         return pulumi.get(self, "associate_default_security_group")
 
     @associate_default_security_group.setter
-    def associate_default_security_group(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def associate_default_security_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "associate_default_security_group", value)
 
     @_builtins.property
     @pulumi.getter(name="autoReplicateNewDisks")
-    def auto_replicate_new_disks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_replicate_new_disks(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to allow the AWS replication agent to automatically replicate newly added disks.
         """
         return pulumi.get(self, "auto_replicate_new_disks")
 
     @auto_replicate_new_disks.setter
-    def auto_replicate_new_disks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_replicate_new_disks(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_replicate_new_disks", value)
 
     @_builtins.property
     @pulumi.getter(name="bandwidthThrottling")
-    def bandwidth_throttling(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bandwidth_throttling(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
         """
         return pulumi.get(self, "bandwidth_throttling")
 
     @bandwidth_throttling.setter
-    def bandwidth_throttling(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bandwidth_throttling(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bandwidth_throttling", value)
 
     @_builtins.property
     @pulumi.getter(name="createPublicIp")
-    def create_public_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def create_public_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to create a Public IP for the Recovery Instance by default.
         """
         return pulumi.get(self, "create_public_ip")
 
     @create_public_ip.setter
-    def create_public_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def create_public_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_public_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPlaneRouting")
-    def data_plane_routing(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_plane_routing(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
         """
         return pulumi.get(self, "data_plane_routing")
 
     @data_plane_routing.setter
-    def data_plane_routing(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_plane_routing(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_plane_routing", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultLargeStagingDiskType")
-    def default_large_staging_disk_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_large_staging_disk_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
         """
         return pulumi.get(self, "default_large_staging_disk_type")
 
     @default_large_staging_disk_type.setter
-    def default_large_staging_disk_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_large_staging_disk_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_large_staging_disk_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsEncryption")
-    def ebs_encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ebs_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         """
         return pulumi.get(self, "ebs_encryption")
 
     @ebs_encryption.setter
-    def ebs_encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ebs_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ebs_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsEncryptionKeyArn")
-    def ebs_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ebs_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the EBS encryption key to be used during replication.
         """
         return pulumi.get(self, "ebs_encryption_key_arn")
 
     @ebs_encryption_key_arn.setter
-    def ebs_encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ebs_encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ebs_encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="pitPolicies")
-    def pit_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]:
+    def pit_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]:
         """
         Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
         """
         return pulumi.get(self, "pit_policies")
 
     @pit_policies.setter
-    def pit_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]):
+    def pit_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]):
         pulumi.set(self, "pit_policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationServerInstanceType")
-    def replication_server_instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_server_instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance type to be used for the replication server.
         """
         return pulumi.get(self, "replication_server_instance_type")
 
     @replication_server_instance_type.setter
-    def replication_server_instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_server_instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_server_instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationServersSecurityGroupsIds")
-    def replication_servers_security_groups_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def replication_servers_security_groups_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Security group IDs that will be used by the replication server.
         """
         return pulumi.get(self, "replication_servers_security_groups_ids")
 
     @replication_servers_security_groups_ids.setter
-    def replication_servers_security_groups_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def replication_servers_security_groups_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "replication_servers_security_groups_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="stagingAreaSubnetId")
-    def staging_area_subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def staging_area_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet to be used by the replication staging area.
         """
         return pulumi.get(self, "staging_area_subnet_id")
 
     @staging_area_subnet_id.setter
-    def staging_area_subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def staging_area_subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "staging_area_subnet_id", value)
 
     @_builtins.property
     @pulumi.getter(name="stagingAreaTags")
-    def staging_area_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def staging_area_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
         """
         return pulumi.get(self, "staging_area_tags")
 
     @staging_area_tags.setter
-    def staging_area_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def staging_area_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "staging_area_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Set of tags to be associated with the Replication Configuration Template resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['ReplicationConfigurationTemplateTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['ReplicationConfigurationTemplateTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="useDedicatedReplicationServer")
-    def use_dedicated_replication_server(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_dedicated_replication_server(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to use a dedicated Replication Server in the replication staging area.
 
@@ -597,7 +597,7 @@ class _ReplicationConfigurationTemplateState:
         return pulumi.get(self, "use_dedicated_replication_server")
 
     @use_dedicated_replication_server.setter
-    def use_dedicated_replication_server(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_dedicated_replication_server(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_dedicated_replication_server", value)
 
 
@@ -607,23 +607,23 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_default_security_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_replicate_new_disks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bandwidth_throttling: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_plane_routing: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_large_staging_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_server_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 staging_area_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
-                 use_dedicated_replication_server: Optional[pulumi.Input[_builtins.bool]] = None,
+                 associate_default_security_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_replicate_new_disks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bandwidth_throttling: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_plane_routing: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_large_staging_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 pit_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_server_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_servers_security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
+                 use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
@@ -785,23 +785,23 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associate_default_security_group: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_replicate_new_disks: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bandwidth_throttling: Optional[pulumi.Input[_builtins.int]] = None,
-                 create_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 data_plane_routing: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_large_staging_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_server_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 staging_area_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
-                 use_dedicated_replication_server: Optional[pulumi.Input[_builtins.bool]] = None,
+                 associate_default_security_group: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_replicate_new_disks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bandwidth_throttling: pulumi.Input[Optional[_builtins.int]] = None,
+                 create_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_plane_routing: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_large_staging_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 pit_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_server_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_servers_security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
+                 use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -862,25 +862,25 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            associate_default_security_group: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_replicate_new_disks: Optional[pulumi.Input[_builtins.bool]] = None,
-            bandwidth_throttling: Optional[pulumi.Input[_builtins.int]] = None,
-            create_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
-            data_plane_routing: Optional[pulumi.Input[_builtins.str]] = None,
-            default_large_staging_disk_type: Optional[pulumi.Input[_builtins.str]] = None,
-            ebs_encryption: Optional[pulumi.Input[_builtins.str]] = None,
-            ebs_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_server_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            staging_area_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-            staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: Optional[pulumi.Input[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
-            use_dedicated_replication_server: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ReplicationConfigurationTemplate':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            associate_default_security_group: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_replicate_new_disks: pulumi.Input[Optional[_builtins.bool]] = None,
+            bandwidth_throttling: pulumi.Input[Optional[_builtins.int]] = None,
+            create_public_ip: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_plane_routing: pulumi.Input[Optional[_builtins.str]] = None,
+            default_large_staging_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            pit_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_server_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            replication_servers_security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            staging_area_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            staging_area_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            timeouts: pulumi.Input[Optional[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
+            use_dedicated_replication_server: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ReplicationConfigurationTemplate':
         """
         Get an existing ReplicationConfigurationTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -154,39 +154,39 @@ export interface ResourceShareAccepterState {
     /**
      * The ARN of the resource share invitation.
      */
-    invitationArn?: pulumi.Input<string>;
+    invitationArn?: pulumi.Input<string | undefined>;
     /**
      * The account ID of the receiver account which accepts the invitation.
      */
-    receiverAccountId?: pulumi.Input<string>;
+    receiverAccountId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * A list of the resource ARNs shared via the resource share.
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The account ID of the sender account which submits the invitation.
      */
-    senderAccountId?: pulumi.Input<string>;
+    senderAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the resource share.
      */
-    shareArn?: pulumi.Input<string>;
+    shareArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource share as displayed in the console.
      */
-    shareId?: pulumi.Input<string>;
+    shareId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource share.
      */
-    shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string | undefined>;
     /**
      * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface ResourceShareAccepterArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the resource share.
      */

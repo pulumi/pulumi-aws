@@ -161,8 +161,8 @@ def get_authorization_token(region: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_authorization_token_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   registry_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_authorization_token_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   registry_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.

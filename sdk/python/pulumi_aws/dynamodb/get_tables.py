@@ -99,7 +99,7 @@ def get_tables(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_tables_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_tables_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablesResult]:
     """
     Returns a list of all AWS DynamoDB table names in a region.

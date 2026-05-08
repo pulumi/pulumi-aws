@@ -126,15 +126,15 @@ export interface VoiceConnectorGroupState {
     /**
      * The Amazon Chime Voice Connectors to route inbound calls to.
      */
-    connectors?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorGroupConnector>[]>;
+    connectors?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorGroupConnector>[] | undefined>;
     /**
      * The name of the Amazon Chime Voice Connector group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -144,13 +144,13 @@ export interface VoiceConnectorGroupArgs {
     /**
      * The Amazon Chime Voice Connectors to route inbound calls to.
      */
-    connectors?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorGroupConnector>[]>;
+    connectors?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorGroupConnector>[] | undefined>;
     /**
      * The name of the Amazon Chime Voice Connector group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

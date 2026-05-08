@@ -852,209 +852,209 @@ export interface FunctionState {
     /**
      * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stays the same.
      */
-    architectures?: pulumi.Input<pulumi.Input<string>[]>;
+    architectures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ARN identifying your Lambda Function.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for Lambda Capacity Provider. See below.
      */
-    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfig>;
+    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfig | undefined>;
     /**
      * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    code?: pulumi.Input<pulumi.asset.Archive>;
+    code?: pulumi.Input<pulumi.asset.Archive | undefined>;
     /**
      * Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
      */
-    codeSha256?: pulumi.Input<string>;
+    codeSha256?: pulumi.Input<string | undefined>;
     /**
      * ARN of a code-signing configuration to enable code signing for this function.
      */
-    codeSigningConfigArn?: pulumi.Input<string>;
+    codeSigningConfigArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for dead letter queue. See below.
      */
-    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig | undefined>;
     /**
      * Description of what your Lambda Function does.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
      */
-    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfig>;
+    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfig | undefined>;
     /**
      * Configuration block for environment variables. See below.
      */
-    environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
+    environment?: pulumi.Input<inputs.lambda.FunctionEnvironment | undefined>;
     /**
      * Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
      */
-    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorage | undefined>;
     /**
      * Configuration block for EFS file system. See below.
      */
-    fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig>;
+    fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig | undefined>;
     /**
      * Function entry point in your code. Required if `packageType` is `Zip`.
      */
-    handler?: pulumi.Input<string>;
+    handler?: pulumi.Input<string | undefined>;
     /**
      * Container image configuration values. See below.
      */
-    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
+    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig | undefined>;
     /**
      * ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    imageUri?: pulumi.Input<string>;
+    imageUri?: pulumi.Input<string | undefined>;
     /**
      * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    invokeArn?: pulumi.Input<string>;
+    invokeArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Date this resource was last modified.
      */
-    lastModified?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string | undefined>;
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
      */
-    layers?: pulumi.Input<pulumi.Input<string>[]>;
+    layers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for advanced logging settings. See below.
      */
-    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig | undefined>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
      */
-    memorySize?: pulumi.Input<number>;
+    memorySize?: pulumi.Input<number | undefined>;
     /**
      * Unique name for your Lambda Function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      */
-    packageType?: pulumi.Input<string>;
+    packageType?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
      */
-    publishTo?: pulumi.Input<string>;
+    publishTo?: pulumi.Input<string | undefined>;
     /**
      * ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
      */
-    qualifiedArn?: pulumi.Input<string>;
+    qualifiedArn?: pulumi.Input<string | undefined>;
     /**
      * Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    qualifiedInvokeArn?: pulumi.Input<string>;
+    qualifiedInvokeArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
      */
-    replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
+    replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
      */
-    replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      */
-    reservedConcurrentExecutions?: pulumi.Input<number>;
+    reservedConcurrentExecutions?: pulumi.Input<number | undefined>;
     /**
      * ARN to be used for invoking Lambda Function from API Gateway with response streaming - to be used in `aws.apigateway.Integration`'s `uri`.
      */
-    responseStreamingInvokeArn?: pulumi.Input<string>;
+    responseStreamingInvokeArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
      *
      * The following arguments are optional:
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the function's runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    runtime?: pulumi.Input<string | enums.lambda.Runtime>;
+    runtime?: pulumi.Input<string | enums.lambda.Runtime | undefined>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 key of an object containing the function's deployment package. Required if `s3Bucket` is set.
      */
-    s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string | undefined>;
     /**
      * Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
-    s3ObjectVersion?: pulumi.Input<string>;
+    s3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * ARN of the signing job.
      */
-    signingJobArn?: pulumi.Input<string>;
+    signingJobArn?: pulumi.Input<string | undefined>;
     /**
      * ARN of the signing profile version.
      */
-    signingProfileVersionArn?: pulumi.Input<string>;
+    signingProfileVersionArn?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for snap start settings. See below.
      */
-    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
+    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart | undefined>;
     /**
      * User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
      */
-    sourceCodeHash?: pulumi.Input<string>;
+    sourceCodeHash?: pulumi.Input<string | undefined>;
     /**
      * Size in bytes of the function .zip file.
      */
-    sourceCodeSize?: pulumi.Input<number>;
+    sourceCodeSize?: pulumi.Input<number | undefined>;
     /**
      * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
      */
-    sourceKmsKeyArn?: pulumi.Input<string>;
+    sourceKmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for Tenancy. See below.
      */
-    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfig>;
+    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfig | undefined>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for X-Ray tracing. See below.
      */
-    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig>;
+    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig | undefined>;
     /**
      * Latest published version of your Lambda Function.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for VPC. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfig | undefined>;
 }
 
 /**
@@ -1064,107 +1064,107 @@ export interface FunctionArgs {
     /**
      * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stays the same.
      */
-    architectures?: pulumi.Input<pulumi.Input<string>[]>;
+    architectures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for Lambda Capacity Provider. See below.
      */
-    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfig>;
+    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfig | undefined>;
     /**
      * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    code?: pulumi.Input<pulumi.asset.Archive>;
+    code?: pulumi.Input<pulumi.asset.Archive | undefined>;
     /**
      * Base64-encoded representation the source code package file. Use this argument to trigger updates when the function source code changes. For OCI, this value is relayed directly from the image digest. For zip files, this value is the Base64 encoded SHA-256 hash of the `.zip` file. Layers are not included in the calculation. To trigger updates using a non-standard hashing algorithm, use the `sourceCodeHash` argument instead.
      */
-    codeSha256?: pulumi.Input<string>;
+    codeSha256?: pulumi.Input<string | undefined>;
     /**
      * ARN of a code-signing configuration to enable code signing for this function.
      */
-    codeSigningConfigArn?: pulumi.Input<string>;
+    codeSigningConfigArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for dead letter queue. See below.
      */
-    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig | undefined>;
     /**
      * Description of what your Lambda Function does.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for durable function settings. See below. `durableConfig` may only be available in [limited regions](https://builder.aws.com/build/capabilities), including `us-east-2`.
      */
-    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfig>;
+    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfig | undefined>;
     /**
      * Configuration block for environment variables. See below.
      */
-    environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
+    environment?: pulumi.Input<inputs.lambda.FunctionEnvironment | undefined>;
     /**
      * Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
      */
-    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorage | undefined>;
     /**
      * Configuration block for EFS file system. See below.
      */
-    fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig>;
+    fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig | undefined>;
     /**
      * Function entry point in your code. Required if `packageType` is `Zip`.
      */
-    handler?: pulumi.Input<string>;
+    handler?: pulumi.Input<string | undefined>;
     /**
      * Container image configuration values. See below.
      */
-    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
+    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig | undefined>;
     /**
      * ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3Bucket`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    imageUri?: pulumi.Input<string>;
+    imageUri?: pulumi.Input<string | undefined>;
     /**
      * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
      */
-    layers?: pulumi.Input<pulumi.Input<string>[]>;
+    layers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration block for advanced logging settings. See below.
      */
-    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig | undefined>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
      */
-    memorySize?: pulumi.Input<number>;
+    memorySize?: pulumi.Input<number | undefined>;
     /**
      * Unique name for your Lambda Function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      */
-    packageType?: pulumi.Input<string>;
+    packageType?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      */
-    publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to publish to a alias or version number. Omit for regular version publishing. Option is `LATEST_PUBLISHED`.
      */
-    publishTo?: pulumi.Input<string>;
+    publishTo?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
      */
-    replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
+    replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replaceSecurityGroupsOnDestroy` is `true`.
      */
-    replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      */
-    reservedConcurrentExecutions?: pulumi.Input<number>;
+    reservedConcurrentExecutions?: pulumi.Input<number | undefined>;
     /**
      * ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
      *
@@ -1174,53 +1174,53 @@ export interface FunctionArgs {
     /**
      * Identifier of the function's runtime. Required if `packageType` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    runtime?: pulumi.Input<string | enums.lambda.Runtime>;
+    runtime?: pulumi.Input<string | enums.lambda.Runtime | undefined>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. One of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
-    s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string | undefined>;
     /**
      * S3 key of an object containing the function's deployment package. Required if `s3Bucket` is set.
      */
-    s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string | undefined>;
     /**
      * Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
      */
-    s3ObjectVersion?: pulumi.Input<string>;
+    s3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
      */
-    skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for snap start settings. See below.
      */
-    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
+    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart | undefined>;
     /**
      * User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `codeSha256` argument instead.
      */
-    sourceCodeHash?: pulumi.Input<string>;
+    sourceCodeHash?: pulumi.Input<string | undefined>;
     /**
      * ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `imageUri`.
      */
-    sourceKmsKeyArn?: pulumi.Input<string>;
+    sourceKmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of tags for the Lambda function. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block for Tenancy. See below.
      */
-    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfig>;
+    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfig | undefined>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for X-Ray tracing. See below.
      */
-    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig>;
+    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig | undefined>;
     /**
      * Configuration block for VPC. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfig | undefined>;
 }

@@ -23,7 +23,7 @@ class BackupPolicyArgs:
     def __init__(__self__, *,
                  backup_policy: pulumi.Input['BackupPolicyBackupPolicyArgs'],
                  file_system_id: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
 
@@ -62,23 +62,23 @@ class BackupPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _BackupPolicyState:
     def __init__(__self__, *,
-                 backup_policy: Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 backup_policy: pulumi.Input[Optional['BackupPolicyBackupPolicyArgs']] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicy resources.
 
@@ -95,38 +95,38 @@ class _BackupPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="backupPolicy")
-    def backup_policy(self) -> Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']]:
+    def backup_policy(self) -> pulumi.Input[Optional['BackupPolicyBackupPolicyArgs']]:
         """
         A backup_policy object (documented below).
         """
         return pulumi.get(self, "backup_policy")
 
     @backup_policy.setter
-    def backup_policy(self, value: Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']]):
+    def backup_policy(self, value: pulumi.Input[Optional['BackupPolicyBackupPolicyArgs']]):
         pulumi.set(self, "backup_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the EFS file system.
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -136,9 +136,9 @@ class BackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy: pulumi.Input[Optional[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Elastic File System (EFS) Backup Policy resource.
@@ -221,9 +221,9 @@ class BackupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_policy: pulumi.Input[Optional[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,9 +250,9 @@ class BackupPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
-            file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'BackupPolicy':
+            backup_policy: pulumi.Input[Optional[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
+            file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupPolicy':
         """
         Get an existing BackupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

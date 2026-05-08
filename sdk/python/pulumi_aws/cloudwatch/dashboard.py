@@ -21,7 +21,7 @@ class DashboardArgs:
     def __init__(__self__, *,
                  dashboard_body: pulumi.Input[_builtins.str],
                  dashboard_name: pulumi.Input[_builtins.str],
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
 
@@ -60,24 +60,24 @@ class DashboardArgs:
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _DashboardState:
     def __init__(__self__, *,
-                 dashboard_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 dashboard_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
 
@@ -97,50 +97,50 @@ class _DashboardState:
 
     @_builtins.property
     @pulumi.getter(name="dashboardArn")
-    def dashboard_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dashboard_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the dashboard.
         """
         return pulumi.get(self, "dashboard_arn")
 
     @dashboard_arn.setter
-    def dashboard_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dashboard_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dashboard_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="dashboardBody")
-    def dashboard_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dashboard_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         """
         return pulumi.get(self, "dashboard_body")
 
     @dashboard_body.setter
-    def dashboard_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dashboard_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dashboard_body", value)
 
     @_builtins.property
     @pulumi.getter(name="dashboardName")
-    def dashboard_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dashboard_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dashboard.
         """
         return pulumi.get(self, "dashboard_name")
 
     @dashboard_name.setter
-    def dashboard_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dashboard_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dashboard_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -150,9 +150,9 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Dashboard resource.
@@ -293,9 +293,9 @@ class Dashboard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 dashboard_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,10 +323,10 @@ class Dashboard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dashboard_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            dashboard_body: Optional[pulumi.Input[_builtins.str]] = None,
-            dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'Dashboard':
+            dashboard_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_body: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Dashboard':
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

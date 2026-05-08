@@ -103,7 +103,7 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelFilterArgs>[] | undefined>;
     /**
      * Unique identifier for the notification channel.
      */
@@ -111,9 +111,9 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      */
-    sns?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelSnArgs>[]>;
+    sns?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelSnArgs>[] | undefined>;
 }

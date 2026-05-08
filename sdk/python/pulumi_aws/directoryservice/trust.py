@@ -23,11 +23,11 @@ class TrustArgs:
                  remote_domain_name: pulumi.Input[_builtins.str],
                  trust_direction: pulumi.Input[_builtins.str],
                  trust_password: pulumi.Input[_builtins.str],
-                 conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delete_associated_conditional_forwarder: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 selective_auth: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditional_forwarder_ip_addrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delete_associated_conditional_forwarder: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 selective_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trust resource.
 
@@ -119,7 +119,7 @@ class TrustArgs:
 
     @_builtins.property
     @pulumi.getter(name="conditionalForwarderIpAddrs")
-    def conditional_forwarder_ip_addrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def conditional_forwarder_ip_addrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of IPv4 addresses for the DNS server associated with the remote Directory.
         Can contain between 1 and 4 values.
@@ -127,36 +127,36 @@ class TrustArgs:
         return pulumi.get(self, "conditional_forwarder_ip_addrs")
 
     @conditional_forwarder_ip_addrs.setter
-    def conditional_forwarder_ip_addrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def conditional_forwarder_ip_addrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "conditional_forwarder_ip_addrs", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAssociatedConditionalForwarder")
-    def delete_associated_conditional_forwarder(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_associated_conditional_forwarder(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the conditional forwarder when deleting the Trust relationship.
         """
         return pulumi.get(self, "delete_associated_conditional_forwarder")
 
     @delete_associated_conditional_forwarder.setter
-    def delete_associated_conditional_forwarder(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_associated_conditional_forwarder(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_associated_conditional_forwarder", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="selectiveAuth")
-    def selective_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selective_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to enable selective authentication.
         Valid values are `Enabled` and `Disabled`.
@@ -165,12 +165,12 @@ class TrustArgs:
         return pulumi.get(self, "selective_auth")
 
     @selective_auth.setter
-    def selective_auth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selective_auth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selective_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="trustType")
-    def trust_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Trust relationship.
         Valid values are `Forest` and `External`.
@@ -179,27 +179,27 @@ class TrustArgs:
         return pulumi.get(self, "trust_type")
 
     @trust_type.setter
-    def trust_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_type", value)
 
 
 @pulumi.input_type
 class _TrustState:
     def __init__(__self__, *,
-                 conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 created_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_associated_conditional_forwarder: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selective_auth: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_last_updated_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_state_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 conditional_forwarder_ip_addrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 created_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_associated_conditional_forwarder: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selective_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_state_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Trust resources.
 
@@ -259,7 +259,7 @@ class _TrustState:
 
     @_builtins.property
     @pulumi.getter(name="conditionalForwarderIpAddrs")
-    def conditional_forwarder_ip_addrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def conditional_forwarder_ip_addrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of IPv4 addresses for the DNS server associated with the remote Directory.
         Can contain between 1 and 4 values.
@@ -267,84 +267,84 @@ class _TrustState:
         return pulumi.get(self, "conditional_forwarder_ip_addrs")
 
     @conditional_forwarder_ip_addrs.setter
-    def conditional_forwarder_ip_addrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def conditional_forwarder_ip_addrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "conditional_forwarder_ip_addrs", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDateTime")
-    def created_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the Trust was created.
         """
         return pulumi.get(self, "created_date_time")
 
     @created_date_time.setter
-    def created_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteAssociatedConditionalForwarder")
-    def delete_associated_conditional_forwarder(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_associated_conditional_forwarder(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the conditional forwarder when deleting the Trust relationship.
         """
         return pulumi.get(self, "delete_associated_conditional_forwarder")
 
     @delete_associated_conditional_forwarder.setter
-    def delete_associated_conditional_forwarder(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_associated_conditional_forwarder(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_associated_conditional_forwarder", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryId")
-    def directory_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Directory.
         """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
-    def directory_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDateTime")
-    def last_updated_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the Trust was last updated.
         """
         return pulumi.get(self, "last_updated_date_time")
 
     @last_updated_date_time.setter
-    def last_updated_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_date_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteDomainName")
-    def remote_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified domain name of the remote Directory.
         """
         return pulumi.get(self, "remote_domain_name")
 
     @remote_domain_name.setter
-    def remote_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="selectiveAuth")
-    def selective_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selective_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to enable selective authentication.
         Valid values are `Enabled` and `Disabled`.
@@ -353,24 +353,24 @@ class _TrustState:
         return pulumi.get(self, "selective_auth")
 
     @selective_auth.setter
-    def selective_auth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selective_auth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selective_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="stateLastUpdatedDateTime")
-    def state_last_updated_date_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_last_updated_date_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the Trust state in `trust_state` was last updated.
         """
         return pulumi.get(self, "state_last_updated_date_time")
 
     @state_last_updated_date_time.setter
-    def state_last_updated_date_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_last_updated_date_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_last_updated_date_time", value)
 
     @_builtins.property
     @pulumi.getter(name="trustDirection")
-    def trust_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The direction of the Trust relationship.
         Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
@@ -378,12 +378,12 @@ class _TrustState:
         return pulumi.get(self, "trust_direction")
 
     @trust_direction.setter
-    def trust_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="trustPassword")
-    def trust_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the Trust.
         Does not need to match the passwords for either Directory.
@@ -393,12 +393,12 @@ class _TrustState:
         return pulumi.get(self, "trust_password")
 
     @trust_password.setter
-    def trust_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_password", value)
 
     @_builtins.property
     @pulumi.getter(name="trustState")
-    def trust_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of the Trust relationship.
         One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
@@ -406,24 +406,24 @@ class _TrustState:
         return pulumi.get(self, "trust_state")
 
     @trust_state.setter
-    def trust_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_state", value)
 
     @_builtins.property
     @pulumi.getter(name="trustStateReason")
-    def trust_state_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_state_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason for the Trust state set in `trust_state`.
         """
         return pulumi.get(self, "trust_state_reason")
 
     @trust_state_reason.setter
-    def trust_state_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_state_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_state_reason", value)
 
     @_builtins.property
     @pulumi.getter(name="trustType")
-    def trust_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trust_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Trust relationship.
         Valid values are `Forest` and `External`.
@@ -432,7 +432,7 @@ class _TrustState:
         return pulumi.get(self, "trust_type")
 
     @trust_type.setter
-    def trust_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trust_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trust_type", value)
 
 
@@ -442,15 +442,15 @@ class Trust(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delete_associated_conditional_forwarder: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selective_auth: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditional_forwarder_ip_addrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delete_associated_conditional_forwarder: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selective_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a trust relationship between two Active Directory Directories.
@@ -638,15 +638,15 @@ class Trust(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delete_associated_conditional_forwarder: Optional[pulumi.Input[_builtins.bool]] = None,
-                 directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 selective_auth: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 conditional_forwarder_ip_addrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delete_associated_conditional_forwarder: pulumi.Input[Optional[_builtins.bool]] = None,
+                 directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 selective_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -688,20 +688,20 @@ class Trust(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            created_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_associated_conditional_forwarder: Optional[pulumi.Input[_builtins.bool]] = None,
-            directory_id: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-            selective_auth: Optional[pulumi.Input[_builtins.str]] = None,
-            state_last_updated_date_time: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_direction: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_password: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_state: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_state_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Trust':
+            conditional_forwarder_ip_addrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_associated_conditional_forwarder: pulumi.Input[Optional[_builtins.bool]] = None,
+            directory_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+            selective_auth: pulumi.Input[Optional[_builtins.str]] = None,
+            state_last_updated_date_time: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_direction: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_password: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_state: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_state_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Trust':
         """
         Get an existing Trust resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

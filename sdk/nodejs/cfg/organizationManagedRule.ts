@@ -180,51 +180,51 @@ export interface OrganizationManagedRuleState {
     /**
      * Amazon Resource Name (ARN) of the rule
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Description of the rule
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of AWS account identifiers to exclude from the rule
      */
-    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      */
-    inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string | undefined>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the AWS resource to evaluate
      */
-    resourceIdScope?: pulumi.Input<string>;
+    resourceIdScope?: pulumi.Input<string | undefined>;
     /**
      * List of types of AWS resources to evaluate
      */
-    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
      */
-    ruleIdentifier?: pulumi.Input<string>;
+    ruleIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Tag key of AWS resources to evaluate
      */
-    tagKeyScope?: pulumi.Input<string>;
+    tagKeyScope?: pulumi.Input<string | undefined>;
     /**
      * Tag value of AWS resources to evaluate
      */
-    tagValueScope?: pulumi.Input<string>;
+    tagValueScope?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -234,35 +234,35 @@ export interface OrganizationManagedRuleArgs {
     /**
      * Description of the rule
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of AWS account identifiers to exclude from the rule
      */
-    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      */
-    inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string | undefined>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the AWS resource to evaluate
      */
-    resourceIdScope?: pulumi.Input<string>;
+    resourceIdScope?: pulumi.Input<string | undefined>;
     /**
      * List of types of AWS resources to evaluate
      */
-    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
      */
@@ -270,9 +270,9 @@ export interface OrganizationManagedRuleArgs {
     /**
      * Tag key of AWS resources to evaluate
      */
-    tagKeyScope?: pulumi.Input<string>;
+    tagKeyScope?: pulumi.Input<string | undefined>;
     /**
      * Tag value of AWS resources to evaluate
      */
-    tagValueScope?: pulumi.Input<string>;
+    tagValueScope?: pulumi.Input<string | undefined>;
 }

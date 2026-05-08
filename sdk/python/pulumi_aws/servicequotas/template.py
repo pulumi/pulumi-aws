@@ -22,8 +22,8 @@ class TemplateArgs:
                  quota_code: pulumi.Input[_builtins.str],
                  service_code: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.float],
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Template resource.
 
@@ -82,42 +82,42 @@ class TemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Region to which the template applies.
         """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
-    def aws_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_region", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Region to which the template applies. Use `get_region` instead.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _TemplateState:
     def __init__(__self__, *,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_quota: Optional[pulumi.Input[_builtins.bool]] = None,
-                 quota_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None):
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_quota: pulumi.Input[Optional[_builtins.bool]] = None,
+                 quota_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Input properties used for looking up and filtering Template resources.
 
@@ -155,111 +155,111 @@ class _TemplateState:
 
     @_builtins.property
     @pulumi.getter(name="awsRegion")
-    def aws_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Region to which the template applies.
         """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
-    def aws_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_region", value)
 
     @_builtins.property
     @pulumi.getter(name="globalQuota")
-    def global_quota(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def global_quota(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the quota is global.
         """
         return pulumi.get(self, "global_quota")
 
     @global_quota.setter
-    def global_quota(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def global_quota(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "global_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaCode")
-    def quota_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quota_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
         """
         return pulumi.get(self, "quota_code")
 
     @quota_code.setter
-    def quota_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quota_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quota_code", value)
 
     @_builtins.property
     @pulumi.getter(name="quotaName")
-    def quota_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quota_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Quota name.
         """
         return pulumi.get(self, "quota_name")
 
     @quota_name.setter
-    def quota_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quota_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quota_name", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Region to which the template applies. Use `get_region` instead.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceCode")
-    def service_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
         """
         return pulumi.get(self, "service_code")
 
     @service_code.setter
-    def service_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_code", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service name.
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unit of measurement.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The new, increased value for the quota.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "value", value)
 
 
@@ -269,11 +269,11 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None,
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Service Quotas Template.
@@ -292,7 +292,7 @@ class Template(pulumi.CustomResource):
             aws_region="us-east-1",
             quota_code="L-2ACBD22F",
             service_code="lambda",
-            value=80)
+            value=float(80))
         ```
 
         ## Import
@@ -335,7 +335,7 @@ class Template(pulumi.CustomResource):
             aws_region="us-east-1",
             quota_code="L-2ACBD22F",
             service_code="lambda",
-            value=80)
+            value=float(80))
         ```
 
         ## Import
@@ -362,11 +362,11 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 quota_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.float]] = None,
+                 aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 quota_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -401,15 +401,15 @@ class Template(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_region: Optional[pulumi.Input[_builtins.str]] = None,
-            global_quota: Optional[pulumi.Input[_builtins.bool]] = None,
-            quota_code: Optional[pulumi.Input[_builtins.str]] = None,
-            quota_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_code: Optional[pulumi.Input[_builtins.str]] = None,
-            service_name: Optional[pulumi.Input[_builtins.str]] = None,
-            unit: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.float]] = None) -> 'Template':
+            aws_region: pulumi.Input[Optional[_builtins.str]] = None,
+            global_quota: pulumi.Input[Optional[_builtins.bool]] = None,
+            quota_code: pulumi.Input[Optional[_builtins.str]] = None,
+            quota_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_code: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None,
+            unit: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.float]] = None) -> 'Template':
         """
         Get an existing Template resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

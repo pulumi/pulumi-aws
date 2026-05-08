@@ -32,43 +32,43 @@ __all__ = [
 ]
 
 class AppAutoBranchCreationConfigArgsDict(TypedDict):
-    basic_auth_credentials: NotRequired[pulumi.Input[_builtins.str]]
+    basic_auth_credentials: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Basic authorization credentials for the autocreated branch.
     """
-    build_spec: NotRequired[pulumi.Input[_builtins.str]]
+    build_spec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Build specification (build spec) for the autocreated branch.
     """
-    enable_auto_build: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_auto_build: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables auto building for the autocreated branch.
     """
-    enable_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_basic_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables basic authorization for the autocreated branch.
     """
-    enable_performance_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_performance_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables performance mode for the branch.
     """
-    enable_pull_request_preview: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_pull_request_preview: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables pull request previews for the autocreated branch.
     """
-    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Environment variables for the autocreated branch.
     """
-    framework: NotRequired[pulumi.Input[_builtins.str]]
+    framework: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Framework for the autocreated branch.
     """
-    pull_request_environment_name: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_environment_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Amplify environment name for the pull request.
     """
-    stage: NotRequired[pulumi.Input[_builtins.str]]
+    stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
     """
@@ -76,16 +76,16 @@ class AppAutoBranchCreationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AppAutoBranchCreationConfigArgs:
     def __init__(__self__, *,
-                 basic_auth_credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_build: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_performance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_pull_request_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None):
+                 basic_auth_credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] basic_auth_credentials: Basic authorization credentials for the autocreated branch.
         :param pulumi.Input[_builtins.str] build_spec: Build specification (build spec) for the autocreated branch.
@@ -121,122 +121,122 @@ class AppAutoBranchCreationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="basicAuthCredentials")
-    def basic_auth_credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def basic_auth_credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Basic authorization credentials for the autocreated branch.
         """
         return pulumi.get(self, "basic_auth_credentials")
 
     @basic_auth_credentials.setter
-    def basic_auth_credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def basic_auth_credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "basic_auth_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="buildSpec")
-    def build_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Build specification (build spec) for the autocreated branch.
         """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
-    def build_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_spec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoBuild")
-    def enable_auto_build(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_build(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables auto building for the autocreated branch.
         """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
-    def enable_auto_build(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_build(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_build", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBasicAuth")
-    def enable_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_basic_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables basic authorization for the autocreated branch.
         """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
-    def enable_basic_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_basic_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePerformanceMode")
-    def enable_performance_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_performance_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables performance mode for the branch.
         """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
-    def enable_performance_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_performance_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_performance_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePullRequestPreview")
-    def enable_pull_request_preview(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_pull_request_preview(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables pull request previews for the autocreated branch.
         """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
-    def enable_pull_request_preview(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_pull_request_preview(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Environment variables for the autocreated branch.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def framework(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def framework(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Framework for the autocreated branch.
         """
         return pulumi.get(self, "framework")
 
     @framework.setter
-    def framework(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def framework(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "framework", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestEnvironmentName")
-    def pull_request_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amplify environment name for the pull request.
         """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
-    def pull_request_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         """
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage", value)
 
 
@@ -277,11 +277,11 @@ class AppCustomRuleArgsDict(TypedDict):
     """
     Target pattern for a URL rewrite or redirect rule.
     """
-    condition: NotRequired[pulumi.Input[_builtins.str]]
+    condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Condition for a URL rewrite or redirect rule, such as a country code.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
     """
@@ -291,8 +291,8 @@ class AppCustomRuleArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source: Source pattern for a URL rewrite or redirect rule.
         :param pulumi.Input[_builtins.str] target: Target pattern for a URL rewrite or redirect rule.
@@ -332,31 +332,31 @@ class AppCustomRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Condition for a URL rewrite or redirect rule, such as a country code.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class AppJobConfigArgsDict(TypedDict):
-    build_compute_type: NotRequired[pulumi.Input[_builtins.str]]
+    build_compute_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
     """
@@ -364,7 +364,7 @@ class AppJobConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AppJobConfigArgs:
     def __init__(__self__, *,
-                 build_compute_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 build_compute_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] build_compute_type: Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
         """
@@ -373,31 +373,31 @@ class AppJobConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildComputeType")
-    def build_compute_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_compute_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
         """
         return pulumi.get(self, "build_compute_type")
 
     @build_compute_type.setter
-    def build_compute_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_compute_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_compute_type", value)
 
 
 class AppProductionBranchArgsDict(TypedDict):
-    branch_name: NotRequired[pulumi.Input[_builtins.str]]
+    branch_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Branch name for the production branch.
     """
-    last_deploy_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_deploy_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last deploy time of the production branch.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status of the production branch.
     """
-    thumbnail_url: NotRequired[pulumi.Input[_builtins.str]]
+    thumbnail_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Thumbnail URL for the production branch.
     """
@@ -405,10 +405,10 @@ class AppProductionBranchArgsDict(TypedDict):
 @pulumi.input_type
 class AppProductionBranchArgs:
     def __init__(__self__, *,
-                 branch_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_deploy_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 thumbnail_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_deploy_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 thumbnail_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] branch_name: Branch name for the production branch.
         :param pulumi.Input[_builtins.str] last_deploy_time: Last deploy time of the production branch.
@@ -426,50 +426,50 @@ class AppProductionBranchArgs:
 
     @_builtins.property
     @pulumi.getter(name="branchName")
-    def branch_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Branch name for the production branch.
         """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
-    def branch_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "branch_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastDeployTime")
-    def last_deploy_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_deploy_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last deploy time of the production branch.
         """
         return pulumi.get(self, "last_deploy_time")
 
     @last_deploy_time.setter
-    def last_deploy_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_deploy_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_deploy_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the production branch.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="thumbnailUrl")
-    def thumbnail_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thumbnail_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Thumbnail URL for the production branch.
         """
         return pulumi.get(self, "thumbnail_url")
 
     @thumbnail_url.setter
-    def thumbnail_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thumbnail_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thumbnail_url", value)
 
 
@@ -479,11 +479,11 @@ class DomainAssociationCertificateSettingsArgsDict(TypedDict):
     The certificate type.
     Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
     """
-    certificate_verification_dns_record: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_verification_dns_record: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
     """
-    custom_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    custom_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon resource name (ARN) for the custom certificate.
     Required when `type` is `CUSTOM`.
@@ -493,8 +493,8 @@ class DomainAssociationCertificateSettingsArgsDict(TypedDict):
 class DomainAssociationCertificateSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 certificate_verification_dns_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_verification_dns_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: The certificate type.
                Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
@@ -523,19 +523,19 @@ class DomainAssociationCertificateSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateVerificationDnsRecord")
-    def certificate_verification_dns_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_verification_dns_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         """
         return pulumi.get(self, "certificate_verification_dns_record")
 
     @certificate_verification_dns_record.setter
-    def certificate_verification_dns_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_verification_dns_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_verification_dns_record", value)
 
     @_builtins.property
     @pulumi.getter(name="customCertificateArn")
-    def custom_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon resource name (ARN) for the custom certificate.
         Required when `type` is `CUSTOM`.
@@ -543,7 +543,7 @@ class DomainAssociationCertificateSettingsArgs:
         return pulumi.get(self, "custom_certificate_arn")
 
     @custom_certificate_arn.setter
-    def custom_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_certificate_arn", value)
 
 
@@ -556,11 +556,11 @@ class DomainAssociationSubDomainArgsDict(TypedDict):
     """
     Prefix setting for the subdomain.
     """
-    dns_record: NotRequired[pulumi.Input[_builtins.str]]
+    dns_record: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
     """
-    verified: NotRequired[pulumi.Input[_builtins.bool]]
+    verified: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Verified status of the subdomain.
     """
@@ -570,8 +570,8 @@ class DomainAssociationSubDomainArgs:
     def __init__(__self__, *,
                  branch_name: pulumi.Input[_builtins.str],
                  prefix: pulumi.Input[_builtins.str],
-                 dns_record: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified: Optional[pulumi.Input[_builtins.bool]] = None):
+                 dns_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] branch_name: Branch name setting for the subdomain.
         :param pulumi.Input[_builtins.str] prefix: Prefix setting for the subdomain.
@@ -611,26 +611,26 @@ class DomainAssociationSubDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsRecord")
-    def dns_record(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
         """
         return pulumi.get(self, "dns_record")
 
     @dns_record.setter
-    def dns_record(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def verified(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def verified(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Verified status of the subdomain.
         """
         return pulumi.get(self, "verified")
 
     @verified.setter
-    def verified(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def verified(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "verified", value)
 
 

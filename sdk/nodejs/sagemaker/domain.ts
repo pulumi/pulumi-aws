@@ -290,89 +290,89 @@ export interface DomainState {
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
      */
-    appNetworkAccessType?: pulumi.Input<string>;
+    appNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      */
-    appSecurityGroupManagement?: pulumi.Input<string>;
+    appSecurityGroupManagement?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
-    authMode?: pulumi.Input<string>;
+    authMode?: pulumi.Input<string | undefined>;
     /**
      * The default space settings. See `defaultSpaceSettings` Block below.
      */
-    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
+    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
      * The default user settings. See `defaultUserSettings` Block below.
      */
-    defaultUserSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
+    defaultUserSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings | undefined>;
     /**
      * The domain name.
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The domain settings. See `domainSettings` Block below.
      */
-    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
+    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings | undefined>;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
-    homeEfsFileSystemId?: pulumi.Input<string>;
+    homeEfsFileSystemId?: pulumi.Input<string | undefined>;
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
-    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy | undefined>;
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
-    securityGroupIdForDomainBoundary?: pulumi.Input<string>;
+    securityGroupIdForDomainBoundary?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      */
-    singleSignOnApplicationArn?: pulumi.Input<string>;
+    singleSignOnApplicationArn?: pulumi.Input<string | undefined>;
     /**
      * The SSO managed application instance ID.
      */
-    singleSignOnManagedApplicationInstanceId?: pulumi.Input<string>;
+    singleSignOnManagedApplicationInstanceId?: pulumi.Input<string | undefined>;
     /**
      * The VPC subnets that Studio uses for communication.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
      */
-    tagPropagation?: pulumi.Input<string>;
+    tagPropagation?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The domain's URL.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      *
      * The following arguments are optional:
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -382,11 +382,11 @@ export interface DomainArgs {
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
      */
-    appNetworkAccessType?: pulumi.Input<string>;
+    appNetworkAccessType?: pulumi.Input<string | undefined>;
     /**
      * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      */
-    appSecurityGroupManagement?: pulumi.Input<string>;
+    appSecurityGroupManagement?: pulumi.Input<string | undefined>;
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      */
@@ -394,7 +394,7 @@ export interface DomainArgs {
     /**
      * The default space settings. See `defaultSpaceSettings` Block below.
      */
-    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
+    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
     /**
      * The default user settings. See `defaultUserSettings` Block below.
      */
@@ -406,19 +406,19 @@ export interface DomainArgs {
     /**
      * The domain settings. See `domainSettings` Block below.
      */
-    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
+    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings | undefined>;
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
-    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy | undefined>;
     /**
      * The VPC subnets that Studio uses for communication.
      */
@@ -426,11 +426,11 @@ export interface DomainArgs {
     /**
      * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
      */
-    tagPropagation?: pulumi.Input<string>;
+    tagPropagation?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      *

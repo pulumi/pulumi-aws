@@ -166,138 +166,138 @@ export interface ProviderArgs {
      * The access key for API operations. You can retrieve this
      * from the 'Security & Credentials' section of the AWS console.
      */
-    accessKey?: pulumi.Input<string>;
-    allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
-    assumeRoleWithWebIdentity?: pulumi.Input<inputs.ProviderAssumeRoleWithWebIdentity>;
-    assumeRoles?: pulumi.Input<pulumi.Input<inputs.ProviderAssumeRole>[]>;
+    accessKey?: pulumi.Input<string | undefined>;
+    allowedAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    assumeRoleWithWebIdentity?: pulumi.Input<inputs.ProviderAssumeRoleWithWebIdentity | undefined>;
+    assumeRoles?: pulumi.Input<pulumi.Input<inputs.ProviderAssumeRole>[] | undefined>;
     /**
      * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `caBundle` in the shared config file is not supported.)
      */
-    customCaBundle?: pulumi.Input<string>;
+    customCaBundle?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with settings to default resource tags across all resources.
      */
-    defaultTags?: pulumi.Input<inputs.ProviderDefaultTags>;
+    defaultTags?: pulumi.Input<inputs.ProviderDefaultTags | undefined>;
     /**
      * Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      */
-    ec2MetadataServiceEndpoint?: pulumi.Input<string>;
+    ec2MetadataServiceEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      */
-    ec2MetadataServiceEndpointMode?: pulumi.Input<string>;
-    endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
-    forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    ec2MetadataServiceEndpointMode?: pulumi.Input<string | undefined>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[] | undefined>;
+    forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `httpProxy` environment variables.
      */
-    httpProxy?: pulumi.Input<string>;
+    httpProxy?: pulumi.Input<string | undefined>;
     /**
      * URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `httpsProxy` environment variables.
      */
-    httpsProxy?: pulumi.Input<string>;
+    httpsProxy?: pulumi.Input<string | undefined>;
     /**
      * Configuration block with settings to ignore resource tags across all resources.
      */
-    ignoreTags?: pulumi.Input<inputs.ProviderIgnoreTags>;
+    ignoreTags?: pulumi.Input<inputs.ProviderIgnoreTags | undefined>;
     /**
      * Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
      */
-    insecure?: pulumi.Input<boolean>;
+    insecure?: pulumi.Input<boolean | undefined>;
     /**
      * The maximum number of times an AWS API request is
      * being executed. If the API request still fails, an error is
      * thrown.
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `noProxy` environment variables.
      */
-    noProxy?: pulumi.Input<string>;
+    noProxy?: pulumi.Input<string | undefined>;
     /**
      * The profile for API operations. If not set, the default profile
      * created with `aws configure` will be used.
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * The region where AWS operations will take place. Examples
      * are us-east-1, us-west-2, etc.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
      */
-    retryMode?: pulumi.Input<string>;
+    retryMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
      */
-    s3UsEast1RegionalEndpoint?: pulumi.Input<string>;
+    s3UsEast1RegionalEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Set this to true to enable the request to use path-style addressing,
      * i.e., https://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
      * use virtual hosted bucket addressing when possible
      * (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
      */
-    s3UsePathStyle?: pulumi.Input<boolean>;
+    s3UsePathStyle?: pulumi.Input<boolean | undefined>;
     /**
      * The secret key for API operations. You can retrieve this
      * from the 'Security & Credentials' section of the AWS console.
      */
-    secretKey?: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string | undefined>;
     /**
      * List of paths to shared config files. If not set, defaults to [~/.aws/config].
      */
-    sharedConfigFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    sharedConfigFiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
      */
-    sharedCredentialsFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    sharedCredentialsFiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
      */
-    skipCredentialsValidation?: pulumi.Input<boolean>;
+    skipCredentialsValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
      */
-    skipMetadataApiCheck?: pulumi.Input<boolean>;
+    skipMetadataApiCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
      */
-    skipRegionValidation?: pulumi.Input<boolean>;
+    skipRegionValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
      */
-    skipRequestingAccountId?: pulumi.Input<boolean>;
+    skipRequestingAccountId?: pulumi.Input<boolean | undefined>;
     /**
      * The region where AWS STS operations will take place. Examples
      * are us-east-1 and us-west-2.
      */
-    stsRegion?: pulumi.Input<string>;
+    stsRegion?: pulumi.Input<string | undefined>;
     /**
      * The severity with which to enforce organizational tagging policies on resources managed by this provider instance. At this time this only includes compliance with required tag keys by resource type. Valid values are "error", "warning", and "disabled". When unset or "disabled", tag policy compliance will not be enforced by the provider. Can also be configured with the TF_AWS_TAG_POLICY_COMPLIANCE environment variable.
      */
-    tagPolicyCompliance?: pulumi.Input<string>;
+    tagPolicyCompliance?: pulumi.Input<string | undefined>;
     /**
      * session token. A session token is only required if you are
      * using temporary security credentials.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * The capacity of the AWS SDK's token bucket rate limiter.
      */
-    tokenBucketRateLimiterCapacity?: pulumi.Input<number>;
+    tokenBucketRateLimiterCapacity?: pulumi.Input<number | undefined>;
     /**
      * Resolve an endpoint with DualStack capability
      */
-    useDualstackEndpoint?: pulumi.Input<boolean>;
+    useDualstackEndpoint?: pulumi.Input<boolean | undefined>;
     /**
      * Resolve an endpoint with FIPS capability
      */
-    useFipsEndpoint?: pulumi.Input<boolean>;
+    useFipsEndpoint?: pulumi.Input<boolean | undefined>;
     /**
      * Product details to append to the User-Agent string sent in all AWS API calls.
      */
-    userAgents?: pulumi.Input<pulumi.Input<string>[]>;
+    userAgents?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export namespace Provider {

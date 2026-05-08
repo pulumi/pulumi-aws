@@ -150,8 +150,8 @@ def get_event_connection(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         secret_arn=pulumi.get(__ret__, 'secret_arn'))
-def get_event_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_event_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventConnectionResult]:
     """
     Use this data source to retrieve information about an EventBridge connection.

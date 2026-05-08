@@ -135,19 +135,19 @@ export interface UploadBufferState {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    diskId?: pulumi.Input<string>;
+    diskId?: pulumi.Input<string | undefined>;
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      */
-    diskPath?: pulumi.Input<string>;
+    diskPath?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -157,11 +157,11 @@ export interface UploadBufferArgs {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    diskId?: pulumi.Input<string>;
+    diskId?: pulumi.Input<string | undefined>;
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      */
-    diskPath?: pulumi.Input<string>;
+    diskPath?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
@@ -169,5 +169,5 @@ export interface UploadBufferArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

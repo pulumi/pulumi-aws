@@ -155,23 +155,23 @@ export interface AnalyticsConfigurationState {
     /**
      * Name of the bucket this analytics configuration is associated with.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter>;
+    filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter | undefined>;
     /**
      * Unique identifier of the analytics configuration for the bucket.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the analytics data export (documented below).
      */
-    storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis>;
+    storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis | undefined>;
 }
 
 /**
@@ -185,17 +185,17 @@ export interface AnalyticsConfigurationArgs {
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter>;
+    filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter | undefined>;
     /**
      * Unique identifier of the analytics configuration for the bucket.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Configuration for the analytics data export (documented below).
      */
-    storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis>;
+    storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis | undefined>;
 }

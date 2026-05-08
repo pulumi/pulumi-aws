@@ -22,9 +22,9 @@ class RouteResponseArgs:
                  api_id: pulumi.Input[_builtins.str],
                  route_id: pulumi.Input[_builtins.str],
                  route_response_key: pulumi.Input[_builtins.str],
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
 
@@ -83,50 +83,50 @@ class RouteResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
-    def model_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
-    def model_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="responseModels")
-    def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Response models for the route response.
         """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
-    def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_models(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_models", value)
 
 
 @pulumi.input_type
 class _RouteResponseState:
     def __init__(__self__, *,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RouteResponse resources.
 
@@ -152,74 +152,74 @@ class _RouteResponseState:
 
     @_builtins.property
     @pulumi.getter(name="apiId")
-    def api_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API identifier.
         """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
-    def api_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_id", value)
 
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
-    def model_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
-    def model_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_selection_expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="responseModels")
-    def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def response_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Response models for the route response.
         """
         return pulumi.get(self, "response_models")
 
     @response_models.setter
-    def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def response_models(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_models", value)
 
     @_builtins.property
     @pulumi.getter(name="routeId")
-    def route_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the `apigatewayv2.Route`.
         """
         return pulumi.get(self, "route_id")
 
     @route_id.setter
-    def route_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_id", value)
 
     @_builtins.property
     @pulumi.getter(name="routeResponseKey")
-    def route_response_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_response_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Route response key.
         """
         return pulumi.get(self, "route_response_key")
 
     @route_response_key.setter
-    def route_response_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_response_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_response_key", value)
 
 
@@ -229,12 +229,12 @@ class RouteResponse(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 route response.
@@ -332,12 +332,12 @@ class RouteResponse(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -369,12 +369,12 @@ class RouteResponse(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_id: Optional[pulumi.Input[_builtins.str]] = None,
-            model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            route_id: Optional[pulumi.Input[_builtins.str]] = None,
-            route_response_key: Optional[pulumi.Input[_builtins.str]] = None) -> 'RouteResponse':
+            api_id: pulumi.Input[Optional[_builtins.str]] = None,
+            model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            response_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            route_id: pulumi.Input[Optional[_builtins.str]] = None,
+            route_response_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteResponse':
         """
         Get an existing RouteResponse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -23,14 +23,14 @@ class InstanceGroupArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
-                 autoscaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 bid_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 autoscaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 bid_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceGroup resource.
 
@@ -111,31 +111,31 @@ class InstanceGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoscalingPolicy")
-    def autoscaling_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autoscaling_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         """
         return pulumi.get(self, "autoscaling_policy")
 
     @autoscaling_policy.setter
-    def autoscaling_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autoscaling_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autoscaling_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="bidPrice")
-    def bid_price(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bid_price(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
-    def bid_price(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bid_price(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bid_price", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationsJson")
-    def configurations_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configurations_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
@@ -163,85 +163,85 @@ class InstanceGroupArgs:
         return pulumi.get(self, "configurations_json")
 
     @configurations_json.setter
-    def configurations_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configurations_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configurations_json", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]:
+    def ebs_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]:
         """
         One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
-    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]):
+    def ebs_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]):
         pulumi.set(self, "ebs_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         target number of instances for the instance group. defaults to 0.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _InstanceGroupState:
     def __init__(__self__, *,
-                 autoscaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 bid_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 running_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 autoscaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 bid_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 running_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceGroup resources.
 
@@ -306,43 +306,43 @@ class _InstanceGroupState:
 
     @_builtins.property
     @pulumi.getter(name="autoscalingPolicy")
-    def autoscaling_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autoscaling_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         """
         return pulumi.get(self, "autoscaling_policy")
 
     @autoscaling_policy.setter
-    def autoscaling_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autoscaling_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autoscaling_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="bidPrice")
-    def bid_price(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bid_price(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
-    def bid_price(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bid_price(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bid_price", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationsJson")
-    def configurations_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configurations_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
@@ -370,103 +370,103 @@ class _InstanceGroupState:
         return pulumi.get(self, "configurations_json")
 
     @configurations_json.setter
-    def configurations_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configurations_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configurations_json", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]:
+    def ebs_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]:
         """
         One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
-    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]):
+    def ebs_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]):
         pulumi.set(self, "ebs_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         target number of instances for the instance group. defaults to 0.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="runningInstanceCount")
-    def running_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def running_instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instances currently running in this instance group.
         """
         return pulumi.get(self, "running_instance_count")
 
     @running_instance_count.setter
-    def running_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def running_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "running_instance_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current status of the instance group.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -476,16 +476,16 @@ class InstanceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autoscaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 bid_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 autoscaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 bid_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an Elastic MapReduce Cluster Instance Group configuration.
@@ -602,16 +602,16 @@ class InstanceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autoscaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 bid_price: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 autoscaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 bid_price: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -647,18 +647,18 @@ class InstanceGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            autoscaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            bid_price: Optional[pulumi.Input[_builtins.str]] = None,
-            cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-            configurations_json: Optional[pulumi.Input[_builtins.str]] = None,
-            ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
-            ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-            instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            running_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'InstanceGroup':
+            autoscaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            bid_price: pulumi.Input[Optional[_builtins.str]] = None,
+            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            configurations_json: pulumi.Input[Optional[_builtins.str]] = None,
+            ebs_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
+            ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+            instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            running_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'InstanceGroup':
         """
         Get an existing InstanceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

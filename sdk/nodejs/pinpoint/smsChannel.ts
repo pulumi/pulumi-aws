@@ -127,31 +127,31 @@ export interface SmsChannelState {
     /**
      * ID of the application.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. By default, it is set to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum number of promotional messages that can be sent per second.
      */
-    promotionalMessagesPerSecond?: pulumi.Input<number>;
+    promotionalMessagesPerSecond?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the sender for your messages.
      */
-    senderId?: pulumi.Input<string>;
+    senderId?: pulumi.Input<string | undefined>;
     /**
      * Short Code registered with the phone provider.
      */
-    shortCode?: pulumi.Input<string>;
+    shortCode?: pulumi.Input<string | undefined>;
     /**
      * Maximum number of transactional messages per second that can be sent.
      */
-    transactionalMessagesPerSecond?: pulumi.Input<number>;
+    transactionalMessagesPerSecond?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -165,17 +165,17 @@ export interface SmsChannelArgs {
     /**
      * Whether the channel is enabled or disabled. By default, it is set to `true`.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the sender for your messages.
      */
-    senderId?: pulumi.Input<string>;
+    senderId?: pulumi.Input<string | undefined>;
     /**
      * Short Code registered with the phone provider.
      */
-    shortCode?: pulumi.Input<string>;
+    shortCode?: pulumi.Input<string | undefined>;
 }

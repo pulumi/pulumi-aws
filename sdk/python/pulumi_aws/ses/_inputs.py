@@ -42,7 +42,7 @@ __all__ = [
 ]
 
 class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
-    tls_policy: NotRequired[pulumi.Input[_builtins.str]]
+    tls_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
     """
@@ -50,7 +50,7 @@ class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
     def __init__(__self__, *,
-                 tls_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 tls_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] tls_policy: Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
@@ -59,19 +59,19 @@ class ConfigurationSetDeliveryOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="tlsPolicy")
-    def tls_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
         return pulumi.get(self, "tls_policy")
 
     @tls_policy.setter
-    def tls_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_policy", value)
 
 
 class ConfigurationSetTrackingOptionsArgsDict(TypedDict):
-    custom_redirect_domain: NotRequired[pulumi.Input[_builtins.str]]
+    custom_redirect_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
     """
@@ -79,7 +79,7 @@ class ConfigurationSetTrackingOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
-                 custom_redirect_domain: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_redirect_domain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_redirect_domain: Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
         """
@@ -88,14 +88,14 @@ class ConfigurationSetTrackingOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="customRedirectDomain")
-    def custom_redirect_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_redirect_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
         """
         return pulumi.get(self, "custom_redirect_domain")
 
     @custom_redirect_domain.setter
-    def custom_redirect_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_redirect_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_redirect_domain", value)
 
 
@@ -323,11 +323,11 @@ class ReceiptRuleBounceActionArgsDict(TypedDict):
     """
     The RFC 5321 SMTP reply code
     """
-    status_code: NotRequired[pulumi.Input[_builtins.str]]
+    status_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The RFC 3463 SMTP enhanced status code
     """
-    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an SNS topic to notify
     """
@@ -339,8 +339,8 @@ class ReceiptRuleBounceActionArgs:
                  position: pulumi.Input[_builtins.int],
                  sender: pulumi.Input[_builtins.str],
                  smtp_reply_code: pulumi.Input[_builtins.str],
-                 status_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 status_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] message: The message to send
         :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
@@ -408,26 +408,26 @@ class ReceiptRuleBounceActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RFC 3463 SMTP enhanced status code
         """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_code", value)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an SNS topic to notify
         """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -440,11 +440,11 @@ class ReceiptRuleLambdaActionArgsDict(TypedDict):
     """
     The position of the action in the receipt rule
     """
-    invocation_type: NotRequired[pulumi.Input[_builtins.str]]
+    invocation_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     `Event` or `RequestResponse`
     """
-    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an SNS topic to notify
     """
@@ -454,8 +454,8 @@ class ReceiptRuleLambdaActionArgs:
     def __init__(__self__, *,
                  function_arn: pulumi.Input[_builtins.str],
                  position: pulumi.Input[_builtins.int],
-                 invocation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 invocation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] function_arn: The ARN of the Lambda function to invoke
         :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
@@ -495,26 +495,26 @@ class ReceiptRuleLambdaActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="invocationType")
-    def invocation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def invocation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         `Event` or `RequestResponse`
         """
         return pulumi.get(self, "invocation_type")
 
     @invocation_type.setter
-    def invocation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def invocation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "invocation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an SNS topic to notify
         """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -527,19 +527,19 @@ class ReceiptRuleS3ActionArgsDict(TypedDict):
     """
     The position of the action in the receipt rule
     """
-    iam_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    iam_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the KMS key
     """
-    object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    object_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The key prefix of the S3 bucket
     """
-    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an SNS topic to notify
     """
@@ -549,10 +549,10 @@ class ReceiptRuleS3ActionArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  position: pulumi.Input[_builtins.int],
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket
         :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
@@ -598,50 +598,50 @@ class ReceiptRuleS3ActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
         """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the KMS key
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="objectKeyPrefix")
-    def object_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key prefix of the S3 bucket
         """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
-    def object_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an SNS topic to notify
         """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -654,7 +654,7 @@ class ReceiptRuleSnsActionArgsDict(TypedDict):
     """
     The ARN of an SNS topic to notify
     """
-    encoding: NotRequired[pulumi.Input[_builtins.str]]
+    encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
     """
@@ -664,7 +664,7 @@ class ReceiptRuleSnsActionArgs:
     def __init__(__self__, *,
                  position: pulumi.Input[_builtins.int],
                  topic_arn: pulumi.Input[_builtins.str],
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None):
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
         :param pulumi.Input[_builtins.str] topic_arn: The ARN of an SNS topic to notify
@@ -701,14 +701,14 @@ class ReceiptRuleSnsActionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
 
@@ -721,7 +721,7 @@ class ReceiptRuleStopActionArgsDict(TypedDict):
     """
     The scope to apply. The only acceptable value is `RuleSet`.
     """
-    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an SNS topic to notify
     """
@@ -731,7 +731,7 @@ class ReceiptRuleStopActionArgs:
     def __init__(__self__, *,
                  position: pulumi.Input[_builtins.int],
                  scope: pulumi.Input[_builtins.str],
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
         :param pulumi.Input[_builtins.str] scope: The scope to apply. The only acceptable value is `RuleSet`.
@@ -768,14 +768,14 @@ class ReceiptRuleStopActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an SNS topic to notify
         """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 
@@ -788,7 +788,7 @@ class ReceiptRuleWorkmailActionArgsDict(TypedDict):
     """
     The position of the action in the receipt rule
     """
-    topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an SNS topic to notify
     """
@@ -798,7 +798,7 @@ class ReceiptRuleWorkmailActionArgs:
     def __init__(__self__, *,
                  organization_arn: pulumi.Input[_builtins.str],
                  position: pulumi.Input[_builtins.int],
-                 topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] organization_arn: The ARN of the WorkMail organization
         :param pulumi.Input[_builtins.int] position: The position of the action in the receipt rule
@@ -835,14 +835,14 @@ class ReceiptRuleWorkmailActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an SNS topic to notify
         """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
-    def topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_arn", value)
 
 

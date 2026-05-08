@@ -230,38 +230,38 @@ export interface InvocationState {
     /**
      * Name of the Lambda function.
      */
-    functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string | undefined>;
     /**
      * JSON payload to the Lambda function.
      *
      * The following arguments are optional:
      */
-    input?: pulumi.Input<string>;
+    input?: pulumi.Input<string | undefined>;
     /**
      * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
      */
-    lifecycleScope?: pulumi.Input<string>;
+    lifecycleScope?: pulumi.Input<string | undefined>;
     /**
      * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * String result of the Lambda function invocation.
      */
-    result?: pulumi.Input<string>;
+    result?: pulumi.Input<string | undefined>;
     /**
      * Tenant Id to serve invocations from specified tenant.
      */
-    tenantId?: pulumi.Input<string>;
-    terraformKey?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
+    terraformKey?: pulumi.Input<string | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -281,22 +281,22 @@ export interface InvocationArgs {
     /**
      * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
      */
-    lifecycleScope?: pulumi.Input<string>;
+    lifecycleScope?: pulumi.Input<string | undefined>;
     /**
      * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      */
-    qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Tenant Id to serve invocations from specified tenant.
      */
-    tenantId?: pulumi.Input<string>;
-    terraformKey?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
+    terraformKey?: pulumi.Input<string | undefined>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
      */
-    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

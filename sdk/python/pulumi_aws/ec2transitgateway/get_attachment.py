@@ -253,10 +253,10 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_owner_id=pulumi.get(__ret__, 'transit_gateway_owner_id'))
-def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]]]] = None,
-                          region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
-                          transit_gateway_attachment_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_attachment_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]]]] = None,
+                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+                          transit_gateway_attachment_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachmentResult]:
     """
     Get information on an EC2 Transit Gateway's attachment to a resource.

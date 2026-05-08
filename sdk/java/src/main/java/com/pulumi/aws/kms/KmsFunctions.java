@@ -49,8 +49,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -91,8 +91,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -133,8 +133,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -175,8 +175,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -217,8 +217,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetAliasArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -262,8 +262,8 @@ public final class KmsFunctions {
      * import com.pulumi.aws.kms.KeyArgs;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class KmsFunctions {
      * import com.pulumi.aws.kms.KeyArgs;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -374,8 +374,8 @@ public final class KmsFunctions {
      * import com.pulumi.aws.kms.KeyArgs;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -430,8 +430,8 @@ public final class KmsFunctions {
      * import com.pulumi.aws.kms.KeyArgs;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -486,8 +486,8 @@ public final class KmsFunctions {
      * import com.pulumi.aws.kms.KeyArgs;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -539,8 +539,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -623,8 +623,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -665,8 +665,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -707,8 +707,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -749,8 +749,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -791,8 +791,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetCustomKeyStoreArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -834,8 +834,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -889,8 +889,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -944,8 +944,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -999,8 +999,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1054,8 +1054,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1106,8 +1106,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1158,8 +1158,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1210,8 +1210,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1262,8 +1262,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1314,8 +1314,8 @@ public final class KmsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.kms.KmsFunctions;
      * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

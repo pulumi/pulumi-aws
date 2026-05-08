@@ -22,12 +22,12 @@ class DeploymentStrategyArgs:
                  deployment_duration_in_minutes: pulumi.Input[_builtins.int],
                  growth_factor: pulumi.Input[_builtins.float],
                  replicate_to: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_bake_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 growth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_bake_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 growth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStrategy resource.
 
@@ -95,91 +95,91 @@ class DeploymentStrategyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the deployment strategy. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBakeTimeInMinutes")
-    def final_bake_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def final_bake_time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         """
         return pulumi.get(self, "final_bake_time_in_minutes")
 
     @final_bake_time_in_minutes.setter
-    def final_bake_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def final_bake_time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "final_bake_time_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="growthType")
-    def growth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def growth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         """
         return pulumi.get(self, "growth_type")
 
     @growth_type.setter
-    def growth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def growth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "growth_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the deployment strategy. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _DeploymentStrategyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_bake_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 growth_factor: Optional[pulumi.Input[_builtins.float]] = None,
-                 growth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicate_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_bake_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 growth_factor: pulumi.Input[Optional[_builtins.float]] = None,
+                 growth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicate_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DeploymentStrategy resources.
 
@@ -220,134 +220,134 @@ class _DeploymentStrategyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the AppConfig Deployment Strategy.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentDurationInMinutes")
-    def deployment_duration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deployment_duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
         """
         return pulumi.get(self, "deployment_duration_in_minutes")
 
     @deployment_duration_in_minutes.setter
-    def deployment_duration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deployment_duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deployment_duration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the deployment strategy. Can be at most 1024 characters.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="finalBakeTimeInMinutes")
-    def final_bake_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def final_bake_time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         """
         return pulumi.get(self, "final_bake_time_in_minutes")
 
     @final_bake_time_in_minutes.setter
-    def final_bake_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def final_bake_time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "final_bake_time_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="growthFactor")
-    def growth_factor(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def growth_factor(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         """
         return pulumi.get(self, "growth_factor")
 
     @growth_factor.setter
-    def growth_factor(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def growth_factor(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "growth_factor", value)
 
     @_builtins.property
     @pulumi.getter(name="growthType")
-    def growth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def growth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         """
         return pulumi.get(self, "growth_type")
 
     @growth_type.setter
-    def growth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def growth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "growth_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the deployment strategy. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="replicateTo")
-    def replicate_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replicate_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         """
         return pulumi.get(self, "replicate_to")
 
     @replicate_to.setter
-    def replicate_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replicate_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replicate_to", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -357,15 +357,15 @@ class DeploymentStrategy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_bake_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 growth_factor: Optional[pulumi.Input[_builtins.float]] = None,
-                 growth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicate_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 deployment_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_bake_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 growth_factor: pulumi.Input[Optional[_builtins.float]] = None,
+                 growth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicate_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an AppConfig Deployment Strategy resource.
@@ -381,7 +381,7 @@ class DeploymentStrategy(pulumi.CustomResource):
             description="Example Deployment Strategy",
             deployment_duration_in_minutes=3,
             final_bake_time_in_minutes=4,
-            growth_factor=10,
+            growth_factor=float(10),
             growth_type="LINEAR",
             replicate_to="NONE",
             tags={
@@ -430,7 +430,7 @@ class DeploymentStrategy(pulumi.CustomResource):
             description="Example Deployment Strategy",
             deployment_duration_in_minutes=3,
             final_bake_time_in_minutes=4,
-            growth_factor=10,
+            growth_factor=float(10),
             growth_type="LINEAR",
             replicate_to="NONE",
             tags={
@@ -462,15 +462,15 @@ class DeploymentStrategy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 final_bake_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 growth_factor: Optional[pulumi.Input[_builtins.float]] = None,
-                 growth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 replicate_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 deployment_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 final_bake_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 growth_factor: pulumi.Input[Optional[_builtins.float]] = None,
+                 growth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 replicate_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -507,17 +507,17 @@ class DeploymentStrategy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            deployment_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            final_bake_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            growth_factor: Optional[pulumi.Input[_builtins.float]] = None,
-            growth_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            replicate_to: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DeploymentStrategy':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            deployment_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            final_bake_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            growth_factor: pulumi.Input[Optional[_builtins.float]] = None,
+            growth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            replicate_to: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DeploymentStrategy':
         """
         Get an existing DeploymentStrategy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

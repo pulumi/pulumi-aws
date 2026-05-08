@@ -235,12 +235,12 @@ def get_availability_zones(all_availability_zones: Optional[_builtins.bool] = No
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         zone_ids=pulumi.get(__ret__, 'zone_ids'))
-def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                  exclude_names: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                  exclude_zone_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                  filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']]]]] = None,
-                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                  state: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_availability_zones_output(all_availability_zones: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                  exclude_names: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                  exclude_zone_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                  filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']]]]] = None,
+                                  region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZonesResult]:
     """
     The Availability Zones data source allows access to the list of AWS

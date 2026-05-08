@@ -194,41 +194,41 @@ export interface AutomationRuleState {
     /**
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleAction>[] | undefined>;
     /**
      * The ARN of the Security Hub automation rule.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      */
-    criteria?: pulumi.Input<inputs.securityhub.AutomationRuleCriteria>;
+    criteria?: pulumi.Input<inputs.securityhub.AutomationRuleCriteria | undefined>;
     /**
      * The description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
      */
-    isTerminal?: pulumi.Input<boolean>;
+    isTerminal?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
      */
-    ruleOrder?: pulumi.Input<number>;
+    ruleOrder?: pulumi.Input<number | undefined>;
     /**
      * Whether the rule is active after it is created.
      */
-    ruleStatus?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ruleStatus?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -250,11 +250,11 @@ export interface AutomationRuleArgs {
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
      */
-    isTerminal?: pulumi.Input<boolean>;
+    isTerminal?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The name of the rule.
      */
@@ -266,6 +266,6 @@ export interface AutomationRuleArgs {
     /**
      * Whether the rule is active after it is created.
      */
-    ruleStatus?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ruleStatus?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

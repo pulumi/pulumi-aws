@@ -23,11 +23,11 @@ class IamPolicyAssignmentArgs:
     def __init__(__self__, *,
                  assignment_name: pulumi.Input[_builtins.str],
                  assignment_status: pulumi.Input[_builtins.str],
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identities: Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identities: pulumi.Input[Optional['IamPolicyAssignmentIdentitiesArgs']] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IamPolicyAssignment resource.
 
@@ -82,76 +82,76 @@ class IamPolicyAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identities(self) -> Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]:
+    def identities(self) -> pulumi.Input[Optional['IamPolicyAssignmentIdentitiesArgs']]:
         """
         Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         """
         return pulumi.get(self, "identities")
 
     @identities.setter
-    def identities(self, value: Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]):
+    def identities(self, value: pulumi.Input[Optional['IamPolicyAssignmentIdentitiesArgs']]):
         pulumi.set(self, "identities", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace that contains the assignment. Defaults to `default`.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _IamPolicyAssignmentState:
     def __init__(__self__, *,
-                 assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assignment_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identities: Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identities: pulumi.Input[Optional['IamPolicyAssignmentIdentitiesArgs']] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IamPolicyAssignment resources.
 
@@ -185,31 +185,31 @@ class _IamPolicyAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="assignmentId")
-    def assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Assignment ID.
         """
         return pulumi.get(self, "assignment_id")
 
     @assignment_id.setter
-    def assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="assignmentName")
-    def assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the assignment.
         """
         return pulumi.get(self, "assignment_name")
 
     @assignment_name.setter
-    def assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assignmentStatus")
-    def assignment_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
 
@@ -218,67 +218,67 @@ class _IamPolicyAssignmentState:
         return pulumi.get(self, "assignment_status")
 
     @assignment_status.setter
-    def assignment_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_status", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identities(self) -> Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]:
+    def identities(self) -> pulumi.Input[Optional['IamPolicyAssignmentIdentitiesArgs']]:
         """
         Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         """
         return pulumi.get(self, "identities")
 
     @identities.setter
-    def identities(self, value: Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]):
+    def identities(self, value: pulumi.Input[Optional['IamPolicyAssignmentIdentitiesArgs']]):
         pulumi.set(self, "identities", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Namespace that contains the assignment. Defaults to `default`.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -288,13 +288,13 @@ class IamPolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assignment_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identities: Optional[pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight IAM Policy Assignment.
@@ -387,13 +387,13 @@ class IamPolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 assignment_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identities: Optional[pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,14 +425,14 @@ class IamPolicyAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
-            assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-            assignment_status: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-            identities: Optional[pulumi.Input[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
-            namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None) -> 'IamPolicyAssignment':
+            assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+            assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+            assignment_status: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identities: pulumi.Input[Optional[Union['IamPolicyAssignmentIdentitiesArgs', 'IamPolicyAssignmentIdentitiesArgsDict']]] = None,
+            namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None) -> 'IamPolicyAssignment':
         """
         Get an existing IamPolicyAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

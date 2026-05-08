@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Msk
     ///         CidrBlock = "192.168.0.0/22",
     ///     });
     /// 
-    ///     var azs = Aws.Index.GetAvailabilityZones.Invoke(new()
+    ///     var azs = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
     ///         State = "available",
     ///     });

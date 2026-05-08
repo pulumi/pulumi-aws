@@ -24,8 +24,8 @@ class OriginRequestPolicyArgs:
                  cookies_config: pulumi.Input['OriginRequestPolicyCookiesConfigArgs'],
                  headers_config: pulumi.Input['OriginRequestPolicyHeadersConfigArgs'],
                  query_strings_config: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OriginRequestPolicy resource.
 
@@ -81,39 +81,39 @@ class OriginRequestPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment to describe the origin request policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name to identify the origin request policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _OriginRequestPolicyState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookies_config: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']] = None,
-                 etag: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers_config: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_strings_config: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookies_config: pulumi.Input[Optional['OriginRequestPolicyCookiesConfigArgs']] = None,
+                 etag: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers_config: pulumi.Input[Optional['OriginRequestPolicyHeadersConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_strings_config: pulumi.Input[Optional['OriginRequestPolicyQueryStringsConfigArgs']] = None):
         """
         Input properties used for looking up and filtering OriginRequestPolicy resources.
 
@@ -142,86 +142,86 @@ class _OriginRequestPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The origin request policy ARN.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment to describe the origin request policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="cookiesConfig")
-    def cookies_config(self) -> Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']]:
+    def cookies_config(self) -> pulumi.Input[Optional['OriginRequestPolicyCookiesConfigArgs']]:
         """
         Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         """
         return pulumi.get(self, "cookies_config")
 
     @cookies_config.setter
-    def cookies_config(self, value: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']]):
+    def cookies_config(self, value: pulumi.Input[Optional['OriginRequestPolicyCookiesConfigArgs']]):
         pulumi.set(self, "cookies_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def etag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The current version of the origin request policy.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
-    def etag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def etag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "etag", value)
 
     @_builtins.property
     @pulumi.getter(name="headersConfig")
-    def headers_config(self) -> Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']]:
+    def headers_config(self) -> pulumi.Input[Optional['OriginRequestPolicyHeadersConfigArgs']]:
         """
         Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         """
         return pulumi.get(self, "headers_config")
 
     @headers_config.setter
-    def headers_config(self, value: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']]):
+    def headers_config(self, value: pulumi.Input[Optional['OriginRequestPolicyHeadersConfigArgs']]):
         pulumi.set(self, "headers_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name to identify the origin request policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryStringsConfig")
-    def query_strings_config(self) -> Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']]:
+    def query_strings_config(self) -> pulumi.Input[Optional['OriginRequestPolicyQueryStringsConfigArgs']]:
         """
         Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
 
     @query_strings_config.setter
-    def query_strings_config(self, value: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']]):
+    def query_strings_config(self, value: pulumi.Input[Optional['OriginRequestPolicyQueryStringsConfigArgs']]):
         pulumi.set(self, "query_strings_config", value)
 
 
@@ -231,11 +231,11 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookies_config: Optional[pulumi.Input[Union['OriginRequestPolicyCookiesConfigArgs', 'OriginRequestPolicyCookiesConfigArgsDict']]] = None,
-                 headers_config: Optional[pulumi.Input[Union['OriginRequestPolicyHeadersConfigArgs', 'OriginRequestPolicyHeadersConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_strings_config: Optional[pulumi.Input[Union['OriginRequestPolicyQueryStringsConfigArgs', 'OriginRequestPolicyQueryStringsConfigArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookies_config: pulumi.Input[Optional[Union['OriginRequestPolicyCookiesConfigArgs', 'OriginRequestPolicyCookiesConfigArgsDict']]] = None,
+                 headers_config: pulumi.Input[Optional[Union['OriginRequestPolicyHeadersConfigArgs', 'OriginRequestPolicyHeadersConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_strings_config: pulumi.Input[Optional[Union['OriginRequestPolicyQueryStringsConfigArgs', 'OriginRequestPolicyQueryStringsConfigArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -348,11 +348,11 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookies_config: Optional[pulumi.Input[Union['OriginRequestPolicyCookiesConfigArgs', 'OriginRequestPolicyCookiesConfigArgsDict']]] = None,
-                 headers_config: Optional[pulumi.Input[Union['OriginRequestPolicyHeadersConfigArgs', 'OriginRequestPolicyHeadersConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_strings_config: Optional[pulumi.Input[Union['OriginRequestPolicyQueryStringsConfigArgs', 'OriginRequestPolicyQueryStringsConfigArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookies_config: pulumi.Input[Optional[Union['OriginRequestPolicyCookiesConfigArgs', 'OriginRequestPolicyCookiesConfigArgsDict']]] = None,
+                 headers_config: pulumi.Input[Optional[Union['OriginRequestPolicyHeadersConfigArgs', 'OriginRequestPolicyHeadersConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_strings_config: pulumi.Input[Optional[Union['OriginRequestPolicyQueryStringsConfigArgs', 'OriginRequestPolicyQueryStringsConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -385,13 +385,13 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            cookies_config: Optional[pulumi.Input[Union['OriginRequestPolicyCookiesConfigArgs', 'OriginRequestPolicyCookiesConfigArgsDict']]] = None,
-            etag: Optional[pulumi.Input[_builtins.str]] = None,
-            headers_config: Optional[pulumi.Input[Union['OriginRequestPolicyHeadersConfigArgs', 'OriginRequestPolicyHeadersConfigArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_strings_config: Optional[pulumi.Input[Union['OriginRequestPolicyQueryStringsConfigArgs', 'OriginRequestPolicyQueryStringsConfigArgsDict']]] = None) -> 'OriginRequestPolicy':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            cookies_config: pulumi.Input[Optional[Union['OriginRequestPolicyCookiesConfigArgs', 'OriginRequestPolicyCookiesConfigArgsDict']]] = None,
+            etag: pulumi.Input[Optional[_builtins.str]] = None,
+            headers_config: pulumi.Input[Optional[Union['OriginRequestPolicyHeadersConfigArgs', 'OriginRequestPolicyHeadersConfigArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_strings_config: pulumi.Input[Optional[Union['OriginRequestPolicyQueryStringsConfigArgs', 'OriginRequestPolicyQueryStringsConfigArgsDict']]] = None) -> 'OriginRequestPolicy':
         """
         Get an existing OriginRequestPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

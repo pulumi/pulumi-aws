@@ -193,15 +193,15 @@ class BudgetActionActionThresholdArgs:
 
 
 class BudgetActionDefinitionArgsDict(TypedDict):
-    iam_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgsDict']]
+    iam_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionIamActionDefinitionArgs']]]
     """
     The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
     """
-    scp_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgsDict']]
+    scp_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionScpActionDefinitionArgs']]]
     """
     The service control policies (SCPs) action definition details. See SCP Action Definition.
     """
-    ssm_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgsDict']]
+    ssm_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionSsmActionDefinitionArgs']]]
     """
     The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
     """
@@ -209,9 +209,9 @@ class BudgetActionDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetActionDefinitionArgs:
     def __init__(__self__, *,
-                 iam_action_definition: Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs']] = None,
-                 scp_action_definition: Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs']] = None,
-                 ssm_action_definition: Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs']] = None):
+                 iam_action_definition: pulumi.Input[Optional['BudgetActionDefinitionIamActionDefinitionArgs']] = None,
+                 scp_action_definition: pulumi.Input[Optional['BudgetActionDefinitionScpActionDefinitionArgs']] = None,
+                 ssm_action_definition: pulumi.Input[Optional['BudgetActionDefinitionSsmActionDefinitionArgs']] = None):
         """
         :param pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs'] iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
         :param pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs'] scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
@@ -226,38 +226,38 @@ class BudgetActionDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="iamActionDefinition")
-    def iam_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs']]:
+    def iam_action_definition(self) -> pulumi.Input[Optional['BudgetActionDefinitionIamActionDefinitionArgs']]:
         """
         The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
         """
         return pulumi.get(self, "iam_action_definition")
 
     @iam_action_definition.setter
-    def iam_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs']]):
+    def iam_action_definition(self, value: pulumi.Input[Optional['BudgetActionDefinitionIamActionDefinitionArgs']]):
         pulumi.set(self, "iam_action_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="scpActionDefinition")
-    def scp_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs']]:
+    def scp_action_definition(self) -> pulumi.Input[Optional['BudgetActionDefinitionScpActionDefinitionArgs']]:
         """
         The service control policies (SCPs) action definition details. See SCP Action Definition.
         """
         return pulumi.get(self, "scp_action_definition")
 
     @scp_action_definition.setter
-    def scp_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs']]):
+    def scp_action_definition(self, value: pulumi.Input[Optional['BudgetActionDefinitionScpActionDefinitionArgs']]):
         pulumi.set(self, "scp_action_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="ssmActionDefinition")
-    def ssm_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs']]:
+    def ssm_action_definition(self) -> pulumi.Input[Optional['BudgetActionDefinitionSsmActionDefinitionArgs']]:
         """
         The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
         """
         return pulumi.get(self, "ssm_action_definition")
 
     @ssm_action_definition.setter
-    def ssm_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs']]):
+    def ssm_action_definition(self, value: pulumi.Input[Optional['BudgetActionDefinitionSsmActionDefinitionArgs']]):
         pulumi.set(self, "ssm_action_definition", value)
 
 
@@ -266,15 +266,15 @@ class BudgetActionDefinitionIamActionDefinitionArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the policy to be attached.
     """
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of groups to be attached. There must be at least one group.
     """
-    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of roles to be attached. There must be at least one role.
     """
-    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of users to be attached. There must be at least one user.
     """
@@ -283,9 +283,9 @@ class BudgetActionDefinitionIamActionDefinitionArgsDict(TypedDict):
 class BudgetActionDefinitionIamActionDefinitionArgs:
     def __init__(__self__, *,
                  policy_arn: pulumi.Input[_builtins.str],
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] policy_arn: The Amazon Resource Name (ARN) of the policy to be attached.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: A list of groups to be attached. There must be at least one group.
@@ -314,38 +314,38 @@ class BudgetActionDefinitionIamActionDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of groups to be attached. There must be at least one group.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of roles to be attached. There must be at least one role.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of users to be attached. There must be at least one user.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users", value)
 
 
@@ -514,11 +514,11 @@ class BudgetAutoAdjustDataArgsDict(TypedDict):
     """
     (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
     """
-    historical_options: NotRequired[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgsDict']]
+    historical_options: NotRequired[pulumi.Input[Optional['BudgetAutoAdjustDataHistoricalOptionsArgs']]]
     """
     (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
     """
-    last_auto_adjust_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_auto_adjust_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) - The last time that your budget was auto-adjusted.
     """
@@ -527,8 +527,8 @@ class BudgetAutoAdjustDataArgsDict(TypedDict):
 class BudgetAutoAdjustDataArgs:
     def __init__(__self__, *,
                  auto_adjust_type: pulumi.Input[_builtins.str],
-                 historical_options: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']] = None,
-                 last_auto_adjust_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 historical_options: pulumi.Input[Optional['BudgetAutoAdjustDataHistoricalOptionsArgs']] = None,
+                 last_auto_adjust_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] auto_adjust_type: (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
         :param pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs'] historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
@@ -554,26 +554,26 @@ class BudgetAutoAdjustDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="historicalOptions")
-    def historical_options(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']]:
+    def historical_options(self) -> pulumi.Input[Optional['BudgetAutoAdjustDataHistoricalOptionsArgs']]:
         """
         (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
         """
         return pulumi.get(self, "historical_options")
 
     @historical_options.setter
-    def historical_options(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']]):
+    def historical_options(self, value: pulumi.Input[Optional['BudgetAutoAdjustDataHistoricalOptionsArgs']]):
         pulumi.set(self, "historical_options", value)
 
     @_builtins.property
     @pulumi.getter(name="lastAutoAdjustTime")
-    def last_auto_adjust_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_auto_adjust_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) - The last time that your budget was auto-adjusted.
         """
         return pulumi.get(self, "last_auto_adjust_time")
 
     @last_auto_adjust_time.setter
-    def last_auto_adjust_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_auto_adjust_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_auto_adjust_time", value)
 
 
@@ -582,7 +582,7 @@ class BudgetAutoAdjustDataHistoricalOptionsArgsDict(TypedDict):
     """
     (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
     """
-    lookback_available_periods: NotRequired[pulumi.Input[_builtins.int]]
+    lookback_available_periods: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
     """
@@ -591,7 +591,7 @@ class BudgetAutoAdjustDataHistoricalOptionsArgsDict(TypedDict):
 class BudgetAutoAdjustDataHistoricalOptionsArgs:
     def __init__(__self__, *,
                  budget_adjustment_period: pulumi.Input[_builtins.int],
-                 lookback_available_periods: Optional[pulumi.Input[_builtins.int]] = None):
+                 lookback_available_periods: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] budget_adjustment_period: (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
         :param pulumi.Input[_builtins.int] lookback_available_periods: (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
@@ -614,14 +614,14 @@ class BudgetAutoAdjustDataHistoricalOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="lookbackAvailablePeriods")
-    def lookback_available_periods(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lookback_available_periods(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
         """
         return pulumi.get(self, "lookback_available_periods")
 
     @lookback_available_periods.setter
-    def lookback_available_periods(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lookback_available_periods(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lookback_available_periods", value)
 
 
@@ -673,47 +673,47 @@ class BudgetCostFilterArgs:
 
 
 class BudgetCostTypesArgsDict(TypedDict):
-    include_credit: NotRequired[pulumi.Input[_builtins.bool]]
+    include_credit: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include credits in the cost budget. Defaults to `true`
     """
-    include_discount: NotRequired[pulumi.Input[_builtins.bool]]
+    include_discount: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether a budget includes discounts. Defaults to `true`
     """
-    include_other_subscription: NotRequired[pulumi.Input[_builtins.bool]]
+    include_other_subscription: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
     """
-    include_recurring: NotRequired[pulumi.Input[_builtins.bool]]
+    include_recurring: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
     """
-    include_refund: NotRequired[pulumi.Input[_builtins.bool]]
+    include_refund: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include refunds in the cost budget. Defaults to `true`
     """
-    include_subscription: NotRequired[pulumi.Input[_builtins.bool]]
+    include_subscription: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
     """
-    include_support: NotRequired[pulumi.Input[_builtins.bool]]
+    include_support: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include support costs in the cost budget. Defaults to `true`
     """
-    include_tax: NotRequired[pulumi.Input[_builtins.bool]]
+    include_tax: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include tax in the cost budget. Defaults to `true`
     """
-    include_upfront: NotRequired[pulumi.Input[_builtins.bool]]
+    include_upfront: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
     """
-    use_amortized: NotRequired[pulumi.Input[_builtins.bool]]
+    use_amortized: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether a budget uses the amortized rate. Defaults to `false`
     """
-    use_blended: NotRequired[pulumi.Input[_builtins.bool]]
+    use_blended: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A boolean value whether to use blended costs in the cost budget. Defaults to `false`
     """
@@ -721,17 +721,17 @@ class BudgetCostTypesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetCostTypesArgs:
     def __init__(__self__, *,
-                 include_credit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_discount: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_other_subscription: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_recurring: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_refund: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_subscription: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_support: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_tax: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_upfront: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_amortized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_blended: Optional[pulumi.Input[_builtins.bool]] = None):
+                 include_credit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_discount: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_other_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_recurring: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_refund: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_subscription: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_support: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_tax: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_upfront: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_amortized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_blended: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] include_credit: A boolean value whether to include credits in the cost budget. Defaults to `true`
         :param pulumi.Input[_builtins.bool] include_discount: Whether a budget includes discounts. Defaults to `true`
@@ -770,159 +770,159 @@ class BudgetCostTypesArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeCredit")
-    def include_credit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_credit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include credits in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_credit")
 
     @include_credit.setter
-    def include_credit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_credit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_credit", value)
 
     @_builtins.property
     @pulumi.getter(name="includeDiscount")
-    def include_discount(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_discount(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a budget includes discounts. Defaults to `true`
         """
         return pulumi.get(self, "include_discount")
 
     @include_discount.setter
-    def include_discount(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_discount(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_discount", value)
 
     @_builtins.property
     @pulumi.getter(name="includeOtherSubscription")
-    def include_other_subscription(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_other_subscription(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_other_subscription")
 
     @include_other_subscription.setter
-    def include_other_subscription(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_other_subscription(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_other_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="includeRecurring")
-    def include_recurring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_recurring(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_recurring")
 
     @include_recurring.setter
-    def include_recurring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_recurring(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_recurring", value)
 
     @_builtins.property
     @pulumi.getter(name="includeRefund")
-    def include_refund(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_refund(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include refunds in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_refund")
 
     @include_refund.setter
-    def include_refund(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_refund(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_refund", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSubscription")
-    def include_subscription(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_subscription(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_subscription")
 
     @include_subscription.setter
-    def include_subscription(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_subscription(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_subscription", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSupport")
-    def include_support(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_support(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include support costs in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_support")
 
     @include_support.setter
-    def include_support(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_support(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_support", value)
 
     @_builtins.property
     @pulumi.getter(name="includeTax")
-    def include_tax(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_tax(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include tax in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_tax")
 
     @include_tax.setter
-    def include_tax(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_tax(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_tax", value)
 
     @_builtins.property
     @pulumi.getter(name="includeUpfront")
-    def include_upfront(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_upfront(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
         """
         return pulumi.get(self, "include_upfront")
 
     @include_upfront.setter
-    def include_upfront(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_upfront(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_upfront", value)
 
     @_builtins.property
     @pulumi.getter(name="useAmortized")
-    def use_amortized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_amortized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a budget uses the amortized rate. Defaults to `false`
         """
         return pulumi.get(self, "use_amortized")
 
     @use_amortized.setter
-    def use_amortized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_amortized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_amortized", value)
 
     @_builtins.property
     @pulumi.getter(name="useBlended")
-    def use_blended(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_blended(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value whether to use blended costs in the cost budget. Defaults to `false`
         """
         return pulumi.get(self, "use_blended")
 
     @use_blended.setter
-    def use_blended(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_blended(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_blended", value)
 
 
 class BudgetFilterExpressionArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndArgsDict']]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input['BudgetFilterExpressionNotArgsDict']]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotArgs']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrArgsDict']]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -930,12 +930,12 @@ class BudgetFilterExpressionArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionArgs:
     def __init__(__self__, *,
-                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]] = None,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionDimensionsArgs']] = None,
-                 not_: Optional[pulumi.Input['BudgetFilterExpressionNotArgs']] = None,
-                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionTagsArgs']] = None):
+                 ands: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]] = None,
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionDimensionsArgs']] = None,
+                 not_: pulumi.Input[Optional['BudgetFilterExpressionNotArgs']] = None,
+                 ors: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionTagsArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         :param pulumi.Input['BudgetFilterExpressionCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
@@ -959,99 +959,99 @@ class BudgetFilterExpressionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]]:
+    def ands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
     @ands.setter
-    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]]):
+    def ands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]]):
         pulumi.set(self, "ands", value)
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotArgs']]:
+    def not_(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotArgs']]:
         """
         (Optional) A single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotArgs']]):
+    def not_(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotArgs']]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]]:
+    def ors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
     @ors.setter
-    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]]):
+    def ors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]]):
         pulumi.set(self, "ors", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionAndArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgsDict']]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionAndCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionAndDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input['BudgetFilterExpressionAndNotArgsDict']]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotArgs']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgsDict']]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionAndTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1059,12 +1059,12 @@ class BudgetFilterExpressionAndArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndArgs:
     def __init__(__self__, *,
-                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]] = None,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionAndCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionAndDimensionsArgs']] = None,
-                 not_: Optional[pulumi.Input['BudgetFilterExpressionAndNotArgs']] = None,
-                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionAndTagsArgs']] = None):
+                 ands: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]] = None,
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionAndCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionAndDimensionsArgs']] = None,
+                 not_: pulumi.Input[Optional['BudgetFilterExpressionAndNotArgs']] = None,
+                 ors: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionAndTagsArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         :param pulumi.Input['BudgetFilterExpressionAndCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
@@ -1088,87 +1088,87 @@ class BudgetFilterExpressionAndArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]]:
+    def ands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
     @ands.setter
-    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]]):
+    def ands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]]):
         pulumi.set(self, "ands", value)
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndNotArgs']]:
+    def not_(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndNotArgs']]:
         """
         (Optional) A single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndNotArgs']]):
+    def not_(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndNotArgs']]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]]:
+    def ors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
     @ors.setter
-    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]]):
+    def ors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]]):
         pulumi.set(self, "ors", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionAndAndArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionAndAndCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionAndAndDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionAndAndTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1176,9 +1176,9 @@ class BudgetFilterExpressionAndAndArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndAndArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionAndAndCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionAndAndDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionAndAndTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionAndAndCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionAndAndDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionAndAndTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionAndAndCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionAndAndDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -1193,51 +1193,51 @@ class BudgetFilterExpressionAndAndArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndAndCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndAndCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndAndCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndAndCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndAndDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndAndDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndAndDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndAndDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndAndTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndAndTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndAndTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndAndTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionAndAndCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -1245,9 +1245,9 @@ class BudgetFilterExpressionAndAndCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndAndCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -1262,38 +1262,38 @@ class BudgetFilterExpressionAndAndCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1306,7 +1306,7 @@ class BudgetFilterExpressionAndAndDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -1316,7 +1316,7 @@ class BudgetFilterExpressionAndAndDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -1353,27 +1353,27 @@ class BudgetFilterExpressionAndAndDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionAndAndTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -1381,9 +1381,9 @@ class BudgetFilterExpressionAndAndTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndAndTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -1398,51 +1398,51 @@ class BudgetFilterExpressionAndAndTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionAndCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -1450,9 +1450,9 @@ class BudgetFilterExpressionAndCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -1467,38 +1467,38 @@ class BudgetFilterExpressionAndCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1511,7 +1511,7 @@ class BudgetFilterExpressionAndDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -1521,7 +1521,7 @@ class BudgetFilterExpressionAndDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -1558,27 +1558,27 @@ class BudgetFilterExpressionAndDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionAndNotArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionAndNotCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionAndNotDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionAndNotTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1586,9 +1586,9 @@ class BudgetFilterExpressionAndNotArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndNotArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionAndNotCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionAndNotDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionAndNotTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionAndNotCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionAndNotDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionAndNotTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionAndNotCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionAndNotDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -1603,51 +1603,51 @@ class BudgetFilterExpressionAndNotArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndNotCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndNotCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndNotCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndNotCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndNotDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndNotDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndNotDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndNotDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndNotTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndNotTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndNotTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndNotTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionAndNotCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -1655,9 +1655,9 @@ class BudgetFilterExpressionAndNotCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndNotCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -1672,38 +1672,38 @@ class BudgetFilterExpressionAndNotCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1716,7 +1716,7 @@ class BudgetFilterExpressionAndNotDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -1726,7 +1726,7 @@ class BudgetFilterExpressionAndNotDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -1763,27 +1763,27 @@ class BudgetFilterExpressionAndNotDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionAndNotTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -1791,9 +1791,9 @@ class BudgetFilterExpressionAndNotTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndNotTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -1808,51 +1808,51 @@ class BudgetFilterExpressionAndNotTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionAndOrArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionAndOrCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionAndOrDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionAndOrTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1860,9 +1860,9 @@ class BudgetFilterExpressionAndOrArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndOrArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionAndOrCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionAndOrDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionAndOrTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionAndOrCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionAndOrDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionAndOrTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionAndOrCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionAndOrDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -1877,51 +1877,51 @@ class BudgetFilterExpressionAndOrArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndOrCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndOrCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndOrCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndOrCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndOrDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndOrDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndOrDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndOrDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionAndOrTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionAndOrTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionAndOrTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionAndOrTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionAndOrCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -1929,9 +1929,9 @@ class BudgetFilterExpressionAndOrCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndOrCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -1946,38 +1946,38 @@ class BudgetFilterExpressionAndOrCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1990,7 +1990,7 @@ class BudgetFilterExpressionAndOrDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -2000,7 +2000,7 @@ class BudgetFilterExpressionAndOrDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -2037,27 +2037,27 @@ class BudgetFilterExpressionAndOrDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionAndOrTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -2065,9 +2065,9 @@ class BudgetFilterExpressionAndOrTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndOrTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -2082,51 +2082,51 @@ class BudgetFilterExpressionAndOrTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionAndTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -2134,9 +2134,9 @@ class BudgetFilterExpressionAndTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionAndTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -2151,51 +2151,51 @@ class BudgetFilterExpressionAndTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -2203,9 +2203,9 @@ class BudgetFilterExpressionCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -2220,38 +2220,38 @@ class BudgetFilterExpressionCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2264,7 +2264,7 @@ class BudgetFilterExpressionDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -2274,7 +2274,7 @@ class BudgetFilterExpressionDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -2311,39 +2311,39 @@ class BudgetFilterExpressionDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionNotArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgsDict']]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionNotCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionNotDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input['BudgetFilterExpressionNotNotArgsDict']]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotArgs']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgsDict']]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionNotTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -2351,12 +2351,12 @@ class BudgetFilterExpressionNotArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotArgs:
     def __init__(__self__, *,
-                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]] = None,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionNotCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionNotDimensionsArgs']] = None,
-                 not_: Optional[pulumi.Input['BudgetFilterExpressionNotNotArgs']] = None,
-                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionNotTagsArgs']] = None):
+                 ands: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]] = None,
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionNotCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionNotDimensionsArgs']] = None,
+                 not_: pulumi.Input[Optional['BudgetFilterExpressionNotNotArgs']] = None,
+                 ors: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionNotTagsArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         :param pulumi.Input['BudgetFilterExpressionNotCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
@@ -2380,87 +2380,87 @@ class BudgetFilterExpressionNotArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]]:
+    def ands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
     @ands.setter
-    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]]):
+    def ands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]]):
         pulumi.set(self, "ands", value)
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotNotArgs']]:
+    def not_(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotNotArgs']]:
         """
         (Optional) A single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotNotArgs']]):
+    def not_(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotNotArgs']]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]]:
+    def ors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
     @ors.setter
-    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]]):
+    def ors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]]):
         pulumi.set(self, "ors", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionNotAndArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionNotAndCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionNotAndDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionNotAndTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -2468,9 +2468,9 @@ class BudgetFilterExpressionNotAndArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotAndArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionNotAndCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionNotAndDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionNotAndTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionNotAndCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionNotAndDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionNotAndTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionNotAndCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionNotAndDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -2485,51 +2485,51 @@ class BudgetFilterExpressionNotAndArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotAndCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotAndCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotAndCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotAndCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotAndDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotAndDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotAndDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotAndDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotAndTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotAndTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotAndTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotAndTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionNotAndCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -2537,9 +2537,9 @@ class BudgetFilterExpressionNotAndCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotAndCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -2554,38 +2554,38 @@ class BudgetFilterExpressionNotAndCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2598,7 +2598,7 @@ class BudgetFilterExpressionNotAndDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -2608,7 +2608,7 @@ class BudgetFilterExpressionNotAndDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -2645,27 +2645,27 @@ class BudgetFilterExpressionNotAndDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionNotAndTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -2673,9 +2673,9 @@ class BudgetFilterExpressionNotAndTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotAndTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -2690,51 +2690,51 @@ class BudgetFilterExpressionNotAndTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionNotCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -2742,9 +2742,9 @@ class BudgetFilterExpressionNotCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -2759,38 +2759,38 @@ class BudgetFilterExpressionNotCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -2803,7 +2803,7 @@ class BudgetFilterExpressionNotDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -2813,7 +2813,7 @@ class BudgetFilterExpressionNotDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -2850,27 +2850,27 @@ class BudgetFilterExpressionNotDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionNotNotArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionNotNotCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionNotNotDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionNotNotTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -2878,9 +2878,9 @@ class BudgetFilterExpressionNotNotArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotNotArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionNotNotCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionNotNotDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionNotNotTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionNotNotCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionNotNotDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionNotNotTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionNotNotCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionNotNotDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -2895,51 +2895,51 @@ class BudgetFilterExpressionNotNotArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotNotCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotNotCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotNotCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotNotCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotNotDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotNotDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotNotDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotNotDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotNotTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotNotTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotNotTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotNotTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionNotNotCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -2947,9 +2947,9 @@ class BudgetFilterExpressionNotNotCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotNotCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -2964,38 +2964,38 @@ class BudgetFilterExpressionNotNotCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -3008,7 +3008,7 @@ class BudgetFilterExpressionNotNotDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -3018,7 +3018,7 @@ class BudgetFilterExpressionNotNotDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -3055,27 +3055,27 @@ class BudgetFilterExpressionNotNotDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionNotNotTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -3083,9 +3083,9 @@ class BudgetFilterExpressionNotNotTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotNotTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -3100,51 +3100,51 @@ class BudgetFilterExpressionNotNotTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionNotOrArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionNotOrCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionNotOrDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionNotOrTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -3152,9 +3152,9 @@ class BudgetFilterExpressionNotOrArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotOrArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionNotOrCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionNotOrDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionNotOrTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionNotOrCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionNotOrDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionNotOrTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionNotOrCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionNotOrDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -3169,51 +3169,51 @@ class BudgetFilterExpressionNotOrArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotOrCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotOrCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotOrCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotOrCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotOrDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotOrDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotOrDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotOrDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionNotOrTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionNotOrTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionNotOrTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionNotOrTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionNotOrCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -3221,9 +3221,9 @@ class BudgetFilterExpressionNotOrCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotOrCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -3238,38 +3238,38 @@ class BudgetFilterExpressionNotOrCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -3282,7 +3282,7 @@ class BudgetFilterExpressionNotOrDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -3292,7 +3292,7 @@ class BudgetFilterExpressionNotOrDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -3329,27 +3329,27 @@ class BudgetFilterExpressionNotOrDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionNotOrTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -3357,9 +3357,9 @@ class BudgetFilterExpressionNotOrTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotOrTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -3374,51 +3374,51 @@ class BudgetFilterExpressionNotOrTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionNotTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -3426,9 +3426,9 @@ class BudgetFilterExpressionNotTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionNotTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -3443,63 +3443,63 @@ class BudgetFilterExpressionNotTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionOrArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgsDict']]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionOrCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionOrDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input['BudgetFilterExpressionOrNotArgsDict']]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotArgs']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgsDict']]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionOrTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -3507,12 +3507,12 @@ class BudgetFilterExpressionOrArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrArgs:
     def __init__(__self__, *,
-                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]] = None,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionOrCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionOrDimensionsArgs']] = None,
-                 not_: Optional[pulumi.Input['BudgetFilterExpressionOrNotArgs']] = None,
-                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionOrTagsArgs']] = None):
+                 ands: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]] = None,
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionOrCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionOrDimensionsArgs']] = None,
+                 not_: pulumi.Input[Optional['BudgetFilterExpressionOrNotArgs']] = None,
+                 ors: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionOrTagsArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]] ands: (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         :param pulumi.Input['BudgetFilterExpressionOrCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
@@ -3536,87 +3536,87 @@ class BudgetFilterExpressionOrArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]]:
+    def ands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ands")
 
     @ands.setter
-    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]]):
+    def ands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]]):
         pulumi.set(self, "ands", value)
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrNotArgs']]:
+    def not_(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrNotArgs']]:
         """
         (Optional) A single filter expression to negate. Must contain exactly one root.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrNotArgs']]):
+    def not_(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrNotArgs']]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]]:
+    def ors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]]:
         """
         (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
         """
         return pulumi.get(self, "ors")
 
     @ors.setter
-    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]]):
+    def ors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]]):
         pulumi.set(self, "ors", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionOrAndArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionOrAndCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionOrAndDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionOrAndTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -3624,9 +3624,9 @@ class BudgetFilterExpressionOrAndArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrAndArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionOrAndCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionOrAndDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionOrAndTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionOrAndCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionOrAndDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionOrAndTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionOrAndCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionOrAndDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -3641,51 +3641,51 @@ class BudgetFilterExpressionOrAndArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrAndCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrAndCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrAndCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrAndCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrAndDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrAndDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrAndDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrAndDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrAndTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrAndTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrAndTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrAndTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionOrAndCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -3693,9 +3693,9 @@ class BudgetFilterExpressionOrAndCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrAndCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -3710,38 +3710,38 @@ class BudgetFilterExpressionOrAndCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -3754,7 +3754,7 @@ class BudgetFilterExpressionOrAndDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -3764,7 +3764,7 @@ class BudgetFilterExpressionOrAndDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -3801,27 +3801,27 @@ class BudgetFilterExpressionOrAndDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionOrAndTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -3829,9 +3829,9 @@ class BudgetFilterExpressionOrAndTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrAndTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -3846,51 +3846,51 @@ class BudgetFilterExpressionOrAndTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionOrCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -3898,9 +3898,9 @@ class BudgetFilterExpressionOrCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -3915,38 +3915,38 @@ class BudgetFilterExpressionOrCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -3959,7 +3959,7 @@ class BudgetFilterExpressionOrDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -3969,7 +3969,7 @@ class BudgetFilterExpressionOrDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -4006,27 +4006,27 @@ class BudgetFilterExpressionOrDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionOrNotArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionOrNotCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionOrNotDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionOrNotTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -4034,9 +4034,9 @@ class BudgetFilterExpressionOrNotArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrNotArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionOrNotCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionOrNotDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionOrNotTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionOrNotCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionOrNotDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionOrNotTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionOrNotCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionOrNotDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -4051,51 +4051,51 @@ class BudgetFilterExpressionOrNotArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrNotCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrNotCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrNotCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrNotCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrNotDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrNotDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrNotDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrNotDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrNotTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrNotTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrNotTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrNotTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionOrNotCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -4103,9 +4103,9 @@ class BudgetFilterExpressionOrNotCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrNotCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -4120,38 +4120,38 @@ class BudgetFilterExpressionOrNotCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -4164,7 +4164,7 @@ class BudgetFilterExpressionOrNotDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -4174,7 +4174,7 @@ class BudgetFilterExpressionOrNotDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -4211,27 +4211,27 @@ class BudgetFilterExpressionOrNotDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionOrNotTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -4239,9 +4239,9 @@ class BudgetFilterExpressionOrNotTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrNotTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -4256,51 +4256,51 @@ class BudgetFilterExpressionOrNotTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionOrOrArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input['BudgetFilterExpressionOrOrCostCategoriesArgsDict']]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrCostCategoriesArgs']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input['BudgetFilterExpressionOrOrDimensionsArgsDict']]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrDimensionsArgs']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input['BudgetFilterExpressionOrOrTagsArgsDict']]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrTagsArgs']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -4308,9 +4308,9 @@ class BudgetFilterExpressionOrOrArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrOrArgs:
     def __init__(__self__, *,
-                 cost_categories: Optional[pulumi.Input['BudgetFilterExpressionOrOrCostCategoriesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['BudgetFilterExpressionOrOrDimensionsArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetFilterExpressionOrOrTagsArgs']] = None):
+                 cost_categories: pulumi.Input[Optional['BudgetFilterExpressionOrOrCostCategoriesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['BudgetFilterExpressionOrOrDimensionsArgs']] = None,
+                 tags: pulumi.Input[Optional['BudgetFilterExpressionOrOrTagsArgs']] = None):
         """
         :param pulumi.Input['BudgetFilterExpressionOrOrCostCategoriesArgs'] cost_categories: (Optional) A Cost Category Filter block.
         :param pulumi.Input['BudgetFilterExpressionOrOrDimensionsArgs'] dimensions: (Optional) A Dimension Filter block.
@@ -4325,51 +4325,51 @@ class BudgetFilterExpressionOrOrArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrOrCostCategoriesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrOrCostCategoriesArgs']]:
         """
         (Optional) A Cost Category Filter block.
         """
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrOrCostCategoriesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrOrCostCategoriesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrOrDimensionsArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrOrDimensionsArgs']]:
         """
         (Optional) A Dimension Filter block.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrOrDimensionsArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrOrDimensionsArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetFilterExpressionOrOrTagsArgs']]:
+    def tags(self) -> pulumi.Input[Optional['BudgetFilterExpressionOrOrTagsArgs']]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetFilterExpressionOrOrTagsArgs']]):
+    def tags(self, value: pulumi.Input[Optional['BudgetFilterExpressionOrOrTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
 class BudgetFilterExpressionOrOrCostCategoriesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -4377,9 +4377,9 @@ class BudgetFilterExpressionOrOrCostCategoriesArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrOrCostCategoriesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -4394,38 +4394,38 @@ class BudgetFilterExpressionOrOrCostCategoriesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -4438,7 +4438,7 @@ class BudgetFilterExpressionOrOrDimensionsArgsDict(TypedDict):
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
@@ -4448,7 +4448,7 @@ class BudgetFilterExpressionOrOrDimensionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: (Optional) A list of cost category values to match. At least one value is required.
@@ -4485,27 +4485,27 @@ class BudgetFilterExpressionOrOrDimensionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
 
 class BudgetFilterExpressionOrOrTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -4513,9 +4513,9 @@ class BudgetFilterExpressionOrOrTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrOrTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -4530,51 +4530,51 @@ class BudgetFilterExpressionOrOrTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionOrTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -4582,9 +4582,9 @@ class BudgetFilterExpressionOrTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionOrTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -4599,51 +4599,51 @@ class BudgetFilterExpressionOrTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class BudgetFilterExpressionTagsArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) The cost category key to filter on.
     """
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) A list of cost category values to match. At least one value is required.
     """
@@ -4651,9 +4651,9 @@ class BudgetFilterExpressionTagsArgsDict(TypedDict):
 @pulumi.input_type
 class BudgetFilterExpressionTagsArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] key: (Optional) The cost category key to filter on.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_options: (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
@@ -4668,38 +4668,38 @@ class BudgetFilterExpressionTagsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) The cost category key to filter on.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
         """
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) A list of cost category values to match. At least one value is required.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -4720,11 +4720,11 @@ class BudgetNotificationArgsDict(TypedDict):
     """
     (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
     """
-    subscriber_email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subscriber_email_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
     """
-    subscriber_sns_topic_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subscriber_sns_topic_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
     """
@@ -4736,8 +4736,8 @@ class BudgetNotificationArgs:
                  notification_type: pulumi.Input[_builtins.str],
                  threshold: pulumi.Input[_builtins.float],
                  threshold_type: pulumi.Input[_builtins.str],
-                 subscriber_email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subscriber_sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 subscriber_email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subscriber_sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] comparison_operator: (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
         :param pulumi.Input[_builtins.str] notification_type: (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
@@ -4805,26 +4805,26 @@ class BudgetNotificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="subscriberEmailAddresses")
-    def subscriber_email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscriber_email_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
         """
         return pulumi.get(self, "subscriber_email_addresses")
 
     @subscriber_email_addresses.setter
-    def subscriber_email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscriber_email_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscriber_email_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberSnsTopicArns")
-    def subscriber_sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subscriber_sns_topic_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
         return pulumi.get(self, "subscriber_sns_topic_arns")
 
     @subscriber_sns_topic_arns.setter
-    def subscriber_sns_topic_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subscriber_sns_topic_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subscriber_sns_topic_arns", value)
 
 

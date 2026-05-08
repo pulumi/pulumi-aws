@@ -472,32 +472,32 @@ export interface IntegrationState {
     /**
      * List of cache key parameters for the integration.
      */
-    cacheKeyParameters?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheKeyParameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Integration's cache namespace.
      */
-    cacheNamespace?: pulumi.Input<string>;
+    cacheNamespace?: pulumi.Input<string | undefined>;
     /**
      * ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      */
-    connectionId?: pulumi.Input<string>;
+    connectionId?: pulumi.Input<string | undefined>;
     /**
      * Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
      */
-    connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string | undefined>;
     /**
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
      */
-    contentHandling?: pulumi.Input<string>;
+    contentHandling?: pulumi.Input<string | undefined>;
     /**
      * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
      */
-    credentials?: pulumi.Input<string>;
+    credentials?: pulumi.Input<string | undefined>;
     /**
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      * when calling the associated resource.
      */
-    httpMethod?: pulumi.Input<string>;
+    httpMethod?: pulumi.Input<string | undefined>;
     /**
      * Integration HTTP method
      * (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
@@ -505,59 +505,59 @@ export interface IntegrationState {
      * Not all methods are compatible with all `AWS` integrations.
      * e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
      */
-    integrationHttpMethod?: pulumi.Input<string>;
+    integrationHttpMethod?: pulumi.Input<string | undefined>;
     /**
      * The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
      */
-    integrationTarget?: pulumi.Input<string>;
+    integrationTarget?: pulumi.Input<string | undefined>;
     /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
-    passthroughBehavior?: pulumi.Input<string>;
+    passthroughBehavior?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
-    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of the integration's request templates.
      */
-    requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * API resource ID.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
      * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
      */
-    responseTransferMode?: pulumi.Input<string>;
+    responseTransferMode?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API.
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi | undefined>;
     /**
      * Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
      */
-    timeoutMilliseconds?: pulumi.Input<number>;
+    timeoutMilliseconds?: pulumi.Input<number | undefined>;
     /**
      * TLS configuration. See below.
      */
-    tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig | undefined>;
     /**
      * Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
      * e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -567,27 +567,27 @@ export interface IntegrationArgs {
     /**
      * List of cache key parameters for the integration.
      */
-    cacheKeyParameters?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheKeyParameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Integration's cache namespace.
      */
-    cacheNamespace?: pulumi.Input<string>;
+    cacheNamespace?: pulumi.Input<string | undefined>;
     /**
      * ID of the VpcLink used for the integration. **Required** if `connectionType` is `VPC_LINK`
      */
-    connectionId?: pulumi.Input<string>;
+    connectionId?: pulumi.Input<string | undefined>;
     /**
      * Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
      */
-    connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string | undefined>;
     /**
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
      */
-    contentHandling?: pulumi.Input<string>;
+    contentHandling?: pulumi.Input<string | undefined>;
     /**
      * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
      */
-    credentials?: pulumi.Input<string>;
+    credentials?: pulumi.Input<string | undefined>;
     /**
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
      * when calling the associated resource.
@@ -600,28 +600,28 @@ export interface IntegrationArgs {
      * Not all methods are compatible with all `AWS` integrations.
      * e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
      */
-    integrationHttpMethod?: pulumi.Input<string>;
+    integrationHttpMethod?: pulumi.Input<string | undefined>;
     /**
      * The ALB or NLB ARN to send the request to. Used for private integrations with VPC Link V2. When using VPC Link V2, this parameter specifies the load balancer ARN, while `uri` is used to set the Host header.
      */
-    integrationTarget?: pulumi.Input<string>;
+    integrationTarget?: pulumi.Input<string | undefined>;
     /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
      */
-    passthroughBehavior?: pulumi.Input<string>;
+    passthroughBehavior?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
      */
-    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of the integration's request templates.
      */
-    requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * API resource ID.
      */
@@ -630,7 +630,7 @@ export interface IntegrationArgs {
      * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
      * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
      */
-    responseTransferMode?: pulumi.Input<string>;
+    responseTransferMode?: pulumi.Input<string | undefined>;
     /**
      * ID of the associated REST API.
      */
@@ -638,11 +638,11 @@ export interface IntegrationArgs {
     /**
      * Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `responseTransferMode` is `BUFFERED`, and 900,000 when `responseTransferMode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
      */
-    timeoutMilliseconds?: pulumi.Input<number>;
+    timeoutMilliseconds?: pulumi.Input<number | undefined>;
     /**
      * TLS configuration. See below.
      */
-    tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig | undefined>;
     /**
      * Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
@@ -652,5 +652,5 @@ export interface IntegrationArgs {
      * For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
      * e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }

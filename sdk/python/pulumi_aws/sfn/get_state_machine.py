@@ -186,8 +186,8 @@ def get_state_machine(name: Optional[_builtins.str] = None,
         revision_id=pulumi.get(__ret__, 'revision_id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'))
-def get_state_machine_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                             region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_state_machine_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineResult]:
     """
     Use this data source to get the ARN of a State Machine in AWS Step

@@ -24,8 +24,8 @@ class DirectoryConfigArgs:
                  directory_name: pulumi.Input[_builtins.str],
                  organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
-                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_based_auth_properties: pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
 
@@ -81,38 +81,38 @@ class DirectoryConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
-    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
+    def certificate_based_auth_properties(self) -> pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
         """
         Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
         """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
-    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
+    def certificate_based_auth_properties(self, value: pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
         pulumi.set(self, "certificate_based_auth_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _DirectoryConfigState:
     def __init__(__self__, *,
-                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
-                 created_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_credentials: Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']] = None):
+                 certificate_based_auth_properties: pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None,
+                 created_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_credentials: pulumi.Input[Optional['DirectoryConfigServiceAccountCredentialsArgs']] = None):
         """
         Input properties used for looking up and filtering DirectoryConfig resources.
 
@@ -138,74 +138,74 @@ class _DirectoryConfigState:
 
     @_builtins.property
     @pulumi.getter(name="certificateBasedAuthProperties")
-    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
+    def certificate_based_auth_properties(self) -> pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
         """
         Configuration block for the certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. See `certificate_based_auth_properties` below.
         """
         return pulumi.get(self, "certificate_based_auth_properties")
 
     @certificate_based_auth_properties.setter
-    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
+    def certificate_based_auth_properties(self, value: pulumi.Input[Optional['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
         pulumi.set(self, "certificate_based_auth_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the directory.
         """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
-    def directory_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitDistinguishedNames")
-    def organizational_unit_distinguished_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def organizational_unit_distinguished_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Distinguished names of the organizational units for computer accounts.
         """
         return pulumi.get(self, "organizational_unit_distinguished_names")
 
     @organizational_unit_distinguished_names.setter
-    def organizational_unit_distinguished_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def organizational_unit_distinguished_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "organizational_unit_distinguished_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountCredentials")
-    def service_account_credentials(self) -> Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']]:
+    def service_account_credentials(self) -> pulumi.Input[Optional['DirectoryConfigServiceAccountCredentialsArgs']]:
         """
         Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
         return pulumi.get(self, "service_account_credentials")
 
     @service_account_credentials.setter
-    def service_account_credentials(self, value: Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']]):
+    def service_account_credentials(self, value: pulumi.Input[Optional['DirectoryConfigServiceAccountCredentialsArgs']]):
         pulumi.set(self, "service_account_credentials", value)
 
 
@@ -215,11 +215,11 @@ class DirectoryConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_credentials: pulumi.Input[Optional[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         """
         Provides an AppStream Directory Config.
@@ -312,11 +312,11 @@ class DirectoryConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_credentials: pulumi.Input[Optional[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -348,12 +348,12 @@ class DirectoryConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
-            created_time: Optional[pulumi.Input[_builtins.str]] = None,
-            directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-            organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None) -> 'DirectoryConfig':
+            certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryConfigCertificateBasedAuthPropertiesArgs', 'DirectoryConfigCertificateBasedAuthPropertiesArgsDict']]] = None,
+            created_time: pulumi.Input[Optional[_builtins.str]] = None,
+            directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+            organizational_unit_distinguished_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            service_account_credentials: pulumi.Input[Optional[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None) -> 'DirectoryConfig':
         """
         Get an existing DirectoryConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

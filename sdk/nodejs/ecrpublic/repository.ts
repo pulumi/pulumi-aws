@@ -156,36 +156,36 @@ export interface RepositoryState {
     /**
      * Full ARN of the repository.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
-    forceDestroy?: pulumi.Input<boolean>;
+    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData | undefined>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The registry ID where the repository was created.
      */
-    registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository.
      */
-    repositoryName?: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string | undefined>;
     /**
      * The URI of the repository.
      */
-    repositoryUri?: pulumi.Input<string>;
+    repositoryUri?: pulumi.Input<string | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -195,12 +195,12 @@ export interface RepositoryArgs {
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
-    forceDestroy?: pulumi.Input<boolean>;
+    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData | undefined>;
+    forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository.
      */
@@ -208,5 +208,5 @@ export interface RepositoryArgs {
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -153,9 +153,9 @@ def get_sink(region: Optional[_builtins.str] = None,
         sink_id=pulumi.get(__ret__, 'sink_id'),
         sink_identifier=pulumi.get(__ret__, 'sink_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_sink_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    sink_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                    tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_sink_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    sink_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                    tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinkResult]:
     """
     Data source for managing an AWS CloudWatch Observability Access Manager Sink.

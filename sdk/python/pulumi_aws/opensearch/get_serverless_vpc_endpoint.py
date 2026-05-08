@@ -161,8 +161,8 @@ def get_serverless_vpc_endpoint(region: Optional[_builtins.str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_serverless_vpc_endpoint_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_serverless_vpc_endpoint_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessVpcEndpointResult]:
     """
     Data source for managing an AWS OpenSearch Serverless VPC Endpoint.

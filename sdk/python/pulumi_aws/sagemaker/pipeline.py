@@ -23,13 +23,13 @@ class PipelineArgs:
     def __init__(__self__, *,
                  pipeline_display_name: pulumi.Input[_builtins.str],
                  pipeline_name: pulumi.Input[_builtins.str],
-                 parallelism_configuration: Optional[pulumi.Input['PipelineParallelismConfigurationArgs']] = None,
-                 pipeline_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_definition_s3_location: Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']] = None,
-                 pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 parallelism_configuration: pulumi.Input[Optional['PipelineParallelismConfigurationArgs']] = None,
+                 pipeline_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_definition_s3_location: pulumi.Input[Optional['PipelinePipelineDefinitionS3LocationArgs']] = None,
+                 pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
 
@@ -86,103 +86,103 @@ class PipelineArgs:
 
     @_builtins.property
     @pulumi.getter(name="parallelismConfiguration")
-    def parallelism_configuration(self) -> Optional[pulumi.Input['PipelineParallelismConfigurationArgs']]:
+    def parallelism_configuration(self) -> pulumi.Input[Optional['PipelineParallelismConfigurationArgs']]:
         """
         This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         """
         return pulumi.get(self, "parallelism_configuration")
 
     @parallelism_configuration.setter
-    def parallelism_configuration(self, value: Optional[pulumi.Input['PipelineParallelismConfigurationArgs']]):
+    def parallelism_configuration(self, value: pulumi.Input[Optional['PipelineParallelismConfigurationArgs']]):
         pulumi.set(self, "parallelism_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinition")
-    def pipeline_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         """
         return pulumi.get(self, "pipeline_definition")
 
     @pipeline_definition.setter
-    def pipeline_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinitionS3Location")
-    def pipeline_definition_s3_location(self) -> Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]:
+    def pipeline_definition_s3_location(self) -> pulumi.Input[Optional['PipelinePipelineDefinitionS3LocationArgs']]:
         """
         The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         """
         return pulumi.get(self, "pipeline_definition_s3_location")
 
     @pipeline_definition_s3_location.setter
-    def pipeline_definition_s3_location(self, value: Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]):
+    def pipeline_definition_s3_location(self, value: pulumi.Input[Optional['PipelinePipelineDefinitionS3LocationArgs']]):
         pulumi.set(self, "pipeline_definition_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDescription")
-    def pipeline_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the pipeline.
         """
         return pulumi.get(self, "pipeline_description")
 
     @pipeline_description.setter
-    def pipeline_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role the pipeline will execute as.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _PipelineState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallelism_configuration: Optional[pulumi.Input['PipelineParallelismConfigurationArgs']] = None,
-                 pipeline_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_definition_s3_location: Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']] = None,
-                 pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallelism_configuration: pulumi.Input[Optional['PipelineParallelismConfigurationArgs']] = None,
+                 pipeline_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_definition_s3_location: pulumi.Input[Optional['PipelinePipelineDefinitionS3LocationArgs']] = None,
+                 pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
 
@@ -223,134 +223,134 @@ class _PipelineState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelismConfiguration")
-    def parallelism_configuration(self) -> Optional[pulumi.Input['PipelineParallelismConfigurationArgs']]:
+    def parallelism_configuration(self) -> pulumi.Input[Optional['PipelineParallelismConfigurationArgs']]:
         """
         This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         """
         return pulumi.get(self, "parallelism_configuration")
 
     @parallelism_configuration.setter
-    def parallelism_configuration(self, value: Optional[pulumi.Input['PipelineParallelismConfigurationArgs']]):
+    def parallelism_configuration(self, value: pulumi.Input[Optional['PipelineParallelismConfigurationArgs']]):
         pulumi.set(self, "parallelism_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinition")
-    def pipeline_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         """
         return pulumi.get(self, "pipeline_definition")
 
     @pipeline_definition.setter
-    def pipeline_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinitionS3Location")
-    def pipeline_definition_s3_location(self) -> Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]:
+    def pipeline_definition_s3_location(self) -> pulumi.Input[Optional['PipelinePipelineDefinitionS3LocationArgs']]:
         """
         The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         """
         return pulumi.get(self, "pipeline_definition_s3_location")
 
     @pipeline_definition_s3_location.setter
-    def pipeline_definition_s3_location(self, value: Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']]):
+    def pipeline_definition_s3_location(self, value: pulumi.Input[Optional['PipelinePipelineDefinitionS3LocationArgs']]):
         pulumi.set(self, "pipeline_definition_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDescription")
-    def pipeline_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the pipeline.
         """
         return pulumi.get(self, "pipeline_description")
 
     @pipeline_description.setter
-    def pipeline_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_description", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineDisplayName")
-    def pipeline_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the pipeline.
         """
         return pulumi.get(self, "pipeline_display_name")
 
     @pipeline_display_name.setter
-    def pipeline_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the pipeline.
         """
         return pulumi.get(self, "pipeline_name")
 
     @pipeline_name.setter
-    def pipeline_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role the pipeline will execute as.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -360,15 +360,15 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
-                 pipeline_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_definition_s3_location: Optional[pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
-                 pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 parallelism_configuration: pulumi.Input[Optional[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
+                 pipeline_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_definition_s3_location: pulumi.Input[Optional[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
+                 pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Pipeline resource.
@@ -477,15 +477,15 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
-                 pipeline_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_definition_s3_location: Optional[pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
-                 pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 parallelism_configuration: pulumi.Input[Optional[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
+                 pipeline_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_definition_s3_location: pulumi.Input[Optional[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
+                 pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -520,17 +520,17 @@ class Pipeline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            parallelism_configuration: Optional[pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
-            pipeline_definition: Optional[pulumi.Input[_builtins.str]] = None,
-            pipeline_definition_s3_location: Optional[pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
-            pipeline_description: Optional[pulumi.Input[_builtins.str]] = None,
-            pipeline_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Pipeline':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            parallelism_configuration: pulumi.Input[Optional[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
+            pipeline_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_definition_s3_location: pulumi.Input[Optional[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
+            pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

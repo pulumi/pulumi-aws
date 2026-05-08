@@ -23,10 +23,10 @@ class SchemaArgs:
                  data_format: pulumi.Input[_builtins.str],
                  schema_definition: pulumi.Input[_builtins.str],
                  schema_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schema resource.
 
@@ -102,70 +102,70 @@ class SchemaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the schema.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="registryArn")
-    def registry_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Glue Registry to create the schema in.
         """
         return pulumi.get(self, "registry_arn")
 
     @registry_arn.setter
-    def registry_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _SchemaState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 latest_schema_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 next_schema_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_checkpoint: Optional[pulumi.Input[_builtins.int]] = None,
-                 schema_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 latest_schema_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 next_schema_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_checkpoint: pulumi.Input[Optional[_builtins.int]] = None,
+                 schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
 
@@ -215,170 +215,170 @@ class _SchemaState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the schema.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def compatibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         """
         return pulumi.get(self, "compatibility")
 
     @compatibility.setter
-    def compatibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility", value)
 
     @_builtins.property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
-    def data_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the schema.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="latestSchemaVersion")
-    def latest_schema_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def latest_schema_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The latest version of the schema associated with the returned schema definition.
         """
         return pulumi.get(self, "latest_schema_version")
 
     @latest_schema_version.setter
-    def latest_schema_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def latest_schema_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "latest_schema_version", value)
 
     @_builtins.property
     @pulumi.getter(name="nextSchemaVersion")
-    def next_schema_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def next_schema_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The next version of the schema associated with the returned schema definition.
         """
         return pulumi.get(self, "next_schema_version")
 
     @next_schema_version.setter
-    def next_schema_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def next_schema_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "next_schema_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="registryArn")
-    def registry_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Glue Registry to create the schema in.
         """
         return pulumi.get(self, "registry_arn")
 
     @registry_arn.setter
-    def registry_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
-    def registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Glue Registry.
         """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
-    def registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaCheckpoint")
-    def schema_checkpoint(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def schema_checkpoint(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The version number of the checkpoint (the last time the compatibility mode was changed).
         """
         return pulumi.get(self, "schema_checkpoint")
 
     @schema_checkpoint.setter
-    def schema_checkpoint(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def schema_checkpoint(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "schema_checkpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaDefinition")
-    def schema_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema definition using the `data_format` setting for `schema_name`.
         """
         return pulumi.get(self, "schema_definition")
 
     @schema_definition.setter
-    def schema_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
-    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Name of the schema.
         """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
-    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
 
@@ -388,14 +388,14 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a Glue Schema resource.
@@ -493,14 +493,14 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -542,20 +542,20 @@ class Schema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-            data_format: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            latest_schema_version: Optional[pulumi.Input[_builtins.int]] = None,
-            next_schema_version: Optional[pulumi.Input[_builtins.int]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            registry_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_checkpoint: Optional[pulumi.Input[_builtins.int]] = None,
-            schema_definition: Optional[pulumi.Input[_builtins.str]] = None,
-            schema_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Schema':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+            data_format: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            latest_schema_version: pulumi.Input[Optional[_builtins.int]] = None,
+            next_schema_version: pulumi.Input[Optional[_builtins.int]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_checkpoint: pulumi.Input[Optional[_builtins.int]] = None,
+            schema_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Schema':
         """
         Get an existing Schema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

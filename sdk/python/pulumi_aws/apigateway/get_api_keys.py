@@ -126,9 +126,9 @@ def get_api_keys(customer_id: Optional[_builtins.str] = None,
         include_values=pulumi.get(__ret__, 'include_values'),
         items=pulumi.get(__ret__, 'items'),
         region=pulumi.get(__ret__, 'region'))
-def get_api_keys_output(customer_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        include_values: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                        region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_api_keys_output(customer_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        include_values: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeysResult]:
     """
     Data source for managing AWS API Gateway API Keys.

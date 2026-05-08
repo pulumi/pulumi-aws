@@ -190,9 +190,9 @@ def get_email_identity(email_identity: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         verification_status=pulumi.get(__ret__, 'verification_status'),
         verified_for_sending_status=pulumi.get(__ret__, 'verified_for_sending_status'))
-def get_email_identity_output(email_identity: Optional[pulumi.Input[_builtins.str]] = None,
-                              region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def get_email_identity_output(email_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.

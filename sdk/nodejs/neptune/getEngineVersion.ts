@@ -209,45 +209,45 @@ export interface GetEngineVersionOutputArgs {
     /**
      * Whether to return only default engine versions that match all other criteria. AWS may define multiple default versions for a given engine, so using `defaultOnly` alone does not guarantee that only one version will be returned. To ensure a single version is selected, consider combining this with `latest`. Note that default versions are defined by AWS and may not reflect the most recent engine version available.
      */
-    defaultOnly?: pulumi.Input<boolean>;
+    defaultOnly?: pulumi.Input<boolean | undefined>;
     /**
      * DB engine. Must be `neptune`. Default is `neptune`.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Whether to filter for engine versions that have a major target.
      */
-    hasMajorTarget?: pulumi.Input<boolean>;
+    hasMajorTarget?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to filter for engine versions that have a minor target.
      */
-    hasMinorTarget?: pulumi.Input<boolean>;
+    hasMinorTarget?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to return only the latest engine version that matches all other criteria. This differs from `defaultOnly`: AWS may define multiple defaults, and the latest version is not always marked as the default. As a result, `defaultOnly` may still return multiple versions, while `latest` selects a single version. The two options can be used together. **Note:** This argument uses a best-effort approach. Because AWS does not consistently provide version dates or standardized identifiers, the result may not always reflect the true latest version.
      */
-    latest?: pulumi.Input<boolean>;
+    latest?: pulumi.Input<boolean | undefined>;
     /**
      * Name of a specific DB parameter group family. An example parameter group family is `neptune1.4`. For some versions, if this is provided, AWS returns no results.
      */
-    parameterGroupFamily?: pulumi.Input<string>;
+    parameterGroupFamily?: pulumi.Input<string | undefined>;
     /**
      * Ordered list of preferred major engine versions.
      */
-    preferredMajorTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredMajorTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Ordered list of preferred upgrade engine versions.
      */
-    preferredUpgradeTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredUpgradeTargets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
-    preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredVersions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

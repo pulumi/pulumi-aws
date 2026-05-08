@@ -23,12 +23,12 @@ class SpaceArgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[_builtins.str],
                  space_name: pulumi.Input[_builtins.str],
-                 ownership_settings: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
-                 space_sharing_settings: Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 ownership_settings: pulumi.Input[Optional['SpaceOwnershipSettingsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_settings: pulumi.Input[Optional['SpaceSpaceSettingsArgs']] = None,
+                 space_sharing_settings: pulumi.Input[Optional['SpaceSpaceSharingSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
 
@@ -82,92 +82,92 @@ class SpaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="ownershipSettings")
-    def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
+    def ownership_settings(self) -> pulumi.Input[Optional['SpaceOwnershipSettingsArgs']]:
         """
         A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         """
         return pulumi.get(self, "ownership_settings")
 
     @ownership_settings.setter
-    def ownership_settings(self, value: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]):
+    def ownership_settings(self, value: pulumi.Input[Optional['SpaceOwnershipSettingsArgs']]):
         pulumi.set(self, "ownership_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceDisplayName")
-    def space_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def space_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the space that appears in the SageMaker AI Studio UI.
         """
         return pulumi.get(self, "space_display_name")
 
     @space_display_name.setter
-    def space_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def space_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "space_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceSettings")
-    def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
+    def space_settings(self) -> pulumi.Input[Optional['SpaceSpaceSettingsArgs']]:
         """
         A collection of space settings. See `space_settings` Block below.
         """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
-    def space_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsArgs']]):
+    def space_settings(self, value: pulumi.Input[Optional['SpaceSpaceSettingsArgs']]):
         pulumi.set(self, "space_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceSharingSettings")
-    def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]:
+    def space_sharing_settings(self) -> pulumi.Input[Optional['SpaceSpaceSharingSettingsArgs']]:
         """
         A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         """
         return pulumi.get(self, "space_sharing_settings")
 
     @space_sharing_settings.setter
-    def space_sharing_settings(self, value: Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]):
+    def space_sharing_settings(self, value: pulumi.Input[Optional['SpaceSpaceSharingSettingsArgs']]):
         pulumi.set(self, "space_sharing_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _SpaceState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_efs_file_system_uid: Optional[pulumi.Input[_builtins.str]] = None,
-                 ownership_settings: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
-                 space_sharing_settings: Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_efs_file_system_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 ownership_settings: pulumi.Input[Optional['SpaceOwnershipSettingsArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_settings: pulumi.Input[Optional['SpaceSpaceSettingsArgs']] = None,
+                 space_sharing_settings: pulumi.Input[Optional['SpaceSpaceSharingSettingsArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Space resources.
 
@@ -211,146 +211,146 @@ class _SpaceState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The space's Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated Domain.
         """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
-    def domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="homeEfsFileSystemUid")
-    def home_efs_file_system_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_efs_file_system_uid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the space's profile in the Amazon Elastic File System volume.
         """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @home_efs_file_system_uid.setter
-    def home_efs_file_system_uid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_efs_file_system_uid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_efs_file_system_uid", value)
 
     @_builtins.property
     @pulumi.getter(name="ownershipSettings")
-    def ownership_settings(self) -> Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]:
+    def ownership_settings(self) -> pulumi.Input[Optional['SpaceOwnershipSettingsArgs']]:
         """
         A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         """
         return pulumi.get(self, "ownership_settings")
 
     @ownership_settings.setter
-    def ownership_settings(self, value: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]):
+    def ownership_settings(self, value: pulumi.Input[Optional['SpaceOwnershipSettingsArgs']]):
         pulumi.set(self, "ownership_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceDisplayName")
-    def space_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def space_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the space that appears in the SageMaker AI Studio UI.
         """
         return pulumi.get(self, "space_display_name")
 
     @space_display_name.setter
-    def space_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def space_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "space_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceName")
-    def space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def space_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the space.
         """
         return pulumi.get(self, "space_name")
 
     @space_name.setter
-    def space_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def space_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "space_name", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceSettings")
-    def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
+    def space_settings(self) -> pulumi.Input[Optional['SpaceSpaceSettingsArgs']]:
         """
         A collection of space settings. See `space_settings` Block below.
         """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
-    def space_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsArgs']]):
+    def space_settings(self, value: pulumi.Input[Optional['SpaceSpaceSettingsArgs']]):
         pulumi.set(self, "space_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="spaceSharingSettings")
-    def space_sharing_settings(self) -> Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]:
+    def space_sharing_settings(self) -> pulumi.Input[Optional['SpaceSpaceSharingSettingsArgs']]:
         """
         A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         """
         return pulumi.get(self, "space_sharing_settings")
 
     @space_sharing_settings.setter
-    def space_sharing_settings(self, value: Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']]):
+    def space_sharing_settings(self, value: pulumi.Input[Optional['SpaceSpaceSharingSettingsArgs']]):
         pulumi.set(self, "space_sharing_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -360,14 +360,14 @@ class Space(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
-                 space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ownership_settings: pulumi.Input[Optional[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_settings: pulumi.Input[Optional[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
+                 space_sharing_settings: pulumi.Input[Optional[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker AI Space resource.
@@ -451,14 +451,14 @@ class Space(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
-                 space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ownership_settings: pulumi.Input[Optional[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 space_settings: pulumi.Input[Optional[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
+                 space_sharing_settings: pulumi.Input[Optional[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,18 +494,18 @@ class Space(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            home_efs_file_system_uid: Optional[pulumi.Input[_builtins.str]] = None,
-            ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            space_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            space_name: Optional[pulumi.Input[_builtins.str]] = None,
-            space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
-            space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Space':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            home_efs_file_system_uid: pulumi.Input[Optional[_builtins.str]] = None,
+            ownership_settings: pulumi.Input[Optional[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            space_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            space_name: pulumi.Input[Optional[_builtins.str]] = None,
+            space_settings: pulumi.Input[Optional[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
+            space_sharing_settings: pulumi.Input[Optional[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Space':
         """
         Get an existing Space resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

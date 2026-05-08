@@ -137,19 +137,19 @@ export interface AccessPointPolicyState {
     /**
      * The ARN of the access point that you want to associate with the specified policy.
      */
-    accessPointArn?: pulumi.Input<string>;
+    accessPointArn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
-    hasPublicAccessPolicy?: pulumi.Input<boolean>;
+    hasPublicAccessPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * The policy that you want to apply to the specified access point.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,5 +167,5 @@ export interface AccessPointPolicyArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

@@ -138,27 +138,27 @@ export interface RiskConfigurationState {
     /**
      * The account takeover risk configuration. See details below.
      */
-    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration>;
+    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration | undefined>;
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The compromised credentials risk configuration. See details below.
      */
-    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
+    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The configuration to override the risk decision. See details below.
      */
-    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationRiskExceptionConfiguration>;
+    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationRiskExceptionConfiguration | undefined>;
     /**
      * The user pool ID.
      */
-    userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -168,23 +168,23 @@ export interface RiskConfigurationArgs {
     /**
      * The account takeover risk configuration. See details below.
      */
-    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration>;
+    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration | undefined>;
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The compromised credentials risk configuration. See details below.
      */
-    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
+    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The configuration to override the risk decision. See details below.
      */
-    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationRiskExceptionConfiguration>;
+    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationRiskExceptionConfiguration | undefined>;
     /**
      * The user pool ID.
      */

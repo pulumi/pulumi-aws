@@ -367,73 +367,73 @@ export interface RecordState {
      * An alias block. Conflicts with `ttl` & `records`.
      * Documented below.
      */
-    aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
+    aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[] | undefined>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      *
      * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
-    allowOverwrite?: pulumi.Input<boolean>;
+    allowOverwrite?: pulumi.Input<boolean | undefined>;
     /**
      * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
      */
-    cidrRoutingPolicy?: pulumi.Input<inputs.route53.RecordCidrRoutingPolicy>;
+    cidrRoutingPolicy?: pulumi.Input<inputs.route53.RecordCidrRoutingPolicy | undefined>;
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[]>;
+    failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[] | undefined>;
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
+    geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[] | undefined>;
     /**
      * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy>;
+    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy | undefined>;
     /**
      * The health check the record should be associated with.
      */
-    healthCheckId?: pulumi.Input<string>;
+    healthCheckId?: pulumi.Input<string | undefined>;
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    latencyRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>[]>;
+    latencyRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>[] | undefined>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
-    multivalueAnswerRoutingPolicy?: pulumi.Input<boolean>;
+    multivalueAnswerRoutingPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the record.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
      */
-    records?: pulumi.Input<pulumi.Input<string>[]>;
+    records?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
-    setIdentifier?: pulumi.Input<string>;
+    setIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The TTL of the record.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
      */
-    type?: pulumi.Input<string | enums.route53.RecordType>;
+    type?: pulumi.Input<string | enums.route53.RecordType | undefined>;
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
+    weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[] | undefined>;
     /**
      * The ID of the hosted zone to contain this record.
      */
-    zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -444,41 +444,41 @@ export interface RecordArgs {
      * An alias block. Conflicts with `ttl` & `records`.
      * Documented below.
      */
-    aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
+    aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[] | undefined>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      *
      * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
-    allowOverwrite?: pulumi.Input<boolean>;
+    allowOverwrite?: pulumi.Input<boolean | undefined>;
     /**
      * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
      */
-    cidrRoutingPolicy?: pulumi.Input<inputs.route53.RecordCidrRoutingPolicy>;
+    cidrRoutingPolicy?: pulumi.Input<inputs.route53.RecordCidrRoutingPolicy | undefined>;
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[]>;
+    failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[] | undefined>;
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
+    geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[] | undefined>;
     /**
      * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy>;
+    geoproximityRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicy | undefined>;
     /**
      * The health check the record should be associated with.
      */
-    healthCheckId?: pulumi.Input<string>;
+    healthCheckId?: pulumi.Input<string | undefined>;
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    latencyRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>[]>;
+    latencyRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>[] | undefined>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
-    multivalueAnswerRoutingPolicy?: pulumi.Input<boolean>;
+    multivalueAnswerRoutingPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the record.
      */
@@ -486,15 +486,15 @@ export interface RecordArgs {
     /**
      * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\"\"` inside the provider configuration string (e.g., `"first255characters\"\"morecharacters"`).
      */
-    records?: pulumi.Input<pulumi.Input<string>[]>;
+    records?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `cidrRoutingPolicy`, `failoverRoutingPolicy`, `geolocationRoutingPolicy`,`geoproximityRoutingPolicy`, `latencyRoutingPolicy`, `multivalueAnswerRoutingPolicy`, or `weightedRoutingPolicy`.
      */
-    setIdentifier?: pulumi.Input<string>;
+    setIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The TTL of the record.
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `HTTPS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `SSHFP`, `SVCB`, `TLSA`, and `TXT`.
      */
@@ -502,7 +502,7 @@ export interface RecordArgs {
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
+    weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[] | undefined>;
     /**
      * The ID of the hosted zone to contain this record.
      */

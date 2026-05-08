@@ -139,24 +139,24 @@ export interface NetworkInterfacePermissionState {
     /**
      * The Amazon Web Services account ID.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the network interface.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * ENI permission ID.
      */
-    networkInterfacePermissionId?: pulumi.Input<string>;
+    networkInterfacePermissionId?: pulumi.Input<string | undefined>;
     /**
      * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
      */
-    permission?: pulumi.Input<string>;
+    permission?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts | undefined>;
 }
 
 /**
@@ -178,6 +178,6 @@ export interface NetworkInterfacePermissionArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.NetworkInterfacePermissionTimeouts | undefined>;
 }

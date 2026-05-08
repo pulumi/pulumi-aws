@@ -108,12 +108,12 @@ export interface ApplicationLayerAutomaticResponseState {
     /**
      * One of `COUNT` or `BLOCK`
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      */
-    resourceArn?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts>;
+    resourceArn?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
 }
 
 /**
@@ -128,5 +128,5 @@ export interface ApplicationLayerAutomaticResponseArgs {
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      */
     resourceArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts>;
+    timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
 }

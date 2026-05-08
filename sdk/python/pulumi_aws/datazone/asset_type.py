@@ -23,11 +23,11 @@ class AssetTypeArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
                  owning_project_identifier: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AssetTypeTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AssetType resource.
 
@@ -81,75 +81,75 @@ class AssetTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the custom asset type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="formsInputs")
-    def forms_inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]:
+    def forms_inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]:
         """
         The metadata forms that are to be attached to the custom asset type.
         """
         return pulumi.get(self, "forms_inputs")
 
     @forms_inputs.setter
-    def forms_inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]):
+    def forms_inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]):
         pulumi.set(self, "forms_inputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the custom asset type.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AssetTypeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AssetTypeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AssetTypeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AssetTypeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _AssetTypeState:
     def __init__(__self__, *,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 revision: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input['AssetTypeTimeoutsArgs']] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 revision: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional['AssetTypeTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AssetType resources.
 
@@ -188,79 +188,79 @@ class _AssetTypeState:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the custom asset type was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user who created the custom asset type.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the custom asset type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
-    def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
         """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
-    def domain_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="formsInputs")
-    def forms_inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]:
+    def forms_inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]:
         """
         The metadata forms that are to be attached to the custom asset type.
         """
         return pulumi.get(self, "forms_inputs")
 
     @forms_inputs.setter
-    def forms_inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]):
+    def forms_inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssetTypeFormsInputArgs']]]]):
         pulumi.set(self, "forms_inputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the custom asset type.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="owningProjectIdentifier")
-    def owning_project_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owning_project_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Amazon DataZone project that owns the custom asset type.
 
@@ -269,40 +269,40 @@ class _AssetTypeState:
         return pulumi.get(self, "owning_project_identifier")
 
     @owning_project_identifier.setter
-    def owning_project_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owning_project_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owning_project_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision of the asset type.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['AssetTypeTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['AssetTypeTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['AssetTypeTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['AssetTypeTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
@@ -312,13 +312,13 @@ class AssetType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Asset Type.
@@ -406,13 +406,13 @@ class AssetType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeouts: Optional[pulumi.Input[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -446,16 +446,16 @@ class AssetType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_at: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            forms_inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            revision: Optional[pulumi.Input[_builtins.str]] = None,
-            timeouts: Optional[pulumi.Input[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None) -> 'AssetType':
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            forms_inputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssetTypeFormsInputArgs', 'AssetTypeFormsInputArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            revision: pulumi.Input[Optional[_builtins.str]] = None,
+            timeouts: pulumi.Input[Optional[Union['AssetTypeTimeoutsArgs', 'AssetTypeTimeoutsArgsDict']]] = None) -> 'AssetType':
         """
         Get an existing AssetType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

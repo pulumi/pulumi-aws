@@ -23,15 +23,15 @@ class TableExportArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[_builtins.str],
                  table_arn: pulumi.Input[_builtins.str],
-                 export_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_export_specification: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 export_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_export_specification: pulumi.Input[Optional['TableExportIncrementalExportSpecificationArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TableExport resource.
 
@@ -98,31 +98,31 @@ class TableExportArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportFormat")
-    def export_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         """
         return pulumi.get(self, "export_format")
 
     @export_format.setter
-    def export_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_format", value)
 
     @_builtins.property
     @pulumi.getter(name="exportTime")
-    def export_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         """
         return pulumi.get(self, "export_time")
 
     @export_time.setter
-    def export_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_time", value)
 
     @_builtins.property
     @pulumi.getter(name="exportType")
-    def export_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
         `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
@@ -130,100 +130,100 @@ class TableExportArgs:
         return pulumi.get(self, "export_type")
 
     @export_type.setter
-    def export_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_type", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalExportSpecification")
-    def incremental_export_specification(self) -> Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]:
+    def incremental_export_specification(self) -> pulumi.Input[Optional['TableExportIncrementalExportSpecificationArgs']]:
         return pulumi.get(self, "incremental_export_specification")
 
     @incremental_export_specification.setter
-    def incremental_export_specification(self, value: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]):
+    def incremental_export_specification(self, value: pulumi.Input[Optional['TableExportIncrementalExportSpecificationArgs']]):
         pulumi.set(self, "incremental_export_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketOwner")
-    def s3_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the AWS account that owns the bucket the export will be stored in.
         """
         return pulumi.get(self, "s3_bucket_owner")
 
     @s3_bucket_owner.setter
-    def s3_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="s3SseAlgorithm")
-    def s3_sse_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_sse_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
         """
         return pulumi.get(self, "s3_sse_algorithm")
 
     @s3_sse_algorithm.setter
-    def s3_sse_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_sse_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_sse_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="s3SseKmsKeyId")
-    def s3_sse_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_sse_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
         """
         return pulumi.get(self, "s3_sse_kms_key_id")
 
     @s3_sse_kms_key_id.setter
-    def s3_sse_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_sse_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_sse_kms_key_id", value)
 
 
 @pulumi.input_type
 class _TableExportState:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 billed_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_export_specification: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']] = None,
-                 item_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 manifest_files_s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 billed_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_export_specification: pulumi.Input[Optional['TableExportIncrementalExportSpecificationArgs']] = None,
+                 item_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 manifest_files_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableExport resources.
 
@@ -287,79 +287,79 @@ class _TableExportState:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Table Export.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="billedSizeInBytes")
-    def billed_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def billed_size_in_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Billable size of the table export.
         """
         return pulumi.get(self, "billed_size_in_bytes")
 
     @billed_size_in_bytes.setter
-    def billed_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def billed_size_in_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "billed_size_in_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the export task completed.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="exportFormat")
-    def export_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         """
         return pulumi.get(self, "export_format")
 
     @export_format.setter
-    def export_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_format", value)
 
     @_builtins.property
     @pulumi.getter(name="exportStatus")
-    def export_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
         """
         return pulumi.get(self, "export_status")
 
     @export_status.setter
-    def export_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_status", value)
 
     @_builtins.property
     @pulumi.getter(name="exportTime")
-    def export_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         """
         return pulumi.get(self, "export_time")
 
     @export_time.setter
-    def export_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_time", value)
 
     @_builtins.property
     @pulumi.getter(name="exportType")
-    def export_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def export_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
         `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
@@ -367,129 +367,129 @@ class _TableExportState:
         return pulumi.get(self, "export_type")
 
     @export_type.setter
-    def export_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def export_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "export_type", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalExportSpecification")
-    def incremental_export_specification(self) -> Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]:
+    def incremental_export_specification(self) -> pulumi.Input[Optional['TableExportIncrementalExportSpecificationArgs']]:
         return pulumi.get(self, "incremental_export_specification")
 
     @incremental_export_specification.setter
-    def incremental_export_specification(self, value: Optional[pulumi.Input['TableExportIncrementalExportSpecificationArgs']]):
+    def incremental_export_specification(self, value: pulumi.Input[Optional['TableExportIncrementalExportSpecificationArgs']]):
         pulumi.set(self, "incremental_export_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def item_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of items exported.
         """
         return pulumi.get(self, "item_count")
 
     @item_count.setter
-    def item_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def item_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "item_count", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestFilesS3Key")
-    def manifest_files_s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manifest_files_s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
         """
         return pulumi.get(self, "manifest_files_s3_key")
 
     @manifest_files_s3_key.setter
-    def manifest_files_s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manifest_files_s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manifest_files_s3_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketOwner")
-    def s3_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the AWS account that owns the bucket the export will be stored in.
         """
         return pulumi.get(self, "s3_bucket_owner")
 
     @s3_bucket_owner.setter
-    def s3_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
         return pulumi.get(self, "s3_prefix")
 
     @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="s3SseAlgorithm")
-    def s3_sse_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_sse_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
         """
         return pulumi.get(self, "s3_sse_algorithm")
 
     @s3_sse_algorithm.setter
-    def s3_sse_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_sse_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_sse_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="s3SseKmsKeyId")
-    def s3_sse_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_sse_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
         """
         return pulumi.get(self, "s3_sse_kms_key_id")
 
     @s3_sse_kms_key_id.setter
-    def s3_sse_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_sse_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_sse_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the export task began.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="tableArn")
-    def table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN associated with the table to export.
 
@@ -498,7 +498,7 @@ class _TableExportState:
         return pulumi.get(self, "table_arn")
 
     @table_arn.setter
-    def table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_arn", value)
 
 
@@ -508,17 +508,17 @@ class TableExport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 export_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DynamoDB Table Export. Terraform will wait until the Table export reaches a status of `COMPLETED` or `FAILED`.
@@ -715,17 +715,17 @@ class TableExport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 export_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_sse_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -767,24 +767,24 @@ class TableExport(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            billed_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            end_time: Optional[pulumi.Input[_builtins.str]] = None,
-            export_format: Optional[pulumi.Input[_builtins.str]] = None,
-            export_status: Optional[pulumi.Input[_builtins.str]] = None,
-            export_time: Optional[pulumi.Input[_builtins.str]] = None,
-            export_type: Optional[pulumi.Input[_builtins.str]] = None,
-            incremental_export_specification: Optional[pulumi.Input[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
-            item_count: Optional[pulumi.Input[_builtins.int]] = None,
-            manifest_files_s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_sse_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            s3_sse_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            start_time: Optional[pulumi.Input[_builtins.str]] = None,
-            table_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'TableExport':
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            billed_size_in_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            end_time: pulumi.Input[Optional[_builtins.str]] = None,
+            export_format: pulumi.Input[Optional[_builtins.str]] = None,
+            export_status: pulumi.Input[Optional[_builtins.str]] = None,
+            export_time: pulumi.Input[Optional[_builtins.str]] = None,
+            export_type: pulumi.Input[Optional[_builtins.str]] = None,
+            incremental_export_specification: pulumi.Input[Optional[Union['TableExportIncrementalExportSpecificationArgs', 'TableExportIncrementalExportSpecificationArgsDict']]] = None,
+            item_count: pulumi.Input[Optional[_builtins.int]] = None,
+            manifest_files_s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_sse_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            s3_sse_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            start_time: pulumi.Input[Optional[_builtins.str]] = None,
+            table_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableExport':
         """
         Get an existing TableExport resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

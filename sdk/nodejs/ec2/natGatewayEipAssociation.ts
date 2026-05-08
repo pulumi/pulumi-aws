@@ -123,19 +123,19 @@ export interface NatGatewayEipAssociationState {
     /**
      * The ID of the Elastic IP Allocation to associate with the NAT Gateway.
      */
-    allocationId?: pulumi.Input<string>;
-    associationId?: pulumi.Input<string>;
+    allocationId?: pulumi.Input<string | undefined>;
+    associationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the NAT Gateway to associate the Elastic IP Allocation to.
      *
      * The following arguments are optional:
      */
-    natGatewayId?: pulumi.Input<string>;
+    natGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.NatGatewayEipAssociationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.NatGatewayEipAssociationTimeouts | undefined>;
 }
 
 /**
@@ -155,6 +155,6 @@ export interface NatGatewayEipAssociationArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ec2.NatGatewayEipAssociationTimeouts>;
+    region?: pulumi.Input<string | undefined>;
+    timeouts?: pulumi.Input<inputs.ec2.NatGatewayEipAssociationTimeouts | undefined>;
 }

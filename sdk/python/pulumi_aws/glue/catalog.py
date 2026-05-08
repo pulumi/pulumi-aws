@@ -21,19 +21,19 @@ __all__ = ['CatalogArgs', 'Catalog']
 @pulumi.input_type
 class CatalogArgs:
     def __init__(__self__, *,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_properties: Optional[pulumi.Input['CatalogCatalogPropertiesArgs']] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 federated_catalog: Optional[pulumi.Input['CatalogFederatedCatalogArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_child_resource_permissions_with_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_redshift_catalog: Optional[pulumi.Input['CatalogTargetRedshiftCatalogArgs']] = None,
-                 timeouts: Optional[pulumi.Input['CatalogTimeoutsArgs']] = None):
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_properties: pulumi.Input[Optional['CatalogCatalogPropertiesArgs']] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 federated_catalog: pulumi.Input[Optional['CatalogFederatedCatalogArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_child_resource_permissions_with_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_redshift_catalog: pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']] = None,
+                 timeouts: pulumi.Input[Optional['CatalogTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Catalog resource.
 
@@ -79,179 +79,179 @@ class CatalogArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
-    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_full_table_external_data_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
         """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @allow_full_table_external_data_access.setter
-    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_full_table_external_data_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_full_table_external_data_access", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogProperties")
-    def catalog_properties(self) -> Optional[pulumi.Input['CatalogCatalogPropertiesArgs']]:
+    def catalog_properties(self) -> pulumi.Input[Optional['CatalogCatalogPropertiesArgs']]:
         """
         Configuration block of properties for the catalog. See `catalog_properties` below.
         """
         return pulumi.get(self, "catalog_properties")
 
     @catalog_properties.setter
-    def catalog_properties(self, value: Optional[pulumi.Input['CatalogCatalogPropertiesArgs']]):
+    def catalog_properties(self, value: pulumi.Input[Optional['CatalogCatalogPropertiesArgs']]):
         pulumi.set(self, "catalog_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
-    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]:
+    def create_database_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]:
         """
         List of default permissions on databases for principals. See `create_database_default_permissions` below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
-    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]):
+    def create_database_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_database_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
-    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]:
+    def create_table_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]:
         """
         List of default permissions on tables for principals. See `create_table_default_permissions` below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
-    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]):
+    def create_table_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_table_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the catalog.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="federatedCatalog")
-    def federated_catalog(self) -> Optional[pulumi.Input['CatalogFederatedCatalogArgs']]:
+    def federated_catalog(self) -> pulumi.Input[Optional['CatalogFederatedCatalogArgs']]:
         """
         Configuration block for a federated catalog. See `federated_catalog` below.
         """
         return pulumi.get(self, "federated_catalog")
 
     @federated_catalog.setter
-    def federated_catalog(self, value: Optional[pulumi.Input['CatalogFederatedCatalogArgs']]):
+    def federated_catalog(self, value: pulumi.Input[Optional['CatalogFederatedCatalogArgs']]):
         pulumi.set(self, "federated_catalog", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the catalog.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteChildResourcePermissionsWithDefault")
-    def overwrite_child_resource_permissions_with_default(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def overwrite_child_resource_permissions_with_default(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
         """
         return pulumi.get(self, "overwrite_child_resource_permissions_with_default")
 
     @overwrite_child_resource_permissions_with_default.setter
-    def overwrite_child_resource_permissions_with_default(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def overwrite_child_resource_permissions_with_default(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "overwrite_child_resource_permissions_with_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of key-value pairs that define parameters and properties of the catalog.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRedshiftCatalog")
-    def target_redshift_catalog(self) -> Optional[pulumi.Input['CatalogTargetRedshiftCatalogArgs']]:
+    def target_redshift_catalog(self) -> pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']]:
         """
         Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
         """
         return pulumi.get(self, "target_redshift_catalog")
 
     @target_redshift_catalog.setter
-    def target_redshift_catalog(self, value: Optional[pulumi.Input['CatalogTargetRedshiftCatalogArgs']]):
+    def target_redshift_catalog(self, value: pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']]):
         pulumi.set(self, "target_redshift_catalog", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CatalogTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CatalogTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CatalogTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CatalogTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
 class _CatalogState:
     def __init__(__self__, *,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_properties: Optional[pulumi.Input['CatalogCatalogPropertiesArgs']] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]] = None,
-                 create_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 federated_catalog: Optional[pulumi.Input['CatalogFederatedCatalogArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_child_resource_permissions_with_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_redshift_catalog: Optional[pulumi.Input['CatalogTargetRedshiftCatalogArgs']] = None,
-                 timeouts: Optional[pulumi.Input['CatalogTimeoutsArgs']] = None,
-                 update_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_properties: pulumi.Input[Optional['CatalogCatalogPropertiesArgs']] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]] = None,
+                 create_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 federated_catalog: pulumi.Input[Optional['CatalogFederatedCatalogArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_child_resource_permissions_with_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_redshift_catalog: pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']] = None,
+                 timeouts: pulumi.Input[Optional['CatalogTimeoutsArgs']] = None,
+                 update_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Catalog resources.
 
@@ -312,215 +312,215 @@ class _CatalogState:
 
     @_builtins.property
     @pulumi.getter(name="allowFullTableExternalDataAccess")
-    def allow_full_table_external_data_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_full_table_external_data_access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
         """
         return pulumi.get(self, "allow_full_table_external_data_access")
 
     @allow_full_table_external_data_access.setter
-    def allow_full_table_external_data_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_full_table_external_data_access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_full_table_external_data_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the Glue Catalog.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the parent catalog.
         """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogProperties")
-    def catalog_properties(self) -> Optional[pulumi.Input['CatalogCatalogPropertiesArgs']]:
+    def catalog_properties(self) -> pulumi.Input[Optional['CatalogCatalogPropertiesArgs']]:
         """
         Configuration block of properties for the catalog. See `catalog_properties` below.
         """
         return pulumi.get(self, "catalog_properties")
 
     @catalog_properties.setter
-    def catalog_properties(self, value: Optional[pulumi.Input['CatalogCatalogPropertiesArgs']]):
+    def catalog_properties(self, value: pulumi.Input[Optional['CatalogCatalogPropertiesArgs']]):
         pulumi.set(self, "catalog_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
-    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]:
+    def create_database_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]:
         """
         List of default permissions on databases for principals. See `create_database_default_permissions` below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
-    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]):
+    def create_database_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_database_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="createTableDefaultPermissions")
-    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]:
+    def create_table_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]:
         """
         List of default permissions on tables for principals. See `create_table_default_permissions` below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
-    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]):
+    def create_table_default_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]):
         pulumi.set(self, "create_table_default_permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="createTime")
-    def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the catalog was created.
         """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
-    def create_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the catalog.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="federatedCatalog")
-    def federated_catalog(self) -> Optional[pulumi.Input['CatalogFederatedCatalogArgs']]:
+    def federated_catalog(self) -> pulumi.Input[Optional['CatalogFederatedCatalogArgs']]:
         """
         Configuration block for a federated catalog. See `federated_catalog` below.
         """
         return pulumi.get(self, "federated_catalog")
 
     @federated_catalog.setter
-    def federated_catalog(self, value: Optional[pulumi.Input['CatalogFederatedCatalogArgs']]):
+    def federated_catalog(self, value: pulumi.Input[Optional['CatalogFederatedCatalogArgs']]):
         pulumi.set(self, "federated_catalog", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the catalog.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overwriteChildResourcePermissionsWithDefault")
-    def overwrite_child_resource_permissions_with_default(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def overwrite_child_resource_permissions_with_default(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
         """
         return pulumi.get(self, "overwrite_child_resource_permissions_with_default")
 
     @overwrite_child_resource_permissions_with_default.setter
-    def overwrite_child_resource_permissions_with_default(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def overwrite_child_resource_permissions_with_default(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "overwrite_child_resource_permissions_with_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of key-value pairs that define parameters and properties of the catalog.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRedshiftCatalog")
-    def target_redshift_catalog(self) -> Optional[pulumi.Input['CatalogTargetRedshiftCatalogArgs']]:
+    def target_redshift_catalog(self) -> pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']]:
         """
         Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
         """
         return pulumi.get(self, "target_redshift_catalog")
 
     @target_redshift_catalog.setter
-    def target_redshift_catalog(self, value: Optional[pulumi.Input['CatalogTargetRedshiftCatalogArgs']]):
+    def target_redshift_catalog(self, value: pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']]):
         pulumi.set(self, "target_redshift_catalog", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['CatalogTimeoutsArgs']]:
+    def timeouts(self) -> pulumi.Input[Optional['CatalogTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['CatalogTimeoutsArgs']]):
+    def timeouts(self, value: pulumi.Input[Optional['CatalogTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="updateTime")
-    def update_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time at which the catalog was last updated.
         """
         return pulumi.get(self, "update_time")
 
     @update_time.setter
-    def update_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_time", value)
 
 
@@ -530,19 +530,19 @@ class Catalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_properties: Optional[pulumi.Input[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict']]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 federated_catalog: Optional[pulumi.Input[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_child_resource_permissions_with_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_redshift_catalog: Optional[pulumi.Input[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CatalogTimeoutsArgs', 'CatalogTimeoutsArgsDict']]] = None,
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_properties: pulumi.Input[Optional[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict']]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 federated_catalog: pulumi.Input[Optional[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_child_resource_permissions_with_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_redshift_catalog: pulumi.Input[Optional[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CatalogTimeoutsArgs', 'CatalogTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an AWS Glue Catalog.
@@ -796,19 +796,19 @@ class Catalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 catalog_properties: Optional[pulumi.Input[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict']]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 federated_catalog: Optional[pulumi.Input[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_child_resource_permissions_with_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_redshift_catalog: Optional[pulumi.Input[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
-                 timeouts: Optional[pulumi.Input[Union['CatalogTimeoutsArgs', 'CatalogTimeoutsArgsDict']]] = None,
+                 allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_properties: pulumi.Input[Optional[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict']]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 federated_catalog: pulumi.Input[Optional[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overwrite_child_resource_permissions_with_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_redshift_catalog: pulumi.Input[Optional[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CatalogTimeoutsArgs', 'CatalogTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -846,24 +846,24 @@ class Catalog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_full_table_external_data_access: Optional[pulumi.Input[_builtins.str]] = None,
-            arn: Optional[pulumi.Input[_builtins.str]] = None,
-            catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
-            catalog_properties: Optional[pulumi.Input[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict']]] = None,
-            create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-            create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict']]]]] = None,
-            create_time: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            federated_catalog: Optional[pulumi.Input[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            overwrite_child_resource_permissions_with_default: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_redshift_catalog: Optional[pulumi.Input[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
-            timeouts: Optional[pulumi.Input[Union['CatalogTimeoutsArgs', 'CatalogTimeoutsArgsDict']]] = None,
-            update_time: Optional[pulumi.Input[_builtins.str]] = None) -> 'Catalog':
+            allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.str]] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_properties: pulumi.Input[Optional[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict']]] = None,
+            create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
+            create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict']]]]] = None,
+            create_time: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            federated_catalog: pulumi.Input[Optional[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            overwrite_child_resource_permissions_with_default: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            target_redshift_catalog: pulumi.Input[Optional[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['CatalogTimeoutsArgs', 'CatalogTimeoutsArgsDict']]] = None,
+            update_time: pulumi.Input[Optional[_builtins.str]] = None) -> 'Catalog':
         """
         Get an existing Catalog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -83,5 +83,5 @@ export interface GetGlobalNetworksOutputArgs {
     /**
      * Restricts the list to the global networks with these tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

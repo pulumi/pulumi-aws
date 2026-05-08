@@ -167,47 +167,47 @@ export interface DeploymentStrategyState {
     /**
      * ARN of the AppConfig Deployment Strategy.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
      */
-    deploymentDurationInMinutes?: pulumi.Input<number>;
+    deploymentDurationInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Description of the deployment strategy. Can be at most 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      */
-    finalBakeTimeInMinutes?: pulumi.Input<number>;
+    finalBakeTimeInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      */
-    growthFactor?: pulumi.Input<number>;
+    growthFactor?: pulumi.Input<number | undefined>;
     /**
      * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      */
-    growthType?: pulumi.Input<string>;
+    growthType?: pulumi.Input<string | undefined>;
     /**
      * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      */
-    replicateTo?: pulumi.Input<string>;
+    replicateTo?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -221,11 +221,11 @@ export interface DeploymentStrategyArgs {
     /**
      * Description of the deployment strategy. Can be at most 1024 characters.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      */
-    finalBakeTimeInMinutes?: pulumi.Input<number>;
+    finalBakeTimeInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      */
@@ -233,15 +233,15 @@ export interface DeploymentStrategyArgs {
     /**
      * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      */
-    growthType?: pulumi.Input<string>;
+    growthType?: pulumi.Input<string | undefined>;
     /**
      * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      */
@@ -249,5 +249,5 @@ export interface DeploymentStrategyArgs {
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

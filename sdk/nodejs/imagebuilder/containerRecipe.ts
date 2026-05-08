@@ -259,89 +259,89 @@ export interface ContainerRecipeState {
     /**
      * (Required) Amazon Resource Name (ARN) of the container recipe.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      */
-    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponent>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponent>[] | undefined>;
     /**
      * The type of the container to create. Valid values: `DOCKER`.
      */
-    containerType?: pulumi.Input<string>;
+    containerType?: pulumi.Input<string | undefined>;
     /**
      * Date the container recipe was created.
      */
-    dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string | undefined>;
     /**
      * The description of the container recipe.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Dockerfile template used to build the image as an inline data blob.
      */
-    dockerfileTemplateData?: pulumi.Input<string>;
+    dockerfileTemplateData?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
      */
-    dockerfileTemplateUri?: pulumi.Input<string>;
+    dockerfileTemplateUri?: pulumi.Input<string | undefined>;
     /**
      * A flag that indicates if the target container is encrypted.
      */
-    encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      */
-    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration>;
+    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
     /**
      * The KMS key used to encrypt the container image.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the container recipe.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Owner of the container recipe.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The base image for the container recipe.
      */
-    parentImage?: pulumi.Input<string>;
+    parentImage?: pulumi.Input<string | undefined>;
     /**
      * Platform of the container recipe.
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Specifies the operating system platform when you use a custom base image.
      */
-    platformOverride?: pulumi.Input<string>;
+    platformOverride?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The destination repository for the container image. Detailed below.
      */
-    targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository>;
+    targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository | undefined>;
     /**
      * Version of the container recipe.
      *
      * The following arguments are optional:
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The working directory to be used during build and test workflows.
      */
-    workingDirectory?: pulumi.Input<string>;
+    workingDirectory?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -359,27 +359,27 @@ export interface ContainerRecipeArgs {
     /**
      * The description of the container recipe.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Dockerfile template used to build the image as an inline data blob.
      */
-    dockerfileTemplateData?: pulumi.Input<string>;
+    dockerfileTemplateData?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
      */
-    dockerfileTemplateUri?: pulumi.Input<string>;
+    dockerfileTemplateUri?: pulumi.Input<string | undefined>;
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      */
-    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration>;
+    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
     /**
      * The KMS key used to encrypt the container image.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the container recipe.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The base image for the container recipe.
      */
@@ -387,15 +387,15 @@ export interface ContainerRecipeArgs {
     /**
      * Specifies the operating system platform when you use a custom base image.
      */
-    platformOverride?: pulumi.Input<string>;
+    platformOverride?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The destination repository for the container image. Detailed below.
      */
@@ -409,5 +409,5 @@ export interface ContainerRecipeArgs {
     /**
      * The working directory to be used during build and test workflows.
      */
-    workingDirectory?: pulumi.Input<string>;
+    workingDirectory?: pulumi.Input<string | undefined>;
 }

@@ -99,15 +99,15 @@ export interface CidrCollectionState {
     /**
      * The Amazon Resource Name (ARN) of the CIDR collection.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the CIDR collection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The lastest version of the CIDR collection.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface CidrCollectionArgs {
     /**
      * Unique name for the CIDR collection.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
+ * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
  * }) }), {});
  * ```
@@ -97,7 +97,7 @@ export interface GetLocalGatewayVirtualInterfaceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
+ * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
  * }) }), {});
  * ```
@@ -120,17 +120,17 @@ export interface GetLocalGatewayVirtualInterfaceOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayVirtualInterfaceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayVirtualInterfaceFilterArgs>[] | undefined>;
     /**
      * Identifier of EC2 Local Gateway Virtual Interface.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

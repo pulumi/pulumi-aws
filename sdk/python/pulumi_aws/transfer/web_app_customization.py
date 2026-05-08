@@ -20,10 +20,10 @@ __all__ = ['WebAppCustomizationArgs', 'WebAppCustomization']
 class WebAppCustomizationArgs:
     def __init__(__self__, *,
                  web_app_id: pulumi.Input[_builtins.str],
-                 favicon_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 favicon_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppCustomization resource.
 
@@ -61,61 +61,61 @@ class WebAppCustomizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="faviconFile")
-    def favicon_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favicon_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
         """
         return pulumi.get(self, "favicon_file")
 
     @favicon_file.setter
-    def favicon_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favicon_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon_file", value)
 
     @_builtins.property
     @pulumi.getter(name="logoFile")
-    def logo_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         """
         return pulumi.get(self, "logo_file")
 
     @logo_file.setter
-    def logo_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
 @pulumi.input_type
 class _WebAppCustomizationState:
     def __init__(__self__, *,
-                 favicon_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_app_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 favicon_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_app_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAppCustomization resources.
 
@@ -140,55 +140,55 @@ class _WebAppCustomizationState:
 
     @_builtins.property
     @pulumi.getter(name="faviconFile")
-    def favicon_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favicon_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
         """
         return pulumi.get(self, "favicon_file")
 
     @favicon_file.setter
-    def favicon_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favicon_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon_file", value)
 
     @_builtins.property
     @pulumi.getter(name="logoFile")
-    def logo_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         """
         return pulumi.get(self, "logo_file")
 
     @logo_file.setter
-    def logo_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter(name="webAppId")
-    def web_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def web_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the web app to be customized.
 
@@ -197,7 +197,7 @@ class _WebAppCustomizationState:
         return pulumi.get(self, "web_app_id")
 
     @web_app_id.setter
-    def web_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def web_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "web_app_id", value)
 
 
@@ -207,11 +207,11 @@ class WebAppCustomization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 favicon_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 favicon_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Transfer Family Web App Customization.
@@ -272,11 +272,11 @@ class WebAppCustomization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 favicon_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 web_app_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 favicon_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 web_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,11 +303,11 @@ class WebAppCustomization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            favicon_file: Optional[pulumi.Input[_builtins.str]] = None,
-            logo_file: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            web_app_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'WebAppCustomization':
+            favicon_file: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_file: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            web_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WebAppCustomization':
         """
         Get an existing WebAppCustomization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

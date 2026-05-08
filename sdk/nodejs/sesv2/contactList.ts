@@ -154,38 +154,38 @@ export class ContactList extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContactList resources.
  */
 export interface ContactListState {
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * Name of the contact list.
      *
      * The following arguments are optional:
      */
-    contactListName?: pulumi.Input<string>;
+    contactListName?: pulumi.Input<string | undefined>;
     /**
      * Timestamp noting when the contact list was created in ISO 8601 format.
      */
-    createdTimestamp?: pulumi.Input<string>;
+    createdTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Description of what the contact list is about.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      */
-    lastUpdatedTimestamp?: pulumi.Input<string>;
+    lastUpdatedTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.sesv2.ContactListTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.sesv2.ContactListTopic>[] | undefined>;
 }
 
 /**
@@ -201,17 +201,17 @@ export interface ContactListArgs {
     /**
      * Description of what the contact list is about.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.sesv2.ContactListTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.sesv2.ContactListTopic>[] | undefined>;
 }

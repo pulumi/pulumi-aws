@@ -50,11 +50,11 @@ __all__ = [
 ]
 
 class PolicyExcludeMapArgsDict(TypedDict):
-    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
     """
-    orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    orgunits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
@@ -64,8 +64,8 @@ class PolicyExcludeMapArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyExcludeMapArgs:
     def __init__(__self__, *,
-                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 orgunits: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] orgunits: A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
@@ -79,19 +79,19 @@ class PolicyExcludeMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
         """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
-    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def orgunits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def orgunits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
@@ -100,16 +100,16 @@ class PolicyExcludeMapArgs:
         return pulumi.get(self, "orgunits")
 
     @orgunits.setter
-    def orgunits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def orgunits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "orgunits", value)
 
 
 class PolicyIncludeMapArgsDict(TypedDict):
-    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
     """
-    orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    orgunits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
@@ -119,8 +119,8 @@ class PolicyIncludeMapArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyIncludeMapArgs:
     def __init__(__self__, *,
-                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 orgunits: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] orgunits: A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
@@ -134,19 +134,19 @@ class PolicyIncludeMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
         """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
-    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "accounts", value)
 
     @_builtins.property
     @pulumi.getter
-    def orgunits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def orgunits(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
@@ -155,7 +155,7 @@ class PolicyIncludeMapArgs:
         return pulumi.get(self, "orgunits")
 
     @orgunits.setter
-    def orgunits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def orgunits(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "orgunits", value)
 
 
@@ -164,11 +164,11 @@ class PolicySecurityServicePolicyDataArgsDict(TypedDict):
     """
     An integer value containing ICMP type.
     """
-    managed_service_data: NotRequired[pulumi.Input[_builtins.str]]
+    managed_service_data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
     """
-    policy_option: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgsDict']]
+    policy_option: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgs']]]
     """
     Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
     """
@@ -177,8 +177,8 @@ class PolicySecurityServicePolicyDataArgsDict(TypedDict):
 class PolicySecurityServicePolicyDataArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 managed_service_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_option: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']] = None):
+                 managed_service_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_option: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] type: An integer value containing ICMP type.
         :param pulumi.Input[_builtins.str] managed_service_data: Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
@@ -204,46 +204,46 @@ class PolicySecurityServicePolicyDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedServiceData")
-    def managed_service_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def managed_service_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
         """
         return pulumi.get(self, "managed_service_data")
 
     @managed_service_data.setter
-    def managed_service_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def managed_service_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_service_data", value)
 
     @_builtins.property
     @pulumi.getter(name="policyOption")
-    def policy_option(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']]:
+    def policy_option(self) -> pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgs']]:
         """
         Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
         """
         return pulumi.get(self, "policy_option")
 
     @policy_option.setter
-    def policy_option(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']]):
+    def policy_option(self, value: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgs']]):
         pulumi.set(self, "policy_option", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionArgsDict(TypedDict):
-    network_acl_common_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict']]
+    network_acl_common_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']]]
     """
     Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
     """
-    network_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict']]
+    network_firewall_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]]
     """
     Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
     """
-    third_party_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict']]
+    third_party_firewall_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]]
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionArgs:
     def __init__(__self__, *,
-                 network_acl_common_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']] = None,
-                 network_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']] = None,
-                 third_party_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']] = None):
+                 network_acl_common_policy: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']] = None,
+                 network_firewall_policy: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']] = None,
+                 third_party_firewall_policy: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']] = None):
         """
         :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs'] network_acl_common_policy: Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
         :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs'] network_firewall_policy: Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
@@ -257,40 +257,40 @@ class PolicySecurityServicePolicyDataPolicyOptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkAclCommonPolicy")
-    def network_acl_common_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']]:
+    def network_acl_common_policy(self) -> pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']]:
         """
         Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
         """
         return pulumi.get(self, "network_acl_common_policy")
 
     @network_acl_common_policy.setter
-    def network_acl_common_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']]):
+    def network_acl_common_policy(self, value: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']]):
         pulumi.set(self, "network_acl_common_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFirewallPolicy")
-    def network_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]:
+    def network_firewall_policy(self) -> pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]:
         """
         Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
         """
         return pulumi.get(self, "network_firewall_policy")
 
     @network_firewall_policy.setter
-    def network_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]):
+    def network_firewall_policy(self, value: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]):
         pulumi.set(self, "network_firewall_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="thirdPartyFirewallPolicy")
-    def third_party_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]:
+    def third_party_firewall_policy(self) -> pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]:
         return pulumi.get(self, "third_party_firewall_policy")
 
     @third_party_firewall_policy.setter
-    def third_party_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]):
+    def third_party_firewall_policy(self, value: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]):
         pulumi.set(self, "third_party_firewall_policy", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict(TypedDict):
-    network_acl_entry_set: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgsDict']]
+    network_acl_entry_set: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']]]
     """
     Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
     """
@@ -298,7 +298,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict(
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs:
     def __init__(__self__, *,
-                 network_acl_entry_set: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']] = None):
+                 network_acl_entry_set: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']] = None):
         """
         :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs'] network_acl_entry_set: Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
         """
@@ -307,14 +307,14 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkAclEntrySet")
-    def network_acl_entry_set(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']]:
+    def network_acl_entry_set(self) -> pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']]:
         """
         Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
         """
         return pulumi.get(self, "network_acl_entry_set")
 
     @network_acl_entry_set.setter
-    def network_acl_entry_set(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']]):
+    def network_acl_entry_set(self, value: pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']]):
         pulumi.set(self, "network_acl_entry_set", value)
 
 
@@ -327,11 +327,11 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
     """
-    first_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgsDict']]]]
+    first_entries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]]]
     """
     The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
     """
-    last_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgsDict']]]]
+    last_entries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]]]
     """
     The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
     """
@@ -341,8 +341,8 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     def __init__(__self__, *,
                  force_remediate_for_first_entries: pulumi.Input[_builtins.bool],
                  force_remediate_for_last_entries: pulumi.Input[_builtins.bool],
-                 first_entries: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]] = None,
-                 last_entries: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]] = None):
+                 first_entries: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]] = None,
+                 last_entries: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] force_remediate_for_first_entries: A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
         :param pulumi.Input[_builtins.bool] force_remediate_for_last_entries: A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
@@ -382,26 +382,26 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 
     @_builtins.property
     @pulumi.getter(name="firstEntries")
-    def first_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]]:
+    def first_entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]]:
         """
         The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
         """
         return pulumi.get(self, "first_entries")
 
     @first_entries.setter
-    def first_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]]):
+    def first_entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]]):
         pulumi.set(self, "first_entries", value)
 
     @_builtins.property
     @pulumi.getter(name="lastEntries")
-    def last_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]]:
+    def last_entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]]:
         """
         The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
         """
         return pulumi.get(self, "last_entries")
 
     @last_entries.setter
-    def last_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]]):
+    def last_entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]]):
         pulumi.set(self, "last_entries", value)
 
 
@@ -418,19 +418,19 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
     """
-    cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string value containing the IPv4 network range to allow or deny, in CIDR notation.
     """
-    icmp_type_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict']]]]
+    icmp_type_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]]]
     """
     A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
     """
-    ipv6_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string value containing the IPv6 network range to allow or deny, in CIDR notation.
     """
-    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict']]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]]]
     """
     A configuration block for PortRange. See the `port_range` block.
     """
@@ -441,10 +441,10 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
                  egress: pulumi.Input[_builtins.bool],
                  protocol: pulumi.Input[_builtins.str],
                  rule_action: pulumi.Input[_builtins.str],
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 icmp_type_codes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]] = None):
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 icmp_type_codes: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] egress: A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
         :param pulumi.Input[_builtins.str] protocol: The protocol number. A value of "-1" means all protocols.
@@ -504,59 +504,59 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string value containing the IPv4 network range to allow or deny, in CIDR notation.
         """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpTypeCodes")
-    def icmp_type_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]]:
+    def icmp_type_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]]:
         """
         A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
         """
         return pulumi.get(self, "icmp_type_codes")
 
     @icmp_type_codes.setter
-    def icmp_type_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]]):
+    def icmp_type_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]]):
         pulumi.set(self, "icmp_type_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string value containing the IPv6 network range to allow or deny, in CIDR notation.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]]:
+    def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]]:
         """
         A configuration block for PortRange. See the `port_range` block.
         """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]]):
+    def port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict(TypedDict):
-    code: NotRequired[pulumi.Input[_builtins.int]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     An integer value containing ICMP code.
     """
-    type: NotRequired[pulumi.Input[_builtins.int]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     An integer value containing ICMP type.
     """
@@ -564,8 +564,8 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.int]] = None):
+                 code: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] code: An integer value containing ICMP code.
         :param pulumi.Input[_builtins.int] type: An integer value containing ICMP type.
@@ -577,35 +577,35 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value containing ICMP code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value containing ICMP type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "type", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict(TypedDict):
-    from_: NotRequired[pulumi.Input[_builtins.int]]
+    from_: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The beginning port number of the range.
     """
-    to: NotRequired[pulumi.Input[_builtins.int]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ending port number of the range.
     """
@@ -613,8 +613,8 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs:
     def __init__(__self__, *,
-                 from_: Optional[pulumi.Input[_builtins.int]] = None,
-                 to: Optional[pulumi.Input[_builtins.int]] = None):
+                 from_: pulumi.Input[Optional[_builtins.int]] = None,
+                 to: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] from_: The beginning port number of the range.
         :param pulumi.Input[_builtins.int] to: The ending port number of the range.
@@ -626,26 +626,26 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 
     @_builtins.property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The beginning port number of the range.
         """
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_", value)
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ending port number of the range.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to", value)
 
 
@@ -662,19 +662,19 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
     """
-    cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string value containing the IPv4 network range to allow or deny, in CIDR notation.
     """
-    icmp_type_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict']]]]
+    icmp_type_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]]]
     """
     A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
     """
-    ipv6_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    ipv6_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string value containing the IPv6 network range to allow or deny, in CIDR notation.
     """
-    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict']]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]]]
     """
     A configuration block for PortRange. See the `port_range` block.
     """
@@ -685,10 +685,10 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
                  egress: pulumi.Input[_builtins.bool],
                  protocol: pulumi.Input[_builtins.str],
                  rule_action: pulumi.Input[_builtins.str],
-                 cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 icmp_type_codes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]] = None,
-                 ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]] = None):
+                 cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 icmp_type_codes: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]] = None,
+                 ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] egress: A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
         :param pulumi.Input[_builtins.str] protocol: The protocol number. A value of "-1" means all protocols.
@@ -748,59 +748,59 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string value containing the IPv4 network range to allow or deny, in CIDR notation.
         """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
-    def cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpTypeCodes")
-    def icmp_type_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]]:
+    def icmp_type_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]]:
         """
         A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
         """
         return pulumi.get(self, "icmp_type_codes")
 
     @icmp_type_codes.setter
-    def icmp_type_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]]):
+    def icmp_type_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]]):
         pulumi.set(self, "icmp_type_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string value containing the IPv6 network range to allow or deny, in CIDR notation.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
-    def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]]:
+    def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]]:
         """
         A configuration block for PortRange. See the `port_range` block.
         """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]]):
+    def port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict(TypedDict):
-    code: NotRequired[pulumi.Input[_builtins.int]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     An integer value containing ICMP code.
     """
-    type: NotRequired[pulumi.Input[_builtins.int]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     An integer value containing ICMP type.
     """
@@ -808,8 +808,8 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.int]] = None):
+                 code: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] code: An integer value containing ICMP code.
         :param pulumi.Input[_builtins.int] type: An integer value containing ICMP type.
@@ -821,35 +821,35 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value containing ICMP code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         An integer value containing ICMP type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "type", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict(TypedDict):
-    from_: NotRequired[pulumi.Input[_builtins.int]]
+    from_: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The beginning port number of the range.
     """
-    to: NotRequired[pulumi.Input[_builtins.int]]
+    to: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ending port number of the range.
     """
@@ -857,8 +857,8 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs:
     def __init__(__self__, *,
-                 from_: Optional[pulumi.Input[_builtins.int]] = None,
-                 to: Optional[pulumi.Input[_builtins.int]] = None):
+                 from_: pulumi.Input[Optional[_builtins.int]] = None,
+                 to: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] from_: The beginning port number of the range.
         :param pulumi.Input[_builtins.int] to: The ending port number of the range.
@@ -870,31 +870,31 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
 
     @_builtins.property
     @pulumi.getter(name="from")
-    def from_(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The beginning port number of the range.
         """
         return pulumi.get(self, "from_")
 
     @from_.setter
-    def from_(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_", value)
 
     @_builtins.property
     @pulumi.getter
-    def to(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ending port number of the range.
         """
         return pulumi.get(self, "to")
 
     @to.setter
-    def to(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict(TypedDict):
-    firewall_deployment_model: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_deployment_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
     """
@@ -902,7 +902,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict(T
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
     def __init__(__self__, *,
-                 firewall_deployment_model: Optional[pulumi.Input[_builtins.str]] = None):
+                 firewall_deployment_model: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] firewall_deployment_model: Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         """
@@ -911,19 +911,19 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="firewallDeploymentModel")
-    def firewall_deployment_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_deployment_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         """
         return pulumi.get(self, "firewall_deployment_model")
 
     @firewall_deployment_model.setter
-    def firewall_deployment_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_deployment_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_deployment_model", value)
 
 
 class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict(TypedDict):
-    firewall_deployment_model: NotRequired[pulumi.Input[_builtins.str]]
+    firewall_deployment_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
     """
@@ -931,7 +931,7 @@ class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDic
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
     def __init__(__self__, *,
-                 firewall_deployment_model: Optional[pulumi.Input[_builtins.str]] = None):
+                 firewall_deployment_model: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] firewall_deployment_model: Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         """
@@ -940,14 +940,14 @@ class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="firewallDeploymentModel")
-    def firewall_deployment_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_deployment_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         """
         return pulumi.get(self, "firewall_deployment_model")
 
     @firewall_deployment_model.setter
-    def firewall_deployment_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_deployment_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_deployment_model", value)
 
 
@@ -956,38 +956,38 @@ class ResourceSetResourceSetArgsDict(TypedDict):
     """
     Descriptive name of the resource set. You can't change the name of a resource set after you create it.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of the resource set.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
     """
-    last_update_time: NotRequired[pulumi.Input[_builtins.str]]
+    last_update_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last time that the reosurce set was changed.
     """
-    resource_set_status: NotRequired[pulumi.Input[_builtins.str]]
+    resource_set_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
     """
-    resource_type_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    resource_type_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
     """
-    update_token: NotRequired[pulumi.Input[_builtins.str]]
+    update_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ResourceSetResourceSetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_update_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_set_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 update_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_update_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_set_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 update_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Descriptive name of the resource set. You can't change the name of a resource set after you create it.
         :param pulumi.Input[_builtins.str] description: Description of the resource set.
@@ -1024,84 +1024,84 @@ class ResourceSetResourceSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the resource set.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdateTime")
-    def last_update_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_update_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last time that the reosurce set was changed.
         """
         return pulumi.get(self, "last_update_time")
 
     @last_update_time.setter
-    def last_update_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_update_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_update_time", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSetStatus")
-    def resource_set_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_set_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         """
         return pulumi.get(self, "resource_set_status")
 
     @resource_set_status.setter
-    def resource_set_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_set_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_set_status", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypeLists")
-    def resource_type_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def resource_type_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         """
         return pulumi.get(self, "resource_type_lists")
 
     @resource_type_lists.setter
-    def resource_type_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def resource_type_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_type_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="updateToken")
-    def update_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "update_token")
 
     @update_token.setter
-    def update_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_token", value)
 
 
 class ResourceSetTimeoutsArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[_builtins.str]]
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
-    delete: NotRequired[pulumi.Input[_builtins.str]]
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
-    update: NotRequired[pulumi.Input[_builtins.str]]
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
     """
@@ -1109,9 +1109,9 @@ class ResourceSetTimeoutsArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceSetTimeoutsArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete: Optional[pulumi.Input[_builtins.str]] = None,
-                 update: Optional[pulumi.Input[_builtins.str]] = None):
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
@@ -1126,38 +1126,38 @@ class ResourceSetTimeoutsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter
-    def delete(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
 
     @delete.setter
-    def delete(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
 
 

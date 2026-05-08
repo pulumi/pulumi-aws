@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Acm
     ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
     ///     {
     ///         CertificateArn = exampleCertificate.Arn,
-    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; exampleRecord.Select(record =&gt; 
+    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; (exampleRecord).Values.Select(record =&gt; 
     ///         {
     ///             return record.Fqdn;
     ///         }).ToList()),
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Acm
     ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
     ///     {
     ///         CertificateArn = example.Arn,
-    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; exampleRecord.Select(record =&gt; 
+    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; (exampleRecord).Values.Select(record =&gt; 
     ///         {
     ///             return record.Fqdn;
     ///         }).ToList()),

@@ -125,19 +125,19 @@ export interface ResolverRuleAssociationState {
     /**
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
-    resolverRuleId?: pulumi.Input<string>;
+    resolverRuleId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,11 +147,11 @@ export interface ResolverRuleAssociationArgs {
     /**
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */

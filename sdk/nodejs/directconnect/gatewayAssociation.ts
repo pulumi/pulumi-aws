@@ -213,46 +213,46 @@ export interface GatewayAssociationState {
      *
      * > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
      */
-    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      */
-    associatedGatewayId?: pulumi.Input<string>;
+    associatedGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      */
-    associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    associatedGatewayOwnerAccountId?: pulumi.Input<string | undefined>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    associatedGatewayType?: pulumi.Input<string>;
+    associatedGatewayType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Direct Connect gateway association.
      */
-    dxGatewayAssociationId?: pulumi.Input<string>;
+    dxGatewayAssociationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Direct Connect gateway.
      */
-    dxGatewayId?: pulumi.Input<string>;
+    dxGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the Direct Connect gateway.
      */
-    dxGatewayOwnerAccountId?: pulumi.Input<string>;
+    dxGatewayOwnerAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Direct Connect gateway association proposal.
      * Used for cross-account Direct Connect gateway associations.
      */
-    proposalId?: pulumi.Input<string>;
+    proposalId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Transit Gateway Attachment when the type is `transitGateway`.
      */
-    transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -266,17 +266,17 @@ export interface GatewayAssociationArgs {
      *
      * > **NOTE:** If the `associatedGatewayId` is in another region, an alias in a new provider block for that region should be specified.
      */
-    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      */
-    associatedGatewayId?: pulumi.Input<string>;
+    associatedGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      */
-    associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    associatedGatewayOwnerAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Direct Connect gateway.
      */
@@ -285,9 +285,9 @@ export interface GatewayAssociationArgs {
      * The ID of the Direct Connect gateway association proposal.
      * Used for cross-account Direct Connect gateway associations.
      */
-    proposalId?: pulumi.Input<string>;
+    proposalId?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
 }

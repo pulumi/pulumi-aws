@@ -286,120 +286,120 @@ export interface EndpointState {
     /**
      * ARN for the certificate.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the endpoint database.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for OpenSearch settings. See below.
      */
-    elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings>;
+    elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings | undefined>;
     /**
      * ARN for the endpoint.
      */
-    endpointArn?: pulumi.Input<string>;
+    endpointArn?: pulumi.Input<string | undefined>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
-    endpointId?: pulumi.Input<string>;
+    endpointId?: pulumi.Input<string | undefined>;
     /**
      * Type of endpoint. Valid values are `source`, `target`.
      */
-    endpointType?: pulumi.Input<string>;
+    endpointType?: pulumi.Input<string | undefined>;
     /**
      * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      */
-    engineName?: pulumi.Input<string>;
+    engineName?: pulumi.Input<string | undefined>;
     /**
      * Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      */
-    extraConnectionAttributes?: pulumi.Input<string>;
+    extraConnectionAttributes?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for Kafka settings. See below.
      */
-    kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings>;
+    kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings | undefined>;
     /**
      * Configuration block for Kinesis settings. See below.
      */
-    kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
+    kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      *
      * The following arguments are optional:
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for MongoDB settings. See below.
      */
-    mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings | undefined>;
     /**
      * Configuration block for MySQL settings. See below.
      */
-    mysqlSettings?: pulumi.Input<inputs.dms.EndpointMysqlSettings>;
+    mysqlSettings?: pulumi.Input<inputs.dms.EndpointMysqlSettings | undefined>;
     /**
      * Configuration block for Oracle settings. See below.
      */
-    oracleSettings?: pulumi.Input<inputs.dms.EndpointOracleSettings>;
+    oracleSettings?: pulumi.Input<inputs.dms.EndpointOracleSettings | undefined>;
     /**
      * Password to be used to login to the endpoint database.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
      */
-    pauseReplicationTasks?: pulumi.Input<boolean>;
+    pauseReplicationTasks?: pulumi.Input<boolean | undefined>;
     /**
      * Port used by the endpoint database.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for Postgres settings. See below.
      */
-    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
-    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
+    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings | undefined>;
+    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings | undefined>;
     /**
      * Configuration block for Redshift settings. See below.
      */
-    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *
      * > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
      */
-    secretsManagerAccessRoleArn?: pulumi.Input<string>;
+    secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
-    secretsManagerArn?: pulumi.Input<string>;
+    secretsManagerArn?: pulumi.Input<string | undefined>;
     /**
      * Host name of the server.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * ARN used by the service access IAM role for dynamodb endpoints.
      */
-    serviceAccessRole?: pulumi.Input<string>;
+    serviceAccessRole?: pulumi.Input<string | undefined>;
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      */
-    sslMode?: pulumi.Input<string>;
+    sslMode?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * User name to be used to login to the endpoint database.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -409,15 +409,15 @@ export interface EndpointArgs {
     /**
      * ARN for the certificate.
      */
-    certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the endpoint database.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for OpenSearch settings. See below.
      */
-    elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings>;
+    elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings | undefined>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
@@ -433,86 +433,86 @@ export interface EndpointArgs {
     /**
      * Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      */
-    extraConnectionAttributes?: pulumi.Input<string>;
+    extraConnectionAttributes?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for Kafka settings. See below.
      */
-    kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings>;
+    kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings | undefined>;
     /**
      * Configuration block for Kinesis settings. See below.
      */
-    kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
+    kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      *
      * The following arguments are optional:
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for MongoDB settings. See below.
      */
-    mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings | undefined>;
     /**
      * Configuration block for MySQL settings. See below.
      */
-    mysqlSettings?: pulumi.Input<inputs.dms.EndpointMysqlSettings>;
+    mysqlSettings?: pulumi.Input<inputs.dms.EndpointMysqlSettings | undefined>;
     /**
      * Configuration block for Oracle settings. See below.
      */
-    oracleSettings?: pulumi.Input<inputs.dms.EndpointOracleSettings>;
+    oracleSettings?: pulumi.Input<inputs.dms.EndpointOracleSettings | undefined>;
     /**
      * Password to be used to login to the endpoint database.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
      */
-    pauseReplicationTasks?: pulumi.Input<boolean>;
+    pauseReplicationTasks?: pulumi.Input<boolean | undefined>;
     /**
      * Port used by the endpoint database.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Configuration block for Postgres settings. See below.
      */
-    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
-    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
+    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings | undefined>;
+    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings | undefined>;
     /**
      * Configuration block for Redshift settings. See below.
      */
-    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *
      * > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
      */
-    secretsManagerAccessRoleArn?: pulumi.Input<string>;
+    secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engineName` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      */
-    secretsManagerArn?: pulumi.Input<string>;
+    secretsManagerArn?: pulumi.Input<string | undefined>;
     /**
      * Host name of the server.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * ARN used by the service access IAM role for dynamodb endpoints.
      */
-    serviceAccessRole?: pulumi.Input<string>;
+    serviceAccessRole?: pulumi.Input<string | undefined>;
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      */
-    sslMode?: pulumi.Input<string>;
+    sslMode?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * User name to be used to login to the endpoint database.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

@@ -22,10 +22,10 @@ __all__ = ['RecorderArgs', 'Recorder']
 class RecorderArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_group: Optional[pulumi.Input['RecorderRecordingGroupArgs']] = None,
-                 recording_mode: Optional[pulumi.Input['RecorderRecordingModeArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_group: pulumi.Input[Optional['RecorderRecordingGroupArgs']] = None,
+                 recording_mode: pulumi.Input[Optional['RecorderRecordingModeArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Recorder resource.
 
@@ -59,61 +59,61 @@ class RecorderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recordingGroup")
-    def recording_group(self) -> Optional[pulumi.Input['RecorderRecordingGroupArgs']]:
+    def recording_group(self) -> pulumi.Input[Optional['RecorderRecordingGroupArgs']]:
         """
         Recording group - see below.
         """
         return pulumi.get(self, "recording_group")
 
     @recording_group.setter
-    def recording_group(self, value: Optional[pulumi.Input['RecorderRecordingGroupArgs']]):
+    def recording_group(self, value: pulumi.Input[Optional['RecorderRecordingGroupArgs']]):
         pulumi.set(self, "recording_group", value)
 
     @_builtins.property
     @pulumi.getter(name="recordingMode")
-    def recording_mode(self) -> Optional[pulumi.Input['RecorderRecordingModeArgs']]:
+    def recording_mode(self) -> pulumi.Input[Optional['RecorderRecordingModeArgs']]:
         """
         Recording mode - see below.
         """
         return pulumi.get(self, "recording_mode")
 
     @recording_mode.setter
-    def recording_mode(self, value: Optional[pulumi.Input['RecorderRecordingModeArgs']]):
+    def recording_mode(self, value: pulumi.Input[Optional['RecorderRecordingModeArgs']]):
         pulumi.set(self, "recording_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _RecorderState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_group: Optional[pulumi.Input['RecorderRecordingGroupArgs']] = None,
-                 recording_mode: Optional[pulumi.Input['RecorderRecordingModeArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_group: pulumi.Input[Optional['RecorderRecordingGroupArgs']] = None,
+                 recording_mode: pulumi.Input[Optional['RecorderRecordingModeArgs']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Recorder resources.
 
@@ -136,62 +136,62 @@ class _RecorderState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration recorder. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recordingGroup")
-    def recording_group(self) -> Optional[pulumi.Input['RecorderRecordingGroupArgs']]:
+    def recording_group(self) -> pulumi.Input[Optional['RecorderRecordingGroupArgs']]:
         """
         Recording group - see below.
         """
         return pulumi.get(self, "recording_group")
 
     @recording_group.setter
-    def recording_group(self, value: Optional[pulumi.Input['RecorderRecordingGroupArgs']]):
+    def recording_group(self, value: pulumi.Input[Optional['RecorderRecordingGroupArgs']]):
         pulumi.set(self, "recording_group", value)
 
     @_builtins.property
     @pulumi.getter(name="recordingMode")
-    def recording_mode(self) -> Optional[pulumi.Input['RecorderRecordingModeArgs']]:
+    def recording_mode(self) -> pulumi.Input[Optional['RecorderRecordingModeArgs']]:
         """
         Recording mode - see below.
         """
         return pulumi.get(self, "recording_mode")
 
     @recording_mode.setter
-    def recording_mode(self, value: Optional[pulumi.Input['RecorderRecordingModeArgs']]):
+    def recording_mode(self, value: pulumi.Input[Optional['RecorderRecordingModeArgs']]):
         pulumi.set(self, "recording_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
 
@@ -201,11 +201,11 @@ class Recorder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_group: Optional[pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
-                 recording_mode: Optional[pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
+                 recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
@@ -428,11 +428,11 @@ class Recorder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recording_group: Optional[pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
-                 recording_mode: Optional[pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
+                 recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,11 +459,11 @@ class Recorder(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            recording_group: Optional[pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
-            recording_mode: Optional[pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            role_arn: Optional[pulumi.Input[_builtins.str]] = None) -> 'Recorder':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recording_group: pulumi.Input[Optional[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
+            recording_mode: pulumi.Input[Optional[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            role_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'Recorder':
         """
         Get an existing Recorder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

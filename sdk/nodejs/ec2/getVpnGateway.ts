@@ -141,34 +141,34 @@ export interface GetVpnGatewayOutputArgs {
      * The arguments of this data source act as filters for querying the available VPN gateways.
      * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      */
-    amazonSideAsn?: pulumi.Input<string>;
+    amazonSideAsn?: pulumi.Input<string | undefined>;
     /**
      * ID of a VPC attached to the specific VPN Gateway to retrieve.
      */
-    attachedVpcId?: pulumi.Input<string>;
+    attachedVpcId?: pulumi.Input<string | undefined>;
     /**
      * Availability Zone of the specific VPN Gateway to retrieve.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpnGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpnGatewayFilterArgs>[] | undefined>;
     /**
      * ID of the specific VPN Gateway to retrieve.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * State of the specific VPN Gateway to retrieve.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired VPN Gateway.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
