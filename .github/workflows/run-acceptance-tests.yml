@@ -101,13 +101,13 @@ jobs:
         version: 2026.3.7
         github_token: ${{ steps.app-auth.outputs.token }}
         cache_save: false
-    - name: Setup Go Cache
-      uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
+    - name: Restore Go Cache
+      uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5
       with:
-        cache-dependency-path: |
-          provider/*.sum
-          upstream/*.sum
-          *.sum
+        path: |
+          ~/go/pkg/mod
+          ~/.cache/go-build
+        key: ${{ runner.os }}-go-prerequisites-${{ hashFiles('provider/*.sum', 'upstream/*.sum', 'sdk/go/*.sum', 'sdk/*.sum', '*.sum') }}
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:
@@ -175,15 +175,13 @@ jobs:
         version: 2026.3.7
         github_token: ${{ steps.app-auth.outputs.token }}
         cache_save: false
-    - name: Setup Go Cache
-      uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
+    - name: Restore Go Cache
+      uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5
       with:
-        cache-dependency-path: |
-          provider/*.sum
-          upstream/*.sum
-          sdk/go/*.sum
-          sdk/*.sum
-          *.sum
+        path: |
+          ~/go/pkg/mod
+          ~/.cache/go-build
+        key: ${{ runner.os }}-go-prerequisites-${{ hashFiles('provider/*.sum', 'upstream/*.sum', 'sdk/go/*.sum', 'sdk/*.sum', '*.sum') }}
     - name: Prepare local workspace before restoring previously built files
       run: make prepare_local_workspace
       env:
@@ -263,6 +261,7 @@ jobs:
     - test
     - build_provider
     - build_schema
+    - test_provider
     - license_check
     runs-on: ubuntu-latest
     steps:
@@ -286,7 +285,6 @@ jobs:
     needs:
       - prerequisites
       - build_provider
-      - test_provider
       - build_sdk
     permissions:
       contents: read
